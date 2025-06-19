@@ -22,6 +22,7 @@ class ZlibNg(AutotoolsPackage, CMakePackage):
 
     license("Zlib")
 
+    version("2.2.5", sha256="b73343c3093e5cdc50d9377997c3815b878fd110bf6511c2c7759f2afb90f5a3")
     version("2.2.4", sha256="a73343c3093e5cdc50d9377997c3815b878fd110bf6511c2c7759f2afb90f5a3")
     version("2.2.3", sha256="f2fb245c35082fe9ea7a22b332730f63cf1d42f04d84fe48294207d033cba4dd")
     version("2.2.2", sha256="fcb41dd59a3f17002aeb1bb21f04696c9b721404890bb945c5ab39d2cb69654c")

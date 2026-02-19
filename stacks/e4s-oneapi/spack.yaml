@@ -8,6 +8,10 @@ spack:
     reuse: false
     unify: false
     static_analysis: false
+    duplicates:
+      max_dups:
+        # This is needed because GCC is providing fortran even though it is unused
+        fortran: 2
 
   packages:
     all:
@@ -21,6 +25,8 @@ spack:
         blas: [openblas]
         tbb: [intel-tbb]
       variants: +mpi
+    gcc:
+      require: languages:='c,c++'
     gl:
       require: osmesa
     fortran:
@@ -46,13 +52,13 @@ spack:
     xz:
       variants: +pic
     gcc-runtime:
-      require: 'target=x86_64_v3 %gcc'
+      require: target=x86_64_v3 %gcc languages:='c,c++'
     binutils:
       variants: +ld +gold +headers +libiberty ~nls
     rust:
-      require: 'target=x86_64_v3 %gcc' 
+      require: target=x86_64_v3 %gcc languages:='c,c++'
     bison:
-      require: 'target=x86_64_v3 %gcc'
+      require: target=x86_64_v3 %gcc languages:='c,c++'
     raja:
       variants: +plugins
     mpi:

@@ -305,13 +305,9 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     patch("vtk-xdmf2-hdf51.13.2.patch", when="@5.8:5.11.0")
     # a patch with the same name is also applied to vtk
     # the two patches are the same but for the path to the files they patch
-    patch("vtk_alias_hdf5.patch", when="@5.9.0:")
-    # Fix VTK to work with external freetype using CONFIG mode for find_package
     patch("FindFreetype.cmake.patch", when="@5.10.1:")
     # Fix VTK to remove deprecated ADIOS2 functions
-    # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/10113
 
-    patch("exodusII-netcdf4.9.0.patch", when="@5.10.0:5.10.2")
 
     # https://github.com/Kitware/VTK-m/commit/c805a6039ea500cb96158cfc11271987c9f67aa4
 

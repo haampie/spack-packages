@@ -67,12 +67,8 @@ class Hdf5(CMakePackage):
 
     with when("+mpi"):
         depends_on("mpi")
-        depends_on("mpich+fortran", when="+fortran ^[virtuals=mpi] mpich")
 
-    depends_on("java", type=("build", "run"), when="+java")
-    depends_on("szip", when="+szip")
 
-    depends_on("zlib-api")
     # See https://github.com/HDFGroup/hdf5/pull/4147
     depends_on(
         "zlib-ng~new_strategies",

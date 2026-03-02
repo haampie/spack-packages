@@ -186,7 +186,6 @@ class QtBase(QtPackage):
     version("6.4.0", sha256="fbc462816bf5b87d521e9f69cebe0ce331de2258396e0932fa580283f07fce0c")
     version("6.3.2", sha256="95b78830a99f417ff34ee784ab78f5eeb7bb12adb16d137c3026434c44a904dd")
 
-    variant("dbus", default=False, description="Build with D-Bus support.")
     variant(
         "framework", default=bool(MACOS_VERSION), description="Build as a macOS Framework package."
     )

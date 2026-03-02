@@ -52,11 +52,7 @@ class Hip(CMakePackage):
     conflicts("~rocm +asan", msg="ROCm must be enabled for asan")
 
     conflicts("+asan", when="os=rhel9")
-    conflicts("+asan", when="os=centos7")
-    conflicts("+asan", when="os=centos8")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     depends_on("cuda", when="+cuda")
 

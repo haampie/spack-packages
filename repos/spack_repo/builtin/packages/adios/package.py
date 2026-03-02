@@ -19,8 +19,6 @@ class Adios(AutotoolsPackage):
     git = "https://github.com/ornladios/ADIOS.git"
 
 
-    version("1.13.0", sha256="7b5ee8ff7a5f7215f157c484b20adb277ec0250f87510513edcc25d2c4739f50")
-    version("1.9.0", sha256="23b2bb70540d51ab0855af0b205ca484fd1bd963c39580c29e3133f9e6fffd46")
 
     variant("shared", default=True, description="Builds a shared version of the library")
 

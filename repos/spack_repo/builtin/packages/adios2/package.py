@@ -27,12 +27,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     tags = ["e4s"]
 
 
-    version("2.9.1", sha256="ddfa32c14494250ee8a48ef1c97a1bf6442c15484bbbd4669228a0f90242f4f9")
-    version("2.9.0", sha256="69f98ef58c818bb5410133e1891ac192653b0ec96eb9468590140f2552b6e5d1")
-    version("2.8.2", sha256="9909f6409dc44b2c28c1fda0042dab4b711f25ec3277ef0cb6ffc40f5483910d")
-    version("2.8.1", sha256="3f515b442bbd52e3189866b121613fe3b59edb8845692ea86fad83d1eba35d93")
-    version("2.8.0", sha256="5af3d950e616989133955c2430bd09bcf6bad3a04cf62317b401eaf6e7c2d479")
-    version("2.7.1", sha256="c8e237fd51f49d8a62a0660db12b72ea5067512aa7970f3fcf80b70e3f87ca3e")
 
     # There's not really any consistency about how static and shared libs are
     # implemented across spack.  What we're trying to support is specifically three

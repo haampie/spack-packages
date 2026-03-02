@@ -22,18 +22,6 @@ class ZlibNg(AutotoolsPackage, CMakePackage):
 
     license("Zlib")
 
-    version("2.3.2", sha256="6a0561b50b8f5f6434a6a9e667a67026f2b2064a1ffa959c6b2dae320161c2a8")
-    version("2.2.5", sha256="5b3b022489f3ced82384f06db1e13ba148cbce38c7941e424d6cb414416acd18")
-    version("2.2.4", sha256="a73343c3093e5cdc50d9377997c3815b878fd110bf6511c2c7759f2afb90f5a3")
-    version("2.2.3", sha256="f2fb245c35082fe9ea7a22b332730f63cf1d42f04d84fe48294207d033cba4dd")
-    version("2.2.2", sha256="fcb41dd59a3f17002aeb1bb21f04696c9b721404890bb945c5ab39d2cb69654c")
-    version("2.2.1", sha256="ec6a76169d4214e2e8b737e0850ba4acb806c69eeace6240ed4481b9f5c57cdf")
-    version("2.1.7", sha256="59e68f67cbb16999842daeb517cdd86fc25b177b4affd335cd72b76ddc2a46d8")
-    version("2.1.6", sha256="a5d504c0d52e2e2721e7e7d86988dec2e290d723ced2307145dedd06aeb6fef2")
-    version("2.1.5", sha256="3f6576971397b379d4205ae5451ff5a68edf6c103b2f03c4188ed7075fbb5f04")
-    version("2.1.4", sha256="a0293475e6a44a3f6c045229fe50f69dc0eebc62a42405a51f19d46a5541e77a")
-    version("2.0.7", sha256="6c0853bb27738b811f2b4d4af095323c3d5ce36ceed6b50e5f773204fb8f7200")
-    version("2.0.0", sha256="86993903527d9b12fc543335c19c1d33a93797b3d4d37648b5addae83679ecd8")
 
     variant("compat", default=True, description="Enable compatibility API")
 

@@ -21,12 +21,6 @@ class Zstd(CMakePackage, MakefilePackage):
 
 
 
-    version("1.5.7", sha256="37d7284556b20954e56e1ca85b80226768902e2edabd3b649e9e72c0c9012ee3")
-    version("1.5.6", sha256="30f35f71c1203369dc979ecde0400ffea93c27391bfd2ac5a9715d2173d92ff7")
-    version("1.5.5", sha256="98e9c3d949d1b924e28e01eccb7deed865eefebf25c2f21c702e5cd5b63b85e1")
-    version("1.4.8", sha256="f176f0626cb797022fbf257c3c644d71c1c747bb74c32201f9203654da35e9fa")
-    version("1.4.7", sha256="085500c8d0b9c83afbc1dc0d8b4889336ad019eba930c5d6a9c6c86c20c769c8")
-    version("1.3.8", sha256="90d902a1282cc4e197a8023b6d6e8d331c1fd1dfe60f7f8e4ee9da40da886dc3")
 
 
 

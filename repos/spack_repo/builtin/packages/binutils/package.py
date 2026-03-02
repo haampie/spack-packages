@@ -28,11 +28,6 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
         "GPL-2.0-or-later AND LGPL-2.1-or-later AND GPL-3.0-or-later AND LGPL-3.0-or-later",
         checked_by="tgamblin",
     )
-    version("2.46.0", sha256="0f3152632a2a9ce066f20963e9bb40af7cf85b9b6c409ed892fd0676e84ecd12")
-    version("2.43", sha256="fed3c3077f0df7a4a1aa47b080b8c53277593ccbb4e5e78b73ffb4e3f265e750")
-    version("2.42", sha256="aa54850ebda5064c72cd4ec2d9b056c294252991486350d9a97ab2a6dfdfaf12")
-    version("2.31.1", sha256="ffcc382695bf947da6135e7436b8ed52d991cf270db897190f19d6f9838564d0")
-    version("2.30", sha256="efeade848067e9a03f1918b1da0d37aaffa0b0127a06b5e9236229851d9d0c09")
 
     variant("plugins", default=True, description="enable plugins, needed for gold linker")
     # When you build ld.gold you automatically get ld, even when you add the

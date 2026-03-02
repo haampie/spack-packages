@@ -25,9 +25,6 @@ class Toml11(CMakePackage):
     version("3.7.0", sha256="a0b6bec77c0e418eea7d270a4437510884f2fe8f61e7ab121729624f04c4b58e")
     version("3.6.1", sha256="ca4c390ed8da0d77ae6eca30e70ab0bf5cc92adfc1bc2f71a2066bc5656d8d96")
     version("3.6.0", sha256="39e8d651db346ae8c7e3b39d6338a37232b9af3bba36ade45b241bf105c2226c")
-    version("3.5.0", sha256="fc613874c6e80dc740134a7353cf23c7f834b59cd601af84ab535ee16a53b1c3")
-    version("3.4.0", sha256="bc6d733efd9216af8c119d8ac64a805578c79cc82b813e4d1d880ca128bd154d")
-    version("3.1.0", sha256="3a118f32e5343998f37be9807c72fd11c3168fe12a5b1abfdc0f1e60de6380a4")
 
     variant(
         "cxx_std", default="11", description="C++ standard", values=("11", "14", "17"), multi=False

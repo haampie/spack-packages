@@ -23,19 +23,8 @@ class Ucx(AutotoolsPackage, CudaPackage):
     # Current
 
     # Still supported
-    version("1.14.1", sha256="baa0634cafb269a3112f626eb226bcd2ca8c9fcf0fec3b8e2a3553baad5f77aa")
-    version("1.14.0", sha256="9bd95e2059de5dece9dddd049aacfca3d21bfca025748a6a0b1be4486e28afdd")
 
     # Retired
-    version("1.11.2", sha256="deebf86a5344fc2bd9e55449f88c650c4514928592807c9bc6fe4190e516c6df")
-    version("1.11.1", sha256="29338cad18858517f96b46ff83bdd259a5899e274792cebd269717c660aa86fd")
-    version("1.11.0", sha256="b7189b69fe0e16e3c03784ef674e45687a9c520750bd74a45125c460ede37647")
-    version("1.10.1", sha256="ae9a108af6842ca135e7ec9b6131469adf9f1e50f899349fafcc69a215368bc9")
-    version("1.8.0", sha256="e400f7aa5354971c8f5ac6b881dc2846143851df868088c37d432c076445628d")
-    version("1.7.0", sha256="6ab81ee187bfd554fe7e549da93a11bfac420df87d99ee61ffab7bb19bdd3371")
-    version("1.5.0", sha256="84f6e4fa5740afebb9b1c8bb405c07206e58c56f83120dcfcd8dc89e4b7d7458")
-    version("1.4.0", sha256="99891a98476bcadc6ac4ef9c9f083bc6ffb188a96b3c3bc89c8bbca64de2c76e")
-    version("1.3.1", sha256="e058c8ec830d2f50d9db1e3aaaee105cd2ad6c1e6df20ae58b9b4179de7a8992")
 
     simd_values = ("avx", "sse41", "sse42")
 

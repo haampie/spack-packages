@@ -51,15 +51,6 @@ class Scotch(CMakePackage, MakefilePackage):
         description="Determinism configuration",
         when="build_system=makefile",
     )
-    variant(
-        "determinism",
-        default="FIXED_SEED",
-        values=("NONE", "FIXED_SEED", "FULL"),
-        multi=False,
-        description="Determinism configuration",
-        when="@7.0.7: build_system=cmake",
-    )
-    variant("fortran", default=True, when="@7.0.9:", description="Enable Fortran interface")
 
 
     # Does not build with flex 2.6.[23]

@@ -11,8 +11,6 @@ versions = [
     },
 ]
 class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
-    """Intel oneAPI Compilers. Includes: icx, icpx, ifx, and ifort.
-    Releases before 2024.0 include icc/icpc"""
     provides("c", "cxx")
     for v in versions:
         version(v["version"], expand=False, **v["cpp"])

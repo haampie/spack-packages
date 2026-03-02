@@ -64,21 +64,4 @@ class IntelOneApiLibraryPackage(IntelOneApiPackage):
     #
     # find_headers uses heuristics to determine the include directory
     # that does not work for oneapi packages. Use explicit directories
-    # instead.
-class IntelOneApiLibraryPackageWithSdk(IntelOneApiLibraryPackage):
-    """Base class for Intel oneAPI library packages with SDK components.
-    Contains some convenient default implementations for libraries
-    that expose functionality in sdk subdirectories.
-    Implement the method directly in the package if something
-    different is needed.
-    """
-class IntelOneApiStaticLibraryList(LibraryList):
-    """Provides ld_flags when static linking is needed
-    Oneapi puts static and dynamic libraries in the same directory, so
-    -l will default to finding the dynamic library. Use absolute
-    paths, as recommended by oneapi documentation.
-    Allow both static and dynamic libraries to be supplied by the
-    package.
-    """
-#: Tuple of Intel math libraries, exported to packages
 INTEL_MATH_LIBRARIES = ("intel-oneapi-mkl",)

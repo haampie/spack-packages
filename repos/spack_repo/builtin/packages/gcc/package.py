@@ -381,18 +381,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     compiler_version_regex = r"([0-9.]+)"
     compiler_version_argument = ("-dumpfullversion", "-dumpversion")
 
-    compiler_wrapper_link_paths = {
-        "c": os.path.join("gcc", "gcc"),
-        "cxx": os.path.join("gcc", "g++"),
-        "fortran": os.path.join("gcc", "gfortran"),
-    }
-
-    debug_flags = ["-g", "-gstabs+", "-gstabs", "-gxcoff+", "-gxcoff", "-gvms"]
-    opt_flags = ["-O", "-O0", "-O1", "-O2", "-O3", "-Os", "-Ofast", "-Og"]
-
-    implicit_rpath_libs = ["libgcc", "libgfortran"]
-    stdcxx_libs = ("-lstdc++",)
-
     # https://gcc.gnu.org/install/configure.html
     # Common code for nvptx and amdgcn to link newlib source directory
     newlib_linked = False

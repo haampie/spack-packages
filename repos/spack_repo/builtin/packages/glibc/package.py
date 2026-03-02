@@ -51,16 +51,3 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     # include_next <limits.h> not working
 
 
-    depends_on("texinfo", type="build")
-    depends_on("gettext", type="build")
-    depends_on("perl", type="build")
-    # See 2d7ed98add14f75041499ac189696c9bd3d757fe
-    # Since f2873d2da0ac9802e0b570e8e0b9e7e04a82bf55
-
-    # From 2.29: generates locale/C-translit.h
-    # before that it's a test dependency.
-
-
-    with when("@master"):
-        depends_on("libtool", type="build")
-

@@ -5,18 +5,14 @@ versions = [
     {
         "version": "2025.3.2",
         "cpp": {
-            "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/0d61d48a-4fe8-4cb2-bd9d-94d2c19c6227/intel-dpcpp-cpp-compiler-2025.3.2.26_offline.sh",
-            "sha256": "37d6c9c22f90fbb4d2072fd45d0284f2b6b1ffd030d699e1e7a669087d093396",
         },
         "cpp": {
         },
     },
 ]
-@IntelOneApiPackage.update_description
 class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     """Intel oneAPI Compilers. Includes: icx, icpx, ifx, and ifort.
     Releases before 2024.0 include icc/icpc"""
     provides("c", "cxx")
-    # See https://github.com/spack/spack/issues/39252
     for v in versions:
         version(v["version"], expand=False, **v["cpp"])

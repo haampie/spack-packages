@@ -143,7 +143,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     # to compile:
     # https://github.com/spack/spack/issues/38104
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=103022
-    conflicts("%gcc@9.1:9.4", when="+rocm")
 
     # boost 1.73.0 build problem with HPX 1.4.0 and 1.4.1
     # https://github.com/STEllAR-GROUP/hpx/issues/4728#issuecomment-640685308

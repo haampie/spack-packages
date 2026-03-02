@@ -61,11 +61,7 @@ class Hdf5(CMakePackage):
         multi=False,
     )
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build", when="+cxx")
-    depends_on("fortran", type="build", when="+fortran")
 
-    depends_on("cmake@3.12:", type="build")
     depends_on("cmake@3.18:", type="build", when="@1.14:")
     depends_on("cmake@3.26:", type="build", when="@2.0:")
 

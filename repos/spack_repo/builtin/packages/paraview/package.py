@@ -156,8 +156,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("py-mpi4py", when="+python+mpi", type=("build", "run"))
 
     depends_on("py-matplotlib", when="+python", type="run")
-    depends_on("py-pandas@0.21:", when="+python", type="run")
-
     # openPMD is implemented as a Python module and provides ADIOS2 and HDF5 backends
     depends_on("openpmd-api@0.14.5: +python", when="+python +openpmd", type=("build", "run"))
     depends_on("openpmd-api +adios2", when="+openpmd +adios2", type=("build", "run"))

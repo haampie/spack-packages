@@ -330,13 +330,7 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
     # libomptarget
     conflicts("+cuda", when="@15:")  # +cuda variant is obselete since LLVM 15
-    conflicts(
-        "targets=none",
-        when="+libomptarget",
-        msg="Non-host backends needed for offloading, set targets=all",
-    )
     # See https://github.com/spack/spack/pull/32476#issuecomment-1573770361
-    conflicts("~lld", when="+libomptarget")
 
     # cuda_arch value must be specified
     conflicts("cuda_arch=none", when="+cuda", msg="A value for cuda_arch must be specified.")

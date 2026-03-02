@@ -27,24 +27,9 @@ class Zstd(CMakePackage, MakefilePackage):
     version("1.4.8", sha256="f176f0626cb797022fbf257c3c644d71c1c747bb74c32201f9203654da35e9fa")
     version("1.4.7", sha256="085500c8d0b9c83afbc1dc0d8b4889336ad019eba930c5d6a9c6c86c20c769c8")
     version("1.3.8", sha256="90d902a1282cc4e197a8023b6d6e8d331c1fd1dfe60f7f8e4ee9da40da886dc3")
-    variant("programs", default=False, description="Build executables")
-    variant(
-        "libs",
-        default="shared,static",
-        values=("shared", "static"),
-        multi=True,
-        description="Build shared libs, static libs or both",
-    )
-    variant(
-        "compression",
-        when="+programs",
-        values=any_combination_of("zlib", "lz4", "lzma"),
-        description="Enable support for additional compression methods in programs",
-    )
 
 
 
-    depends_on("zlib-api", when="compression=zlib")
 
     # +programs builds vendored xxhash, which uses unsupported builtins
     # (last tested: nvhpc@22.3)

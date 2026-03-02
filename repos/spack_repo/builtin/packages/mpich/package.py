@@ -143,10 +143,6 @@ supported, and netmod is ignored if device is ch3:sock.""",
 
     filter_compiler_wrappers("mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin")
 
-    # Set correct rpath flags for Intel Fortran Compiler (%oneapi)
-    # See https://github.com/pmodels/mpich/pull/5824
-    # and https://github.com/spack/spack/issues/31678
-    # We do not fetch the patch from the upstream repo because it cannot be applied to older
     # versions.
     with when("%oneapi"):
         patch("mpich-oneapi-config-rpath/step1.patch", when="@:4.0.2")

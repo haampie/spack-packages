@@ -69,13 +69,9 @@ class SingularityEos(CMakePackage, CudaPackage, ROCmPackage):
     variant("spiner", default=True, description="Use Spiner")
 
     variant("closure", default=True, description="Build closure module")
-    variant("shared", default=False, description="Build shared libs")
-    variant("vandv", default=True, description="Enable V&V EOSs in default Singularity::Variant")
 
     plugins = {"dust": ("self", "example/plugin")}
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
     depends_on("fortran", type="build", when="+fortran")
 
     variant(

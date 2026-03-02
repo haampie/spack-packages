@@ -36,11 +36,7 @@ class Adiak(CachedCMakePackage):
     version("0.1.1", sha256="438e4652e15e206cd0019423d829fd4f2329323ff0c8861d9586bae051d9624b")
 
     depends_on("blt", type="build")
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("mpi", when="+mpi")
 
     with when("+python"):
         extends("python")

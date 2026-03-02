@@ -26,11 +26,7 @@ class Dnsmasq(MakefilePackage):
     version("2.75", sha256="f8252c0a0ba162c2cd45f81140c7c17cc40a5fca2b869d1a420835b74acad294")
     version("2.74", sha256="27b95a8b933d7eb88e93a4c405b808d09268246d4e108606e423ac518aede78f")
     version("2.73", sha256="9f350f74ae2c7990b1c7c6c8591d274c37b674aa987f54dfee7ca856fae0d02d")
-    version("2.72", sha256="635f1b47417d17cf32e45cfcfd0213ac39fd09918479a25373ba9b2ce4adc05d")
-    version("2.71", sha256="7d8c64f66a396442e01b639df3ea6b4e02ba88cbe206c80be8de68b6841634c4")
-    version("2.70", sha256="8eb7bf53688d6aaede5c90cfd2afcce04803a4efbddfbeecc6297180749e98af")
 
-    depends_on("c", type="build")  # generated
 
     def install(self, spec, prefix):
         mkdirp(prefix.bin)

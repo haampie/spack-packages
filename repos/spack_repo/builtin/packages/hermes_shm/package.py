@@ -63,10 +63,6 @@ class HermesShm(CMakePackage):
 
     # Compress variant
     with when("+compress"):
-        depends_on("zstd")
-        depends_on("lz4")
-        depends_on("zlib")
-        depends_on("xz")
         depends_on("brotli")
         depends_on("snappy")
         depends_on("c-blosc2")

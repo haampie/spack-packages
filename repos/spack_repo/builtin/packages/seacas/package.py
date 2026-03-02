@@ -47,30 +47,6 @@ class Seacas(CMakePackage):
         "2025-07-07", sha256="c1700d39cef818c87335dd3789403e47dc9efc2f01c8c3fb8e7d54b2db02a54a"
     )
     version(
-        "2025-06-27", sha256="c28f40504b2322cd69e7df6efea1e3be289a7f98a6e533c53655513d18add7bb"
-    )
-    version(
-        "2025-06-07", sha256="2974705f2859e30bca48b619fda078bb771c0e94381af9e624749afb9fd72780"
-    )
-    version(
-        "2025-05-22", sha256="50e941ad2bfffa84d84465576cd118a14698b3f0cfcfc613dbb1aa3f2f4ebdda"
-    )
-    version(
-        "2025-05-05", sha256="9e9872cee4223482d74918b0f50cc3ec77791f79330915611a0e1d5691c15184"
-    )
-    version(
-        "2025-04-29", sha256="2a3a1533a1fbff8e8b78814a3a45f6fadfb3f05b5d9d10a4f0452c7bb4d1aa2f"
-    )
-    version(
-        "2025-04-14", sha256="7704fc27e4f0d283fd9272ea769dbeffd971315a982e265c0d7c99fc77186476"
-    )
-    version(
-        "2025-03-13", sha256="406aff5b8908d6a3bf6687d825905990101caa9cf8c1213a508938eed2134d6d"
-    )
-    version(
-        "2025-02-27", sha256="224468d6215b4f4b15511ee7a29f755cdd9e7be18c08dfece9d9991e68185cfc"
-    )
-    version(
         "2024-08-15", sha256="c85130b0dac5ab9a08dcb53c8ccff478122d72b08bd41d99c0adfddc5eb18a52"
     )
     version(

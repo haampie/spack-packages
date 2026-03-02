@@ -23,5 +23,4 @@ class Fixesproto(AutotoolsPackage, XorgPackage):
     depends_on("c", type="build")
 
     depends_on("pkgconfig", type="build")
-    depends_on("util-macros", type="build")
     depends_on("xextproto")

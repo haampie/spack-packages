@@ -83,10 +83,6 @@ class Caliper(CachedCMakePackage, CudaPackage, ROCmPackage):
 
     depends_on("libpfm4@4.8:4", when="+libpfm")
 
-    depends_on("mpi", when="+mpi")
-    depends_on("unwind@1.2:1", when="+libunwind")
-    depends_on("elfutils", when="+libdw")
-    depends_on("variorum", when="+variorum")
     depends_on("intel-oneapi-vtune", when="+vtune")
 
     depends_on("cmake", type="build")

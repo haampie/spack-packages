@@ -142,8 +142,6 @@ class Qmcpack(CMakePackage, CudaPackage):
     conflicts("+afqmc", when="~mpi", msg="AFQMC requires building with +mpi")
     conflicts("+afqmc", when="%gcc@:6.0", msg="AFQMC code requires gcc@6.1 or greater")
     conflicts("+afqmc", when="%apple-clang@:9.2", msg="AFQMC code requires clang 4.1 or greater")
-    conflicts("+afqmc", when="%clang@:4.0", msg="AFQMC code requires clang 4.1 or greater")
-    conflicts("+afqmc", when="%intel@:18", msg="AFQMC code requires intel19 or greater")
 
     # Prior to QMCPACK 3.5.0 Intel MKL was not properly detected with
     # non-Intel compilers without a Spack-based hack. This hack
@@ -155,8 +153,6 @@ class Qmcpack(CMakePackage, CudaPackage):
     mkl_warning = (
         "QMCPACK releases prior to 3.5.0 require the Intel compiler when linking against Intel MKL"
     )
-    conflicts("%gcc", when="@:3.4.0 ^[virtuals=blas,lapack] intel-oneapi-mkl", msg=mkl_warning)
-    conflicts("%llvm", when="@:3.4.0 ^[virtuals=blas,lapack] intel-oneapi-mkl", msg=mkl_warning)
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
@@ -167,10 +163,6 @@ class Qmcpack(CMakePackage, CudaPackage):
     # Essential libraries
     depends_on("cmake@3.4.3:", when="@:3.5.0", type="build")
     depends_on("cmake@3.6.0:", when="@3.6.0:", type="build")
-    depends_on("cmake@3.14.0:", when="@3.10.0:", type="build")
-    depends_on("cmake@3.17.0:", when="@3.16.0:", type="build")
-    depends_on("boost+exception+serialization+random", type="build")
-    depends_on("boost@1.61.0:+exception+serialization+random", when="@3.6.0:", type="build")
     depends_on("libxml2")
     depends_on("mpi", when="+mpi")
     depends_on("python@3:", when="@3.9:")

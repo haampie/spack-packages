@@ -30,7 +30,6 @@ class RcclTests(CMakePackage):
 
     depends_on("hip")
     depends_on("rccl")
-    depends_on("mpi", when="+mpi")
 
     def cmake_args(self):
         return [

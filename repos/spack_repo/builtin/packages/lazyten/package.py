@@ -16,14 +16,11 @@ class Lazyten(CMakePackage):
     url = "https://github.com/lazyten/lazyten/archive/v0.4.1.tar.gz"
     git = "https://github.com/lazyten/lazyten.git"
 
-    maintainers("mfherbst")
 
-    license("GPL-3.0-only")
 
     #
     # Versions
     #
-    version("develop", branch="master")
     version("0.4.1", sha256="696d151382993c13d04516c77db3ea712a70e3cb449539b9e79abc78cf245ae4")
 
     #

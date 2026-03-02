@@ -51,15 +51,11 @@ class Highfive(CMakePackage):
     variant("boost", default=False, description="Support Boost")
     variant("mpi", default=True, description="Support MPI")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("boost @1.41:", when="+boost")
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')
     # See https://github.com/spack/spack/pull/22303 for reference
-    depends_on(Boost.with_default_variants, when="+boost")
     depends_on("hdf5")
     depends_on("hdf5 +mpi", when="+mpi")
 

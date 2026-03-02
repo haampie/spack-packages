@@ -18,19 +18,7 @@ class Beast2(Package):
     homepage = "http://beast2.org/"
     url = "https://github.com/CompEvol/beast2/releases/download/v2.6.4/BEAST.v2.6.4.Linux.tgz"
 
-    maintainers("snehring")
 
-    license("LGPL-2.1-or-later")
-    version(
-        "2.7.7",
-        sha256="a866f3e5da4ef890a042f01849e32322aa0a8e16e3e1cb2c59f823de2611781a",
-        url="https://github.com/CompEvol/beast2/releases/download/v2.7.7/BEAST.v2.7.7.Linux.x86.tgz",
-    )
-    version(
-        "2.7.4",
-        sha256="f5086c74a0337190ae3459ef018468fc6b2eff68ae2b53fb5c96eb7b5df84004",
-        url="https://github.com/CompEvol/beast2/releases/download/v2.7.4/BEAST.v2.7.4.Linux.x86.tgz",
-    )
     version("2.6.7", sha256="05dcc619c2e10163f2c1089ec66149f6e53ec5a0583cd2cb8ffdccbbdb1d8183")
     version("2.6.4", sha256="4f80e2920eb9d87f3e9f64433119774dc67aca390fbd13dd480f852e3f8701a4")
     version("2.6.3", sha256="8899277b0d7124ab04dc512444d45f0f1a13505f3ce641e1f117098be3e2e20d")

@@ -67,10 +67,6 @@ class Faodel(CMakePackage):
         "+atomic+container+regex+thread+date_time"
     )
     depends_on("boost@:1.86", when="@:1.2108.1")
-    depends_on("cmake@3.8.0:", type="build")
-    depends_on("hdf5+mpi", when="+hdf5+mpi")
-    depends_on("hdf5~mpi", when="+hdf5~mpi")
-    depends_on("libfabric@1.5.3:", when="network=libfabric")
     depends_on("googletest@1.7.0:", type="test")
 
     # FAODEL requires C++11 support which starts with gcc 4.8.1

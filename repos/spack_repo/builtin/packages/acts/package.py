@@ -449,11 +449,7 @@ class Acts(CMakePackage, CudaPackage):
     # different Python versions for e.g. the ACTS build and the numpy
     # installation which, in turn, causes the ACTS build to fail. Until a more
     # robust solution is available we pretend that these packages are also
-    # run- and link-time dependencies.
-    depends_on("python@3.12:", when="@44:")
-    depends_on("py-numpy @2.2", when="@44:")
     depends_on("py-onnxruntime@:1.12", when="+onnx @:23.2")
-    depends_on("py-onnxruntime@1.12:", when="+onnx @23.3:")
     depends_on("py-particle @0.24", when="@44:")
     depends_on("py-pybind11 @2.6.2:", when="+python @18:")
     depends_on("py-pybind11 @2.13.1:", when="+python @36:")

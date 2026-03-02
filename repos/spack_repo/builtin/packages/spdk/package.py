@@ -66,10 +66,6 @@ class Spdk(AutotoolsPackage):
     depends_on("meson")
     depends_on("nasm@2.12.02:", type="build")
     depends_on("numactl")
-    depends_on("py-pyelftools")
-    depends_on("rdma-core", when="+rdma")
-    depends_on("uuid")
-
     def configure_args(self):
         spec = self.spec
         config_args = ["--disable-tests", "--disable-unit-tests", "--disable-apps"]

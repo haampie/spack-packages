@@ -17,7 +17,6 @@ class Ngspice(AutotoolsPackage):
     list_depth = 1
     git = "git://git.code.sf.net/p/ngspice/ngspice"
 
-    maintainers("aweits", "cessenat")
 
     license("BSD-3-Clause")
 

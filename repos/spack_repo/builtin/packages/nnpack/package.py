@@ -27,29 +27,7 @@ class Nnpack(CMakePackage):
     generator("ninja")
     depends_on("cmake@2.8.12:", type="build")
     depends_on("python", type="build")
-    depends_on("py-setuptools", type="build")
 
-    resource(
-        name="six",
-        url="https://files.pythonhosted.org/packages/source/s/six/six-1.11.0.tar.gz",
-        sha256="70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9",
-        destination="deps",
-        placement="six",
-    )
-    resource(
-        name="opcodes",
-        url="https://files.pythonhosted.org/packages/source/o/opcodes/opcodes-0.3.13.tar.gz",
-        sha256="1859c23143fe20daa4110be87a947cbf3eefa048da71dde642290213f251590c",
-        destination="deps",
-        placement="opcodes",
-    )
-    resource(
-        name="peachpy",
-        git="https://github.com/Maratyszcza/PeachPy.git",
-        branch="master",
-        destination="deps",
-        placement="peachpy",
-    )
     resource(
         name="cpuinfo",
         git="https://github.com/Maratyszcza/cpuinfo.git",

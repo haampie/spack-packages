@@ -54,30 +54,6 @@ class IntelOneapiVtune(IntelOneApiLibraryPackageWithSdk):
         expand=False,
     )
     version(
-        "2025.5.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/2775669e-5be4-4982-96de-d0ca5444859a/intel-vtune-2025.5.0.40_offline.sh",
-        sha256="dc75067a48dc04a58b15b5944f1d8e951f3340ef7e2652030cab082ff53c6a87",
-        expand=False,
-    )
-    version(
-        "2025.4.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/4f1e7dad-5201-4f0c-b302-bc3a8825d824/intel-vtune-2025.4.0.248_offline.sh",
-        sha256="8fb6c54235989e70f8b97235903f345e21b4cbd0f9588a3b4a7660a9f05e1760",
-        expand=False,
-    )
-    version(
-        "2025.3.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/740981cd-e6af-4eb6-b147-c7912fadfb84/intel-vtune-2025.3.0.18_offline.sh",
-        sha256="d5237c577716ec221f12777f9e3a48b34d6bbb8bbeb22c000cc400b2b4f1325a",
-        expand=False,
-    )
-    version(
-        "2025.2.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/c4c4ece5-c19f-43a9-99ad-3192164d8529/intel-vtune-2025.2.0.219_offline.sh",
-        sha256="d6e8bc3b4070cb876bcf035c0ba9ee800db0401e6a43f9d4062b0488bdea1260",
-        expand=False,
-    )
-    version(
         "2025.1.0",
         url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/05b14253-a457-4472-bcf7-d98676542072/intel-vtune-2025.1.0.686_offline.sh",
         sha256="26407e12d501e544431535da5e9f3ea2ac56c9c53660b410c3096f2b9aae2a89",

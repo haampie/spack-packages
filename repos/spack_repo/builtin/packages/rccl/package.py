@@ -21,19 +21,7 @@ class Rccl(CMakePackage):
     url = "https://github.com/ROCm/rccl/archive/rocm-6.4.3.tar.gz"
     tags = ["rocm"]
 
-    maintainers("srekolam", "renjithravindrankannath", "afzpatel")
     libraries = ["librccl"]
-    version("7.2.0", sha256="c884d730711e433b9df88af3cdf003eeeb3df6d98e93a09475f760a2aa017078")
-    version("7.1.1", sha256="eaa60bcf62feb3198553f2bcf6dcbfdfcecd0fdfabda41f1dae7d3f15fadbd68")
-    version("7.1.0", sha256="50ba486bc8a466a68bff9d6c9d7b3ebf8de9426906720fa44023b5390602b3b8")
-    version("7.0.2", sha256="3e4363163f5de772707c8deea349a00744200733693c76a07ac842e55b6ad19e")
-    version("7.0.0", sha256="b55ecb07e82b130c9ce4fe9c969c2192a18b462f0e87ac70386e01341af6a98f")
-    version(
-        "6.4.3",
-        tag="rocm-6.4.3",
-        commit="2f7ac66cd64c68d4af8bb4562ce193778a7e470e",
-        submodules=True,
-    )
     version(
         "6.4.2",
         tag="rocm-6.4.2",

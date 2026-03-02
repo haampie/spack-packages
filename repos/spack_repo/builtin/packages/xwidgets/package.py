@@ -24,6 +24,3 @@ class Xwidgets(CMakePackage):
     depends_on("cxx", type="build")  # generated
 
     depends_on("xtl@0.7.0:0.7", when="@0.25.0:")
-    depends_on("xproperty@0.11.0:0.11", when="@0.25.0:")
-    depends_on("xeus@1.0:1", when="@0.25.0:")
-    depends_on("nlohmann-json@3.6.1:3", when="@0.25.0:")

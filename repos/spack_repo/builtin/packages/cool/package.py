@@ -51,9 +51,6 @@ class Cool(CMakePackage):
     depends_on("root")
     depends_on("vdt")
     depends_on("xz")
-    depends_on("qt@5:", when="platform=linux")
-    depends_on("boost+chrono+system+thread")
-    depends_on("python")
 
     def determine_binary_tag(self):
         # As far as I can tell from reading the source code, `binary_tag`

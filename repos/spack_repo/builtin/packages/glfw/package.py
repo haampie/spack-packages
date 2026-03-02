@@ -34,12 +34,9 @@ class Glfw(CMakePackage):
 
     depends_on("doxygen", type="build", when="+doc")
 
-    # linux only dependencies
     depends_on("libxrandr", when="platform=linux")
-    depends_on("libxinerama", when="platform=linux")
     depends_on("libxcursor", when="platform=linux")
     depends_on("libxdamage", when="platform=linux")
-    depends_on("libxft", when="platform=linux")
     depends_on("libxi", when="platform=linux")
     depends_on("libxmu", when="platform=linux")
     depends_on("freetype", when="platform=linux")

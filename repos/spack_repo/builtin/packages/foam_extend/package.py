@@ -79,11 +79,7 @@ class FoamExtend(Package):
 
     depends_on("mpi")
     depends_on("python")
-    depends_on("zlib-api")
-    depends_on("flex", type="build")
-    depends_on("cmake", type="build")
 
-    depends_on("scotch~metis", when="~ptscotch+scotch")
     depends_on("scotch~metis+mpi", when="+ptscotch")
     depends_on("metis@5:", when="+metis")
     depends_on("parmetis", when="+parmetis")

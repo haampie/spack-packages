@@ -21,10 +21,6 @@ class Vegas2(Package):
     )
 
     depends_on("perl", type="run")
-    depends_on("r", type="run")
-    depends_on("plink")
-    depends_on("r-mvtnorm", type="run")
-    depends_on("r-corpcor", type="run")
 
     def url_for_version(self, version):
         url = "https://vegas2.qimrberghofer.edu.au/vegas2v{0}"

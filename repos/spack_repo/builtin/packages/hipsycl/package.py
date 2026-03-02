@@ -21,11 +21,7 @@ class Hipsycl(CMakePackage, ROCmPackage):
 
     provides("sycl")
 
-    license("BSD-2-Clause")
 
-    version("stable", branch="stable", submodules=True)
-    version("24.10.0", commit="7677cf6eefd8ab46d66168cd07ab042109448124", submodules=True)
-    version("24.06.0", commit="fc51dae9006d6858fc9c33148cc5f935bb56b075", submodules=True)
     version("24.02.0", commit="974adc33ea5a35dd8b5be68c7a744b37482b8b64", submodules=True)
     version("23.10.0", commit="3952b468c9da89edad9dff953cdcab0a3c3bf78c", submodules=True)
     version("0.9.4", commit="99d9e24d462b35e815e0e59c1b611936c70464ae", submodules=True)

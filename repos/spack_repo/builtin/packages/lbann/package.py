@@ -253,7 +253,6 @@ class Lbann(CachedCMakePackage, CudaPackage, ROCmPackage):
 
     depends_on("caliper+adiak+mpi", when="+caliper")
 
-    generator("ninja")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         env.append_flags("CXXFLAGS", "-fno-omit-frame-pointer")

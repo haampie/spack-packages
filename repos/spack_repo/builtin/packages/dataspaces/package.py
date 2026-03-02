@@ -25,7 +25,6 @@ class Dataspaces(AutotoolsPackage):
     variant("ptag", default="250", description="Cray UGNI protection tag", values=is_string)
     variant("mpi", default=True, description="Use MPI for collective communication")
 
-    depends_on("c", type="build")
 
 
     def autoreconf(self, spec, prefix):

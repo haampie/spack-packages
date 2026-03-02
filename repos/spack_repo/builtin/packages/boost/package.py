@@ -208,8 +208,6 @@ class Boost(Package):
     #       +python and +mpi, there seem to be errors with out-of-date
     #       API calls from mpi/python.
     #       See: https://github.com/spack/spack/issues/3963
-
-    conflicts("+taggedlayout", when="+versionedlayout")
     conflicts("+numpy", when="~python")
 
     # boost-python in 1.72.0 broken with cxxstd=98

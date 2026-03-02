@@ -65,16 +65,12 @@ class Cmake(Package):
 
 
     depends_on("gmake", type=("build", "run"), when="platform=darwin")
-    depends_on("gmake", type=("build", "run"), when="platform=freebsd")
-
     depends_on("qt", when="+qtgui")
-    # Qt depends on libmng, which is a CMake package;
     # ensure we build using a non CMake build system
     # when libmng is build as a transitive dependency of CMake
     for plat in ["linux", "darwin", "freebsd"]:
         with when(f"platform={plat}"):
             depends_on("libmng build_system=autotools", when="+qtgui")
-
     # See https://gitlab.kitware.com/cmake/cmake/-/issues/21135
     conflicts(
         "platform=darwin %gcc",
@@ -102,19 +98,12 @@ class Cmake(Package):
 
     with when("~ownlibs"):
         depends_on("expat")
-        # expat/zlib are used in CMake/CTest, so why not require them in libarchive.
         for plat in ["darwin", "linux", "freebsd"]:
             with when("platform=%s" % plat):
                 depends_on("libarchive@3.1.0: xar=expat compression=bz2lib,lzma,zlib,zstd")
-                depends_on("libarchive@3.3.3:", when="@3.15.0:")
-                depends_on("libuv@1.0.0:1.10", when="@3.7.0:3.10.3")
-                depends_on("libuv@1.10.0:1.10", when="@3.11.0:3.11")
-                depends_on("libuv@1.10.0:", when="@3.12.0:")
-
 
     with when("+doc"):
         depends_on("py-sphinx", type="build")
-
     # Cannot build with Intel, should be fixed in 3.6.2
     # https://gitlab.kitware.com/cmake/cmake/issues/18232
 

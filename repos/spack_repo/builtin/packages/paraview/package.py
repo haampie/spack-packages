@@ -346,7 +346,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     # Include limits header wherever needed to fix compilation with GCC 11
     patch("paraview-gcc11-limits.patch", when="@5.8:5.9 %gcc@11.1.0:")
-
     # Fix IOADIOS2 module to work with kits
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/8653
     patch("vtk-adios2-module-no-kit.patch", when="@5.8:5.11")
@@ -388,10 +387,7 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     generator("ninja", "make", default="ninja")
     # https://gitlab.kitware.com/paraview/paraview/-/issues/21223
     conflicts("generator=ninja", when="%xl_r")
-    # Versions 5.13.0-5.13.2 do not compile with Intel classic compilers
-
     def url_for_version(self, version):
-        _urlfmt = "http://www.paraview.org/files/v{0}/ParaView-v{1}{2}.tar.{3}"
         # Handle ParaView version-based custom URLs
         if version < Version("5.1.0"):
             return _urlfmt.format(version.up_to(2), version, "-source", "gz")

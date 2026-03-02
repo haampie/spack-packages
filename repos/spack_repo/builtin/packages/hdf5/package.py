@@ -56,10 +56,6 @@ class Hdf5(CMakePackage):
     version("1.10.4", sha256="8f60dc4dd6ab5fcd23c750d1dc5bca3d0453bdce5c8cdaf0a4a61a9d1122adb2")
     version("1.10.0", sha256="81f6201aba5c30dced5dcd62f5d5477a2790fd5850e02ac514ca8bf3e2bb375a")
     version("1.8.23", sha256="37fa4eb6cd0e181eb49a10d54611cb00700e9537f805d03e6853503afe5abc27")
-    version("1.8.17", sha256="d9cda297ee76ade9881c4208987939250d397bae6252d0ccb66fa7d24d67e263")
-    version("1.8.16", sha256="ed17178abd9928a7237f30370189ba767b9e39e0db45917c2ac4665eb9cb4771")
-    version("1.8.10", sha256="4813b79c5fb8701a625b9924b8203bc7154a77f9b826ad4e034144b4056a160a")
-
     variant("shared", default=True, description="Builds a shared version of the library")
 
     variant("hl", default=False, description="Enable the high-level library")

@@ -116,14 +116,10 @@ class CudaPackage(PackageBase):
     # https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#deprecated-features
     # Tesla support:
     depends_on("cuda@:6.0", when="cuda_arch=10")
-    depends_on("cuda@:6.5", when="cuda_arch=11")
-    depends_on("cuda@2.1:6.5", when="cuda_arch=12")
 
     # Fermi support:
 
     # Kepler support:
-    depends_on("cuda@5.0:10.2", when="cuda_arch=32")
-    depends_on("cuda@5.0:11.8", when="cuda_arch=35")
     depends_on("cuda@6.5:11.8", when="cuda_arch=37")
 
     # Maxwell support:

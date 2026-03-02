@@ -69,14 +69,8 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         sha256="0ee07ae6377e5e97766aebf858eb9758668a52df041f319e7c975037a63bf189",
         preferred=True,
     )
-    version("5.13.3", sha256="3bd31bb56e07aa2af2a379895745bbc430c565518a363d935f2efc35b076df09")
-    version("5.12.1", sha256="927f880c13deb6dde4172f4727d2b66f5576e15237b35778344f5dd1ddec863e")
-    version("5.11.2", sha256="5c5d2f922f30d91feefc43b4a729015dbb1459f54c938896c123d2ac289c7a1e")
 
     with default_args(deprecated=True):
-        version(
-            "5.13.2", sha256="4e116250f8e1a9c480f97c5696c9cd72b4d4998b039ca46da8b224f27445f13e"
-        )
         version(
             "5.13.1", sha256="a16503ce37b999c2967d84234596e7bf67ac98221851a288bb1399c7e1dc2004"
         )

@@ -27,10 +27,6 @@ class Mercurial(PythonPackage):
         version("6.7.3", sha256="00196944ea92738809317dc7a8ed7cb21287ca0a00a85246e66170955dcd9031")
         version("6.4.5", sha256="b0b4b00b8b2639c8be387394796f0425beb339314df7e72937f8ddd2a41b1b8a")
         version("6.3.3", sha256="13c97ff589c7605e80a488f336852ce1d538c5d4143cfb33be69bdaddd9157bd")
-        version("6.2.3", sha256="98d1ae002f68adf53d65c5947fe8b7a379f98cf05d9b8ea1f4077d2ca5dce9db")
-        version("6.1.4", sha256="f361f9802b36e357ac019ceb712ca11de8332b07deadeed8dfa904f05bf7ca78")
-        version("5.6.1", sha256="e55c254f4904c45226a106780e57f4279aee03368f6ff6a981d5d2a38243ffad")
-        version("5.3", sha256="e57ff61d6b67695149dd451922b40aa455ab02e01711806a131a1e95c544f9b9")
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")

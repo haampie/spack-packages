@@ -52,11 +52,7 @@ class Puk(AutotoolsPackage):
     variant("trace", default=False, description="enable Puk traces")
     variant("profile", default=False, description="enable Puk memory profiling")
     variant("asan", default=False, description="Build with Address Sanitizer (ASAN)")
-    variant("builtin", default=False, description="Build all modules as builtin")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
-    depends_on("autoconf@2.69:", type="build")
     depends_on("pkgconfig", type="build")
     depends_on("gmake", type="build")
 

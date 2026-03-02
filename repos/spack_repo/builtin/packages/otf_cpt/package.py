@@ -24,15 +24,4 @@ class OtfCpt(CMakePackage):
     version("0.9", tag="v0.9")
 
     depends_on("cxx", type="build")
-    depends_on("mpi")
-    conflicts(
-        "%gcc",
-        # Use a clang compiler with a matching libomp, e.g. 'sudo apt install libomp-14-dev':
-        msg="gcc currently does not support OMPT, please use a clang-like compiler with libomp",
-    )
 
-    patch(
-        "https://github.com/RWTH-HPC/OTF-CPT/commit/b58f83588a4c231b71ca48dcddd909e1ab318cc6.diff?full_index=1",
-        sha256="35fadc3e61e5b7aa3a68272f701af3a242e30a435f1ddd679577ba35c7496565",
-        when="@0.9",
-    )

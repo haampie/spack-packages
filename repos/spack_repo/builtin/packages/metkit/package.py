@@ -39,12 +39,6 @@ class Metkit(CMakePackage):
 
     depends_on("odc", when="+odb")
 
-    conflicts(
-        "+tools",
-        when="~grib~odb",
-        msg="None of the command line tools is built when both "
-        "GRIB format and ODB data support are disabled",
-    )
 
     def cmake_args(self):
         args = [

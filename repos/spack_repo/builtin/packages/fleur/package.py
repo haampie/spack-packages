@@ -51,10 +51,6 @@ class Fleur(Package):
     depends_on("intel-oneapi-mkl", when="fft=mkl")
     depends_on("fftw-api", when="fft=fftw")
     depends_on("scalapack", when="+scalapack")
-    depends_on("libxc", when="+external_libxc")
-    depends_on("hdf5+hl+fortran", when="+hdf5")
-    depends_on("magma+fortran", when="+magma")
-    depends_on("wannier90", when="+wannier90")
     depends_on("gmake", type="build")
 
     conflicts("%intel@:16.0.4", msg="ifort version <16.0 will most probably not work correctly")

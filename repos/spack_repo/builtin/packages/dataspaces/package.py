@@ -22,14 +22,6 @@ class Dataspaces(AutotoolsPackage):
 
 
 
-    variant("dimes", default=False, description="enabled DIMES transport mode")
-    variant("cray-drc", default=False, description="using Cray Dynamic Credentials library")
-    variant(
-        "gni-cookie",
-        default="0x5420000",
-        description="Cray UGNI communication token",
-        values=is_string,
-    )
     variant("ptag", default="250", description="Cray UGNI protection tag", values=is_string)
     variant("mpi", default=True, description="Use MPI for collective communication")
 

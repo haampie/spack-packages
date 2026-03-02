@@ -60,19 +60,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
     # Deprecated older non-final releases
     with default_args(deprecated=True):
-        version(
-            "14.1.0", sha256="e283c654987afe3de9d8080bc0bd79534b5ca0d681a73a11ff2b5d3767426840"
-        )
 
-        version(
-            "13.3.0", sha256="0845e9621c9543a13f484e94584a49ffc0129970e9914624235fc1d061a0c083"
-        )
-        version(
-            "13.2.0", sha256="e275e76442a6067341a27f04c5c6b83d8613144004c0413528863dc6b5c743da"
-        )
-        version(
-            "13.1.0", sha256="61d684f0aa5e76ac6585ad8898a2427aade8979ed5e7f85492286c4dfc13ee86"
-        )
 
         version(
             "12.4.0", sha256="704f652604ccbccb14bdabf3478c9511c89788b12cb3bbffded37341916a9175"
@@ -112,11 +100,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
         version("9.4.0", sha256="c95da32f440378d7751dd95533186f7fc05ceb4fb65eb5b85234e6299eb9838e")
 
-        version("8.3.0", sha256="64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c")
-        version("8.2.0", sha256="196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080")
-        version("8.1.0", sha256="1d1866f992626e61349a1ccd0b8d5253816222cdc13390dcfaa74b093aa2b153")
 
-        version("7.4.0", sha256="eddde28d04f334aec1604456e536416549e9b1aa137fc69204e65eb0c009fe51")
         version("7.3.0", sha256="832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c")
         version("7.2.0", sha256="1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a")
         version("7.1.0", sha256="8a8136c235f64c6fef69cac0d73a46a1a09bb250776a050aec8f9fc880bebc17")

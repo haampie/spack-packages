@@ -252,10 +252,6 @@ class Boost(Package):
 
     # https://github.com/boostorg/python/commit/cbd2d9f033c61d29d0a1df14951f4ec91e7d05cd
 
-    depends_on("mpi", when="+mpi")
-    depends_on("bzip2", when="+iostreams")
-    depends_on("zlib-api", when="+iostreams")
-    depends_on("zstd", when="+iostreams")
     depends_on("xz", when="+iostreams")
     depends_on("py-numpy", when="+numpy", type=("build", "run"))
     # https://github.com/boostorg/python/issues/431

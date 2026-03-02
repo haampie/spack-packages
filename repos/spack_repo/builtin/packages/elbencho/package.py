@@ -61,7 +61,6 @@ class Elbencho(MakefilePackage):
     depends_on("zlib", when="+s3")
     depends_on("cmake", when="+s3")
 
-    conflicts("+cufile", when="~cuda")
 
     def edit(self, spec, prefix):
         os.mkdir(prefix.bin)

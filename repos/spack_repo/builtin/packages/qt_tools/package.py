@@ -19,9 +19,3 @@ class QtTools(QtPackage):
     depends_on("cxx")
     for _v in QtBase.versions:
         v = str(_v)
-    def cmake_args(self):
-        return super().cmake_args() + [
-            self.define_qt_feature("fullqthelp", True),
-            self.define_qt_feature_from_variant("qdoc"),
-            self.define_qt_feature_from_variant("clang", "qdoc"),
-        ]

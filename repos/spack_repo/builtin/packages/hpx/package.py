@@ -34,18 +34,3 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     variant("examples", default=False, description="Build examples")
     variant("async_mpi", default=False, description="Enable MPI Futures.")
     # Build dependencies
-    # Other dependecies
-    depends_on("boost +context", when="+generic_coroutines")
-    for cxxstd in cxxstds:
-        depends_on(f"boost cxxstd={cxxstd}", when=f"cxxstd={cxxstd}")
-    # Only ROCm or CUDA maybe be enabled at once
-    # Restrictions for 1.9.X
-    with when("@1.9:"):
-        conflicts("%gcc@:8")
-        conflicts("%clang@:9")
-    # Restrictions for 1.8.X
-    with when("@1.8:"):
-        conflicts("cxxstd=14")
-        conflicts("%gcc@:7")
-    # Restrictions for 1.7.X
-    _msg_generic_coroutines_target = "This target requires +generic_coroutines"

@@ -16,23 +16,6 @@ class Viskores(CMakePackage, CudaPackage, ROCmPackage):
     architectures."""
     homepage = "https://github.com/Viskores/viskores"
     url = "https://github.com/Viskores/Viskores/archive/refs/tags/v1.0.0.tar.gz"
-    git = "https://github.com/Viskores/Viskores.git"
-    tags = ["e4s"]
-    test_requires_compiler = True
-    variant("shared", default=True, description="build shared libs")
-    variant("doubleprecision", default=True, description="enable double precision")
-    variant("logging", default=True, description="build logging support")
-    variant("mpi", default=True, description="build mpi support")
-    variant("rendering", default=True, description="build rendering support")
-    variant("64bitids", default=False, description="enable 64 bits ids")
-    variant("vtktypes", default=False, description="Build with VTK Types")
-    variant("testlib", default=False, description="build test library")
-    variant("fpic", default=False, description="build fpic support")
-    variant("examples", default=False, description="Install builtin examples")
-    # Device variants
-    # CudaPackage provides cuda variant
-    # ROCmPackage provides rocm variant
-    variant("kokkos", default=False, description="build using Kokkos backend")
     variant(
         "cuda_native", default=True, description="build using native cuda backend", when="+cuda"
     )

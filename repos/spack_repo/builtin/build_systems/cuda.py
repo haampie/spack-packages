@@ -16,42 +16,7 @@ class CudaPackage(PackageBase):
         "10",
         "11",
         "12",
-        "13",
-        "20",
-        "21",
-        "30",
-        "32",
-        "35",
-        "37",
-        "50",
-        "52",
-        "53",
-        "60",
-        "61",
-        "62",
-        "70",
-        "72",
-        "75",
-        "80",
         "86",
-        "87",
-        "89",
-        "90",
-        "90a",
-        "100",
-        "100a",
-        "100f",
-        "101",
-        "101a",
-        "101f",
-        "103",
-        "103a",
-        "103f",
-        "110",
-        "110a",
-        "110f",
-        "120",
-        "120a",
         "120f",
         "121",
         "121a",
@@ -70,18 +35,3 @@ class CudaPackage(PackageBase):
     # https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#nvcc-examples
     # https://llvm.org/docs/CompileCudaWithLLVM.html#compiling-cuda-code
     # CUDA version vs Architecture
-    # https://en.wikipedia.org/wiki/CUDA#GPUs_supported
-    # https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#deprecated-features
-    # Tesla support:
-    # Fermi support:
-    # Kepler support:
-    # Maxwell support:
-    # Pascal support:
-    # Volta support:
-    # Turing support:
-    # Ampere support:
-    # Ada support:
-    # Hopper support:
-    # Blackwell support:
-    # Compute Capability 101 was renamed to 110 in CUDA 13
-        # TODO: add missing conflicts for %apple-clang cuda@:10

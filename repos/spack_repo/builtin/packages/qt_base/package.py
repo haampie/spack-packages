@@ -1,7 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-import os
 import shutil
 import sys
 import tempfile
@@ -62,3 +58,5 @@ class QtBase(QtPackage):
         depends_on("fontconfig")
         depends_on("freetype")
         depends_on("jpeg")
+        with when("platform=linux"):
+            depends_on("xcb-util-keysyms")

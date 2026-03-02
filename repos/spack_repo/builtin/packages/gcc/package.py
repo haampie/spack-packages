@@ -38,10 +38,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             "c++",
             "d",
             "fortran",
-            "go",
-            "java",
-            "jit",
-            "lto",
             "objc",
             "obj-c++",
         ),
@@ -50,6 +46,3 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     )
     variant("nvptx", default=False, description="Target nvptx offloading to NVIDIA GPUs")
     variant("bootstrap", default=True, description="Enable 3-stage bootstrap")
-    variant(
-        "graphite", default=False, description="Enable Graphite loop optimizations (requires ISL)"
-    )

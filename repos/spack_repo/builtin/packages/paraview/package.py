@@ -1,7 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-import itertools
 import os
 import re
 import sys
@@ -58,7 +54,3 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
             depends_on("qt-base+accessibility+gui+opengl+sql+network")
             depends_on("qt-tools+assistant")
             depends_on("qt-5compat")
-            depends_on("qt-svg")
-            depends_on("libxslt")
-        # OpenGL.
-        # The search order for GL is:

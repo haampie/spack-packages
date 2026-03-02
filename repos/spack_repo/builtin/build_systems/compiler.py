@@ -25,15 +25,6 @@ class CompilerPackage(PackageBase):
     # TODO: how do these play nicely with other tags
     tags: Sequence[str] = ["compiler"]
     #: Optional suffix regexes for searching for this type of compiler.
-    #: Suffixes are used by some frameworks, e.g. macports uses an '-mp-X.Y'
-    #: version suffix for gcc.
-    compiler_suffixes: List[str] = [r"-.*"]
-    #: Optional prefix regexes for searching for this compiler
-    compiler_prefixes: List[str] = []
-    linker_arg: str = "-Wl,"
-    #: Flag used to produce Position Independent Code
-    pic_flag: str = "-fPIC"
-    #: Flag used to get verbose output
     verbose_flags: str = "-v"
     #: Flag to activate OpenMP support
     openmp_flag: str = "-fopenmp"

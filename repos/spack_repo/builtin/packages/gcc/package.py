@@ -25,15 +25,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         version(
             "10.2.0", sha256="b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
         )
-    # We specifically do not add 'all' variant here because:
-    # (i) Ada, D, Go, Jit, and Objective-C++ are not default languages.
-    # In that respect, the name 'all' is rather misleading.
-    # (ii) Languages other than c,c++,fortran are prone to configure bug in GCC
-    # For example, 'java' appears to ignore custom location of zlib
-    # (iii) meaning of 'all' changes with GCC version, i.e. 'java' is not part
-    # of gcc7. Correctly specifying conflicts() and depends_on() in such a
-    # case is a PITA.
-    #
     # Also note that some languages get enabled by the configure scripts even if not listed in the
     # arguments. For example, c++ is enabled when the bootstrapping is enabled and lto is enabled
     # when the link time optimization support is enabled.

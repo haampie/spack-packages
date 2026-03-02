@@ -1,12 +1,3 @@
-#            c: /opt/rocm/llvm/bin/clang++
-#            cxx: /opt/rocm/llvm/bin/clang++
-#      buildable: false
-#
-#    It is advisable to replace /rocm/ in the paths above with /rocm-version/
-#    and introduce spec version numbers to ensure reproducible results.
-#
-# 3. In part 2, DO NOT list the path to hsa as /opt/rocm/hsa ! You want spack
-#    to find hsa in /opt/rocm/include/hsa/hsa.h . The directory of
 #    /opt/rocm/hsa also has an hsa.h file, but it won't be found because spack
 #    does not like its directory structure.
 #

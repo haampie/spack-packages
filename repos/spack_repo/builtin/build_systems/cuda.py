@@ -25,13 +25,4 @@ class CudaPackage(PackageBase):
     # FIXME: keep cuda and cuda_arch separate to make usage easier until
     # Spack has depends_on(cuda, when='cuda_arch!=None') or alike
     variant("cuda", default=False, description="Build with CUDA")
-    variant(
-        "cuda_arch",
-        description="CUDA architecture",
-        values=any_combination_of(*cuda_arch_values),
-        sticky=True,
-        when="+cuda",
-    )
-    # https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#nvcc-examples
-    # https://llvm.org/docs/CompileCudaWithLLVM.html#compiling-cuda-code
     # CUDA version vs Architecture

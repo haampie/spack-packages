@@ -134,7 +134,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     # Add missing include <memory>
     # https://github.com/ornladios/adios2/pull/2710
 
-    # https://github.com/ornladios/ADIOS2/pull/3893
 
     # ROCM: enable support for rocm >= 6
 

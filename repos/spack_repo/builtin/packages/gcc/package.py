@@ -111,7 +111,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
     #   https://github.com/spack/spack/issues/6902#issuecomment-433030376
     depends_on("mpc@1.0.1:", when="@4.5:")
-    # Already released GCC versions do not support any newer version of ISL
     #   GCC 9+  https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
     with when("+graphite"):
         depends_on("isl@0.14", when="@5.0:5.2")
@@ -126,12 +125,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # The server is sometimes a bit slow to respond
     timeout = {"timeout": 60}
 
-    # TODO: integrate these libraries.
     # depends_on('ppl')
-    # depends_on('cloog')
-    # https://gcc.gnu.org/install/test.html
-    depends_on("dejagnu@1.4.4", type="test")
-    depends_on("expect", type="test")
     depends_on("tcl", type="test")
     depends_on("autogen@5.5.4:", type="test")
     depends_on("guile@1.4.1:", type="test")
@@ -140,9 +134,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     with when("languages=go"):
         provides("golang@:1.8.1", when="@7:")
     # have been removed from GCC as of GCC 7.
-    # See https://gcc.gnu.org/gcc-7/changes.html
-
-    # GCC 5 added the ability to build GCC as a Just-In-Time compiler.
     # See https://gcc.gnu.org/gcc-5/changes.html
 
     with when("languages=d"):

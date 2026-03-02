@@ -183,7 +183,6 @@ class Boost(Package):
     # boost-mpi depends on boost-python since 1.87.0
     conflicts("~python", when="+mpi @1.87.0:")
 
-    # Container's Extended Allocators were not added until 1.56.0
     conflicts("+container", when="@:1.55")
 
     # Boost.System till 1.76 (included) was relying on mutex, which was not

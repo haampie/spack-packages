@@ -184,23 +184,15 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     depends_on("pkgconfig", type="build")
 
     # Universal dependency
-    # openmp dependencies
-    depends_on("hwloc@2.0.1:", when="@13")
     with when("@:15"):
         depends_on("elf", when="+cuda")
         depends_on("elf", when="+libomptarget")
 
-    depends_on("zlib-api")
 
-    # needs zstd cmake config file, which is not added when built with makefile.
-    depends_on("zstd build_system=cmake", when="+zstd")
 
     # lldb dependencies
     with when("+lldb"):
-        depends_on("libedit")
         depends_on("libxml2")
-        depends_on("lua@5.3", when="+lua")  # purposefully not a range
-        depends_on("xz")
 
     for _when_spec in ("+lldb+python", "+lldb+lua"):
         with when(_when_spec):
@@ -211,13 +203,9 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
         conflicts("%apple-clang@:9")
     conflicts("%gcc@8:", when="@:5")
-    conflicts("%gcc@:5.0", when="@8:")
-    # Internal compiler error on gcc 8.4 on aarch64 https://bugzilla.redhat.com/show_bug.cgi?id=1958295
     conflicts("%gcc@8.4:8.4.9", when="@12: target=aarch64:")
     # Compiler will throw errors like e.g. "no type named 'iterator'" or "class has no member"
     conflicts("%gcc@15:", when="@:18")
-
-    # libcxx=project imposes compiler conflicts
     # see https://libcxx.llvm.org/#platform-and-compiler-support for the latest release
     # and https://github.com/llvm/www-releases for older releases
     with when("libcxx=project"):

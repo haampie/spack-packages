@@ -35,10 +35,7 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
 
     depends_on("cxx", type="build")  # generated
 
-    depends_on("gettext", when="+color")
     depends_on("m4@1.4.6:", type=("build", "run"))
-
-    # The NVIDIA compilers do not currently support some GNU builtins.
     # Detect this case and use the fallback path.
 
     conflicts(

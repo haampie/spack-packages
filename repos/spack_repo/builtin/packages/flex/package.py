@@ -39,9 +39,6 @@ class Flex(AutotoolsPackage):
 
     depends_on("bison", type="build")
     depends_on("gettext@0.19:", type="build", when="+nls")
-    depends_on("gettext@0.19:", type="build", when="@:2.6.0,2.6.4")
-    depends_on("help2man", type="build", when="@:2.6.0,2.6.4")
-
     # Older tarballs don't come with a configure script and the patch for
     # 2.6.4 touches configure
 

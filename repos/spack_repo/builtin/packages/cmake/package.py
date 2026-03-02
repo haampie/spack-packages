@@ -60,7 +60,6 @@ class Cmake(Package):
 
 
 
-    depends_on("gmake", type=("build", "run"), when="platform=darwin")
     depends_on("qt", when="+qtgui")
     # ensure we build using a non CMake build system
     # when libmng is build as a transitive dependency of CMake

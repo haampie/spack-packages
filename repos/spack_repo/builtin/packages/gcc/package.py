@@ -24,9 +24,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     list_depth = 1
     keep_werror = "all"
 
-    maintainers("michaelkuhn", "alalazo")
 
-    license("GPL-2.0-or-later AND LGPL-2.1-or-later")
 
     provides("c", "cxx", when="languages=c,c++")
     provides("c", when="languages=c")

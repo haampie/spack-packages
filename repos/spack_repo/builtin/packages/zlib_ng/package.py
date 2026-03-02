@@ -18,9 +18,7 @@ class ZlibNg(AutotoolsPackage, CMakePackage):
     url = "https://github.com/zlib-ng/zlib-ng/archive/2.0.0.tar.gz"
     git = "https://github.com/zlib-ng/zlib-ng.git"
 
-    maintainers("haampie")
 
-    license("Zlib")
 
 
     variant("compat", default=True, description="Enable compatibility API")

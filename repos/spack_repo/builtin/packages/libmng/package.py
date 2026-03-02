@@ -17,7 +17,6 @@ class Libmng(CMakePackage, AutotoolsPackage):
     homepage = "https://sourceforge.net/projects/libmng/"
     url = "https://downloads.sourceforge.net/project/libmng/libmng-devel/2.0.3/libmng-2.0.3.tar.gz"
 
-    license("custom")
 
 
 

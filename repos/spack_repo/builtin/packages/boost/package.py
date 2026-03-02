@@ -363,10 +363,8 @@ class Boost(Package):
 
     # Fix issues with PTHREAD_STACK_MIN not being a DEFINED constant in newer glibc
     # See https://github.com/spack/spack/issues/28273
-    patch("pthread-stack-min-fix.patch", when="@1.69.0:1.72.0")
 
     # https://www.intel.com/content/www/us/en/developer/articles/technical/building-boost-with-oneapi.html
-    patch("intel-oneapi-linux-jam.patch", when="@1.76: %oneapi")
 
     # https://github.com/spack/spack/issues/44003
 

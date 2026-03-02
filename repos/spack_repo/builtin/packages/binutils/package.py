@@ -18,16 +18,11 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
     homepage = "https://www.gnu.org/software/binutils/"
     gnu_mirror_path = "binutils/binutils-2.28.tar.bz2"
 
-    maintainers("alalazo")
 
     tags = ["build-tools", "core-packages"]
 
     executables = ["^nm$", "^readelf$"]
 
-    license(
-        "GPL-2.0-or-later AND LGPL-2.1-or-later AND GPL-3.0-or-later AND LGPL-3.0-or-later",
-        checked_by="tgamblin",
-    )
 
     variant("plugins", default=True, description="enable plugins, needed for gold linker")
     # When you build ld.gold you automatically get ld, even when you add the

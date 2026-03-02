@@ -34,10 +34,8 @@ class QtPackage(CMakePackage):
         _list_url = "https://github.com/qt/{}/tags"
         return _list_url.format(qualname.lower())
 
-    maintainers("wdconinc")
 
     # Default dependencies for all qt-* components
-    generator("ninja")
     depends_on("cmake@3.16:", type="build")
     depends_on("pkgconfig", type="build", when="platform=linux")
     depends_on("python", type="build")
@@ -136,7 +134,6 @@ class QtBase(QtPackage):
 
     provides("qmake")
 
-    license("BSD-3-Clause")
 
     variant("gui", default=True, description="Build the Qt GUI module and dependencies.")
     variant("shared", default=True, description="Build shared libraries.")

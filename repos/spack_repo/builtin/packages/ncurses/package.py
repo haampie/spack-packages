@@ -24,7 +24,6 @@ class Ncurses(AutotoolsPackage, GNUMirrorPackage):
 
     executables = [r"^ncursesw?(?:\d+(?:\.\d+)*)?-config$"]
 
-    license("X11")
 
     version(
         "6.5-20250705",

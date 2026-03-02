@@ -25,19 +25,3 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
     with when("build_system=autotools"):
         depends_on("automake", type="build")
         depends_on("libtool", type="build")
-    with when("build_system=msbuild platform=windows"):
-        patch("ICU4C_NMAKE_NO_DOUBLE_QUOTE_VARS.patch", when="@64.1:")
-class AutotoolsBuilder(autotools.AutotoolsBuilder):
-    configure_directory = "source"
-class MSBuildBuilder(msbuild.MSBuildBuilder):
-    def install(self, pkg, spec, prefix):
-        mkdirp(prefix.lib)
-        mkdirp(prefix.bin)
-        mkdirp(prefix.include)
-        with working_dir(self.pkg.stage.source_path):
-            # install bin
-            install_tree("bin64", prefix.bin)
-            # install lib
-            install_tree("lib64", prefix.lib)
-            # intstall headers
-            install_tree("include", prefix.include)

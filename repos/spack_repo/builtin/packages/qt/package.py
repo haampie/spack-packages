@@ -36,10 +36,6 @@ class Qt(Package):
     version("5.15.12", sha256="93f2c0889ee2e9cdf30c170d353c3f829de5f29ba21c119167dee5995e48ccce")
     version("5.15.11", sha256="7426b1eaab52ed169ce53804bdd05dfe364f761468f888a0f15a308dc1dc2951")
     version("5.15.10", sha256="b545cb83c60934adc9a6bbd27e2af79e5013de77d46f5b9f5bb2a3c762bf55ca")
-    version("5.15.9", sha256="26d5f36134db03abe4a6db794c7570d729c92a3fc1b0bf9b1c8f86d0573cd02f")
-    version("5.15.8", sha256="776a9302c336671f9406a53bd30b8e36f825742b2ec44a57c08217bff0fa86b9")
-    version("5.15.7", sha256="8a71986676a3f37a198a9113acedbfd5bc5606a459b6b85816d951458adbe9a0")
-    version("5.15.6", sha256="ebc77d27934b70b25b3dc34fbec7c4471eb451848e891c42b32409ea30fe309f")
     version("5.15.5", sha256="5a97827bdf9fd515f43bc7651defaf64fecb7a55e051c79b8f80510d0e990f06")
     version("5.15.4", sha256="615ff68d7af8eef3167de1fd15eac1b150e1fd69d1e2f4239e54447e7797253b")
     version("5.9.9", sha256="5ce285209290a157d7f42ec8eb22bf3f1d76f2e03a95fc0b99b553391be01642")
@@ -198,13 +194,9 @@ class Qt(Package):
     depends_on("libxml2")
     depends_on("zlib-api")
     depends_on("freetype", when="+gui")
-    depends_on("gtkplus", when="+gtk")
 
-    depends_on("libpng@1.2.57", when="@3")
-    depends_on("pcre+multibyte", when="@5.0:5.8")
 
     with when("+ssl"):
-        depends_on("openssl")
         depends_on("openssl@1.1.1:", when="@5.15.0:")
 
 
@@ -240,19 +232,11 @@ class Qt(Package):
             depends_on("libdrm")
             depends_on("libxcomposite")
             depends_on("libxcursor")
-            depends_on("gettext")
 
-    conflicts(
-        "+webkit",
-        when="@5.7:5.15",
-        msg="qtwebengine@5.7:5.15 are based on Google Chromium versions which depend on Py2",
-    )
 
-    conflicts("+ssl", when="@:5.9")
 
     # gcc@4 is not supported as of Qt@5.14
     # https://doc.qt.io/qt-5.14/supported-platforms.html
-    conflicts("%gcc@:4", when="@5.14:")
 
     # Compiling with oneAPI compilers icx, icpx requires patching
     # This has only been tested for 5.15.14 so far

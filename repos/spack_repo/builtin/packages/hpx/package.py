@@ -116,7 +116,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     with when("@1.8:"):
         conflicts("cxxstd=14")
         conflicts("%gcc@:7")
-        conflicts("%clang@:8")
         depends_on("cuda@11:", when="+cuda")
 
     # Restrictions for 1.7.X

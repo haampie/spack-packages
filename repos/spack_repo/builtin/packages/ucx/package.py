@@ -24,12 +24,8 @@ class Ucx(AutotoolsPackage, CudaPackage):
     version("master", branch="master", submodules=True)
 
     # Current
-    version("1.20.0", sha256="7c8a6093cada179aa1d851b83625e3b25ed5658966e309de5118c27a038c7ef9")
 
     # Still supported
-    version("1.19.1", sha256="dea5d821fce05b6ffe175a74e6e148386dd85791409fc71242f3d1369100fd8a")
-    version("1.19.0", sha256="9af07d55281059542f20c5b411db668643543174e51ac71f53f7ac839164f285")
-    version("1.18.1", sha256="8018dd75f11b5e8d6e57dcdb5b798d2c1f000982c353efde1f3170025c6c3b4c")
     version("1.14.1", sha256="baa0634cafb269a3112f626eb226bcd2ca8c9fcf0fec3b8e2a3553baad5f77aa")
     version("1.14.0", sha256="9bd95e2059de5dece9dddd049aacfca3d21bfca025748a6a0b1be4486e28afdd")
 

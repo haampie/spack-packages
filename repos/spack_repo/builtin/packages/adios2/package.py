@@ -32,7 +32,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
         sha256="0a2bd745e3f39745f07587e4a5f92d72f12fa0e2be305e7957bdceda03735dbf",
         preferred=True,
     )
-    version("2.10.2", sha256="14cf0bcd94772194bce0f2c0e74dba187965d1cffd12d45f801c32929158579e")
     version("2.10.1", sha256="ce776f3a451994f4979c6bd6d946917a749290a37b7433c0254759b02695ad85")
     version("2.10.0", sha256="e5984de488bda546553dd2f46f047e539333891e63b9fe73944782ba6c2d95e4")
     version("2.9.2", sha256="78309297c82a95ee38ed3224c98b93d330128c753a43893f63bbe969320e4979")
@@ -166,15 +165,9 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
         # see Paraview's superbuild handling of libfabric at
         # https://gitlab.kitware.com/paraview/paraview-superbuild/-/blob/master/projects/adios2.cmake#L3
         depends_on("libffi", when=f"+sst platform={_platform}")  # optional in DILL
-        depends_on(
-            "libfabric@1.6.0:", when=f"+sst platform={_platform}"
-        )  # optional in EVPath and SST
         # depends_on('bison', when='+sst')     # optional in FFS, broken package
         # depends_on('flex', when='+sst')      # optional in FFS, depends on BISON
 
-    depends_on("mpi", when="+mpi")
-    depends_on("libzmq", when="+dataman")
-    depends_on("dataspaces@1.8.0:", when="+dataspaces")
 
     depends_on("hdf5@:1.12", when="@:2.8 +hdf5")
 

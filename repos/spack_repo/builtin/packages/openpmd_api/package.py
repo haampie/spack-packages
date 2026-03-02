@@ -19,7 +19,6 @@ class OpenpmdApi(CMakePackage):
 
 
     # C++17 up until here
-    version("0.15.1", sha256="0e81652152391ba4d2b62cfac95238b11233a4f89ff45e1fcffcc7bcd79dabe1")
     version("0.15.0", sha256="290e3a3c5814204ea6527d53423bfacf7a8dc490713227c9e0eaa3abf4756177")
     # C++14 up until here
     version("0.14.5", sha256="e3f509098e75014394877e0dc91f833e57ced5552b110c7339a69e9dbe49bf62")

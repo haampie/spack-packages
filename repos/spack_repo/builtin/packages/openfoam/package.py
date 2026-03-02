@@ -340,13 +340,8 @@ class Openfoam(Package):
     variant(
         "source", default=True, description="Install library/application sources and tutorials"
     )
-
-
-    depends_on("cxx", type="build")  # generated
-
     depends_on("mpi")
 
-    # After 1712, could suggest openmpi+thread_multiple for collated output
     # but particular mixes of mpi versions and InfiniBand may not work so well
     # conflicts('^openmpi~thread_multiple', when='@1712:')
 

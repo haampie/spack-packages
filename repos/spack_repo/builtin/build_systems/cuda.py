@@ -161,10 +161,6 @@ class CudaPackage(PackageBase):
         conflicts("%clang@16:", when="+cuda ^cuda@:12.1")
         conflicts("%clang@17:", when="+cuda ^cuda@:12.3")
         conflicts("%clang@18:", when="+cuda ^cuda@:12.5")
-        conflicts("%clang@19:", when="+cuda ^cuda@:12.6")
-        conflicts("%clang@20:", when="+cuda ^cuda@:12.9")
-        conflicts("%clang@21:", when="+cuda ^cuda@:13.1")
-        conflicts("%clang@20:", when="+cuda ^cuda@13.1:")
 
         # https://gist.github.com/ax3l/9489132#gistcomment-3860114
         conflicts("%gcc@10", when="+cuda ^cuda@:11.4.0")
@@ -214,7 +210,6 @@ class CudaPackage(PackageBase):
         conflicts("%intel@19.0:", when="+cuda ^cuda@:10.0")
         conflicts("%intel@19.1:", when="+cuda ^cuda@:10.1")
         conflicts("%intel@19.2:", when="+cuda ^cuda@:11.1.0")
-        conflicts("%intel@2021:", when="+cuda ^cuda@:11.4.0")
         conflicts("%intel", when="+cuda ^cuda@13.0:")
 
         # ARM

@@ -208,15 +208,12 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
 
     # High-level API of HDF5 1.8.9 or later is required for netCDF-4 support:
     # https://docs.unidata.ucar.edu/nug/current/getting_and_building_netcdf.html
-    depends_on("hdf5@1.8.9:+hl")
 
     # Starting version 4.4.0, it became possible to disable parallel I/O even
     # if HDF5 supports it. For previous versions of the library we need
     # HDF5 without mpi support to disable parallel I/O:
-    depends_on("hdf5~mpi", when="@:4.3~mpi")
 
     # We need HDF5 with mpi support to enable parallel I/O.
-    depends_on("hdf5+mpi", when="+mpi")
 
     # NetCDF 4.4.0 and prior have compatibility issues with HDF5 1.10 and later
     # https://github.com/Unidata/netcdf-c/issues/250
@@ -270,16 +267,12 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
 
     # NCZarr was added in version 4.8.0 as an experimental feature and became a supported one in
     # version 4.8.1:
-    conflicts("+nczarr_zip", when="@:4.8.0")
 
     # The features were introduced in version 4.9.0:
     with when("@:4.8"):
-        conflicts("+szip")
         conflicts("+blosc")
         conflicts("+zstd")
 
-    # The plugins are not built when the shared libraries are disabled:
-    with when("~shared"):
         conflicts("+szip")
         conflicts("+blosc")
         conflicts("+zstd")

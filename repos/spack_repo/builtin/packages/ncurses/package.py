@@ -58,7 +58,3 @@ class Ncurses(AutotoolsPackage, GNUMirrorPackage):
     # Ref: https://lists.gnu.org/archive/html/bug-ncurses/2014-08/msg00008.html
     patch("rxvt_unicode_6_4.patch", when="@6.1:")
 
-    @classmethod
-    def determine_version(cls, exe):
-        return Executable(exe)("--version", output=str, error=str).rstrip()
-

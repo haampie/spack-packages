@@ -147,15 +147,11 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     conflicts("build_edition=catalyst", when="@:5.7")
     conflicts("build_edition=rendering", when="@:5.7")
     # before 5.3.0, ParaView didn't have VTK-m/Viskores
-    # paraview@5.9.0 is recommended when using the xl compiler
-    # See https://gitlab.kitware.com/paraview/paraview/-/merge_requests/4433
-
 
     depends_on("cmake@3.21:", type="build", when="+rocm")
 
     extends("python", when="+python")
 
-    # VTK < 8.2.1 can't handle Python 3.8
     # This affects Paraview <= 5.7 (VTK 8.2.0)
     # https://gitlab.kitware.com/vtk/vtk/-/issues/17670
     depends_on("python@3:", when="@5.8:+python", type=("build", "run"))

@@ -20,18 +20,6 @@ class Silo(autotools.AutotoolsPackage, cmake.CMakePackage):
     # Newer versions of fpzip are BSD licensed but not version 1.0.2 in Silo.
 
 
-    variant("python", default=True, description="Enable Python support")
-    variant("fortran", default=True, description="Enable Fortran support")
-    variant("shared", default=True, description="Build shared libraries")
-    variant(
-        "silex",
-        default=False,
-        description="Build Silex, a GUI alternative to text browser for viewing Silo files",
-    )
-    variant("pic", default=True, description="Produce position-independent code (for shared libs)")
-    variant("mpi", default=False, when="@:4.11", description="(deprecated)")
-    variant("hdf5", default=True, description="Support HDF5 for database I/O")
-    variant("zfp", default=True, description="Enable zfp compression features")
     variant("hzip", default=False, description="Enable hzip compression features (!BSD)")
     variant("fpzip", default=False, description="Enable fpzip compression features (!BSD)")
 

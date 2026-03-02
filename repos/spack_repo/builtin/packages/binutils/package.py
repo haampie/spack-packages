@@ -33,35 +33,6 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
     variant("nls", default=False, description="Enable Native Language Support")
     variant("headers", default=False, description="Install extra headers (e.g. ELF)")
     variant("lto", default=False, description="Enable lto.")
-    variant(
-        "pgo",
-        default=False,
-        description="Build with profile-guided optimization (slow)",
-        when="@2.37:",
-    )
-    variant("ld", default=False, description="Enable ld.")
-    variant("gas", default=False, description="Enable as assembler.")
-    variant("interwork", default=False, description="Enable interwork.")
-    variant("gprofng", default=False, description="Enable gprofng.", when="@2.39:")
-    variant(
-        "libs",
-        default="shared,static",
-        values=("shared", "static"),
-        multi=True,
-        description="Build shared libs, static libs or both",
-    )
-    variant(
-        "compress_debug_sections",
-        default="zlib",
-        values=(conditional("zstd", when="@2.40:"), "zlib", "none"),
-        description="Enable debug section compression by default in ld, gas, gold.",
-    )
-    variant(
-        "debuginfod",
-        default=False,
-        description="Enable debuginfod HTTP server support for readelf and objdump",
-        when="@2.34:",
-    )
 
     # 2.36 is missing some dependencies, this patch allows a parallel build.
     # https://sourceware.org/bugzilla/show_bug.cgi?id=27482

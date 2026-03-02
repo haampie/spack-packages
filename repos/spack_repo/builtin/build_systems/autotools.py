@@ -58,24 +58,5 @@ class AutotoolsBuilder(BuilderWithDefaults):
         1. :py:meth:`~.AutotoolsBuilder.autoreconf`
         2. :py:meth:`~.AutotoolsBuilder.configure`
         3. :py:meth:`~.AutotoolsBuilder.build`
-        4. :py:meth:`~.AutotoolsBuilder.install`
-    They all have sensible defaults and for many packages the only thing necessary
-    is to override the helper method
-    :meth:`~spack_repo.builtin.build_systems.autotools.AutotoolsBuilder.configure_args`.
-    For a finer tuning you may also override:
-        +-----------------------------------------------+--------------------+
-        | **Method**                                    | **Purpose**        |
-        +===============================================+====================+
-        | :py:attr:`~.AutotoolsBuilder.build_targets`   | Specify ``make``   |
-        |                                               | targets for the    |
-        |                                               | build phase        |
-        +-----------------------------------------------+--------------------+
-        | :py:attr:`~.AutotoolsBuilder.install_targets` | Specify ``make``   |
-        |                                               | targets for the    |
-        |                                               | install phase      |
-        +-----------------------------------------------+--------------------+
-        | :py:meth:`~.AutotoolsBuilder.check`           | Run  build time    |
-        |                                               | tests if required  |
-        +-----------------------------------------------+--------------------+
     """
     #: Phases of a GNU Autotools package

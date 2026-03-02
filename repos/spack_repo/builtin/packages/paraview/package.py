@@ -245,34 +245,18 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
                 depends_on(f"viskores amdgpu_target={target}", when=f"amdgpu_target={target}")
 
     depends_on("ospray@2.1:2", when="+raytracing")
-    depends_on("openimagedenoise", when="+raytracing")
 
-    depends_on("double-conversion")
-    depends_on("expat")
-    depends_on("eigen@3")
-    depends_on("freetype")
-    depends_on("freetype@:2.10.2", when="@:5.8")
     # depends_on('hdf5+mpi', when='+mpi')
     # depends_on('hdf5~mpi', when='~mpi')
-    depends_on("hdf5+hl+mpi", when="+hdf5+mpi")
-    depends_on("silo", when="+visitbridge")
-    depends_on("silo+mpi", when="+visitbridge+mpi")
-    depends_on("silo~mpi", when="+visitbridge~mpi")
-    depends_on("boost", when="+visitbridge")
-    depends_on("netcdf-c+parallel-netcdf", when="+mpi platform=freebsd")
-    depends_on("protobuf@3.4:21", when="@master")
 
     # Older builds of pugi export their symbols differently,
     # and pre-5.9 is unable to handle that.
-    depends_on("pugixml@1.11:", when="@5.13:")
 
     # ParaView depends on cli11 due to changes in MR
     # https://gitlab.kitware.com/paraview/paraview/-/merge_requests/4951
-    depends_on("cli11@1.9.1", when="@5.10:")
 
     # ParaView depends on nlohmann-json due to changes in MR
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/8550
-    depends_on("nlohmann-json", when="@5.11:")
 
     # ParaView depends on proj@8.1.0 due to changes in MR
     # v8.1.0 is required for VTK::GeoVis

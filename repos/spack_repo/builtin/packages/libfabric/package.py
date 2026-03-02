@@ -76,11 +76,6 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
 
     # For version 1.9.0:
     # headers: fix forward-declaration of enum fi_collective_op with C++
-    depends_on("rdma-core", when="fabrics=verbs")
-    depends_on("rdma-core", when="@1.10.0: fabrics=efa")
-    depends_on("opa-psm2", when="fabrics=psm2")
-    depends_on("cxi-driver", when="fabrics=cxi")
-    depends_on("xpmem", when="fabrics=xpmem")
 
     conflicts("fabrics=opx", when="@:1.14.99")
 

@@ -44,13 +44,7 @@ class Libarchive(AutotoolsPackage):
         description="What executables to build",
     )
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("pkgconfig", type="build")
 
-    depends_on("bzip2", when="compression=bz2lib")
-    depends_on("lz4", when="compression=lz4")
-    depends_on("lzo", when="compression=lzo2")
 
 
 

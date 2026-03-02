@@ -272,7 +272,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
             depends_on("swig@4:", when="@17:")
             # Commits f0a25fe0b746f56295d5c02116ba28d2f965c175 and
     # gold support, required for some features
-    depends_on("binutils+gold+ld+plugins+headers", when="+gold")
 
     # Older LLVM do not build with newer compilers, and vice versa
     with when("@16:"):

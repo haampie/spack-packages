@@ -197,19 +197,15 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     for dev, (dflt, desc) in devices_variants.items():
         variant(dev, default=dflt, description=desc)
     conflicts("+cuda", when="+rocm", msg="CUDA and ROCm are not compatible in Kokkos.")
-    depends_on("intel-oneapi-dpl", when="+sycl")
-    depends_on("rocthrust", when="@4.3: +rocm")
 
     for opt, (dflt, when, desc) in options_variants.items():
         variant(opt, default=dflt, description=desc, when=when)
 
     for tpl, (dflt, when, desc) in tpls_variants.items():
         variant(tpl, default=dflt, description=desc, when=when)
-        depends_on(tpl, when="+%s" % tpl)
 
     variant("wrapper", default=False, description="Use nvcc-wrapper for CUDA build")
     variant("cmake_lang", default=False, description="Use CMake language support for CUDA/HIP")
-    depends_on("kokkos-nvcc-wrapper", when="+wrapper")
     depends_on("kokkos-nvcc-wrapper@develop", when="@develop+wrapper")
     conflicts("+wrapper", when="~cuda")
     conflicts("+wrapper", when="+cmake_lang")

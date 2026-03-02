@@ -112,42 +112,4 @@ class CMakePackage(PackageBase):
     # need to forward to the builder)
 @register_builder("cmake")
 class CMakeBuilder(BuilderWithDefaults):
-    """The cmake builder encodes the default way of building software with CMake. IT
-    has three phases that can be overridden:
-        1. :py:meth:`~.CMakeBuilder.cmake`
-        2. :py:meth:`~.CMakeBuilder.build`
-        3. :py:meth:`~.CMakeBuilder.install`
-    They all have sensible defaults and for many packages the only thing
-    necessary will be to override :py:meth:`~.CMakeBuilder.cmake_args`.
-    For a finer tuning you may also override:
-        +-----------------------------------------------+--------------------+
-        | **Method**                                    | **Purpose**        |
-        +===============================================+====================+
-        | :py:meth:`~.CMakeBuilder.root_cmakelists_dir` | Location of the    |
-        |                                               | root CMakeLists.txt|
-        +-----------------------------------------------+--------------------+
-        | :py:meth:`~.CMakeBuilder.build_directory`     | Directory where to |
-        |                                               | build the package  |
-        +-----------------------------------------------+--------------------+
-    """
-    #: Phases of a CMake package
-    phases: Tuple[str, ...] = ("cmake", "build", "install")
-    #: Names associated with package methods in the old build-system format
-    package_methods: Tuple[str, ...] = ("cmake_args", "check")
-    #: Names associated with package attributes in the old build-system format
-    package_attributes: Tuple[str, ...] = (
-        "build_targets",
-        "install_targets",
-        "build_time_test_callbacks",
-        "archive_files",
-        "root_cmakelists_dir",
-        "std_cmake_args",
-        "build_dirname",
-        "build_directory",
-    )
-    #: Targets to be used during the build phase
-    build_targets: List[str] = []
-    #: Targets to be used during the install phase
-    install_targets = ["install"]
-    #: Callback names for build-time test
     build_time_test_callbacks = ["check"]

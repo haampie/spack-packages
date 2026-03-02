@@ -35,43 +35,6 @@ versions = [
     {
         "version": "2025.3.0",
         "cpp": {
-            "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/44809add-596f-4484-9cd1-cc032460e241/intel-dpcpp-cpp-compiler-2025.3.0.322_offline.sh",
-            "sha256": "a85dc98ac76d16522d387cf62dc3b712b863779cb74520d8e37ea282ea02ef63",
-        },
-        "ftn": {
-            "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/b3aa3ab5-c79d-4af4-8801-983ef00b90fd/intel-fortran-compiler-2025.3.0.325_offline.sh",
-            "sha256": "ede518607ce625051321989c843af9cebdbdc9ab07c8dbb2f011463e4e18678b",
-        },
-    },
-    {
-        "version": "2025.2.2",
-        "cpp": {
-            "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/41df6814-ec4b-4698-a14d-421ee2b02aa7/l_fortran-compiler_p_2024.0.2.28_offline.sh",
-            "sha256": "396ac4fbcb3799d5c1a866a60cf81f85f7cab8c6f35289f61c5cda63c7101b5e",
-        },
-    },
-    {
-        "version": "2024.0.1",
-        "cpp": {
-            "sha256": "c4553f7e707be8e8e196f625e4e7fbc8eff5474f64ab85fc7146b5ed53ebc87c",
-        },
-    },
-    {
-        "version": "2021.2.0",
-        "cpp": {
-            "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/17749/l_dpcpp-cpp-compiler_p_2021.2.0.118_offline.sh",
-            "sha256": "5d01cbff1a574c3775510cd97ffddd27fdf56d06a6b0c89a826fb23da4336d59",
-        },
-        "ftn": {
-            "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/17756/l_fortran-compiler_p_2021.2.0.136_offline.sh",
-            "sha256": "a62e04a80f6d2f05e67cd5acb03fa58857ee22c6bd581ec0651c0ccd5bdec5a1",
-        },
-    },
-    {
-        "version": "2021.1.2",
-        "cpp": {
-            "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/17513/l_dpcpp-cpp-compiler_p_2021.1.2.63_offline.sh",
-            "sha256": "68d6cb638091990e578e358131c859f3bbbbfbf975c581fd0b4b4d36476d6f0a",
         },
         "ftn": {
             "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/17508/l_fortran-compiler_p_2021.1.2.62_offline.sh",

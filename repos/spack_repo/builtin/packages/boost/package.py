@@ -187,16 +187,6 @@ class Boost(Package):
 
     # Unicode support
     depends_on("icu4c cxxstd=11", when="+icu cxxstd=11")
-    depends_on("icu4c cxxstd=14", when="+icu cxxstd=14")
-
-    # https://github.com/boostorg/python/commit/cbd2d9f033c61d29d0a1df14951f4ec91e7d05cd
-
-    # https://github.com/boostorg/python/issues/431
-
-    # Improve the error message when the context-impl variant is conflicting
-
-    # Coroutine, Context, Fiber, etc., are not straightforward.
-
     # NOTE: 1.64.0 seems fine for *most* applications, but if you need
     #       +python and +mpi, there seem to be errors with out-of-date
     #       API calls from mpi/python.

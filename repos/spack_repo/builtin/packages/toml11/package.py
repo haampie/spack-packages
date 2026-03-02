@@ -22,7 +22,6 @@ class Toml11(CMakePackage):
         "cxx_std", default="11", description="C++ standard", values=("11", "14", "17"), multi=False
     )
 
-    depends_on("cxx", type="build")  # generated
 
     @when("@3.8.0:")
     def cmake_args(self):

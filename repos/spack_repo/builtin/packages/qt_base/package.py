@@ -157,10 +157,6 @@ class QtBase(QtPackage):
     depends_on("cxx", type="build")
     depends_on("cmake@3.21:", type="build", when="~shared")
     depends_on("cmake@3.21:", type="build", when="platform=darwin")
-    depends_on("double-conversion")
-    depends_on("icu4c")
-    depends_on("pcre2+multibyte")
-    depends_on("zlib-api")
     depends_on("zstd")
     with when("platform=linux"):
         depends_on("libdrm")

@@ -112,7 +112,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
 
 
     for _platform in ["linux", "darwin"]:
-        depends_on("pkgconfig", type="build", when=f"platform={_platform}")
         variant(
             "pic",
             default=False,
@@ -122,18 +121,11 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
         # libffi and libfabric and not currently supported on Windows
         # see Paraview's superbuild handling of libfabric at
         # https://gitlab.kitware.com/paraview/paraview-superbuild/-/blob/master/projects/adios2.cmake#L3
-        depends_on("libffi", when=f"+sst platform={_platform}")  # optional in DILL
         # depends_on('bison', when='+sst')     # optional in FFS, broken package
         # depends_on('flex', when='+sst')      # optional in FFS, depends on BISON
 
 
-    depends_on("hdf5@:1.12", when="@:2.8 +hdf5")
 
-    depends_on("libpressio", when="+libpressio")
-    depends_on("c-blosc", when="+blosc")
-    depends_on("c-blosc2", when="+blosc2")
-    depends_on("sz3", when="+sz3")
-    depends_on("mgard@compat-2022-11-18:", when="+mgard")
     depends_on("mgard@compat-2023-01-10:", when="@2.9: +mgard")
     # cmake build race condition
 

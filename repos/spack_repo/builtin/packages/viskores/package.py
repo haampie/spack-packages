@@ -51,11 +51,9 @@ class Viskores(CMakePackage, CudaPackage, ROCmPackage):
     variant("tbb", default=(sys.platform == "darwin"), description="build TBB support")
     variant("sycl", default=False, description="Build with SYCL backend")
 
-    depends_on("c", type="build")
 
 
 
-    depends_on("cuda@10.1.0:", when="+cuda_native")
     depends_on("tbb", when="+tbb")
 
     # Viskores uses the default Kokkos backend

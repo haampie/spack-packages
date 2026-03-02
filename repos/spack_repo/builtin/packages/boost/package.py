@@ -18,23 +18,3 @@ class Boost(Package):
     url = "https://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2"
     git = "https://github.com/boostorg/boost.git"
     list_url = "https://sourceforge.net/projects/boost/files/boost/"
-    list_depth = 1
-    with_default_variants = "boost" + "".join(
-        [
-            "+atomic",
-            "+chrono",
-            "+date_time",
-            "+exception",
-            "+filesystem",
-            "+regex",
-            "+serialization",
-            "+system",
-            "+test",
-            "+thread",
-            "+timer",
-            "+wave",
-        ]
-    )
-    # mpi/python are not installed by default because they pull in many
-    # dependencies and/or because there is a great deal of customization
-    # possible (and it would be difficult to choose sensible defaults)

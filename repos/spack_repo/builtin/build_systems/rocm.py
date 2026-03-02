@@ -38,17 +38,3 @@ class ROCmPackage(PackageBase):
     )
     variant("rocm", default=False, description="Enable ROCm support")
     # possible amd gpu targets for rocm builds
-    variant(
-        "amdgpu_target",
-        description="AMD GPU architecture",
-        values=any_combination_of(*amdgpu_targets),
-        sticky=True,
-        when="+rocm",
-    )
-    # need amd gpu type for rocm builds
-    conflicts("amdgpu_target=none", when="+rocm")
-    # https://github.com/ROCm-Developer-Tools/HIP/blob/master/bin/hipcc
-    # It seems that hip-clang does not (yet?) accept this flag, in which case
-    # we will still need to set the HCC_AMDGPU_TARGET environment flag in the
-    # hip package file. But I will leave this here for future development.
-    # HIP version vs Architecture

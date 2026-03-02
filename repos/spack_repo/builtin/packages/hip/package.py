@@ -48,7 +48,6 @@ class Hip(CMakePackage):
     conflicts("+asan", when="os=rhel9")
 
 
-    depends_on("cuda", when="+cuda")
 
 
     test_requires_compiler = True

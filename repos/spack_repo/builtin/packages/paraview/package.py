@@ -71,9 +71,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     )
 
     with default_args(deprecated=True):
-        version(
-            "5.13.1", sha256="a16503ce37b999c2967d84234596e7bf67ac98221851a288bb1399c7e1dc2004"
-        )
         version("5.8.1", sha256="7653950392a0d7c0287c26f1d3a25cdbaa11baa7524b0af0e6a1a0d7d487d034")
         version("5.8.0", sha256="219e4107abf40317ce054408e9c3b22fb935d464238c1c00c0161f1c8697a3f9")
         version("5.7.0", sha256="e41e597e1be462974a03031380d9e5ba9a7efcdb22e4ca2f3fec50361f310874")

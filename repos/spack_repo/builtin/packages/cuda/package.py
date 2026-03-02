@@ -112,63 +112,6 @@ _versions = {
         "Linux-aarch64": (
             "213ea63a6357020978a8b0a79a8c9d12a2a5941afa1cdc69d5a3f933fa8bed04",
             "https://developer.download.nvidia.com/compute/cuda/12.6.3/local_installers/cuda_12.6.3_560.35.05_linux_sbsa.run",
-        ),
-        "Linux-x86_64": (
-            "023e571fe26ee829c98138dfc305a92279854aac7d184d255fd58c06c6af3c17",
-            "https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_455.32.00_linux_ppc64le.run",
-        ),
-    },
-    "11.1.0": {
-        "Linux-aarch64": (
-            "878cbd36c5897468ef28f02da50b2f546af0434a8a89d1c724a4d2013d6aa993",
-            "https://developer.download.nvidia.com/compute/cuda/11.1.0/local_installers/cuda_11.1.0_455.23.05_linux_sbsa.run",
-        ),
-        "Linux-x86_64": (
-            "858cbab091fde94556a249b9580fadff55a46eafbcb4d4a741d2dcd358ab94a5",
-            "https://developer.download.nvidia.com/compute/cuda/11.1.0/local_installers/cuda_11.1.0_455.23.05_linux.run",
-        ),
-        "Linux-x86_64": (
-            "e7c22dc21278eb1b82f34a60ad7640b41ad3943d929bebda3008b72536855d31",
-            "https://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run",
-        ),
-        "Linux-ppc64le": (
-            "b198002eef010bab9e745ae98e47567c955d00cf34cc8f8d2f0a6feb810523bf",
-            "https://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux_ppc64le.run",
-        ),
-    },
-    "10.0.130": {
-        "Linux-x86_64": (
-            "92351f0e4346694d0fcb4ea1539856c9eb82060c25654463bfd8574ec35ee39a",
-            "https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_410.48_linux",
-        )
-    },
-    "9.2.88": {
-        "Linux-x86_64": (
-            "8d02cc2a82f35b456d447df463148ac4cc823891be8820948109ad6186f2667c",
-            "https://developer.nvidia.com/compute/cuda/9.2/Prod/local_installers/cuda_9.2.88_396.26_linux",
-        )
-    },
-    "9.1.85": {
-        "Linux-x86_64": (
-            "8496c72b16fee61889f9281449b5d633d0b358b46579175c275d85c9205fe953",
-            "https://developer.nvidia.com/compute/cuda/9.1/Prod/local_installers/cuda_9.1.85_387.26_linux",
-        )
-    },
-    "9.0.176": {
-        "Linux-x86_64": (
-            "96863423feaa50b5c1c5e1b9ec537ef7ba77576a3986652351ae43e66bcd080c",
-            "https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run",
-        )
-    },
-    "8.0.61": {
-        "Linux-x86_64": (
-            "9ceca9c2397f841024e03410bfd6eabfd72b384256fbed1c1e4834b5b0ce9dc4",
-            "https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_375.26_linux-run",
-        )
-    },
-    "8.0.44": {
-        "Linux-x86_64": (
-            "64dc4ab867261a0d690735c46d7cc9fc60d989da0d69dc04d1714e409cacbdf0",
             "https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers/cuda_8.0.44_linux-run",
         )
     },

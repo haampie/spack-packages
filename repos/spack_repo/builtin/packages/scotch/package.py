@@ -89,7 +89,6 @@ class Scotch(CMakePackage, MakefilePackage):
     depends_on("fortran", type="build", when="+fortran")
 
     # Does not build with flex 2.6.[23]
-    depends_on("flex@:2.6.1,2.6.4:", type="build")
     depends_on("bison@3.4:", type="build")
     depends_on("mpi", when="+mpi")
     depends_on("zlib-api", when="+compression")

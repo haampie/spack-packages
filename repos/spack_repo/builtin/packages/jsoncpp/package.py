@@ -19,11 +19,7 @@ class Jsoncpp(CMakePackage, MesonPackage):
     url = "https://github.com/open-source-parsers/jsoncpp/archive/1.7.3.tar.gz"
     tags = ["windows"]
 
-    license("Public-Domain")
 
-    version("1.9.6", sha256="f93b6dd7ce796b13d02c108bc9f79812245a82e577581c4c9aabe57075c90ea2")
-    version("1.9.5", sha256="f409856e5920c18d0c2fb85276e24ee607d2a09b5e7d5f0a371368903c275da2")
-    version("1.9.0", sha256="bdd3ba9ed1f110b3eb57474d9094e90ab239b93b4803b4f9b1722c281e85a4ac")
     version("1.8.4", sha256="c49deac9e0933bcb7044f08516861a2d560988540b23de2ac1ad443b219afdb6")
     version("1.7.7", sha256="087640ebcf7fbcfe8e2717a0b9528fff89c52fcf69fa2a18cc2b538008098f97")
     version("1.7.6", sha256="07cf5d4f184394ec0a9aa657dd4c13ea682c52a1ab4da2fb176cb2d5501101e8")

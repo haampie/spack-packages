@@ -447,48 +447,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             sha256="e7d4415e66ba09dd65b102a842e62e6f9ba6b41da878e08235e59a3fc53058eb",
             when="@13.3.0 target=aarch64:",
         )
-        patch(
-            "https://github.com/iains/gcc-13-branch/compare/c891d8dc23e1a46ad9f3e757d09e57b500d40044..gcc-13.2-darwin-r0.patch?full_index=1",
-            sha256="6a49d1074d7dd2e3b76e61613a0f143c668ed648fb8d9d48ed76a6b127815c88",
-            when="@13.2.0 target=aarch64:",
-        )
-        patch(
-            "https://github.com/iains/gcc-13-branch/compare/cc035c5d8672f87dc8c2756d9f8367903aa72d93..gcc-13.1-darwin-r0.patch?full_index=1",
-            sha256="36d2c04d487edb6792b48dedae6936f8b864b6f969bd3fd03763e072d471c022",
-            when="@13.1.0 target=aarch64:",
-        )
 
-        patch(
-            "https://github.com/iains/gcc-12-branch/compare/2bada4bc59bed4be34fab463bdb3c3ebfd2b41bb..99533d94172ed7a24c0e54c4ea97e6ae2260409e.patch?full_index=1",
-            sha256="4f59c671b34cc24b57eaa528592a5188f18716cd3cd63c4601fbbda92d397ce2",
-            when="@12.4.0 target=aarch64:",
-        )
-        patch(
-            "https://github.com/iains/gcc-12-branch/compare/8fc1a49c9312b05d925b7d21f1d2145d70818151..gcc-12.3-darwin-r0.patch?full_index=1",
-            sha256="1ebac2010eb9ced33cf46a8d8378193671ed6830f262219aa3428de5bc9fd668",
-            when="@12.3.0 target=aarch64:",
-        )
-        patch(
-            "https://github.com/iains/gcc-12-branch/compare/2ee5e4300186a92ad73f1a1a64cb918dc76c8d67..gcc-12.2-darwin-r0.patch?full_index=1",
-            sha256="16d5203ddb97cd43d6c1e9c34e0f681154aed1d127f2324b2a50006b92960cfd",
-            when="@12.2.0 target=aarch64:",
-        )
-        patch(
-            "https://github.com/iains/gcc-12-branch/compare/1ea978e3066ac565a1ec28a96a4d61eaf38e2726..gcc-12.1-darwin-r1.patch?full_index=1",
-            sha256="b0a811e33c3451ebd1882eac4e2b4b32ce0b60cfa0b8ccf8c5fda7b24327c820",
-            when="@12.1.0 target=aarch64:",
-        )
 
-        patch(
-            "https://github.com/iains/gcc-11-branch/compare/5cc4c42a0d4de08715c2eef8715ad5b2e92a23b6..gcc-11.5-darwin-r0.patch?full_index=1",
-            sha256="6c92190a9acabd6be13bd42ca675f59f44be050a7121214abeaea99d898db30c",
-            when="@11.5.0 target=aarch64:",
-        )
-        patch(
-            "https://github.com/iains/gcc-11-branch/compare/ff4bf326d03e750a8d4905ea49425fe7d15a04b8..gcc-11.4-darwin-r0.patch?full_index=1",
-            sha256="05810e5cdb052c06490f7d987c66a13d47ae7bd2eb285a3a881ad4aa6dd0d13f",
-            when="@11.4.0 target=aarch64:",
-        )
         patch(
             "https://github.com/iains/gcc-11-branch/compare/2d280e7eafc086e9df85f50ed1a6526d6a3a204d..gcc-11.3-darwin-r2.patch?full_index=1",
             sha256="a8097c232dfb21b0e02f3d99e3c3e47443db3982dafbb584938ac1a9a4afd33d",

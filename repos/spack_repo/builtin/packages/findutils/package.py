@@ -30,10 +30,6 @@ class Findutils(AutotoolsPackage, GNUMirrorPackage):
 
 
     version("4.8.0", sha256="57127b7e97d91282c6ace556378d5455a9509898297e46e10443016ea1387164")
-    version("4.7.0", sha256="c5fefbdf9858f7e4feb86f036e1247a54c79fc2d8e4b7064d5aaa1f47dfa789a")
-    version("4.6.0", sha256="ded4c9f73731cd48fec3b6bdaccce896473b6d8e337e9612e16cf1431bb1169d")
-    version("4.4.2", sha256="434f32d171cbc0a5e72cfc5372c6fc4cb0e681f8dce566a0de5b6fccd702b62a")
-    version("4.4.1", sha256="77a5b85d7fe0dd9c1093e010b61f765707364ec2c89c4f432c1c616215bcc138")
     version("4.4.0", sha256="fb108c2959f17baf3559da9b3854495b9bb69fb13309fdd05576c66feb661ea9")
     version("4.2.33", sha256="813cd9405aceec5cfecbe96400d01e90ddad7b512d3034487176ce5258ab0f78")
     version("4.2.32", sha256="87bd8804f3c2fa2fe866907377afd8d26a13948a4bb1761e5e95d0494a005217")

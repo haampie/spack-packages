@@ -528,25 +528,14 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
     # patch for missing hwloc.h include for libompd
     # see https://reviews.llvm.org/D123888
-    patch(
-        "https://github.com/llvm/llvm-project/commit/91ccd8248c85385a5654c63c302a37d97f811bab.patch?full_index=1",
-        sha256="b216cff38659c176c5381e9dda3252edbb204e6f6f1f33e843a9ebcc42732e5d",
-        when="@14 openmp=runtime",
-    )
 
     # make libflags a list in openmp subproject when openmp=project
     # see https://reviews.llvm.org/D125370
-    patch(
-        "https://github.com/llvm/llvm-project/commit/e27ce281399dca8b08b6ca593172a1bd5dbdd5c1.patch?full_index=1",
-        sha256="6f0cfa55e3ed17ee33346b0a5bca8092adcc1dc75ca712ab83901755fba9767e",
-        when="@3.7:14 openmp=project",
-    )
 
     # fix detection of LLDB_PYTHON_EXE_RELATIVE_PATH
     # see https://reviews.llvm.org/D133513
     # TODO: the patch is not applicable after https://reviews.llvm.org/D141042 but it is not clear
     #  yet whether we need a version of it for when="@16:"
-    patch("D133513.diff", level=0, when="@14:15+lldb+python")
 
     # Fix hwloc@:2.3 (Conditionally disable hwloc@2.0 and hwloc@2.4 code)
     patch(

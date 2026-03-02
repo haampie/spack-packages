@@ -1,9 +1,6 @@
 from spack.package import (
     BuilderWithDefaults,
     EnvironmentModifications,
-    Executable,
-    FileFilter,
-    InstallError,
     ModuleChangePropagator,
     PackageBase,
     Prefix,

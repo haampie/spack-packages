@@ -13,5 +13,3 @@ class ROCmPackage(PackageBase):
     Maintainers: dtaller
     """
     # https://llvm.org/docs/AMDGPUUsage.html
-    # Possible architectures
-    # possible amd gpu targets for rocm builds

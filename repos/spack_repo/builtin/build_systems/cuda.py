@@ -10,7 +10,4 @@ class CudaPackage(PackageBase):
     # https://en.wikipedia.org/wiki/CUDA#GPUs_supported
     cuda_arch_values = (
         "10",
-        "121",
-        "121a",
-        "121f",
     )

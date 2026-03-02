@@ -142,29 +142,6 @@ class Openfoam(Package):
     list_depth = 2
 
 
-    version("develop", branch="develop", submodules=True)
-    version("master", branch="master", submodules=True)
-    version(
-        "2512",
-        tag="OpenFOAM-v2512",
-        commit="87ed40d256d22ea38fcc648dfc82a22162427b18",
-        submodules=submodules,
-    )
-    version("2506", sha256="63d26f48ae7ee9a7806a0ceb339ef8a0ba485a4714d54fbfb31e78e1a4849965")
-    version(
-        "2212_230612", sha256="604cd731173ec2a3645c838cf2468fae050a35c6340e2ca7c157699899d904c0"
-    )
-    version("2212", sha256="0a3ddbfea9abca04c3a811e72fcbb184c6b1f92c295461e63b231f1a97e96476")
-    version(
-        "2106_211215", sha256="08c0d0b90b43505693ff8838e827f09e14ec9fb475956ef53cc2206c736277b1"
-    )
-    version("2012", sha256="3d6e39e39e7ae61d321fbc6db6c3748e6e5e1c4886454207a7f1a7321469e65a")
-    version(
-        "2006_220610", sha256="b8e9801c304f3fdf512ed8840093bf3f348fb8701121c88f3febd45e3826cb22"
-    )
-    version(
-        "2006_201012", sha256="9afb7eee072bfddcf7f3e58420c93463027db2394997ac4c3b87a8b07c707fb0"
-    )
     version("2006", sha256="30c6376d6f403985fc2ab381d364522d1420dd58a42cb270d2ad86f8af227edc")
     version(
         "1906_200312", sha256="f75645151ed5d8c5da592d307480979fe580a25627cc0c9718ef370211577594"

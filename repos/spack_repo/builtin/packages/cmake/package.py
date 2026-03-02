@@ -28,7 +28,6 @@ class Cmake(Package):
     executables = ["^cmake[0-9]*$"]
 
 
-    version("3.5.2", sha256="92d8410d3d981bb881dfff2aed466da55a58d34c7390d50449aa59b32bb5e62a")
     version("3.4.3", sha256="b73f8c1029611df7ed81796bf5ca8ba0ef41c6761132340c73ffe42704f980fa")
 
     with default_args(deprecated=True):

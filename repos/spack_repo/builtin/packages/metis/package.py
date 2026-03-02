@@ -27,7 +27,6 @@ class Metis(CMakePackage, MakefilePackage):
     # not a metis developer, just package reviewer!
 
 
-    version("4.0.3", sha256="5efa35de80703c1b2c4d0de080fafbcf4e0d363a21149a1ad2f96e0144841a55")
 
 
     variant(

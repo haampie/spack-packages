@@ -25,12 +25,6 @@ class Ncurses(AutotoolsPackage, GNUMirrorPackage):
     executables = [r"^ncursesw?(?:\d+(?:\.\d+)*)?-config$"]
 
 
-    version(
-        "6.5-20250705",
-        sha256="73f6c22db6c3fcac562e7b35aebf7d4cbb253ea30ba2ee465ab84d7d1b5cefc1",
-        url="https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20250705.tgz",
-    )
-    version("6.5", sha256="136d91bc269a9a5785e5f9e980bc76ab57428f604ce3e5a5a90cebc767971cc6")
 
     variant(
         "termlib",

@@ -46,7 +46,6 @@ class Bricks(CMakePackage):
     depends_on("cuda@:12", when="+cuda")
     depends_on("mpi")
 
-    patch("bricks-cmakelists-option-opencl.patch")
 
     def cmake_args(self):
         """CMake arguments for configure stage"""

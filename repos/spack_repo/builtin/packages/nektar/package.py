@@ -49,26 +49,6 @@ class Nektar(CMakePackage):
         description="Builds an executable associated with the CompressibleFlow solver",
     )
     variant(
-        "diff_solver",
-        default=False,
-        description="Builds an executable associated with the Diffusion solver",
-    )
-    variant(
-        "dummy_solver",
-        default=False,
-        description="Builds an executable associated with the Dummy solver",
-    )
-    variant(
-        "elasticity_solver",
-        default=False,
-        description="Builds an executable associated with the Elasticity solver",
-    )
-    variant(
-        "imgwarp_solver",
-        default=False,
-        description="Builds an executable associated with the Image Warping solver",
-    )
-    variant(
         "ins_solver",
         default=False,
         description="Builds an executable associated with the Incompressible Navier Stokes solver",

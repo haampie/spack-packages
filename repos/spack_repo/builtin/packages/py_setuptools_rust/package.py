@@ -13,7 +13,6 @@ class PySetuptoolsRust(PythonPackage):
     homepage = "https://github.com/PyO3/setuptools-rust"
     pypi = "setuptools-rust/setuptools_rust-1.11.1.tar.gz"
 
-    license("MIT")
 
     version("1.12.0", sha256="d94a93f0c97751c17014565f07bdc324bee45d396cd1bba83d8e7af92b945f0c")
     version("1.11.1", sha256="7dabc4392252ced314b8050d63276e05fdc5d32398fc7d3cce1f6a6ac35b76c0")

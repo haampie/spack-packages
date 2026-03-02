@@ -44,11 +44,7 @@ class Akantu(CMakePackage):
     depends_on("cmake@3.5.1:", type="build")
     depends_on("python", when="+python", type=("build", "run"))
     depends_on("py-numpy", when="+python", type=("build", "run"))
-    depends_on("py-scipy", when="+python", type=("build", "run"))
-    depends_on("py-pybind11", when="@3.1:+python", type=("build", "run"))
 
-    depends_on("mumps", when="~mpi external_solvers=mumps")
-    depends_on("mumps+mpi", when="+mpi external_solvers=mumps")
     depends_on("netlib-scalapack", when="+mpi external_solvers=mumps")
     depends_on("petsc+double", when="~mpi external_solvers=petsc")
     depends_on("petsc+double+mpi", when="+mpi external_solvers=petsc")

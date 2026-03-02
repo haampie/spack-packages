@@ -76,10 +76,7 @@ class PySetuptoolsScm(PythonPackage):
         depends_on("py-typing-extensions", when="@8.1: ^python@:3.10")
         depends_on("py-typing-extensions", when="@7:8.0.4")
 
-        depends_on("py-packaging@20.0:", when="@6.3:")
-        depends_on("py-packaging@24:", when="@7.1:")
 
-        depends_on("py-importlib-metadata", when="@7: ^python@:3.7")
 
     def url_for_version(self, version):
         # setuptools_scm-7.1.0.tar.gz with an underscore became

@@ -14,7 +14,6 @@ class Libcxi(AutotoolsPackage):
     homepage = "https://github.com/HewlettPackard/shs-libcxi"
     git = "https://github.com/HewlettPackard/shs-libcxi.git"
 
-    license("LGPL-2.1-or-later or BSD-3-Clause")
 
     version("main", branch="main")
     version("13.0.0", tag="release/shs-13.0.0")

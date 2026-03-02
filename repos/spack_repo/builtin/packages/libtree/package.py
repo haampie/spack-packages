@@ -66,9 +66,6 @@ class Libtree(MakefilePackage, CMakePackage):
         depends_on("binutils", when="+strip", type="run")
 
     # header only dependencies
-    depends_on("cpp-termcolor", when="@2.0.0:2", type="build")
-    depends_on("cxxopts", when="@2.0.0:2", type="build")
-    depends_on("elfio@:3.9", when="@2.0.0:2", type="build")
 
 
 class CMakeBuilder(cmake.CMakeBuilder):

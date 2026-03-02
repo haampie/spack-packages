@@ -72,11 +72,7 @@ class Gmsh(CMakePackage):
     variant("alglib", default=True, description="Build with Alglib (built-in or 3rd party)")
     variant("eigen", default=False, description="Build with Eigen (built-in or 3rd party)")
     variant("voropp", default=True, description="Build with voro++ (built-in or 3rd party")
-    variant("cgns", default=True, description="Build with CGNS")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
     # https://gmsh.info/doc/texinfo/gmsh.html#Compiling-the-source-code
     # We make changes to the GMSH default, such as external blas.

@@ -44,26 +44,12 @@ class Hpctoolkit(AutotoolsPackage, MesonPackage):
     version("2023.08.stable", branch="release/2023.08")
     version("2023.08.1", tag="2023.08.1", commit="753a72affd584a5e72fe153d1e8c47a394a3886e")
     version("2023.03.stable", branch="release/2023.03")
-    version("2023.03.01", commit="9e0daf2ad169f6c7f6c60408475b3c2f71baebbf")
-    version("2022.10.01", commit="e8a5cc87e8f5ddfd14338459a4106f8e0d162c83")
 
     # Options for MPI and hpcprof-mpi.  We always support profiling
     # MPI applications.  These options add hpcprof-mpi, the MPI
     # version of hpcprof.  Cray is a separate option for old systems
     # where an external MPI module doesn't work.
-    variant(
-        "cray",
-        default=False,
-        description="Build hpcprof-mpi for Cray systems (may require --dirty).",
-        when="build_system=autotools",
-    )
 
-    variant(
-        "cray-static",
-        default=False,
-        description="Build old rev of hpcprof-mpi statically on Cray systems.",
-        when="@:2022.09+cray build_system=autotools",
-    )
 
     variant(
         "mpi",

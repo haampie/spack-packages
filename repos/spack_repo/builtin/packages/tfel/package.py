@@ -190,12 +190,8 @@ class Tfel(CMakePackage):
     variant("lsdyna", default=True, description="Enables LS-DYNA interface")
     variant("fortran", default=True, description="Enables fortran interface")
     variant("python", default=True, description="Enables python interface")
-    variant("python_bindings", default=True, description="Enables python bindings")
-    variant("java", default=False, description="Enables java interface")
 
     # only since TFEL-3.3, no effect on version below
-    variant("comsol", default=True, description="Enables comsol interface")
-    variant("diana-fea", default=True, description="Enables DIANA-FEA interface")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

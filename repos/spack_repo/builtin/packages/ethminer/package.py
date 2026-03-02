@@ -35,7 +35,6 @@ class Ethminer(CMakePackage):
     depends_on("curl")
     depends_on("zlib-api")
     depends_on("cuda", when="+cuda")
-    depends_on("mesa", when="+opencl")
 
     def cmake_args(self):
         return [

@@ -48,24 +48,8 @@ class Unzip(MakefilePackage):
     )
     # CVE-2014-8139, CVE-2014-8141
     # https://src.fedoraproject.org/rpms/unzip/c/f6883dfa8599e8b93a75c8f85f08879be28a5910
-    patch(
-        "https://src.fedoraproject.org/rpms/unzip/raw/f6883dfa8599e8b93a75c8f85f08879be28a5910/f/unzip-6.0-cve-2014-8139.patch",
-        sha256="337131428f491b7030f96ee5b8ef3d8f5963730d1619b2754c624f4616d79adb",
-    )
-    patch(
-        "https://src.fedoraproject.org/rpms/unzip/raw/f6883dfa8599e8b93a75c8f85f08879be28a5910/f/unzip-6.0-cve-2014-8141.patch",
-        sha256="b7a14c33db93d1e5b4fc6ce113b4b99ff7a81ed56f46c87e001f22ec085e0273",
-    )
-    patch(
-        "https://src.fedoraproject.org/rpms/unzip/raw/f6883dfa8599e8b93a75c8f85f08879be28a5910/f/unzip-6.0-overflow-long-fsize.patch",
-        sha256="251d5755ffb1e9701434c545fcda0fbfc2a16372f9d807fd07606b1364a1b55b",
-    )
     # Fix heap overflow and infinite loop when invalid input is given
     # https://src.fedoraproject.org/rpms/unzip/c/36af2c8ca922dc45b55f600ffd9d0b9fcd520fd9
-    patch(
-        "https://src.fedoraproject.org/rpms/unzip/raw/36af2c8ca922dc45b55f600ffd9d0b9fcd520fd9/f/unzip-6.0-heap-overflow-infloop.patch",
-        sha256="b6f64d7b57e74ceaa794dd13a6937f063ec915343f3d5d88b0f81c919e7bf171",
-    )
     # CVE-2016-9844
     # https://src.fedoraproject.org/rpms/unzip/c/ee4e72f3fc47f04af21d4860cc2604cf69d37dac
     patch(

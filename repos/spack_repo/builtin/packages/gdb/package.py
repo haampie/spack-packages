@@ -19,9 +19,7 @@ class Gdb(AutotoolsPackage, GNUMirrorPackage):
     homepage = "https://www.gnu.org/software/gdb"
     gnu_mirror_path = "gdb/gdb-11.2.tar.gz"
 
-    maintainers("robertu94")
 
-    license("GPL-3.0-or-later AND LGPL-3.0-or-later")
 
     version("17.1", sha256="2b93c4c9726a4b8cfe771036e155377405dfa41c483d90945481319c5663c120")
     version("16.2", sha256="bdc1da4a033280ac752e7d34b0418efaa45bed093235cb88e62ea961752a37f8")

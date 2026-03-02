@@ -41,7 +41,6 @@ class Openslide(AutotoolsPackage, MesonPackage):
     depends_on("zlib-api")
 
     with when("@4:"):
-        depends_on("libdicom")
         depends_on("glib@2.56:")
         depends_on("sqlite@3.14:")
 

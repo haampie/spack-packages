@@ -260,10 +260,6 @@ class Ascent(CMakePackage, CudaPackage, ROCmPackage):
         depends_on("vtk-m@1.9", when="@0.9.0:0.9.1")
 
         depends_on("vtk-m~tbb", when="@0.9.0:")
-        depends_on("vtk-m+openmp", when="@0.9.0: +openmp")
-        depends_on("vtk-m~openmp", when="@0.9.0: ~openmp")
-        depends_on("vtk-m~cuda", when="@0.9.0: ~cuda")
-        depends_on("vtk-m+cuda", when="@0.9.0: +cuda")
         depends_on("vtk-m~rocm", when="@0.9.0: ~rocm")
         depends_on("vtk-m+fpic", when="@0.8.0:")
         depends_on("vtk-m~shared+fpic", when="@0.8.0: ~shared")

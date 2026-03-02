@@ -30,10 +30,6 @@ class G2o(CMakePackage):
     depends_on("cxx", type="build")  # generated
 
     depends_on("cmake@3.1:", type="build")
-    depends_on("eigen@2.91.0:", type="link")
-    depends_on("ceres-solver")
-    depends_on("freeglut")
-    depends_on("suite-sparse")
 
     def cmake_args(self):
         return [

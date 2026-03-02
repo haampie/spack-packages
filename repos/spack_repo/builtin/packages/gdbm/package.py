@@ -52,8 +52,6 @@ class Gdbm(AutotoolsPackage, GNUMirrorPackage):
     patch("gdbm.patch", when="@:1.18 %clang@11:")
     patch("gdbm.patch", when="@:1.18 %cce@11:")
     patch("gdbm.patch", when="@:1.18 %aocc@2:")
-    patch("gdbm.patch", when="@:1.18 %oneapi")
-    patch("gdbm.patch", when="@:1.18 %arm@21:")
 
     def flag_handler(self, name, flags):
         if name == "cflags":

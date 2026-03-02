@@ -37,7 +37,3 @@ class RYarn(RPackage):
     depends_on("r-gplots", type=("build", "run"))
     depends_on("r-limma", type=("build", "run"))
     depends_on("r-matrixstats", type=("build", "run"))
-    depends_on("r-preprocesscore", type=("build", "run"))
-    depends_on("r-readr", type=("build", "run"))
-    depends_on("r-rcolorbrewer", type=("build", "run"))
-    depends_on("r-quantro", type=("build", "run"))

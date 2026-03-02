@@ -58,18 +58,8 @@ class W3m(AutotoolsPackage):
     depends_on("libx11", when="+image")
 
     # inline image support
-    variant(
-        "imagelib",
-        default="imlib2",
-        description="select imagelib",
-        values=("gdk-pixbuf", "imlib2"),
-        multi=False,
-    )
-    depends_on("gdk-pixbuf@2:", when="imagelib=gdk-pixbuf +image")
-    depends_on("imlib2@1.0.5:", when="imagelib=imlib2 +image")
 
     # fix for modern libraries
-    patch("fix_redef.patch", when="@=0.5.3")
     patch("fix_gc.patch", when="@=0.5.3")
 
     def url_for_version(self, version):

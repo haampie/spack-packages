@@ -91,10 +91,6 @@ class Nmad(AutotoolsPackage):
 
     depends_on("puk")
     depends_on("puk+asan", when="+asan")
-    depends_on("pukabi+mem", when="+pukabi")
-    depends_on("pioman", when="+pioman")
-    depends_on("padicotm~pioman", when="~pioman", type=("build", "link", "run"))
-    depends_on("padicotm+pioman", when="+pioman", type=("build", "link", "run"))
     depends_on("padicotm+ibverbs", when="+ibverbs")
     depends_on("padicotm+psm", when="+psm")
     depends_on("padicotm+psm2", when="+psm2")

@@ -38,11 +38,7 @@ class Cppunit(AutotoolsPackage):
     )
 
     depends_on("cxx", type="build")
-    depends_on("c", type="build")
 
-    depends_on("autoconf", type="build", when="@master")
-    depends_on("automake", type="build", when="@master")
-    depends_on("libtool", type="build", when="@master")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         cxxstd = self.spec.variants["cxxstd"].value

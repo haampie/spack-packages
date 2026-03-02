@@ -28,10 +28,7 @@ class Mathicgb(AutotoolsPackage):
     depends_on("autoconf", type="build")
     depends_on("automake", type="build")
     depends_on("libtool", type="build")
-    depends_on("pkgconfig", type="build")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     depends_on("mathic")
     depends_on("memtailor")

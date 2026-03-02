@@ -85,11 +85,7 @@ class Elpa(AutotoolsPackage, CudaPackage, ROCmPackage):
         sha256="90f18c84e740a35d726e44078a111fac3b6278a0e750ce1f3ea154ee78e93298",
         when="@:2025.01.001",
     )
-    patch("hipcc.patch", when="+rocm @2025.01.001:2025.06.001")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
     depends_on("autoconf@2.71:", type="build", when="@master")
     depends_on("automake", type="build", when="@master")

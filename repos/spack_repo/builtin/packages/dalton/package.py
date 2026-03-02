@@ -29,15 +29,6 @@ class Dalton(CMakePackage):
     )
 
     variant(
-        "build_type",
-        default="Release",
-        values=("Debug", "Release"),
-        description="CMake build type",
-    )
-    variant("ilp64", default=False, description="Use 64-bit integers")
-    variant("mpi", default=True, description="Use MPI")
-    variant("gen1int", default=True, description="Build Gen1Int library")
-    variant(
         "pelib",
         default=True,
         when="~ilp64",

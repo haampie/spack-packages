@@ -34,15 +34,6 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
 
 
 
-    version("2.9.2", sha256="ffb554d5735e0e0a19d1fd4b2b86e771d3b58b2d97f257eedacae67ade5054b3")
-    version("2.9.0", sha256="9d7d3450e0a5fea4cb80ca07dc8db939abb7ab62e2a7bb27f9376447658738ec")
-    version("2.4.1", sha256="4267fe1193a8989f3ab7563a7499e047e77e33fed8f4dec16822a7aebcf78459")
-    version("2.4.0", sha256="30404065dc1d6872b0181269d0bb2424fbbc6e3b0a80491aa373109554006544")
-    version("2.3.0", sha256="155480620c98b43ddf9ca66a6c318b363ca24acb5ff0683af9d25d9324f59836")
-    version("2.0.2", sha256="27dcfe42e3fb3422b72ce48b48bf601c0a3e46e850ee72d9bdd17b5863b6e42c")
-    version("1.11.7", sha256="ac16bed9cdd3c63bca1fe1ac3de522a1376b1487c4fc85b7b19592e28fd98e26")
-    version("1.11.6", sha256="67963f15197e6b551539c4ed95a4f8882be9a16cf336300902004361cf89bdee")
-
     variant("libxml2", default=True, description="Build with libxml2")
     variant("libudev", default=False, when="@1.11.0:", description="Build with libudev")
     variant(

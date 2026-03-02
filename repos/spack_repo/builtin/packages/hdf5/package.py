@@ -34,8 +34,6 @@ class Hdf5(CMakePackage):
 
     # Odd versions are considered experimental releases
     # Even versions are maintenance versions
-    version("1.10.5", sha256="6d4ce8bf902a97b050f6f491f4268634e252a63dadd6656a1a9be5b7b7726fa8")
-    version("1.10.4", sha256="8f60dc4dd6ab5fcd23c750d1dc5bca3d0453bdce5c8cdaf0a4a61a9d1122adb2")
     variant("shared", default=True, description="Builds a shared version of the library")
 
     variant("hl", default=False, description="Enable the high-level library")

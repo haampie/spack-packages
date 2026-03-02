@@ -28,12 +28,6 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
 
     version("master", branch="master")
     version("2.43", sha256="e1e622cbd635019090fa23260e5d9ec219b12f97ae7ae02f033d4ae42cf2c004")
-    version("2.35", sha256="3e8e0c6195da8dfbd31d77c56fb8d99576fb855fafd47a9e0a895e51fd5942d4")
-    version("2.25", sha256="ad984bac07844ecc222039d43bd5f1f1e1571590ea28045232ae3fa404cefc32")
-    version("2.20", sha256="37e1de410d572a19b707b99786db9822bb4775e9d70517d88937ab12e6d6debc")
-    version("2.19", sha256="18ad6db70724699d264add80b1f813630d0141cf3a3558b4e1a7c15f6beac796")
-    depends_on("cxx", type="build")  # generated
-
     # Fix for newer GCC, related to -fno-common
     patch("locs.patch", when="@2.23:2.25")
     patch("locs-2.22.patch", when="@:2.22")

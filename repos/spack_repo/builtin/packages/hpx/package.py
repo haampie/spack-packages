@@ -23,8 +23,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
 
     tags = ["e4s"]
 
-
-
     cxxstds = ("11", "14", "17", "20", "23")
     variant(
         "cxxstd",

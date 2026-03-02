@@ -26,14 +26,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
 
 
 
-
-    depends_on("cxx", type="build")  # Kokkos requires a C++ compiler
-
-    with when("@5:"):
-        conflicts("%oneapi@:2021")
-        conflicts("%oneapi@:2024", when="+sycl")
-
-
     devices_variants = {
         "cuda": [False, "Whether to build CUDA backend"],
         "openmp": [False, "Whether to build OpenMP backend"],

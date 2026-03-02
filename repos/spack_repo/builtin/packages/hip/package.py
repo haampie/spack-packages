@@ -29,11 +29,6 @@ class Hip(CMakePackage):
     conflicts("+cuda +rocm", msg="CUDA and ROCm support are mutually exclusive")
     conflicts("+asan", when="os=rhel9")
 
-
-
-
-    test_requires_compiler = True
-
     with when("+rocm"):
         depends_on("py-cppheaderparser", type="build")
         depends_on("libx11", when="+asan")

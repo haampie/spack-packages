@@ -53,19 +53,8 @@ class Cmake(Package):
         version(
             "3.31.8", sha256="e3cde3ca83dc2d3212105326b8f1b565116be808394384007e7ef1c253af6caa"
         )
-        version(
-            "3.31.6", sha256="653427f0f5014750aafff22727fb2aa60c6c732ca91808cfb78ce22ddd9e55f0"
-        )
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    variant(
-        "build_type",
-        default="Release",
-        description="CMake build type",
-        values=("Debug", "Release", "RelWithDebInfo", "MinSizeRel"),
-    )
 
     # We default ownlibs to true because it greatly speeds up the CMake
     # build, and CMake is built frequently. Also, CMake is almost always

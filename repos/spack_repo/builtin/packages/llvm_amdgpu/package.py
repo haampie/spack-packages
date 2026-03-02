@@ -90,23 +90,11 @@ class LlvmAmdgpu(CMakePackage, LlvmDetection, CompilerPackage):
     # They resulted in ISel failures because we were missing the patterns for them.
     # This fix is targeting 6.1 rocm release.
     # Need patch until https://github.com/llvm/llvm-project/pull/67291 is merged.
-    patch("001-Add-i1-mul-patterns-5.7.patch", when="@5.7")
 
     # fixes the libamdhip64.so not found in some ROCm math lib tests
-    patch(
-        "https://github.com/ROCm/llvm-project/commit/444d1d12bbc0269fed5451fb1a9110a049679ca5.patch?full_index=1",
-        sha256="b4774ca19b030890d7b276d12c446400ccf8bc3aa724c7f2e9a73531a7400d69",
-        when="@6",
-    )
-    patch("002-Add-rpath-to-hiprt.patch", when="@7.0:")
 
     # Fix for https://github.com/llvm/llvm-project/issues/78530
     # Patch from https://github.com/llvm/llvm-project/pull/80071
-    patch(
-        "https://github.com/ROCm/llvm-project/commit/c651b2b0d9d1393fb5191ac3acfe96e5ecc94bbc.patch?full_index=1",
-        sha256="eaf700a5b51d53324a93e5c951bc08b6311ce2053c44c1edfff5119f472d8080",
-        when="@:6.2",
-    )
 
     patch(
         "https://github.com/ROCm/llvm-project/commit/97301a5390f841241e5ed88e26c218882e018cc4.patch?full_index=1",

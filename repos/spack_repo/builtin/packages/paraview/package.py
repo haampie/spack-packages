@@ -6,8 +6,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     variant(
         "build_edition",
         default="canonical",
-        values=("canonical", "catalyst_rendering", "catalyst", "rendering", "core"),
     )
     with when("@6:"):
             depends_on("qt-tools+assistant")
-            depends_on("qt-5compat")

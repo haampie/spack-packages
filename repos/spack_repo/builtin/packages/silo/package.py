@@ -61,17 +61,11 @@ class Silo(autotools.AutotoolsPackage, cmake.CMakePackage):
 
     # H5EPR_SEMI_COLON.patch was fixed in current dev
 
-    # Fix missing F77 init, fixed in 4.9
-    patch("48-configure-f77.patch", when="@:4.8")
-
     # The previously used AX_CHECK_COMPILER_FLAGS macro was dropped from
     # autoconf-archive in 2011
 
-    # API changes in hdf5-1.13 cause breakage
     # See https://github.com/LLNL/Silo/pull/260
 
-    # compression features available only w/ HDF5 driver
-    conflicts("+fpzip", when="~hdf5", msg="+fpzip requires +hdf5")
     conflicts("+zfp", when="~hdf5", msg="zfp requires +hdf5")
 
     # hzip and fpzip are not available in the BSD releases

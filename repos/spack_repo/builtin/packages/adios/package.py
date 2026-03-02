@@ -51,12 +51,9 @@ class Adios(AutotoolsPackage):
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
-
-
     # optional transformations
     depends_on("zlib-api", when="+zlib")
     depends_on("bzip2", when="+bzip2")
-    depends_on("szip", when="+szip")
     depends_on("sz@:1.4.10", when="@:1.12.0 +sz")
     depends_on("sz@1.4.11.0:1.4.11", when="@1.13.0 +sz")
     depends_on("lz4", when="+lz4")

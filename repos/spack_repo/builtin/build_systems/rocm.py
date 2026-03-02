@@ -153,9 +153,6 @@ class ROCmPackage(PackageBase):
         when="+rocm",
     )
 
-    depends_on("llvm-amdgpu", type="build", when="+rocm")
-    depends_on("hsa-rocr-dev", when="+rocm")
-    depends_on("hip +rocm", when="+rocm")
 
     # need amd gpu type for rocm builds
     conflicts("amdgpu_target=none", when="+rocm")
@@ -172,10 +169,6 @@ class ROCmPackage(PackageBase):
 
     # Add compiler minimum versions based on the first release where the
     # processor is included in llvm/lib/Support/TargetParser.cpp
-    depends_on("llvm-amdgpu@5.2.0:", when="amdgpu_target=gfx940")
-    depends_on("llvm-amdgpu@5.7.0:", when="amdgpu_target=gfx941")
-    depends_on("llvm-amdgpu@5.7.0:", when="amdgpu_target=gfx942")
-    depends_on("llvm-amdgpu@5.2.0:", when="amdgpu_target=gfx1036")
 
     # Compiler conflicts
 

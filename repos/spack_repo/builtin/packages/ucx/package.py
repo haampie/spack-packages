@@ -89,15 +89,6 @@ class Ucx(AutotoolsPackage, CudaPackage):
     depends_on("hsa-rocr-dev", when="+rocm")
 
     conflicts("+gdrcopy", when="~cuda", msg="gdrcopy currently requires cuda support")
-    conflicts("+rocm", when="+gdrcopy", msg="gdrcopy > 2.0 does not support rocm")
-
-    # https://github.com/openucx/ucx/issues/10589
-    conflicts("%gcc@15:", when="@:1.18")
-
-    configure_abs_path = "contrib/configure-release"
-
-    # See https://github.com/openucx/ucx/pull/8629, wrong int type
-
     def configure_args(self):
         spec = self.spec
         args = ["--without-go", "--disable-doxygen-doc"]  # todo  # todo

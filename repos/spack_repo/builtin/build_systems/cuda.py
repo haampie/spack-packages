@@ -89,37 +89,21 @@ class CudaPackage(PackageBase):
     # Kepler support:
 
     # Maxwell support:
-    depends_on("cuda@6.5:12.9", when="cuda_arch=52")
-    depends_on("cuda@6.5:12.9", when="cuda_arch=53")
 
     # Pascal support:
-    depends_on("cuda@8.0:12.9", when="cuda_arch=60")
-    depends_on("cuda@8.0:12.9", when="cuda_arch=61")
-    depends_on("cuda@8.0:12.9", when="cuda_arch=62")
 
     # Volta support:
-    depends_on("cuda@9.0:12.9", when="cuda_arch=70")
 
     # Turing support:
-    depends_on("cuda@9.0:", when="cuda_arch=72")
-    depends_on("cuda@10.0:", when="cuda_arch=75")
 
     # Ampere support:
-    depends_on("cuda@11.0:", when="cuda_arch=80")
-    depends_on("cuda@11.1:", when="cuda_arch=86")
-    depends_on("cuda@11.4:", when="cuda_arch=87")
     # Ada support:
-    depends_on("cuda@11.8:", when="cuda_arch=89")
 
     # Hopper support:
 
     # Blackwell support:
-    depends_on("cuda@12.9:", when="cuda_arch=100f")
-    depends_on("cuda@12.9:", when="cuda_arch=103")
-    depends_on("cuda@12.9:", when="cuda_arch=103a")
     # Compute Capability 101 was renamed to 110 in CUDA 13
 
-    depends_on("cuda@12.9:", when="cuda_arch=121f")
     # From the NVIDIA install guide we know of conflicts for particular
     # platforms (linux, darwin), architectures (x86, powerpc) and compilers
     # (gcc, clang). We don't restrict %gcc and %clang conflicts to
@@ -137,28 +121,14 @@ class CudaPackage(PackageBase):
         # minimum supported versions
         conflicts("%gcc@:4", when="+cuda ^cuda@11.0:")
         conflicts("%gcc@:5", when="+cuda ^cuda@11.4:")
-        conflicts("%clang@:6", when="+cuda ^cuda@12.2:")
 
         # maximum supported version
         # NOTE:
         # it has been decided to use an upper bound for the latest version.
         # This implies that the last one in the list has to be updated at
         # each release of a new cuda minor version.
-        conflicts("%gcc@10:", when="+cuda ^cuda@:11.0")
-        conflicts("%gcc@11:", when="+cuda ^cuda@:11.4.0")
-        conflicts("%gcc@11.2:", when="+cuda ^cuda@:11.5")
-        conflicts("%gcc@12:", when="+cuda ^cuda@:11.8")
-        conflicts("%gcc@16:", when="+cuda ^cuda@:13.1")
-        conflicts("%gcc@15:", when="+cuda ^cuda@13.1:")
-        conflicts("%clang@16:", when="+cuda ^cuda@:12.1")
-        conflicts("%clang@17:", when="+cuda ^cuda@:12.3")
-        conflicts("%clang@18:", when="+cuda ^cuda@:12.5")
 
         # https://gist.github.com/ax3l/9489132#gistcomment-3860114
-        conflicts("%gcc@10", when="+cuda ^cuda@:11.4.0")
-        conflicts("%gcc@5:", when="+cuda ^cuda@:7.5 target=x86_64:")
-        conflicts("%gcc@6:", when="+cuda ^cuda@:8 target=x86_64:")
-        conflicts("%gcc@7:", when="+cuda ^cuda@:9.1 target=x86_64:")
 
         # x86_64 vs. ppc64le differ according to NVidia docs
         # Linux ppc64le compiler conflicts from Table from the docs below:
@@ -170,28 +140,10 @@ class CudaPackage(PackageBase):
 
         # information prior to CUDA 9 difficult to find
         # officially, CUDA 11.0.2 only supports the system GCC 8.3 on ppc64le
-        conflicts("%clang@4:", when="+cuda ^cuda@:9.0.176 target=ppc64le:")
-        conflicts("%clang@5:", when="+cuda ^cuda@:9.1 target=ppc64le:")
-        conflicts("%clang@6:", when="+cuda ^cuda@:9.2 target=ppc64le:")
-        conflicts("%clang@7:", when="+cuda ^cuda@10.0.130 target=ppc64le:")
-        conflicts("%clang@7.1:", when="+cuda ^cuda@:10.1.105 target=ppc64le:")
-        conflicts("%clang@8.1:", when="+cuda ^cuda@:10.2.89 target=ppc64le:")
-        conflicts("%clang@:5", when="+cuda ^cuda@11.0.2: target=ppc64le:")
-        conflicts("%clang@10:", when="+cuda ^cuda@:11.0.2 target=ppc64le:")
-        conflicts("%clang@11:", when="+cuda ^cuda@:11.1.0 target=ppc64le:")
 
         # Intel is mostly relevant for x86_64 Linux, even though it also
         # exists for Mac OS X. No information prior to CUDA 3.2 or Intel 11.1
-        conflicts("%intel@:11.0", when="+cuda ^cuda@:3.1")
-        conflicts("%intel@:12.0", when="+cuda ^cuda@5.5:")
-        conflicts("%intel@:13.0", when="+cuda ^cuda@6.0:")
-        conflicts("%intel@:13.2", when="+cuda ^cuda@6.5:")
-        conflicts("%intel@:14.9", when="+cuda ^cuda@7:")
         # Intel 15.x is compatible with CUDA 7 thru current CUDA
-        conflicts("%intel@16.0:", when="+cuda ^cuda@:8.0.43")
-        conflicts("%intel@17.0:", when="+cuda ^cuda@:8.0.60")
-        conflicts("%intel@19.0:", when="+cuda ^cuda@:10.0")
-        conflicts("%intel@19.2:", when="+cuda ^cuda@:11.1.0")
         conflicts("%intel", when="+cuda ^cuda@13.0:")
 
         # ARM

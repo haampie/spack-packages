@@ -92,7 +92,6 @@ class IntelOneApiLibraryPackage(IntelOneApiPackage):
     # - spec about C-compiler
     # Depending on a lanaguage seem to enable above.
     #
-    depends_on("c", type="build")
 
     # find_headers uses heuristics to determine the include directory
     # that does not work for oneapi packages. Use explicit directories

@@ -123,8 +123,6 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
     variant("blosc", default=True, description="Enable Blosc compression plugin")
     variant("zstd", default=True, description="Enable Zstandard compression plugin")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build", when="build_system=cmake")
 
     with when("build_system=cmake"):
         # Based on the versions required by the root CMakeLists.txt:
@@ -232,18 +230,13 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
     requires("+dap", when="@4.9.3:+byterange")
 
     # JNA was added in 4.3.2 and removed in 4.9.3:
-    conflicts("+jna", when="@:4.3.1,4.9.3:")
 
     # NCZarr was added in version 4.8.0 as an experimental feature and became a supported one in
     # version 4.8.1:
 
     # The features were introduced in version 4.9.0:
     with when("@:4.8"):
-        conflicts("+blosc")
-        conflicts("+zstd")
 
-        conflicts("+szip")
-        conflicts("+blosc")
         conflicts("+zstd")
 
     default_build_system = "cmake" if sys.platform == "win32" else "autotools"

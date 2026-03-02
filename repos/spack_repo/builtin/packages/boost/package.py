@@ -216,7 +216,6 @@ class Boost(Package):
         if lib not in ["signals", "signals2"]:
             # <= 1.68 needs signals, after that needs signals2
             requires("+signals", when=f"@:1.68 +{lib} platform=windows")
-            requires("+signals2", when=f"@1.69: +{lib} platform=windows")
 
     # Patch fix from https://svn.boost.org/trac/boost/ticket/11120
 

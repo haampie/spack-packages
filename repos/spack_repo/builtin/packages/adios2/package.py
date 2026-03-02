@@ -75,13 +75,8 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     variant("fortran", default=True, description="Enable the Fortran bindings")
 
     # Requires mature C++11 implementations
-
     # ifx does not support submodules in separate files
     # https://github.com/ornladios/ADIOS2/issues/4620
-
-
-    # Standalone CUDA support
-    # Kokkos support
     with when("+kokkos"):
         depends_on("kokkos +rocm", when="+rocm")
         depends_on("kokkos +sycl", when="+sycl")
@@ -112,12 +107,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
         # libffi and libfabric and not currently supported on Windows
         # see Paraview's superbuild handling of libfabric at
         # https://gitlab.kitware.com/paraview/paraview-superbuild/-/blob/master/projects/adios2.cmake#L3
-        # depends_on('bison', when='+sst')     # optional in FFS, broken package
-        # depends_on('flex', when='+sst')      # optional in FFS, depends on BISON
-
-
-
-    depends_on("mgard@compat-2023-01-10:", when="@2.9: +mgard")
     # cmake build race condition
 
     # add missing include <cstdint>

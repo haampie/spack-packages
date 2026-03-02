@@ -237,13 +237,10 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # Broken vtk-m config. Upstream catalyst changes
     # Broken downstream FindMPI
     # Include limits header wherever needed to fix compilation with GCC 11
-    # Patch for paraview 5.9.0%xl_r
 
     # intel oneapi doesn't compile some code in catalyst
     # Fix VTK to remove deprecated ADIOS2 functions
-
     # https://github.com/Kitware/VTK-m/commit/c805a6039ea500cb96158cfc11271987c9f67aa4
-
     def test_pvpython(self):
         """Test pvpython"""
         if "~python" in self.spec:

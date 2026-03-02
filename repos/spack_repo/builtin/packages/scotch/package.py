@@ -56,10 +56,7 @@ class Scotch(CMakePackage, MakefilePackage):
     # Does not build with flex 2.6.[23]
 
     # Version-specific patches
-    patch("esmumps-ldflags-6.0.4.patch", when="@6.0.4")
-    patch("metis-headers-6.0.4.patch", when="@6.0.4")
 
-    patch("libscotchmetis-return-6.0.5a.patch", when="@6.0.5a")
     patch("libscotch-scotcherr-link-7.0.1.patch", when="@7.0.1 +link_error_lib")
 
     # Avoid OpenMPI segfaults by using MPI_Comm_F2C for parmetis communicator

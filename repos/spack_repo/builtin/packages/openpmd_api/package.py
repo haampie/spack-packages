@@ -50,5 +50,4 @@ class OpenpmdApi(CMakePackage):
 
     # fix superbuild control in 0.16.0
 
-    extends("python", when="+python")
 

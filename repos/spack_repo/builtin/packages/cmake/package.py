@@ -107,11 +107,6 @@ class Cmake(Package):
     # Adds CCE v11+ fortran preprocessing definition.
     # requires Cmake 3.19+
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/5882
-
-    # https://gitlab.kitware.com/cmake/cmake/issues/18166
-
-
-
     phases = ["bootstrap", "build", "install"]
 
     def patch(self):

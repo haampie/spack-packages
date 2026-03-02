@@ -785,7 +785,6 @@ class Cuda(Package):
     # see https://docs.nvidia.com/cuda/archive/11.3.1/cuda-gdb/index.html#common-issues-oss
     # see https://docs.nvidia.com/cuda/archive/11.4.0/cuda-gdb/index.html#release-notes
 
-    provides("opencl@:1.2", when="@7:")
     @classmethod
     def determine_version(cls, exe):
         cmake_prefix_paths = [self.prefix]

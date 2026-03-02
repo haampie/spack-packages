@@ -245,24 +245,9 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
 
         conflicts("+bootstrap", when="@11.3.0,13.1: target=aarch64:")
-
-        # 14.2.0 cannot bootstrap on x86_64
-
-        # Use -headerpad_max_install_names in the build,
-        # otherwise updated load commands won't fit in the Mach-O header.
         # This is needed because `gcc` avoids the superenv shim.
 
         # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=92061
-
-
-    # Backport libsanitizer patch for glibc >= 2.31 and 5.3.0 <= gcc <= 9.2.0
-    # https://bugs.gentoo.org/708346
-
-    # Backport libsanitizer patch for glibc >= 2.36
-    # https://reviews.llvm.org/D129471
-
-    # Older versions do not compile with newer versions of glibc
-    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81712
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81066
     # https://bugs.busybox.net/show_bug.cgi?id=10061
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=85835
@@ -288,9 +273,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
     c_names = ["gcc"]
     cxx_names = ["g++"]
-    fortran_names = ["gfortran"]
     d_names = ["gdc"]
-    go_names = ["gccgo"]
     compiler_suffixes = [r"-mp-\d+(?:\.\d+)?", r"-\d+(?:\.\d+)?", r"\d\d"]
     compiler_version_regex = r"([0-9.]+)"
     compiler_version_argument = ("-dumpfullversion", "-dumpversion")
@@ -298,10 +281,5 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # https://gcc.gnu.org/install/configure.html
     # Common code for nvptx and amdgcn to link newlib source directory
     newlib_linked = False
-
     # Copy nvptx-tools into the GCC install prefix
     # run configure/make/make(install) for the nvptx-none target
-    # before running the host compiler phases
-    # The configure --sysroot doesn't propagate down into the sub-builds, e.g., libiberty.
-    # Starting with SDK 26 and clang 17, limits.h amongst other sys includes aren't included
-    # via other means, resulting in a failed build. Keep this for other builds for safety.

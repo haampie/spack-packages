@@ -38,8 +38,6 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
     # Version 4.4.1 can crash on you (in real life and in tests).  See:
     #    https://github.com/Unidata/netcdf-c/issues/282
     version("4.4.1", sha256="17599385fd76ccdced368f448f654de2ed000fece44dece9fb5d598798b4c9d6")
-    version("4.4.0", sha256="09b78b152d3fd373bee4b5738dc05c7b2f5315fe34aa2d94ee9256661119112f")
-    version("4.3.3.1", sha256="f2ee78eb310637c007f001e7c18e2d773d23f3455242bde89647137b7344c2e2")
 
     with when("build_system=cmake"):
         # TODO: document why we need to revert https://github.com/Unidata/netcdf-c/pull/1731
@@ -54,13 +52,11 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
         # Building netcdf-c w/ hdf5+mpi causes CMake's FindMPI to inject a path to the current
         # netcdf-c source directory into its targets interface properties causing CMake configure
         # failures. This patch strips the source dir from the MPI include interface
-        patch("strip_csd_from_mpi_inc.patch", when="@4.7.1:4.9.2 platform=windows")
 
         # Netcdf's source for the h5deflate target contains includes for zlib headers
         # but fails to include that header in the include interface in the relevant
         # CMake target, this patch adds that.
         # Similar to https://github.com/Unidata/netcdf-c/pull/3132
-        patch("netcdf-4.9.3-deflate-include-zlib.patch", when="@4.9.3")
 
         # Netcdf-c, on Windows, attempts to glob from the CMake prefix path
         # which is wrong for a multidue of development and CMake practices reasons

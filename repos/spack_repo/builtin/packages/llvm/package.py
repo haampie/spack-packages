@@ -392,19 +392,12 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     conflicts("cuda_arch=87", when="@:15")
     conflicts("cuda_arch=89", when="@:15")
     conflicts("cuda_arch=90", when="@:15")
-    conflicts("cuda_arch=90a", when="@:17")
 
     # LLVM bug https://bugs.llvm.org/show_bug.cgi?id=48234
     # CMake bug: https://gitlab.kitware.com/cmake/cmake/-/issues/21469
     # Fixed in upstream versions of both
-    conflicts("^cmake@3.19.0", when="@6:11.0.0")
 
     # Fix lld templates: https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=230463
-    patch(
-        "https://raw.githubusercontent.com/freebsd/freebsd-ports/f8f9333d8e1e5a7a6b28c5ef0ca73785db06136e/devel/llvm50/files/lld/patch-tools_lld_ELF_Symbols.cpp",
-        sha256="c81a50c1b6b78d359c0ce3b88914477f4f2a85b8dbfa7ac745b9e7eb4e53931b",
-        when="@5+lld%clang@7:",
-    )
 
     # Add missing include directives for the standard headers (the real need for the following
     # patches depends on the implementation of the standard C++ library, the headers, however, must
@@ -413,11 +406,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     #
     # fix missing ::size_t in 'llvm@4:5'
     # see comments in the patch file
-    patch(
-        "xray_buffer_queue-cstddef.patch",
-        # we do not cover compiler-rt=runtime because it is not supported when @:5
-        when="@4:5 compiler-rt=project",
-    )
     #
     # see https://reviews.llvm.org/D64937
     # see https://github.com/spack/spack/issues/24270

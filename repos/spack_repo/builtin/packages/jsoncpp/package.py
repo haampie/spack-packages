@@ -46,10 +46,7 @@ class Jsoncpp(CMakePackage, MesonPackage):
         depends_on("meson@0.49.0:", type="build")
         depends_on("meson@0.56.0:", type="build", when="@1.9.6:")
 
-    depends_on("python", type="test")
-
     # Released in 1.9.2, patch does not apply cleanly across releases.
-    # May apply to more compilers in the future.
     @when("@:1.9.1 %clang@10.0.0:")
     def patch(self):
         filter_file(

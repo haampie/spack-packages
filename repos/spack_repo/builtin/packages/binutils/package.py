@@ -97,18 +97,14 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
 
     # 2.34:2.40 needs makeinfo due to a bug, see:
     # https://sourceware.org/bugzilla/show_bug.cgi?id=25491
-    # https://sourceware.org/bugzilla/show_bug.cgi?id=28909
     depends_on("texinfo", type="build", when="@2.34:2.40")
 
     # gprofng requires bison
     depends_on("bison@3.0.4:", type="build", when="+gprofng")
-
     with when("platform=darwin"):
         conflicts("+gold", msg="Binutils cannot build linkers on macOS")
-        # 2.41 doesn't seem to have any problems.
         conflicts(
             "libs=shared",
-            when="@2.37:2.40,2.42:",
             msg="https://github.com/spack/spack/issues/35817",
         )
 

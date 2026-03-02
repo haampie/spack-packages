@@ -409,11 +409,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         )
 
 
-        patch(
-            "https://github.com/iains/gcc-11-branch/compare/2d280e7eafc086e9df85f50ed1a6526d6a3a204d..gcc-11.3-darwin-r2.patch?full_index=1",
-            sha256="a8097c232dfb21b0e02f3d99e3c3e47443db3982dafbb584938ac1a9a4afd33d",
-            when="@11.3.0 target=aarch64:",
-        )
 
         conflicts("+bootstrap", when="@11.3.0,13.1: target=aarch64:")
 

@@ -86,10 +86,7 @@ class Xrootd(CMakePackage):
     conflicts("cxxstd=20", when="@5:5.6 ~client_only")
     conflicts("^scitokens-cpp", when="@:5.5.2 +client_only")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("bzip2")
     depends_on("cmake@2.6:", type="build", when="@3.1.0:")
     depends_on("cmake@3.16:", type="build", when="@5.6:")
     conflicts("^cmake@:3.0", when="@5.0.0")

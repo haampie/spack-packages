@@ -54,21 +54,10 @@ class Hdf(AutotoolsPackage):
     patch(
         "https://src.fedoraproject.org/rpms/hdf/raw/edbe5f49646b609f5bc9aeeee5a2be47e9556e8c/f/hdf-ppc.patch?full_index=1",
         sha256="5434f29a87856aa05124c7a9409b3ec3106c30b1ad722720773623190f6bfda8",
-        when="@4.2.15:",
     )
     patch(
         "https://src.fedoraproject.org/rpms/hdf/raw/edbe5f49646b609f5bc9aeeee5a2be47e9556e8c/f/hdf-4.2.4-sparc.patch?full_index=1",
         sha256="ce75518cccbeb80ab976b299225ea6104c3eec1ec13c09e2289913279fcf1b39",
-        when="@4.2.15:",
-    )
-    patch(
-        "https://src.fedoraproject.org/rpms/hdf/raw/edbe5f49646b609f5bc9aeeee5a2be47e9556e8c/f/hdf-s390.patch?full_index=1",
-        sha256="f7d67e8c3d0dad8bfca308936c6ac917cc0b63222c6339a29efdce14e8be6475",
-        when="@4.2.15:",
-    )
-    patch(
-        "https://src.fedoraproject.org/rpms/hdf/raw/edbe5f49646b609f5bc9aeeee5a2be47e9556e8c/f/hdf-arm.patch?full_index=1",
-        sha256="d54592df281c92e7e655b8312d18bef9ed096848de9430510e0699e98246ccd3",
         when="@4.2.15:",
     )
     patch(

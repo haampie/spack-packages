@@ -16,11 +16,8 @@ class ZycoreC(CMakePackage):
 
     maintainers("RMeli")
 
-    license("MIT", checked_by="RMeli")
 
-    version("1.5.1", sha256="292ec0b30a68a6be416119756238efb5ab34122de80cca884e269e28f6fc126b")
 
-    depends_on("c", type="build")
 
     def cmake_args(self):
         args = []

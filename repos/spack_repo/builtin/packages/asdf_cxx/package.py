@@ -13,11 +13,8 @@ class AsdfCxx(CMakePackage):
     homepage = "https://github.com/eschnett/asdf-cxx"
     url = "https://github.com/eschnett/asdf-cxx/archive/version/1.0.0.tar.gz"
 
-    maintainers("eschnett")
 
-    license("MIT")
 
-    version("6.3.0", sha256="44a24cc490cf776106edcfded6006d63d28889dfe985cce3bd565d5151add9c8")
     version("6.0.0", sha256="76ab0a893191a33a88a753d09a20135470f809c66173794fa3e37a2437ea3cde")
     version("5.0.0", sha256="876c83bcc7514f2584dbf5462bd5b7de89b41301ec127451342079e703cd6a67")
     version("4.0.1", sha256="c4597b8353b0e181d97c6702dae0cb69a558ae5b553945298757433615bb199b")

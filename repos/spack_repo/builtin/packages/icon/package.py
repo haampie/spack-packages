@@ -99,10 +99,6 @@ class Icon(AutotoolsPackage):
     depends_on("cxx", type="build")
     depends_on("fortran", type="build")
     depends_on("python", type="build")
-    depends_on("perl", type="build")
-    depends_on("cmake@3.18:", type="build")
-    depends_on("gmake@3.81:", type="build")
-    depends_on("findutils", type="build")
 
     depends_on("libxml2", when="+art")
     depends_on("libfyaml@0.6:", when="+coupling")

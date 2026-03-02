@@ -16,9 +16,7 @@ class Zookeeper(Package):
     homepage = "https://archive.apache.org"
     url = "https://archive.apache.org/dist/zookeeper/zookeeper-3.8.4/apache-zookeeper-3.8.4-bin.tar.gz"
 
-    license("Apache-2.0")
 
-    version("3.8.4", sha256="284cb4675adb64794c63d95bf202d265cebddc0cda86ac86fb0ede8049de9187")
 
 
     def install(self, spec, prefix):

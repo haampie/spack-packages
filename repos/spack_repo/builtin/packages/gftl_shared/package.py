@@ -50,20 +50,7 @@ class GftlShared(CMakePackage):
     depends_on("m4", type=("build", "run"))
 
     depends_on("cmake@3.12:3", type="build", when="@:1.10")
-    depends_on("cmake@3.24:", type="build", when="@1.11:")
 
-    depends_on("gftl")
 
     # gftl-shared only works with the Fujitsu compiler from 1.8.0 onwards
-    conflicts(
-        "%fj",
-        when="@:1.7.0",
-        msg="gftl-shared only works with the Fujitsu compiler from 1.8.0 onwards",
-    )
 
-    variant(
-        "build_type",
-        default="Release",
-        description="The build type to build",
-        values=("Debug", "Release"),
-    )

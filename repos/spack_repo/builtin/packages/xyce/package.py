@@ -32,11 +32,7 @@ class Xyce(CMakePackage):
 
     tags = ["e4s"]
 
-    license("GPL-3.0-or-later")
 
-    version("master", branch="master")
-    version("7.10.0", sha256="b5a883196f0a2b3972fd13c541fecf04735bfabc7d124d7c7e17de707204f4e2")
-    version("7.9.0", sha256="36ea88736b5e2012f28755588c857c88ed5dab5f4eccd3f59c6f42e6320fee4e")
     version("7.8.0", sha256="f763b7d5ad6defd25d2c7e5cc95155958cd12510a5e22a179daab459b21fa713")
     version("7.7.0", sha256="1b95450e1905c3af3c16b42c41d5ef1f8ab0e640f48086d0cb4d52961a90a175")
 
@@ -94,7 +90,6 @@ class Xyce(CMakePackage):
     depends_on("trilinos+rol", when="@7.7.0:")
 
     # tested versions of Trilinos against older versions of Xyce
-    depends_on("trilinos@13.5.0:14.4", when="@7.6.0:7.7.0")
     requires("^trilinos gotype=all cxxstd=11", when="^trilinos@:12.15")
     # pymi requires Kokkos/KokkosKernels >= 3.3, Trilinos 13.2 onward
     depends_on("trilinos@13.2.0:", when="+pymi")

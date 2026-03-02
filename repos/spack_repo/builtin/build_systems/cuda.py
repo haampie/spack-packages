@@ -147,22 +147,14 @@ class CudaPackage(PackageBase):
     depends_on("cuda@11.8:", when="cuda_arch=89")
 
     # Hopper support:
-    depends_on("cuda@12.0:", when="cuda_arch=90")
-    depends_on("cuda@12.0:", when="cuda_arch=90a")
 
     # Blackwell support:
-    depends_on("cuda@12.8:", when="cuda_arch=100")
-    depends_on("cuda@12.8:", when="cuda_arch=100a")
     depends_on("cuda@12.9:", when="cuda_arch=100f")
     depends_on("cuda@12.9:", when="cuda_arch=103")
     depends_on("cuda@12.9:", when="cuda_arch=103a")
     depends_on("cuda@12.9:", when="cuda_arch=103f")
     # Compute Capability 101 was renamed to 110 in CUDA 13
-    depends_on("cuda@12.8:12.9", when="cuda_arch=101")
-    depends_on("cuda@13.0:", when="cuda_arch=110")
 
-    depends_on("cuda@12.8:", when="cuda_arch=120")
-    depends_on("cuda@12.8:", when="cuda_arch=120a")
     depends_on("cuda@12.9:", when="cuda_arch=120f")
     depends_on("cuda@12.9:", when="cuda_arch=121")
     depends_on("cuda@12.9:", when="cuda_arch=121a")
@@ -214,10 +206,6 @@ class CudaPackage(PackageBase):
         conflicts("%gcc@5:", when="+cuda ^cuda@:7.5 target=x86_64:")
         conflicts("%gcc@6:", when="+cuda ^cuda@:8 target=x86_64:")
         conflicts("%gcc@7:", when="+cuda ^cuda@:9.1 target=x86_64:")
-        conflicts("%gcc@8:", when="+cuda ^cuda@:10.0.130 target=x86_64:")
-        conflicts("%gcc@9:", when="+cuda ^cuda@:10.2.89 target=x86_64:")
-        conflicts("%clang@:3.4", when="+cuda ^cuda@:7.5 target=x86_64:")
-        conflicts("%clang@:3.7,4:", when="+cuda ^cuda@8.0:9.0 target=x86_64:")
         conflicts("%clang@:3.7,4.1:", when="+cuda ^cuda@9.1 target=x86_64:")
         conflicts("%clang@:3.7,5.1:", when="+cuda ^cuda@9.2 target=x86_64:")
         conflicts("%clang@:3.7,6.1:", when="+cuda ^cuda@10.0.130 target=x86_64:")

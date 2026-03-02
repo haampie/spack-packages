@@ -57,10 +57,6 @@ class Boost(Package):
     version("1.59.0", sha256="727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca")
     version("1.58.0", sha256="fdfc204fc33ec79c99b9a74944c3e54bd78be4f7f15e260c0e2700a36dc7d3e5")
     version("1.57.0", sha256="910c8c022a33ccec7f088bd65d4f14b466588dda94ba2124e78b8c57db264967")
-    version("1.56.0", sha256="134732acaf3a6e7eba85988118d943f0fa6b7f0850f65131fff89823ad30ff1d")
-    version("1.55.0", sha256="fff00023dd79486d444c8e29922f4072e1d451fc5a4d2b6075852ead7f2b7b52")
-    version("1.54.0", sha256="047e927de336af106a24bceba30069980c191529fd76b8dff8eb9a328b48ae1d")
-    version("1.53.0", sha256="f88a041b01882b0c9c5c05b39603ec8383fb881f772f6f9e6e6fd0e0cddb9196")
     version("1.52.0", sha256="222b6afd7723f396f5682c20130314a10196d3999feab5ba920d2a6bf53bac92")
     version("1.51.0", sha256="fb2d2335a29ee7fe040a197292bfce982af84a645c81688a915c84c925b69696")
     version("1.50.0", sha256="c9ace2b8c81fa6703d1d17c7e478de3bc51101c5adbdeb3f6cb72cf3045a8529")
@@ -257,10 +253,6 @@ class Boost(Package):
     # Coroutine, Context, Fiber, etc., are not straightforward.
     conflicts("+context", when="@:1.50")  # Context since 1.51.0.
     conflicts("cxxstd=98", when="+context")  # Context requires >=C++11.
-    conflicts("+coroutine", when="@:1.52")  # Context since 1.53.0.
-    conflicts("~context", when="+coroutine")  # Coroutine requires Context.
-    conflicts("+fiber", when="@:1.61")  # Fiber since 1.62.0.
-    conflicts("cxxstd=98", when="+fiber")  # Fiber requires >=C++11.
     conflicts("~context", when="+fiber")  # Fiber requires Context.
 
     # NOTE: 1.64.0 seems fine for *most* applications, but if you need
@@ -323,12 +315,8 @@ class Boost(Package):
     patch("boost_11856.patch", when="@1.60.0%gcc@4.4.7")
 
     # Patch fix from https://svn.boost.org/trac/boost/ticket/11120
-    patch("python_jam-1_77.patch", when="@1.77:     ^python@3:")
-    patch("python_jam.patch", when="@1.56:1.76 ^python@3:")
-    patch("python_jam_pre156.patch", when="@:1.55.0   ^python@3:")
 
     # Patch fix for IBM XL compiler
-    patch("xl_1_62_0_le.patch", when="@1.62.0%xl_r")
     patch("xl_1_62_0_le.patch", when="@1.62.0%xl")
 
     # Patch fix from https://svn.boost.org/trac/boost/ticket/10125

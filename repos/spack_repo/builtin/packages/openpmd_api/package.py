@@ -21,10 +21,6 @@ class OpenpmdApi(CMakePackage):
     license("LGPL-3.0-only")
 
     # C++17 up until here
-    version("develop", branch="dev")
-    version("0.17.0", sha256="97ff76111f77b06177caa48fa1b5e757967a60a66665f0c13384828d3ae1aa92")
-    version("0.16.1", sha256="a029a1779351949f41c1f36d0e75c698e59c5d284f080d5e4c2b8650779d2d58")
-    version("0.16.0", sha256="b52222a4ab2511f9e3f6e21af222f57ab4fb6228623024fc5d982066333e104f")
     version("0.15.2", sha256="fbe3b356fe6f4589c659027c8056844692c62382e3ec53b953bed1c87e58ba13")
     version("0.15.1", sha256="0e81652152391ba4d2b62cfac95238b11233a4f89ff45e1fcffcc7bcd79dabe1")
     version("0.15.0", sha256="290e3a3c5814204ea6527d53423bfacf7a8dc490713227c9e0eaa3abf4756177")
@@ -64,11 +60,7 @@ class OpenpmdApi(CMakePackage):
     with when("+adios1"):
         depends_on("adios@1.13.1: ~sz")
         depends_on("adios@1.13.1: ~mpi ~sz", when="~mpi")
-        depends_on("adios@1.13.1: +mpi ~sz", when="+mpi")
     with when("+adios2"):
-        depends_on("adios2@2.5.0:")
-        depends_on("adios2@2.6.0:", when="@0.12.0:")
-        depends_on("adios2@2.7.0:", when="@0.14.0:")
         depends_on("adios2@2.9.0:", when="@0.17.0:")
         depends_on("adios2@2.5.0: ~mpi", when="~mpi")
         depends_on("adios2@2.5.0: +mpi", when="+mpi")
@@ -79,8 +71,6 @@ class OpenpmdApi(CMakePackage):
         depends_on("py-mpi4py@2.1.0:", when="+mpi", type=("test", "run"))
         with default_args(type=("link", "test", "run")):
             depends_on("python@3.7:")
-            depends_on("python@3.8:", when="@0.15.2:")
-            depends_on("python@3.10:", when="@0.17.0:")
 
 
     # Fix breaking HDF5 1.12.0 API when build with legacy api options
@@ -91,18 +81,8 @@ class OpenpmdApi(CMakePackage):
     # macOS AppleClang12 Fixes
 
     # forgot to bump version.hpp in 0.15.1
-    patch(
-        "https://github.com/openPMD/openPMD-api/commit/b3d3057e141af3a40dde5f00262a5671979a95c7.patch?full_index=1",
-        sha256="f31d0adcd407d20d559aa67e5f6ec2d81c6579b8b0166918c5178c02af180fba",
-        when="@0.15.1",
-    )
 
     # fix superbuild control in 0.16.0
-    patch(
-        "https://github.com/openPMD/openPMD-api/commit/3dc3a463d18dd5f87c38ee64d93bc7814b1cbb5d.patch?full_index=1",
-        sha256="474a7ccf11f0892717271fe3974a6ee046c15187a6ba12c75085a0d092071c9c",
-        when="@0.16.0",
-    )
 
     extends("python", when="+python")
 

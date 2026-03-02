@@ -26,12 +26,8 @@ class Memtailor(AutotoolsPackage):
 
     version("1.2", sha256="86cd8f888d23f53256937b47cebe8430daeb8146ca9816c4d3aef0fc5ebc702b")
     version("1.1", sha256="ce0dc2e5befd1e1f65c99510bc68ddc5b60f13066eac12ec5ce4e1da822e44eb")
-    version("1.0.2025.05.13", commit="07c84a6852212495182ec32c3bdb589579e342b5")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("autoconf", type="build")
     depends_on("automake", type="build")
     depends_on("libtool", type="build")
 

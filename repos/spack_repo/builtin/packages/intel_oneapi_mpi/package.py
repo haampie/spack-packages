@@ -26,30 +26,6 @@ class IntelOneapiMpi(IntelOneApiLibraryPackage):
     homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi/components/mpi-library.html"
 
     version(
-        "2021.17.2",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/86923909-82e5-4c1a-9499-b4263e800a33/intel-mpi-2021.17.2.94_offline.sh",
-        sha256="4861c55fdfde1f08a293a7cfb715aaab498cb8fc700d5db8f0b67660e5948350",
-        expand=False,
-    )
-    version(
-        "2021.17.1",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/7ba1f01b-8910-4f49-ad09-27751feb8009/intel-mpi-2021.17.1.13_offline.sh",
-        sha256="f6ce783a693ef508045a5c2ae425350f1c28f6cb4ad829d6b4a7ca65eb104eb3",
-        expand=False,
-    )
-    version(
-        "2021.17.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/0a3cb474-49c7-45a9-9dea-104122592a63/intel-mpi-2021.17.0.377_offline.sh",
-        sha256="7b6b6856f708ce3b95a303522d420e3761f290fc712b7890c7b6179de0140ff1",
-        expand=False,
-    )
-    version(
-        "2021.14.2",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/201b2570-bc4f-41ee-a6c8-6f7a71a4b840/intel-mpi-2021.14.2.9_offline.sh",
-        sha256="b1cdaa6237f9976dd67b3590c34b66c57b1f8fc2f470b7f18b34575d7f9fae04",
-        expand=False,
-    )
-    version(
         "2021.14.1",
         url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/1acd5e79-796c-401a-ab31-a3dc7b20c6a2/intel-mpi-2021.14.1.7_offline.sh",
         sha256="6459b9fc81fad9b9955de7fd9904e67fcf2ada3564ce0a74b9c14ea8fb533ddf",

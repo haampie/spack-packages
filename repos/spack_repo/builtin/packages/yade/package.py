@@ -24,12 +24,8 @@ class Yade(CMakePackage):
     version("2019.01a", sha256="7cb80b912cdc8752850de54ef3c084768c5ab69ce6af4b85dc3921674d7134a5")
     version("2018.02b", sha256="d1b2ed3751cd4661af1ad4058196adb16eb227845d874e1c221074a699876634")
     version("2018.02a", sha256="629a83ab71e2f47f2a7a83fd2c18ab5ce5573bf239445be0d4ff34ce08c11263")
-    version("2017.01a", sha256="cd35caa6b6a017ee82f894e7d6f0826fddc1d921aea04b5896d3f1da95cb649b")
-    version("2016.06a", sha256="6e7374d2dcb7c90026be9229a6b30373f9d82fdefd3dc1f952aa6262924f2579")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake", type="build")
     depends_on("libqglviewer", type=("build", "run"))
     depends_on("python", type=("build", "run"))
     depends_on("py-numpy", type=("build", "run"))

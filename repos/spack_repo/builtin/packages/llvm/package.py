@@ -351,7 +351,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
     # Older LLVM do not build with newer compilers, and vice versa
     with when("@16:"):
-        conflicts("%gcc@:7.0")
         conflicts("%clang@:4")
         conflicts("%apple-clang@:9")
     conflicts("%gcc@8:", when="@:5")

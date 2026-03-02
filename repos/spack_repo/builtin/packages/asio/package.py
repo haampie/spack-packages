@@ -75,7 +75,6 @@ class Asio(AutotoolsPackage):
 
     for std in stds:
         depends_on(f"boost +regex cxxstd={std}", when=f"cxxstd={std} +boost_regex")
-        depends_on(f"boost +context+coroutine cxxstd={std}", when=f"cxxstd={std} +boost_coroutine")
 
     def configure_args(self):
         variants = self.spec.variants

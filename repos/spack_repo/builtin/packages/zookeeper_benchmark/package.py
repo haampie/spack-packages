@@ -19,7 +19,6 @@ class ZookeeperBenchmark(MavenPackage):
 
     version("master", branch="master")
 
-    depends_on("zookeeper", type=("build", "run"))
 
     def build(self, spec, prefix):
         zookeeper_version = self.spec["zookeeper"].version.string

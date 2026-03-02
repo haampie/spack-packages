@@ -45,26 +45,8 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     # Features
 
     # Compression libraries
-    variant("png", default=True, description="Enable PNG compression")
-    variant("sz", default=True, description="Enable SZ2 compression")
-    variant("sz3", default=True, when="@2.12:", description="Enable SZ3 compression")
-    variant("mgard", default=not IS_WINDOWS, when="@2.8:", description="Enable MGARD compression")
 
     # Rransport engines
-    variant("sst", default=True, description="Enable the SST staging engine")
-    variant("hdf5", default=False, description="Enable the HDF5 engine")
-    variant(
-        "aws",
-        default=False,
-        when="@2.9:",
-        description="Enable support for S3 compatible storage using AWS SDK's S3 module",
-    )
-    variant(
-        "libcatalyst",
-        default=not IS_WINDOWS,
-        when="@2.9:",
-        description="Enable support for in situ visualization plugin using ParaView Catalyst",
-    )
 
     variant("xrootd", default=True, description="Enable the XRootD")
 

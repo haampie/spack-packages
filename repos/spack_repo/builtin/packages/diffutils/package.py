@@ -24,18 +24,10 @@ class Diffutils(AutotoolsPackage, GNUMirrorPackage):
 
     version("3.12", sha256="7c8b7f9fc8609141fdea9cece85249d308624391ff61dedaf528fcb337727dfd")
     version("3.7", sha256="b3a7a6221c3dc916085f0d205abf6b8e1ba443d4dd965118da364a1dc1cb3a26")
-    version("3.6", sha256="d621e8bdd4b573918c8145f7ae61817d1be9deb4c8d2328a65cea8e11d783bd6")
 
-    depends_on("c", type="build")
 
     build_directory = "spack-build"
 
-    patch("nvhpc.patch", when="@3.7 %nvhpc")
-    patch(
-        "intprops-workaround-nvc-22.1-bug.patch",
-        sha256="146b7021bb0a304a3d1c0638956c4e735c2076d292d238f2806efadc972d99e5",
-        when="@3.8 %nvhpc",
-    )
 
     conflicts("%nvhpc", when="@:3.6,3.8:")
 

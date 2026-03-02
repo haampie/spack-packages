@@ -96,16 +96,6 @@ supported, and netmod is ignored if device is ch3:sock.""",
     variant("argobots", default=False, description="Enable Argobots support")
     variant("fortran", default=True, description="Enable Fortran support")
 
-    variant(
-        "vci",
-        default=False,
-        when="@4: device=ch4",
-        description="Enable multiple VCI (virtual communication "
-        "interface) critical sections to improve performance "
-        "of applications that do heavy concurrent MPI"
-        "communications. Set MPIR_CVAR_CH4_NUM_VCIS=<N> to "
-        "enable multiple vcis at runtime.",
-    )
 
     variant(
         "datatype-engine",

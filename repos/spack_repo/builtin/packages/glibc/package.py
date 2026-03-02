@@ -120,18 +120,14 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     depends_on("texinfo", type="build")
     depends_on("gettext", type="build")
     depends_on("perl", type="build")
-    depends_on("gawk", type="build")
     # See 2d7ed98add14f75041499ac189696c9bd3d757fe
     # Since f2873d2da0ac9802e0b570e8e0b9e7e04a82bf55
 
     # From 2.29: generates locale/C-translit.h
     # before that it's a test dependency.
 
-    depends_on("linux-headers")
 
     with when("@master"):
-        depends_on("autoconf", type="build")
-        depends_on("automake", type="build")
         depends_on("libtool", type="build")
 
     def configure_args(self):

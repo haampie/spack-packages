@@ -117,18 +117,11 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         depends_on("isl@0.15", when="@5.3:5.9")
         depends_on("isl@0.15:0.18", when="@6:8.9")
 
-    depends_on("zlib-api", when="@6:")
-    depends_on("zstd", when="@10:")
-    depends_on("diffutils", type="build")
-    depends_on("iconv", when="platform=darwin")
 
     # The server is sometimes a bit slow to respond
     timeout = {"timeout": 60}
 
     # depends_on('ppl')
-    depends_on("tcl", type="test")
-    depends_on("autogen@5.5.4:", type="test")
-    depends_on("guile@1.4.1:", type="test")
 
     # See https://go.dev/doc/install/gccgo#Releases
     with when("languages=go"):
@@ -178,7 +171,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     }
 
     with when("+nvptx"):
-        depends_on("cuda")
         nvptx_newlib_ver = "4.5.0.20241231"
         resource(
             name="newlib",

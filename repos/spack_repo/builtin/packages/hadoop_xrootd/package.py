@@ -17,12 +17,8 @@ class HadoopXrootd(MavenPackage):
 
     license("Apache-2.0")
 
-    version("1.0.7", sha256="9a129dc14b3dc139aa4da7543f6392a5c80b41fea6bb9f6cd27db5acf6f5471f")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("hadoop")
-    depends_on("xrootd")
     conflicts("%clang")
 
     def build_args(self):

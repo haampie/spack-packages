@@ -42,10 +42,6 @@ class Cabana(CMakePackage, CudaPackage, ROCmPackage):
     variant("hypre", default=False, description="Build with HYPRE support")
     variant("silo", default=False, description="Build with SILO support")
     variant("hdf5", default=False, description="Build with HDF5 support")
-    variant("cajita", default=False, description="Build Cajita subpackage (Grid in 0.6:)")
-    variant("grid", default=False, description="Build Grid subpackage")
-    variant("testing", default=False, description="Build unit tests")
-    variant("examples", default=False, description="Build tutorial examples")
     variant("performance_testing", default=False, description="Build performance tests")
 
     depends_on("c", type="build", when="+mpi")

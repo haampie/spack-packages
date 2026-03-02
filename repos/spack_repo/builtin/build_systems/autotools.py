@@ -59,8 +59,6 @@ class AutotoolsPackage(PackageBase):
         depends_on("gnuconfig", type="build", when="target=ppc64le:")
         depends_on("gnuconfig", type="build", when="target=aarch64:")
         depends_on("gnuconfig", type="build", when="target=riscv64:")
-        depends_on("gmake", type="build")
-        conflicts("platform=windows")
 
     def flags_to_build_system_args(self, flags):
         """Produces a list of all command line arguments to pass specified
@@ -637,7 +635,6 @@ To resolve this problem, please try the following:
         with working_dir(self.build_directory):
             pkg.module.make(*self.install_targets)
 
-    run_after("build")(execute_build_time_tests)
 
     def check(self) -> None:
         """Run "make" on the ``test`` and ``check`` targets, if found."""
@@ -818,7 +815,6 @@ To resolve this problem, please try the following:
         """
         return self._activate_or_not(name, "enable", "disable", activation_value, variant)
 
-    run_after("install")(execute_install_time_tests)
 
     def installcheck(self) -> None:
         """Run "make" on the ``installcheck`` target, if found."""

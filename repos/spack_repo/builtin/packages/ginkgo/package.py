@@ -50,10 +50,6 @@ class Ginkgo(CMakePackage, CudaPackage, ROCmPackage):
 
     variant("shared", default=True, description="Build shared libraries")
     variant("full_optimizations", default=False, description="Compile with all optimizations")
-    variant("openmp", default=sys.platform != "darwin", description="Build with OpenMP")
-    variant("sycl", default=False, description="Enable SYCL backend")
-    variant("develtools", default=False, description="Compile with develtools enabled")
-    variant("hwloc", default=False, description="Enable HWLOC support")
     variant("sde", default=False, description="Enable PAPI SDE support", when="@1.7.0:")
     variant("mpi", default=False, description="Enable MPI support", when="@1.5.0:")
     variant(

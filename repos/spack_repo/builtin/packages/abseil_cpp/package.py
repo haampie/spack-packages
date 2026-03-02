@@ -77,18 +77,9 @@ class AbseilCpp(CMakePackage):
         when="@20240116",
     )
 
-    variant("shared", default=True, description="Build shared instead of static libraries")
 
-    conflicts("+shared", when="@:20190808")
 
-    variant(
-        "cxxstd",
-        values=(conditional("11", when="@:2022"), "14", "17", "20"),
-        default="14",
-        description="C++ standard used during compilation",
-    )
 
-    depends_on("cxx", type="build")  # generated
 
     depends_on("cmake@3.16:", when="@20240722:", type="build")
 

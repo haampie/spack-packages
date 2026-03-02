@@ -31,7 +31,6 @@ class Aspcud(CMakePackage):
     depends_on("boost@1.74:+exception+serialization+container", type=("build"), when="@1.9.5:")
     depends_on("cmake", type=("build"))
     depends_on("re2c", type=("build"))
-    depends_on("clingo")
 
     def cmake_args(self):
         gringo_path = join_path(self.spec["clingo"].prefix.bin, "gringo")

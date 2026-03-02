@@ -20,13 +20,9 @@ class Btllib(MesonPackage):
     version("1.7.4", sha256="8c046340b9db4d580521297bfd9cb55af6877a34b48cf6a053266703ebc17837")
 
     depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("gettext")
 
     with default_args(type="build"):
-        depends_on("cmake")
-        depends_on("ninja")
         depends_on("python@3.9:")
 
     with default_args(type=("build", "run")):

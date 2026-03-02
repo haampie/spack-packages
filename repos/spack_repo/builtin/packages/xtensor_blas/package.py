@@ -30,10 +30,6 @@ class XtensorBlas(CMakePackage):
     depends_on("cmake@3.1:", type="build")
     # the information below can be found in the xtensor-blas README
     depends_on("xtensor@0.24.0:", when="@0.20:")
-    depends_on("xtensor@0.23.3:", when="@0.19.1:0.19.2")
-    depends_on("xtensor@0.23.0:", when="@0.19.0")
-    depends_on("xtensor@0.22.0:", when="@0.18.0")
-    depends_on("xtensor@0.21.4:", when="@0.17.2")
     depends_on("xtensor@0.21.2:", when="@:0.17.1")
 
     # C++14 support

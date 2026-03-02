@@ -44,10 +44,6 @@ class Icedtea(AutotoolsPackage):
     depends_on("java", type="build")
     # X11 deps required for building even when headless
     depends_on("libx11", when="~X", type="build")
-    depends_on("xproto", when="~X", type="build")
-    depends_on("libxext", when="~X", type="build")
-    depends_on("libxtst", when="~X", type="build")
-    depends_on("libxi", when="~X", type="build")
     depends_on("libxt", when="~X", type="build")
     depends_on("libxinerama", when="~X", type="build")
     depends_on("libxrender", when="~X", type="build")

@@ -1,3 +1,0 @@
-repos:
-  builtin:: ../../../repos/spack_repo/builtin
-  ci: ../repos/spack_repo/ci

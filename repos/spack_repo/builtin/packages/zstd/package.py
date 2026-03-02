@@ -45,14 +45,10 @@ class Zstd(CMakePackage, MakefilePackage):
 
 
     depends_on("zlib-api", when="compression=zlib")
-    depends_on("lz4", when="compression=lz4")
-    depends_on("xz", when="compression=lzma")
 
     # +programs builds vendored xxhash, which uses unsupported builtins
     # (last tested: nvhpc@22.3)
-    conflicts("+programs %nvhpc")
 
-    conflicts("platform=windows", when="@1.5.6")
 
     build_system("cmake", "makefile", default="makefile")
 

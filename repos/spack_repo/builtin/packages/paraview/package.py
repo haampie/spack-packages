@@ -145,16 +145,12 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # in 5.7 you cannot reduce the size of the code for Catalyst builds.
     conflicts("build_edition=catalyst_rendering", when="@:5.7")
     conflicts("build_edition=catalyst", when="@:5.7")
-    conflicts("build_edition=rendering", when="@:5.7")
     # before 5.3.0, ParaView didn't have VTK-m/Viskores
 
-    depends_on("cmake@3.21:", type="build", when="+rocm")
 
-    extends("python", when="+python")
 
     # This affects Paraview <= 5.7 (VTK 8.2.0)
     # https://gitlab.kitware.com/vtk/vtk/-/issues/17670
-    depends_on("python@3:", when="@5.8:+python", type=("build", "run"))
 
     depends_on("py-numpy", when="+python", type=("build", "run"))
     depends_on("py-mpi4py", when="+python+mpi", type=("build", "run"))

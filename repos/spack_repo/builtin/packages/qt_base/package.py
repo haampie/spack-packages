@@ -175,7 +175,6 @@ class QtBase(QtPackage):
     depends_on("cmake@3.21:", type="build", when="platform=darwin")
     depends_on("double-conversion")
     depends_on("icu4c")
-    depends_on("libxml2")
     depends_on("pcre2+multibyte")
     depends_on("zlib-api")
     depends_on("zstd")

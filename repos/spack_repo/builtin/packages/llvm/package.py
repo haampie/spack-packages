@@ -362,27 +362,12 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     #
     # see https://reviews.llvm.org/D64937
     # see https://github.com/spack/spack/issues/24270
-    patch(
-        "https://github.com/llvm/llvm-project/commit/b288d90b39f4b905c02092a9bfcfd6d78f99b191.patch?full_index=1",
-        sha256="2028d52e1a39326bb48fb7463132bbfe7fb4fa18f1adfeea9c3ed0320ed49564",
-        when="@8:9.0.0",
-    )
     #
     # committed upstream without a review
     # see https://github.com/llvm/llvm-project/commit/b498303066a63a203d24f739b2d2e0e56dca70d1
     # see https://github.com/spack/spack/pull/28547
-    patch(
-        "https://github.com/llvm/llvm-project/commit/b498303066a63a203d24f739b2d2e0e56dca70d1.patch?full_index=1",
-        sha256="514926d661635de47972c7d403c9c4669235aa51e22e56d44676d2a2709179b6",
-        when="@8:11",
-    )
     #
     # fix compilation against libstdc++13
-    patch(
-        "https://github.com/llvm/llvm-project/commit/1b4fdf18bc2aaa2d46bf072475dd9cbcd44a9fee.patch?full_index=1",
-        sha256="82481418766b4b949ea808d956ff3800b9a241a576370114862428bb0e25ee1f",
-        when="@14:15",
-    )
 
     # missing <cstdint> include
     patch(

@@ -99,13 +99,9 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     conflicts("^cuda@13:", when="+cuda")
 
 
-    depends_on("yaml-cpp")
     # Standalone CUDA support
-    depends_on("cuda", when="+cuda ~kokkos")
     # Kokkos support
     with when("+kokkos"):
-        depends_on("kokkos@3.7:")
-        depends_on("kokkos +cuda +wrapper", when="+cuda")
         depends_on("kokkos +rocm", when="+rocm")
         depends_on("kokkos +sycl", when="+sycl")
 

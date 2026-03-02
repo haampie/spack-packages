@@ -25,15 +25,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     catalyst package.
     """
     homepage = "https://www.paraview.org"
-    url = "https://www.paraview.org/files/v5.7/ParaView-v5.7.0.tar.xz"
-    list_url = "https://www.paraview.org/files"
-    list_depth = 1
-    git = "https://gitlab.kitware.com/paraview/paraview.git"
-    tags = ["e4s"]
-    with default_args(deprecated=True):
-        version("5.5.2", sha256="64561f34c4402b88f3cb20a956842394dde5838efd7ebb301157a837114a0e2d")
-    variant("python", default=False, description="Enable Python support", when="@5.8:")
-    variant("fortran", default=False, description="Enable Fortran support")
     variant("mpi", default=True, description="Enable MPI support")
     variant("qt", default=False, description="Enable Qt (gui) support")
     variant("visitbridge", default=False, description="Enable VisItBridge support")

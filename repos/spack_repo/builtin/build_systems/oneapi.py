@@ -34,15 +34,6 @@ class IntelOneApiPackage(Package):
     # organization (e.g. University/Company).
     # contains precompiled binaries without rpaths
     unresolved_libraries = ["*"]
-    for c in [
-        "target=ppc64:",
-        "target=ppc64le:",
-        "target=aarch64:",
-        "platform=darwin",
-        "platform=windows",
-    ]:
-        conflicts(c, msg="This package in only available for x86_64 and Linux")
-    # Add variant to toggle environment modifications from vars.sh
     variant("envmods", default=True, description="Toggles environment modifications")
     @staticmethod
     def update_description(cls):

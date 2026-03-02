@@ -178,10 +178,6 @@ class Openfoam(Package):
     # Earlier versions of OpenFOAM may not work with CGAL 5.6. I do
     # not know which OpenFOAM added support for 5.x and conservatively
     # use 2312 in the check.
-    # cgal@6 needs c++17, but until v2412 OpenFOAM forced c++14
-
-    # The flex restriction is ONLY to deal with a spec resolution clash
-    # introduced by the restriction within scotch!
     depends_on("flex@:2.6.1,2.6.4:")
     depends_on("cmake", type="build")
 

@@ -40,9 +40,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         when="@5.3.0:5.13",
         multi=False,
         values=("default", "on", "off"),
-        description="Build VTK-m with ParaView."
-        ' "default" lets the build_edition make the decision.'
-        ' "on" or "off" will always override the build_edition.',
     )
     # Legacy rendering dropped in 5.5
     # See commit: https://gitlab.kitware.com/paraview/paraview/-/commit/798d328c

@@ -52,10 +52,6 @@ class Librsvg(AutotoolsPackage, MesonPackage):
     # minimum supported rust version (MSRV) from `meson.build` or `configure` file
     depends_on("rust@1.85.1:", when="@2.61:", type="build")
     depends_on("rust@1.77.2:", when="@2.59:", type="build")
-    depends_on("rust@1.70:", when="@2.57:", type="build")
-    depends_on("rust@1.65:", when="@2.56.1:", type="build")
-    depends_on("rust@1.64:", when="@2.56:", type="build")
-    depends_on("rust@1.52:", when="@2.52:", type="build")
     depends_on("rust@1.51:", when="@2.51.2:", type="build")
     # upper bound because "Unaligned references to packed fields are a hard
     # error" starting from 1.69

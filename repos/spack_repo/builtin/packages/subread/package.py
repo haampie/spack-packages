@@ -24,11 +24,7 @@ class Subread(MakefilePackage):
     version("2.0.2", sha256="0b64bd51f39f8d322c4594697fa5f0f64fbe60283113eadadff9f4268f897079")
     version("2.0.0", sha256="bd7b45f7d8872b0f5db5d23a385059f21d18b49e432bcb6e3e4a879fe51b41a8")
     version("1.6.4", sha256="b7bd0ee3b0942d791aecce6454d2f3271c95a010beeeff2daf1ff71162e43969")
-    version("1.6.2", sha256="77b4896c1c242967c5883a06c0a5576a5ff220008a12aa60af9669d2f9a87d7a")
-    version("1.6.0", sha256="31251ec4c134e3965d25ca3097890fb37e2c7a4163f6234515534fd325b1002a")
-    version("1.5.2", sha256="a8c5f0e09ed3a105f01866517a89084c7302ff70c90ef8714aeaa2eab181a0aa")
 
-    depends_on("c", type="build")  # generated
 
 
     def build(self, spec, prefix):

@@ -77,13 +77,9 @@ class Mumps(Package):
     depends_on("lapack")
     depends_on("scalapack", when="+mpi")
     depends_on("mpi", when="+mpi")
-    depends_on("gmake", type="build")
 
-    patch("examples.patch", when="@5.1.1%clang^spectrum-mpi")
-    patch("gfortran8.patch", when="@5.1.2")
     # The following patches src/Makefile to fix some dependency
     # issues in lib[cdsz]mumps.so
-    patch("mumps.src-makefile.5.2.patch", when="@5.2 +shared")
     patch("mumps.src-makefile.5.3.patch", when="@5.3:5.4 +shared")
     patch("mumps.src-makefile.5.5.patch", when="@5.5:5.7 +shared")
     patch("mumps.src-makefile.5.8.patch", when="@5.8: +shared")

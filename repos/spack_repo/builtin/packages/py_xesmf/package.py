@@ -23,12 +23,8 @@ class PyXesmf(PythonPackage):
         depends_on("py-setuptools-scm")
 
     with default_args(type=("build", "run")):
-        depends_on("py-cf-xarray@0.5.1:")
 
         # esmf +python is only handled correctly in spack for 8.4+
-        depends_on("esmf@8.4.0: +python")
-        depends_on("py-numba@0.55.2:")
-        depends_on("py-numpy@1.16:")
         depends_on("py-shapely")
         depends_on("py-sparse@0.8:")
         depends_on("py-xarray@0.16.2:")

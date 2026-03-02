@@ -81,18 +81,7 @@ class Scr(CMakePackage):
         depends_on("dtcmp@1.1.4:")
 
     # DTCMP is an optional dependency up until 3.x, required thereafter
-    variant(
-        "dtcmp",
-        default=True,
-        when="@:2",
-        description="Build with DTCMP. Necessary to enable user directory naming at runtime",
-    )
-    depends_on("dtcmp", when="+dtcmp")
-    depends_on("dtcmp", when="@3:")
 
-    variant(
-        "libyogrt", default=True, description="Build SCR with libyogrt for get_time_remaining."
-    )
     depends_on("libyogrt scheduler=slurm", when="+libyogrt resource_manager=SLURM")
     depends_on("libyogrt scheduler=flux", when="+libyogrt resource_manager=FLUX")
     depends_on("libyogrt scheduler=lsf", when="+libyogrt resource_manager=LSF")

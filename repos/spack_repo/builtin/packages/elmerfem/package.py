@@ -36,10 +36,6 @@ class Elmerfem(CMakePackage):
     depends_on("cxx", type="build")  # generated
     depends_on("fortran", type="build")  # generated
 
-    depends_on("qt@5:+opengl", when="+gui")
-    depends_on("qwt", when="+gui")
-    depends_on("paraview+qt", when="+gui")
-    depends_on("mpi")
     depends_on("mumps+openmp", when="+mumps+openmp")
     depends_on("mumps~openmp", when="+mumps~openmp")
     depends_on("hypre", when="+hypre")

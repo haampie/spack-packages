@@ -23,14 +23,10 @@ class Xpmem(AutotoolsPackage):
 
     license("LGPL-2.1-or-later")
 
-    version("master", branch="master")
 
     # Versions starting 2.6.4 are neither tagged nor released in the repo
     # (the choice of commits is based on the commit history of
     # 'kernel/xpmem_private.h'):
-    version("2.6.5-36", commit="0d0bad4e1d07b38d53ecc8f20786bb1328c446da")
-    version("2.6.5", commit="4efeed9cbaabe971f3766d67cb108e2c3316d4b8")
-    version("2.6.4", commit="522054850e4d1479d69f50f7190d1548bf9749fd")
 
     # Released versions:
     version("2.6.3", sha256="ee239a32269f33234cdbdb94db29c12287862934c0784328d34aff82a9fa8b54")

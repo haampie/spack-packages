@@ -68,10 +68,6 @@ class Grpc(CMakePackage):
     depends_on("cxx", type="build")
 
     depends_on("protobuf")
-    depends_on("protobuf@3.22:", when="@1.55:")
-    depends_on("openssl")
-    depends_on("zlib-api")
-    depends_on("c-ares")
 
     with when("@1.27:"):
         depends_on("abseil-cpp")

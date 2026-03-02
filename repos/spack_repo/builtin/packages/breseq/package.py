@@ -29,12 +29,8 @@ class Breseq(AutotoolsPackage):
     depends_on("automake", type="build")
     depends_on("libtool", type="build")
     depends_on("m4", type="build")
-    depends_on("zlib-api", type="link")
 
-    depends_on("bedtools2", type="run")
-    depends_on("r", type="run")
 
-    conflicts("%gcc@:4.8")
     conflicts("%clang@:3.3")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:

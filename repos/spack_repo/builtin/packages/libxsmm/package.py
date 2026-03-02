@@ -28,14 +28,6 @@ class Libxsmm(MakefilePackage):
     # after 2.0 release.
     version("main-2023-11", commit="0d9be905527ba575c14ca5d3b4c9673916c868b2")
     version("main", branch="main")
-    version("1.17-cp2k", commit="6f883620f58afdeebab28039fc9cf580e76a5ec6")
-    version(
-        "1.17",
-        sha256="8b642127880e92e8a75400125307724635ecdf4020ca4481e5efe7640451bb92",
-        preferred=True,
-    )
-    version("1.16.3", sha256="e491ccadebc5cdcd1fc08b5b4509a0aba4e2c096f53d7880062a66b82a0baf84")
-    version("1.16.2", sha256="bdc7554b56b9e0a380fc9c7b4f4394b41be863344858bc633bc9c25835c4c64e")
     version("1.16.1", sha256="93dc7a3ec40401988729ddb2c6ea2294911261f7e6cd979cf061b5c3691d729d")
     version("1.16", sha256="4f4f2ad97815413af80821d2e306eb6f00541941ad412662da05c02361a20e07")
     version("1.15", sha256="499e5adfbf90cd3673309243c2b56b237d54f86db2437e1ac06c8746b55ab91c")

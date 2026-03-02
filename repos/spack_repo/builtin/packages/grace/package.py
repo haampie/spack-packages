@@ -15,9 +15,7 @@ class Grace(AutotoolsPackage):
     # is currently unavailable so we use one of the mirrors instead.
     url = "ftp://ftp.fu-berlin.de/unix/graphics/grace/src/grace5/grace-5.1.25.tar.gz"
 
-    maintainers("RemiLacroix-IDRIS")
 
-    license("GPL-2.0-or-later")
 
     version("5.1.25", sha256="751ab9917ed0f6232073c193aba74046037e185d73b77bab0f5af3e3ff1da2ac")
 

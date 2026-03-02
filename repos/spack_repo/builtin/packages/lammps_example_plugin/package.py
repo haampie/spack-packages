@@ -26,10 +26,6 @@ class LammpsExamplePlugin(CMakePackage):
     # * a stable version that has updates and any of its outdated update releases should be
     #   marked deprecated=True
     # * patch releases older than a stable release should be marked deprecated=True
-    version("develop", branch="develop")
-    version("20240829", sha256="6112e0cc352c3140a4874c7f74db3c0c8e30134024164509ecf3772b305fde2e")
-    version("20240627", sha256="2174a99d266279823a8c57629ee1c21ec357816aefd85f964d9f859fe9222aa5")
-    version("20240417", sha256="158b288725c251fd8b30dbcf61749e0d6a042807da92af865a7d3c413efdd8ea")
     version(
         "20240207.1", sha256="3ba62c2a1ed463fceedf313a1c3ea2997994aa102379a8d35b525ea424f56776"
     )

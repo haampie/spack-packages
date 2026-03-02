@@ -24,17 +24,7 @@ class Chombo(MakefilePackage):
 
     # Use whatever path Brian V. and Terry L. agreed upon, but preserve version
     version("3.2", commit="71d856c2f469e96755a606db1e5151067da0f54a")
-    version("develop", branch="master")
 
-    variant("mpi", default=True, description="Enable MPI parallel support")
-    variant("hdf5", default=True, description="Enable HDF5 support")
-    variant(
-        "dims",
-        default="3",
-        values=("1", "2", "3", "4", "5", "6"),
-        multi=False,
-        description="Number of PDE dimensions [1-6]",
-    )
 
     patch("hdf5-16api.patch", when="@3.2", level=0)
     patch("Make.defs.local.template.patch", when="@3.2", level=0)

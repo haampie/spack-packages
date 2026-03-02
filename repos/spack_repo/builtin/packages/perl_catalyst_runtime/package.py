@@ -45,10 +45,6 @@ class PerlCatalystRuntime(PerlPackage):
     depends_on(
         "perl-plack-middleware-fixmissingbodyinredirect@0.09:", type=("build", "run", "test")
     )
-    depends_on("perl-plack-middleware-methodoverride@0.12:", type=("build", "run", "test"))
-    depends_on("perl-plack-middleware-removeredundantbody@0.03:", type=("build", "run", "test"))
-    depends_on("perl-plack-middleware-reverseproxy@0.04:", type=("build", "run", "test"))
-    depends_on("perl-plack-test-externalserver", type=("build", "run", "test"))
     depends_on("perl-safe-isa", type=("build", "run", "test"))
     depends_on("perl-stream-buffered", type=("build", "run", "test"))
     depends_on("perl-string-rewriteprefix@0.004:", type=("build", "run", "test"))

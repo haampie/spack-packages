@@ -28,9 +28,6 @@ class Spaceranger(Package):
     # spaceranger is distributed as precompiled binaries that are not compatible with
     # processors without the avx instruction set ...
     # https://www.10xgenomics.com/support/software/space-ranger/downloads/space-ranger-system-requirements
-    conflicts("target=:k10")  # last AMD processor not to support avx
-    conflicts("target=:westmere")  # last Intel processor not to support avx
-    conflicts("target=:x86_64_v2")  # last generic architecture not to support avx
 
     def url_for_version(self, version):
         return "file://{0}/spaceranger-{1}.tar.gz".format(os.getcwd(), version)

@@ -400,11 +400,7 @@ class Mapl(CMakePackage):
 
     depends_on("flap", when="+flap")
 
-    depends_on("ecbuild", type="build")
 
-    depends_on("python@3:")
-    depends_on("py-numpy", when="+f2py")
-    depends_on("perl")
 
     # when using apple-clang version 15.x or newer, need to use the llvm-openmp library
     depends_on("llvm-openmp", when="%apple-clang@15:", type=("build", "run"))

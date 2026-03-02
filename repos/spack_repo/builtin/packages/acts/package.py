@@ -299,20 +299,6 @@ class Acts(CMakePackage, CudaPackage):
     )
     requires("+gnn", when="+torch")
     variant("odd", default=False, description="Build the Open Data Detector", when="@19.1:")
-    variant("podio", default=False, description="Build Podio plugin", when="@30.3:")
-    variant(
-        "profilecpu",
-        default=False,
-        description="Enable CPU profiling using gperftools",
-        when="@19.3:",
-    )
-    variant(
-        "profilemem",
-        default=False,
-        description="Enable memory profiling using gperftools",
-        when="@19.3:",
-    )
-    variant("sycl", default=False, description="Build the SyCL plugin", when="@1:34")
 
     # The TGeo and ROOT variants are synonyms, and the goal is to slowly phase
     # out the TGeo name. The plan for this is as follow. First, we use both

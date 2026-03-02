@@ -126,30 +126,6 @@ class IntelOneapiVtune(IntelOneApiLibraryPackageWithSdk):
         expand=False,
     )
     version(
-        "2024.0.0",
-        url="https://registrationcenter-download.intel.com/akdlm//IRC_NAS/1722cc83-ceb2-4304-b4dc-2813780222a3/l_oneapi_vtune_p_2024.0.0.49503_offline.sh",
-        sha256="09537329bdf6e105b0e164f75dc8ae122adc99a64441f6a52225509bcff3b848",
-        expand=False,
-    )
-    version(
-        "2023.2.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/dfae6f23-6c90-4b9f-80e2-fa2a5037fe36/l_oneapi_vtune_p_2023.2.0.49485_offline.sh",
-        sha256="482a727afe0ac6f81eff51503857c28fcb79ffdba76260399900f3397fd0adbd",
-        expand=False,
-    )
-    version(
-        "2023.1.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/4466ed1b-5d4a-4b30-9146-1eabc336c647/l_oneapi_vtune_p_2023.1.0.44286_offline.sh",
-        sha256="4730552281d03e40370be300044e724c65e596f5062fddb002ed7b52de630a75",
-        expand=False,
-    )
-    version(
-        "2023.0.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/19136/l_oneapi_vtune_p_2023.0.0.25339_offline.sh",
-        sha256="77fb356b501177d7bd5c936729ba4c1ada45935dc45a8ecd2f1164c276feb1ea",
-        expand=False,
-    )
-    version(
         "2022.4.1",
         url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/19027/l_oneapi_vtune_p_2022.4.1.16919_offline.sh",
         sha256="eb4b4da61eea52c08fc139dbf4630e2c52cbcfaea8f1376c545c0863839366d1",

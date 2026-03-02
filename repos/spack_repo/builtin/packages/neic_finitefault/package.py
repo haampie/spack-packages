@@ -74,12 +74,9 @@ class NeicFinitefault(PythonPackage):
     depends_on("gmt@=6.4.0", type=("build", "run"))
     depends_on("proj@=9.2.0", type=("build", "run"))
     # not a direct dep, but we do need gdal to have these variants
-    depends_on("gdal+jpeg+jxl+openjpeg", type=("build", "run"))
-    depends_on("gmake", type="build")
 
     parallel = False
 
-    patch("fortran-filename-length.patch")
 
     @run_before("install")
     def build(self):

@@ -13,9 +13,6 @@ def ensure_build_dependencies_or_raise(spec: Spec, dependencies: List[str], erro
     Args:
           RuntimeError: when the required build dependencies are not found
     """
-    assert spec.concrete, "Can ensure build dependencies only on concrete specs"
-    msg += '\nUpdate the version (when="@{0}") as needed.'.format(spec.version)
-    raise RuntimeError(msg)
 def execute_build_time_tests(builder: Builder):
     """Execute the build-time tests prescribed by builder.
     Args:

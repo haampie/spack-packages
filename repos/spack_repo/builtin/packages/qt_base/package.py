@@ -19,6 +19,13 @@ class QtPackage(CMakePackage):
     def get_list_url(qualname):
         _list_url = "https://github.com/qt/{}/tags"
         return _list_url.format(qualname.lower())
+    # Default dependencies for all qt-* components
+    depends_on("cmake@3.16:", type="build")
+    depends_on("pkgconfig", type="build", when="platform=linux")
+    # List of unnecessary directories in src/3rdparty
+    vendor_deps_to_remove = []
+    @run_after("patch")
+    def remove_vendor_deps(self, vendor_dir, vendor_deps_to_remove):
         """Remove src/3rdparty libraries that are provided by spack"""
         vendor_dir = join_path(self.stage.source_path, "src", "3rdparty")
         with working_dir(vendor_dir):
@@ -47,9 +54,3 @@ class QtBase(QtPackage):
     # Dependencies, then variant- and version-specific dependencies
     with when("platform=linux"):
         depends_on("libdrm")
-    with when("+gui"):
-        depends_on("fontconfig")
-        depends_on("freetype")
-        depends_on("jpeg")
-        with when("platform=linux"):
-            depends_on("xcb-util-keysyms")

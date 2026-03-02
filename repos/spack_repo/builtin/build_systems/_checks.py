@@ -19,13 +19,6 @@ def ensure_build_dependencies_or_raise(spec: Spec, dependencies: List[str], erro
     assert spec.concrete, "Can ensure build dependencies only on concrete specs"
     build_deps = [d.name for d in spec.dependencies(deptype="build")]
     msg = (
-        "{0}: missing dependencies: {1}.\n\nPlease add "
-        "the following lines to the package:\n\n".format(
-            error_msg, ", ".join(str(d) for d in missing_deps)
-        )
-    )
-    for dep in missing_deps:
-        msg += '    depends_on("{0}", type="build", when="@{1} {2}")\n'.format(
             dep, spec.version, "build_system=autotools"
         )
     msg += '\nUpdate the version (when="@{0}") as needed.'.format(spec.version)

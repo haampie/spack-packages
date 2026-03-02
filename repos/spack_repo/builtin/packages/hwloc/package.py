@@ -95,10 +95,6 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
     # For older versions this can be fixed by depending on
     # ncurses~termlib, but this could lead to insatisfiable
     # constraints (e.g. llvm explicitly depends on ncurses+termlib)
-    # Therefore we patch the latest 1.x configure script to make
-    # it consider libtinfo too.
-    # see https://github.com/open-mpi/hwloc/pull/417
-    patch("0001-Try-linking-to-libtinfo.patch", when="@1.11.13")
 
     # When mpi=openmpi, this introduces an unresolvable dependency.
     # See https://github.com/spack/spack/issues/15836 for details

@@ -115,9 +115,6 @@ class Hdf5(CMakePackage):
     # See https://github.com/spack/spack/issues/31085
     conflicts("+fortran+mpi", when="@1.8.22")
     # See https://github.com/HDFGroup/hdf5/issues/2906#issue-1697749645
-
-    # HDF5 searches for zlib CMake config files before it falls back to
-    # FindZLIB.cmake. We don't build zlib with CMake by default, so have to
     # delete the first search, otherwise it may find a system zlib. See
     # https://github.com/HDFGroup/hdf5/issues/4904
     patch("find_package_zlib.patch", when="@1.8.16:1.14.4")

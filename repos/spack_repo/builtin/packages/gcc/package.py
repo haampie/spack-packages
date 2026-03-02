@@ -154,12 +154,9 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
     # https://gcc.gnu.org/install/prerequisites.html
     # mawk is not sufficient for go support
-    depends_on("texinfo@4.7:", type="build")
     depends_on("libtool", type="build")
     # dependencies required for git versions
-    depends_on("m4@1.4.6:", when="@master", type="build")
     depends_on("automake@1.15.1:", when="@master", type="build")
-    depends_on("autoconf@2.69:", when="@master", type="build")
 
     depends_on("gmake@3.80:", type="build")
     depends_on("perl@5", type="build")

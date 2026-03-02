@@ -26,7 +26,6 @@ class M4(AutotoolsPackage, GNUMirrorPackage):
     # Workaround bug where __LONG_WIDTH__ is not defined
     # from: https://github.com/Homebrew/homebrew-core/blob/master/Formula/m4.rb
     # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
-    patch("secure_snprintf.patch", when="@:1.4.18 os=bigsur")
     # from: https://www.mail-archive.com/m4-patches@gnu.org/msg01208.html
     # tests: Fix failing test checks/198.sysval with upstream patch for doc/m4.texi
 

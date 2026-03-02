@@ -83,7 +83,6 @@ class Hdf5(CMakePackage):
     # See https://github.com/HDFGroup/hdf5/issues/2906#issue-1697749645
     # delete the first search, otherwise it may find a system zlib. See
     # https://github.com/HDFGroup/hdf5/issues/4904
-    patch("find_package_zlib.patch", when="@1.8.16:1.14.4")
 
     # There are several officially unsupported combinations of the features:
     # 1. Thread safety is not guaranteed via high-level C-API but in some cases
@@ -130,11 +129,6 @@ class Hdf5(CMakePackage):
 
     # Disable MPI C++ interface when C++ is disabled, otherwise downstream
     # libraries fail to link; see https://github.com/spack/spack/issues/12586
-    patch(
-        "h5public-skip-mpicxx.patch",
-        when="@1.8.10:1.8.21,1.10.0:1.10.5+mpi~cxx",
-        sha256="b61e2f058964ad85be6ee5ecea10080bf79e73f83ff88d1fa4b602d00209da9c",
-    )
 
     # Fixes BOZ literal constant error when compiled with GCC 10.
     # The issue is described here: https://github.com/spack/spack/issues/18625

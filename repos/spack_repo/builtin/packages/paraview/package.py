@@ -268,14 +268,10 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # Patch for paraview 5.9.0%xl_r
 
     # intel oneapi doesn't compile some code in catalyst
-    patch("catalyst-etc_oneapi_fix.patch", when="@5.10.0:5.10.1%oneapi")
-    patch("vtk-xdmf2-hdf51.13.1.patch", when="@5.8:5.10")
-    patch("vtk-xdmf2-hdf51.13.2.patch", when="@5.8:5.11.0")
     # Fix VTK to remove deprecated ADIOS2 functions
 
     # https://github.com/Kitware/VTK-m/commit/c805a6039ea500cb96158cfc11271987c9f67aa4
 
-    patch("vtkm-fix-problems-in-class-member-names.patch", when="@5.13.2 %oneapi@2025:")
     def url_for_version(self, version):
         # Handle ParaView version-based custom URLs
         if version < Version("5.1.0"):

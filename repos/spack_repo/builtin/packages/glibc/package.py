@@ -26,8 +26,6 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     provides("iconv")
 
     # Fix for newer GCC, related to -fno-common
-    patch("locs.patch", when="@2.23:2.25")
-    patch("locs-2.22.patch", when="@:2.22")
 
     # _obstack_compat symbol is not initialized
 
@@ -39,10 +37,8 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
 
     # Use init_array (modified commit 4a531bb to unconditionally define
     # NO_CTORS_DTORS_SECTIONS)
-    patch("4a531bb.patch", when="@:2.12")
 
     # make: mixed implicit and static pattern rules (trivial issue in docs)
-    patch("32cf406.patch", when="@:2.10")
     # linker flag output regex
 
     # recent gcc + binutils have issues with the inline assembly in

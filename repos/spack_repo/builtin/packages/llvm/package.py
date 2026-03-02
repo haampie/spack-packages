@@ -344,21 +344,11 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     # fix compilation against libstdc++13
 
     # missing <cstdint> include
-    patch(
-        "https://github.com/llvm/llvm-project/commit/ff1681ddb303223973653f7f5f3f3435b48a1983.patch?full_index=1",
-        sha256="c6ca6b925f150e8644ce756023797b7f94c9619c62507231f979edab1c09af78",
-        when="@6:13",
-    )
     # fix building of older versions of llvm with newer versions of glibc
     for compiler_rt_as in ["project", "runtime"]:
         with when("compiler-rt={0}".format(compiler_rt_as)):
             # sys/ustat.h has been removed in favour of statfs from glibc-2.28
             # see https://reviews.llvm.org/D47281
-            patch(
-                "https://github.com/llvm/llvm-project/commit/383fe5c8668f63ef21c646b43f48da9fa41aa100.patch?full_index=1",
-                sha256="66f01ac1769a6815aba09d6f4347ac1744f77f82ec9578a1158b24daca7a89e6",
-                when="@4:6.0.0",
-            )
             # fix sanitizer-common build with glibc 2.31
             # see https://reviews.llvm.org/D70662
             patch("sanitizer-ipc_perm_mode.patch", when="@5:9")

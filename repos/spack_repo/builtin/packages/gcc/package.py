@@ -249,8 +249,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # has been backported. The patch is not applied to GCC 11 since the "fixinclude"
     # is in fact needed for that version (see GCC commit description). Older versions
     # have not been checked or tested.
-    patch("fixincludes-gcc-13-14.patch", when="@13:14")
-    patch("fixincludes-gcc-12.4.patch", when="@12.4:12")
     patch("fixincludes-gcc-12.1.patch", when="@12:12.3")
 
     if sys.platform == "darwin":

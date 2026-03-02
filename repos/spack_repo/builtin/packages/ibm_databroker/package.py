@@ -44,7 +44,6 @@ class IbmDatabroker(CMakePackage, PythonExtension):
     depends_on("py-setuptools", when="+python")
 
     patch("fixes_in_v0.6.1.patch", when="@0.6.1")
-    patch("fixes_in_v0.7.0.patch", when="@0.7.0")
 
     def cmake_args(self):
         args = []

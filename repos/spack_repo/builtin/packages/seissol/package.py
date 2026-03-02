@@ -41,34 +41,6 @@ class Seissol(CMakePackage, CudaPackage, ROCmPackage):
 
     variant("asagi", default=True, description="Use ASAGI for material input")
     variant(
-        "convergence_order",
-        default="4",
-        description="polynomial degree plus one",
-        values=tuple(str(v) for v in range(2, 9)),
-        multi=False,
-    )
-    variant(
-        "precision",
-        default="double",
-        description="float numerical precision",
-        values=("single", "double"),
-        multi=False,
-    )
-    variant(
-        "dr_quad_rule",
-        default="stroud",
-        description="dynamic rupture quadrature rule",
-        values=("stroud", "dunavant"),
-        multi=False,
-    )
-    variant(
-        "plasticity_method",
-        default="nb",
-        description="Plasticity method",
-        values=("nb", "ib"),
-        multi=False,
-    )
-    variant(
         "equations",
         default="elastic",
         description="equation set used",

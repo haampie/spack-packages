@@ -74,13 +74,9 @@ class Mumps(Package):
     depends_on("scalapack", when="+mpi")
     depends_on("mpi", when="+mpi")
 
-    # The following patches src/Makefile to fix some dependency
-    # issues in lib[cdsz]mumps.so
-    patch("mumps.src-makefile.5.3.patch", when="@5.3:5.4 +shared")
     patch("mumps.src-makefile.5.5.patch", when="@5.5:5.7 +shared")
     patch("mumps.src-makefile.5.8.patch", when="@5.8: +shared")
 
-    conflicts("+parmetis", when="~mpi", msg="You cannot use the parmetis variant without mpi")
     conflicts("+parmetis", when="~metis", msg="You cannot use the parmetis variant without metis")
     conflicts("+ptscotch", when="~mpi", msg="You cannot use the ptscotch variant without mpi")
     conflicts("+blr_mt", when="~openmp", msg="You cannot use the blr_mt variant without openmp")

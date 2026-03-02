@@ -87,11 +87,7 @@ class Abinit(AutotoolsPackage, CudaPackage, ROCmPackage):
     # Add dependencies
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("atompaw", when="@:8")
-    depends_on("blas")
-    depends_on("lapack")
 
     # Require MPI2+
     depends_on("mpi@2:", when="+mpi")

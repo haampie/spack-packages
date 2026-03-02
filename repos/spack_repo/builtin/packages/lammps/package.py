@@ -37,26 +37,6 @@ class Lammps(CMakePackage, CudaPackage, ROCmPackage, PythonExtension):
     version("20251210", sha256="175afc62a7314970d56e93b54745f4e6132e8f688155fff3dd70b298ec077c0e")
     version("20250910", sha256="475d5cda1b289ca3b3dcc97c1ee199f67fa6ad736951213e9b6ec08069d70f0c")
     version(
-        "20250722.3",
-        sha256="07f487cc33fc8f2ec4a449b7bce570e52b5a46608075e0276d26e0e232511bef",
-        preferred=True,
-    )
-    version(
-        "20250722.2",
-        sha256="fede484269cdb22f1cb738b4cd118a9bf9cb4bd3c85667f1e6a73a9fa5c2de6b",
-        deprecated=True,
-    )
-    version(
-        "20250722.1",
-        sha256="4ba3648fae360ea1d3106e08bce13e21f856318196f4965f2a09fd812d572928",
-        deprecated=True,
-    )
-    version(
-        "20250722",
-        sha256="38d7ab508433f33a53e11f0502aa0253945ce45d5595baf69665961c0a76da26",
-        deprecated=True,
-    )
-    version(
         "20250612",
         sha256="b3fe6dc57115edb89d022879fe676503ec88b4e12cfee3488cc2f43cb0957ba7",
         deprecated=True,
@@ -384,10 +364,6 @@ class Lammps(CMakePackage, CudaPackage, ROCmPackage, PythonExtension):
         with when(_n2p2_cond):
             depends_on("n2p2@2.1.4:")
             depends_on("n2p2+shared", when="+lib")
-    depends_on("scafacos", when="+scafacos")
-    depends_on("scafacos cflags=-fPIC cxxflags=-fPIC fflags=-fPIC", when="+scafacos+lib")
-    depends_on("vtk", when="+user-vtk")
-    depends_on("vtk", when="+vtk")
     depends_on("hipcub", when="~kokkos +rocm")
     depends_on("hipcub@:6", when="@:20250722 ~kokkos +rocm")
     depends_on("llvm-amdgpu ", when="+rocm", type="build")

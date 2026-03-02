@@ -21,9 +21,7 @@ class Wtdbg2(MakefilePackage):
     depends_on("c", type="build")  # generated
 
     depends_on("zlib-api")
-    depends_on("sse2neon", when="target=aarch64:")
 
-    patch("for_aarch64.patch", when="target=aarch64:")
 
     def edit(self, spec, prefix):
         if spec.target.family == "aarch64":

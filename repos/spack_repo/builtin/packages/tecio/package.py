@@ -18,9 +18,7 @@ class Tecio(CMakePackage):
 
     manual_download = True
 
-    maintainers("snehring")
 
-    version("2022R2", sha256="35a8137800611da3a413da09223e2d1683b54e195bc52f8fc4ec131cfce7cb23")
 
     variant("mpi", default=False, description="Build tecio with mpi support.")
 

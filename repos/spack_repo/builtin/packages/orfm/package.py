@@ -20,4 +20,3 @@ class Orfm(AutotoolsPackage):
 
     depends_on("c", type="build")  # generated
 
-    depends_on("zlib-api", type="link")

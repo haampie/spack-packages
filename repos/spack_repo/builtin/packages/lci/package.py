@@ -120,21 +120,8 @@ class Lci(CMakePackage):
         .with_non_feature_values("auto"),
     )
     # deprecated variant, use `bootstrap` instead
-    variant(
-        "default-pm",
-        description="Order of process management backends to try by default",
-        values=disjoint_sets(
-            ("auto",), ("pmix", "pmi2", "pmi1", "mpi", "file", "local"), ("cray",)
-        )
-        .prohibit_empty_set()
-        .with_default("auto")
-        .with_non_feature_values("auto"),
-    )
 
-    generator("ninja", "make", default="ninja")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     depends_on("cmake@3.12:", type="build")
     depends_on("libfabric", when="fabric=ofi")

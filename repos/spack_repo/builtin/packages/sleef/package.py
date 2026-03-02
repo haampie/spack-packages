@@ -39,11 +39,7 @@ class Sleef(CMakePackage):
 
     depends_on("c", type="build")
 
-    generator("ninja")
-    depends_on("cmake@3.18:", type="build")
 
-    depends_on("fftw-api", type="test")
-    depends_on("mpfr", type="test")
     depends_on("openssl", type="test")
 
     # https://github.com/shibatch/sleef/issues/458

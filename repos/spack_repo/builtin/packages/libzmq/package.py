@@ -61,12 +61,8 @@ class Libzmq(AutotoolsPackage):
     depends_on("automake", type="build", when="@master")
     depends_on("libtool", type="build", when="@master")
     depends_on("pkgconfig", type="build")
-    depends_on("docbook-xml", type="build", when="+docs")
-    depends_on("docbook-xsl", type="build", when="+docs")
 
-    depends_on("libbsd", when="+libbsd")
 
-    depends_on("libunwind", when="+libunwind")
 
     conflicts("%gcc@8:", when="@:4.2.2")
     conflicts("%gcc@11:", when="@:4.3.2")

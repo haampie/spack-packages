@@ -173,14 +173,10 @@ class Conduit(CMakePackage):
     # ADIOS
     ###############
     depends_on("adios+mpi~hdf5+shared", when="+adios+mpi+shared")
-    depends_on("adios+mpi~hdf5~shared~blosc", when="+adios+mpi~shared")
-    depends_on("adios~mpi~hdf5+shared", when="+adios~mpi+shared")
-    depends_on("adios~mpi~hdf5~shared~blosc", when="+adios~mpi~shared")
 
     #######################
     # ZFP
     #######################
-    depends_on("zfp  bsws=8", when="+zfp")
 
     # hdf5 zfp plugin when both hdf5 and zfp are on
     depends_on("h5z-zfp~fortran", when="+hdf5+zfp")

@@ -211,36 +211,11 @@ class Julia(MakefilePackage):
             sha256="4997cd3006a3171d9b33f9a72ff9fdadc84e91a7c86aa044dcf495eef3a02893",
         ),
     )
-    depends_on(
-        "llvm",
-        when="%llvm@18.1.8",
-        patches=patch(
-            "https://raw.githubusercontent.com/spack/patches/4d9ce09c4793f4899a588741fdc459530e26b313/julia/900363d08b2090bb44240aa33c1ee26558a183016db4fb7e048be4c1665c436e.patch",
-            sha256="900363d08b2090bb44240aa33c1ee26558a183016db4fb7e048be4c1665c436e",
-        ),
-    )
 
     # Patches for libuv
-    depends_on(
-        "libuv",
-        when="%libuv@1.39.0",
-        patches=patch(
-            "https://raw.githubusercontent.com/spack/patches/b59ca193423c4c388254f528afabb906b5373162/julia/libuv-1.39.0.patch",
-            sha256="f7c1e7341e89dc35dfd85435ba35833beaef575b997c3f978c27d0dbf805149b",
-        ),
-    )
-    depends_on(
-        "libuv",
-        when="%libuv@1.42.0",
-        patches=patch(
-            "https://raw.githubusercontent.com/spack/patches/89b6d14eb1f3c3d458a06f1e06f7dda3ab67bd38/julia/libuv-1.42.0.patch",
-            sha256="d9252fbe67ac8f15e15653f0f6b00dffa07ae1a42f013d4329d17d8b492b7cdb",
-        ),
-    )
 
     # patchelf 0.13 is required because the rpath patch uses --add-rpath
     # patchelf 0.18 breaks (at least) libjulia-internal.so
-    depends_on("patchelf@0.13:0.17", type="build")
     depends_on("perl", type="build")
     depends_on("libwhich@1.3:", type="build")
     depends_on("which", type="build")  # for detecting 7z, lld, dsymutil

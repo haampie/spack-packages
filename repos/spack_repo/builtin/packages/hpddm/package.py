@@ -32,10 +32,6 @@ class Hpddm(Package):
     depends_on("lapack")
     depends_on("mumps")
     depends_on("hypre")
-    depends_on("scalapack")
-    depends_on("arpack-ng")
-    depends_on("python")
-    depends_on("gmake", type="build")
 
     def configure(self):
         makefile_inc = []

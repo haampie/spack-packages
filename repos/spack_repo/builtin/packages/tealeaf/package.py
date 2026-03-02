@@ -27,9 +27,7 @@ class Tealeaf(MakefilePackage):
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("mpi")
 
     def edit(self, spec, prefix):
         filter_file("-march=native", "", join_path("TeaLeaf_ref", "Makefile"))

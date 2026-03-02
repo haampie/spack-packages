@@ -12,10 +12,6 @@ class Eigenexa(AutotoolsPackage):
 
     homepage = "https://www.r-ccs.riken.jp/labs/lpnctrt/projects/eigenexa/"
 
-    version("2.12", sha256="2a33999b09d4434a5ce2fbd18cabbfee1cff0b2a12df7ded1f67127157b08f86")
-    version("2.11", sha256="87dee8ac13f410a007e82df2688fa7f143883229dac729fd20836f4a28fac43d")
-    version("2.10", sha256="5b1806e132b191d23680b34fbc286d676ba20f58ee754122087a3ec3cacb8fa3")
-    version("2.9", sha256="8788922035bf67abf1a7aecf8e30dd7564de387fda4ecd11c6b4cf9259d25990")
     version("2.8", sha256="3ee846d4db10336d393738eadab2f1c941dfc8fb501f2a4baf0823f0ff938f56")
     version("2.7", sha256="490f3d0217a8c101e66e785229baaba5b4d674508bc9a5aca6cc5fa074f3a8aa")
     version(

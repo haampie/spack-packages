@@ -545,34 +545,14 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     # fix building on SUSE (with panel.h being in /usr/include/ncurses/)
     # see https://reviews.llvm.org/D85219
     # see https://github.com/spack/spack/issues/19625
-    patch(
-        "https://github.com/llvm/llvm-project/commit/c952ec15d38843b69e22dfd7b0665304a0459f9f.patch?full_index=1",
-        sha256="66932ba31b5bf8808ea112e42cfd79b2480a4936e711771c06ce851eac429b2c",
-        when="@10:11+lldb",
-    )
 
     # honor Python2_EXECUTABLE and Python3_EXECUTABLE when they are passed to cmake
     # see https://reviews.llvm.org/D91536
-    patch(
-        "https://github.com/llvm/llvm-project/commit/16de50895e96adbe261a5ce2498366bda7b3fccd.patch?full_index=1",
-        sha256="0e121ed460aa6e117f9f5f339d597a96c0fe4f97dc2209aba47b43ffc831ea24",
-        # The patch is applicable only starting version 7.0.0 (the older version might require a
-        # different patch addressing https://github.com/spack/spack/issues/19908). It looks like
-        # the patched function is used only if both compiler-rt and libcxx are enabled but we keep
-        # it simple:
-        when="@7:11",
-    )
 
     # Workaround for issue https://github.com/spack/spack/issues/18197
-    patch("llvm7_intel.patch", when="@7 %intel@18.0.2,19.0.0:19.1.99")
 
     # Remove cyclades support to build against newer kernel headers
     # https://reviews.llvm.org/D102059
-    patch(
-        "https://github.com/llvm/llvm-project/commit/68d5235cb58f988c71b403334cd9482d663841ab.patch?full_index=1",
-        sha256="742501723642675075e617f3c38339961b2c7b6fd8290dbffc52239ab0783317",
-        when="@10:12.0.0",
-    )
     # The patch above is not applicable when "@:9" due to the file renaming and reformatting. The
     # following patch is applicable starting at least version 5.0.0, the oldest we try to support.
     patch("no_cyclades9.patch", when="@5:9")

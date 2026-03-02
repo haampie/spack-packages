@@ -20,11 +20,6 @@ class Scotch(CMakePackage, MakefilePackage):
     list_url = "https://gforge.inria.fr/frs/?group_id=248"
 
 
-    version("7.0.7", sha256="02084471d2ca525f8a59b4bb8c607eb5cca452d6a38cf5c89f5f92f7edc1a5b5")
-    version("7.0.6", sha256="b44acd0d2f53de4b578fa3a88944cccc45c4d2961cd8cefa9b9a1d5431de8e2b")
-    version("7.0.4", sha256="8ef4719d6a3356e9c4ca7fefd7e2ac40deb69779a5c116f44da75d13b3d2c2c3")
-    version("6.1.1", sha256="14daf151399fc67f83fd3ff2933854f5e8d2207c7d35dd66a05660bf0bbd583c")
-    version("5.1.10b", sha256="54c9e7fafefd49d8b2017d179d4f11a655abe10365961583baaddc4eeb6a9add")
 
     build_system(conditional("cmake", when="@7:"), "makefile", default="cmake")
     variant("threads", default=True, description="use POSIX Pthreads within Scotch and PT-Scotch")

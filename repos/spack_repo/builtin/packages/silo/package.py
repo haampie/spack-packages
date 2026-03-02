@@ -21,21 +21,6 @@ class Silo(autotools.AutotoolsPackage, cmake.CMakePackage):
     # Newer versions of fpzip are BSD licensed but not version 1.0.2 in Silo.
     license("BSD-3-Clause", when="license=bsdonly")
 
-    version(
-        "4.10.2-bsd",
-        sha256="4b901dfc1eb4656e83419a6fde15a2f6c6a31df84edfad7f1dc296e01b20140e",
-        url="https://sd.llnl.gov/sites/sd/files/2021-01/silo-4.10.2-bsd.tgz",
-    )
-    version(
-        "4.9",
-        sha256="90f3d069963d859c142809cfcb034bc83eb951f61ac02ccb967fc8e8d0409854",
-        url="https://sd.llnl.gov/sites/sd/files/2021-01/silo-4.9.tgz",
-    )
-    version(
-        "4.8",
-        sha256="c430c1d33fcb9bc136a99ad473d535d6763bd1357b704a915ba7b1081d58fb21",
-        url="https://sd.llnl.gov/sites/sd/files/2021-01/silo-4.8.tgz",
-    )
 
     variant("python", default=True, description="Enable Python support")
     variant("fortran", default=True, description="Enable Fortran support")

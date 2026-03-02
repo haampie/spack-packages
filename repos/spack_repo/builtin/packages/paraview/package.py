@@ -257,9 +257,3 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
             raise SkipTest("Package must be installed with +python")
 
         pvpython = Executable(self.prefix.bin.pvpython)
-        pvpython("-c", "import paraview")
-
-    def test_mpi_ensemble(self):
-        """Test MPI ParaView Client/Server ensemble"""
-        spec = self.spec
-

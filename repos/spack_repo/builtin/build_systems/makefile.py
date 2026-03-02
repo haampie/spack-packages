@@ -93,5 +93,4 @@ class MakefileBuilder(BuilderWithDefaults):
     install_time_test_callbacks = ["installcheck"]
 
 
-
     # On macOS, force rpaths for shared library IDs and remove duplicate rpaths

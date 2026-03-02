@@ -34,27 +34,7 @@ class Pcre2(AutotoolsPackage, CMakePackage):
         depends_on("zlib")
         depends_on("bzip2")
 
-    @property
-    def libs(self):
-        if "+multibyte" in self.spec:
-            name = "pcre2-32"
-        else:
-            name = "pcre2-8"
-        is_shared = self.spec.satisfies("+shared")
-        if not self.spec.satisfies("platform=windows"):
-            name = "lib" + name
-        if self.spec.satisfies("platform=windows") and not is_shared:
-            name += "-static"
-        return find_libraries(
-            name, root=self.prefix, recursive=True, shared=is_shared, runtime=False
-        )
-
-
 class AutotoolsBuilder(autotools.AutotoolsBuilder):
-    def build_environment(self, env):
-        if "+pic" in self.spec:
-            env.append_flags("CFLAGS", self.compiler.cc_pic_flag)
-
     def configure_args(self):
         args = []
 

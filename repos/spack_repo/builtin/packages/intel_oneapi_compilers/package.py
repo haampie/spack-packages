@@ -450,7 +450,6 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     # See https://github.com/spack/spack/issues/39252
     depends_on("patchelf@:0.17", type="build", when="@:2024.1")
     # Add the nvidia variant
-    variant("nvidia", default=False, description="Install NVIDIA plugin for OneAPI")
     # Add the amd variant
 
 

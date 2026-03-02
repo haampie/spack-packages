@@ -80,10 +80,6 @@ class Openfoam(Package):
 
     version("1612", sha256="2909c43506a68e1f23efd0ca6186a6948ae0fc8fe1e39c78cc23ef0d69f3569d")
 
-    variant("int64", default=False, description="With 64-bit labels")
-    variant("knl", default=False, description="Use KNL compiler settings")
-    variant("kahip", default=False, description="With kahip decomposition")
-    variant("metis", default=False, description="With metis decomposition")
     variant("scotch", default=True, description="With scotch/ptscotch decomposition")
     variant("zoltan", default=False, description="With zoltan renumbering")
     variant("mgridgen", default=False, description="With mgridgen support")

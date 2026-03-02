@@ -78,12 +78,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         multi=True,
         description="Compilers and runtime libraries to build",
     )
-    variant("binutils", default=True, description="Use binutils linker and assembler")
-    variant("mold", default=False, description="Use mold as the linker by default", when="@12:")
-    variant(
-        "piclibs", default=False, description="Build PIC versions of libgfortran.a and libstdc++.a"
-    )
-    variant("strip", default=False, description="Strip executables to reduce installation size")
     variant("nvptx", default=False, description="Target nvptx offloading to NVIDIA GPUs")
     variant("bootstrap", default=True, description="Enable 3-stage bootstrap")
     variant(

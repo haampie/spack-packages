@@ -772,9 +772,6 @@ class Cuda(Package):
     # cuda-12.8 libcusolver.so requires log2f@GLIBC_2.27
 
     variant(
-        "dev", default=False, description="Enable development dependencies, i.e to use cuda-gdb"
-    )
-    variant(
         "allow-unsupported-compilers",
         default=False,
         sticky=True,

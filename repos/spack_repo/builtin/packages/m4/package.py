@@ -29,7 +29,6 @@ class M4(AutotoolsPackage, GNUMirrorPackage):
     # from: https://www.mail-archive.com/m4-patches@gnu.org/msg01208.html
     # tests: Fix failing test checks/198.sysval with upstream patch for doc/m4.texi
 
-    variant("sigsegv", default=True, description="Build the libsigsegv dependency")
 
     depends_on("c", type="build")  # generated
 

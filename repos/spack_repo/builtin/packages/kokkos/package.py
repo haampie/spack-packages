@@ -123,26 +123,8 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     conflicts("+cuda", when="cuda_arch=none")
 
     # Kokkos support only one cuda_arch at a time
-    variant(
-        "cuda_arch",
-        description="CUDA architecture",
-        values=("none",) + CudaPackage.cuda_arch_values,
-        default="none",
-        multi=False,
-        sticky=True,
-        when="+cuda",
-    )
 
     # Since Kokkos supports only one amdgpu_target at a time, the multi-value property is disabled.
-    variant(
-        "amdgpu_target",
-        description="AMD GPU architecture",
-        values=("none",) + ROCmPackage.amdgpu_targets,
-        default="none",
-        multi=False,
-        sticky=True,
-        when="+rocm",
-    )
 
     amdgpu_arch_map = {
         "gfx900": "vega900",
@@ -185,12 +167,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         "intel_dg2",
         "intel_xehp",
         "intel_pvc",
-    )
-    variant(
-        "intel_gpu_arch",
-        default="none",
-        values=("none",) + intel_gpu_arches,
-        description="Intel GPU architecture",
     )
     variant("apu", default=False, description="Enable APU support", when="@4.5: +rocm")
 

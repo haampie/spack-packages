@@ -26,23 +26,6 @@ class Libarchive(AutotoolsPackage):
         multi=True,
         description="Supported compression",
     )
-    variant(
-        "xar",
-        default="libxml2",
-        values=("libxml2", "expat"),
-        description="What library to use for xar support",
-    )
-    variant(
-        "crypto",
-        default="openssl",
-        values=("mbedtls", "nettle", "openssl"),
-        description="What crypto library to use for mtree and xar hashes",
-    )
-    variant(
-        "programs",
-        values=any_combination_of("bsdtar", "bsdcpio", "bsdcat"),
-        description="What executables to build",
-    )
 
 
 

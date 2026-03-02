@@ -155,13 +155,6 @@ class Openfoam(Package):
         "paraview", default=False, description="Build paraview plugins and runtime post-processing"
     )
     variant("vtk", default=False, description="With VTK runTimePostProcessing")
-
-    # but particular mixes of mpi versions and InfiniBand may not work so well
-    # conflicts('^openmpi~thread_multiple', when='@1712:')
-
-
-    # TODO: replace this with an explicit list of components of Boost,
-    # for instance depends_on('boost +filesystem')
     # See https://github.com/spack/spack/pull/22303 for reference
 
     # Earlier versions of OpenFOAM may not work with CGAL 5.6. I do

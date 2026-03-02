@@ -27,10 +27,6 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
     version("4.8.0", sha256="aff58f02b1c3e91dc68f989746f652fe51ff39e6270764e484920cb8db5ad092")
     version("4.7.4", sha256="99930ad7b3c4c1a8e8831fb061cb02b2170fc8e5ccaeda733bd99c3b9d31666b")
     version("4.7.3", sha256="05d064a2d55147b83feff3747bea13deb77bef390cb562df4f9f9f1ce147840d")
-    version("4.7.2", sha256="7648db7bd75fdd198f7be64625af7b276067de48a49dcdfd160f1c2ddff8189c")
-    version("4.7.1", sha256="583e6b89c57037293fc3878c9181bb89151da8c6015ecea404dd426fea219b2c")
-    version("4.6.1", sha256="a2fabf27c72a5ee746e3843e1debbaad37cd035767eaede2045371322211eebb")
-    version("4.6.0", sha256="6d740356399aac12290650325a05aec2fe92c1905df10761b2b0100994197725")
     version("4.5.0", sha256="f7d1cb2a82100b9bf9a1130a50bc5c7baf0de5b5022860ac3e09a0a32f83cf4a")
     # Version 4.4.1.1 is having problems in tests
     #    https://github.com/Unidata/netcdf-c/issues/343
@@ -176,18 +172,14 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
 
     # Need to include libxml2 when using DAP in 4.9.0 and newer to build
     # https://github.com/Unidata/netcdf-c/commit/53464e89635a43b812b5fec5f7abb6ff34b9be63
-    depends_on("libxml2", when="@4.9.0:+dap")
 
     depends_on("parallel-netcdf", when="+parallel-netcdf")
 
-    # We need to build with MPI wrappers if any of the two
     # parallel I/O features is enabled:
-    # https://docs.unidata.ucar.edu/nug/current/getting_and_building_netcdf.html#build_parallel
     depends_on("mpi", when="+mpi")
     depends_on("mpi", when="+parallel-netcdf")
 
     # We also need to use MPI wrappers when building against static MPI-enabled HDF5:
-    depends_on("mpi", when="^hdf5+mpi~shared")
 
     # High-level API of HDF5 1.8.9 or later is required for netCDF-4 support:
     # https://docs.unidata.ucar.edu/nug/current/getting_and_building_netcdf.html

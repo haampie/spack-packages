@@ -29,14 +29,6 @@ class Cmake(Package):
 
 
     version("4.2.3", sha256="7efaccde8c5a6b2968bad6ce0fe60e19b6e10701a12fce948c2bf79bac8a11e9")
-    version("4.2.2", sha256="bbda94dd31636e89eb1cc18f8355f6b01d9193d7676549fba282057e8b730f58")
-    version("4.2.0", sha256="4104e94657d247c811cb29985405a360b78130b5d51e7f6daceb2447830bd579")
-    version("4.1.5", sha256="50ce77215cf266630fa5de97c360f4c313bb79f94b35236b63c1216de3196356")
-    version(
-        "3.31.11",
-        sha256="c0a3b3f2912b2166f522d5010ffb6029d8454ee635f5ad7a3247e0be7f9a15c9",
-        preferred=True,
-    )
     version("3.15.7", sha256="71999d8a14c9b51708847371250a61533439a7331eb7702ac105cfb3cb1be54b")
     version("3.14.7", sha256="9221993e0af3e6d10124d840ff24f5b2f3b884416fca04d3312cb0388dec1385")
     version("3.13.5", sha256="526db6a4b47772d1943b2f86de693e712f9dacf3d7c13b19197c9bef133766a5")
@@ -72,16 +64,8 @@ class Cmake(Package):
         with when(f"platform={spack_platform}"):
             variant("ncurses", default=True, description="Enables the build of the ncurses gui")
 
-    # Revert the change that introduced a regression when parsing mpi link
-    # flags, see: https://gitlab.kitware.com/cmake/cmake/issues/19516
-    patch("cmake-revert-findmpi-link-flag-list.patch", when="@3.15.0")
-
-    # Fix linker error when using external libs on darwin.
-    # See https://gitlab.kitware.com/cmake/cmake/merge_requests/2873
-
     # Fix builds with XLF + Ninja generator
     # https://gitlab.kitware.com/cmake/cmake/merge_requests/4075
-
     # Statically linked binaries error on install when CMAKE_INSTALL_RPATH is set
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/9623
 
@@ -139,10 +123,6 @@ class Cmake(Package):
         depends_on("py-sphinx", type="build")
 
     # Cannot build with Intel, should be fixed in 3.6.2
-
-    # Cannot build with Intel again, should be fixed in 3.17.4 and 3.18.1
-    # https://gitlab.kitware.com/cmake/cmake/-/issues/21013
-
     # https://gitlab.kitware.com/cmake/cmake/issues/18232
 
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/4698

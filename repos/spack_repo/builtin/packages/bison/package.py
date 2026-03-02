@@ -34,10 +34,6 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
     version("3.6.4", sha256="8183de64b5383f3634942c7b151bf2577f74273b2731574cdda8a8f3a0ab13e9")
     version("3.6.3", sha256="4b4c4943931e811f1073006ce3d8ee022a02b11b501e9cbf4def3613b24a3e63")
     version("3.6.2", sha256="e28ed3aad934de2d1df68be209ac0b454f7b6d3c3d6d01126e5cd2cbadba089a")
-    version("3.6.1", sha256="1120f8bfe2cc13e5e1e3f671dc41b1a535ca5a75a70d5b349c19da9d4389f74d")
-    version("3.6", sha256="f630645e330bde5847266cc5c8194f0135ced75cced150358d9abe572b95f81c")
-    version("3.0.4", sha256="b67fd2daae7a64b5ba862c66c07c1addb9e6b1b05c5f2049392cfd8a2172952e")
-    version("2.7", sha256="19bbe7374fd602f7a6654c131c21a15aebdc06cc89493e8ff250cb7f9ed0a831")
 
     variant("color", default=False, description="Enable experimental colored output", when="@3.4:")
 

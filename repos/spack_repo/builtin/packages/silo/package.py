@@ -104,12 +104,8 @@ class Silo(autotools.AutotoolsPackage, cmake.CMakePackage):
     conflicts("+zfp", when="~hdf5", msg="zfp requires +hdf5")
 
     # hzip and fpzip are not available in the BSD releases
-    conflicts("+hzip", when="@4.10.2-bsd,4.11-bsd,4.11.1-bsd")
-    conflicts("+fpzip", when="@4.10.2-bsd,4.11-bsd,4.11.1-bsd")
 
     # If bsdonly enbabled, hzip and fpzip cannot be enabled
-    conflicts("license=bsdonly", when="+fpzip", msg="BSD-only build cannot use +fpzip")
-
     # zfp include missing
     patch("zfp_error.patch", when="@4.11:4.11-bsd +hdf5")
 

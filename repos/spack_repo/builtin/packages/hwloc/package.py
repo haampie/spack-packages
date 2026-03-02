@@ -74,11 +74,7 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
-    depends_on("libtool", type="build", when="@master")
     depends_on("libxml2", when="+libxml2")
-    depends_on("cairo", when="+cairo")
-    depends_on("numactl", when="@:1.11.11 platform=linux")
-    depends_on("ncurses")
 
     # Before 2.2 hwloc does not consider linking to libtinfo
     # to detect ncurses, which is considered a bug.

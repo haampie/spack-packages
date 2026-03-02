@@ -112,13 +112,9 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
         depends_on("cmake@3.18.0:", type="build")
         depends_on("boost@1.71.0:")
         depends_on("asio@1.12.0:")
-        conflicts("%clang@:6")
 
     # Restrictions for 1.6.X
     conflicts("+rocm", when="@:1.5")
-
-    # Restrictions for 1.5.x
-    conflicts("cxxstd=11", when="@1.5:")
 
     # Restrictions for 1.2.X
     with when("@:1.2.1"):

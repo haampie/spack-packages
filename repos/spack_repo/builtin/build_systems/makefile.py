@@ -96,4 +96,3 @@ class MakefileBuilder(BuilderWithDefaults):
     run_after("install")(execute_install_time_tests)
 
     # On macOS, force rpaths for shared library IDs and remove duplicate rpaths
-    run_after("install", when="platform=darwin")(apply_macos_rpath_fixups)

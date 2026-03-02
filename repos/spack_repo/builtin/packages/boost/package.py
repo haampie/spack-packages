@@ -291,14 +291,10 @@ class Boost(Package):
     # Patch to workaround compiler bug
     patch("nvhpc-find_address.patch", when="@1.75.0:1.76%nvhpc")
 
-    # Patch to workaround gcc-8.3 compiler issue https://github.com/boostorg/mpl/issues/44
     patch("boost_gcc83_cpp17_fix.patch", when="@1.69:%gcc@8.3")
     # Fix for version comparison on newer Clang on darwin
-    # See: https://github.com/boostorg/build/issues/440
     # See: https://github.com/macports/macports-ports/pull/6726
     patch("darwin_clang_version.patch", level=0, when="@1.56.0:1.72.0 platform=darwin")
-
-    # Fix missing declaration of uintptr_t with glibc>=2.17 - https://bugs.gentoo.org/482372
     patch(
         "https://482372.bugs.gentoo.org/attachment.cgi?id=356970",
         when="@1.53.0:1.54",

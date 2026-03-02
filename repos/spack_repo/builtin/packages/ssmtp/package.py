@@ -20,12 +20,8 @@ class Ssmtp(AutotoolsPackage):
 
     variant("ssl", default=True, description="Enable support for secure connection to mail server")
     variant("inet6", default=True, description="Enable support for IPv6 transport")
-    variant("md5auth", default=True, description="Enable support for MD5 authentication")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("libnsl")
-    depends_on("openssl", when="+ssl")
 
     patch("install.patch")
 

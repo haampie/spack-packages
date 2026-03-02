@@ -22,12 +22,8 @@ class Fpm(Package):
     homepage = "https://github.com/fortran-lang/fpm"
     url = "https://github.com/fortran-lang/fpm/releases/download/v0.4.0/fpm-0.4.0.zip"
 
-    maintainers("awvwgk")
 
-    license("MIT")
 
-    version("0.13.0", sha256="2c81b448efe9f6a93f4c3cfd7131a42249cd611121857f2bae15b8e2d69ff9a7")
-    version("0.12.0", sha256="b519b614c693dc26f553f0eb902fc707adab9d1759f17ff098412c14d6b290fe")
     version("0.11.0", sha256="f6c998c9afd39eb42c7e80a306cfbed5faa77eaa42eb4f75b93864c338db1795")
     version("0.10.1", sha256="dd97b3b61f2ec8a7ea7a2a588920097f513f74ff8b1a12531074dad07c81dc6c")
     version("0.10.0", sha256="00d687e17bdada4dcae0ff1ea2e01bad287dcc77a74c3bbde0c9ff9633b655bb")

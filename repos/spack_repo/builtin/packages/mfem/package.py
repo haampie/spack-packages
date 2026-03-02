@@ -512,15 +512,11 @@ class Mfem(Package, CudaPackage, ROCmPackage):
         )
     depends_on("enzyme@0.0.176:", when="+enzyme")
     requires("%cxx=llvm", when="+enzyme~rocm")
-    depends_on("cuda+allow-unsupported-compilers", when="+enzyme+cuda")
-    depends_on("enzyme %libllvm=llvm-amdgpu", when="+enzyme+rocm")
-    requires("%cxx=llvm-amdgpu", when="+enzyme+rocm")
 
     for using_double_cond in ["@:4.6", "precision=double"]:
         with when(using_double_cond):
             # May need to enforce precision consistency on other packages in the
             # future.
-            depends_on("hypre precision=double", when="+mpi")
             depends_on("petsc+double", when="+petsc")
             depends_on("mumps+double", when="+mumps")
     with when("precision=single"):

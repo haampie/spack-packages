@@ -99,10 +99,6 @@ class Qgis(CMakePackage):
     variant("qsciapi", default=True, description="Generate PyQGIS QScintilla2 API")
     variant("qspatialite", default=False, description="Build QSpatialite sql driver")
     variant("qt5serialport", default=True, description="Try Qt5SerialPort for GPS positioning")
-    variant("qtmobility", default=False, description="Build QtMobility related code")
-    variant("qtwebkit", default=False, description="Enable QtWebkit Support")
-    variant("quick", default=False, description="Build QGIS Quick library")
-    variant("qwtpolar", default=False, description="Build QwtPolar")
     variant("server", default=False, description="Build QGIS server")
     variant(
         "staged_plugins",

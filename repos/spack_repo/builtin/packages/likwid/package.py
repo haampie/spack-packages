@@ -95,9 +95,6 @@ class Likwid(Package):
     depends_on("fortran", type="build")  # generated
 
     depends_on("lua", when="@:4")
-    depends_on("lua@5.2:", when="@5:5.0.1")
-    depends_on("lua", when="@5.0.2:")
-    depends_on("cuda", when="@5: +cuda")
     depends_on("hwloc", when="@5.2.0:")
     depends_on("rocprofiler-dev", when="@5.3: +rocm")
     depends_on("rocm-core", when="@5.3: +rocm")

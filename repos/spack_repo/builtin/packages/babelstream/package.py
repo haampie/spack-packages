@@ -198,10 +198,6 @@ class Babelstream(CMakePackage, CudaPackage, ROCmPackage, MakefilePackage):
     # Thrust Conflict
     depends_on("thrust", when="+thrust")
     depends_on("cuda", when="thrust_submodel=cuda")
-    depends_on("cuda", when="+raja raja_offload=nvidia")
-    depends_on("hip", when="+hip")
-    depends_on("rocthrust", when="thrust_submodel=rocm")
-    depends_on("intel-tbb", when="+std +std_use_tbb")
     depends_on("intel-oneapi-dpl", when="+std +std_use_onedpl")
     depends_on("intel-tbb", when="+std +std_use_onedpl")
     # TBB Dependency

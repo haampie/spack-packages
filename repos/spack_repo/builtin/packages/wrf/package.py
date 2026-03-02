@@ -214,17 +214,9 @@ class Wrf(Package):
     patch("patches/4.5/configure.patch", when="@4.5:")
     # Fix WRF to remove deprecated ADIOS2 functions
     # https://github.com/wrf-model/WRF/pull/1860
-    patch("patches/4.5/adios2-remove-deprecated-functions.patch", when="@=4.5.0 ^adios2@2.9:")
 
     # Various syntax fixes found by FPT tool
-    patch(
-        "https://github.com/wrf-model/WRF/commit/6502d5d9c15f5f9a652dec244cc12434af737c3c.patch?full_index=1",
-        sha256="c5162c23a132b377132924f8f1545313861c6cee5a627e9ebbdcf7b7b9d5726f",
-        when="@4.2 %fj",
-    )
-    patch("patches/4.2/configure_fujitsu.patch", when="@4 %fj")
 
-    patch("patches/4.3/Makefile.patch", when="@4.3:4.5.1")
     patch("patches/4.3/arch.postamble.patch", when="@4.3:4.3.3")
     patch("patches/4.3/fujitsu.patch", when="@4.3:4.4 %fj")
     # Syntax errors in physics routines

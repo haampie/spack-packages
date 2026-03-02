@@ -32,10 +32,6 @@ class Gpi2(AutotoolsPackage):
     version("1.3.3", sha256="923a848009e7dcd9d26c317ede68b50289b2a9297eb10a75dcc34a4d49f3cdcc")
     version("1.3.2", sha256="83dbfb2e4bed28ef4e2ae430d30505874b4b50252e2f31dc422b3bc191a87ab0")
     version("1.3.1", sha256="414fa352e7b478442e6f5d0b51ff00deeb4fc705de805676c0e68829f3f30967")
-    version("1.3.0", sha256="ffaa5c6abfbf79aec6389ab7caaa2c8a91bce24fd046d9741418ff815cd445d2")
-    version("1.2.0", sha256="0a1411276aa0787382573df5e0f60cc38ca8079f2353fb7a7e8dc57050a7d2cb")
-    version("1.1.0", sha256="626727565a8b78be0dc8883539b01aaff2bb3bd42395899643bc4d6cc2313773")
-    version("1.0.2", sha256="b03b4ac9f0715279b2a5e064fd85047cb640a85c2361d732930307f8bbf2aeb8")
 
     variant(
         "schedulers",

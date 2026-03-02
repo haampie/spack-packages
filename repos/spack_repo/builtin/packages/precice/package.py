@@ -17,13 +17,10 @@ class Precice(CMakePackage):
     homepage = "https://precice.org/"
     git = "https://github.com/precice/precice.git"
     url = "https://github.com/precice/precice/archive/v1.2.0.tar.gz"
-    maintainers("fsimonis", "MakisH")
 
     tags = ["e4s"]
 
-    license("LGPL-3.0-or-later")
 
-    version("develop", branch="develop")
     version("3.3.1", sha256="c52b22bd7669baec3ff903eba9bf102154629634652125a60b109a5b7e803ab5")
     version("3.3.0", sha256="300df9dbaec066c1d0f93f2dbf055705110d297bca23fc0f20a99847a55a24f4")
     version("3.2.0", sha256="93523f1a56e0cfd338d8e190baa06129ee811acdb1c697468a3c85c516d63464")

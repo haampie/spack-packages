@@ -69,11 +69,7 @@ class Catch2(CMakePackage):
     version("2.6.0", sha256="4c94a685557328eb1b0ed1017ca37c3a378742dc03b558cf02267b6ba8579577")
     version("2.5.0", sha256="720c84d18f4dc9eb23379941df2054e7bcd5ff9c215e4d620f8533a130d128ae")
     version("2.4.2", sha256="9f3caf00749f9aa378d40db5a04019c684419457fd56cee625714de1bff45a92")
-    version("2.4.1", sha256="e1b559d77bd857cb0f773e3e826ac1d7e016cf14057fd14b9e99ec3b2c6b809f")
-    version("2.4.0", sha256="ab176de36b886a33aa745fcf34642eac853bf677bda518a88655dc750c72d756")
-    version("2.3.0", sha256="aaf6bbf81ce8522131bae2ea4d013a77b003bbb2017614f5872d5787687f8f5f")
     # releases 2.3.0+ changed to "catch2/catch.hpp" header
-    version("2.2.3", sha256="45e5e12cc5a98e098b0960d70c0d99b7168b711e85fb947dcd4d68ec3f8b8826")
     version("2.2.2", sha256="e93aacf012579093fe6b4e686ff0488975cabee1e6b4e4f27a0acd898e8f09fd")
     version("2.2.1", sha256="3938bc896f8de570bc56d25606fc128437ee53590a95cf3e005710176a1a1ce4")
     # releases 2.1.2+ added a CMake config package

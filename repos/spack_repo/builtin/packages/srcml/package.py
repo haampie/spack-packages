@@ -27,10 +27,6 @@ class Srcml(CMakePackage):
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@3.14:", type="build")
-    depends_on("antlr+cxx+java+pic")
-    depends_on("libxslt")
-    depends_on("libarchive@3:")
     depends_on("curl")
     depends_on("boost@:1.78.0")
 

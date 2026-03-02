@@ -39,11 +39,7 @@ class QESirius(CMakePackage):
     )
 
     depends_on("fortran", type="build")
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("sirius +fortran")
-    depends_on("sirius +apps", when="+sirius_apps")
     depends_on("sirius ~apps", when="~sirius_apps")
     depends_on("sirius +openmp", when="+openmp")
     depends_on("sirius@develop", when="@develop-ristretto")

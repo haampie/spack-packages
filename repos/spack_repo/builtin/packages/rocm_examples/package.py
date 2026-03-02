@@ -22,10 +22,6 @@ class RocmExamples(CMakePackage):
     license("MIT")
 
     version("7.2.0", sha256="74c516f08cc0067c85ac5c29f25831a6e74c0cc0f0c07e80798dc827efefbde5")
-    version("7.1.1", sha256="7475c4eaca103395ecae93cc5fa51b77884d06ebe990e71383c53a91bc1b089f")
-    version("7.1.0", sha256="d64a82ba472126bb426c54abd1b2516479a375db895171bbc4024a7c8d0f4e94")
-    version("7.0.2", sha256="02ca88ec6ce584b6710f295c2ab2df61d38a6a5e4950082863186922be40f062")
-    version("7.0.0", sha256="a06dd85c3b55e62626884b9fe477393729ab5cbf7fb45c432df49bb3d918c0fe")
     version("6.4.3", sha256="febace4c74256c9dc29b3ef71227dad615701263aa4825fd4b1bb00145e59122")
     version("6.4.2", sha256="c9aa4d24a7542d029185fe382a0382bd208b2984813ebb854c352b78daf9fb80")
     version("6.4.1", sha256="ceece00ac0cb3431e032ce52eb660667fdfdcc64c1c7e9bb15ac1177fa20db83")

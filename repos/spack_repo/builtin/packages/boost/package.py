@@ -148,56 +148,6 @@ class Boost(Package):
     # boost-mpi depends on boost-python since 1.87.0
     # Boost.System till 1.76 (included) was relying on mutex, which was not
     # detected correctly on Darwin platform when using GCC
-    #
-    # More details here:
-    # https://github.com/STEllAR-GROUP/hpx/issues/5442#issuecomment-878889166
-    # https://github.com/STEllAR-GROUP/hpx/issues/5442#issuecomment-878913339
-    # Boost 1.80 does not build with the Intel oneapi compiler
-    # (https://github.com/spack/spack/pull/32879#issuecomment-1265933265)
-    # Boost did not support the oneapi compilers prior to 1.76
-    # Boost 1.85.0 stacktrace added a hard compilation error that has to
-    # explicitly be suppressed on some platforms:
-    # https://github.com/boostorg/stacktrace/pull/150. This conflict could be
-    # turned into a variant that allows users to opt-in when they know it is
-    # safe to do so on affected platforms.
-    # https://github.com/boostorg/python/issues/400
-    conflicts(
-        "@:1.80.0",
-        when="+python ^python@3.11:",
-        msg="Boost.python.enum has a known bug for boost@:1.80.0 and python@3.11:",
-    )
-    # On Windows, the signals variant is required when building any of
-    # the all_libs variants.
-    for lib in all_libs:
-        if lib not in ["signals", "signals2"]:
-            # <= 1.68 needs signals, after that needs signals2
-            requires("+signals", when=f"@:1.68 +{lib} platform=windows")
-    # Patch fix from https://svn.boost.org/trac/boost/ticket/11120
-    # Patch fix for IBM XL compiler
-    # Patch fix from https://svn.boost.org/trac/boost/ticket/10125
-    # Patch to override the PGI toolset when using the NVIDIA compilers
-    # Fix for version comparison on newer Clang on darwin
-    # See: https://github.com/macports/macports-ports/pull/6726
-    # Fix: "Compile issue with flat_tree insert"
-    # Fix: "Unable to compile code using boost/process.hpp"
-    # Change the method for version analysis when using Fujitsu compiler.
-    # Add option to C/C++ compile commands in clang-linux.jam
-    # See https://github.com/ned14/outcome/issues/223 for details
-    # Support bzip2 and gzip in other directory
-    # See https://github.com/boostorg/build/pull/154
-    # Backport Python3 import problem
-    # See https://github.com/boostorg/python/pull/218
-    # Fix B2 bootstrap toolset during installation
-    # and https://github.com/spack/spack/pull/21408
-    # Allow building context asm sources with GCC on Darwin
-    # See https://github.com/spack/spack/pull/24889
-    # and https://github.com/boostorg/context/issues/177
-    # Fix float128 support when building with CUDA and Cray compiler
-    # See https://github.com/boostorg/config/pull/378
-    # Fix building with Intel compilers
-    # Fix issues with PTHREAD_STACK_MIN not being a DEFINED constant in newer glibc
-    # See https://github.com/spack/spack/issues/28273
-    # https://www.intel.com/content/www/us/en/developer/articles/technical/building-boost-with-oneapi.html
     # https://github.com/spack/spack/issues/44003
     # https://github.com/boostorg/filesystem/issues/284
     # https://github.com/boostorg/context/pull/280

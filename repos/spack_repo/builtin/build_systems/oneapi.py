@@ -64,11 +64,6 @@ class IntelOneApiPackage(Package):
         cls.__doc__ = cls.__doc__ + text
         return cls
 
-    @property
-    def component_dir(self):
-        """Subdirectory for this component in the install prefix."""
-        raise NotImplementedError
-
 class IntelOneApiLibraryPackage(IntelOneApiPackage):
     """Base class for Intel oneAPI library packages.
 

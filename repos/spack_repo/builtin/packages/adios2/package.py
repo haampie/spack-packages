@@ -46,10 +46,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
 
     # Compression libraries
 
-    # Rransport engines
-
-    variant("xrootd", default=True, description="Enable the XRootD")
-
     # Optional language bindings, C++11 and C always provided
     variant("kokkos", default=False, when="@2.9:", description="Enable Kokkos support")
     variant("sycl", default=False, when="@2.10:", description="Enable SYCL support")

@@ -45,8 +45,3 @@ class CompilerWrapper(Package):
         version("1.0")
         has_code = False
 
-    def bin_dir(self) -> pathlib.Path:
-        # This adds an extra "spack" subdir, so that the script and symlinks don't get
-        # their way to the default view
-        return pathlib.Path(str(self.prefix)) / "libexec" / "spack"
-

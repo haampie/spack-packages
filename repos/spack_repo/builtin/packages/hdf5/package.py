@@ -199,12 +199,10 @@ class Hdf5(CMakePackage):
     # that would otherwise be triggered by this code. Later HDF5 versions
     # will include the patch code changes.
     # See https://github.com/HDFGroup/hdf5/pull/3837
-    patch("hdf5_1_14_3_fpe.patch", when="@1.14.3")
 
     # There are known build failures with intel@18.0.1. This issue is
     # discussed and patch is provided at
     # https://software.intel.com/en-us/forums/intel-fortran-compiler-for-linux-and-mac-os-x/topic/747951.
-    patch("h5f90global-mult-obj-same-equivalence-same-common-block.patch", when="@1.10.1%intel@18")
 
     # Turn line comments into block comments to conform with pre-C99 language
     # standards. Versions of hdf5 after 1.8.10 don't require this patch,
@@ -216,15 +214,9 @@ class Hdf5(CMakePackage):
     # pre-C99 code is restricted to just five lines of line comments in
     # three src files, this patch accomplishes the simple task of patching the
     # three src files and leaves the hdf5 build system alone.
-    patch("pre-c99-comments.patch", when="@1.8.10")
 
     # There are build errors with GCC 8, see
     # https://forum.hdfgroup.org/t/1-10-2-h5detect-compile-error-gcc-8-1-0-on-centos-7-2-solved/4441
-    patch(
-        "https://salsa.debian.org/debian-gis-team/hdf5/raw/bf94804af5f80f662cad80a5527535b3c6537df6/debian/patches/gcc-8.patch",
-        sha256="57cee5ff1992b4098eda079815c36fc2da9b10e00a9056df054f2384c4fc7523",
-        when="@1.10.2%gcc@8:",
-    )
 
     # Disable MPI C++ interface when C++ is disabled, otherwise downstream
     # libraries fail to link; see https://github.com/spack/spack/issues/12586

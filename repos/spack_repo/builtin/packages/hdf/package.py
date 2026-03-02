@@ -42,11 +42,7 @@ class Hdf(AutotoolsPackage):
 
     depends_on("zlib-api")
     depends_on("jpeg")
-    depends_on("szip", when="+szip")
-    depends_on("rpc", when="+external-xdr")
 
-    depends_on("bison", type="build")
-    depends_on("flex", type="build")
     depends_on("java@7:", when="+java", type=("build", "run"))
 
     # https://forum.hdfgroup.org/t/cant-build-hdf-4-2-14-with-jdk-11-and-enable-java/5702

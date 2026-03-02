@@ -205,21 +205,17 @@ class Cmake(Package):
     patch("intel-cxx-bootstrap.patch", when="@3.17.0:3.17.3,3.18.0")
 
     # https://gitlab.kitware.com/cmake/cmake/issues/18232
-    patch("nag-response-files.patch", when="@3.7:3.12")
 
     # Cray libhugetlbfs and icpc warnings failing CXX tests
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/4698
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/4681
-    patch("ignore_crayxc_warnings.patch", when="@3.7:3.17.2")
 
     # The Fujitsu compiler requires the '--linkfortran' option
     # to combine C++ and Fortran programs.
-    patch("fujitsu_add_linker_option.patch", when="%fj")
 
     # Remove -A from the C++ flags we use when CXX_EXTENSIONS is OFF
     # Should be fixed in 3.19. This patch is needed also for nvhpc.
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/5025
-    patch("pgi-cxx-ansi.patch", when="@3.15:3.18")
 
     # Adds CCE v11+ fortran preprocessing definition.
     # requires Cmake 3.19+

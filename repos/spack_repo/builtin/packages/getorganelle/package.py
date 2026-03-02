@@ -21,10 +21,6 @@ class Getorganelle(PythonPackage):
     version("1.7.5.0", sha256="c498196737726cb4c0158f23037bf301a069f5028ece729bb4d09c7d915df93d")
 
     depends_on("py-setuptools", type="build")
-    depends_on("py-numpy@1.16.4:", type=("build", "run"))
-    depends_on("py-scipy@1.3.0:", type=("build", "run"))
-    depends_on("py-sympy@1.4:", type=("build", "run"))
-    depends_on("py-requests", type=("build", "run"))
 
     depends_on("bowtie2", type="run")
     depends_on("spades", type="run")

@@ -10,9 +10,6 @@ from spack.package import *
 
 
 class GGMLPackageBase(CMakePackage, CudaPackage, ROCmPackage):
-    variant("shared", default=True, description="build shared libraries")
-    variant("cpu", default=True, description="build CPU backend")
-    variant("blas", default=True, description="build BLAS backend")
     variant("openmp", default=True, description="build OpenMP backend")
     variant("cuda", default=False, description="build CUDA backend")
     variant("rocm", default=False, description="build HIP backend")

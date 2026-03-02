@@ -20,7 +20,6 @@ class Mpidiff(CMakePackage):
 
     version("0.2.0", sha256="726b59fe4af0bb0812fc34c456cb0d801e03313a8fdfb9dc63d23a9b316b6118")
 
-    variant("docs", default=False, description="Build and include documentation")
     variant("examples", default=False, description="Build and include examples")
     variant("tests", default=False, description="Build tests")
 

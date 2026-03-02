@@ -35,11 +35,7 @@ class OpenpmdApi(CMakePackage):
     depends_on("toml11@4.2.0: cxx_std=17", when="@0.16.1:")
     with when("+hdf5"):
         depends_on("hdf5@1.8.13:")
-        depends_on("hdf5@1.8.13: ~mpi", when="~mpi")
-        depends_on("hdf5@1.8.13: +mpi", when="+mpi")
-        depends_on("adios@1.13.1: ~sz")
     with when("+python"):
-        depends_on("py-numpy@1.15.1:", type=("test", "run"))
         depends_on("py-mpi4py@2.1.0:", when="+mpi", type=("test", "run"))
         with default_args(type=("link", "test", "run")):
             depends_on("python@3.7:")

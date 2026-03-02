@@ -84,41 +84,4 @@ class CudaPackage(PackageBase):
     # Hopper support:
     # Blackwell support:
     # Compute Capability 101 was renamed to 110 in CUDA 13
-    # From the NVIDIA install guide we know of conflicts for particular
-    # platforms (linux, darwin), architectures (x86, powerpc) and compilers
-    # (gcc, clang). We don't restrict %gcc and %clang conflicts to
-    # platform=linux, since they may apply to platform=darwin. We currently
-    # do not provide conflicts for platform=darwin with %apple-clang.
-    # Linux x86_64 compiler conflicts from here:
-    # https://gist.github.com/ax3l/9489132
-    with when("^cuda~allow-unsupported-compilers"):
-        # GCC
-        # According to
-        # https://github.com/spack/spack/pull/25054#issuecomment-886531664
-        # these conflicts are valid independently from the architecture
-        # minimum supported versions
-        # maximum supported version
-        # NOTE:
-        # it has been decided to use an upper bound for the latest version.
-        # This implies that the last one in the list has to be updated at
-        # each release of a new cuda minor version.
-        # https://gist.github.com/ax3l/9489132#gistcomment-3860114
-        # x86_64 vs. ppc64le differ according to NVidia docs
-        # Linux ppc64le compiler conflicts from Table from the docs below:
-        # https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
-        # https://docs.nvidia.com/cuda/archive/9.2/cuda-installation-guide-linux/index.html
-        # https://docs.nvidia.com/cuda/archive/9.1/cuda-installation-guide-linux/index.html
-        # https://docs.nvidia.com/cuda/archive/9.0/cuda-installation-guide-linux/index.html
-        # https://docs.nvidia.com/cuda/archive/8.0/cuda-installation-guide-linux/index.html
-        # information prior to CUDA 9 difficult to find
-        # officially, CUDA 11.0.2 only supports the system GCC 8.3 on ppc64le
-        # Intel is mostly relevant for x86_64 Linux, even though it also
-        # exists for Mac OS X. No information prior to CUDA 3.2 or Intel 11.1
-        # Intel 15.x is compatible with CUDA 7 thru current CUDA
-        # ARM
-        # https://github.com/spack/spack/pull/39666#issuecomment-2377609263
-        # Might need to be expanded to other gcc versions
-        # XL is mostly relevant for ppc64le Linux
-        conflicts("%xl@:12,17:", when="+cuda ^cuda@:11.1.0")
-        # Darwin.
         # TODO: add missing conflicts for %apple-clang cuda@:10

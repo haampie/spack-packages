@@ -127,51 +127,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             url="ftp://sourceware.org/pub/newlib/newlib-{0}.tar.gz".format(nvptx_newlib_ver),
             sha256=newlib_shasum[nvptx_newlib_ver],
             destination="newlibsource",
-            fetch_options=timeout,
-        )
-        nvptx_tools_ver = "2023-09-13"
-        # NVPTX offloading supported in 7 and later by limited languages
-        # NVPTX build disables bootstrap
-    # Binutils can't build ld on macOS
-    # Bootstrap comparison failure:
-    #   see https://github.com/spack/spack/issues/23296
-    #   https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100340
-    #   on XCode 12.5
-    conflicts("+bootstrap", when="@:11.1 %apple-clang@12.0.5")
-    # GCC 11 requires GCC 4.8 or later (https://gcc.gnu.org/gcc-11/changes.html)
-    # https://github.com/iains/gcc-12-branch/issues/6
-    # Applies
-    # https://github.com/gcc-mirror/gcc/commit/ea2798892de373b14f9fc7ae8a0d820eaddca98c,
-    # the installed GCC not portable across different glibc versions. Original
-    # GCC bug report: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=118009. For
-    # GCC 15 we can directly use the upstream patch. For GCC 12-14 the patch
-    # has been backported. The patch is not applied to GCC 11 since the "fixinclude"
-    # is in fact needed for that version (see GCC commit description). Older versions
-    # have not been checked or tested.
-    patch("fixincludes-gcc-12.1.patch", when="@12:12.3")
-    if sys.platform == "darwin":
-        # Fix parallel build on APFS filesystem
-        # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81797
-        if macos_version() >= Version("10.13"):
-            patch("darwin/apfs.patch", when="@5.5.0,6.1:6.4,7.1:7.3")
-            # from homebrew via macports
-            # https://trac.macports.org/ticket/56502#no1
-            # see also: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=83531
-            patch("darwin/headers-10.13-fix.patch", when="@5.5.0")
-        if macos_version() >= Version("10.14"):
-            # Fix system headers for Mojave SDK:
-            # https://github.com/Homebrew/homebrew-core/pull/39041
-            patch(
-                "https://raw.githubusercontent.com/Homebrew/formula-patches/b8b8e65e/gcc/8.3.0-xcode-bug-_Atomic-fix.patch",
-                sha256="33ee92bf678586357ee8ab9d2faddf807e671ad37b97afdd102d5d153d03ca84",
-                when="@6:8.3",
-            )
-        if macos_version() >= Version("10.15"):
-            # Fix system headers for Catalina SDK
-            # (otherwise __OSX_AVAILABLE_STARTING ends up undefined)
-            patch(
-                "https://raw.githubusercontent.com/Homebrew/formula-patches/b8b8e65e/gcc/9.2.0-catalina.patch",
-                sha256="0b8d14a7f3c6a2f0d2498526e86e088926671b5da50a554ffa6b7f73ac4f132b",
                 when="@9.2.0",
             )
             # See https://raw.githubusercontent.com/Homebrew/homebrew-core/3b7db4457ac64a31e3bbffc54b04c4bd824a4a4a/Formula/gcc.rb

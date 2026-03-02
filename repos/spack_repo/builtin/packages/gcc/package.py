@@ -6,10 +6,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     provides("c", "cxx", when="languages=c,c++")
     # Previous stable series releases
     # Final releases of previous versions
-    with default_args(deprecated=True):
-        version(
-            "10.2.0", sha256="b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
-        )
     variant(
         "languages",
         default="c,c++,fortran",
@@ -26,6 +22,3 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     )
     variant("nvptx", default=False, description="Target nvptx offloading to NVIDIA GPUs")
     variant("bootstrap", default=True, description="Enable 3-stage bootstrap")
-    variant(
-        "graphite", default=False, description="Enable Graphite loop optimizations (requires ISL)"
-    )

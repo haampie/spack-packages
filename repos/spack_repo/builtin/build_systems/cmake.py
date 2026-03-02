@@ -14,10 +14,6 @@ _primary_generator_extractor = re.compile(r"(?:.* - )?(.*)")
 def generator(*names: str, default: Optional[str] = None) -> None:
     def _values(x):
         return x in allowed_values
-    _values.__doc__ = f"{','.join(names)}"
-    variant(
-        when="build_system=cmake",
-    )
     for x in not_used:
         conflicts(f"generator={x}")
 class CMakePackage(PackageBase):

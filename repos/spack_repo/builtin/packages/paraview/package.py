@@ -18,14 +18,14 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     """ParaView is an open-source, multi-platform data analysis and
     """
     homepage = "https://www.paraview.org"
-    variant("mpi", default=True, description="Enable MPI support")
-    variant("qt", default=False, description="Enable Qt (gui) support")
-    variant("visitbridge", default=False, description="Enable VisItBridge support")
-    variant("raytracing", default=False, description="Enable Raytracing support")
     variant("cdi", default=False, description="Enable CDI support")
     variant(
         "build_edition",
         default="canonical",
+        multi=False,
+        values=("canonical", "catalyst_rendering", "catalyst", "rendering", "core"),
+        description="Build editions include only certain modules. "
+        "Editions are listed in decreasing order of size.",
     )
     with when("@6:"):
             depends_on("qt-tools+assistant")

@@ -88,17 +88,9 @@ class Icon(AutotoolsPackage):
     requires("+mpi", when="+cdi-pio")
 
     variant("yaxt", default=False, description="Enable the YAXT data exchange")
-    requires("+mpi", when="+yaxt")
 
     serialization_values = ("read", "perturb", "create")
-    variant(
-        "serialization",
-        default="none",
-        values=("none",) + serialization_values,
-        description="Enable the Serialbox2 serialization",
-    )
 
-    variant("comin", default=False, description="Enable the ICON community interfaces")
 
     # Optimization Features:
     variant("mixed-precision", default=False, description="Enable mixed-precision dynamical core")

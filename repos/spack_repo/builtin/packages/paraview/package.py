@@ -100,15 +100,7 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         version("5.4.0", sha256="f488d84a53b1286d2ee1967e386626c8ad05a6fe4e6cbdaa8d5e042f519f94a9")
         version("5.3.0", sha256="046631bbf00775edc927314a3db207509666c9c6aadc7079e5159440fd2f88a0")
         version("5.2.0", sha256="894e42ef8475bb49e4e7e64f4ee2c37c714facd18bfbb1d6de7f69676b062c96")
-        version("5.1.2", sha256="ff02b7307a256b7c6e8ad900dee5796297494df7f9a0804fe801eb2f66e6a187")
-        version("5.0.1", sha256="caddec83ec284162a2cbc46877b0e5a9d2cca59fb4ab0ea35b0948d2492950bb")
-        version("4.4.0", sha256="c2dc334a89df24ce5233b81b74740fc9f10bc181cd604109fd13f6ad2381fc73")
 
-    variant(
-        "development_files",
-        default=True,
-        description="Install include files for Catalyst or plugins support",
-    )
     variant("python", default=False, description="Enable Python support", when="@5.8:")
     variant("fortran", default=False, description="Enable Fortran support")
     variant("mpi", default=True, description="Enable MPI support")

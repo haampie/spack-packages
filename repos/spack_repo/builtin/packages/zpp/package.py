@@ -31,9 +31,4 @@ class Zpp(PythonPackage):
     version(
         "1.0.9-fixed", sha256="6aa5f4a42b8ba7c000e7b186d5ef2be99fd0f8f47e1d360c42c1b371d0bacf23"
     )
-    version(
-        "1.0.8-fixed", sha256="dc5f423f019f1af92ff020372b458ab539890d2de2133bb9602cce419486faea"
-    )
 
-    depends_on("python@3:", type=("build", "run"))
-    depends_on("py-setuptools", type=("build", "run"))

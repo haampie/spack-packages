@@ -18,11 +18,7 @@ class Fleur(Package):
     license("MIT")
 
     version("develop", branch="develop")
-    version("7.2", tag="MaX-R7.2", commit="447eed3b7ec3de5fcdfbd232cd1eda4caefb51d3")
-    version("5.1", tag="MaX-R5.1", commit="a482abd9511b16412c2222e2ac1b1a303acd454b")
-    version("5.0", tag="MaX-R5", commit="f2df362c3dad6ef39938807ea14e4ec4cb677723")
 
-    variant("scalapack", default=False, description="Enable SCALAPACK")
     variant(
         "fft",
         default="internal",
@@ -59,10 +55,6 @@ class Fleur(Package):
     depends_on("hdf5+hl+fortran", when="+hdf5")
     depends_on("magma+fortran", when="+magma")
     depends_on("wannier90", when="+wannier90")
-    depends_on("spfft+fortran~openmp", when="+spfft~openmp")
-    depends_on("spfft+fortran+openmp", when="+spfft+openmp")
-    depends_on("elpa~openmp", when="+elpa~openmp")
-    depends_on("elpa+openmp", when="+elpa+openmp")
     depends_on("gmake", type="build")
 
     conflicts("%intel@:16.0.4", msg="ifort version <16.0 will most probably not work correctly")

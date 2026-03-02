@@ -100,14 +100,8 @@ class Adios(AutotoolsPackage):
 
     # ADIOS 1.13.1 is written for ZFP 0.5.0 interfaces
     #   https://github.com/ornladios/ADIOS/pull/204
-    patch("zfp051.patch", when="@1.11.0:1.13.1")
 
     # Fix a bug in configure.ac that causes automake issues on RHEL 7.7
-    patch(
-        "https://github.com/ornladios/ADIOS/commit/17aee8aeed64612cd8cfa0b949147091a5525bbe.patch?full_index=1",
-        when="@1.12.0: +mpi",
-        sha256="aea47e56013b57c2d5d36e23e0ae6010541c3333a84003784437768c2e350b05",
-    )
 
     def with_or_without_hdf5(self, activated):
         if activated:

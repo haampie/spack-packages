@@ -29,10 +29,6 @@ class Purify(CMakePackage):
     variant("tests", default=True, description="Build tests")
     variant("openmp", default=True, description="Enable multithreading with OpenMP")
     variant("mpi", default=True, description="Enable parallelisation with MPI")
-    variant("benchmarks", default=False, description="Build benchmarks")
-    variant("docs", default=False, description="Enable multithreading with OpenMP")
-    variant("coverage", default=False, description="Enable code coverage")
-    variant("hdf5", default=False, description="Enable hdf5 I/O")
     variant(
         "onnxrt",
         when="@5.0.0:",

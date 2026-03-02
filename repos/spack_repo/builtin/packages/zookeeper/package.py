@@ -20,7 +20,6 @@ class Zookeeper(Package):
 
     version("3.8.4", sha256="284cb4675adb64794c63d95bf202d265cebddc0cda86ac86fb0ede8049de9187")
 
-    depends_on("java")
 
     def install(self, spec, prefix):
         install_tree(".", prefix)

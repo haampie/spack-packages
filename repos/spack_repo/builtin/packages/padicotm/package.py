@@ -74,10 +74,6 @@ class Padicotm(AutotoolsPackage):
     depends_on("zlib")
     depends_on("lz4")
     depends_on("rdma-core", when="+ibverbs")
-    depends_on("psm", when="+psm")
-    depends_on("opa-psm2", when="+psm2")
-    depends_on("libfabric", when="+ofi")
-    depends_on("cray-pmi", when="+craypmi")
     depends_on("pmix", when="+pmix")
     requires("+pukabi", when="+ibverbs", msg="ibverbs rcache requires pukabi")
 

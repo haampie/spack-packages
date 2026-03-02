@@ -107,14 +107,10 @@ class Xyce(CMakePackage):
     # The default settings for various Trilinos variants would require the
     # installation of many more packages than are needed for Xyce.
     depends_on("trilinos~anasazi~float~ifpack2~ml~muelu~zoltan2")
-
-    # Issue #1712 forces explicitly enumerating blas packages to propagate variants
     with when("+pymi_static_tpls"):
-        # BLAS
         depends_on("blas")
         depends_on("openblas~shared", when="^[virtuals=blas] openblas")
         depends_on("netlib-lapack~shared", when="^[virtuals=blas] netlib-lapack~external-blas")
-        depends_on("armpl-gcc~shared", when="^[virtuals=blas] armpl-gcc")
         depends_on("blis libs=static", when="^[virtuals=blas] blis+cblas")
         depends_on("blis libs=static", when="^[virtuals=blas] blis+blas")
         depends_on("clblast~shared", when="^[virtuals=blas] clblast+netlib")

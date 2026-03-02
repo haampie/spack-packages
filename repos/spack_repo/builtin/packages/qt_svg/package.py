@@ -41,14 +41,10 @@ class QtSvg(QtPackage):
     variant("widgets", default=False, description="Build SVG widgets.")
 
     depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("qt-base +gui")
-    depends_on("qt-base +widgets", when="+widgets")
 
     for _v in QtBase.versions:
         v = str(_v)
-        depends_on("qt-base@" + v, when="@" + v)
 
     def cmake_args(self):
         args = super().cmake_args() + []

@@ -17,9 +17,7 @@ class Adiak(CachedCMakePackage):
     url = "https://github.com/LLNL/Adiak/releases/download/v0.1/adiak-v0.1.1.tar.gz"
     git = "https://github.com/LLNL/Adiak"
 
-    maintainers("daboehme", "mplegendre")
 
-    variant("mpi", default=True, description="Build with MPI support")
     variant("shared", default=True, description="Build dynamic libraries")
     variant("python", default=False, when="@0.5.0:", description="Build Python bindings")
     variant("tests", default=False, description="Build tests")

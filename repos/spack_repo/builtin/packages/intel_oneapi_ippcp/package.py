@@ -143,12 +143,6 @@ class IntelOneapiIppcp(IntelOneApiLibraryPackage):
         sha256="64cd5924b42f924b6a8128a8bf8e686f5dc52b98f586ffac6c2e2f1585e3aba9",
         expand=False,
     )
-    version(
-        "2021.1.1",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/17415/l_ippcp_oneapi_p_2021.1.1.54_offline.sh",
-        sha256="c0967afae22c7a223ec42542bcc702121064cd3d8f680eff36169c94f964a936",
-        expand=False,
-    )
 
     @property
     def v2_layout_versions(self):

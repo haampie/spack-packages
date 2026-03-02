@@ -17,13 +17,7 @@ class Libgain(AutotoolsPackage):
 
     license("GPL-3.0-only")
 
-    version(
-        "1.0.0",
-        sha256="3e02637433272f5edfee74ea47abf93ab7e3f1ce717664d22329468a5bd45c3a",
-        url="https://gitlab.com/l_sim/bigdft-suite/-/raw/1.9.1/GaIn-1.0.tar.gz",
-    )
 
-    depends_on("fortran", type="build")  # generated
 
     def flag_handler(self, name, flags):
         flags.append(self.compiler.fc_pic_flag)

@@ -91,23 +91,7 @@ class Yambo(AutotoolsPackage):
         placement="archive",
         expand=False,
     )
-    resource(
-        when="@5.2.1:5.2.3",
-        name="ydriver",
-        url="https://github.com/yambo-code/Ydriver/archive/refs/tags/1.2.0.tar.gz",
-        sha256="0f29a44e9c4b49d3f6be3f159a7ef415932b2ae2f2fdba163af60a0673befe6e",
-        destination="ydriver_archive",
-        placement="archive",
-        expand=False,
-    )
     # iotk archive is contained inside this git repository
-    resource(
-        when="@5.2",
-        name="iotk",
-        git="https://github.com/yambo-code/yambo-libraries.git",
-        destination="yambo_libraries",
-        expand=False,
-    )
 
     # ydriver-1.1.0 is required by yambo 5.1.1 but the oldest release in
     # https://github.com/yambo-code/Ydriver is 1.2.0

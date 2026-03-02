@@ -29,7 +29,6 @@ class Sprng(AutotoolsPackage):
     depends_on("cxx", type="build")  # generated
     depends_on("fortran", type="build")  # generated
 
-    depends_on("mpi", when="+mpi")
 
     def url_for_version(self, version):
         url = "http://www.sprng.org/Version{0}/sprng{1}.tar.bz2"

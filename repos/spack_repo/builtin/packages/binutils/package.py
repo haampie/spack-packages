@@ -94,13 +94,9 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
     depends_on("cxx", type="build")
 
     # compression libs for debug symbols.
-    depends_on("zstd@1.4.0:", when="@2.40:")
-    depends_on("zlib-api")
 
-    depends_on("elfutils+debuginfod", when="+debuginfod")
 
     # pkg-config is used to locate zstd, libdebuginfod
-    depends_on("pkgconfig", type="build")
     depends_on("diffutils", type="build")
 
     depends_on("gettext", when="+nls")

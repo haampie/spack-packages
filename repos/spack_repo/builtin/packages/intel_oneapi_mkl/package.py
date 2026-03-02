@@ -78,30 +78,6 @@ class IntelOneapiMkl(IntelOneApiLibraryPackage):
         expand=False,
     )
     version(
-        "2023.1.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/cd17b7fe-500e-4305-a89b-bd5b42bfd9f8/l_onemkl_p_2023.1.0.46342_offline.sh",
-        sha256="cc28c94cab23c185520b93c5a04f3979d8da6b4c90cee8c0681dd89819d76167",
-        expand=False,
-    )
-    version(
-        "2023.0.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/19138/l_onemkl_p_2023.0.0.25398_offline.sh",
-        sha256="0d61188e91a57bdb575782eb47a05ae99ea8eebefee6b2dfe20c6708e16e9927",
-        expand=False,
-    )
-    version(
-        "2022.2.1",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/19038/l_onemkl_p_2022.2.1.16993_offline.sh",
-        sha256="eedd4b795720de776b1fc5f542ae0fac37ec235cdb567f7c2ee3182e73e3e59d",
-        expand=False,
-    )
-    version(
-        "2022.2.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/18898/l_onemkl_p_2022.2.0.8748_offline.sh",
-        sha256="07d7caedd4b9f025c6fd439a0d2c2f279b18ecbbb63cadb864f6c63c1ed942db",
-        expand=False,
-    )
-    version(
         "2022.1.0",
         url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/18721/l_onemkl_p_2022.1.0.223_offline.sh",
         sha256="4b325a3c4c56e52f4ce6c8fbb55d7684adc16425000afc860464c0f29ea4563e",

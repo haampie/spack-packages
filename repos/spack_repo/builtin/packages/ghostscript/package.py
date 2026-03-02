@@ -19,10 +19,7 @@ class Ghostscript(AutotoolsPackage):
 
     executables = [r"^gs$"]
 
-    license("AGPL-3.0-or-later", checked_by="wdconinc")
 
-    version("10.06.0", sha256="5bd6da34794928cc7e616f288e32bd0be7f9a5ca2d3c206a0af2c19a4e3a318f")
-    version("10.05.0", sha256="56e77833de683825c420d0af8cb90aa8ba7da71ea6fb5624290cbc1b53fe7942")
 
     # --enable-dynamic is deprecated, but kept as a variant since it used to be default
     # https://github.com/ArtifexSoftware/ghostpdl/commit/fe0f842da782b097ce13c31fccacce2374ed6d4b

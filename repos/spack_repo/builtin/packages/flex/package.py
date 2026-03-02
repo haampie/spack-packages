@@ -45,13 +45,9 @@ class Flex(AutotoolsPackage):
     depends_on("gettext@0.19:", type="build", when="@:2.6.0,2.6.4")
     depends_on("help2man", type="build", when="@:2.6.0,2.6.4")
     depends_on("findutils", type="build")
-    depends_on("diffutils", type="build")
 
     # Older tarballs don't come with a configure script and the patch for
     # 2.6.4 touches configure
-    depends_on("m4", type="build")
-    depends_on("autoconf", type="build", when="@:2.6.0,2.6.4")
-    depends_on("automake", type="build", when="@:2.6.0,2.6.4")
     depends_on("libtool", type="build", when="@:2.6.0,2.6.4")
 
     # 2.6.4 fails to compile with newer versions of gcc/glibc, see:

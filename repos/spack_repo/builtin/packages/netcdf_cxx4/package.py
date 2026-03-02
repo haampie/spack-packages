@@ -15,13 +15,9 @@ class NetcdfCxx4(CMakePackage):
     homepage = "https://www.unidata.ucar.edu/software/netcdf"
     url = "https://downloads.unidata.ucar.edu/netcdf-cxx/4.3.1/netcdf-cxx4-4.3.1.tar.gz"
 
-    maintainers("WardF")
 
-    license("Apache-2.0")
 
-    version("4.3.1", sha256="6a1189a181eed043b5859e15d5c080c30d0e107406fbb212c8fb9814e90f3445")
 
-    variant("shared", default=True, description="Enable shared library")
     variant("pic", default=True, description="Produce position-independent code (for shared libs)")
     variant("doc", default=False, description="Enable doxygen docs")
     variant("tests", default=False, description="Enable CTest-based tests, dashboards.")

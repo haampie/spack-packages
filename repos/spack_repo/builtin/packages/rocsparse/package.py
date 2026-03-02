@@ -65,9 +65,7 @@ class Rocsparse(CMakePackage):
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("cmake@3.5:", type="build")
 
     for ver in [
         "5.7.0",
@@ -94,8 +92,6 @@ class Rocsparse(CMakePackage):
         "7.1.1",
         "7.2.0",
     ]:
-        depends_on(f"hip@{ver}", when=f"@{ver}")
-        depends_on(f"rocprim@{ver}", when=f"@{ver}")
         depends_on(f"rocm-cmake@{ver}:", type="build", when=f"@{ver}")
 
     for ver in ["7.2.0"]:

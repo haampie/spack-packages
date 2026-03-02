@@ -1,6 +1,4 @@
-import os
 from spack.package import (
-    EnvironmentModifications,
     PackageBase,
 )
 class ROCmPackage(PackageBase):

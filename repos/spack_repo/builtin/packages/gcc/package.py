@@ -285,11 +285,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             when="@14.1.0 target=aarch64:",
         )
 
-        patch(
-            "https://github.com/iains/gcc-13-branch/compare/b71f1de6e9cf7181a288c0f39f9b1ef6580cf5c8..7808d253bf53c6c6ce63f04a66601b595e2bae08.patch?full_index=1",
-            sha256="e7d4415e66ba09dd65b102a842e62e6f9ba6b41da878e08235e59a3fc53058eb",
-            when="@13.3.0 target=aarch64:",
-        )
 
 
 
@@ -303,14 +298,9 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
         # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=92061
 
-    patch("gcc-backport.patch", when="@4.7:4.9.3,5:5.3")
 
     # Backport libsanitizer patch for glibc >= 2.31 and 5.3.0 <= gcc <= 9.2.0
     # https://bugs.gentoo.org/708346
-    patch("glibc-2.31-libsanitizer-1.patch", when="@7.1.0:7.5.0,8.1.0:8.3.0,9.0.0:9.2.0")
-    patch("glibc-2.31-libsanitizer-1-gcc-6.patch", when="@5.3.0:5.5.0,6.1.0:6.5.0")
-    patch("glibc-2.31-libsanitizer-2.patch", when="@8.1.0:8.3.0,9.0.0:9.2.0")
-    patch("glibc-2.31-libsanitizer-2-gcc-6.patch", when="@5.3.0:5.5.0,6.1.0:6.5.0")
 
     # Backport libsanitizer patch for glibc >= 2.36
     # https://reviews.llvm.org/D129471
@@ -318,8 +308,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # Older versions do not compile with newer versions of glibc
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81712
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81066
-    patch("stack_t-4.9.patch", when="@4.9")
-    patch("stack_t.patch", when="@5.1:5.4,6.1:6.4,7.1")
     # https://bugs.busybox.net/show_bug.cgi?id=10061
     patch("signal.patch", when="@4.9,5.1:5.4")
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=85835

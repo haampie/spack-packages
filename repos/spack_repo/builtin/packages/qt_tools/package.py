@@ -1,12 +1,6 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
 from spack_repo.builtin.packages.qt_base.package import QtBase, QtPackage
 from spack.package import *
 class QtTools(QtPackage):
-    """Qt Tools contains tools like Qt Designer."""
-    url = QtPackage.get_url(__qualname__)
-    git = QtPackage.get_git(__qualname__)
     list_url = QtPackage.get_list_url(__qualname__)
     # src/assistant/qlitehtml is a submodule that is not in the git archive
     variant(

@@ -130,7 +130,3 @@ class Cmake(Package):
                 string=True,
             )
 
-    @classmethod
-    def determine_version(cls, exe):
-        output = Executable(exe)("--version", output=str, error=str)
-        match = re.search(r"cmake.*version\s+(\S+)", output)

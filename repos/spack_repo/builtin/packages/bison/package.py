@@ -24,8 +24,6 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
     executables = ["^bison$"]
 
 
-    version("3.7", sha256="492ad61202de893ca21a99b621d63fa5389da58804ad79d3f226b8d04b803998")
-    version("3.6.4", sha256="8183de64b5383f3634942c7b151bf2577f74273b2731574cdda8a8f3a0ab13e9")
     version("3.6.3", sha256="4b4c4943931e811f1073006ce3d8ee022a02b11b501e9cbf4def3613b24a3e63")
     version("3.6.2", sha256="e28ed3aad934de2d1df68be209ac0b454f7b6d3c3d6d01126e5cd2cbadba089a")
 
@@ -55,8 +53,3 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
         patch("secure_snprintf.patch", level=0, when="@3.0.4")
 
 
-    @classmethod
-    def determine_version(cls, exe):
-        output = Executable(exe)("--version", output=str, error=str)
-        match = re.search(r"bison \(GNU Bison\)\s+(\S+)", output)
-        return match.group(1) if match else None

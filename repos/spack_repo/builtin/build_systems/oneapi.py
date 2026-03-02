@@ -69,16 +69,6 @@ class IntelOneApiPackage(Package):
         """Subdirectory for this component in the install prefix."""
         raise NotImplementedError
 
-    @property
-    def v2_layout_versions(self):
-        """Version that implements the v2 directory layout."""
-        raise NotImplementedError
-
-    @property
-    def v2_layout(self):
-        """Returns true if this version implements the v2 directory layout."""
-        return self.spec.satisfies(self.v2_layout_versions)
-
 class IntelOneApiLibraryPackage(IntelOneApiPackage):
     """Base class for Intel oneAPI library packages.
 

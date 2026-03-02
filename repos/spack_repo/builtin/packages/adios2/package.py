@@ -151,15 +151,3 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
 
     # https://github.com/ornladios/ADIOS2/pull/4729
 
-    @when("%fj")
-    def patch(self):
-        """add fujitsu mpi commands #16864"""
-        f = join_path("cmake", "upstream", "FindMPI.cmake")
-        filter_file("mpcc_r)", "mpcc_r mpifcc)", f, string=True)
-        filter_file("mpc++_r)", "mpcc_r mpiFCC)", f, string=True)
-        filter_file("mpf77_r", "mpf77_r mpifrt", f, string=True)
-
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        # https://github.com/ornladios/ADIOS2/issues/2228
-        if self.spec.satisfies("+fortran %gcc@10:"):
-            env.set("FFLAGS", "-fallow-argument-mismatch")

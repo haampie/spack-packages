@@ -19,18 +19,6 @@ class LlvmDetection(PackageBase):
     c_names = ["clang"]
     cxx_names = ["clang++"]
 
-    @classmethod
-    def filter_detected_exes(cls, prefix, exes_in_prefix):
-        # Executables like lldb-vscode-X are daemon listening on some port and would hang Spack
-        # during detection. clang-cl, clang-cpp, etc. are dev tools that we don't need to test
-        reject = re.compile(
-            r"-(vscode|cpp|cl|ocl|gpu|tidy|rename|scan-deps|format|refactor|offload|"
-            r"check|query|doc|move|extdef|apply|reorder|change-namespace|"
-            r"include-fixer|import-test|dap|server|PerfectShuffle)"
-        )
-        return [x for x in exes_in_prefix if not reject.search(x)]
-
-
 class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     """The LLVM Project is a collection of modular and reusable compiler and
     toolchain technologies. Despite its name, LLVM has little to do
@@ -375,16 +363,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
     # https://github.com/llvm/llvm-project/issues/156679
 
-    @when("@14:17")
-    def patch(self):
-        # https://github.com/llvm/llvm-project/pull/69458
-        filter_file(
-            r"${TERMINFO_LIB}",
-            r"${Terminfo_LIBRARIES}",
-            "lldb/source/Core/CMakeLists.txt",
-            string=True,
-        )
-
     clang_and_friends = "(?:clang|flang|flang-new)"
 
     compiler_version_regex = (
@@ -400,111 +378,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
         r"LLD ([^ )\n]+) \(compatible with GNU linkers\)"
     )
     fortran_names = ["flang", "flang-new"]
-
-    @property
-    def supported_languages(self):
-        languages = []
-        if self.spec.satisfies("+clang"):
-            languages.extend(["c", "cxx"])
-        if self.spec.satisfies("+flang"):
-            languages.append("fortran")
-        return languages
-
-    @classproperty
-    def executables(cls):
-        return super().executables + [r"^ld\.lld(-\d+)?$", r"^lldb(-\d+)?$"]
-
-    @classmethod
-    def determine_version(cls, exe):
-        try:
-            compiler = Executable(exe)
-            output = compiler(cls.compiler_version_argument, output=str, error=str)
-            if "Apple" in output:
-                return None
-            if "AMD" in output:
-                return None
-            match = re.search(cls.compiler_version_regex, output)
-            if match:
-                return match.group(match.lastindex)
-        except ProcessError:
-            pass
-        except Exception as e:
-            tty.debug(e)
-
-        return None
-
-    @classmethod
-    def determine_variants(cls, exes, version_str):
-        # Do not need to reuse more general logic from CompilerPackage
-        # because LLVM has kindly named compilers
-
-        # Map between exectuable name, variant name, and compiler language.
-        # The ordering of this list is the ordering of the returned variants.
-        exe_variant_lang = [
-            ("clang++", "clang", "cxx"),
-            ("clang", "clang", "c"),
-            ("flang", "flang", "fortran"),
-            ("ld.lld", "lld", None),
-            ("lldb", "lldb", None),
-        ]
-
-        variants = set()
-        compilers = {}
-
-        # Prefer shorter pathnames by sorting with len and using setdefault
-        for exe_path in sorted(exes, key=len):
-            name = os.path.basename(exe_path)
-            for exe, var, lang in exe_variant_lang:
-                # NOTE: since "amdclang++" is "clang", we use `in` rather than `startswith`
-                if exe in name:
-                    compilers.setdefault(lang, exe_path)
-                    variants.add(var)
-                    break
-
-        # Remove executables that aren't compilers
-        compilers.pop(None, None)
-
-        # Convert
-        added_variant = set()
-        variant_strings = []
-        for _, var, _ in exe_variant_lang:
-            # Prevent double-clang variant
-            if var in added_variant:
-                continue
-            added_variant.add(var)
-
-            # Add variant string
-            prefix = "+" if var in variants else "~"
-            variant_strings.append(prefix + var)
-
-        return "".join(variant_strings), {"compilers": compilers}
-
-    @classmethod
-    def validate_detected_spec(cls, spec, extra_attributes):
-        # For LLVM 'compilers' is a mandatory attribute
-        msg = 'the extra attribute "compilers" must be set for the detected spec "{0}"'.format(
-            spec
-        )
-        assert "compilers" in extra_attributes, msg
-        compilers = extra_attributes["compilers"]
-        for key in ("c", "cxx"):
-            msg = "{0} compiler not found for {1}"
-            assert key in compilers, msg.format(key, spec)
-
-    def _cc_path(self):
-        if self.spec.satisfies("+clang"):
-            return os.path.join(self.spec.prefix.bin, "clang")
-        return None
-
-    def _cxx_path(self):
-        if self.spec.satisfies("+clang"):
-            return os.path.join(self.spec.prefix.bin, "clang++")
-        return None
-
-    def _fortran_path(self):
-        if self.spec.satisfies("+flang"):
-            return os.path.join(self.spec.prefix.bin, "flang")
-        return None
 
     debug_flags = [
         "-gcodeview",
@@ -527,80 +400,3 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
     implicit_rpath_libs = ["libclang"]
 
-    def _standard_flag(self, *, language, standard):
-        flags = {
-            "cxx": {
-                "11": [("@3.3:", "-std=c++11")],
-                "14": [("@3.5:", "-std=c++14")],
-                "17": [("@3.5:4", "-std=c++1z"), ("@5:", "-std=c++17")],
-                "20": [("@5:10", "-std=c++2a"), ("@11:", "-std=c++20")],
-                "23": [("@12:16", "-std=c++2b"), ("@17:", "-std=c++23")],
-            },
-            "c": {
-                "99": [("@:", "-std=c99")],
-                "11": [("@3.1:", "-std=c11")],
-                "17": [("@6:", "-std=c17")],
-                "23": [("@9:17", "-std=c2x"), ("@18:", "-std=c23")],
-            },
-        }
-        for condition, flag in flags[language][standard]:
-            if self.spec.satisfies(condition):
-                return flag
-        else:
-            raise RuntimeError(
-                f"{self.spec} does not support the '{standard}' standard "
-                f"for the '{language}' language"
-            )
-
-    def archspec_name(self):
-        return "clang"
-
-    @property
-    def libs(self):
-        return LibraryList(self.llvm_config("--libfiles", "all", result="list"))
-
-    @run_before("cmake")
-    def codesign_check(self):
-        if self.spec.satisfies("+code_signing"):
-            codesign = which("codesign")
-            mkdir("tmp")
-            llvm_check_file = join_path("tmp", "llvm_check")
-            copy("/usr/bin/false", llvm_check_file)
-            try:
-                codesign("-f", "-s", "lldb_codesign", "--dryrun", llvm_check_file)
-
-            except ProcessError:
-                # Newer LLVM versions have a simple script that sets up
-                # automatically when run with sudo priviliges
-                setup = Executable("./lldb/scripts/macos-setup-codesign.sh")
-                try:
-                    setup()
-                except Exception:
-                    raise RuntimeError(
-                        "spack was unable to either find or set up"
-                        "code-signing on your system. Please refer to"
-                        "https://lldb.llvm.org/resources/build.html#"
-                        "code-signing-on-macos for details on how to"
-                        "create this identity."
-                    )
-
-    def flag_handler(self, name, flags):
-        if name == "ldflags" and self.spec.satisfies("%intel"):
-            flags.append("-shared-intel")
-            return (None, flags, None)
-        return (flags, None, None)
-
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        """When using %clang, add only its ld.lld-$ver and/or ld.lld to our PATH"""
-        if self.compiler.name in ["clang", "apple-clang"]:
-            for lld in "ld.lld-{0}".format(self.compiler.version.version[0]), "ld.lld":
-                bin = os.path.join(os.path.dirname(self.compiler.cc), lld)
-                sym = os.path.join(self.stage.path, "ld.lld")
-                if os.path.exists(bin) and not os.path.exists(sym):
-                    mkdirp(self.stage.path)
-                    symlink(bin, sym)
-            env.prepend_path("PATH", self.stage.path)
-
-        if self.spec.satisfies("platform=darwin"):
-            define("LIBOMP_USE_HWLOC", True),
-            define("LIBOMP_HWLOC_INSTALL_DIR", spec["hwloc"].prefix),

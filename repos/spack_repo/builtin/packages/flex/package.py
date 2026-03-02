@@ -30,7 +30,6 @@ class Flex(AutotoolsPackage):
     # Avoid flex '2.6.2' (major bug)
     # See issue #2554; https://github.com/westes/flex/issues/113
     version("2.6.1", sha256="3c43f9e658e45e8aae3cf69fa11803d60550865f023852830d557c5f0623c13b")
-    version("2.6.0", sha256="cde6e46064a941a3810f7bbc612a2c39cb3aa29ce7eb775089c2515d0adfa7e9")
 
     variant("nls", default=False, description="Enable native language support")
     variant("lex", default=True, description="Provide symlinks for lex and libl")

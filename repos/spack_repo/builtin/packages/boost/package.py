@@ -109,19 +109,6 @@ class Boost(Package):
         lib_opts = all_libs_opts.get(lib, {})
         variant(lib, default=False, description="Compile with {0} library".format(lib), **lib_opts)
 
-    @property
-    def libs(self):
-        query = self.spec.last_query.extra_parameters
-        shared = "+shared" in self.spec
-
-        libnames = (
-            query if query else [lib for lib in self.all_libs if self.spec.satisfies("+%s" % lib)]
-        )
-        libnames += ["monitor"]
-        libraries = ["libboost_*%s*" % lib for lib in libnames]
-
-        return find_libraries(libraries, root=self.prefix, shared=shared, recursive=True)
-
     variant(
         "context-impl",
         default="fcontext",
@@ -278,6 +265,3 @@ class Boost(Package):
     # https://github.com/boostorg/filesystem/issues/284
     # https://github.com/boostorg/context/pull/280
 
-    def patch(self):
-        # Disable SSSE3 and AVX2 when using the NVIDIA compiler
-            filter_file("dump_avx2", "", "libs/log/build/Jamfile.v2")

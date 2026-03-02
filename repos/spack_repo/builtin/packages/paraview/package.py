@@ -64,8 +64,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     with default_args(deprecated=True):
         version("5.5.2", sha256="64561f34c4402b88f3cb20a956842394dde5838efd7ebb301157a837114a0e2d")
-        version("5.5.1", sha256="a6e67a95a7a5711a2b5f95f38ccbff4912262b3e1b1af7d6b9afe8185aa85c0d")
-        version("5.5.0", sha256="1b619e326ff574de808732ca9a7447e4cd14e94ae6568f55b6581896cd569dff")
 
     variant("python", default=False, description="Enable Python support", when="@5.8:")
     variant("fortran", default=False, description="Enable Fortran support")

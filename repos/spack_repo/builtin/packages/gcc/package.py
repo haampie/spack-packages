@@ -73,42 +73,4 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     variant(
         "profiled", default=False, description="Use Profile Guided Optimization", when="+bootstrap"
     )
-    variant("libsanitizer", default=True, description="Use libsanitizer")
-    # https://gcc.gnu.org/install/prerequisites.html
-    # mawk is not sufficient for go support
-    # dependencies required for git versions
-    #   https://github.com/spack/spack/issues/6902#issuecomment-433030376
-    depends_on("mpc@1.0.1:", when="@4.5:")
-    #   GCC 9+  https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
-    with when("+graphite"):
-        depends_on("isl@0.14", when="@5.0:5.2")
-        depends_on("isl@0.15", when="@5.3:5.9")
-        depends_on("isl@0.15:0.18", when="@6:8.9")
-    # The server is sometimes a bit slow to respond
-    timeout = {"timeout": 60}
-    # depends_on('ppl')
-    # See https://go.dev/doc/install/gccgo#Releases
-    with when("languages=go"):
-        provides("golang@:1.8.1", when="@7:")
-    # have been removed from GCC as of GCC 7.
-    # See https://gcc.gnu.org/gcc-5/changes.html
-    with when("languages=d"):
-        # Support for the D programming language has been added to GCC 9.
-        # See https://gcc.gnu.org/gcc-9/changes.html#d
-        conflicts("@:8", msg="support for D has been added in GCC 9.1")
-        # Versions of GDC prior to 12 can be built with an ISO C++11 compiler. Starting version 12,
-        # the D frontend requires a working GDC. Moreover, it is strongly recommended to use an
-        # older version of GDC to build GDC.
-        # See https://gcc.gnu.org/install/prerequisites.html#GDC-prerequisite
-        with when("@12:"):
-            vv = ["11", "12.1.0", "12.2.0"]
-            for prev_v, curr_v in zip(vv, vv[1:]):
-                conflicts(
-                    "%gcc@{0}:".format(curr_v),
-                    when="@{0}".format(curr_v),
-                    msg="'gcc@{0} languages=d' requires '%gcc@:{1}' "
-                    "with the D language support".format(curr_v, prev_v),
-                )
-            # In principle, it is possible to have GDC even with GCC 5.
-        conflicts("languages=d")
     # Newlib version table

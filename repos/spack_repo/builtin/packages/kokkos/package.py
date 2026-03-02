@@ -196,7 +196,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
 
     for dev, (dflt, desc) in devices_variants.items():
         variant(dev, default=dflt, description=desc)
-    conflicts("+cuda", when="+rocm", msg="CUDA and ROCm are not compatible in Kokkos.")
 
     for opt, (dflt, when, desc) in options_variants.items():
         variant(opt, default=dflt, description=desc, when=when)
@@ -207,8 +206,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     variant("wrapper", default=False, description="Use nvcc-wrapper for CUDA build")
     variant("cmake_lang", default=False, description="Use CMake language support for CUDA/HIP")
     depends_on("kokkos-nvcc-wrapper@develop", when="@develop+wrapper")
-    conflicts("+wrapper", when="~cuda")
-    conflicts("+wrapper", when="+cmake_lang")
 
     with default_args(multi=False, description="C++ standard"):
         variant("cxxstd", default="17", values=("14", "17", "20"), when="@3")
@@ -221,7 +218,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     # with some MPI such as cray-mpich
 
     # SYCL and OpenMPTarget require C++17 or higher
-    conflicts("+openmptarget", when="cxxstd=14", msg="OpenMPTarget requires C++17 or higher")
 
     # HPX should use the same C++ standard
     for cxxstd in ["14", "17", "20", "23"]:

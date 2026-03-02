@@ -138,7 +138,6 @@ class Boost(Package):
     )
 
     # 1.84.0 dropped support for 98/03
-    conflicts("cxxstd=98", when="@1.84.0:")
 
     variant("debug", default=False, description="Switch to the debug version of Boost")
     variant("shared", default=True, description="Additionally build shared libraries")
@@ -175,15 +174,11 @@ class Boost(Package):
     #       +python and +mpi, there seem to be errors with out-of-date
     #       API calls from mpi/python.
     #       See: https://github.com/spack/spack/issues/3963
-    conflicts("+numpy", when="~python")
 
     # boost-python in 1.72.0 broken with cxxstd=98
-    conflicts("cxxstd=98", when="+mpi+python @1.72.0")
 
     # boost-mpi depends on boost-python since 1.87.0
-    conflicts("~python", when="+mpi @1.87.0:")
 
-    conflicts("+container", when="@:1.55")
 
     # Boost.System till 1.76 (included) was relying on mutex, which was not
     # detected correctly on Darwin platform when using GCC

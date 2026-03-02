@@ -139,7 +139,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         # See https://gcc.gnu.org/install/prerequisites.html#GDC-prerequisite
         with when("@12:"):
 
-            # And it has to be GCC older than the version we build:
             vv = ["11", "12.1.0", "12.2.0"]
             for prev_v, curr_v in zip(vv, vv[1:]):
                 conflicts(
@@ -150,12 +149,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
                 )
 
             # In principle, it is possible to have GDC even with GCC 5.
-            # See https://github.com/D-Programming-GDC/gdc
-            # We, however, require at least the oldest version that officially supports GDC. It is
-            # also a good opportunity to tell the users that they need a working GDC:
-
-    # GPU offload backend supported by limited languages
-    with when("+nvptx"):
         conflicts("languages=d")
 
     # Newlib version table
@@ -164,7 +157,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         "3.3.0": "58dd9e3eaedf519360d92d84205c3deef0b3fc286685d1c562e245914ef72c66",
         "4.1.0": "f296e372f51324224d387cc116dc37a6bd397198756746f93a2b02e9a5d40154",
         "4.2.0.20211231": "c3a0e8b63bc3bef1aeee4ca3906b53b3b86c8d139867607369cb2915ffc54435",
-        "4.3.0.20230120": "83a62a99af59e38eb9b0c58ed092ee24d700fff43a22c03e433955113ef35150",
         "4.4.0.20231231": "0c166a39e1bf0951dfafcd68949fe0e4b6d3658081d6282f39aeefc6310f2f13",
         "4.5.0.20241231": "33f12605e0054965996c25c1382b3e463b0af91799001f5bb8c0630f2ec8c852",
     }
@@ -200,7 +192,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
     # Applies
     # https://github.com/gcc-mirror/gcc/commit/ea2798892de373b14f9fc7ae8a0d820eaddca98c,
-    # which fixes an incorrectly applied fixincludes rule for pthread.h, making
     # the installed GCC not portable across different glibc versions. Original
     # GCC bug report: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=118009. For
     # GCC 15 we can directly use the upstream patch. For GCC 12-14 the patch
@@ -267,7 +258,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # see https://gcc.gnu.org/gcc-11/changes.html 11.5 Caveats
 
     build_directory = "spack-build"
-
     compiler_languages = ["c", "cxx", "fortran", "d", "go"]
 
     c_names = ["gcc"]

@@ -1,6 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
 import pathlib
 import shutil
 import sys
@@ -13,9 +10,6 @@ class CompilerWrapper(Package):
     """
     homepage = "https://github.com/spack/spack"
     url = f"file:///{pathlib.PurePath(__file__).parent}/cc.sh"
-    # FIXME (compiler as nodes): use a different tag, since this is only to exclude
-    # this node from auto-generated rules
-    tags = ["runtime"]
     if sys.platform != "win32":
         version(
             "1.0",

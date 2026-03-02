@@ -194,11 +194,7 @@ class Palace(CMakePackage, CudaPackage, ROCmPackage):
     with when("+sundials @0.14:"):
         depends_on("sundials+mpi+lapack~examples~examples-install")
         depends_on("sundials+shared", when="+shared")
-        depends_on("sundials~shared", when="~shared")
-        depends_on("sundials+openmp", when="+openmp")
-        depends_on("sundials~openmp", when="~openmp")
 
-    conflicts("+cuda", when="@:0.13", msg="CUDA is only supported for Palace versions after 0.13")
     conflicts("+rocm", when="@:0.13", msg="ROCm is only supported for Palace versions after 0.13")
     conflicts("+cuda+rocm", msg="PALACE_WITH_CUDA is not compatible with PALACE_WITH_HIP")
     conflicts(

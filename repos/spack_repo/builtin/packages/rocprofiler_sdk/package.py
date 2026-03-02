@@ -125,22 +125,6 @@ class RocprofilerSdk(CMakePackage):
         commit="38ac1c8f7d62cbb702f53c7085be16bf1943369a",
         submodules=True,
     )
-    version(
-        "6.3.0",
-        git="https://github.com/ROCm/rocprofiler-sdk.git",
-        tag="rocm-6.3.0",
-        commit="38ac1c8f7d62cbb702f53c7085be16bf1943369a",
-        submodules=True,
-    )
-    version(
-        "6.2.4",
-        git="https://github.com/ROCm/rocprofiler-sdk.git",
-        tag="rocm-6.2.4",
-        commit="03fe8df3622a97161699439dfe933ef8e9e7db8a",
-        submodules=True,
-    )
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     depends_on("sqlite", when="@7:")
     depends_on("elfutils")

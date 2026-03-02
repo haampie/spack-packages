@@ -21,6 +21,3 @@ class PyWw(PythonPackage):
     depends_on("py-pytest-runner", type="build")
 
     depends_on("py-chardet", type=("build", "run"))
-    depends_on("py-formatizer", type=("build", "run"))
-    depends_on("py-future", type=("build", "run"))
-    depends_on("py-six", type=("build", "run"))

@@ -32,15 +32,9 @@ class Aspell(AutotoolsPackage, GNUMirrorPackage):
     depends_on("ncurses", type="link")
 
     patch("fix_cpp.patch")
-    patch("issue-519.patch", when="@:0.60.6.1")
 
     # allow aspell to build with newer compilers that enforce template instantiation
     # e.g. gcc@15: and clang
-    patch(
-        "https://github.com/GNUAspell/aspell/commit/ee6cbb12ff36a1e6618d7388a78dd4e0a2b44041.patch?full_index=1",
-        sha256="96e6b23947744e5d1374640a38cf20ec541b64c00a063cbed6d1fcc3e3fc19ee",
-        when="@:0.60.8.1",
-    )
 
     def configure_args(self):
         return [f"--enable-curses={self.spec['ncurses:wide'].libs.ld_flags}"]

@@ -60,11 +60,7 @@ class DarshanUtil(AutotoolsPackage):
         "apxc", default=False, description="Compile with AutoPerf XC module support", when="@3.3:"
     )
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("zlib-api")
     depends_on("bzip2", when="+bzip2", type=("build", "link", "run"))
     depends_on("autoconf", type="build", when="@main")
     depends_on("automake", type="build", when="@main")

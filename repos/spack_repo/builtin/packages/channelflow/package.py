@@ -42,12 +42,8 @@ class Channelflow(CMakePackage):
     depends_on("fftw+mpi", when="+mpi")
 
     # Support for different I/O formats
-    depends_on("hdf5+cxx", when="+hdf5")
-    depends_on("netcdf-c", when="netcdf=serial")
-    depends_on("netcdf-c+mpi", when="netcdf=parallel")
 
     # Python bindings
-    depends_on("boost+python", when="+python")
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')

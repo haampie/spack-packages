@@ -114,8 +114,6 @@ class Draco(CMakePackage, CudaPackage, ROCmPackage):
     patch("d760-cray.patch", when="@7.6.0")
     patch("d770-nocuda.patch", when="@7.7.0")
     patch("d770-query_craype.patch", when="@7.7.0")
-    patch("smpi.patch", when="@:7.6.99")
-    patch("CMAKE-add-option-to-not-use-QT.patch", when="@7.8.0")
 
     def url_for_version(self, version):
         url = "https://github.com/lanl/Draco/archive/draco-{0}.zip"

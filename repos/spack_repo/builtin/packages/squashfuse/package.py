@@ -38,10 +38,6 @@ class Squashfuse(AutotoolsPackage):
     variant("static", default=True, description="Enable static libraries")
     variant("min_size", default=False, description="Build small binaries")
     variant("zlib", default=True, description="Enable zlib/gzip compression support")
-    variant("lz4", default=True, description="Enable LZ4 compression support")
-    variant("lzo", default=True, description="Enable LZO compression support")
-    variant("xz", default=True, description="Enable xz compression support")
-    variant("zstd", default=True, description="Enable Zstandard/zstd support")
 
     conflicts("~shared", when="~static", msg="Enable shared, static or both")
 

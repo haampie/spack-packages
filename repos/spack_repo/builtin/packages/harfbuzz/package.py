@@ -99,12 +99,8 @@ class Harfbuzz(MesonPackage, AutotoolsPackage, CMakePackage):
         patch("harfbuzz_11_2_cmake_add_missing_table_sources.patch", when="@11.2:11.3")
         patch("harfbuzz_11_4_cmake_add_missing_table_sources.patch", when="@11.4")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     with when("build_system=meson"):
-        depends_on("meson@0.60:", when="@11.1:")
-        depends_on("meson@0.55:", when="@3.2.1:")
         depends_on("meson@0.52:")
         # harfbuzz's Meson only supports autotools based
         # freetype

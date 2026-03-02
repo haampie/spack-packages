@@ -17,7 +17,6 @@ class Rayleigh(MakefilePackage):
     url = "https://github.com/geodynamics/Rayleigh/archive/refs/tags/v1.0.1.tar.gz"
     git = "https://github.com/geodynamics/Rayleigh.git"
 
-    maintainers("tukss")
 
     version("main", branch="main")
     version("1.2.0", sha256="e90acf18d47f6066fa68fd7b16c70ad9781a00be9e97467e9a388773e21e9e09")

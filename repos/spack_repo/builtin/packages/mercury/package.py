@@ -29,11 +29,7 @@ class Mercury(CMakePackage):
     version("2.0.1", sha256="335946d9620ac669643ffd9861a5fb3ee486834bab674b7779eaac9d6662e3fa")
     version("2.0.0", sha256="9e80923712e25df56014309df70660e828dbeabbe5fcc82ee024bcc86e7eb6b7")
     version("1.0.1", sha256="02febd56c401ef7afa250caf28d012b37dee842bfde7ee16fcd2f741b9cf25b3")
-    version("1.0.0", sha256="fb0e44d13f4652f53e21040435f91d452bc2b629b6e98dcf5292cd0bece899d4")
-    version("0.9.0", sha256="40868e141cac035213fe79400f8926823fb1f5a0651fd7027cbe162b063843ef")
 
-    variant("bmi", default=False, description="Use BMI plugin")
-    variant("mpi", default=False, description="Use MPI plugin")
     variant("ofi", default=True, when="@1.0.0:", description="Use OFI libfabric plugin")
     variant("psm", default=False, when="@2.2.0:", description="Use PSM plugin")
     variant("psm2", default=False, when="@2.2.0:", description="Use PSM2 plugin")

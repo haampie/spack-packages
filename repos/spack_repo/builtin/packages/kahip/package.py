@@ -29,16 +29,7 @@ class Kahip(CMakePackage):
 
     version("develop", branch="master")
     version("3.14", sha256="9da04f3b0ea53b50eae670d6014ff54c0df2cb40f6679b2f6a96840c1217f242")
-    version("3.13", sha256="fae21778a4ce8e59ccb98e5cbb6c01f0af7e594657d21f6c0eb2c6e74398deb1")
-    version("3.12", sha256="df923b94b552772d58b4c1f359b3f2e4a05f7f26ab4ebd00a0ab7d2579f4c257")
-    version("3.11", sha256="347575d48c306b92ab6e47c13fa570e1af1e210255f470e6aa12c2509a8c13e3")
 
-    variant(
-        "deterministic",
-        default=False,
-        when="@3.13:",
-        description="Compile with the deterministic seed",
-    )
     variant("metis", default=False, description="metis support")
 
     depends_on("c", type="build")  # generated

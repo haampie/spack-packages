@@ -13,13 +13,9 @@ class PyXskillscore(PythonPackage):
     homepage = "https://github.com/xarray-contrib/xskillscore"
     pypi = "xskillscore/xskillscore-0.0.24.tar.gz"
 
-    license("Apache-2.0")
 
-    version("0.0.24", sha256="ce3306c60626eafea722a1522016e272ca516ce6f2447c75f92c52888939f8c2")
 
     with default_args(type="build"):
-        depends_on("py-setuptools-scm")
-        depends_on("py-setuptools@30.3:")
         depends_on("py-setuptools-scm-git-archive")
 
     with default_args(type=("build", "run")):

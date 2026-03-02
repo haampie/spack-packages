@@ -42,6 +42,3 @@ class Cellpose(PythonPackage):
     depends_on("py-pyqtgraph@0.11.0:", type=("build", "run"), when="+gui")
     depends_on("py-pyqt6", type=("build", "run"), when="+gui")
     depends_on("py-pyqt6-sip", type=("build", "run"), when="+gui")
-    depends_on("py-qtpy", type=("build", "run"), when="+gui")
-    depends_on("py-superqt", type=("build", "run"), when="+gui")
-    depends_on("py-google-cloud-storage", type=("build", "run"), when="+gui")

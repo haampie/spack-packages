@@ -23,7 +23,6 @@ class Cellranger(Package):
     manual_download = True
     license_url = "support.10xgenomics.com/license"
 
-    version("7.2.0", sha256="b092bd4e3ab585ad051a231fbdd8f3f0f5cbcd10f657eeab86bec98cd594502c")
     version("7.1.0", sha256="5c4f9b142e3c30ad10ae15d25868df2b4fd05bdb3bbd47da0c83a7cc649b577e")
 
     # cellranger is distributed as precompiled binaries that are not compatible with

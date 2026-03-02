@@ -32,8 +32,6 @@ class Cardioid(CMakePackage):
     depends_on("cuda", when="+cuda")
     depends_on("mfem+mpi+superlu-dist+lapack", when="+mfem")
     depends_on("hypre+cuda", when="+mfem+cuda")
-    depends_on("cmake@3.1:", type="build")
-    depends_on("perl", type="build")
 
     def cmake_args(self):
         spec = self.spec

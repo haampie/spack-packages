@@ -126,10 +126,6 @@ class Dd4hep(CMakePackage):
         for _pkg in ["boost", "root"]:
             depends_on(f"{_pkg} cxxstd={_std}", when=f"{_when} cxxstd={_std}")
 
-    depends_on("boost @1.49:")
-    depends_on("boost +system +filesystem", when="%gcc@:7")
-    depends_on("root @6.08: +gdml +math +python")
-    depends_on("root @6.12.2: +root7", when="@1.26:")  # DDCoreGraphics needs ROOT::ROOTHistDraw
 
     with when("+ddeve"):
         depends_on("root @6.08: +geom +opengl +x")

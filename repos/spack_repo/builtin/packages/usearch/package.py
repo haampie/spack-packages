@@ -28,12 +28,8 @@ class Usearch(MakefilePackage):
     version(
         "12.0-beta1", sha256="dbb06e4733801dab1c405616880261bd885ab171dfdb1d44e8ede48d739cdc43"
     )
-    version("11.0.667", sha256="1be0faa1380100296029064e4cf9665d723d43f03c794da444c5b1a6b6799ac2")
-    version("10.0.240", sha256="297ba03cb5bdc60c9727b7949cc08bfeecad8b290c2844b5ad011f72a7e1399c")
 
     with when("@12:"):
-        depends_on("c", type="build")
-        depends_on("cxx", type="build")
         depends_on("ccache", type="build")
 
     patch("0001-Don-t-statically-link.patch", when="@12:")

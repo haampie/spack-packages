@@ -48,11 +48,7 @@ class Perl(Package):  # Perl doesn't use Autotools, it should subclass Package
     if sys.platform != "win32":
         depends_on("gmake", type="build")
         depends_on("gdbm")
-        depends_on("berkeley-db")
-        depends_on("bzip2")
-        depends_on("zlib-api")
 
-    conflicts("%msvc@:19.29.30136")
     conflicts("%nvhpc@:20.11")
 
     # Make sure we don't get "recompile with -fPIC" linker errors when using static libs

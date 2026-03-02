@@ -122,7 +122,6 @@ class Hipsparselt(CMakePackage, ROCmPackage):
     ]:
         depends_on(f"hip@{ver}", when=f"@{ver}")
         depends_on(f"hipsparse@{ver}", when=f"@{ver}")
-        depends_on(f"llvm-amdgpu@{ver}", when=f"@{ver}")
 
     for ver in [
         "6.3.0",

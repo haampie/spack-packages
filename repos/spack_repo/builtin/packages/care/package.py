@@ -27,9 +27,7 @@ class Care(CachedCMakePackage, CudaPackage, ROCmPackage):
     git = "https://github.com/LLNL/CARE.git"
     tags = ["radiuss"]
 
-    license("BSD-3-Clause")
 
-    maintainers("adayton1", "adrienbernede")
 
     version("develop", branch="develop", submodules=False)
     version("master", branch="master", submodules=False)

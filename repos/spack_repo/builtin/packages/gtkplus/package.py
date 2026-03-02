@@ -62,10 +62,6 @@ class Gtkplus(AutotoolsPackage, MesonPackage):
     depends_on("libepoxy+glx", when="@3:")
     depends_on("libxi", when="@3:")
     depends_on("inputproto", when="@3:")
-    depends_on("fixesproto", when="@3:")
-    depends_on("gettext", when="@3:")
-    depends_on("cups", when="+cups")
-    depends_on("libxfixes", when="@:2")
 
     conflicts("%gcc@14:", when="@:3.24.35")
 

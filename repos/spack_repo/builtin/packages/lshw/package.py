@@ -28,8 +28,6 @@ class Lshw(MakefilePackage):
     version("02.16", sha256="58a7731d204791dd33db5eb3fde9808d1235283e069e6c33a193637ccec27b3e")
     version("02.15", sha256="33c51ba0554d4bcd8ff9a67e5971a63b9ddd58213e2901a09000815376bc61b9")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         env.set("PREFIX", self.prefix)

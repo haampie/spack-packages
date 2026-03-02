@@ -26,7 +26,5 @@ class Cbc(AutotoolsPackage):
     depends_on("cxx", type="build")  # generated
 
     depends_on("coinutils")
-    depends_on("osi")
-    depends_on("cgl")
 
     build_directory = "spack-build"

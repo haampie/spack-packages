@@ -27,11 +27,7 @@ class Uqtk(CMakePackage):
         "python", default=True, description="Compile Python scripts and interface to C++ libraries"
     )
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("expat")
     depends_on("sundials@6:", when="@3.1.3:")
     depends_on("sundials@:5", when="@3.1.0:3.1.2")
     depends_on("blas", when="@3.1.0:")

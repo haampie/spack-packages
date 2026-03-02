@@ -282,35 +282,7 @@ class Lammps(CMakePackage, CudaPackage, ROCmPackage, PythonExtension):
     variant("curl", default=False, description="Build with curl support", when="@20240829:")
     variant("openmp", default=True, description="Build with OpenMP")
     variant("opencl", default=False, description="Build with OpenCL")
-    variant(
-        "exceptions",
-        default=False,
-        description="Build with lammps exceptions",
-        when="@:20230802.1",
-    )
-    variant(
-        "cuda_mps",
-        default=False,
-        description="(CUDA only) Enable tweaks for running "
-        + "with Nvidia CUDA Multi-process services daemon",
-    )
 
-    variant(
-        "lammps_sizes",
-        default="smallbig",
-        description="LAMMPS integer sizes (smallsmall: all 32-bit, smallbig:"
-        + "64-bit #atoms #timesteps, bigbig: also 64-bit imageint, 64-bit atom ids)",
-        values=("smallbig", "bigbig", "smallsmall"),
-        multi=False,
-    )
-    variant(
-        "fftw_precision",
-        default="double",
-        when="+kspace",
-        description="Select FFTW precision (used by Kspace)",
-        values=("single", "double"),
-        multi=False,
-    )
     variant(
         "fft",
         default="fftw3",

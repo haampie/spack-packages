@@ -19,13 +19,6 @@ class ROCmPackage(PackageBase):
     # Possible architectures
     amdgpu_targets = (
         "gfx701",
-        "gfx801",
-        "gfx802",
-        "gfx803",
-        "gfx900",
-        "gfx900:xnack-",
-        "gfx902",
-        "gfx1251",
     )
     variant("rocm", default=False, description="Enable ROCm support")
     # possible amd gpu targets for rocm builds

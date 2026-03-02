@@ -131,8 +131,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     # Restrictions for 1.2.X
     with when("@:1.2.1"):
         depends_on("cmake@3.9.0:", type="build")
-        depends_on("boost@1.62.0:")
-        depends_on("hwloc@1.11:")
 
     # Restrictions before 1.2
     with when("@:1.1.0"):

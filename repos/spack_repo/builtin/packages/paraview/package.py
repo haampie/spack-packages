@@ -132,8 +132,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
             conflicts("osmesa")
             conflicts("egl")
 
-        depends_on("gl@3.2:", when="+opengl2")
-        depends_on("gl@1.2:", when="~opengl2")
 
         for _arch in ("10", "11", "12", "13"):
             conflicts(f"cuda_arch={_arch}", when="+cuda", msg="ParaView requires cuda_arch >= 20")
@@ -156,9 +154,7 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
             )
 
         # Dependencies for vendored VTK-m
-        depends_on("hip@5.2:", when="+rocm")
         # CUDA thrust is already include in the CUDA pkg
-        depends_on("rocthrust", when="@5.13: +rocm ^cmake@3.24:")
         for target in ROCmPackage.amdgpu_targets:
             depends_on(
                 "kokkos@:3.7 +rocm amdgpu_target={0}".format(target),

@@ -52,13 +52,6 @@ class QtPackage(CMakePackage):
                     if dep in vendor_deps_to_remove:
                         shutil.rmtree(dep)
 
-    @staticmethod
-    def _qt_feature_flag(feature):
-        return f"FEATURE_{feature}"
-
-    def define_qt_feature_from_variant(self, feature, variant=None):
-        return self.define_from_variant(QtPackage._qt_feature_flag(feature), variant or feature)
-
 class QtBase(QtPackage):
     """Qt Base (Core, Gui, Widgets, Network, ...)"""
 

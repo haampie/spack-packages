@@ -142,6 +142,5 @@ class AutotoolsBuilder(BuilderWithDefaults):
     install_libtool_archives = False
 
     # On macOS, force rpaths for shared library IDs and remove duplicate rpaths
-    run_after("install", when="platform=darwin")(apply_macos_rpath_fixups)
 
 

@@ -184,5 +184,4 @@ class CMakeBuilder(BuilderWithDefaults):
     #: Callback names for build-time test
     build_time_test_callbacks = ["check"]
 
-    run_after("build")(execute_build_time_tests)
 

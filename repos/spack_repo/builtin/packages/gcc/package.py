@@ -26,7 +26,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
 
     provides("c", "cxx", when="languages=c,c++")
-    provides("c", when="languages=c")
     # Latest stable
 
     # Previous stable series releases
@@ -150,13 +149,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
     # See https://go.dev/doc/install/gccgo#Releases
     with when("languages=go"):
-        provides("go-or-gccgo-bootstrap@:1.6.1", when="@6:")
-        provides("go-or-gccgo-bootstrap@:1.8.1", when="@7:")
-        provides("go-or-gccgo-bootstrap@:1.10.1", when="@8:")
-        provides("go-or-gccgo-bootstrap@:1.12.2", when="@9:")
-        provides("golang@:1.2", when="@4.9:")
-        provides("golang@:1.4", when="@5:")
-        provides("golang@:1.6.1", when="@6:")
         provides("golang@:1.8.1", when="@7:")
         provides("golang@:1.10.1", when="@8:")
     conflicts("languages=brig", when="platform=darwin")

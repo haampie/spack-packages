@@ -11,11 +11,9 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
     patch("parallel.patch", when="@3.4.2")
     depends_on("cxx", type="build")  # generated
     depends_on("m4@1.4.6:", type=("build", "run"))
-    # Detect this case and use the fallback path.
     conflicts(
         "%oneapi",
         msg=(
             "bison is likely miscompiled by oneapi compilers, "
-            "see https://github.com/spack/spack/issues/37172"
         ),
     )

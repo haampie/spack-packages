@@ -73,12 +73,8 @@ class MongoCDriver(AutotoolsPackage, CMakePackage):
         else:
             return f"https://github.com/mongodb/libbson/releases/download/{version}/libbson-{version}.tar.gz"
 
-    depends_on("pkgconfig", type="build")
 
     # When updating mongo-c-driver, libbson has to be kept in sync.
-    depends_on("libbson@1.27", when="@1.27")
-    depends_on("libbson@1.24", when="@1.24")
-    depends_on("libbson@1.23", when="@1.23")
     depends_on("libbson@1.21", when="@1.21")
     depends_on("libbson@1.17", when="@1.17")
     depends_on("libbson@1.16", when="@1.16")

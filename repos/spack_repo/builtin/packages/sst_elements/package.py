@@ -111,7 +111,6 @@ class SstElements(AutotoolsPackage):
         when="+hybridsim",
         msg="hybridsim requires nvdimmsim, spec should include +nvdimmsim",
     )
-    requires("+pin", when="+ariel_mpi", msg="Building Ariel requires pin")
 
     # force out-of-source builds
     build_directory = "spack-build"

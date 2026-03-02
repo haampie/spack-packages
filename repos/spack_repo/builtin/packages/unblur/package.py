@@ -20,10 +20,6 @@ class Unblur(AutotoolsPackage):
     variant("shared", default=True, description="Dynamic linking")
 
     depends_on("zlib-api")
-    depends_on("jpeg")
-    depends_on("libtiff")
-    depends_on("gsl")
-    depends_on("jbigkit")
     depends_on("fftw@3:")
     # Requires Intel Fortran compiler
     conflicts("%gcc")

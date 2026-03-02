@@ -18,7 +18,6 @@ class RocmSmiLib(CMakePackage):
     git = "https://github.com/ROCm/rocm-systems.git"
 
     tags = ["rocm"]
-    maintainers("srekolam", "renjithravindrankannath")
     libraries = ["librocm_smi64"]
 
     def url_for_version(self, version):

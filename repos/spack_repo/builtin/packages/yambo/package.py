@@ -65,11 +65,7 @@ class Yambo(AutotoolsPackage):
     # netcdf-c+mpi and wants to depend on yambo~mpi.
     depends_on("mpi", when="+mpi")
     depends_on("netcdf-c+mpi", when="+mpi")
-    depends_on("hdf5+mpi", when="+mpi")
-    depends_on("fftw+mpi", when="+mpi")
-    depends_on("scalapack", when="+mpi")
 
-    depends_on("netcdf-c~mpi", when="~mpi")
     depends_on("hdf5~mpi", when="~mpi")
     depends_on("fftw~mpi", when="~mpi")
 

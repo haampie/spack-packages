@@ -35,4 +35,3 @@ class PySegmentationModelsPytorch(PythonPackage):
         # Historical dependencies
         depends_on("py-efficientnet-pytorch@0.6.1:", when="@0.4")
         depends_on("py-pretrainedmodels@0.7.1:", when="@0.4")
-        depends_on("py-six@1.5:", when="@0.4")

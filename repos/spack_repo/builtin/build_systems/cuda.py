@@ -118,14 +118,10 @@ class CudaPackage(PackageBase):
     depends_on("cuda@:6.0", when="cuda_arch=10")
     depends_on("cuda@:6.5", when="cuda_arch=11")
     depends_on("cuda@2.1:6.5", when="cuda_arch=12")
-    depends_on("cuda@2.1:6.5", when="cuda_arch=13")
 
     # Fermi support:
-    depends_on("cuda@3.0:8.0", when="cuda_arch=20")
-    depends_on("cuda@3.2:8.0", when="cuda_arch=21")
 
     # Kepler support:
-    depends_on("cuda@5.0:10.2", when="cuda_arch=30")
     depends_on("cuda@5.0:10.2", when="cuda_arch=32")
     depends_on("cuda@5.0:11.8", when="cuda_arch=35")
     depends_on("cuda@6.5:11.8", when="cuda_arch=37")

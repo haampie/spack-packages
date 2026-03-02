@@ -47,40 +47,8 @@ class Xnnpack(CMakePackage):
         placement="clog",
         when="@2022-12-22:2023-01-17",
     )
-    resource(
-        name="clog",
-        url="https://github.com/pytorch/cpuinfo/archive/d5e37adf1406cf899d7d9ec1d317c47506ccb970.tar.gz",
-        sha256="3f2dc1970f397a0e59db72f9fca6ff144b216895c1d606f6c94a507c1e53a025",
-        destination="deps",
-        placement="clog",
-        when="@:2022-02-16",
-    )
 
     # cmake/DownloadCpuinfo.cmake
-    resource(
-        name="cpuinfo",
-        url="https://github.com/pytorch/cpuinfo/archive/d6860c477c99f1fce9e28eb206891af3c0e1a1d7.zip",
-        sha256="a615cac78fad03952cc3e1fd231ce789a8df6e81a5957b64350cb8200364b385",
-        destination="deps",
-        placement="cpuinfo",
-        when="@2024-02-29:",
-    )
-    resource(
-        name="cpuinfo",
-        url="https://github.com/Maratyszcza/cpuinfo/archive/0a38bc5cf17837bf3b536b57b9d35a259b6b2283.zip",
-        sha256="fc79c33f10b7dcb710c5eb0fcd7fe4467bf98cdc6ff1925883b175fbb800c53e",
-        destination="deps",
-        placement="cpuinfo",
-        when="@2022-12-22",
-    )
-    resource(
-        name="cpuinfo",
-        url="https://github.com/pytorch/cpuinfo/archive/5916273f79a21551890fd3d56fc5375a78d1598d.zip",
-        sha256="2a160c527d3c58085ce260f34f9e2b161adc009b34186a2baf24e74376e89e6d",
-        destination="deps",
-        placement="cpuinfo",
-        when="@2021-02-22:2022-02-16",
-    )
     resource(
         name="cpuinfo",
         url="https://github.com/pytorch/cpuinfo/archive/d6c0f915ee737f961915c9d17f1679b6777af207.tar.gz",

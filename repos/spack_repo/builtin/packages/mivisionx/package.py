@@ -16,7 +16,6 @@ class Mivisionx(CMakePackage):
     git = "https://github.com/ROCm/MIVisionX.git"
     url = "https://github.com/ROCm/MIVisionX/archive/rocm-6.4.3.tar.gz"
 
-    maintainers("srekolam", "renjithravindrankannath", "afzpatel")
     tags = ["rocm"]
 
     license("MIT")

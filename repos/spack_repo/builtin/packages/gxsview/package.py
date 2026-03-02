@@ -47,13 +47,9 @@ class Gxsview(QMakePackage):
     depends_on("vtk@8.0:+qt+opengl2")  # +mpi+python are optional
     depends_on("vtk@9:+qt+opengl2", when="@2024.03.15:")
     conflicts("%gcc@:7.2.0", msg="Requires C++17 compiler support")  # need C++17 standard
-    conflicts("qt@6:", msg="Qt 6 support is not yet achieved")
-    conflicts("^qt-base@6:", msg="Qt 6 support is not yet achieved")  # required for clingo
 
-    patch("vtk9.patch", when="^vtk@9:")
     # gcc11 compilation rule for std::numeric_limits,
     # avoid "numeric_limits" is not a member of "std"
-    patch("gcc11.patch", when="@2021.07.01 %gcc@11:")
     # sets fontconfig inc/lib, removes useless stuffs
     patch("vtk90.patch", when="@2024.03.15")
 

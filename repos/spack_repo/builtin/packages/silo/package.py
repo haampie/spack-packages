@@ -109,12 +109,8 @@ class Silo(autotools.AutotoolsPackage, cmake.CMakePackage):
     depends_on("libx11", when="+silex")
     # Xmu dependency is required on Ubuntu 18-20
     depends_on("libxmu", when="+silex")
-    depends_on("readline")
-    depends_on("zlib-api")
 
     with when("build_system=autotools"):
-        depends_on("m4", type="build", when="+shared")
-        depends_on("autoconf", type="build", when="+shared")
         depends_on("autoconf-archive", type="build", when="+shared")
         depends_on("automake", type="build", when="+shared")
         depends_on("libtool", type="build", when="+shared")

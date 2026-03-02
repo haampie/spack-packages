@@ -49,20 +49,6 @@ class Parsec(CMakePackage, CudaPackage):
     )
     variant("shared", default=True, description="Build a shared library")
     variant("cuda", default=True, description="Build with CUDA")
-    variant("profile", default=False, description="Generate profiling data")
-    variant(
-        "debug_verbose",
-        default=False,
-        description="Debug version with verbose and paranoid (incurs performance overhead!)",
-    )
-    conflicts(
-        "+debug_verbose build_type=Release",
-        msg="You need to set build_type=Debug for +debug_verbose",
-    )
-    conflicts(
-        "+debug_verbose build_type=RelWithDebInfo",
-        msg="You need to set build_type=Debug for +debug_verbose",
-    )
 
     # https://github.com/spack/spack-packages/pull/2059#issuecomment-3443184517
     conflicts("^cuda@13:", when="+cuda")

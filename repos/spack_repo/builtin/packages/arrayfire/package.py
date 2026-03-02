@@ -72,11 +72,8 @@ class Arrayfire(CMakePackage, CudaPackage):
     # add_subdirectory not given a binary directory... (referencing internal build of span-lite).
     patch("add-build-dir-to-cmake.patch", level=0, when="@3.9.0:")
     # from Arch Linux https://gitlab.archlinux.org/archlinux/packaging/packages/arrayfire/-/raw/main/fmt-v11.patch?ref_type=heads
-    patch("fmt-v11.patch", level=1, when="@3.9.0:")
     # https://gitlab.archlinux.org/archlinux/packaging/packages/arrayfire/-/blob/6add204c734deaed234c71f2a05c3e7bcf6f73dc/3521-fix-build-failure-with-cudnn.patch
-    patch("3521-fix-build-failure-with-cudnn.patch", level=1, when="@3.9.0:")
 
-    conflicts("cuda_arch=none", when="+cuda", msg="CUDA architecture is required")
 
     @property
     def libs(self):

@@ -37,12 +37,8 @@ class Votca(CMakePackage):
     variant("xtp", default=True, description="Build xtp parts of votca")
 
     conflicts("votca-tools")
-    conflicts("votca-csg")
-    conflicts("votca-xtp")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@3.13:", type="build")
     depends_on("expat")
     depends_on("fftw-api@3")
     depends_on("eigen@3.3:")

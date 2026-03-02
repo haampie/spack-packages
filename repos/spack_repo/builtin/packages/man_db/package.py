@@ -30,7 +30,6 @@ class ManDb(AutotoolsPackage):
 
     depends_on("pkgconfig", type="build")
     depends_on("gettext")
-    depends_on("libpipeline@1.5.0:", when="@2.8.0:")
     depends_on("libpipeline@1.4.0:", when="@2.7.1:")
     depends_on("libpipeline@1.3.0:", when="@2.6.7:")
     depends_on("libpipeline@1.1.0:", when="@2.6.0:")

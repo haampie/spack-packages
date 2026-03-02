@@ -23,12 +23,9 @@ class RevocapRefiner(MakefilePackage):
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
-    depends_on("fortran", type="build")
 
     # add space between literal and identifier.
-    patch("add_space.patch")
     # remove unused function getIndices.
-    patch("delete_getIndices.patch")
 
     def edit(self, spec, prefix):
         cflags = ["-O3"]

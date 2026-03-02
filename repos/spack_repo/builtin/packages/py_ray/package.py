@@ -68,10 +68,6 @@ class PyRay(PythonPackage):
         depends_on("py-numpy@1.19.3:", when="^python@3.9:", type=("build", "run"))
         depends_on("py-numpy@1.16:", when="^python@:3.8", type=("build", "run"))
         depends_on("py-protobuf@3.15.3:3", type=("build", "run"))
-        depends_on("py-aiosignal", type=("build", "run"))
-        depends_on("py-frozenlist", type=("build", "run"))
-        depends_on("py-typing-extensions", when="^python@:3.7", type=("build", "run"))
-        depends_on("py-virtualenv", type=("build", "run"))
 
         with when("+default"):
             depends_on("py-gpustat@1:", type=("build", "run"))

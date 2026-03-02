@@ -18,8 +18,5 @@ class Pngquant(AutotoolsPackage):
 
     license("GPL-3.0-or-later")
 
-    version("2.12.5", sha256="3638936cf6270eeeaabcee42e10768d78e4dc07cac9310307835c1f58b140808")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("libpng")

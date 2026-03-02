@@ -23,6 +23,3 @@ class Mitos(CMakePackage):
     depends_on("cxx", type="build")  # generated
 
     depends_on("dyninst@8.2.1:")
-    depends_on("hwloc")
-    depends_on("mpi")
-    depends_on("cmake@2.8:", type="build")

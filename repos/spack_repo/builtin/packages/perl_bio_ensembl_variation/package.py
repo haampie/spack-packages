@@ -48,7 +48,6 @@ class PerlBioEnsemblVariation(Package):
 
     with when("+ld"):
         depends_on("htslib", type="build")
-        depends_on("gmake", type="build")
 
     phases = ("build", "install")
 

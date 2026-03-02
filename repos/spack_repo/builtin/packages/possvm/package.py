@@ -30,10 +30,6 @@ class Possvm(Package):
     # dependencies from GitHub README.md
     depends_on("py-ete3@3.1.2", type="run")
     depends_on("py-markov-clustering@0.0.6.dev0", type="run")
-    depends_on("py-matplotlib@3.7.1", type="run")
-    depends_on("py-networkx@3.0", type="run")
-    depends_on("py-scipy@1.10.0", type="run")
-    depends_on("py-numpy@1.23.5", type="run")
     depends_on("py-pandas@1.5.3", type="run")
 
     def install(self, spec, prefix):

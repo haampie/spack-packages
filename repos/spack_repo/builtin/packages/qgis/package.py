@@ -151,10 +151,6 @@ class Qgis(CMakePackage):
     depends_on("qt+dbus+location@5.15.2:", when="@3.36:")
     depends_on("qtkeychain@0.5:", when="@3:")
     depends_on("qwt@5:")
-    depends_on("qwtpolar")
-    depends_on("sqlite@3.0.0: +column_metadata")
-    depends_on("pdal", when="+pdal")
-    depends_on("protobuf", when="@3.16.4:")
     depends_on("protobuf@:21", when="@:3.28")
     depends_on("zstd", when="@3.22:")
 

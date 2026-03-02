@@ -38,11 +38,8 @@ class Mrtrix3(Package):
     depends_on("eigen@3.4:", when="@3.0.4:")
     depends_on("zlib-api")
     depends_on("libtiff")
-    depends_on("fftw")
 
-    patch("fix_includes.patch", when="@3.0.3:3.0.4")
 
-    conflicts("%gcc@7:", when="@2017-09-25")  # MRtrix3/mrtrix3#1041
 
     def install(self, spec, prefix):
         configure = Executable("./configure")

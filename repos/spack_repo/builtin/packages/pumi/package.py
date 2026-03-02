@@ -64,16 +64,7 @@ class Pumi(CMakePackage):
         "the minimum set of functionality, 'kernels' adds CAD kernel "
         "support to 'base', and 'full' enables all functionality.",
     )
-    variant(
-        "simmodsuite_version_check",
-        default=True,
-        description="Enable check of Simmetrix SimModSuite version. "
-        "Disable the check for testing new versions.",
-    )
 
-    depends_on("cxx", type="build")
-    depends_on("c", type="build")
-    depends_on("fortran", type="build", when="+fortran")
 
     depends_on("mpi")
     depends_on("cmake@3:", type="build")

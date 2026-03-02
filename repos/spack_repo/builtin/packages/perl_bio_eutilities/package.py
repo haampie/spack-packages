@@ -13,11 +13,8 @@ class PerlBioEutilities(PerlPackage):
     homepage = "https://metacpan.org/pod/Bio::DB::EUtilities"
     url = "https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/Bio-EUtilities-1.77.tar.gz"
 
-    maintainers("EbiArnie")
 
-    license("Artistic-1.0-Perl OR GPL-1.0-or-later")
 
-    version("1.77", sha256="4d018c8cbda73c3d71487165261a3dfc4e823f8e22747497f6a586d5ad6f737f")
 
     depends_on("perl@5.10.0:", type=("build", "link", "run", "test"))
     depends_on("perl-bio-asn1-entrezgene", type=("build", "run", "test"))

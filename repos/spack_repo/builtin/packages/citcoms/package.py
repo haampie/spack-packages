@@ -40,8 +40,6 @@ class Citcoms(AutotoolsPackage):
 
     # Optional dependencies
     depends_on("hc", when="+ggrd")
-    depends_on("cuda", when="+cuda")
-    depends_on("hdf5+mpi", when="+hdf5")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         if self.spec.satisfies("+ggrd"):

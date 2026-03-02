@@ -38,10 +38,6 @@ class Libxc(AutotoolsPackage, CudaPackage, CMakePackage):
     version("5.0.0", sha256="6b3be3cf6daf6b3eddf32d4077276eb9169531b42f98c2ca28ac85b9ea408493")
     version("4.3.4", sha256="2d5878dd69f0fb68c5e97f46426581eed2226d1d86e3080f9aa99af604c65647")
     version("4.3.2", sha256="3bbe01971d0a43fb63b5c17d922388a39a3f0ae3bd37ae5f6fe31bca9ab63f3c")
-    version("4.2.3", sha256="869ca4967cd255097fd2dc31664f30607e81f5abcf5f9c89bd467dc0bf93e5aa")
-    version("3.0.0", sha256="df2362351280edaf2233f3b2c8eb8e6dd6c68105f152897a4cc629fa346a7396")
-    version("2.2.2", sha256="6ffaad40505dbe8f155049448554b54ea31d31babf74ccf6b7935bfe55eeafd8")
-    version("2.2.1", sha256="c8577ba1ddd5c28fd0aa7c579ae65ab990eb7cb51ecf9f8175f9251f6deb9a06")
 
     variant("shared", default=True, description="Build shared libraries")
     variant("kxc", default=False, when="@5:", description="Build with third derivatives")

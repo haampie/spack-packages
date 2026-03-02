@@ -25,11 +25,7 @@ class Gengetopt(AutotoolsPackage):
     version("2.22.2", sha256="4bf96bea9f80ac85c716cd07f5fe68602db7f380f6dc2d025f17139aa0b56455")
     version("2.22.1", sha256="e8d1de4f8c102263844886a2f2b57d82c291c1eae6307ea406fb96f29a67c3a7")
     version("2.22", sha256="b605555e41e9bf7e852a37b051e6a49014e561f21290680e3a60c279488d417e")
-    version("2.21", sha256="355a32310b2fee5e7289d6d6e89eddd13275a7c85a243dc5dd293a6cb5bb047e")
-    version("2.20", sha256="4c8b3b42cecff579f5f9de5ccad47e0849e0245e325a04ff5985c248141af1a4")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
 
     parallel = False

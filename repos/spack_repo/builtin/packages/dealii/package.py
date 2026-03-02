@@ -261,20 +261,12 @@ class Dealii(CMakePackage, CudaPackage):
     depends_on("tbb", when="+threads")
     # do not require +rol to make concretization of xsdk possible
     depends_on("trilinos+amesos+aztec+epetra+ifpack+ml+muelu+sacado", when="+trilinos")
-    depends_on("trilinos~hypre", when="+trilinos+int64")
     for _arch in CudaPackage.cuda_arch_values:
         arch_str = f"+cuda cuda_arch={_arch}"
         trilinos_spec = f"trilinos +wrapper {arch_str}"
-        depends_on(trilinos_spec, when=f"@9.5:+trilinos {arch_str}")
-    depends_on("vtk@9:", when="@9.6:+vtk")
 
     # Explicitly provide a destructor in BlockVector,
     # otherwise deal.II may fail to build with Intel compilers.
-    patch(
-        "https://github.com/dealii/dealii/commit/a89d90f9993ee9ad39e492af466b3595c06c3e25.patch?full_index=1",
-        sha256="72304bc6c3fb4549cf53ed533a00311d12827d48817e2038efd3a8ef6c43d149",
-        when="@9.0.1",
-    )
 
     # https://github.com/dealii/dealii/pull/7935
     patch(

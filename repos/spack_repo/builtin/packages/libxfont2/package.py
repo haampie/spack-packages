@@ -19,7 +19,6 @@ class Libxfont2(AutotoolsPackage, XorgPackage):
     homepage = "https://gitlab.freedesktop.org/xorg/lib/libXfont"
     xorg_mirror_path = "lib/libXfont2-2.0.1.tar.gz"
 
-    license("MIT")
 
     maintainers("wdconinc")
 

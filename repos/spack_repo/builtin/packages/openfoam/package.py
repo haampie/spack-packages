@@ -15,5 +15,3 @@ class Openfoam(Package):
     # Require scotch with ptscotch - corresponds to standard OpenFOAM setup
     # 1706 ok with newer paraview but avoid pv-5.2, pv-5.3 readers
     depends_on("paraview@5.4:", when="@1706:+paraview")
-    # Icx only support from v2106 onwards
-    # General patches

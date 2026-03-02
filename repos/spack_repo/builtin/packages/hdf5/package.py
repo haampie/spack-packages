@@ -41,11 +41,6 @@ class Hdf5(CMakePackage):
         preferred=True,
     )
     version(
-        "1.14.5",
-        sha256="ec2e13c52e60f9a01491bb3158cb3778c985697131fc6a342262d32a26e58e44",
-        url="https://support.hdfgroup.org/releases/hdf5/v1_14/v1_14_5/downloads/hdf5-1.14.5.tar.gz",
-    )
-    version(
         "1.14.4-3",
         sha256="019ac451d9e1cf89c0482ba2a06f07a46166caf23f60fea5ef3c37724a318e03",
         url="https://support.hdfgroup.org/releases/hdf5/v1_14/v1_14_4/downloads/hdf5-1.14.4-3.tar.gz",

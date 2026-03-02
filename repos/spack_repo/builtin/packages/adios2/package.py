@@ -140,11 +140,7 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
         )
 
     conflicts("+cuda", when="@:2.7")
-    conflicts("+rocm", when="@:2.8")
 
-    conflicts("+cuda", when="+sycl")
-    conflicts("+rocm", when="+cuda")
-    conflicts("+rocm", when="+sycl")
 
     conflicts("+rocm", when="~kokkos", msg="ADIOS2 does not support HIP without Kokkos")
     conflicts("+sycl", when="~kokkos", msg="ADIOS2 does not support SYCL without Kokkos")

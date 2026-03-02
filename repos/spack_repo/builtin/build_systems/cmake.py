@@ -8,5 +8,4 @@ def generator(*names: str, default: Optional[str] = None) -> None:
 class CMakePackage(PackageBase):
     """Specialized class for packages built using CMake
     """
-class CMakeBuilder(BuilderWithDefaults):
     build_time_test_callbacks = ["check"]

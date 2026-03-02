@@ -19,17 +19,11 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html"
     compiler_languages = ["c", "cxx", "fortran"]
     implicit_rpath_libs = [
-        "libirc",
-        "libifcore",
-        "libifcoremt",
         "libsycl",
         "libOpenCL",
     ]
     stdcxx_libs = ("-cxxlib",)
     provides("c", "cxx")
     # See https://github.com/spack/spack/issues/39252
-    depends_on("patchelf@:0.17", type="build", when="@:2024.1")
-    # Add the nvidia variant
-    # Add the amd variant
     for v in versions:
         version(v["version"], expand=False, **v["cpp"])

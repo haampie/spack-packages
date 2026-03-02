@@ -25,9 +25,6 @@ def ensure_build_dependencies_or_raise(spec: Spec, dependencies: List[str], erro
     raise RuntimeError(msg)
 def execute_build_time_tests(builder: Builder):
     """Execute the build-time tests prescribed by builder.
-    Args:
-        builder: builder prescribing the test callbacks. The name of the callbacks is
-            stored as a list of strings in the ``build_time_test_callbacks`` attribute.
     """
     if not builder.pkg.run_tests or not builder.build_time_test_callbacks:
         return

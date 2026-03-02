@@ -19,12 +19,8 @@ class Libmng(CMakePackage, AutotoolsPackage):
 
     license("custom")
 
-    version("2.0.3", sha256="cf112a1fb02f5b1c0fce5cab11ea8243852c139e669c44014125874b14b7dfaa")
 
 
-    depends_on("jpeg")
-    depends_on("zlib-api")
-    depends_on("lcms")
 
     build_system("cmake", "autotools", default="cmake")
 

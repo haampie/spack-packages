@@ -1,6 +1,3 @@
-import os
-import pathlib
-import platform
 import re
 import sys
 from typing import Any, List, Optional, Tuple
@@ -13,9 +10,6 @@ from spack.package import (
     when,
     working_dir,
 )
-from ._checks import execute_build_time_tests
-# Regex to extract the primary generator from the CMake generator
-# string.
 _primary_generator_extractor = re.compile(r"(?:.* - )?(.*)")
 def generator(*names: str, default: Optional[str] = None) -> None:
     def _values(x):

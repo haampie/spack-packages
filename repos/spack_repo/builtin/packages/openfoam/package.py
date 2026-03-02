@@ -13,9 +13,6 @@ class Openfoam(Package):
     in 2004.
     """
     url = "https://sourceforge.net/projects/openfoam/files/v1906/OpenFOAM-v1906.tgz"
-    git = "https://gitlab.com/openfoam/core/openfoam.git"
-    list_url = "https://sourceforge.net/projects/openfoam/files/"
-    list_depth = 2
     version("1612", sha256="2909c43506a68e1f23efd0ca6186a6948ae0fc8fe1e39c78cc23ef0d69f3569d")
     variant("scotch", default=True, description="With scotch/ptscotch decomposition")
     variant("zoltan", default=False, description="With zoltan renumbering")
@@ -28,12 +25,6 @@ class Openfoam(Package):
     # use 2312 in the check.
     depends_on("flex@:2.6.1,2.6.4:")
     # Require scotch with ptscotch - corresponds to standard OpenFOAM setup
-    # mgridgen is statically linked
-    depends_on("vtk", when="+vtk")
-    depends_on("adios2~fortran", when="@1912:")
-    # For OpenFOAM plugins and run-time post-processing this should just be
-    # 'paraview+plugins' but that resolves poorly.
-    #   ~/.spack/packages.yaml
     # 1706 ok with newer paraview but avoid pv-5.2, pv-5.3 readers
     depends_on("paraview@5.4:", when="@1706:+paraview")
     # Icx only support from v2106 onwards

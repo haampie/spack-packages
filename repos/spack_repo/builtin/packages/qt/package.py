@@ -268,10 +268,6 @@ class Qt(Package):
             depends_on("libdrm")
             depends_on("libxcomposite")
             depends_on("libxcursor")
-            depends_on("libxi")
-            depends_on("libxtst")
-            depends_on("libxrandr")
-            depends_on("libxdamage")
             depends_on("gettext")
 
     conflicts(

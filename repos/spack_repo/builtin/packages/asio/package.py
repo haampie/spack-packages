@@ -15,18 +15,13 @@ class Asio(AutotoolsPackage):
     homepage = "https://think-async.com/Asio/"
     url = "https://github.com/chriskohlhoff/asio/archive/asio-1-18-2.tar.gz"
     git = "https://github.com/chriskohlhoff/asio.git"
-    maintainers("msimberg", "pauleonix")
 
-    license("BSL-1.0")
 
     # As uneven minor versions of asio are not considered stable, they wont be added anymore
     version("1.36.0", sha256="0310a76b27e1854f09f696b30de57dc490b5e1b17faed1eb8c9a2891f956e52b")
     version("1.34.2", sha256="f3bac015305fbb700545bd2959fbc52d75a1ec2e05f9c7f695801273ceb78cf5")
     version("1.34.0", sha256="061ed6c8b97527756aed3e34d2cbcbcb6d3c80afd26ed6304f51119e1ef6a1cd")
     version("1.32.0", sha256="f1b94b80eeb00bb63a3c8cef5047d4e409df4d8a3fe502305976965827d95672")
-    version("1.30.2", sha256="755bd7f85a4b269c67ae0ea254907c078d408cce8e1a352ad2ed664d233780e8")
-    version("1.30.1", sha256="94b121cc2016680f2314ef58eadf169c2d34fff97fba01df325a192d502d3a58")
-    version("1.30.0", sha256="df6674bd790842b3a7422e9cc4c5d3212ac268cebdb5d38f3e783e4918313c7b")
     version("1.28.2", sha256="5705a0e403017eba276625107160498518838064a6dd7fd8b00b2e30c0ffbdee")
     version("1.28.1", sha256="5ff6111ec8cbe73a168d997c547f562713aa7bd004c5c02326f0e9d579a5f2ce")
     version("1.28.0", sha256="226438b0798099ad2a202563a83571ce06dd13b570d8fded4840dbc1f97fa328")

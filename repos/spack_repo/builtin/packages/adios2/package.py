@@ -119,11 +119,7 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     # https://github.com/ornladios/ADIOS2/issues/4620
     conflicts("^cuda@13:", when="+cuda")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
-    depends_on("fortran", type="build", when="+fortran")
 
-    depends_on("cmake@3.12.0:", type="build")
 
     depends_on("yaml-cpp")
 

@@ -178,11 +178,7 @@ supported, and netmod is ignored if device is ch3:sock.""",
     )
 
     variant("xpmem", default=False, when="@3.4:", description="Enable XPMEM support")
-    variant("level_zero", default=False, description="Enable level zero support")
 
-    conflicts("datatype-engine=yaksa", when="device=ch3")
-    conflicts("datatype-engine=yaksa", when="device=ch3:sock")
-    conflicts("datatype-engine=dataloop", when="+cuda")
     conflicts("datatype-engine=dataloop", when="+rocm")
 
     depends_on("c", type="build")

@@ -90,10 +90,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         version("5.5.2", sha256="64561f34c4402b88f3cb20a956842394dde5838efd7ebb301157a837114a0e2d")
         version("5.5.1", sha256="a6e67a95a7a5711a2b5f95f38ccbff4912262b3e1b1af7d6b9afe8185aa85c0d")
         version("5.5.0", sha256="1b619e326ff574de808732ca9a7447e4cd14e94ae6568f55b6581896cd569dff")
-        version("5.4.1", sha256="390d0f5dc66bf432e202a39b1f34193af4bf8aad2355338fa5e2778ea07a80e4")
-        version("5.4.0", sha256="f488d84a53b1286d2ee1967e386626c8ad05a6fe4e6cbdaa8d5e042f519f94a9")
-        version("5.3.0", sha256="046631bbf00775edc927314a3db207509666c9c6aadc7079e5159440fd2f88a0")
-        version("5.2.0", sha256="894e42ef8475bb49e4e7e64f4ee2c37c714facd18bfbb1d6de7f69676b062c96")
 
     variant("python", default=False, description="Enable Python support", when="@5.8:")
     variant("fortran", default=False, description="Enable Fortran support")

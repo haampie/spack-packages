@@ -164,23 +164,16 @@ class Dihydrogen(CachedCMakePackage, CudaPackage, ROCmPackage):
 
         # Add Aluminum variants
         depends_on("aluminum +cuda +nccl", when="+distconv +cuda")
-        depends_on("aluminum +rocm +nccl", when="+distconv +rocm")
 
         # TODO: Debug linker errors when NVSHMEM is built with UCX
-        depends_on("nvshmem +nccl~ucx", when="+nvshmem")
 
         # OMP support is only used in DistConv, and only Apple needs
         # hand-holding with it.
-        depends_on("llvm-openmp", when="%apple-clang")
         # FIXME: when="platform=darwin"??
 
         # CUDA/ROCm arch forwarding
 
         for arch in CudaPackage.cuda_arch_values:
-            depends_on(
-                "aluminum +cuda cuda_arch={0}".format(arch),
-                when="+cuda cuda_arch={0}".format(arch),
-            )
 
             # This is a workaround for a bug in the Aluminum package,
             # as it should be responsible for its own NCCL dependency.

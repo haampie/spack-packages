@@ -125,7 +125,6 @@ class Cgal(CMakePackage):
         conflicts("%gcc @:11.3.0", when="platform=linux")
 
         # LLVM Clang version 15.0.7 or later (on Linux)
-        conflicts("%clang @:15.0.6", when="platform=linux")
 
         # Apple Clang compiler versions 10.0.1, 12.0.5, and 15.0.0 (on macOS)
         # (10+ has C++17 support)

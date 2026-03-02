@@ -231,7 +231,6 @@ class PythonPackage(PythonExtension):
     #: Callback names for install-time test
     install_time_test_callbacks = ["test_imports"]
 
-    build_system("python_pip")
 
     with when("build_system=python_pip"):
         extends("python")

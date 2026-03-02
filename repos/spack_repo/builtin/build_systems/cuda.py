@@ -121,12 +121,8 @@ class CudaPackage(PackageBase):
     depends_on("cuda@12.9:", when="cuda_arch=100f")
     depends_on("cuda@12.9:", when="cuda_arch=103")
     depends_on("cuda@12.9:", when="cuda_arch=103a")
-    depends_on("cuda@12.9:", when="cuda_arch=103f")
     # Compute Capability 101 was renamed to 110 in CUDA 13
 
-    depends_on("cuda@12.9:", when="cuda_arch=120f")
-    depends_on("cuda@12.9:", when="cuda_arch=121")
-    depends_on("cuda@12.9:", when="cuda_arch=121a")
     depends_on("cuda@12.9:", when="cuda_arch=121f")
     # From the NVIDIA install guide we know of conflicts for particular
     # platforms (linux, darwin), architectures (x86, powerpc) and compilers

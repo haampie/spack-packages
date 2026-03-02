@@ -38,8 +38,6 @@ class PerlPackage(PackageBase):
     build_system("perl")
 
     with when("build_system=perl"):
-        extends("perl")
-        depends_on("gmake", type="build")
 
     @property
     @memoized
@@ -186,7 +184,6 @@ class PerlBuilder(BuilderWithDefaults):
         self.build_executable()
 
     # Ensure that tests run after build (if requested):
-    run_after("build")(execute_build_time_tests)
 
     def check(self):
         """Runs built-in tests of a Perl package."""

@@ -38,7 +38,6 @@ class QtPackage(CMakePackage):
     # Default dependencies for all qt-* components
     depends_on("cmake@3.16:", type="build")
     depends_on("pkgconfig", type="build", when="platform=linux")
-    depends_on("python", type="build")
 
     # List of unnecessary directories in src/3rdparty
     vendor_deps_to_remove = []
@@ -83,15 +82,8 @@ class QtBase(QtPackage):
     variant("opengl", default=False, when="+gui", description="Build with OpenGL support.")
     variant("widgets", default=True, when="+gui", description="Build with widgets.")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     # Dependencies, then variant- and version-specific dependencies
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
-    depends_on("cmake@3.21:", type="build", when="~shared")
-    depends_on("cmake@3.21:", type="build", when="platform=darwin")
-    depends_on("zstd")
     with when("platform=linux"):
         depends_on("libdrm")
 

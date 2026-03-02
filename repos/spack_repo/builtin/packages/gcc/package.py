@@ -245,24 +245,9 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             )
 
             # See https://raw.githubusercontent.com/Homebrew/homebrew-core/3b7db4457ac64a31e3bbffc54b04c4bd824a4a4a/Formula/gcc.rb
-            patch(
-                "https://github.com/iains/gcc-darwin-arm64/commit/20f61faaed3b335d792e38892d826054d2ac9f15.patch?full_index=1",
-                sha256="c0605179a856ca046d093c13cea4d2e024809ec2ad4bf3708543fc3d2e60504b",
-                when="@11.2.0",
-            )
 
         # aarch64-darwin support from Iain Sandoe's branch
         # the 14.2.0 branch has patches applicable to the x86_64 builds too, e.g., https://gcc.gnu.org/bugzilla/show_bug.cgi?id=116809
-        patch(
-            "https://github.com/iains/gcc-14-branch/compare/04696df09633baf97cdbbdd6e9929b9d472161d3..a495b2dded281beeafec91074e4e82a5a3df8104.patch?full_index=1",
-            sha256="838cf070bec5468340018bf003f714f6340c562b878f3244303d2b7ba9949ccd",
-            when="@14.2.0",
-        )
-        patch(
-            "https://github.com/iains/gcc-14-branch/compare/cd0059a1976303638cea95f216de129334fc04d1..gcc-14.1-darwin-r1.patch?full_index=1",
-            sha256="159cc2a1077ad5d9a3cca87880cd977b8202d8fb464a6ec7b53804475d21a682",
-            when="@14.1.0 target=aarch64:",
-        )
 
 
 
@@ -288,9 +273,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81712
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81066
     # https://bugs.busybox.net/show_bug.cgi?id=10061
-    patch("signal.patch", when="@4.9,5.1:5.4")
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=85835
-    patch("sys_ustat.h.patch", when="@5.0:6.4,7.0:7.3,8.1")
 
     # this patch removes cylades support from gcc-5 and allows gcc-5 to be built
     # with newer glibc versions.
@@ -298,14 +281,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=95005
 
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100102
-    patch("patch-f1feb74046e0feb0596b93bbb822fae02940a90e.patch", when="@11.1")
 
     # libstdc++: Fix inconsistent noexcept-specific for valarray begin/end
-    patch(
-        "https://github.com/gcc-mirror/gcc/commit/423cd47cfc9640ba3d6811b780e8a0b94b704dcb.patch?full_index=1",
-        sha256="0d136226eb07bc43f1b15284f48bd252e3748a0426b5d7ac9084ebc406e15490",
-        when="@9.5.0:10.4.0,11.1.0:11.2.0",
-    )
 
     # patch ICE on aarch64 in tree-vect-slp, cf: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=111478
     # patch taken from releases/gcc-12 branch

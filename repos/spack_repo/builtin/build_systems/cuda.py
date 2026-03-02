@@ -6,8 +6,3 @@ class CudaPackage(PackageBase):
     Maintainers: ax3l, Rombur, davidbeckingsale, pauleonix
     """
     # https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#gpu-feature-list
-    # https://developer.nvidia.com/cuda-gpus
-    # https://en.wikipedia.org/wiki/CUDA#GPUs_supported
-    cuda_arch_values = (
-        "10",
-    )

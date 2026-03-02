@@ -18,10 +18,6 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     Releases before 2024.0 include icc/icpc"""
     homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html"
     compiler_languages = ["c", "cxx", "fortran"]
-    implicit_rpath_libs = [
-        "libsycl",
-        "libOpenCL",
-    ]
     stdcxx_libs = ("-cxxlib",)
     provides("c", "cxx")
     # See https://github.com/spack/spack/issues/39252

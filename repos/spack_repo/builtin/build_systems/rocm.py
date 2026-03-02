@@ -14,8 +14,4 @@ class ROCmPackage(PackageBase):
     """
     # https://llvm.org/docs/AMDGPUUsage.html
     # Possible architectures
-    amdgpu_targets = (
-        "gfx701",
-    )
-    variant("rocm", default=False, description="Enable ROCm support")
     # possible amd gpu targets for rocm builds

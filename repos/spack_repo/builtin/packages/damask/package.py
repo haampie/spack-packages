@@ -74,4 +74,3 @@ class Damask(BundlePackage):
 
     depends_on("damask-grid@3.0.0-alpha4", when="@3.0.0-alpha4", type="run")
     depends_on("damask-mesh@3.0.0-alpha4", when="@3.0.0-alpha4", type="run")
-    depends_on("py-damask@3.0.0-alpha4", when="@3.0.0-alpha4", type="run")

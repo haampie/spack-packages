@@ -84,10 +84,6 @@ class Siesta(MakefilePackage, CMakePackage):
     depends_on("lapack")
     depends_on("scalapack", when="+mpi")
     depends_on("netcdf-c")
-    depends_on("netcdf-fortran")
-    depends_on("cray-libsci+openmp", when="^[virtuals=cray-libsci] cray-libsci")
-    depends_on("metis@5:", when="+metis")
-    depends_on("elpa", when="+elpa")
     depends_on("mumps", when="+mumps")
     depends_on("pexsi", when="+pexsi")
 

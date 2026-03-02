@@ -21,4 +21,3 @@ class Pixz(AutotoolsPackage):
     depends_on("c", type="build")  # generated
 
     depends_on("xz")
-    depends_on("libarchive")

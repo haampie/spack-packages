@@ -49,15 +49,12 @@ class Highfive(CMakePackage):
     version("1.0", sha256="d867fe73d00817f686d286f3c69a23731c962c3e2496ca1657ea7302cd0bb944")
 
     variant("boost", default=False, description="Support Boost")
-    variant("mpi", default=True, description="Support MPI")
 
 
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')
     # See https://github.com/spack/spack/pull/22303 for reference
-    depends_on("hdf5")
-    depends_on("hdf5 +mpi", when="+mpi")
 
     def cmake_args(self):
         return [

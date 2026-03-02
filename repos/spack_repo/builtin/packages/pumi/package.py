@@ -66,10 +66,6 @@ class Pumi(CMakePackage):
     )
 
 
-    depends_on("mpi")
-    depends_on("cmake@3:", type="build")
-    depends_on("zoltan", when="+zoltan")
-    depends_on("zoltan+int64", when="+zoltan+int64")
     simbase = "+base"
     simkernels = simbase + "+parasolid+acis+discrete"
     simfull = simkernels + "+abstract+adv+advmodel+import+paralleladapt+parallelmesh"

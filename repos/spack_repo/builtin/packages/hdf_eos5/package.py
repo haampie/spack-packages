@@ -43,7 +43,6 @@ class HdfEos5(AutotoolsPackage):
     for vrec in version_list:
         ver = vrec["version"]
         sha256 = vrec["sha256"]
-        version(ver, sha256=sha256)
 
     variant(
         "shared", default=True, description="Build shared libraries (can be used with +static)"

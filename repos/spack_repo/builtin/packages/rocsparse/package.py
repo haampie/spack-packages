@@ -220,12 +220,6 @@ class Rocsparse(CMakePackage):
             sha256="d021889affed5429f85b606900f76870d0b1b1aefd92529cc6f43bf9d7ef0eb1",
             destination="mtx",
         )
-        resource(
-            name="Chevron4",
-            url="https://sparse.tamu.edu/MM/Chevron/Chevron4.tar.gz",
-            sha256="2ac9dc0d8d38cbf4a62089c74e53aea87edbb3f0b553b77b27c70df70e1d17d5",
-            destination="mtx",
-        )
 
     @property
     def root_cmakelists_dir(self):

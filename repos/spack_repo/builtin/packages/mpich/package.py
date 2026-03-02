@@ -349,11 +349,7 @@ supported, and netmod is ignored if device is ch3:sock.""",
     # MPICH's Yaksa submodule requires python to configure
     depends_on("python@3.0:", when="@develop", type="build")
 
-    depends_on("cray-pmi", when="pmi=cray")
-    depends_on("oneapi-level-zero", when="+level_zero")
 
-    conflicts("device=ch4", when="@:3.2")
-    conflicts("netmod=ofi", when="@:3.1.4")
     conflicts("netmod=ucx", when="device=ch3")
     conflicts("netmod=mxm", when="device=ch4")
     conflicts("netmod=mxm", when="@:3.1.3")

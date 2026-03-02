@@ -19,9 +19,7 @@ class Rocsolver(CMakePackage):
     git = "https://github.com/ROCm/rocm-libraries.git"
 
     tags = ["rocm"]
-    maintainers("cgmb", "srekolam", "renjithravindrankannath", "haampie", "afzpatel")
     libraries = ["librocsolver"]
-    license("BSD-2-Clause")
 
     def url_for_version(self, version):
         if version <= Version("7.1.1"):
@@ -32,12 +30,6 @@ class Rocsolver(CMakePackage):
 
     amdgpu_targets = ROCmPackage.amdgpu_targets
 
-    variant(
-        "amdgpu_target",
-        description="AMD GPU architecture",
-        values=auto_or_any_combination_of(*amdgpu_targets),
-        sticky=True,
-    )
     variant(
         "optimal",
         default=True,

@@ -16,9 +16,6 @@ versions = [
 class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     """Intel oneAPI Compilers. Includes: icx, icpx, ifx, and ifort.
     Releases before 2024.0 include icc/icpc"""
-    homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html"
-    compiler_languages = ["c", "cxx", "fortran"]
-    stdcxx_libs = ("-cxxlib",)
     provides("c", "cxx")
     # See https://github.com/spack/spack/issues/39252
     for v in versions:

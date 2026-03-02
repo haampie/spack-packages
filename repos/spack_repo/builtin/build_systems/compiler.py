@@ -18,7 +18,5 @@ class CompilerPackage(PackageBase):
     verbose_flags: str = "-v"
     @property
     def cc(self) -> Optional[str]:
-        assert self.spec.concrete, "cannot retrieve C compiler, spec is not concrete"
         if self.spec.external:
             return self.spec.extra_attributes.get("compilers", {}).get("c", None)
-        return self._cc_path()

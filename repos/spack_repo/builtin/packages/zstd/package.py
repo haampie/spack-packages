@@ -26,7 +26,6 @@ class Zstd(CMakePackage, MakefilePackage):
     version("1.5.5", sha256="98e9c3d949d1b924e28e01eccb7deed865eefebf25c2f21c702e5cd5b63b85e1")
     version("1.4.8", sha256="f176f0626cb797022fbf257c3c644d71c1c747bb74c32201f9203654da35e9fa")
     version("1.4.7", sha256="085500c8d0b9c83afbc1dc0d8b4889336ad019eba930c5d6a9c6c86c20c769c8")
-    version("1.4.0", sha256="63be339137d2b683c6d19a9e34f4fb684790e864fee13c7dd40e197a64c705c1")
     version("1.3.8", sha256="90d902a1282cc4e197a8023b6d6e8d331c1fd1dfe60f7f8e4ee9da40da886dc3")
     variant("programs", default=False, description="Build executables")
     variant(
@@ -43,10 +42,7 @@ class Zstd(CMakePackage, MakefilePackage):
         description="Enable support for additional compression methods in programs",
     )
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@3.5:", type="build", when="build_system=cmake @1.5.6:")
 
     depends_on("zlib-api", when="compression=zlib")
     depends_on("lz4", when="compression=lz4")

@@ -82,8 +82,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     with when("@5:"):
         conflicts("%oneapi@:2021")
         conflicts("%oneapi@:2024", when="+sycl")
-        depends_on("cuda@12.2:", when="+cuda")
-        depends_on("hip@6.2:", when="+rocm")
 
 
     devices_variants = {
@@ -95,9 +93,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         "sycl": [False, "Whether to build the SYCL backend"],
         "openmptarget": [False, "Whether to build the OpenMPTarget backend"],
     }
-    requires(
-        "+serial", when="~hpx ~openmp ~threads", msg="Kokkos requires at least one host backend"
-    )
 
     tpls_variants = {
         "hpx": [False, None, "Whether to enable the HPX library"],
@@ -132,7 +127,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         "tests": [False, None, "Build for tests"],
     }
 
-    conflicts("~debug_dualview_modify_check", when="@4.7:")  # always enable from 4.7.00
 
     spack_micro_arch_map = {
         "thunderx2": "THUNDERX2",

@@ -56,9 +56,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
 
         version(
-            "12.4.0", sha256="704f652604ccbccb14bdabf3478c9511c89788b12cb3bbffded37341916a9175"
-        )
-        version(
             "12.2.0", sha256="e549cf9cf3594a00e27b6589d4322d70e0720cdd213f39beb4181e06926230ff"
         )
 
@@ -173,15 +170,11 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     depends_on("mpfr@3.1.0:", when="@10:")
     depends_on("mpc@1.0.1:", when="@4.5:")
     # Already released GCC versions do not support any newer version of ISL
-    #   GCC 5.4 https://github.com/spack/spack/issues/6902#issuecomment-433072097
-    #   GCC 7.3 https://github.com/spack/spack/issues/6902#issuecomment-433030376
     #   GCC 9+  https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
     with when("+graphite"):
         depends_on("isl@0.14", when="@5.0:5.2")
         depends_on("isl@0.15", when="@5.3:5.9")
         depends_on("isl@0.15:0.18", when="@6:8.9")
-        depends_on("isl@0.15:0.20", when="@9:9.9")
-        depends_on("isl@0.15:", when="@10:")
 
     depends_on("zlib-api", when="@6:")
     depends_on("zstd", when="@10:")

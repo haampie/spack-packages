@@ -67,11 +67,7 @@ class Gettext(AutotoolsPackage, GNUMirrorPackage):
 
     conflicts("+shared~pic")
     # https://savannah.gnu.org/bugs/?65811
-    conflicts("%gcc@:5", when="@0.22:")
 
-    patch("nvhpc-builtin.patch", when="@:0.21.0 %nvhpc")
-    patch("nvhpc-export-symbols.patch", when="%nvhpc")
-    patch("nvhpc-long-width.patch", when="%nvhpc")
 
     def patch(self):
         # Apply this only where we know that the system libc is glibc, be very careful:

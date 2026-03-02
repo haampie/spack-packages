@@ -45,26 +45,11 @@ class Hdf(AutotoolsPackage):
     # The Java interface library uses netcdf-related macro definitions even
     # when netcdf is disabled and the macros are not defined, e.g.:
     # hdfsdsImp.c:158:30: error: 'MAX_NC_NAME' undeclared
-    conflicts("+java", when="@4.2.12:4.2.13~netcdf")
 
     # TODO: '@:4.2.14 ~external-xdr' and the fact that we compile for 64 bit
     #  architecture should be in conflict
 
     # https://github.com/knedlsepp/nixpkgs/commit/c1a2918c849a5bc766c6d55d96bc6cf85c9d27f4
-    patch(
-        "https://src.fedoraproject.org/rpms/hdf/raw/edbe5f49646b609f5bc9aeeee5a2be47e9556e8c/f/hdf-ppc.patch?full_index=1",
-        sha256="5434f29a87856aa05124c7a9409b3ec3106c30b1ad722720773623190f6bfda8",
-    )
-    patch(
-        "https://src.fedoraproject.org/rpms/hdf/raw/edbe5f49646b609f5bc9aeeee5a2be47e9556e8c/f/hdf-4.2.4-sparc.patch?full_index=1",
-        sha256="ce75518cccbeb80ab976b299225ea6104c3eec1ec13c09e2289913279fcf1b39",
-        when="@4.2.15:",
-    )
-    patch(
-        "https://src.fedoraproject.org/rpms/hdf/raw/edbe5f49646b609f5bc9aeeee5a2be47e9556e8c/f/hdf-aarch64.patch?full_index=1",
-        sha256="49733dd6143be7b30a28d386701df64a72507974274f7e4c0a9e74205510ea72",
-        when="@4.2.15:",
-    )
     # https://github.com/jcsda/spack-stack/issues/317
     patch("hdfi_h_apple_m1.patch", when="@4.2.15: target=aarch64: platform=darwin")
 

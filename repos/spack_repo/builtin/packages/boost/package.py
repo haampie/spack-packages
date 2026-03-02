@@ -389,15 +389,11 @@ class Boost(Package):
     # Fix: "Unable to compile code using boost/process.hpp"
     # See: https://github.com/boostorg/process/issues/116
     # Patch: https://github.com/boostorg/process/commit/6a4d2ff72114ef47c7afaf92e1042aca3dfa41b0.patch
-    patch("1.72_boost_process.patch", level=2, when="@1.72.0")
 
     # Patch fix for warnings from commits 2d37749, af1dc84, c705bab, and
     # 0134441 on https://github.com/boostorg/system.
-    patch("system-non-virtual-dtor-include.patch", when="@1.69.0", level=2)
-    patch("system-non-virtual-dtor-test.patch", when="@1.69.0", working_dir="libs/system", level=1)
 
     # Change the method for version analysis when using Fujitsu compiler.
-    patch("fujitsu_version_analysis.patch", when="@1.67.0:1.76.0%fj")
     patch("fujitsu_version_analysis-1.77.patch", when="@1.77.0:%fj")
 
     # Add option to C/C++ compile commands in clang-linux.jam

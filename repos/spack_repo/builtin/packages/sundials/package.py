@@ -169,17 +169,8 @@ class Sundials(CMakePackage, CudaPackage, ROCmPackage):
     )
 
     # Monitoring
-    variant(
-        "monitoring",
-        default=False,
-        when="@5.5.0:",
-        description="Build with simulation monitoring capabilities",
-    )
 
     # Profiling
-    variant(
-        "profiling", default=False, when="@6.0.0:", description="Build with profiling capabilities"
-    )
 
     # ==========================================================================
     # Conflicts

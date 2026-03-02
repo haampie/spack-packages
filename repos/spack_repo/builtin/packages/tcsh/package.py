@@ -26,7 +26,6 @@ class Tcsh(AutotoolsPackage):
         "https://astron.com/pub/tcsh/old/tcsh-6.23.02.tar.gz",
     ]
 
-    license("BSD-3-Clause")
 
     version("6.24.14", sha256="36880f258a63fc11fe72a65098b585ebc4ecdee24388b8ebec97e6ae8e485318")
     version("6.24.10", sha256="13475c0fbeb74139d33ed793bf00ffbbb2ac2dc9fb1d44467a410760aba36664")

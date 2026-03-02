@@ -19,14 +19,10 @@ class Qtgraph(QMakePackage):
     git = "https://github.com/OpenSpeedShop/QtGraph.git"
 
     version("develop", branch="master")
-    version("1.0.0.0", branch="1.0.0.0")
 
-    depends_on("cxx", type="build")  # generated
 
     # qtgraph depends on these packages
-    depends_on("qt@5.10.0:", when="@1.0.0.0:")
 
-    depends_on("graphviz@2.40.1:", when="@develop")
     depends_on("graphviz@2.40.1", when="@1.0.0.0:")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:

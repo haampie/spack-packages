@@ -41,8 +41,6 @@ class Dataspaces(AutotoolsPackage):
     depends_on("m4", type="build")
     depends_on("automake", type="build")
     depends_on("autoconf", type="build")
-    depends_on("libtool", type="build")
-    depends_on("mpi", when="+mpi")
 
     def autoreconf(self, spec, prefix):
         bash = which("bash")

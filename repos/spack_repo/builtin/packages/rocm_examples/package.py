@@ -66,10 +66,6 @@ class RocmExamples(CMakePackage):
     ]:
         depends_on(f"hip@{ver}", when=f"@{ver}")
         depends_on(f"hipify-clang@{ver}", when=f"@{ver}")
-        depends_on(f"hipcub@{ver}", when=f"@{ver}")
-        depends_on(f"hipsolver@{ver}", when=f"@{ver}")
-        depends_on(f"hipblas@{ver}", when=f"@{ver}")
-        depends_on(f"hiprand@{ver}", when=f"@{ver} +rocm")
         depends_on(f"rocblas@{ver}", when=f"@{ver} +rocm")
         depends_on(f"rocthrust@{ver}", when=f"@{ver} +rocm")
         depends_on(f"rocsparse@{ver}", when=f"@{ver} +rocm")

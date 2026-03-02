@@ -36,16 +36,6 @@ class Gimp(AutotoolsPackage):
     #     default=False,
     #     description="Build with the libheif HEIF and AVIF file format decoder and encoder."
     # )
-    variant(
-        "libmng", default=True, description="Build with Multiple-Image Network Graphics support"
-    )
-    variant(
-        "libwmf",
-        default=True,
-        description="Build with libwmf Windows Windows Metafile Format (WMF) support",
-    )
-    variant("libxpm", default=True, description="Build with libxpm support")
-    variant("webp", default=True, description="Build with WebP support")
     # variant("python",      default=False, description="Build with Python bindings")
 
     depends_on("c", type="build")

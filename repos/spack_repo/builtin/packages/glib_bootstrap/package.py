@@ -37,10 +37,6 @@ class GlibBootstrap(MesonPackage):
         depends_on("meson@1.4:", when="@2.83:")
         depends_on("pkgconfig", type="build")
 
-    depends_on("libffi")
-    depends_on("zlib-api")
-    depends_on("gettext")
-    depends_on("perl", type=("build", "run"))
     extends("python", type=("build", "run"))
     depends_on("pcre2@10.34:")
     depends_on("iconv")

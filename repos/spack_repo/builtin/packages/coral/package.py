@@ -25,10 +25,6 @@ class Coral(CMakePackage):
     depends_on("cxx", type="build")  # generated
     depends_on("ninja")
     depends_on("ccache")
-    depends_on("boost")
-    depends_on("cppunit")
-    depends_on("expat")
-    depends_on("frontier-client")
     depends_on("libaio")
     depends_on("mariadb")
     depends_on("python")

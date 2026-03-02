@@ -25,11 +25,7 @@ class Flcl(CMakePackage):
 
     depends_on("kokkos")
     depends_on("cmake@3.17:", type="build", when="@:0.4.0")
-    depends_on("cmake@3.19:", type="build", when="@0.5.0:")
 
-    conflicts(
-        "^kokkos@3.3.00:", when="@:0.4.99", msg="Requires FLCL >= 0.5.0 to use Kokkos >= 3.3"
-    )
 
     def cmake_args(self):
         args = [self.define("BUILD_TESTING", self.run_tests)]

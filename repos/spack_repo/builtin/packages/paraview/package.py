@@ -188,14 +188,10 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("openpmd-api +adios2", when="+openpmd +adios2", type=("build", "run"))
     depends_on("openpmd-api +hdf5", when="+openpmd +hdf5", type=("build", "run"))
 
-    depends_on("tbb", when="+tbb")
 
-    depends_on("mpi", when="+mpi")
-    conflicts("mpi", when="~mpi")
 
     # Handle X11 dependencies
     # X is only used on Unix like platforms
-    conflicts("glx", when="~x")
     # When on linux, X is required for Qt
     for plat in ["linux", "freebsd"]:
         with when(f"platform={plat}"):
@@ -322,9 +318,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # its C++ standard level.
     depends_on("protobuf@3.4:21", when="@5.11:")
     depends_on("protobuf@3.4:21", when="@master")
-    depends_on("libxml2")
-    depends_on("lz4")
-    depends_on("xz")
 
     # Older builds of pugi export their symbols differently,
     # and pre-5.9 is unable to handle that.

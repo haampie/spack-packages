@@ -27,12 +27,8 @@ class M4(AutotoolsPackage, GNUMirrorPackage):
     patch("nvhpc.patch", when="@1.4.18 %nvhpc")
     patch("nvhpc-1.4.19.patch", when="@1.4.19 %nvhpc")
     # Workaround bug where __LONG_WIDTH__ is not defined
-    patch("nvhpc-long-width.patch", when="@1.4.19 %nvhpc")
-    patch("oneapi.patch", when="@1.4.18 %oneapi")
     # from: https://github.com/Homebrew/homebrew-core/blob/master/Formula/m4.rb
     # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
-    patch("secure_snprintf.patch", when="@:1.4.18 os=highsierra")
-    patch("secure_snprintf.patch", when="@:1.4.18 os=mojave")
     patch("secure_snprintf.patch", when="@:1.4.18 os=catalina")
     patch("secure_snprintf.patch", when="@:1.4.18 os=bigsur")
     # https://bugzilla.redhat.com/show_bug.cgi?id=1573342

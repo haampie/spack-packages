@@ -101,11 +101,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         version("9.4.0", sha256="c95da32f440378d7751dd95533186f7fc05ceb4fb65eb5b85234e6299eb9838e")
 
 
-        version("7.3.0", sha256="832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c")
-        version("7.2.0", sha256="1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a")
-        version("7.1.0", sha256="8a8136c235f64c6fef69cac0d73a46a1a09bb250776a050aec8f9fc880bebc17")
 
-        version("6.4.0", sha256="850bf21eafdfe5cd5f6827148184c08c4a0852a37ccf36ce69855334d2c914d4")
         version("6.3.0", sha256="f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f")
         version("6.2.0", sha256="9944589fc722d3e66308c0ce5257788ebd7872982a718aa2516123940671b7c5")
         version("6.1.0", sha256="09c4c85cabebb971b1de732a0219609f93fc0af5f86f6e437fd8d7f832f1a351")

@@ -44,17 +44,7 @@ class YamlCpp(CMakePackage):
 
     # Explicitly include <cstdint>
     # See https://github.com/jbeder/yaml-cpp/pull/1310
-    patch(
-        "https://github.com/jbeder/yaml-cpp/commit/7b469b4220f96fb3d036cf68cd7bd30bd39e61d2.patch?full_index=1",
-        sha256="0bb42bea4f38ac5e9b51a46938cf7ed12c23e62c8690a166101caa00f09dd639",
-        when="@0.7:",
-    )
 
-    conflicts("%gcc@:4.7", when="@0.6.0:", msg="versions 0.6.0: require c++11 support")
-    conflicts("%xl_r@:13.1", when="@0.6.0:", msg="versions 0.6.0: require c++11 support")
-    conflicts(
-        'cxxflags="-stdlib=libc++" %clang', when="+tests", msg=yaml_cpp_tests_libcxx_error_msg
-    )
 
     def flag_handler(self, name, flags):
         # We cannot catch all conflicts with the conflicts directive because

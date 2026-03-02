@@ -75,7 +75,6 @@ class Libarchive(AutotoolsPackage):
     depends_on("nettle", when="crypto=nettle")
 
 
-    depends_on("iconv", when="+iconv")
 
     # NOTE: `make check` is known to fail with the Intel compilers
     # The build test suite cannot be built with Intel

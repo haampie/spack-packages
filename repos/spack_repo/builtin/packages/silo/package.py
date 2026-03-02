@@ -107,15 +107,11 @@ class Silo(autotools.AutotoolsPackage, cmake.CMakePackage):
 
     # The previously used AX_CHECK_COMPILER_FLAGS macro was dropped from
     # autoconf-archive in 2011
-    patch("configure-AX_CHECK_COMPILE_FLAG.patch", when="@:4.11-bsd")
 
     # API changes in hdf5-1.13 cause breakage
     # See https://github.com/LLNL/Silo/pull/260
-    patch("hdf5-113.patch", when="@4.11:4.11-bsd +hdf5 ^hdf5@1.13:")
-    conflicts("^hdf5@1.13:", when="@:4.10.2-bsd")
 
     # compression features available only w/ HDF5 driver
-    conflicts("+hzip", when="~hdf5", msg="+hzip requires +hdf5")
     conflicts("+fpzip", when="~hdf5", msg="+fpzip requires +hdf5")
     conflicts("+zfp", when="~hdf5", msg="zfp requires +hdf5")
 

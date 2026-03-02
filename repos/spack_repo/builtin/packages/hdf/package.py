@@ -95,7 +95,6 @@ class Hdf(AutotoolsPackage):
 
     # Filter h4cc compiler wrapper to substitute the Spack compiler
     # wrappers with the path of the underlying compilers.
-    filter_compiler_wrappers("h4cc", relative_root="bin")
 
     def test_ncgen_version(self):
         """ensure ncgen version matches spec"""

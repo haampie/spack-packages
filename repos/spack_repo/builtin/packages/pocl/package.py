@@ -34,15 +34,11 @@ class Pocl(CMakePackage):
     version("1.4", sha256="ec237faa83bb1c803fbdf7c6e83d8a2ad68b6f0ed1879c3aa16c0e1dcc478742")
     version("1.3", sha256="6527e3f47fab7c21e96bc757c4ae3303901f35e23f64642d6da5cc4c4fcc915a")
     version("1.2", sha256="0c43e68f336892f3a64cba19beb99d9212f529bedb77f7879c0331450b982d46")
-    version("1.1", sha256="1e8dd0693a88c84937754df947b202871a40545b1b0a97ebefa370b0281c3c53")
-    version("1.0", sha256="94bd86a2f9847c03e6c3bf8dca12af3734f8b272ffeacbc3fa8fcca58844b1d4")
 
-    conflicts("@:1.5", when="target=a64fx", msg="a64fx is supported by pocl v1.6 and above.")
 
     # < 3.0 provided full OpenCL 1.2 support and some intermediate level of
     # OpenCL 2.0 support.  >= 3.0 provides full OpenCL 3.0 support when using
     # llvm >= 14.
-    provides("opencl@2.0", when="^llvm@:13")
     provides("opencl@3.0", when="@3: ^llvm@14:")
 
     depends_on("c", type="build")  # generated

@@ -30,10 +30,6 @@ class Yade(CMakePackage):
     depends_on("cxx", type="build")  # generated
 
     depends_on("cmake", type="build")
-    depends_on("gcc@11.4:", type=("build", "run"))
-    depends_on("boost@1.47:", type=("build", "run"))
-    depends_on("qt", type=("build", "run"))
-    depends_on("freeglut", type=("build", "run"))
     depends_on("libqglviewer", type=("build", "run"))
     depends_on("python", type=("build", "run"))
     depends_on("py-numpy", type=("build", "run"))

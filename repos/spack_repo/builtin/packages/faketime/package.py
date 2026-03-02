@@ -13,9 +13,7 @@ class Faketime(MakefilePackage):
     homepage = "https://github.com/wolfcw/libfaketime"
     url = "https://github.com/wolfcw/libfaketime/archive/refs/tags/v0.9.10.tar.gz"
 
-    maintainers("wdconinc")
 
-    license("GPL-2.0-only", checked_by="wdconinc")
 
     version("0.9.12", sha256="4fc32218697c052adcdc5ee395581f2554ca56d086ac817ced2be0d6f1f8a9fa")
     version("0.9.10", sha256="729ad33b9c750a50d9c68e97b90499680a74afd1568d859c574c0fe56fe7947f")

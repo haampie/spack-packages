@@ -20,12 +20,6 @@ class IntelMlc(Package):
 
     homepage = "https://www.intel.com/content/www/us/en/developer/articles/tool/intelr-memory-latency-checker.html"
 
-    version(
-        "3.11b",
-        url="https://downloadmirror.intel.com/834254/mlc_v3.11b.tgz",
-        sha256="5d5abd27d145af59d564c9c53938301a08205f075b9bd41f2f92b4c8efeb2824",
-        preferred=True,
-    )
 
     version(
         "3.11a",

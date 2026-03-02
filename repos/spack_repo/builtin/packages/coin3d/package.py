@@ -21,10 +21,6 @@ class Coin3d(AutotoolsPackage, CMakePackage):
     version("4.0.6", sha256="e04a600809593feb2acbec4282803d1673926ddfa1d9fcd402f35ec26fc52e7e")
     version("4.0.5", sha256="0abc591cb49cbb8d97eb70251340f61cc1bd75a3ac1fa7c23907af6671c1079a")
     version("4.0.4", sha256="80efd056a445050939a265db307d106ac7524105774d4be924a71b0cff23a719")
-    version("4.0.0", sha256="e4f4bd57804b8ed0e017424ad2e45c112912a928b83f86c89963df9015251476")
-    version("3.1.0", sha256="70dd5ef39406e1d9e05eeadd54a5b51884a143e127530876a97744ca54173dc3")
-    version("3.0.0", sha256="d5c2eb0ecaa5c83d93daf0e9e275e58a6a8dfadc74c873d51b0c939011f81bfa")
-    version("2.0.0", sha256="6d26435aa962d085b7accd306a0b478069a7de1bc5ca24e22344971852dd097c")
 
     build_system(
         conditional("cmake", when="@4.0.0:"),

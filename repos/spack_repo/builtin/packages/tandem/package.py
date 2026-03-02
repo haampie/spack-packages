@@ -55,11 +55,7 @@ class Tandem(CMakePackage, CudaPackage, ROCmPackage):
         default="0",
         description="Minimum order of quadrature rule, 0 = automatic",
     )
-    variant("libxsmm", default=False, description="Install libxsmm-generator")
-    variant("python", default=False, description="installs python and numpy")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
     depends_on("mpi")
 
     for var in ["openmpi", "mpich", "mvapich-plus"]:

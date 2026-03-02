@@ -21,17 +21,7 @@ class Hipace(CMakePackage):
     version("develop", branch="development")
     version("23.07", sha256="2b1f61c91d2543d7ee360eba3630c864107e29f7bcfd0221451beea88f414f21")
     version("23.05", sha256="33a15cfeada3ca16c2a3af1538caa7ff731df13b48b884045a0fe7974382fcd1")
-    version("21.09", sha256="5d27824fe6aac47ce26ca69759140ab4d7844f9042e436c343c03ea4852825f1")
 
-    variant(
-        "compute",
-        default="noacc",
-        values=("omp", "cuda", "hip", "sycl", "noacc"),
-        multi=False,
-        description="On-node, accelerated computing backend",
-    )
-    variant("mpi", default=True, description="Enable MPI support")
-    variant("openpmd", default=True, description="Enable openPMD I/O")
     variant(
         "precision",
         default="double",

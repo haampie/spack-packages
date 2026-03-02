@@ -94,12 +94,8 @@ class Yoda(AutotoolsPackage):
     depends_on("highfive", type=("build", "link", "run"), when="+highfive")
 
     depends_on("root", type=("build", "link", "run"), when="@2.1:")
-    depends_on("root", type=("build", "link", "run"), when="+root")
 
-    extends("python")
 
-    patch("yoda-1.5.5.patch", level=0, when="@1.5.5")
-    patch("yoda-1.5.9.patch", level=0, when="@1.5.9")
     patch("yoda-1.6.1.patch", level=0, when="@1.6.1")
     patch("yoda-1.6.2.patch", level=0, when="@1.6.2")
     patch("yoda-1.6.3.patch", level=0, when="@1.6.3")

@@ -19,16 +19,7 @@ class Spatter(CMakePackage, CudaPackage):
     license("MIT", checked_by="plavin")
 
     version("develop", branch="spatter-devel")
-    version("main", branch="main", preferred=True)
-    version("2.1", tag="v2.1", commit="ec8923711f8dc21eedff7189f12b02eb06845d2f")
 
-    variant(
-        "backend",
-        default="openmp",
-        values=["serial", "openmp", "cuda"],
-        description="Configuration string",
-    )
-    variant("mpi", default=False, description="Enable MPI support")
     variant("cuda_arch", default="none", multi=True, description="CUDA architecture")
 
     depends_on("cmake@3.25:", type="build")

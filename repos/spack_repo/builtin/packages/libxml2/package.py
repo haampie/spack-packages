@@ -20,7 +20,6 @@ class Libxml2(AutotoolsPackage, CMakePackage, NMakePackage):
     url = "https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.13.tar.xz"
     list_url = "https://gitlab.gnome.org/GNOME/libxml2/-/releases"
 
-    maintainers("AlexanderRichert-NOAA")
 
     def url_for_version(self, version):
         if version >= Version("2.9.13"):
@@ -28,9 +27,7 @@ class Libxml2(AutotoolsPackage, CMakePackage, NMakePackage):
             return url.format(version.up_to(2), version)
         return "http://xmlsoft.org/sources/libxml2-{0}.tar.gz".format(version)
 
-    license("MIT")
 
-    version("2.15.1", sha256="c008bac08fd5c7b4a87f7b8a71f283fa581d80d80ff8d2efd3b26224c39bc54c")
     version("2.13.9", sha256="a2c9ae7b770da34860050c309f903221c67830c86e4a7e760692b803df95143a")
     version("2.13.5", sha256="74fc163217a3964257d3be39af943e08861263c4231f9ef5b496b6f6d4c7b2b6")
     version("2.13.4", sha256="65d042e1c8010243e617efb02afda20b85c2160acdbfbcb5b26b80cec6515650")

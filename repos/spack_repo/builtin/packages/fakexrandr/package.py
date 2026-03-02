@@ -21,7 +21,6 @@ class Fakexrandr(MakefilePackage):
     depends_on("libxrandr")
     depends_on("libxinerama")
     depends_on("libx11")
-    depends_on("python", type=("build", "run"))
 
     def edit(self, spec, prefix):
         # Installation instructions involve running `configure` script,

@@ -35,4 +35,3 @@ class Libxmu(AutotoolsPackage, XorgPackage):
 
     depends_on("xextproto", type="build")
     depends_on("pkgconfig", type="build")
-    depends_on("util-macros", type="build")

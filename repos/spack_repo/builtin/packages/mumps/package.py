@@ -52,15 +52,6 @@ class Mumps(Package):
         "complex", default=True, description="Activate the compilation of cmumps and/or zmumps"
     )
     variant("int64", default=False, description="Use int64_t/integer*8 as default index type")
-    variant("incfort", default=False, description="Use explicit types size in fortran headers")
-    variant("shared", default=True, description="Build shared libraries")
-    variant("openmp", default=True, description="Compile MUMPS with OpenMP support")
-    variant(
-        "blr_mt",
-        default=False,
-        description="Allow BLAS calls in OpenMP regions "
-        + "(warning: might not be supported by all multithread BLAS)",
-    )
 
     depends_on("c", type="build")  # generated
     depends_on("fortran", type="build")  # generated

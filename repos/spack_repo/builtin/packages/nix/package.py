@@ -28,24 +28,6 @@ class Nix(AutotoolsPackage):
 
     patch("fix-doc-build.patch")
 
-    variant(
-        "storedir",
-        values=str,
-        default="none",
-        description="path of the Nix store (defaults to /nix)",
-    )
-    variant(
-        "statedir",
-        values=str,
-        default="none",
-        description="path to the locale state (defaults to /nix/var)",
-    )
-    variant(
-        "doc",
-        default=False,
-        description="Build documentation, tries to fetch docbook.xsl from sf.net",
-    )
-    variant("sandboxing", default=True, description="Enable build isolation")
 
     depends_on("autoconf-archive", type="build")
     depends_on("autoconf", type="build")

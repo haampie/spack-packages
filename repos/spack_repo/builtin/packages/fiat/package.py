@@ -25,13 +25,9 @@ class Fiat(CMakePackage):
     version("1.5.1", sha256="50834bf5d8cb4bde92df9028f799aeba411a0a16e55ca33da10a329b5d7f55ea")
     version("1.4.1", sha256="7d49316150e59afabd853df0066b457a268731633898ab51f6f244569679c84a")
     version("1.4.0", sha256="5dc5a8bcac5463690529d0d96d2c805cf9c0214d125cd483ee69d36995ff15d3")
-    version("1.2.0", sha256="758147410a4a3c493290b87443b4091660b915fcf29f7c4d565c5168ac67745f")
-    version("1.1.0", sha256="58354e60d29a1b710bfcea9b87a72c0d89c39182cb2c9523ead76a142c695f82")
 
 
-    variant("fckit", default=True, description="Use fckit")
 
-    depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
     depends_on("fortran", type="build")  # generated
 

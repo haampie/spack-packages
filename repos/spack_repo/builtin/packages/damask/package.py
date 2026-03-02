@@ -29,10 +29,6 @@ class Damask(BundlePackage):
 
     maintainers("MarDiehl")
 
-    version("3.0.2")
-    version("3.0.1")
-    version("3.0.0")
-    version("3.0.0-beta2")
     version("3.0.0-beta")
     version("3.0.0-alpha8")
     version("3.0.0-alpha7")

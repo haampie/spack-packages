@@ -26,7 +26,6 @@ class ZlibNg(AutotoolsPackage, CMakePackage):
 
     variant("new_strategies", default=True, description="Enable new deflate strategies")
 
-    provides("zlib-api", when="+compat")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

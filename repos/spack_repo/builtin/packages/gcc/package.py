@@ -167,7 +167,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         # older version of GDC to build GDC.
         # See https://gcc.gnu.org/install/prerequisites.html#GDC-prerequisite
         with when("@12:"):
-            requires("%gcc")
 
             # And it has to be GCC older than the version we build:
             vv = ["11", "12.1.0", "12.2.0"]

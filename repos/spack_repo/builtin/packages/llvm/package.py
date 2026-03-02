@@ -221,9 +221,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
             # Commits f0a25fe0b746f56295d5c02116ba28d2f965c175 and
     # gold support, required for some features
 
-    # Older LLVM do not build with newer compilers, and vice versa
-    with when("@16:"):
-        conflicts("%clang@:4")
         conflicts("%apple-clang@:9")
     conflicts("%gcc@8:", when="@:5")
     conflicts("%gcc@:5.0", when="@8:")

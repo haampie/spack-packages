@@ -232,8 +232,6 @@ class Boost(Package):
             requires("+signals", when=f"@:1.68 +{lib} platform=windows")
             requires("+signals2", when=f"@1.69: +{lib} platform=windows")
 
-    # Patch fix from https://svn.boost.org/trac/boost/ticket/11856
-
     # Patch fix from https://svn.boost.org/trac/boost/ticket/11120
 
     # Patch fix for IBM XL compiler

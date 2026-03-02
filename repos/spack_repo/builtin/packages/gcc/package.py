@@ -172,7 +172,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # TODO: integrate these libraries.
     # depends_on('ppl')
     # depends_on('cloog')
-
     # https://gcc.gnu.org/install/test.html
     depends_on("dejagnu@1.4.4", type="test")
     depends_on("expect", type="test")
@@ -182,9 +181,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
     # See https://go.dev/doc/install/gccgo#Releases
     with when("languages=go"):
-        provides("go-or-gccgo-bootstrap@:1.0", when="@4.7.1:")
-        provides("go-or-gccgo-bootstrap@:1.2", when="@4.9:")
-        provides("go-or-gccgo-bootstrap@:1.4", when="@5:")
         provides("go-or-gccgo-bootstrap@:1.6.1", when="@6:")
         provides("go-or-gccgo-bootstrap@:1.8.1", when="@7:")
         provides("go-or-gccgo-bootstrap@:1.10.1", when="@8:")

@@ -271,12 +271,8 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("silo+mpi", when="+visitbridge+mpi")
     depends_on("silo~mpi", when="+visitbridge~mpi")
     depends_on("boost", when="+visitbridge")
-    depends_on("jpeg")
     depends_on("jsoncpp")
     depends_on("libogg")
-    depends_on("libpng")
-    depends_on("libtheora")
-    depends_on("libtiff")
     depends_on("netcdf-c")
     depends_on("netcdf-c+parallel-netcdf", when="+mpi platform=darwin")
     depends_on("netcdf-c+parallel-netcdf", when="+mpi platform=freebsd")
@@ -331,17 +327,13 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     patch("exodusII-netcdf4.9.0.patch", when="@5.10.0:5.10.2")
 
-
     # https://github.com/Kitware/VTK-m/commit/c805a6039ea500cb96158cfc11271987c9f67aa4
-    patch("vtkm-remove-unused-method-from-mir-tables.patch", when="@5.13.2 %oneapi@2025:")
 
     # https://github.com/Kitware/VTK-m/commit/48e385af319543800398656645327243a29babfb
     patch("vtkm-fix-problems-in-class-member-names.patch", when="@5.13.2 %oneapi@2025:")
-
     # Vtk's findpegtl's include search is wrong: https://gitlab.kitware.com/vtk/vtk/-/issues/17876
     patch("pegtl_tao_find.patch", when="platform=windows")
 
-    # https://gitlab.kitware.com/paraview/paraview/-/merge_requests/7593
     patch("paraview-cdireader-lazy.patch", when="@:6.0 +cdi")
     # https://gitlab.kitware.com/paraview/paraview/-/issues/21223
     def url_for_version(self, version):

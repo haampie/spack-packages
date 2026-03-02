@@ -252,37 +252,3 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     ]
     sanity_check_is_dir = ["bin", "include"]
 
-    @classmethod
-    def get_microarch(cls, target):
-        """Get the Kokkos microarch name for a Spack target (spec.target)."""
-        smam = cls.spack_micro_arch_map
-
-        # Find closest ancestor that has a known microarch optimization
-        if target.name not in smam:
-            for target in target.ancestors:
-                if target.name in smam:
-                    break
-            else:
-                # No known microarch optimizatinos
-                return None
-
-        return smam[target.name]
-
-    def append_args(self, cmake_prefix, cmake_options, spack_options):
-        variant_to_cmake_option = {"rocm": "hip"}
-        for variant_name in cmake_options:
-            opt = variant_to_cmake_option.get(variant_name, variant_name)
-            optname = f"Kokkos_{cmake_prefix}_{opt.upper()}"
-            # Explicitly enable or disable
-            option = self.define_from_variant(optname, variant_name)
-            if option:
-                spack_options.append(option)
-
-    @property
-    def kokkos_cxx(self) -> str:
-        if self.spec.satisfies("+wrapper"):
-            return self["kokkos-nvcc-wrapper"].kokkos_cxx
-        # Assumes build-time globals have been set already
-        return spack_cxx
-        if not os.path.exists(cmake_source_path):
-            return

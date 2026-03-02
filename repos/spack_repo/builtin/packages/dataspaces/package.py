@@ -31,25 +31,3 @@ class Dataspaces(AutotoolsPackage):
         bash = which("bash")
         bash("./autogen.sh")
 
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        if self.spec.satisfies("+mpi"):
-            env.set("CC", self.spec["mpi"].mpicc)
-            env.set("FC", self.spec["mpi"].mpifc)
-
-        env.set("CFLAGS", self.compiler.cc_pic_flag)
-
-        if self.spec.satisfies("%gcc@10:"):
-            env.set("FCFLAGS", "-fallow-argument-mismatch")
-
-    def configure_args(self):
-        args = []
-        cookie = self.spec.variants["gni-cookie"].value
-        ptag = self.spec.variants["ptag"].value
-        if self.spec.satisfies("+dimes"):
-            args.append("--enable-dimes")
-        if self.spec.satisfies("+cray-drc"):
-            args.append("--enable-drc")
-        else:
-            args.append("--with-gni-cookie=%s" % cookie)
-            args.append("--with-gni-ptag=%s" % ptag)
-        return args

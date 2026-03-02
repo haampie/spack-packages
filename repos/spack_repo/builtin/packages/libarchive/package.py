@@ -52,20 +52,3 @@ class Libarchive(AutotoolsPackage):
     # NOTE: `make check` is known to fail with the Intel compilers
     # The build test suite cannot be built with Intel
 
-    def configure_args(self):
-        spec = self.spec
-        args = ["--without-libb2"]
-        args += self.with_or_without("compression")
-        args += self.with_or_without("crypto")
-        args += self.with_or_without("xar")
-        args += self.enable_or_disable("programs")
-
-        if spec.satisfies("+iconv"):
-            if spec["iconv"].name == "libiconv":
-                args.append(f"--with-libiconv-prefix={spec['iconv'].prefix}")
-            else:
-                args.append("--without-libiconv-prefix")
-        else:
-            args.append("--without-iconv")
-
-        return args

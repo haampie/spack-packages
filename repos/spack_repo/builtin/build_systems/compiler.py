@@ -84,29 +84,6 @@ class CompilerPackage(PackageBase):
         """Returns the path to the C compiler, if the package was installed by Spack"""
         return None
 
-    @property
-    def cxx(self) -> Optional[str]:
-        assert self.spec.concrete, "cannot retrieve C++ compiler, spec is not concrete"
-        if self.spec.external:
-            return self.spec.extra_attributes.get("compilers", {}).get("cxx", None)
-        return self._cxx_path()
-
-    def _cxx_path(self) -> Optional[str]:
-        """Returns the path to the C++ compiler, if the package was installed by Spack"""
-        return None
-
-    @property
-    def fortran(self):
-        assert self.spec.concrete, "cannot retrieve Fortran compiler, spec is not concrete"
-        if self.spec.external:
-            return self.spec.extra_attributes.get("compilers", {}).get("fortran", None)
-        return self._fortran_path()
-
-    def _fortran_path(self) -> Optional[str]:
-        """Returns the path to the Fortran compiler, if the package was installed by Spack"""
-        return None
-
-
 @memoized
 def _compiler_output(
     compiler_path: Path, *, version_argument: str, ignore_errors: Tuple[int, ...] = ()

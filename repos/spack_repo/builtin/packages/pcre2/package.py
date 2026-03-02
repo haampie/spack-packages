@@ -18,7 +18,6 @@ class Pcre2(AutotoolsPackage, CMakePackage):
     url = "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.39/pcre2-10.39.tar.bz2"
 
 
-    version("10.44", sha256="d34f02e113cf7193a1ebf2770d3ac527088d485d4e047ed10e5d217c6ef5de96")
 
     variant("multibyte", default=True, description="Enable support for 16 and 32 bit characters")
     variant("jit", default=False, description="Enable Just-In-Time compiling support")

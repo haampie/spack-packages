@@ -51,7 +51,6 @@ class Jsoncpp(CMakePackage, MesonPackage):
 
     depends_on("python", type="test")
 
-    # Ref: https://github.com/open-source-parsers/jsoncpp/pull/1023
     # Released in 1.9.2, patch does not apply cleanly across releases.
     # May apply to more compilers in the future.
     @when("@:1.9.1 %clang@10.0.0:")

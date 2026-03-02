@@ -106,18 +106,10 @@ class Xrootd(CMakePackage):
     depends_on("readline", when="+readline")
     depends_on("xz")
     depends_on("zlib-api")
-    depends_on("curl")
-    depends_on("krb5", when="+krb5")
-    depends_on("json-c")
 
 
     # https://github.com/xrootd/xrootd/pull/1805
     # https://github.com/xrootd/xrootd/pull/1930
-    patch(
-        "https://github.com/xrootd/xrootd/commit/984efbc72bdad86b43923569f4dfa707b7a287a2.patch?full_index=1",
-        sha256="13a4a3373268b137f8cea8d6e082db421d17175cef36bb53a2b939f697290f0e",
-        when="@5.5.3",
-    )
     # https://github.com/xrootd/xrootd/pull/2013
     patch(
         "https://patch-diff.githubusercontent.com/raw/xrootd/xrootd/pull/2013.patch?full_index=1",

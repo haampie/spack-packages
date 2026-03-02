@@ -80,16 +80,6 @@ class Ucx(AutotoolsPackage, CudaPackage):
     variant("logging", default=False, description="Enable logging")
     variant("numa", default=True, when="@:1.14", description="Enable NUMA support")
     variant("openmp", default=True, description="Use OpenMP")
-    variant(
-        "opt",
-        default="3",
-        values=("0", "1", "2", "3"),
-        multi=False,
-        description="Set optimization level",
-    )
-    variant("optimizations", default=True, description="Enable optimizations")
-    variant("parameter_checking", default=False, description="Enable parameter checking")
-    variant("pic", default=True, description="Builds with PIC support")
     variant("rocm", default=False, description="Enable ROCm support")
     variant(
         "simd",
@@ -104,16 +94,7 @@ class Ucx(AutotoolsPackage, CudaPackage):
         default=False,
         description="Enable the group collective operations (experimental component)",
     )
-    variant("vfs", default=False, when="@1.11.0:", description="UCX Virtual Filesystem support")
 
-    variant(
-        "cm",
-        default=False,
-        when="@:1.10",
-        description="Compile with IB Connection Manager support",
-    )
-    variant("cma", default=False, description="Enable Cross Memory Attach")
-    variant("dc", default=False, description="Compile with IB Dynamic Connection support")
     variant("dm", default=False, description="Compile with Device Memory support")
     variant("gdrcopy", default=False, description="Enable gdrcopy support")
     variant("ib_hw_tm", default=False, description="Compile with IB Tag Matching support")

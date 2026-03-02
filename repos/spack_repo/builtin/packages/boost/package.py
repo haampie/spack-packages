@@ -352,27 +352,15 @@ class Boost(Package):
 
     # Add option to C/C++ compile commands in clang-linux.jam
     patch("clang-linux_add_option.patch", when="@1.56.0:1.63.0")
-    patch("clang-linux_add_option2.patch", when="@1.47.0:1.55.0")
 
     # C++20 concepts fix for Beast
     # See https://github.com/boostorg/beast/pull/1927 for details
-    patch(
-        "https://www.boost.org/patches/1_73_0/0002-beast-coroutines.patch",
-        sha256="4dd507e1f5a29e3b87b15321a4d8c74afdc8331433edabf7aeab89b3c405d556",
-        when="@1.73.0",
-    )
 
     # Cloning a status_code with indirecting_domain leads to segmentation fault
     # See https://github.com/ned14/outcome/issues/223 for details
-    patch(
-        "https://www.boost.org/patches/1_73_0/0001-outcome-assert.patch",
-        sha256="246508e052c44b6f4e8c2542a71c06cacaa72cd1447ab8d2a542b987bc35ace9",
-        when="@1.73.0",
-    )
 
     # Support bzip2 and gzip in other directory
     # See https://github.com/boostorg/build/pull/154
-    patch("boost_154.patch", when="@1.56.0:1.63")
 
     # Backport Python3 import problem
     # See https://github.com/boostorg/python/pull/218

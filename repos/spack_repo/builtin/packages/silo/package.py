@@ -92,15 +92,11 @@ class Silo(autotools.AutotoolsPackage, cmake.CMakePackage):
     with when("build_system=autotools"):
         depends_on("autoconf-archive", type="build", when="+shared")
         depends_on("automake", type="build", when="+shared")
-        depends_on("libtool", type="build", when="+shared")
 
-    patch("remove-mpiposix.patch", when="@4.8:4.10.2")
 
     # hdf5 1.10 added an additional field to the H5FD_class_t struct
-    patch("H5FD_class_t-terminate.patch", when="@:4.10.2-bsd")
 
     # H5EPR_SEMI_COLON.patch was fixed in current dev
-    patch("H5EPR_SEMI_COLON.patch", when="@:4.11-bsd")
 
     # Fix missing F77 init, fixed in 4.9
     patch("48-configure-f77.patch", when="@:4.8")

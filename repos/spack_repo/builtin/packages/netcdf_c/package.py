@@ -220,11 +220,9 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
 
     # NetCDF 4.4.0 and prior have compatibility issues with HDF5 1.10 and later
     # https://github.com/Unidata/netcdf-c/issues/250
-    depends_on("hdf5@:1.8", when="@:4.4.0")
 
     # NetCDF 4.7.4 and prior require HDF5 1.10 or older
     # https://github.com/Unidata/netcdf-c/pull/1671
-    depends_on("hdf5@:1.10", when="@:4.7.3")
 
     # Although NetCDF 4.8.0 builds and passes the respective tests against HDF5 1.12.0 with the
     # default API (i.e. the problem reported in https://github.com/Unidata/netcdf-c/issues/1965 is
@@ -233,11 +231,9 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
     # the comments in the configure script and its implementation). The check that led to the
     # failure was removed in version 4.8.1 (https://github.com/Unidata/netcdf-c/pull/2044). To
     # keep it simple, we require HDF5 1.10.x or older:
-    depends_on("hdf5@:1.10", when="@4.8.0")
 
     with when("+byterange"):
         # HDF5 implements H5allocate_memory starting version 1.8.15:
-        depends_on("hdf5@1.8.15:")
         # HDF5 defines H5FD_FEAT_DEFAULT_VFD_COMPATIBLE (required when version 1.10.x is used)
         # starting version 1.10.2:
         depends_on("hdf5@:1.9,1.10.2:")

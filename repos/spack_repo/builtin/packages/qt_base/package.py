@@ -19,13 +19,6 @@ class QtPackage(CMakePackage):
     def get_list_url(qualname):
         _list_url = "https://github.com/qt/{}/tags"
         return _list_url.format(qualname.lower())
-        """Remove src/3rdparty libraries that are provided by spack"""
-        vendor_dir = join_path(self.stage.source_path, "src", "3rdparty")
-        with working_dir(vendor_dir):
-            for dep in os.listdir():
-                if os.path.isdir(dep):
-                    if dep in vendor_deps_to_remove:
-                        shutil.rmtree(dep)
 class QtBase(QtPackage):
     """Qt Base (Core, Gui, Widgets, Network, ...)"""
     url = QtPackage.get_url(__qualname__)

@@ -9,4 +9,3 @@ class CompilerPackage(PackageBase):
     def cc(self) -> Optional[str]:
         if self.spec.external:
             return self.spec.extra_attributes.get("compilers", {}).get("c", None)
-        return self._cc_path()

@@ -81,33 +81,4 @@ class AutotoolsBuilder(autotools.AutotoolsBuilder):
     def pretend_gcc(self):
         # All nice things (PIC flags, symbol versioning) that happen to the compilers that are
         # recognized as gcc (%gcc, %clang, %intel, %oneapi) we want for some other compilers too:
-        if self.spec.satisfies("%nvhpc"):
-            filter_file(r"^gcc=0$", "gcc=1", join_path(self.configure_directory, "configure"))
-
-    def configure_args(self):
-        args = []
-        if self.spec.satisfies("+compat"):
-            args.append("--zlib-compat")
-        if self.spec.satisfies("~opt"):
-            args.append("--without-optimizations")
-        if self.spec.satisfies("~shared"):
-            args.append("--static")
-        if self.spec.satisfies("~new_strategies"):
-            args.append("--without-new-strategies")
-        return args
-
-
-class CMakeBuilder(cmake.CMakeBuilder):
-    def cmake_args(self):
-        args = [
-            self.define_from_variant("ZLIB_COMPAT", "compat"),
             self.define_from_variant("WITH_OPTIM", "opt"),
-            self.define("BUILD_SHARED_LIBS", self.spec.satisfies("+shared")),
-            self.define_from_variant("CMAKE_POSITION_INDEPENDENT_CODE", "pic"),
-            self.define_from_variant("WITH_NEW_STRATEGIES", "new_strategies"),
-        ]
-        if self.spec.satisfies("@2.3:"):
-            args.append(self.define("BUILD_TESTING", self.pkg.run_tests))
-        else:
-            args.append(self.define("ZLIB_ENABLE_TESTS", self.pkg.run_tests))
-        return args

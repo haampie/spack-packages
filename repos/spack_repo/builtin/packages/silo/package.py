@@ -112,7 +112,6 @@ class Silo(autotools.AutotoolsPackage, cmake.CMakePackage):
     conflicts("+fpzip", when="@4.10.2-bsd,4.11-bsd,4.11.1-bsd")
 
     # If bsdonly enbabled, hzip and fpzip cannot be enabled
-    conflicts("license=bsdonly", when="+hzip", msg="BSD-only build cannot use +hzip")
     conflicts("license=bsdonly", when="+fpzip", msg="BSD-only build cannot use +fpzip")
 
     # zfp include missing

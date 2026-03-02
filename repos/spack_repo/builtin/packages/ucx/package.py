@@ -117,30 +117,6 @@ class Ucx(AutotoolsPackage, CudaPackage):
 
     # See https://github.com/openucx/ucx/pull/8629, wrong int type
 
-    def patch(self):
-        if self.spec.satisfies("+rocm"):
-            filter_file("$$with_rocm", "${with_rocm[@]}", "configure", string=True)
-            filter_file(
-                "-I$with_rocm/include/hip -I$with_rocm/include",
-                "$ROCM_CPPFLAGS",
-                "configure",
-                string=True,
-            )
-            filter_file(
-                "-L$with_rocm/hip/lib -L$with_rocm/lib", "$ROCM_LDFLAGS", "configure", string=True
-            )
-
-            if self.spec.satisfies("@:1.15 ^hip@6:"):
-                filter_file("HIP_PLATFORM_HCC", "HIP_PLATFORM_AMD", "configure", string=True)
-
-    @when("@master")
-    def autoreconf(self, spec, prefix):
-        Executable("./autogen.sh")()
-
-    @when("@1.9-dev")
-    def autoreconf(self, spec, prefix):
-        Executable("./autogen.sh")()
-
     def configure_args(self):
         spec = self.spec
         args = ["--without-go", "--disable-doxygen-doc"]  # todo  # todo

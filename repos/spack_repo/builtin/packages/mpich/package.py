@@ -18,48 +18,6 @@ class MpichEnvironmentModifications(PackageBase):
     MPICH, and derivatives.
     """
 
-    def setup_dependent_build_environment(
-        self, env: EnvironmentModifications, dependent_spec: Spec
-    ) -> None:
-        dependent_module = dependent_spec.package.module
-        for var_name, attr_name in (
-            ("MPICH_CC", "spack_cc"),
-            ("MPICH_CXX", "spack_cxx"),
-            ("MPICH_FC", "spack_fc"),
-            ("MPICH_F90", "spack_fc"),
-            ("MPICH_F77", "spack_f77"),
-        ):
-            if hasattr(dependent_module, attr_name):
-                env.set(var_name, getattr(dependent_module, attr_name))
-
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        env.unset("F90")
-        env.unset("F90FLAGS")
-
-    def setup_run_environment(self, env: EnvironmentModifications) -> None:
-        self.setup_mpi_wrapper_variables(env)
-
-    def setup_dependent_package(self, module, dependent_spec):
-        spec = self.spec
-        spec.mpicc = join_path(self.prefix.bin, "mpicc")
-        spec.mpicxx = join_path(self.prefix.bin, "mpicxx")
-        # Some derived packages define the "fortran" variant, most don't. Checking on the
-        # presence of ~fortran makes us default to add fortran wrappers if the variant is
-        # not declared.
-        if spec.satisfies("~fortran"):
-            return
-        spec.mpifc = join_path(self.prefix.bin, "mpif90")
-        spec.mpif77 = join_path(self.prefix.bin, "mpif77")
-
-    def setup_mpi_wrapper_variables(self, env):
-        # Because MPI implementations provide compilers, they have to add to
-        # their run environments the code to make the compilers available.
-        env.set("MPICC", join_path(self.prefix.bin, "mpicc"))
-        env.set("MPICXX", join_path(self.prefix.bin, "mpicxx"))
-        env.set("MPIF77", join_path(self.prefix.bin, "mpif77"))
-        env.set("MPIF90", join_path(self.prefix.bin, "mpif90"))
-
-
 class Mpich(MpichEnvironmentModifications, AutotoolsPackage, CudaPackage, ROCmPackage):
     """MPICH is a high performance and widely portable implementation of
     the Message Passing Interface (MPI) standard."""

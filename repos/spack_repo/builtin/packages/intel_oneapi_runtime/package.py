@@ -43,26 +43,6 @@ class IntelOneapiRuntime(Package):
     conflicts("platform=darwin", msg="IntelOneAPI can only be installed on Linux, and FreeBSD")
 
 
-    def install(self, spec, prefix):
-        oneapi_pkg = self.spec["intel-oneapi-compilers"].package
-        libraries = get_elf_libraries(compiler=oneapi_pkg, libraries=self.LIBRARIES)
-        mkdir(prefix.lib)
-
-        if not libraries:
-            tty.warn("Could not detect any shared OneAPI runtime libraries")
-            return
-
-        for path, name in libraries:
-            install(path, os.path.join(prefix.lib, name))
-
-    @property
-    def libs(self):
-        return LibraryList([])
-
-    @property
-    def headers(self):
-        return HeaderList([])
-
     # We expect dependencies between runtime libraries themselves to be resolved by rpaths in the
     # dependent binaries. This means RUNPATH is currently unsupported. Supporting this is hard,
     # because the only way to register the rpath is through patchelf, which itself depends on C++

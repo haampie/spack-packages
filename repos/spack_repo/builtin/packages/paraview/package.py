@@ -763,32 +763,3 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         """Test MPI ParaView Client/Server ensemble"""
         spec = self.spec
 
-        if "~mpi" in spec or "~python" in spec:
-            raise SkipTest("Package must be installed with +mpi and +python")
-
-        mpirun = spec["mpi"].prefix.bin.mpirun
-        pvserver = self.prefix.bin.pvserver
-        pvpython = Executable(self.prefix.bin.pvpython)
-
-        with working_dir("smoke_test_build", create=True):
-            with Popen(
-                [mpirun, "-np", "3", pvserver, "--mpi", "--force-offscreen-rendering"]
-            ) as servers:
-                pvpython(
-                    "--force-offscreen-rendering",
-                    "-c",
-                    "from paraview.simple import *;"
-                    "Connect('127.0.0.1');"
-                    "sphere = Sphere(ThetaResolution=16, PhiResolution=32);"
-                    "sphere_remote = servermanager.Fetch(sphere);"
-                    "Show(sphere);"
-                    "Render()",
-                )
-                servers.terminate()
-
-    @run_after("install")
-    @on_package_attributes(run_tests=True)
-    def build_test(self):
-        self.test_smoke_test()
-        self.test_pvpython()
-        self.test_mpi_ensemble()

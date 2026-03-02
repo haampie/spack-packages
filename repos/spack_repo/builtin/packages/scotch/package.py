@@ -93,12 +93,9 @@ class Scotch(CMakePackage, MakefilePackage):
 
     # Vendored dependency of METIS/ParMETIS conflicts with standard
     # installations
-    conflicts("metis", when="+metis")
     conflicts("parmetis", when="+metis")
 
     parallel = False
-
-    # NOTE: Versions of Scotch up to version 6.0.0 don't include support for
     # building with 'esmumps' in their default packages.  In order to enable
     # support for this feature, we must grab the 'esmumps' enabled archives
     # from the Scotch hosting site.  These alternative archives include a

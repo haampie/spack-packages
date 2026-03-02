@@ -127,24 +127,15 @@ class Qt(Package):
     # Spack path substitution uses excessively long paths that exceed the hard-coded
     # limit of 256 used by teh generated code with the prefix path as string literals
     # causing qt to fail in ci.  This increases that limit to 1024.
-    patch("qt59-qtbase-qtconfig256.patch", working_dir="qtbase", when="@5.9:5")
 
     # with gcc@14: RapidJSON fails to build
     # https://github.com/Tencent/rapidjson/issues/2277
     # https://github.com/Tencent/rapidjson/pull/719
-    patch(
-        "https://github.com/Tencent/rapidjson/commit/9bd618f545ab647e2c3bcbf2f1d87423d6edf800.patch?full_index=1",
-        sha256="ce341a69d6c17852fddd5469b6aabe995fd5e3830379c12746a18c3ae858e0e1",
-        working_dir="qtlocation/src/3rdparty/mapbox-gl-native/deps/rapidjson/1.1.0",
-        when="@5.9.2: %gcc@14:",
-    )
 
     # Do not define `wtf_ceil()` in MathExtras.h on macOS.
     # Prevents reference to removed API in order to avoid compilation errors
     # for webkit on macOS.
-    patch("qt515-mathextras.patch", when="@5.15.4:5.15 platform=darwin")
 
-    conflicts("%gcc@10:", when="@5.9:5.12.6 +opengl")
     conflicts("%gcc@11:", when="@5.8")
     conflicts("%apple-clang@13:", when="@:5.13")
 

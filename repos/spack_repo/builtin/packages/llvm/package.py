@@ -453,11 +453,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     # Backport from llvm to fix issues related to Python 3.7
     # see https://bugs.llvm.org/show_bug.cgi?id=38233
 
-    # fix building on SUSE (with panel.h being in /usr/include/ncurses/)
-    # see https://reviews.llvm.org/D85219
-    # see https://github.com/spack/spack/issues/19625
-
-    # honor Python2_EXECUTABLE and Python3_EXECUTABLE when they are passed to cmake
     # see https://reviews.llvm.org/D91536
 
     # Workaround for issue https://github.com/spack/spack/issues/18197

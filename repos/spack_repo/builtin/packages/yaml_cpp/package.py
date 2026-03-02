@@ -38,38 +38,3 @@ class YamlCpp(CMakePackage):
     # See https://github.com/jbeder/yaml-cpp/pull/1310
 
 
-    def flag_handler(self, name, flags):
-        # We cannot catch all conflicts with the conflicts directive because
-        # the user can add arbitrary strings to the flags. Here we can at least
-        # fail early.
-        # We'll include cppflags in case users mistakenly put c++ flags there.
-        if (
-            name in ("cxxflags", "cppflags")
-            and self.spec.satisfies("+tests")
-            and "-stdlib=libc++" in flags
-        ):
-            raise InstallError(yaml_cpp_tests_libcxx_error_msg)
-        return (flags, None, None)
-
-    def cmake_args(self):
-        options = []
-
-        options.extend(
-            [
-                self.define_from_variant("BUILD_SHARED_LIBS", "shared"),
-                self.define_from_variant("YAML_BUILD_SHARED_LIBS", "shared"),
-                self.define_from_variant("CMAKE_POSITION_INDEPENDENT_CODE", "pic"),
-                self.define_from_variant("YAML_CPP_BUILD_TESTS", "tests"),
-            ]
-        )
-
-        return options
-
-    def url_for_version(self, version):
-        url = "https://github.com/jbeder/yaml-cpp/archive/{0}.tar.gz"
-        if version < Version("0.5.3"):
-            return url.format(f"release-{version}")
-        elif version < Version("0.8.0"):
-            return url.format(f"yaml-cpp-{version}")
-        else:
-            return url.format(version)

@@ -44,30 +44,3 @@ class Yaksa(AutotoolsPackage, CudaPackage, ROCmPackage):
         when="@0.3 +rocm ^hip@6:",
     )
 
-    def autoreconf(self, spec, prefix):
-        sh = which("sh")
-        sh("autogen.sh")
-
-    def configure_args(self):
-        spec = self.spec
-        config_args = [
-            *self.with_or_without("cuda", activation_value="prefix"),
-            *self.with_or_without("ze", variant="level_zero"),
-        ]
-
-        if "+cuda" in spec:
-            cuda_archs = spec.variants["cuda_arch"].value
-            if "none" not in cuda_archs:
-                config_args.append("--with-cuda-sm={0}".format(",".join(cuda_archs)))
-            if "^cuda+allow-unsupported-compilers" in self.spec:
-                config_args.append("NVCC_FLAGS=-allow-unsupported-compiler")
-
-        if "+rocm" in spec:
-            config_args.append("--with-hip={0}".format(spec["hip"].prefix))
-            rocm_archs = spec.variants["amdgpu_target"].value
-            if "none" not in rocm_archs:
-                config_args.append("--with-hip-sm={0}".format(",".join(rocm_archs)))
-        else:
-            config_args.append("--without-hip")
-
-        return config_args

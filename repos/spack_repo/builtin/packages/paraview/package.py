@@ -212,17 +212,13 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         # * the system rendering default (WGL/AGL/GLX)
         # * EGL
         # * OSMesa (guarenteed to exist and work on all systems)
-        depends_on("osmesa", type=("run"), when="~qt")
-
         for vk_variant in viskores_dependency_variants:
             depends_on("viskores +vtktypes +64bitids +doubleprecision", when=f"{vk_variant}")
             depends_on("viskores +fpic", when=f"+shared {vk_variant}")
         with when("+cuda"):
             # Kokkos vs Viskores Native CUDA is intentionally left configurable
-            depends_on("viskores +cuda")
             for _arch in CudaPackage.cuda_arch_values:
                 depends_on(f"viskores cuda_arch={_arch}", when=f"cuda_arch={_arch}")
-
         with when("+rocm"):
             depends_on("viskores +rocm")
             for target in ROCmPackage.amdgpu_targets:
@@ -233,9 +229,7 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # depends_on('hdf5+mpi', when='+mpi')
     # depends_on('hdf5~mpi', when='~mpi')
 
-    # Older builds of pugi export their symbols differently,
     # and pre-5.9 is unable to handle that.
-
     # ParaView depends on cli11 due to changes in MR
     # https://gitlab.kitware.com/paraview/paraview/-/merge_requests/4951
 
@@ -252,10 +246,8 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     patch("stl-reader-pv440.patch", when="@4.4.0")
 
     # Broken vtk-m config. Upstream catalyst changes
-
     # Broken downstream FindMPI
     patch("vtkm-findmpi-downstream.patch", when="@5.9.0")
-
     # Include limits header wherever needed to fix compilation with GCC 11
     patch("paraview-gcc11-limits.patch", when="@5.8:5.9 %gcc@11.1.0:")
     # Patch for paraview 5.9.0%xl_r

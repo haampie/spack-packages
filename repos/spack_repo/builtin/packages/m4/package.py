@@ -33,7 +33,6 @@ class M4(AutotoolsPackage, GNUMirrorPackage):
 
     depends_on("c", type="build")  # generated
 
-
     # Older versions require too many patches for newer compilers
     with when("@:1.4.18"):
         conflicts("%gcc@14:", msg="This version is incompatible with gcc@14:")

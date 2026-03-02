@@ -37,11 +37,7 @@ class OpenpmdApi(CMakePackage):
         depends_on("hdf5@1.8.13:")
         depends_on("hdf5@1.8.13: ~mpi", when="~mpi")
         depends_on("hdf5@1.8.13: +mpi", when="+mpi")
-    with when("+adios1"):
         depends_on("adios@1.13.1: ~sz")
-        depends_on("adios@1.13.1: ~mpi ~sz", when="~mpi")
-    with when("+adios2"):
-        depends_on("adios2@2.9.0:", when="@0.17.0:")
     with when("+python"):
         depends_on("py-numpy@1.15.1:", type=("test", "run"))
         depends_on("py-mpi4py@2.1.0:", when="+mpi", type=("test", "run"))
@@ -49,9 +45,7 @@ class OpenpmdApi(CMakePackage):
             depends_on("python@3.7:")
 
 
-    # Fix breaking HDF5 1.12.0 API when build with legacy api options
     # https://github.com/openPMD/openPMD-api/pull/1012
-
     # CMake: Fix Python Install Directory
 
     # macOS AppleClang12 Fixes

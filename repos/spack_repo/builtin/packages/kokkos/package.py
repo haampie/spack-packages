@@ -14,13 +14,3 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     url = "https://github.com/kokkos/kokkos/releases/download/4.4.01/kokkos-4.4.01.tar.gz"
     tags = ["e4s"]
     test_requires_compiler = True
-    options_variants = {
-        "debug_dualview_modify_check": [False, "@:4", "Debug check on dual views"],
-        "86": "ampere86",
-        "87": "ampere87",
-        "89": "ada89",
-        "90": "hopper90",
-        "100": "blackwell100",
-        "120": "blackwell120",
-    }
-    variant("apu", default=False, description="Enable APU support", when="@4.5: +rocm")

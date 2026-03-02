@@ -119,15 +119,11 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
     # it consider libtinfo too.
     # see https://github.com/open-mpi/hwloc/pull/417
     patch("0001-Try-linking-to-libtinfo.patch", when="@1.11.13")
-    depends_on("ncurses ~termlib", when="@2.0:2.2")
-    depends_on("ncurses ~termlib", when="@1.0:1.11.12")
 
     # When mpi=openmpi, this introduces an unresolvable dependency.
     # See https://github.com/spack/spack/issues/15836 for details
-    depends_on("mpi", when="+netloc")
 
     with when("+rocm"):
-        depends_on("rocm-smi-lib")
         depends_on("rocm-opencl", when="+opencl")
         # Avoid a circular dependency since the openmp
         # variant of llvm-amdgpu depends on hwloc.

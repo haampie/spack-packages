@@ -165,12 +165,8 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
     depends_on("cassini-headers", when="fabrics=cxi")
     depends_on("cxi-driver", when="fabrics=cxi")
     depends_on("xpmem", when="fabrics=xpmem")
-    depends_on("gdrcopy", when="+gdrcopy")
 
-    depends_on("m4", when="@main", type="build")
-    depends_on("curl", when="fabrics=cxi")
 
-    conflicts("@1.9.0", when="platform=darwin", msg="This distribution is missing critical files")
     conflicts("fabrics=opx", when="@:1.14.99")
     conflicts("fabrics=lnx", when="@:1")
     conflicts(

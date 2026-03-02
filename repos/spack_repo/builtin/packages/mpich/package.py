@@ -189,13 +189,9 @@ supported, and netmod is ignored if device is ch3:sock.""",
     depends_on("xpmem", when="+xpmem")
 
     # Todo: cuda can be a conditional variant, but it does not seem to work when
-    # overriding the variant from CudaPackage.
-    conflicts("+cuda", when="@:3.3")
     conflicts("+cuda", when="device=ch3")
     conflicts("+cuda", when="device=ch3:sock")
     conflicts("+rocm", when="@:4.0")
-    conflicts("+rocm", when="device=ch3")
-    conflicts("+rocm", when="device=ch3:sock")
     conflicts("+cuda", when="+rocm", msg="CUDA must be disabled to support ROCm")
 
     provides("mpi@:4.0")

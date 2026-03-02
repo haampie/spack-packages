@@ -44,10 +44,6 @@ class Cmake(Package):
         sha256="c0a3b3f2912b2166f522d5010ffb6029d8454ee635f5ad7a3247e0be7f9a15c9",
         preferred=True,
     )
-    version("3.31.9", sha256="5d4fdec04247ca8a8e8f63692f0d0f1e9d6d082a2bdd008dff8ab3ba7215aa83")
-    version("3.30.9", sha256="65f765bb87c8019316cabe67cbe5e8f45ede334eeb5afd161ca6874d17994e0d")
-    version("3.29.6", sha256="1391313003b83d48e2ab115a8b525a557f78d8c1544618b48d1d90184a10f0af")
-    version("3.24.4", sha256="32c9e499510eff7070d3f0adfbabe0afea2058608c5fa93e231beb49fbfa2296")
     version("3.23.5", sha256="f2944cde7a140b992ba5ccea2009a987a92413762250de22ebbace2319a0f47d")
     version("3.22.6", sha256="73933163670ea4ea95c231549007b0c7243282293506a2cf4443714826ad5ec3")
     version("3.17.5", sha256="8c3083d98fd93c1228d5e4e40dbff2dd88f4f7b73b9fa24a2938627b8bc28f1a")
@@ -189,16 +185,12 @@ class Cmake(Package):
         depends_on("py-sphinx", type="build")
 
     # Cannot build with Intel, should be fixed in 3.6.2
-    # https://gitlab.kitware.com/cmake/cmake/issues/16226
-    patch("intel-c-gnu11.patch", when="@3.6.0:3.6.1")
 
     # Cannot build with Intel again, should be fixed in 3.17.4 and 3.18.1
     # https://gitlab.kitware.com/cmake/cmake/-/issues/21013
-    patch("intel-cxx-bootstrap.patch", when="@3.17.0:3.17.3,3.18.0")
 
     # https://gitlab.kitware.com/cmake/cmake/issues/18232
 
-    # Cray libhugetlbfs and icpc warnings failing CXX tests
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/4698
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/4681
 

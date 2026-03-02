@@ -43,16 +43,12 @@ class Hdf(AutotoolsPackage):
     depends_on("jpeg")
 
     depends_on("java@7:", when="+java", type=("build", "run"))
-
     # https://forum.hdfgroup.org/t/cant-build-hdf-4-2-14-with-jdk-11-and-enable-java/5702
     patch("disable_doclint.patch", when="@:4.2.14^java@9:")
-
     conflicts("^libjpeg@:6a")
-
     # configure: error: Cannot build shared fortran libraries.
     # Please configure with --disable-fortran flag.
     conflicts("+fortran", when="+shared")
-
     # configure: error: Java requires shared libraries to be built
     conflicts("+java", when="~shared")
 

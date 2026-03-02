@@ -299,11 +299,7 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     depends_on("ospray@2.1:2", when="+raytracing")
     depends_on("openimagedenoise", when="+raytracing")
-    depends_on("ospray +mpi", when="+raytracing +mpi")
 
-    depends_on("cdi", when="+cdi")
-
-    depends_on("bzip2")
     depends_on("double-conversion")
     depends_on("expat")
     depends_on("eigen@3")

@@ -389,7 +389,6 @@ class Openfoam(Package):
 
     # For OpenFOAM plugins and run-time post-processing this should just be
     # 'paraview+plugins' but that resolves poorly.
-    # Workaround: use preferred variants "+plugins +qt" in
     #   ~/.spack/packages.yaml
 
     # 1706 ok with newer paraview but avoid pv-5.2, pv-5.3 readers

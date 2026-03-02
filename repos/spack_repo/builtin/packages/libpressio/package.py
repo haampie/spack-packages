@@ -289,16 +289,6 @@ class Libpressio(CMakePackage, CudaPackage):
     depends_on("szx@1.1.1:", when="@0.97.2: +szx")
     depends_on("openssl", when="+openssl")
     depends_on("py-pybind11", when="+pybind")
-    depends_on("matio+shared@1.5.17:", when="+matio")
-    depends_on("llvm@17: +clang", when="+clang")
-    conflicts(
-        "^ mgard@compat-2022-11-18",
-        when="@:0.88.3+mgard",
-        msg="mgard@compat-2022-11-18 is not supported before 0.89.0",
-    )
-    conflicts(
-        "+mgardx", when="+szauto", msg="SZ auto and MGARDx cause symbol conflicts with each other"
-    )
     conflicts(
         "~json",
         when="@0.57.0:+remote",

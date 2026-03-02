@@ -36,7 +36,6 @@ class Mosquitto(CMakePackage):
     depends_on("openssl", when="+tls")
     depends_on("cjson", when="+cjson")
     depends_on("c-ares", when="+c-ares")
-    depends_on("libwebsockets", when="+websocket")
 
     def cmake_args(self):
         args = [

@@ -36,12 +36,8 @@ class Autodiff(CMakePackage, CudaPackage):
     version("0.6.6", sha256="2a4498b09da9a223b896a3bbfc9ebcb7c7c0b906b19a25000e6f3b94698d916d")
     version("0.6.5", sha256="252ced0f4e892e9957c67fe8bb1c9edd5636f121a8481abc0a0cec9a4c465484")
     version("0.6.4", sha256="cfe0bb7c0de10979caff9d9bfdad7e6267faea2b8d875027397486b47a7edd75")
-    version("0.5.13", sha256="a73dc571bcaad6b44f74865fed51af375f5a877db44321b5568d94a4358b77a1")
 
-    variant("python", default=False, description="Enable the compilation of the python bindings.")
-    variant("examples", default=False, description="Enable the compilation of the example files.")
 
-    depends_on("cxx", type="build")
 
     depends_on("cmake@3.0:", type="build")
     depends_on("cmake@3.22:", when="@0.6.8", type="build")

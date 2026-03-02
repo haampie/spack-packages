@@ -25,19 +25,15 @@ class PyTfKeras(PythonPackage):
     max_minor = 18
     # needs TF 2.19: https://github.com/spack/spack/pull/49440
     # version("2.19.0", sha256="b09a407d87a4571ce1e8ca985cfc68483e3d63b2518a5d79a97ad92cb64dbe9c")
-    version("2.18.0", sha256="ebf744519b322afead33086a2aba872245473294affd40973694f3eb7c7ad77d")
 
     # Supported Python versions listed in multiple places:
     # * tf-keras/tools/pip_package/setup.py
     # * CONTRIBUTING.md
     # * PKG-INFO
-    depends_on("python@3.9:", type=("build", "run"), when="@2.17:")
-    depends_on("py-setuptools", type="build")
 
     # Required dependencies listed in multiple places:
     # * BUILD
     # * WORKSPACE
-    depends_on("py-pandas", type=("build", "run"))
     depends_on("py-pydot", type=("build", "run"))
     depends_on("py-scipy", type=("build", "run"))
 

@@ -24,7 +24,6 @@ class PyTorchGeometric(PythonPackage):
 
     with default_args(type=("build", "run")):
         depends_on("py-tqdm")
-        depends_on("py-numpy")
         depends_on("py-scipy")
         depends_on("py-fsspec")
         depends_on("py-jinja2")

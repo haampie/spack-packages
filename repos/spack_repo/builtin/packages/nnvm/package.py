@@ -25,8 +25,6 @@ class Nnvm(CMakePackage):
 
     depends_on("dmlc-core")
 
-    patch("cmake.patch")
-    patch("cmake2.patch", when="@20170418")
 
     def cmake_args(self):
         spec = self.spec

@@ -49,11 +49,7 @@ class PySlepc4py(PythonPackage):
     version("3.16.2", sha256="a3950b2d4876e8b7429cf5b7d0faed580a70bbd17735b0279aeda460a4a32e18")
     version("3.16.1", sha256="3ce93de975fa3966794efb09c315b6aff17e412197f99edb66bbfa71fc49093b")
     version("3.16.0", sha256="e18850ebccb1e7c59accfbdbe4d004402abbde7f4e1291b0d2c5b560b308fb88")
-    version("3.15.2", sha256="c87135989c4d95b9c92a5b615a95eddc34b69dad9cc28b27d3cb7dfaec46177b")
-    version("3.15.1", sha256="bcdab6d2101ae00e189f4b33072805358cee2dda806a6b6a8e3c2f1b9f619dfd")
-    version("3.15.0", sha256="2f5f5cc25ab4dd3782046c65e97265b39be0cf9cc74c5c0100c3c580c3c32395")
 
-    patch("ldshared.patch", when="@:3.18")
 
     depends_on("c", type="build")
 

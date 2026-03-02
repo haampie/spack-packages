@@ -31,12 +31,8 @@ class Armcomputelibrary(SConsPackage):
     url = "https://github.com/ARM-software/ComputeLibrary/archive/refs/tags/v23.02.zip"
     git = "https://github.com/ARM-software/ComputeLibrary.git"
 
-    maintainers("annop-w")
 
-    license("MIT")
 
-    version("23.02", sha256="bed1b24047ce00155e552204bc3983e86f46775414c554a34a7ece931d67ec62")
-    version("22.11", sha256="2f70f54d84390625222503ea38650c00c49d4b70bc86a6b9aeeebee9d243865f")
     version("22.08", sha256="5d76d07406b105f0bdf74ef80263236cb03baf0ade882f2bf8446bbc239e0079")
     version("22.05", sha256="8ff308448874c6b72c1ce8d9f28af41d8b47c8e5c43b8ccc069da744e3c0a421")
     version("22.02", sha256="0c1fe30b24e78bf5ca313ee8a33ad95e0d2aaddf64d4518ecec6a95e4bfba6e5")

@@ -67,14 +67,10 @@ class Hipsycl(CMakePackage, ROCmPackage):
     depends_on("llvm@11:13", when="@0.9.2")
     depends_on("llvm@11", when="@0.9.1")
     # depends_on("llvm@10:11", when="@0.9.0") # missing in releases
-    depends_on("llvm@8:10", when="@0.8.0")
 
     # https://github.com/spack/spack/issues/45029 and https://github.com/spack/spack/issues/43142
-    conflicts("^gcc@12", when="@23.10.0")
     # https://github.com/OpenSYCL/OpenSYCL/pull/918 was introduced after 0.9.4
-    conflicts("^gcc@12.2.0", when="@:0.9.4")
     # LLVM PTX backend requires cuda7:10.1 (https://tinyurl.com/v82k5qq)
-    depends_on("cuda@9:10.1", when="@0.8.1: +cuda ^llvm@9")
     depends_on("cuda@9:", when="@0.8.1: +cuda ^llvm@10:")
     # hipSYCL@:0.8.0 requires cuda@9:10.0 due to a known bug
     depends_on("cuda@9:10.0", when="@:0.8.0 +cuda")

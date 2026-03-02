@@ -60,13 +60,9 @@ class HermesShm(CMakePackage):
     depends_on("mpi", when="+mpiio")
     depends_on("hdf5@1.14.0", when="+vfd")
     depends_on("libzmq", "+zmq")
-    depends_on("adios2", when="+adios")
 
     # Compress variant
-    variant("compress", default=False, description="Build with compression support")
     with when("+compress"):
-        depends_on("lzo")
-        depends_on("bzip2")
         depends_on("zstd")
         depends_on("lz4")
         depends_on("zlib")

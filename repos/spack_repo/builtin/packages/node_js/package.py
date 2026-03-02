@@ -19,9 +19,7 @@ class NodeJs(Package):
     list_url = "https://nodejs.org/dist/"
     list_depth = 1
 
-    maintainers("cosmicexplorer")
 
-    license("Unicode-TOU")
 
     # Current (latest features) - odd major number
     version("25.2.1", sha256="1cbbdb66f99e0c41937eb8763c57e622eab43006742dc4d0856270b17215e376")

@@ -22,11 +22,7 @@ class Elbencho(MakefilePackage):
 
     license("GPL-3.0-only")
 
-    version("master", branch="master")
 
-    version("3.0-35", sha256="0a1b4128d71ac3e972a0875f601530760d7d3ab1ecbe998558c5c425d668366b")
-    version("3.0-3", sha256="5769abcdaebefe2984ac3053fb6e91a54e1863d5ea8f72daea830e10b27c0eaf")
-    version("3.0-1", sha256="19dad85e1fc74419dcdf740f11a47d3f6d566770a06e40976755a3404566c11d")
     version("2.2-5", sha256="4b598639452665a8b79c4c9d8a22ae63fb9b04057635a45e686aa3939ee255b4")
     version("2.2-3", sha256="0ae2d495d2863b84f21f55b7c526674fab1be723d0697087017946647f79d0e6")
     version("2.1-5", sha256="5d2293dcdb766e9194bed964486a10b4c8c308cc1ba8c0044c6e5a2aadd4f199")

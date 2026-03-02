@@ -107,10 +107,6 @@ class Cairo(AutotoolsPackage, MesonPackage):
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
 
-    depends_on("freetype", when="+ft")
-    depends_on("libpng", when="+png")
-    depends_on("glib")
-    depends_on("pixman@0.36.0:", when="@1.17.2:")
     depends_on("fontconfig@2.10.91:", when="+fc")
 
     # non build system specific depends

@@ -17,10 +17,8 @@ class G4nudexlib(Package):
 
     tags = ["hep"]
 
-    maintainers("drbenmorgan")
 
     # Only versions relevant to Geant4 releases built by spack are added
-    version("1.0", sha256="cac7d65e9c5af8edba2b2667d5822e16aaf99065c95f805e76de4cc86395f415")
 
     def install(self, spec, prefix):
         mkdirp(join_path(prefix.share, "data"))

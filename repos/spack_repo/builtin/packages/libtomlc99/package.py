@@ -13,19 +13,11 @@ class Libtomlc99(Package):
     homepage = "https://github.com/cktan/tomlc99"
     git = "https://github.com/cktan/tomlc99.git"
 
-    license("MIT")
 
     # Since there is no official versioning, yet, just use the date and prefix
     # with '0.' to make switching to proper versioning easier later.
-    version("0.2020.12.23", commit="e97a56633e54297990158ab56a7e50a089cddf7d")
-    version("0.2019.06.24", commit="b701a09579200b1bd87081d1e6a284a89b5576c8")
     # Unfortunately, upstream Makefile does not build shared libaries, so use
     # local changes for now.
-    version(
-        "0.2019.05.02",
-        commit="35118431263dec2a2a7b55e4dd717a5f54992e3e",
-        git="https://github.com/obreitwi/tomlc99.git",
-    )
     # Does not build shared libraries.
     version("0.2019.03.06", commit="bd76f1276ee5f5df0eb064f1842af5ad1737cf1e")
 

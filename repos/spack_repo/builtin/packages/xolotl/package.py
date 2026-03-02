@@ -56,7 +56,6 @@ class Xolotl(CMakePackage, CudaPackage):
     variant("vtkm", default=False, description="Activates VTK-m vizHandler")
     depends_on("vtk-m", when="+vtkm")
 
-    depends_on("boost +test", type="test")
 
     def cmake_args(self):
         args = [self.define("BUILD_TESTING", self.run_tests)]

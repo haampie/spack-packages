@@ -19,5 +19,3 @@ class PyTextualFspicker(PythonPackage):
 
     depends_on("python@3.9:3")
     depends_on("py-textual@1:")
-    depends_on("py-hatchling@1.26.3:", type="build")
-    depends_on("py-hatch-vcs", type="build")

@@ -37,9 +37,6 @@ class Libgd(AutotoolsPackage):
     depends_on("pkgconfig", type="build")
 
     depends_on("iconv")
-    depends_on("libpng")
-    depends_on("jpeg")
-    depends_on("libtiff")
     depends_on("fontconfig")
     depends_on("libx11")
 

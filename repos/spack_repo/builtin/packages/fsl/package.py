@@ -30,10 +30,6 @@ class Fsl(Package, CudaPackage):
     depends_on("c", type="build")
     depends_on("cxx", type="build")
 
-    depends_on("python", type=("build", "run"))
-    depends_on("expat")
-    depends_on("libx11")
-    depends_on("glu")
     depends_on("iconv")
     depends_on("openblas", when="@6:")
     depends_on("vtk")

@@ -27,11 +27,7 @@ class Fio(AutotoolsPackage):
     version("3.33", sha256="f48b2547313ffd1799c58c6a170175176131bbd42bc847b5650784eaf6d914b3")
     version("3.26", sha256="8bd6987fd9b8c2a75d3923661566ade50b99f61fa4352148975e65577ffa4024")
     version("3.25", sha256="d8157676bc78a50f3ac82ffc6f80ffc3bba93cbd892fc4882533159a0cdbc1e8")
-    version("3.19", sha256="809963b1d023dbc9ac7065557af8129aee17b6895e0e8c5ca671b0b14285f404")
-    version("3.16", sha256="c7731a9e831581bab7104da9ea60c9f44e594438dbe95dff26726ca0285e7b93")
-    version("2.19", sha256="61fb03a18703269b781aaf195cb0d7931493bbb5bfcc8eb746d5d66d04ed77f7")
 
-    variant("gui", default=False, description="Enable building of gtk gfio")
     variant("doc", default=False, description="Generate documentation")
     variant("libaio", default=False, description="Enable libaio engine")
 

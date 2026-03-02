@@ -32,12 +32,8 @@ class Sedacs(PythonPackage, CudaPackage):
 
     variant("mpi", default=True, description="Build with mpi")
     variant("gpulib", default=False, description="Build with GPU, AI-hardware library support.")
-    variant("latte", default=False, description="Make latte available as a sedacs engine")
 
     # python dependencies
-    depends_on("python@3.10:", type=("build", "run"))
-    depends_on("py-setuptools", type="build")
-    depends_on("py-scikit-build-core", type="build")
     depends_on("py-numpy@1:", type=("build", "run"))
     depends_on("py-torch@2:", type=("build", "run"))
     depends_on("py-scipy@1:", type=("build", "run"))

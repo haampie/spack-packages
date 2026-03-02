@@ -65,23 +65,11 @@ class MpasModel(MakefilePackage):
 
     depends_on("mpi")
     depends_on("metis", type="run")
-    depends_on("parallelio")
 
-    conflicts(
-        "%oneapi@:2024.1",
-        msg="ifx internal compiler error triggered by maps-model fixed in oneapi@2024.2",
-    )
 
-    patch("makefile.patch", when="@7.0")
 
     parallel = False
 
-    resource(
-        when="@6.2:6.3",
-        name="MPAS-Data",
-        git="https://github.com/MPAS-Dev/MPAS-Data.git",
-        commit="33561790de8b43087ab850be833f51a4e605f1bb",
-    )
     resource(
         when="@7.0:", name="MPAS-Data", git="https://github.com/MPAS-Dev/MPAS-Data.git", tag="v7.0"
     )

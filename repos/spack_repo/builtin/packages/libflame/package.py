@@ -49,11 +49,9 @@ class LibflameBase(AutotoolsPackage):
 
     # Problems with permissions on installed libraries:
     # https://github.com/flame/libflame/issues/24
-    patch("Makefile_5.2.0.patch", when="@5.2.0")
 
     # Problems building on macOS:
     # https://github.com/flame/libflame/issues/23
-    patch("Makefile_5.2.0_darwin.patch", when="@5.2.0")
 
     def flag_handler(self, name, flags):
         # -std=gnu99 at least required, old versions of GCC default to -std=c90
@@ -128,9 +126,7 @@ class Libflame(LibflameBase):
     url = "https://github.com/flame/libflame/archive/5.1.0.tar.gz"
     git = "https://github.com/flame/libflame.git"
 
-    license("BSD-3-Clause")
 
-    version("master", branch="master")
     version("5.2.0", sha256="997c860f351a5c7aaed8deec00f502167599288fd0559c92d5bfd77d0b4d475c")
     version("5.1.0", sha256="e7189b750890bd781fe773f366b374518dd1d89a6513d3d6261bf549826384d1")
 

@@ -34,11 +34,7 @@ class AoclDa(CMakePackage):
 
     maintainers("amd-toolchain-support")
 
-    version("5.2", sha256="faaa250de44d0b7d15a75b26121d457ac895b5cddd87ae1d81882a685ca81eb9")
-    version("5.1", sha256="93cdb789c948bf750e531f95618bae4370d53eddc88960744ff02c9acbfe9ef5")
-    version("5.0", sha256="3458adc7be39c78a08232c887f32838633149df0a69ccea024327c3edc5a5c1d")
 
-    variant("examples", default=True, description="Build examples")
     variant("gtest", default=False, description="Build and install Googletest")
     variant("ilp64", default=False, description="Build with ILP64 support")
     variant(

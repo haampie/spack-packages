@@ -291,10 +291,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("netcdf-c")
     depends_on("netcdf-c+parallel-netcdf", when="+mpi platform=darwin")
     depends_on("netcdf-c+parallel-netcdf", when="+mpi platform=freebsd")
-    depends_on("netcdf-c+parallel-netcdf", when="+mpi platform=linux")
-    depends_on("netcdf-c@:4.9.2", when="@:5.13")
-    depends_on("pegtl@2.8.3")
-    depends_on("protobuf@3.4:")
     depends_on("protobuf@3.4:21", when="@master")
 
     # Older builds of pugi export their symbols differently,

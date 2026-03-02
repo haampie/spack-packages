@@ -211,10 +211,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         provides("go-or-gccgo-bootstrap@:1.8.1", when="@7:")
         provides("go-or-gccgo-bootstrap@:1.10.1", when="@8:")
         provides("go-or-gccgo-bootstrap@:1.12.2", when="@9:")
-        provides("go-or-gccgo-bootstrap@:1.14.6", when="@10:")
-        provides("go-or-gccgo-bootstrap@1.16.3:1.16.5", when="@11:")
-
-        provides("golang@:1.0", when="@4.7.1:")
         provides("golang@:1.2", when="@4.9:")
         provides("golang@:1.4", when="@5:")
         provides("golang@:1.6.1", when="@6:")
@@ -244,7 +240,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # but this is the first version that accepts 'c' as a valid language.
     conflicts("languages=c", when="@:4.7")
 
-    # The GCC Java frontend and associated libjava runtime library
     # have been removed from GCC as of GCC 7.
     # See https://gcc.gnu.org/gcc-7/changes.html
     conflicts("languages=java", when="@7:")

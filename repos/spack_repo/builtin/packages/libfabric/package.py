@@ -41,9 +41,6 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
     version("1.17.1", sha256="8b372ddb3f46784c53fdad50a701a6eb0e661239aee45a42169afbedf3644035")
     version("1.17.0", sha256="579c0f5ef636c0c72f4d3d6bd4da91a5aed9ac3ac4ea387404c45dbbdee4745d")
     version("1.16.1", sha256="53f992d33f9afe94b8a4ea3d105504887f4311cf4b68cea99a24a85fcc39193f")
-    version("1.16.0", sha256="ac104b9d6e3ce8bda6116329e3f440b621d85602257b3015116ca590f65267d2")
-    version("1.15.2", sha256="8d050b88bee62e8512a88f5aa25f532f46bef587bc3f91022ecdb9b3b2676c7e")
-    version("1.13.2", sha256="25d783b0722a8df8fe61c1de75fafca684c5fe520303180f26f0ad6409cfc0b9")
     version("1.13.1", sha256="8e6eed38c4a39aa4cbf7d5d3734f0eecbfc030182f1f9b3be470702f2586d30e")
     version("1.12.1", sha256="db3c8e0a495e6e9da6a7436adab905468aedfbd4579ee3da5232a5c111ba642c")
     version("1.12.0", sha256="ca98785fe25e68a26c61e272be64a1efeea37e61b0dcebd34ccfd381bda7d9cc")
@@ -124,25 +121,13 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
     # Backporting from main for versions 2.3.x
     # The CXI provider hardcodes CXIP_FI_VERSION to FI_VERSION(2, 2).
     # Make it match the libfabric we're building
-    patch(
-        "https://github.com/ofiwg/libfabric/commit/f565852cedc7b6fd3848ed2f11b1dd90ed37be05.patch?full_index=1",
-        sha256="da2514252074c350fb5cbdb04f267cf227d0a575902fe6cad355afe1dc7c0102",
-        when="@2.3 fabrics=cxi",
-    )
 
     # For version 1.9.0:
     # headers: fix forward-declaration of enum fi_collective_op with C++
-    patch(
-        "https://github.com/ofiwg/libfabric/commit/2e95b0efd85fa8a3d814128e34ec57ffd357460e.patch?full_index=1",
-        sha256="456693e28bb1fc41a0bbb94b97ae054e7d28f81ca94795d7f294243da58c6376",
-        when="@1.9.0",
-    )
 
     # Fix for the inline assembly problem for the Nvidia compilers
     # https://github.com/ofiwg/libfabric/pull/7665
-    patch("nvhpc-symver.patch", when="@1.6.0:1.14.0 %nvhpc")
 
-    depends_on("c", type="build")  # generated
 
     depends_on("rdma-core", when="fabrics=verbs")
     depends_on("rdma-core", when="@1.10.0: fabrics=efa")

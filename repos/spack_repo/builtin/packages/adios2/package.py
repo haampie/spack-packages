@@ -168,10 +168,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     extends("python", when="+python")
     depends_on("python", when="+python", type=("build", "run"))
 
-    depends_on("python@3.5:3.10", when="@:2.7", type="test")
-
-    depends_on("py-numpy@1.6.1:", when="+python", type=("build", "run"))
-
 
     # error: invalid use of incomplete type 'PyFrameObject' {aka 'struct _frame'}
     conflicts("^python@3.11:", when="@:2.7")

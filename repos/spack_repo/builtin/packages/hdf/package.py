@@ -29,11 +29,7 @@ class Hdf(AutotoolsPackage):
     variant("fortran", default=False, description="Enable Fortran interface")
     variant("java", default=False, description="Enable Java JNI interface")
     variant("shared", default=False, description="Enable shared library")
-    variant("pic", default=True, description="Produce position-independent code")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
     depends_on("zlib-api")
     depends_on("jpeg")

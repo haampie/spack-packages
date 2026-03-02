@@ -14,7 +14,6 @@ class Libarchive(AutotoolsPackage):
     homepage = "https://www.libarchive.org"
     url = "https://www.libarchive.org/downloads/libarchive-3.1.2.tar.gz"
 
-    maintainers("haampie")
 
     license("BSD-2-Clause AND BSD-3-Clause AND Public-Domain")
 

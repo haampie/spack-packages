@@ -32,11 +32,6 @@ class Pcre2(AutotoolsPackage, CMakePackage):
 
     variant("multibyte", default=True, description="Enable support for 16 and 32 bit characters")
     variant("jit", default=False, description="Enable Just-In-Time compiling support")
-    variant(
-        "pic",
-        default=True,
-        description="Build the static library with the option position independent code enabled",
-    )
 
     # Building static+shared can cause naming colisions and other problems
     # for dependents on Windows. It generally does not cause problems on

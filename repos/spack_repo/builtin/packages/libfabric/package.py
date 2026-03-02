@@ -155,25 +155,13 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
     depends_on("ucx", when="fabrics=mlx")
     depends_on("ucx", when="@1.18.0: fabrics=ucx")
     depends_on("uuid", when="fabrics=opx")
-    depends_on("numactl", when="fabrics=opx")
-    depends_on("liburing@2.1:", when="+uring")
-    depends_on("oneapi-level-zero", when="+level_zero")
-    depends_on("libcxi", when="fabrics=cxi")
     depends_on("cassini-headers", when="fabrics=cxi")
     depends_on("cxi-driver", when="fabrics=cxi")
     depends_on("xpmem", when="fabrics=xpmem")
 
 
     conflicts("fabrics=opx", when="@:1.14.99")
-    conflicts("fabrics=lnx", when="@:1")
-    conflicts(
-        "fabrics=opx",
-        when="@1.20.0",
-        msg="Libfabric 1.20.0 uses values in memory that are not correctly "
-        "set by OPX, resulting in undefined behavior.",
-    )
 
-    conflicts("+asan +tsan")
 
     flag_handler = build_system_flags
 

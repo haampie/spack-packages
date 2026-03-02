@@ -20,10 +20,6 @@ class Adios(AutotoolsPackage):
 
 
     version("1.13.0", sha256="7b5ee8ff7a5f7215f157c484b20adb277ec0250f87510513edcc25d2c4739f50")
-    version("1.12.0", sha256="22bc22c157322abec2d1a0817a259efd9057f88c2113e67d918a9a5ebcb3d88d")
-    version("1.11.1", sha256="9f5c10b9471a721ba57d1cf6e5a55a7ad139a6c12da87b4dc128539e9eef370e")
-    version("1.11.0", sha256="e89d14ccbe7181777225e0ba6c272c0941539b8ccd440e72ed5a9457441dae83")
-    version("1.10.0", sha256="6713069259ee7bfd4d03f47640bf841874e9114bab24e7b0c58e310c42a0ec48")
     version("1.9.0", sha256="23b2bb70540d51ab0855af0b205ca484fd1bd963c39580c29e3133f9e6fffd46")
 
     variant("shared", default=True, description="Builds a shared version of the library")

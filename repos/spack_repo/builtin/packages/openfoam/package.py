@@ -10,5 +10,3 @@ class Openfoam(Package):
     )
     depends_on("flex@:2.6.1,2.6.4:")
     depends_on("paraview@5.4:", when="@1706:+paraview")
-    # Icx only support from v2106 onwards
-    # General patches

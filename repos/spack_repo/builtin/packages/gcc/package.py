@@ -12,5 +12,4 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             "c++",
         ),
         multi=True,
-        description="Compilers and runtime libraries to build",
     )

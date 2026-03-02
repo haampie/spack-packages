@@ -34,10 +34,7 @@ class Hdf5(CMakePackage):
 
     # Odd versions are considered experimental releases
     # Even versions are maintenance versions
-    variant("shared", default=True, description="Builds a shared version of the library")
 
-    variant("hl", default=False, description="Enable the high-level library")
-    variant("java", when="@1.10:", default=False, description="Enable Java support")
     variant("threadsafe", default=False, description="Enable thread-safe capabilities")
     variant("tools", default=True, description="Enable building tools")
     variant("mpi", default=True, description="Enable MPI support")

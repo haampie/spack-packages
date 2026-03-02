@@ -109,7 +109,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # mawk is not sufficient for go support
     # dependencies required for git versions
 
-    depends_on("perl@5", type="build")
     #   https://github.com/spack/spack/issues/6902#issuecomment-433030376
     depends_on("mpc@1.0.1:", when="@4.5:")
     # Already released GCC versions do not support any newer version of ISL

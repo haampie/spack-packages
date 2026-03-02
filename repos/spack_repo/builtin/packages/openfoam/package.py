@@ -46,13 +46,3 @@ class Openfoam(Package):
     depends_on("paraview@5.4:", when="@1706:+paraview")
     # Icx only support from v2106 onwards
     # General patches
-    common = ["spack-Allwmake", "README-spack"]
-    # kahip patch (wmake)
-    # Fix: missing std::array include (searchable sphere)
-        # Add links into bin/, lib/ (eg, for other applications)
-    _foam_arch = None
-    # Content for etc/prefs.{csh,sh}
-    etc_prefs = {}  # type: Dict[str,str]
-    # Content for etc/config.{csh,sh}/ files
-    phases = ["configure", "build", "install"]
-# -----------------------------------------------------------------------------

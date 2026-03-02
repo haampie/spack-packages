@@ -14,38 +14,22 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     url = "https://github.com/kokkos/kokkos/releases/download/4.4.01/kokkos-4.4.01.tar.gz"
     tags = ["e4s"]
     test_requires_compiler = True
-    devices_variants = {
-        "cuda": [False, "Whether to build CUDA backend"],
-        "openmp": [False, "Whether to build OpenMP backend"],
-        "threads": [False, "Whether to build the C++ threads backend"],
-        "serial": [False, "Whether to build serial backend"],
-        "rocm": [False, "Whether to build HIP backend"],
-        "sycl": [False, "Whether to build the SYCL backend"],
-        "openmptarget": [False, "Whether to build the OpenMPTarget backend"],
-    }
-    tpls_variants = {
-        "hpx": [False, None, "Whether to enable the HPX library"],
-        "hwloc": [False, None, "Whether to enable the HWLOC library"],
-        "numactl": [False, "@:4", "Whether to enable the LIBNUMA library"],
-        "memkind": [False, "@:4", "Whether to enable the MEMKIND library"],
-    }
     options_variants = {
-        "aggressive_vectorization": [False, None, "Aggressively vectorize loops"],
-        "atomics_bypass": [
-            False,
-            "@4.6: +serial~threads~cuda~rocm~hpx~openmp~sycl~openmptarget",
-            "Make atomics non-atomic for non-threaded MPI-only use cases",
-        ],
-        "compiler_warnings": [False, "@:4", "Print all compiler warnings"],
-        "complex_align": [True, None, "Align complex numbers"],
-        "cuda_constexpr": [False, "+cuda", "Activate experimental constexpr features"],
-        "cuda_lambda": [False, "@:4 +cuda", "Activate experimental lambda features"],
-        "cuda_ldg_intrinsic": [False, "@:4 +cuda", "Use CUDA LDG intrinsics"],
-        "cuda_relocatable_device_code": [False, "+cuda", "Enable RDC for CUDA"],
-        "hip_relocatable_device_code": [False, None, "Enable RDC for HIP"],
-        "sycl_relocatable_device_code": [False, "@4.5: +sycl", "Enable RDC for SYCL"],
-        "cuda_uvm": [False, "@:4 +cuda", "Enable unified virtual memory (UVM) for CUDA"],
-        "debug": [False, None, "Activate extra debug features - may increase compiletimes"],
+        "debug_dualview_modify_check": [False, "@:4", "Debug check on dual views"],
+        "deprecated_code": [False, "@:4", "Whether to enable deprecated code"],
+        "examples": [False, "@:4", "Whether to build examples"],
+        "hpx_async_dispatch": [False, "@:4", "Whether HPX supports asynchronous dispath"],
+        "tuning": [False, None, "Create bindings for tuning tools"],
+        "mic_knl": "KNL",
+        "cannonlake": "SKX",
+        "cascadelake": "SKX",
+        "westmere": "WSM",
+        "ivybridge": "SNB",
+        "broadwell": "BDW",
+        "skylake": "SKL",
+        "icelake": "ICL",
+        "skylake_avx512": "SKX",
+        "sapphirerapids": "SPR",
     }
     spack_cuda_arch_map = {
         "30": "kepler30",

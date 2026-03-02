@@ -14,22 +14,6 @@ IS_WINDOWS = sys.platform == "win32"
 # This is (more or less) the mapping hard-coded in VTK-m logic
 # see https://gitlab.kitware.com/vtk/vtk-m/-/blob/v2.1.0/CMake/VTKmDeviceAdapters.cmake?ref_type=tags#L221-247
 supported_cuda_archs = {
-    "20": "fermi",
-    "21": "fermi",
-    "30": "kepler",
-    "32": "kepler",
-    "35": "kepler",
-    "37": "kepler",
-    "50": "maxwel",
-    "52": "maxwel",
-    "53": "maxwel",
-    "60": "pascal",
-    "61": "pascal",
-    "62": "pascal",
-    "70": "volta",
-    "72": "volta",
-    "75": "turing",
-    "80": "ampere",
     "86": "ampere",
 }
 # This is a list of paraview variants that require the viskores library.

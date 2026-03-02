@@ -30,22 +30,6 @@ class CompilerPackage(PackageBase):
     compiler_suffixes: List[str] = [r"-.*"]
     #: Optional prefix regexes for searching for this compiler
     compiler_prefixes: List[str] = []
-    #: Compiler argument(s) that produces version information
-    #: If multiple arguments, the earlier arguments must produce errors when invalid
-    compiler_version_argument: Union[str, Tuple[str, ...]] = "-dumpversion"
-    #: Regex used to extract version from compiler's output
-    compiler_version_regex: str = "(.*)"
-    #: Static definition of languages supported by this class
-    compiler_languages: Sequence[str] = ["c", "cxx", "fortran"]
-    #: Relative path to compiler wrappers
-    compiler_wrapper_link_paths: Dict[str, str] = {}
-    #: Optimization flags
-    opt_flags: Sequence[str] = []
-    #: Flags for generating debug information
-    debug_flags: Sequence[str] = []
-    #: Returns the argument needed to set the RPATH, or None if it does not exist
-    rpath_arg: Optional[str] = "-Wl,-rpath,"
-    #: Flag that needs to be used to pass an argument to the linker
     linker_arg: str = "-Wl,"
     #: Flag used to produce Position Independent Code
     pic_flag: str = "-fPIC"

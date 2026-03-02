@@ -21,4 +21,3 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         description="Compilers and runtime libraries to build",
     )
     variant("nvptx", default=False, description="Target nvptx offloading to NVIDIA GPUs")
-    variant("bootstrap", default=True, description="Enable 3-stage bootstrap")

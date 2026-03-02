@@ -6,14 +6,6 @@ from spack_repo.builtin.build_systems.cmake import CMakePackage, generator
 from spack_repo.builtin.build_systems.cuda import CudaPackage
 from spack_repo.builtin.build_systems.rocm import ROCmPackage
 from spack.package import *
-IS_WINDOWS = sys.platform == "win32"
-# This is (more or less) the mapping hard-coded in VTK-m logic
-# see https://gitlab.kitware.com/vtk/vtk-m/-/blob/v2.1.0/CMake/VTKmDeviceAdapters.cmake?ref_type=tags#L221-247
-supported_cuda_archs = {
-    "86": "ampere",
-}
-# This is a list of paraview variants that require the viskores library.
-viskores_dependency_variants = ["+cuda", "+fides", "+rocm"]
 class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     """ParaView is an open-source, multi-platform data analysis and
     """

@@ -36,10 +36,6 @@ class OpenpmdApi(CMakePackage):
     depends_on("cxx", type="build")
 
     depends_on("cmake@3.15.0:", type="build")
-    depends_on("mpi@2.3:", when="+mpi")  # might become MPI 3.0+
-    depends_on("nlohmann-json@3.9.1:")
-    depends_on("mpark-variant@1.4.0:", when="@:0.14")  # pre C++17 releases
-    depends_on("toml11@3.7.1:3", when="@0.15")
     depends_on("toml11@3.7.1:", when="@0.16:")
     depends_on("toml11@4.2.0: cxx_std=17", when="@0.16.1:")
     with when("+hdf5"):
@@ -51,11 +47,7 @@ class OpenpmdApi(CMakePackage):
         depends_on("adios@1.13.1: ~mpi ~sz", when="~mpi")
     with when("+adios2"):
         depends_on("adios2@2.9.0:", when="@0.17.0:")
-        depends_on("adios2@2.5.0: ~mpi", when="~mpi")
-        depends_on("adios2@2.5.0: +mpi", when="+mpi")
     with when("+python"):
-        depends_on("py-pybind11@2.6.2:", type="link")
-        depends_on("py-pybind11@2.13.0:", type="link", when="@0.16.0:")
         depends_on("py-numpy@1.15.1:", type=("test", "run"))
         depends_on("py-mpi4py@2.1.0:", when="+mpi", type=("test", "run"))
         with default_args(type=("link", "test", "run")):

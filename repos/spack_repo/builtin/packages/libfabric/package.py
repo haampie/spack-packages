@@ -25,10 +25,6 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
 
     version("2.3.0", sha256="1d18fce868f8fef68b42fccd1f5df2555369739e8cb7c148532a0529a308eb09")
     version("2.2.0", sha256="ff6d05240b4a9753bb3d1eaf962f5a06205038df5142374a6ef40f931bb55ecc")
-    version("2.1.0", sha256="97df312779e2d937246d2f46385b700e0958ed796d6fed7aae77e2d18923e19f")
-    version("2.0.0", sha256="1a8e40f1f331d6ee2e9ace518c0088a78c8a838968f8601c2b77fd012a7bf0f5")
-    version("1.22.0", sha256="485e6cafa66c9e4f6aa688d2c9526e274c47fda3a783cf1dd8f7c69a07e2d5fe")
-    version("1.21.1", sha256="54befa6697352f3179c79c4a79225ae71694f29eefad5d0d5a14b5444ff986dd")
     version("1.21.0", sha256="0c1b7b830d9147f661e5d7f359250b85b5a9885c330464cd3b5e5d35b86551c7")
     version("1.20.2", sha256="75b89252a0b8b3eae8e60f7098af1598445a99a99e8fc1ff458e2fd5d4ef8cde")
     version("1.20.1", sha256="fd88d65c3139865d42a6eded24e121aadabd6373239cef42b76f28630d6eed76")
@@ -98,16 +94,7 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
     variant(
         "cuda_dlopen", default=False, when="+cuda", description="Enable dlopen of CUDA libraries"
     )
-    variant(
-        "gdrcopy_dlopen",
-        default=False,
-        when="+gdrcopy",
-        description="Enable dlopen of gdr libraries",
-    )
 
-    variant("asan", default=False, when="@1.12:", description="Enable AddressSanitizer (ASan)")
-    variant("lsan", default=False, when="@1.20:", description="Enable LeakSanitizer (LSan)")
-    variant("tsan", default=False, when="@1.20:", description="Enable ThreadSanitizer (TSan)")
     variant(
         "ubsan",
         default=False,

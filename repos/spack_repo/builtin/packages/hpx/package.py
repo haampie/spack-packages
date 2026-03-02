@@ -19,13 +19,10 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     homepage = "https://hpx.stellar-group.org/"
     url = "https://github.com/STEllAR-GROUP/hpx/archive/v0.0.0.tar.gz"
     git = "https://github.com/STEllAR-GROUP/hpx.git"
-    maintainers("msimberg", "albestro", "teonnik", "hkaiser", "diehlpk")
 
-    license("BSL-1.0")
 
     tags = ["e4s"]
 
-    version("master", branch="master")
     version("1.2.0", sha256="20942314bd90064d9775f63b0e58a8ea146af5260a4c84d0854f9f968077c170")
     version("1.1.0", sha256="1f28bbe58d8f0da600d60c3a74a644d75ac777b20a018a5c1c6030a470e8a1c9")
 
@@ -89,10 +86,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
         depends_on(f"boost cxxstd={cxxstd}", when=f"cxxstd={cxxstd}")
         depends_on(f"asio cxxstd={cxxstd}", when=f"@1.7: cxxstd={cxxstd}")
 
-    depends_on("gperftools", when="malloc=tcmalloc")
-    depends_on("jemalloc", when="malloc=jemalloc")
-    depends_on("mimalloc", when="malloc=mimalloc")
-    depends_on("tbb", when="malloc=tbbmalloc")
 
     depends_on("mpi", when="networking=mpi")
     depends_on("mpi", when="+async_mpi")

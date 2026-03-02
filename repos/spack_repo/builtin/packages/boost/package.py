@@ -214,19 +214,11 @@ class Boost(Package):
 
     # https://github.com/boostorg/python/commit/cbd2d9f033c61d29d0a1df14951f4ec91e7d05cd
 
-    depends_on("xz", when="+iostreams")
-    depends_on("py-numpy", when="+numpy", type=("build", "run"))
     # https://github.com/boostorg/python/issues/431
-    depends_on("py-numpy@:1", when="@:1.86+numpy", type=("build", "run"))
 
     # Improve the error message when the context-impl variant is conflicting
-    conflicts("context-impl=fcontext", when="@:1.65.0")
-    conflicts("context-impl=ucontext", when="@:1.65.0")
-    conflicts("context-impl=winfib", when="@:1.65.0")
 
     # Coroutine, Context, Fiber, etc., are not straightforward.
-    conflicts("+context", when="@:1.50")  # Context since 1.51.0.
-    conflicts("cxxstd=98", when="+context")  # Context requires >=C++11.
     conflicts("~context", when="+fiber")  # Fiber requires Context.
 
     # NOTE: 1.64.0 seems fine for *most* applications, but if you need
@@ -254,21 +246,17 @@ class Boost(Package):
     # More details here:
     # https://github.com/STEllAR-GROUP/hpx/issues/5442#issuecomment-878889166
     # https://github.com/STEllAR-GROUP/hpx/issues/5442#issuecomment-878913339
-    conflicts("%gcc", when="@:1.76 +system platform=darwin")
 
     # Boost 1.80 does not build with the Intel oneapi compiler
     # (https://github.com/spack/spack/pull/32879#issuecomment-1265933265)
-    conflicts("%oneapi", when="@1.80")
 
     # Boost did not support the oneapi compilers prior to 1.76
-    conflicts("%oneapi@2023:", when="@:1.75")
 
     # Boost 1.85.0 stacktrace added a hard compilation error that has to
     # explicitly be suppressed on some platforms:
     # https://github.com/boostorg/stacktrace/pull/150. This conflict could be
     # turned into a variant that allows users to opt-in when they know it is
     # safe to do so on affected platforms.
-    conflicts("+clanglibcpp", when="@1.85: +stacktrace")
 
     # https://github.com/boostorg/python/issues/400
     conflicts(

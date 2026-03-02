@@ -96,10 +96,6 @@ class Hip(CMakePackage):
             "7.1.1",
             "7.2.0",
         ]:
-            depends_on(f"hsa-rocr-dev@{ver}", when=f"@{ver}")
-            depends_on(f"comgr@{ver}", when=f"@{ver}")
-            depends_on(f"llvm-amdgpu@{ver} +rocm-device-libs", when=f"@{ver}")
-            depends_on(f"rocminfo@{ver}", when=f"@{ver}")
             depends_on(f"roctracer-dev-api@{ver}", when=f"@{ver}")
             depends_on(f"hipify-clang@{ver}", when=f"@{ver}")
             depends_on(f"rocm-core@{ver}", when=f"@{ver}")
@@ -268,7 +264,6 @@ class Hip(CMakePackage):
     patch("0014-Remove-compiler-rt-linkage-for-host-for-5.7.0.patch", when="@5.7.0:5.7")
     patch("0014-remove-compiler-rt-linkage-for-host.6.0.patch", when="@6.0")
     patch("0014-remove-compiler-rt-linkage-for-host.6.1.patch", when="@6.1")
-    patch("0015-reverting-operator-mixup-fix-for-slate.patch", when="@:6.0")
 
     # See https://github.com/ROCm/HIP/pull/3206
 

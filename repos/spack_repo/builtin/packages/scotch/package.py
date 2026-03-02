@@ -24,10 +24,6 @@ class Scotch(CMakePackage, MakefilePackage):
     version("7.0.6", sha256="b44acd0d2f53de4b578fa3a88944cccc45c4d2961cd8cefa9b9a1d5431de8e2b")
     version("7.0.4", sha256="8ef4719d6a3356e9c4ca7fefd7e2ac40deb69779a5c116f44da75d13b3d2c2c3")
     version("6.1.1", sha256="14daf151399fc67f83fd3ff2933854f5e8d2207c7d35dd66a05660bf0bbd583c")
-    version("6.1.0", sha256="4fe537f608f0fe39ec78807f90203f9cca1181deb16bfa93b7d4cd440e01bbd1")
-    version("6.0.5a", sha256="5b21b95e33acd5409d682fa7253cefbdffa8db82875549476c006d8cbe7c556f")
-    version("6.0.4", sha256="f53f4d71a8345ba15e2dd4e102a35fd83915abf50ea73e1bf6efe1bc2b4220c7")
-    version("6.0.3", sha256="6461cc9f28319a9dbe6cc10e28c0cbe90b4b25e205723c3edcde9a3ff974d6d8")
     version("5.1.10b", sha256="54c9e7fafefd49d8b2017d179d4f11a655abe10365961583baaddc4eeb6a9add")
 
     build_system(conditional("cmake", when="@7:"), "makefile", default="cmake")
@@ -71,12 +67,8 @@ class Scotch(CMakePackage, MakefilePackage):
     variant("fortran", default=True, when="@7.0.9:", description="Enable Fortran interface")
 
     depends_on("c", type="build")
-    depends_on("cxx", type="build")
-    depends_on("fortran", type="build", when="@:7.0.8")
-    depends_on("fortran", type="build", when="+fortran")
 
     # Does not build with flex 2.6.[23]
-    depends_on("bison@3.4:", type="build")
     depends_on("mpi", when="+mpi")
     depends_on("zlib-api", when="+compression")
 

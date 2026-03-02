@@ -76,12 +76,8 @@ class Silo(autotools.AutotoolsPackage, cmake.CMakePackage):
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
     depends_on("fortran", type="build")  # generated
-    depends_on("python", type=("build", "link"), when="+python")
     # The mkinc tool uses perl. Silo project could elim. this
     # by relying upon mkinc generated files committed to repo
-    depends_on("perl", type="build")
-    depends_on("hdf5@1.8:1.10", when="@:4.10+hdf5")
-    depends_on("libx11", when="+silex")
     # Xmu dependency is required on Ubuntu 18-20
     depends_on("libxmu", when="+silex")
 

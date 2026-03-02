@@ -173,17 +173,9 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     conflicts("build_edition=rendering", when="@:5.7")
     conflicts("build_edition=core", when="@:5.7")
     # before 5.3.0, ParaView didn't have VTK-m/Viskores
-    conflicts("+cuda", when="@:5.3")
-    conflicts("+rocm", when="@:5.3")
     # paraview@5.9.0 is recommended when using the xl compiler
     # See https://gitlab.kitware.com/paraview/paraview/-/merge_requests/4433
-    conflicts(
-        "paraview@:5.8",
-        when="%xl_r",
-        msg="Use paraview@5.9.0 with %xl_r. Earlier versions are not able to build with xl.",
-    )
 
-    depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
     depends_on("fortran", type="build")  # generated
 

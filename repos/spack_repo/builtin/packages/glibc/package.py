@@ -51,10 +51,6 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     version("2.21", sha256="8d8f78058f2e9c7237700f76fe4e0ae500db31470290cd0b8a9739c0c8ce9738")
     version("2.20", sha256="37e1de410d572a19b707b99786db9822bb4775e9d70517d88937ab12e6d6debc")
     version("2.19", sha256="18ad6db70724699d264add80b1f813630d0141cf3a3558b4e1a7c15f6beac796")
-    version("2.14.1", sha256="f80c40897df49c463a6d5a45f734acbfe1bf42ef209a92a5c217aeb383631bdb")
-    version("2.13", sha256="bd90d6119bcc2898befd6e1bbb2cb1ed3bb1c2997d5eaa6fdbca4ee16191a906")
-    version("2.12.2", sha256="6b7392a7b339a3f2db6e4bc8d5418cf29116d9e7e36b313e845cb65e449c5346")
-    version("2.7", sha256="f5ef515cb70f8d4cfcee0b3aac05b73def60d897bdb7a71f4356782febfe415a")
     version("2.6.1", sha256="6be7639ccad715d25eef560ce9d1637ef206fb9a162714f6ab8167fc0d971cae")
     version("2.5", sha256="16d3ac4e86eed75d85d80f1f214a6bd58d27f13590966b5ad0cc181df85a3493")
 

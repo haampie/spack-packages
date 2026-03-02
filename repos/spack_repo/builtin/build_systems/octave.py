@@ -29,7 +29,6 @@ class OctavePackage(PackageBase):
     build_system("octave")
 
     with when("build_system=octave"):
-        extends("octave")
 
 
 @register_builder("octave")

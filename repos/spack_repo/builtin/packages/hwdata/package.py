@@ -13,7 +13,6 @@ class Hwdata(AutotoolsPackage):
     homepage = "https://github.com/vcrhonek/hwdata"
     url = "https://github.com/vcrhonek/hwdata/archive/v0.337.tar.gz"
 
-    license("GPL-2.0-or-later OR XFree86-1.1")
 
     version("0.392", sha256="1f472d8f2ec824d4efe6a75480767c4ce240fa5d91b6428d9f8775035da3ba1f")
     version("0.345", sha256="fafcc97421ba766e08a2714ccc3eebb0daabc99e67d53c2d682721dd01ccf7a7")

@@ -88,11 +88,9 @@ class Adios(AutotoolsPackage):
 
     # ADIOS uses the absolute Python path, which is too long and results in
     # "bad interpreter" errors - but not applicable for 1.9.0
-    patch("python.patch", when="@1.10.0:")
     # Fix ADIOS <=1.10.0 compile error on HDF5 1.10+
     #   https://github.com/ornladios/ADIOS/commit/3b21a8a41509
     #   https://github.com/spack/spack/issues/1683
-    patch("adios_1100.patch", when="@:1.10.0^hdf5@1.10:")
 
     # ADIOS 1.13.1 is written for ZFP 0.5.0 interfaces
     #   https://github.com/ornladios/ADIOS/pull/204

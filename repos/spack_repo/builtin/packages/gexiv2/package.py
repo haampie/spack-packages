@@ -27,10 +27,6 @@ class Gexiv2(MesonPackage):
     depends_on("pkgconfig", type="build")
     depends_on("cmake@3.4:", type="build")
     depends_on("ninja@1.8.2:", type="build")
-    depends_on("exiv2")
-    depends_on("vala")
-    depends_on("gobject-introspection")
-    depends_on("glib")
     depends_on("python")
 
     def meson_args(self):

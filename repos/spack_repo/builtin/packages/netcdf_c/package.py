@@ -162,16 +162,12 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
         # Based on the versions required by the root CMakeLists.txt:
         depends_on("cmake@2.8.12:", type="build", when="@4.3.3:4.3")
         depends_on("cmake@2.8.11:", type="build", when="@4.4.0:")
-        depends_on("cmake@3.6.1:", type="build", when="@4.5.0:")
-        depends_on("cmake@3.12:", type="build", when="@4.9.0:")
         # Starting version 4.9.1, nczarr_test/CMakeLists.txt relies on the FILE_PERMISSIONS feature
         # of the configure_file command, which is only available starting CMake 3.20:
-        depends_on("cmake@3.20:", type="test", when="@4.9.1:")
 
     with when("build_system=autotools"):
         for __s in itertools.chain(["@main"], _force_autoreconf_when):
             with when(__s):
-                depends_on("autoconf", type="build")
                 depends_on("automake", type="build")
                 depends_on("libtool", type="build")
                 depends_on("m4", type="build")

@@ -88,18 +88,10 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     variant("examples", default=False, description="Build examples")
     variant("async_mpi", default=False, description="Enable MPI Futures.")
     variant("async_cuda", default=False, description="Enable CUDA Futures.")
-    variant("apex", default=False, description="Enable APEX support")
 
     # Build dependencies
-    depends_on("cxx", type="build")
-    depends_on("apex", when="+apex")
-    depends_on("python", type=("build", "test", "run"))
-    depends_on("git", type="build")
-    depends_on("cmake", type="build")
 
     # Other dependecies
-    depends_on("hwloc")
-    depends_on(Boost.with_default_variants)
     depends_on("boost +context", when="+generic_coroutines")
     for cxxstd in cxxstds:
         depends_on(f"boost cxxstd={cxxstd}", when=f"cxxstd={cxxstd}")
@@ -202,10 +194,7 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     conflicts("~generic_coroutines", when="platform=darwin", msg=_msg_generic_coroutines_platform)
 
     _msg_generic_coroutines_target = "This target requires +generic_coroutines"
-    conflicts("~generic_coroutines", when="target=aarch64:", msg=_msg_generic_coroutines_target)
-    conflicts("~generic_coroutines", when="target=arm:", msg=_msg_generic_coroutines_target)
 
-    patch("mimalloc_no_version_requirement.patch", when="@:1.8.0 malloc=mimalloc")
 
     def url_for_version(self, version):
         if version >= Version("1.9.0"):

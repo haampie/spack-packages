@@ -40,12 +40,8 @@ class Hpgmg(MakefilePackage):
         values=("serial", "mpi", "none"),
         description="Build finite volume solver with or without MPI support",
     )
-    variant("cuda", default=False, description="Build with CUDA")
-    variant("debug", default=False, description="Build in debug mode")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("petsc", when="+fe")
     depends_on("mpi", when="+fe")
     depends_on("mpi", when="fv=mpi")
     depends_on("cuda", when="+cuda")

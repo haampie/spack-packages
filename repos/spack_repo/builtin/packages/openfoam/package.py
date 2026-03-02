@@ -1,7 +1,6 @@
 from spack.package import *
 class Openfoam(Package):
     """OpenFOAM is a GPL-opensource C++ CFD-toolbox.
-    in 2004.
     """
     version("1612", sha256="2909c43506a68e1f23efd0ca6186a6948ae0fc8fe1e39c78cc23ef0d69f3569d")
     variant(

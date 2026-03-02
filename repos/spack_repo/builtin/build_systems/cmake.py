@@ -1,4 +1,3 @@
-import re
 from typing import Any, List, Optional, Tuple
 from spack.package import (
     BuilderWithDefaults,
@@ -9,6 +8,5 @@ def generator(*names: str, default: Optional[str] = None) -> None:
 class CMakePackage(PackageBase):
     """Specialized class for packages built using CMake
     """
-    #: List of package names for which CMake argument injection should be disabled
 class CMakeBuilder(BuilderWithDefaults):
     build_time_test_callbacks = ["check"]

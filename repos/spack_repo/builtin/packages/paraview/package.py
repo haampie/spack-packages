@@ -16,9 +16,6 @@ supported_cuda_archs = {
 viskores_dependency_variants = ["+cuda", "+fides", "+rocm"]
 class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     """ParaView is an open-source, multi-platform data analysis and
-    visualization application. This package includes the Catalyst
-    in-situ library for versions 5.7 and greater, otherwise use the
-    catalyst package.
     """
     homepage = "https://www.paraview.org"
     variant("mpi", default=True, description="Enable MPI support")
@@ -37,17 +34,14 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     variant(
         "use_vtkm",
         default="default",
-        when="@5.3.0:5.13",
-        multi=False,
-        values=("default", "on", "off"),
+        description="Build VTK-m with ParaView."
+        ' "default" lets the build_edition make the decision.'
+        ' "on" or "off" will always override the build_edition.',
     )
     # Legacy rendering dropped in 5.5
     # See commit: https://gitlab.kitware.com/paraview/paraview/-/commit/798d328c
     # in 5.7 you cannot reduce the size of the code for Catalyst builds.
     conflicts("build_edition=catalyst", when="@:5.7")
     with when("@6:"):
-        # ParaView 6 and later will not support Spack builds with Qt5.
-        with when("+qt"):
-            depends_on("qt-base+accessibility+gui+opengl+sql+network")
             depends_on("qt-tools+assistant")
             depends_on("qt-5compat")

@@ -1,6 +1,3 @@
-import os
-import sys
-from spack_repo.builtin.build_systems import compiler
 from spack_repo.builtin.build_systems.autotools import AutotoolsPackage
 from spack_repo.builtin.build_systems.compiler import CompilerPackage
 from spack_repo.builtin.build_systems.gnu import GNUMirrorPackage
@@ -13,9 +10,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         version(
             "10.2.0", sha256="b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
         )
-    # Also note that some languages get enabled by the configure scripts even if not listed in the
-    # arguments. For example, c++ is enabled when the bootstrapping is enabled and lto is enabled
-    # when the link time optimization support is enabled.
     variant(
         "languages",
         default="c,c++,fortran",
@@ -25,12 +19,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             "c",
             "c++",
             "d",
-            "fortran",
-            "go",
-            "java",
-            "jit",
-            "lto",
-            "objc",
             "obj-c++",
         ),
         multi=True,

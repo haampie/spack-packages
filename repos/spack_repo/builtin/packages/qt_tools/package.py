@@ -11,5 +11,3 @@ class QtTools(QtPackage):
     )
     depends_on("c")
     depends_on("cxx")
-    for _v in QtBase.versions:
-        v = str(_v)

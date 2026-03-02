@@ -38,25 +38,3 @@ class Boost(Package):
     # mpi/python are not installed by default because they pull in many
     # dependencies and/or because there is a great deal of customization
     # possible (and it would be difficult to choose sensible defaults)
-    #
-    # Boost.Container can be both header-only and compiled. '+container'
-    # indicates the compiled version which requires Extended Allocator
-    # support. The header-only library is installed when no variant is given.
-    all_libs = [
-        "atomic",
-        "charconv",
-        "chrono",
-        "wave",
-    ]
-    # Add any extra requirements for specific libraries
-    # signals library was removed from boost in 1.69
-    # https://www.boost.org/releases/1.69.0/#:~:text=Discontinued
-    all_libs_opts = {
-        "conversion": {"when": "@1.87.0:"},
-        "charconv": {"when": "@1.85.0:"},
-        "cobalt": {"when": "@1.84.0:"},
-        "signals": {"when": "@:1.68"},
-        "signals2": {"when": "@1.4:"},
-    }
-    for lib in all_libs:
-        lib_opts = all_libs_opts.get(lib, {})

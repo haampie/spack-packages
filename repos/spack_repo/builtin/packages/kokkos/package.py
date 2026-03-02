@@ -124,24 +124,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     amd_apu_support_conflict_msg = (
         "{0} is not supported; "
         "Kokkos supports the following AMD GPU targets with unified memory: "
-        + ", ".join(amdgpu_apu_arch_map.keys())
-    )
-    for arch in ROCmPackage.amdgpu_targets:
-        if arch not in amdgpu_arch_map:
-            conflicts(
-                "+rocm", when=f"amdgpu_target={arch}", msg=amd_support_conflict_msg.format(arch)
-            )
-        if arch not in amdgpu_apu_arch_map:
-            conflicts(
-                "+rocm+apu",
-                when=f"amdgpu_target={arch}",
-                msg=amd_apu_support_conflict_msg.format(arch),
-            )
-    intel_gpu_arches = (
-        "intel_gen",
-        "intel_gen9",
-        "intel_gen11",
-        "intel_gen12lp",
         "intel_dg1",
         "intel_dg2",
         "intel_xehp",

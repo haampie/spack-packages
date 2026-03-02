@@ -1,22 +1,16 @@
 # Copyright Spack Project Developers. See COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
-
 import itertools
 import os
 import re
 import sys
 from subprocess import Popen
-
 from spack_repo.builtin.build_systems.cmake import CMakePackage, generator
 from spack_repo.builtin.build_systems.cuda import CudaPackage
 from spack_repo.builtin.build_systems.rocm import ROCmPackage
-
 from spack.package import *
-
 IS_WINDOWS = sys.platform == "win32"
-
-
 # This is (more or less) the mapping hard-coded in VTK-m logic
 # see https://gitlab.kitware.com/vtk/vtk-m/-/blob/v2.1.0/CMake/VTKmDeviceAdapters.cmake?ref_type=tags#L221-247
 supported_cuda_archs = {
@@ -38,33 +32,22 @@ supported_cuda_archs = {
     "80": "ampere",
     "86": "ampere",
 }
-
-
 # This is a list of paraview variants that require the viskores library.
 viskores_dependency_variants = ["+cuda", "+fides", "+rocm"]
-
-
 class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     """ParaView is an open-source, multi-platform data analysis and
     visualization application. This package includes the Catalyst
     in-situ library for versions 5.7 and greater, otherwise use the
     catalyst package.
-
     """
-
     homepage = "https://www.paraview.org"
     url = "https://www.paraview.org/files/v5.7/ParaView-v5.7.0.tar.xz"
     list_url = "https://www.paraview.org/files"
     list_depth = 1
     git = "https://gitlab.kitware.com/paraview/paraview.git"
-
     tags = ["e4s"]
-
-
-
     with default_args(deprecated=True):
         version("5.5.2", sha256="64561f34c4402b88f3cb20a956842394dde5838efd7ebb301157a837114a0e2d")
-
     variant("python", default=False, description="Enable Python support", when="@5.8:")
     variant("fortran", default=False, description="Enable Fortran support")
     variant("mpi", default=True, description="Enable MPI support")
@@ -79,7 +62,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     variant("visitbridge", default=False, description="Enable VisItBridge support")
     variant("raytracing", default=False, description="Enable Raytracing support")
     variant("cdi", default=False, description="Enable CDI support")
-
     variant(
         "build_edition",
         default="canonical",
@@ -98,30 +80,21 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         ' "default" lets the build_edition make the decision.'
         ' "on" or "off" will always override the build_edition.',
     )
-
     # Legacy rendering dropped in 5.5
     # See commit: https://gitlab.kitware.com/paraview/paraview/-/commit/798d328c
     # in 5.7 you cannot reduce the size of the code for Catalyst builds.
     conflicts("build_edition=catalyst", when="@:5.7")
     # before 5.3.0, ParaView didn't have VTK-m/Viskores
-
-
-
     # This affects Paraview <= 5.7 (VTK 8.2.0)
     # https://gitlab.kitware.com/vtk/vtk/-/issues/17670
-
-
     depends_on("py-matplotlib", when="+python", type="run")
-
     # X is only used on Unix like platforms
     for plat in ["linux", "freebsd"]:
         with when(f"platform={plat}"):
             requires("+x", when="+qt", msg="Qt support requires GLX on Linux/FreeBSD")
-
     with when("+x"):
         # When Qt and X are enabled, GLX is required in the runtime
         depends_on("glx", when="@6:", type=("run"))
-
     # ParaView@:5 support Qt5 and requires a GL provider to be known at
     # build/link time.
     with when("@:5"):
@@ -131,11 +104,8 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
             # Headless rendering not supported with Qt
             conflicts("osmesa")
             conflicts("egl")
-
-
         for _arch in ("10", "11", "12", "13"):
             conflicts(f"cuda_arch={_arch}", when="+cuda", msg="ParaView requires cuda_arch >= 20")
-
         # Starting from cmake@3.18, CUDA architecture managament can be delegated to CMake.
         # Hence, it is possible to rely on it instead of relying on custom logic updates from
         # VTK-m for newer architectures (wrt mapping).
@@ -144,7 +114,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
             _number = re.match(pattern, _arch).group()
             if int(_number) > 86:
                 conflicts("cmake@:3.17", when=f"cuda_arch={_arch}")
-
         # We only support one single Architecture
         for _arch, _other_arch in itertools.permutations(CudaPackage.cuda_arch_values, 2):
             conflicts(
@@ -152,7 +121,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
                 when="cuda_arch={0}".format(_other_arch),
                 msg="Paraview only accepts one architecture value",
             )
-
         # Dependencies for vendored VTK-m
         # CUDA thrust is already include in the CUDA pkg
         for target in ROCmPackage.amdgpu_targets:
@@ -160,7 +128,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
                 "kokkos@:3.7 +rocm amdgpu_target={0}".format(target),
                 when="+rocm amdgpu_target={0}".format(target),
             )
-
     with when("@6:"):
         # ParaView 6 and later will not support Spack builds with Qt5.
         with when("+qt"):
@@ -185,31 +152,23 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
             depends_on("viskores +rocm")
             for target in ROCmPackage.amdgpu_targets:
                 depends_on(f"viskores amdgpu_target={target}", when=f"amdgpu_target={target}")
-
     depends_on("ospray@2.1:2", when="+raytracing")
-
     # depends_on('hdf5+mpi', when='+mpi')
     # depends_on('hdf5~mpi', when='~mpi')
-
     # and pre-5.9 is unable to handle that.
     # ParaView depends on cli11 due to changes in MR
     # https://gitlab.kitware.com/paraview/paraview/-/merge_requests/4951
-
     # ParaView depends on nlohmann-json due to changes in MR
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/8550
-
     # ParaView depends on proj@8.1.0 due to changes in MR
     # v8.1.0 is required for VTK::GeoVis
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/8474
     depends_on("proj@8.1.0", when="@5.11:")
-
     # Patches to vendored VTK-m are needed for forward compat with CUDA 12 (mr 2972 and 3259)
     depends_on("cuda@:11", when="@5.3:5.12 +cuda")
-
     # Broken vtk-m config. Upstream catalyst changes
     # Broken downstream FindMPI
     # Include limits header wherever needed to fix compilation with GCC 11
-
     # intel oneapi doesn't compile some code in catalyst
     # Fix VTK to remove deprecated ADIOS2 functions
     # https://github.com/Kitware/VTK-m/commit/c805a6039ea500cb96158cfc11271987c9f67aa4
@@ -217,5 +176,4 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         """Test pvpython"""
         if "~python" in self.spec:
             raise SkipTest("Package must be installed with +python")
-
         pvpython = Executable(self.prefix.bin.pvpython)

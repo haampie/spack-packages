@@ -75,15 +75,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
 
     # Rransport engines
     variant("sst", default=True, description="Enable the SST staging engine")
-    variant(
-        "dataman",
-        default=False,
-        when="+shared",
-        description="Enable the DataMan engine for WAN transports",
-    )
-    variant("campaign", default=False, when="@2.10:", description="Enable campaign management")
-    variant("dataspaces", default=False, description="Enable support for DATASPACES")
-    variant("ssc", default=True, when="@:2.7", description="Enable the SSC staging engine")
     variant("hdf5", default=False, description="Enable the HDF5 engine")
     variant(
         "aws",

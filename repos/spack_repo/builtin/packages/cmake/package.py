@@ -48,10 +48,6 @@ class Cmake(Package):
     version("3.6.1", sha256="28ee98ec40427d41a45673847db7a905b59ce9243bb866eaf59dce0f58aaef11")
     version("3.5.2", sha256="92d8410d3d981bb881dfff2aed466da55a58d34c7390d50449aa59b32bb5e62a")
     version("3.4.3", sha256="b73f8c1029611df7ed81796bf5ca8ba0ef41c6761132340c73ffe42704f980fa")
-    version("3.3.1", sha256="cd65022c6a0707f1c7112f99e9c981677fdd5518f7ddfa0f778d4cee7113e3d6")
-    version("3.1.0", sha256="8bdc3fa3f2da81bc10c772a6b64cc9052acc2901d42e1e1b2588b40df224aad9")
-    version("3.0.2", sha256="6b4ea61eadbbd9bec0ccb383c29d1f4496eacc121ef7acf37c7a24777805693e")
-    version("2.8.10.2", sha256="ce524fb39da06ee6d47534bbcec6e0b50422e18b62abc4781a4ba72ea2910eb1")
 
     with default_args(deprecated=True):
         version("4.1.0", sha256="81ee8170028865581a8e10eaf055afb620fa4baa0beb6387241241a975033508")

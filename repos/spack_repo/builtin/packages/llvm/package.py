@@ -64,10 +64,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     version("20.1.7", sha256="91865189d0ca30ca81b7f7af637aca745b6eeeba97c5dfb0ab7d79a1d9659289")
     version("20.1.6", sha256="afa487c401613f5e4a35935b2abfb5d07e6ebfa20df32787e34a5c7e97c6ea4b")
     version("20.1.5", sha256="205c436f93a7e185cf9d63ae57e645f23561a4d1bf854f2c5bd78995a43a5c05")
-    version("20.1.4", sha256="65e3a582c4c684fa707a56ff643427bce3633eceaceae3295d81c0e830f44b89")
-    version("20.1.3", sha256="b40c0d185b98c2ee3c0cb2f14cde65a06008b33dfb471cc7ad868f8ca3f7f897")
-    version("20.1.2", sha256="9ee597456405ddf4809bcf66a4765137a68a85361347ca2a4bb13d9176e932ab")
-    version("20.1.1", sha256="edde69aa3e48a3892a8f01332ff79cfb6179151b42503c4ba77d2cd408b013bf")
     version("20.1.0", sha256="08bc382733777dda3c96259e3732ff96c1df98d0470c4f85b163274eae687f4f")
 
     with default_args(deprecated=True):
@@ -260,9 +256,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     provides("libllvm@9", when="@9.0.0:9")
     provides("libllvm@8", when="@8.0.0:8")
     provides("libllvm@7", when="@7.0.0:7")
-    provides("libllvm@6", when="@6.0.0:6")
-    provides("libllvm@5", when="@5.0.0:5")
-    provides("libllvm@4", when="@4.0.0:4")
     provides("libllvm@3", when="@3.0.0:3")
 
 

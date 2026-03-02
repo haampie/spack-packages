@@ -76,19 +76,15 @@ class LlvmAmdgpu(CMakePackage, LlvmDetection, CompilerPackage):
     depends_on("zlib-api", type="link")
     depends_on("libdrm", when="@7.1:")
     depends_on("libelf", when="@7.1:")
-    depends_on("xxd", when="@7.1:")
 
     # This flavour of LLVM doesn't work on MacOS, so we should ensure that it
     # isn't used to satisfy any of the libllvm dependencies on the Darwin
     # platform.
-    conflicts("platform=darwin")
 
-    patch("0001-update-HIP_PATH-deduction-for-5.7.0.patch", when="@:6.0")
 
     # Below patch is to set the flag -mcode-object-version=none until
     # the below fix is available in device-libs release code.
     # https://github.com/ROCm/ROCm-Device-Libs/commit/f0356159dbdc93ea9e545f9b61a7842f9c881fdf
-    patch("patch-llvm-5.5.0.patch", when="@5.7 +rocm-device-libs")
 
     # i1 muls can sometimes happen after SCEV.
     # They resulted in ISel failures because we were missing the patterns for them.

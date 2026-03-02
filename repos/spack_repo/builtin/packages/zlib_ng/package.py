@@ -36,11 +36,7 @@ class ZlibNg(AutotoolsPackage, CMakePackage):
     version("2.0.0", sha256="86993903527d9b12fc543335c19c1d33a93797b3d4d37648b5addae83679ecd8")
 
     variant("compat", default=True, description="Enable compatibility API")
-    variant("opt", default=True, description="Enable optimizations")
-    variant("shared", default=True, description="Build shared library")
-    variant("pic", default=True, description="Enable position-independent code (PIC)")
 
-    conflicts("+shared~pic")
 
     variant("new_strategies", default=True, description="Enable new deflate strategies")
 

@@ -52,24 +52,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         "examples": [False, "@:4", "Whether to build examples"],
         "hpx_async_dispatch": [False, "@:4", "Whether HPX supports asynchronous dispath"],
         "tuning": [False, None, "Create bindings for tuning tools"],
-        "tests": [False, None, "Build for tests"],
-    }
-    spack_micro_arch_map = {
-        "thunderx2": "THUNDERX2",
-        "zen": "ZEN",
-        "zen2": "ZEN2",
-        "zen3": "ZEN3",
-        "zen4": "ZEN4",
-        "zen5": "ZEN5",
-        "steamroller": "KAVERI",
-        "excavator": "CARIZO",
-        "power7": "POWER7",
-        "power8": "POWER8",
-        "power9": "POWER9",
-        "power8le": "POWER8",
-        "power9le": "POWER9",
-        "sandybridge": "SNB",
-        "haswell": "HSW",
         "mic_knl": "KNL",
         "cannonlake": "SKX",
         "cascadelake": "SKX",
@@ -124,6 +106,24 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     amd_apu_support_conflict_msg = (
         "{0} is not supported; "
         "Kokkos supports the following AMD GPU targets with unified memory: "
+        + ", ".join(amdgpu_apu_arch_map.keys())
+    )
+    for arch in ROCmPackage.amdgpu_targets:
+        if arch not in amdgpu_arch_map:
+            conflicts(
+                "+rocm", when=f"amdgpu_target={arch}", msg=amd_support_conflict_msg.format(arch)
+            )
+        if arch not in amdgpu_apu_arch_map:
+            conflicts(
+                "+rocm+apu",
+                when=f"amdgpu_target={arch}",
+                msg=amd_apu_support_conflict_msg.format(arch),
+            )
+    intel_gpu_arches = (
+        "intel_gen",
+        "intel_gen9",
+        "intel_gen11",
+        "intel_gen12lp",
         "intel_dg1",
         "intel_dg2",
         "intel_xehp",

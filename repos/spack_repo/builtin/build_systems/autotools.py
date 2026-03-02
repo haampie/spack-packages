@@ -106,14 +106,3 @@ class AutotoolsBuilder(BuilderWithDefaults):
     #: Targets for ``make`` during the :py:meth:`~.AutotoolsBuilder.install` phase
     install_targets = ["install"]
     #: Callback names for build-time test
-    build_time_test_callbacks = ["check"]
-    #: Callback names for install-time test
-    install_time_test_callbacks = ["installcheck"]
-    #: Set to true to force the autoreconf step even if configure is present
-    force_autoreconf = False
-    #: Options to be passed to autoreconf when using the default implementation
-    autoreconf_extra_args: List[str] = []
-    #: If False deletes all the .la files in the prefix folder after the installation.
-    #: If True instead it installs them.
-    install_libtool_archives = False
-    # On macOS, force rpaths for shared library IDs and remove duplicate rpaths

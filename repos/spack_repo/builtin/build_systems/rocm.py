@@ -1,21 +1,3 @@
-#            c++: /opt/rocm/llvm/bin/clang++
-#            hip: /opt/rocm/hip/bin/hipcc
-#      buildable: false
-#    hsa-rocr-dev:
-#      externals:
-#      - spec: hsa-rocr-dev
-#        prefix: /opt/rocm
-#        extra_attributes:
-#          compilers:
-#            c: /opt/rocm/llvm/bin/clang++
-#            cxx: /opt/rocm/llvm/bin/clang++
-#      buildable: false
-#    llvm-amdgpu:
-#      externals:
-#      - spec: llvm-amdgpu
-#        prefix: /opt/rocm/llvm
-#        extra_attributes:
-#          compilers:
 #            c: /opt/rocm/llvm/bin/clang++
 #            cxx: /opt/rocm/llvm/bin/clang++
 #      buildable: false
@@ -52,42 +34,6 @@ class ROCmPackage(PackageBase):
         "gfx900",
         "gfx900:xnack-",
         "gfx902",
-        "gfx904",
-        "gfx906",
-        "gfx906:xnack-",
-        "gfx908",
-        "gfx908:xnack-",
-        "gfx909",
-        "gfx90a",
-        "gfx90a:xnack-",
-        "gfx90a:xnack+",
-        "gfx90c",
-        "gfx940",
-        "gfx941",
-        "gfx942",
-        "gfx950",
-        "gfx1010",
-        "gfx1011",
-        "gfx1012",
-        "gfx1013",
-        "gfx1030",
-        "gfx1031",
-        "gfx1032",
-        "gfx1033",
-        "gfx1034",
-        "gfx1035",
-        "gfx1036",
-        "gfx1100",
-        "gfx1101",
-        "gfx1102",
-        "gfx1103",
-        "gfx1150",
-        "gfx1151",
-        "gfx1152",
-        "gfx1153",
-        "gfx1200",
-        "gfx1201",
-        "gfx1250",
         "gfx1251",
     )
     variant("rocm", default=False, description="Enable ROCm support")
@@ -106,14 +52,3 @@ class ROCmPackage(PackageBase):
     # we will still need to set the HCC_AMDGPU_TARGET environment flag in the
     # hip package file. But I will leave this here for future development.
     # HIP version vs Architecture
-    # TODO: add a bunch of lines like:
-    # depends_on('hip@:6.0', when='amdgpu_target=gfx701')
-    # to indicate minimum version for each architecture.
-    # Add compiler minimum versions based on the first release where the
-    # processor is included in llvm/lib/Support/TargetParser.cpp
-    # Compiler conflicts
-    # TODO: add conflicts statements along the lines of
-    # arch_platform = ' target=x86_64: platform=linux'
-    # conflicts('%gcc@5:', when='+cuda ^cuda@:7.5' + arch_platform)
-    # conflicts('platform=darwin', when='+cuda ^cuda@11.0.2:')
-    # for hip-related limitations.

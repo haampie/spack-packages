@@ -149,16 +149,12 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     variant("libsanitizer", default=True, description="Use libsanitizer")
 
     depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
 
     # https://gcc.gnu.org/install/prerequisites.html
     # mawk is not sufficient for go support
-    depends_on("libtool", type="build")
     # dependencies required for git versions
-    depends_on("automake@1.15.1:", when="@master", type="build")
 
-    depends_on("gmake@3.80:", type="build")
     depends_on("perl@5", type="build")
     #   https://github.com/spack/spack/issues/6902#issuecomment-433030376
     depends_on("mpc@1.0.1:", when="@4.5:")

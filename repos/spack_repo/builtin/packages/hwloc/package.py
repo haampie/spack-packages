@@ -47,11 +47,7 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
     version("2.0.2", sha256="27dcfe42e3fb3422b72ce48b48bf601c0a3e46e850ee72d9bdd17b5863b6e42c")
     version("1.11.7", sha256="ac16bed9cdd3c63bca1fe1ac3de522a1376b1487c4fc85b7b19592e28fd98e26")
     version("1.11.6", sha256="67963f15197e6b551539c4ed95a4f8882be9a16cf336300902004361cf89bdee")
-    version("1.11.5", sha256="da2c780fce9b5440a1a7d1caf78f637feff9181a9d1ca090278cae4bea71b3df")
-    version("1.9", sha256="9fb572daef35a1c8608d1a6232a4a9f56846bab2854c50562dfb9a7be294f4e8")
 
-    variant("nvml", default=False, description="Support NVML device discovery")
-    variant("gl", default=False, description="Support GL device discovery")
     variant("libxml2", default=True, description="Build with libxml2")
     variant("libudev", default=False, when="@1.11.0:", description="Build with libudev")
     variant(

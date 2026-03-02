@@ -194,10 +194,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         with when("+qt"):
             depends_on("qt@:4", when="@:5.2.0")
             # https://discourse.paraview.org/t/paraview-5-9-and-minimum-recommended-qt-version/5333
-            depends_on("qt@5.12:5", when="@5.9:5.13")
-            depends_on("qt+sql")
-            depends_on("qt+opengl", when="@5.3.0:5 +opengl2")
-            depends_on("qt~opengl", when="@5.3.0:5 ~opengl2")
             # Headless rendering not supported with Qt
             conflicts("osmesa")
             conflicts("egl")

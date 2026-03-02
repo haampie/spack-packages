@@ -289,16 +289,12 @@ supported, and netmod is ignored if device is ch3:sock.""",
     conflicts("pmi=pmix", when="device=ch3")
     conflicts("pmi=pmix", when="device=ch3:sock")
     conflicts("pmi=pmix", when="+hydra")
-    conflicts("pmi=cray", when="+hydra")
 
     # MPICH does not require libxml2 and libpciaccess for versions before 3.3
     # when ~hydra is set: prevent users from setting +libxml2 and +pci in this
     # case to avoid generating an identical MPICH installation.
-    conflicts("+pci", when="@:3.2~hydra")
-    conflicts("+libxml2", when="@:3.2~hydra")
 
     # see https://github.com/pmodels/mpich/pull/5031
-    conflicts("%clang@:7", when="@3.4:3.4.1")
 
     @classmethod
     def determine_version(cls, exe):

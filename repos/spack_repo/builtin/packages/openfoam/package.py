@@ -155,9 +155,6 @@ class Openfoam(Package):
         "paraview", default=False, description="Build paraview plugins and runtime post-processing"
     )
     variant("vtk", default=False, description="With VTK runTimePostProcessing")
-    # See https://github.com/spack/spack/pull/22303 for reference
-
-    # Earlier versions of OpenFOAM may not work with CGAL 5.6. I do
     # not know which OpenFOAM added support for 5.x and conservatively
     # use 2312 in the check.
     depends_on("flex@:2.6.1,2.6.4:")

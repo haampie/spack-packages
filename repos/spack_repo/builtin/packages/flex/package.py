@@ -25,10 +25,3 @@ class Flex(AutotoolsPackage):
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
     depends_on("bison", type="build")
-    depends_on("gettext@0.19:", type="build", when="+nls")
-    # Older tarballs don't come with a configure script and the patch for
-    # 2.6.4 touches configure
-    # 2.6.4 fails to compile with newer versions of gcc/glibc, see:
-    # - https://github.com/spack/spack/issues/8152
-    # - https://github.com/spack/spack/issues/6942
-    # - https://github.com/westes/flex/issues/241

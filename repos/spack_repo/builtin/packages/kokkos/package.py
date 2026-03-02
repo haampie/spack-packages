@@ -16,15 +16,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     test_requires_compiler = True
     options_variants = {
         "debug_dualview_modify_check": [False, "@:4", "Debug check on dual views"],
-        "deprecated_code": [False, "@:4", "Whether to enable deprecated code"],
-        "examples": [False, "@:4", "Whether to build examples"],
-        "53": "maxwell53",
-        "60": "pascal60",
-        "61": "pascal61",
-        "70": "volta70",
-        "72": "volta72",
-        "75": "turing75",
-        "80": "ampere80",
         "86": "ampere86",
         "87": "ampere87",
         "89": "ada89",

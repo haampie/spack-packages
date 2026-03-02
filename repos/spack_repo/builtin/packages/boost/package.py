@@ -7,14 +7,5 @@ from pathlib import Path
 from spack_repo.builtin.build_systems.generic import Package
 from spack.package import *
 class Boost(Package):
-    """Boost provides free peer-reviewed portable C++ source
-    libraries, emphasizing libraries that work well with the C++
-    Standard Library.
-    Boost libraries are intended to be widely useful, and usable
-    across a broad spectrum of applications. The Boost license
-    encourages both commercial and non-commercial use.
-    """
-    homepage = "https://www.boost.org"
-    url = "https://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2"
     git = "https://github.com/boostorg/boost.git"
     list_url = "https://sourceforge.net/projects/boost/files/boost/"

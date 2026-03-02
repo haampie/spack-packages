@@ -189,7 +189,6 @@ class QtBase(QtPackage):
     depends_on("zstd")
     with when("platform=linux"):
         depends_on("libdrm")
-        depends_on("at-spi2-core", when="+accessibility")
 
     with when("+gui"):
         depends_on("fontconfig")

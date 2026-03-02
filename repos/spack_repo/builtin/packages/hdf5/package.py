@@ -115,9 +115,6 @@ class Hdf5(CMakePackage):
     # See https://github.com/spack/spack/issues/31085
     conflicts("+fortran+mpi", when="@1.8.22")
     # See https://github.com/HDFGroup/hdf5/issues/2906#issue-1697749645
-    conflicts(
-        "+fortran", when="@1.13.3:^cmake@:3.22", msg="cmake_minimum_required is not set correctly."
-    )
 
     # HDF5 searches for zlib CMake config files before it falls back to
     # FindZLIB.cmake. We don't build zlib with CMake by default, so have to

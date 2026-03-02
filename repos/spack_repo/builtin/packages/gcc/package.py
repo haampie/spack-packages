@@ -154,12 +154,9 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     depends_on("c", type="build")
     depends_on("cxx", type="build")
 
-    depends_on("flex", type="build", when="@master")
 
     # https://gcc.gnu.org/install/prerequisites.html
-    depends_on("gmp@4.3.2:")
     # mawk is not sufficient for go support
-    depends_on("gawk@3.1.5:", type="build")
     depends_on("texinfo@4.7:", type="build")
     depends_on("libtool", type="build")
     # dependencies required for git versions
@@ -227,10 +224,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         provides("golang@1.16.3:1.16.5", when="@11:")
 
         # GCC 4.7.1 added full support for the Go 1.x programming language.
-        conflicts("@:4.7.0")
 
         # Go is not supported on macOS
-        conflicts("platform=darwin", msg="GCC cannot build Go support on MacOS")
 
     # For a list of valid languages for a specific release,
     # run the following command in the GCC source directory:
@@ -241,7 +236,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # BRIG is a binary format for HSAIL:
     # (Heterogeneous System Architecture Intermediate Language).
     # See https://gcc.gnu.org/gcc-7/changes.html
-    conflicts("languages=brig", when="@:6")
 
     # BRIG does not seem to be supported on macOS
     conflicts("languages=brig", when="platform=darwin")

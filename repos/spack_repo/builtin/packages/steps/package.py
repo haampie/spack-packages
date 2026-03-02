@@ -32,15 +32,6 @@ class Steps(CMakePackage):
     variant("distmesh", default=True, description="Add solvers based on distributed mesh")
     variant("petsc", default=True, description="Use PETSc library for parallel E-Field solver")
     variant("mpi", default=True, description="Use MPI for parallel solvers")
-    variant("coverage", default=False, description="Enable code coverage")
-    variant("bundle", default=False, description="Use bundled libraries")
-    variant("stochtests", default=True, description="Add stochastic tests to ctests")
-    variant(
-        "build_type",
-        default="RelWithDebInfo",
-        description="CMake build type",
-        values=("Debug", "Release", "RelWithDebInfo", "MinSizeRel", "RelWithDebInfoAndAssert"),
-    )
     variant(
         "caliper", default=False, description="Build in caliper support (Instrumentor Interface)"
     )

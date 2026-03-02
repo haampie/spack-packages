@@ -39,10 +39,6 @@ class ScineQcmaquis(CMakePackage):
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
-    depends_on("hdf5~mpi")
-    depends_on("lapack")
-    depends_on("blas")
 
     requires("^openblas +ilp64 threads=openmp", when="^[virtuals=blas,lapack] openblas")
     requires(

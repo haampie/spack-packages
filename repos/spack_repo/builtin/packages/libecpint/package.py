@@ -29,8 +29,6 @@ class Libecpint(CMakePackage):
 
     depends_on("cxx", type="build")  # generated
 
-    depends_on("pugixml")
-    depends_on("googletest")
 
     def cmake_args(self):
         args = ["-DBUILD_SHARED_LIBS=ON"]

@@ -31,29 +31,13 @@ class Elk(MakefilePackage):
     # mkl - use mkl specifically, with special support for multithreading
     # should be used with fft=mkl
     # blis - use internal lapack and blas implementation from blis
-    variant(
-        "linalg",
-        default="generic",
-        multi=False,
-        description="Build with custom BLAS library",
-        values=("internal", "generic", "openblas", "mkl", "blis"),
-    )
     # what FFT package to use? The choices are
     # internal - use internal library
     # fftw - fftw3 with special code
     # mkl  - use mklr with fft code
     # should be used with linalg=mkls
-    variant(
-        "fft",
-        default="fftw",
-        multi=False,
-        description="Build with custom FFT library",
-        values=("internal", "fftw", "mkl"),
-    )
     #  check that if fft=mkl then linalg=mkl and vice versa.
 
-    conflicts("linalg=mkl", when="fft=fftw")
-    conflicts("linalg=mkl", when="fft=internal")
     conflicts("fft=mkl", when="linalg=internal")
     conflicts("fft=mkl", when="linalg=generic")
     conflicts("fft=mkl", when="linalg=openblas")

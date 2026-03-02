@@ -65,10 +65,6 @@ class Squashfs(MakefilePackage):
     depends_on("lz4 libs=static", when="+lz4 +static")
     depends_on("lzo", when="+lzo")
     depends_on("lzo libs=static", when="+lzo +static")
-    depends_on("xz", when="+xz")
-    depends_on("xz libs=static", when="+xz +static")
-    depends_on("zstd", when="+zstd")
-    depends_on("zstd libs=static", when="+zstd +static")
 
     def make_options(self, spec):
         default = spec.variants["default_compression"].value

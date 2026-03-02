@@ -34,17 +34,13 @@ class Krims(CMakePackage):
         description="The build type to build",
         values=("Debug", "Release", "DebugRelease"),
     )
-    variant("shared", default=True, description="Build shared libraries (else the static one)")
 
     # Components
-    variant("examples", default=False, description="Compile examples")
 
     #
     # Conflicts
     #
     # Only builds on clang > 3.5 and gcc > 4.8
-    conflicts("%intel", msg="krims only builds with gcc and clang")
-    conflicts("%gcc@:4.8")
     conflicts("%clang@:3.5")
 
     #

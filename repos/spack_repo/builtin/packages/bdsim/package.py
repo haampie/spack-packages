@@ -35,9 +35,5 @@ class Bdsim(CMakePackage):
     depends_on("cmake")
     depends_on("geant4")
     depends_on("geant4@:10.7.3", when="@:1.6.0")
-    depends_on("root")
-    depends_on("clhep")
-    depends_on("flex")
-    depends_on("bison")
 
     # The C++ standard is set to be the same as the one used for ROOT

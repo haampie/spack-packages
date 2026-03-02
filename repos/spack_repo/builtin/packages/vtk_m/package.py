@@ -145,12 +145,8 @@ class VtkM(CMakePackage, CudaPackage, ROCmPackage):
     # may not be used for VTK-m depending on the default selected by Kokkos
     depends_on("kokkos +sycl", when="+kokkos +sycl")
 
-    conflicts("+sycl", when="~kokkos", msg="VTK-m does not support SYCL without Kokkos")
 
     # Can build +shared+cuda after @1.7:
-    conflicts("+shared", when="@:1.6 +cuda_native")
-    conflicts("+cuda~cuda_native~kokkos", msg="Cannot have +cuda without a cuda device")
-    conflicts("+cuda~cuda_native", when="@:1.5", msg="Cannot have +cuda without a cuda device")
 
     conflicts("+cuda", when="cuda_arch=none", msg="vtk-m +cuda requires that cuda_arch be set")
 

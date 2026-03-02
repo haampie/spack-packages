@@ -40,11 +40,7 @@ class Exaca(CMakePackage, CudaPackage, ROCmPackage):
     variant("testing", default=False, description="Build unit tests")
     variant("finch", default=False, description="Build with Finch heat transfer support")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@3.9:", type="build", when="@:1.1")
-    depends_on("cmake@3.12:", type="build", when="@master")
-    depends_on("googletest@1.10:", type="test", when="@1.1:+testing")
     depends_on("kokkos@3.0:", when="@:1.1")
     depends_on("kokkos@3.2:", when="@1.2:")
     depends_on("kokkos@4.0:", when="@1.3:")

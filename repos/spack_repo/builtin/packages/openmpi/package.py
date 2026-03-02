@@ -430,19 +430,7 @@ class Openmpi(AutotoolsPackage, CudaPackage, ROCmPackage):
         version(
             "1.1.3", sha256="c33f8f5e65cfe872173616cca27ae8dc6d93ea66e0708118b9229128aecc174f"
         )  # libmpi.so.0.0.0
-        version(
-            "1.1.2", sha256="3bd8d9fe40b356be7f9c3d336013d3865f8ca6a79b3c6e7ef28784f6c3a2b8e6"
-        )  # libmpi.so.0.0.0
-        version(
-            "1.1.1", sha256="dc31aaec986c4ce436dbf31e73275ed1a9391432dcad7609de8d0d3a78d2c700"
-        )  # libmpi.so.0.0.0
-        version(
-            "1.1", sha256="ebe14801d2caeeaf47b0e437b43f73668b711f4d3fcff50a0d665d4bd4ea9531"
-        )  # libmpi.so.0.0.0
 
-        version(
-            "1.0.2", sha256="ccd1074d7dd9566b73812d9882c84e446a8f4c77b6f471d386d3e3b9467767b8"
-        )  # libmpi.so.0.0.0
         version(
             "1.0.1", sha256="f801b7c8ea6c485ac0709a628a479aeafa718a205ed6bc0cf2c684bc0cc73253"
         )  # libmpi.so.0.0.0

@@ -56,19 +56,9 @@ class Root(CMakePackage):
 
     # Supported STS release series
     # 6.38 (through 2026-06-30)
-    version("6.38.00", sha256="a4429422c460f832cde514a580dd202b1d3c96e8919c24363c3d42f8cf5accdc")
 
     # 6.34 (through 2025-06-30)
     with default_args(deprecated=True):
-        version(
-            "6.34.08", sha256="806045b156de03fe8f5661a670eab877f2e4d2da6c234dc3e31e98e2d7d96fe8"
-        )
-        version(
-            "6.34.06", sha256="a799d632dae5bb1ec87eae6ebc046a12268c6849f2a8837921c118fc51b6cff3"
-        )
-        version(
-            "6.34.04", sha256="e320c5373a8e87bb29b7280954ca8355ad8c4295cf49235606f0c8b200acb374"
-        )
         version(
             "6.34.02", sha256="166bec562e420e177aaf3133fa3fb09f82ecddabe8a2e1906345bad442513f94"
         )

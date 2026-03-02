@@ -33,12 +33,6 @@ class Spdk(AutotoolsPackage):
     variant("fio", default=False, description="Build fio plugin")
     variant("iscsi-initiator", default=False, description="Build with iscsi bdev module")
     variant("ocf", default=False, description="Build OCF library and bdev module")
-    variant("pmdk", default=False, description="Build persistent memory bdev")
-    variant("rbd", default=False, description="Build Ceph RBD bdev module")
-    variant(
-        "rdma", default=False, description="Build RDMA transport for NVMf target and initiator"
-    )
-    variant("shared", default=False, description="Build spdk shared libraries")
     variant("uring", default=False, description="Build I/O uring bdev")
     variant(
         "virtio", default=False, description="Build vhost initiator and virtio-pci bdev modules"

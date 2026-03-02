@@ -24,12 +24,8 @@ class CabanaPd(CMakePackage, CudaPackage, ROCmPackage):
     variant("silo", default=False, description="Enable SILO support")
     variant("tests", default=False, description="Enable unit tests")
 
-    depends_on("cmake@3.11:", type="build")
-    depends_on("cxx", type="build")
-    depends_on("c", type="build")
 
     # cannot simultaneously use hipcc and another c++ compiler
-    requires("%cxx=rocmcc", when="+rocm")
 
     depends_on("cabana+grid@0.7.0:")
     depends_on("nlohmann-json@3.10.0:")

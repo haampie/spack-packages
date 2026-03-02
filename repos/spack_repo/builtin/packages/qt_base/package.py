@@ -62,5 +62,3 @@ class QtBase(QtPackage):
         depends_on("fontconfig")
         depends_on("freetype")
         depends_on("jpeg")
-        with when("platform=linux"):
-            depends_on("xcb-util-keysyms")

@@ -26,7 +26,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
 
     provides("c", "cxx", when="languages=c,c++")
-    # Latest stable
 
     # Previous stable series releases
 
@@ -150,13 +149,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # See https://go.dev/doc/install/gccgo#Releases
     with when("languages=go"):
         provides("golang@:1.8.1", when="@7:")
-        provides("golang@:1.10.1", when="@8:")
-    conflicts("languages=brig", when="platform=darwin")
-
-    # GCC 4.8 added a 'c' language. I'm sure C was always built,
-    # but this is the first version that accepts 'c' as a valid language.
-    conflicts("languages=c", when="@:4.7")
-
     # have been removed from GCC as of GCC 7.
     # See https://gcc.gnu.org/gcc-7/changes.html
     conflicts("languages=java", when="@7:")

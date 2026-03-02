@@ -265,24 +265,17 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     # Include limits header wherever needed to fix compilation with GCC 11
     patch("paraview-gcc11-limits.patch", when="@5.8:5.9 %gcc@11.1.0:")
-    # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/8653
     # Patch for paraview 5.9.0%xl_r
 
     # intel oneapi doesn't compile some code in catalyst
     patch("catalyst-etc_oneapi_fix.patch", when="@5.10.0:5.10.1%oneapi")
-    # Patch for paraview 5.8: ^hdf5@1.13.2:
     patch("vtk-xdmf2-hdf51.13.1.patch", when="@5.8:5.10")
     patch("vtk-xdmf2-hdf51.13.2.patch", when="@5.8:5.11.0")
-    patch("FindFreetype.cmake.patch", when="@5.10.1:")
     # Fix VTK to remove deprecated ADIOS2 functions
 
     # https://github.com/Kitware/VTK-m/commit/c805a6039ea500cb96158cfc11271987c9f67aa4
 
-    # https://github.com/Kitware/VTK-m/commit/48e385af319543800398656645327243a29babfb
     patch("vtkm-fix-problems-in-class-member-names.patch", when="@5.13.2 %oneapi@2025:")
-    # Vtk's findpegtl's include search is wrong: https://gitlab.kitware.com/vtk/vtk/-/issues/17876
-
-    # https://gitlab.kitware.com/paraview/paraview/-/issues/21223
     def url_for_version(self, version):
         # Handle ParaView version-based custom URLs
         if version < Version("5.1.0"):

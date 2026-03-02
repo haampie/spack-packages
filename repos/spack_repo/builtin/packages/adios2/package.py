@@ -143,22 +143,11 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("mgard@compat-2022-11-18:", when="+mgard")
     depends_on("mgard@compat-2023-01-10:", when="@2.9: +mgard")
     # cmake build race condition
-    patch(
-        "https://github.com/ornladios/ADIOS2/commit/16869cf18cb4bd07d500c3048c3d34d1611674c7.patch?full_index=1",
-        when="@2.11.0",
-        sha256="3af07961975ec6c9023dca182ed19458c021cdf1812d34d9a9e9dad1da60ae75",
-    )
 
     # add missing include <cstdint>
-    patch("2.7-fix-missing-cstdint-include.patch", when="@2.7")
 
     # Add missing include <memory>
     # https://github.com/ornladios/adios2/pull/2710
-    patch(
-        "https://github.com/ornladios/adios2/commit/72363a5ed1015c2bbb1c057d4d6b2e5662de12ec.patch?full_index=1",
-        when="@2.7.1",
-        sha256="8221073d1b2f8944395a88a5d60a15c7370646b62f5fc6309867bbb6a8c2096c",
-    )
 
     # https://github.com/ornladios/ADIOS2/pull/3893
 

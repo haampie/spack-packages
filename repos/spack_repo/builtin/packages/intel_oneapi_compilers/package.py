@@ -446,7 +446,6 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     stdcxx_libs = ("-cxxlib",)
 
     provides("c", "cxx")
-    provides("fortran")
 
     # See https://github.com/spack/spack/issues/39252
     depends_on("patchelf@:0.17", type="build", when="@:2024.1")

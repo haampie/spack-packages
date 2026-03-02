@@ -227,9 +227,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     provides("libllvm@10", when="@10.0.0:10")
     provides("libllvm@9", when="@9.0.0:9")
     provides("libllvm@8", when="@8.0.0:8")
-    provides("libllvm@7", when="@7.0.0:7")
-    # Build dependency
-    depends_on("cmake@3.4.3:", type="build")
     depends_on("cmake@3.13.4:", type="build", when="@12:")
     depends_on("cmake@3.20:", type="build", when="@16:")
     with when("@:10"):
@@ -415,15 +412,10 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     # avoid build failed with Fujitsu compiler since llvm17
     patch("llvm17-fujitsu.patch", when="@17: %fj")
     patch("llvm17-18-thread.patch", when="@17:18 %fj")
-
-    # patch for missing hwloc.h include for libompd
     # see https://reviews.llvm.org/D123888
 
-    # make libflags a list in openmp subproject when openmp=project
     # see https://reviews.llvm.org/D125370
 
-    # fix detection of LLDB_PYTHON_EXE_RELATIVE_PATH
-    # see https://reviews.llvm.org/D133513
     # TODO: the patch is not applicable after https://reviews.llvm.org/D141042 but it is not clear
     #  yet whether we need a version of it for when="@16:"
 

@@ -66,13 +66,9 @@ class Scotch(CMakePackage, MakefilePackage):
     patch("parmetis-mpi.patch", when="@6.1.1:7.0.3 +metis ^openmpi")
 
     # Vendored dependency of METIS/ParMETIS conflicts with standard
-    # installations
 
-    parallel = False
-    # building with 'esmumps' in their default packages.  In order to enable
     # support for this feature, we must grab the 'esmumps' enabled archives
     # from the Scotch hosting site.  These alternative archives include a
-    # superset of the behavior in their default counterparts, so we choose to
     # always grab these versions for older Scotch versions for simplicity.
     @when("@:6.0.0")
     def url_for_version(self, version):

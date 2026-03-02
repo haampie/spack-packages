@@ -26,11 +26,6 @@ class Asio(AutotoolsPackage):
 
     # See https://github.com/chriskohlhoff/asio/issues/944 and
     # https://github.com/chriskohlhoff/asio/pull/995
-    conflicts(
-        "%gcc@12:",
-        when="@:1.22.0",
-        msg="asio v1.22.1 fixed missing includes necessary for gcc v12 and above",
-    )
 
     stds = ("11", "14", "17", "20", "23")
     variant(

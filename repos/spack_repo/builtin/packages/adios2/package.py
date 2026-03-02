@@ -84,13 +84,9 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     variant("fortran", default=True, description="Enable the Fortran bindings")
 
     # Requires mature C++11 implementations
-    conflicts("%gcc@:4.7")
-    conflicts("%intel@:15")
 
     # ifx does not support submodules in separate files
-    conflicts("%oneapi@:2022.1.0", when="+fortran")
     # https://github.com/ornladios/ADIOS2/issues/4620
-    conflicts("^cuda@13:", when="+cuda")
 
 
     # Standalone CUDA support
@@ -112,11 +108,8 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
             when="+kokkos +rocm amdgpu_target=%s" % amdgpu_value,
         )
 
-    conflicts("+cuda", when="@:2.7")
 
 
-    conflicts("+rocm", when="~kokkos", msg="ADIOS2 does not support HIP without Kokkos")
-    conflicts("+sycl", when="~kokkos", msg="ADIOS2 does not support SYCL without Kokkos")
 
     for _platform in ["linux", "darwin"]:
         depends_on("pkgconfig", type="build", when=f"platform={_platform}")

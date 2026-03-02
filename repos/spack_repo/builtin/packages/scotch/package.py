@@ -66,14 +66,10 @@ class Scotch(CMakePackage, MakefilePackage):
     )
     variant("fortran", default=True, when="@7.0.9:", description="Enable Fortran interface")
 
-    depends_on("c", type="build")
 
     # Does not build with flex 2.6.[23]
-    depends_on("mpi", when="+mpi")
-    depends_on("zlib-api", when="+compression")
 
     # Version-specific patches
-    patch("nonthreaded-6.0.4.patch", when="@6.0.4")
     patch("esmumps-ldflags-6.0.4.patch", when="@6.0.4")
     patch("metis-headers-6.0.4.patch", when="@6.0.4")
 

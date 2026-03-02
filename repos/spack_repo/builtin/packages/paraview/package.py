@@ -261,10 +261,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("silo+mpi", when="+visitbridge+mpi")
     depends_on("silo~mpi", when="+visitbridge~mpi")
     depends_on("boost", when="+visitbridge")
-    depends_on("jsoncpp")
-    depends_on("libogg")
-    depends_on("netcdf-c")
-    depends_on("netcdf-c+parallel-netcdf", when="+mpi platform=darwin")
     depends_on("netcdf-c+parallel-netcdf", when="+mpi platform=freebsd")
     depends_on("protobuf@3.4:21", when="@master")
 

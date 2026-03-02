@@ -62,7 +62,6 @@ class QtQuick3d(QtPackage):
         v = str(_v)
         depends_on("qt-base@" + v, when="@" + v)
         depends_on("qt-declarative@" + v, when="@" + v)
-        depends_on("qt-quicktimeline@" + v, when="@" + v)
 
     def cmake_args(self):
         args = super().cmake_args() + [

@@ -64,11 +64,7 @@ class Adios(AutotoolsPackage):
 
     depends_on("autoconf", type="build")
     depends_on("automake", type="build")
-    depends_on("m4", type="build")
-    depends_on("libtool", type="build")
-    depends_on("python", type="build")
 
-    depends_on("mpi", when="+mpi")
     # optional transformations
     depends_on("zlib-api", when="+zlib")
     depends_on("bzip2", when="+bzip2")

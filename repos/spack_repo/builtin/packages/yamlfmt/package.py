@@ -20,7 +20,6 @@ class Yamlfmt(GoPackage):
     version("0.20.0", sha256="de6bc4373ba46c520d936dd4b60395868ec17aba338b9fd849594c1f41b6c057")
 
     depends_on("go@1.22:", type="build", when="@0.21:")
-    depends_on("go@1.21:", type="build")
 
     @property
     def build_args(self):

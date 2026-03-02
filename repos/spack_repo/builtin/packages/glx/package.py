@@ -12,13 +12,9 @@ class Glx(BundlePackage):
 
     homepage = "https://www.khronos.org/registry/OpenGL/index_gl.php"
 
-    version("1.4")
 
     # GLX is only supported on Linux-like platforms
-    conflicts("platform=windows")
-    conflicts("platform=darwin")
 
-    depends_on("libglx")
     provides("gl@4.5")
 
     def setup_dependent_build_environment(

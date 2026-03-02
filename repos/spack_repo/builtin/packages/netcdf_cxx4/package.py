@@ -18,8 +18,6 @@ class NetcdfCxx4(CMakePackage):
 
 
 
-    variant("pic", default=True, description="Produce position-independent code (for shared libs)")
-    variant("doc", default=False, description="Enable doxygen docs")
     variant("tests", default=False, description="Enable CTest-based tests, dashboards.")
 
     # If another cmake-built netcdf-c exists outside of spack  e.g., homebrew's libnetcdf,

@@ -138,33 +138,9 @@ class Qt(Package):
     patch("quote_qt515_foreign_types.patch", when="@5.15 platform=windows")
 
     # https://bugreports.qt.io/browse/QTBUG-90395
-    patch(
-        "https://src.fedoraproject.org/rpms/qt5-qtbase/raw/6ae41be8260f0f5403367eb01f7cd8319779674a/f/qt5-qtbase-gcc11.patch",
-        sha256="9378afd071ad5c0ec8f7aef48421e4b9fab02f24c856bee9c0951143941913c5",
-        working_dir="qtbase",
-        when="@5.14: %gcc@11:",
-    )
-    patch(
-        "https://src.fedoraproject.org/rpms/qt5-qtdeclarative/raw/593481a2541d3218f285dd7b46bdc5f4c76075ab/f/qt5-qtdeclarative-gcc11.patch",
-        sha256="2081e9cb85f6712be9b63c70204efa3da954c07d857283eeae16d1b0409704bd",
-        working_dir="qtdeclarative",
-        when="@5.14: %gcc@11:",
-    )
-    patch(
-        "https://src.fedoraproject.org/rpms/qt5-qtwebsockets/raw/f54f4ce6fa27941e9e6d606103d32056078edc74/f/qt5-qtwebsockets-gcc11.patch",
-        sha256="84b099109d08adf177adf9d3542b6215ec3e42138041d523860dbfdcb59fdaae",
-        working_dir="qtwebsockets",
-        when="@5.14: %gcc@11:",
-    )
     # patch that adds missing `#include <cstdint>` in several files
     # required for gcc 13 (even though the original patch was developed for gcc 10)
     # (see https://gcc.gnu.org/gcc-13/porting_to.html)
-    patch(
-        "https://src.fedoraproject.org/rpms/qt5-qtlocation/raw/b6d99579de9ce5802c592b512a9f644a5e4690b9/f/qtlocation-gcc10.patch",
-        sha256="78c70fbd0c74031c5f0f1f5990e0b4214fc04c5073c67ce1f23863373932ec86",
-        working_dir="qtlocation",
-        when="@5.15.10: %gcc@10:",
-    )
     # https://github.com/microsoft/vcpkg/issues/21055
     patch("qt5-macos12.patch", working_dir="qtbase", when="@5.14: %apple-clang@13:")
     # https://codereview.qt-project.org/c/qt/qtbase/+/503172
@@ -211,13 +187,9 @@ class Qt(Package):
             depends_on("glib", when="@4:")
             depends_on("libmng")
             depends_on("assimp@5.0.0:5", when="@5.5:+opengl")
-            depends_on("sqlite+column_metadata", when="+sql", type=("build", "run"))
-            depends_on("inputproto", when="@:5.8")
-            depends_on("gmake", type="build")
 
     for plat in ["linux", "freebsd"]:
         with when(f"platform={plat} +gui"):
-            depends_on("fontconfig")
             depends_on("libsm")
             depends_on("libx11")
             depends_on("libxcb")

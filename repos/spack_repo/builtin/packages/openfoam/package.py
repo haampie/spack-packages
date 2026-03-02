@@ -351,23 +351,8 @@ class Openfoam(Package):
     variant(
         "source", default=True, description="Install library/application sources and tutorials"
     )
-    variant(
-        "precision",
-        default="dp",
-        description="Precision option",
-        values=("sp", "dp", conditional("spdp", when="@1906:")),
-        multi=False,
-    )
 
-    variant(
-        "plugins",
-        default="none",
-        description="With optional plugins",
-        values=("none", conditional("avalanche", "cfmesh", when="@2512:")),
-        multi=True,
-    )
 
-    depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
 
     depends_on("mpi")

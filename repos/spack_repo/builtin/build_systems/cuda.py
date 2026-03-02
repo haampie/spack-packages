@@ -159,11 +159,7 @@ class CudaPackage(PackageBase):
     depends_on("cuda@12.9:", when="cuda_arch=103f")
     # Compute Capability 101 was renamed to 110 in CUDA 13
     depends_on("cuda@12.8:12.9", when="cuda_arch=101")
-    depends_on("cuda@12.8:12.9", when="cuda_arch=101a")
-    depends_on("cuda@12.9", when="cuda_arch=101f")
     depends_on("cuda@13.0:", when="cuda_arch=110")
-    depends_on("cuda@13.0:", when="cuda_arch=110a")
-    depends_on("cuda@13.0:", when="cuda_arch=110f")
 
     depends_on("cuda@12.8:", when="cuda_arch=120")
     depends_on("cuda@12.8:", when="cuda_arch=120a")
@@ -192,7 +188,6 @@ class CudaPackage(PackageBase):
 
         # maximum supported version
         # NOTE:
-        # in order to not constrain future cuda version to old gcc versions,
         # it has been decided to use an upper bound for the latest version.
         # This implies that the last one in the list has to be updated at
         # each release of a new cuda minor version.
@@ -200,9 +195,6 @@ class CudaPackage(PackageBase):
         conflicts("%gcc@11:", when="+cuda ^cuda@:11.4.0")
         conflicts("%gcc@11.2:", when="+cuda ^cuda@:11.5")
         conflicts("%gcc@12:", when="+cuda ^cuda@:11.8")
-        conflicts("%gcc@13:", when="+cuda ^cuda@:12.3")
-        conflicts("%gcc@14:", when="+cuda ^cuda@:12.6")
-        conflicts("%gcc@15:", when="+cuda ^cuda@:12.9")
         conflicts("%gcc@16:", when="+cuda ^cuda@:13.1")
         conflicts("%gcc@15:", when="+cuda ^cuda@13.1:")
         conflicts("%clang@12:", when="+cuda ^cuda@:11.4.0")

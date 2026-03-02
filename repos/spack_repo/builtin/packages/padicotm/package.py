@@ -68,11 +68,7 @@ class Padicotm(AutotoolsPackage):
     depends_on("cxx", type="build")
     depends_on("pkgconfig", type="build")
     depends_on("autoconf@2.69:", type="build")
-    depends_on("gmake", type="build")
 
-    depends_on("hwloc@2.0.0:", type=("build", "link", "run"))
-    depends_on("zlib")
-    depends_on("lz4")
     depends_on("rdma-core", when="+ibverbs")
     depends_on("pmix", when="+pmix")
     requires("+pukabi", when="+ibverbs", msg="ibverbs rcache requires pukabi")

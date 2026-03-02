@@ -25,9 +25,7 @@ class NetcdfCxx(AutotoolsPackage):
 
     depends_on("netcdf-c")
 
-    variant("netcdf4", default=True, description="Compile with netCDF4 support")
 
-    patch("macos.patch")
 
     def libs(self):
         shared = True

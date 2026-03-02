@@ -239,12 +239,8 @@ class QtBase(QtPackage):
             depends_on("libxcb@1.13:")  # requires xinput
             depends_on("libxrender")
             depends_on("xcb-util-keysyms")
-            depends_on("xcb-util-renderutil")
-            depends_on("xcb-util-wm")
 
-            depends_on("libproxy")
 
-    conflicts("%gcc@:7")
     # The oldest compiler for Qt 6.5 is GCC 9: https://doc.qt.io/qt-6.5/supported-platforms.html
     with when("@6.5:"):
         conflicts("%gcc@:8")

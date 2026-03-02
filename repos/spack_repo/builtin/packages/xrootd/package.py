@@ -113,17 +113,9 @@ class Xrootd(CMakePackage):
     depends_on("curl")
     depends_on("krb5", when="+krb5")
     depends_on("json-c")
-    depends_on("scitokens-cpp", when="+scitokens-cpp")
-    depends_on("libxcrypt", type="link")
 
-    extends("python", when="+python")
 
     # https://github.com/xrootd/xrootd/pull/1805
-    patch(
-        "https://github.com/xrootd/xrootd/commit/c267103e3093d9fc1370d56eed7481dbc10eba7d.patch?full_index=1",
-        sha256="2655e2d609d80bf9c9ab58557f4f6940408a1af9c686e7aa214ac0348c89c8fa",
-        when="@5.5.1",
-    )
     # https://github.com/xrootd/xrootd/pull/1930
     patch(
         "https://github.com/xrootd/xrootd/commit/984efbc72bdad86b43923569f4dfa707b7a287a2.patch?full_index=1",

@@ -82,25 +82,13 @@ class OpenpmdApi(CMakePackage):
             depends_on("python@3.8:", when="@0.15.2:")
             depends_on("python@3.10:", when="@0.17.0:")
 
-    conflicts("^hdf5 api=v16", msg="openPMD-api requires HDF5 APIs for 1.8+")
 
     # Fix breaking HDF5 1.12.0 API when build with legacy api options
     # https://github.com/openPMD/openPMD-api/pull/1012
-    patch("hdf5-1.12.0.patch", when="@:0.13 +hdf5")
 
     # CMake: Fix Python Install Directory
-    patch(
-        "https://github.com/openPMD/openPMD-api/commit/31e3c42eb6687269adfb0e63c35269db328ea6ec.patch?full_index=1",
-        sha256="e8b57bcdc965643f46280408244f4d574bff09d0c19c863f42395a7203a89385",
-        when="@0.15.0",
-    )
 
     # macOS AppleClang12 Fixes
-    patch(
-        "https://github.com/openPMD/openPMD-api/commit/c9b0f70294ef8d9ac89018c9b439815be9e77b96.patch?full_index=1",
-        sha256="83714efc90fe6d4f909bdde1b0578a43e6a013a5db6b10e87466665122fd6b21",
-        when="@0.15.0",
-    )
 
     # forgot to bump version.hpp in 0.15.1
     patch(

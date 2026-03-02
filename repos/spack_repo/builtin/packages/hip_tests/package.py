@@ -43,11 +43,7 @@ class HipTests(CMakePackage):
     version("6.2.1", sha256="90fcf0169889533b882d289f9cb8a7baf9bd46a3ce36752b915083931dc839f1")
     version("6.2.0", sha256="314837dbac78be71844ceb959476470c484fdcd4fb622ff8de9277783e0fcf1c")
     version("6.1.2", sha256="5b14e4a30d8d8fb56c43e262009646ba9188eac1c8ff882d9a606a4bec69b56b")
-    version("6.1.1", sha256="10c96ee72adf4580056292ab17cfd858a2fd7bc07abeb41c6780bd147b47f7af")
-    version("6.1.0", sha256="cf3a6a7c43116032d933cc3bc88bfc4b17a4ee1513c978e751755ca11a5ed381")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
     depends_on("cmake", type="run")
 
     for ver in [

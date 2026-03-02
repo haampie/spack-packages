@@ -35,7 +35,6 @@ class MakefilePackage(PackageBase):
 
     with when("build_system=makefile"):
         conflicts("platform=windows")
-        depends_on("gmake", type="build")
 
 
 @register_builder("makefile")
@@ -93,7 +92,6 @@ class MakefileBuilder(BuilderWithDefaults):
     #: Callback names for install-time test
     install_time_test_callbacks = ["installcheck"]
 
-    run_after("build")(execute_build_time_tests)
 
     run_after("install")(execute_install_time_tests)
 

@@ -344,17 +344,10 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     #   on XCode 12.5
     conflicts("+bootstrap", when="@:11.1 %apple-clang@12.0.5")
 
-    requires(
-        "@11.3:",
-        when="target=aarch64: platform=darwin",
-        msg="Only GCC 11.3+ support aarch64-darwin",
-    )
 
     # GCC 11 requires GCC 4.8 or later (https://gcc.gnu.org/gcc-11/changes.html)
-    conflicts("%gcc@:4.7", when="@11:")
 
     # https://github.com/iains/gcc-12-branch/issues/6
-    conflicts("@:12", when="%apple-clang@14:14.0")
 
     # Applies
     # https://github.com/gcc-mirror/gcc/commit/ea2798892de373b14f9fc7ae8a0d820eaddca98c,
@@ -365,11 +358,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # has been backported. The patch is not applied to GCC 11 since the "fixinclude"
     # is in fact needed for that version (see GCC commit description). Older versions
     # have not been checked or tested.
-    patch(
-        "https://github.com/gcc-mirror/gcc/commit/ea2798892de373b14f9fc7ae8a0d820eaddca98c.patch?full_index=1",
-        sha256="0999dbf856725566373f25a6f192a3520ea036db8e1f31928aae9750e6e38be7",
-        when="@15:15.2",
-    )
     patch("fixincludes-gcc-13-14.patch", when="@13:14")
     patch("fixincludes-gcc-12.4.patch", when="@12.4:12")
     patch("fixincludes-gcc-12.1.patch", when="@12:12.3")

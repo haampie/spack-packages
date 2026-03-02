@@ -1,7 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-import os
 import stat
 import subprocess
 from typing import Callable, List, Optional, Set, Tuple, Union
@@ -14,10 +10,6 @@ from spack.package import (
     ModuleChangePropagator,
     PackageBase,
     Prefix,
-    run_after,
-    run_before,
-    safe_remove,
-    tty,
     when,
     working_dir,
 )

@@ -151,11 +151,9 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         provides("golang@:1.8.1", when="@7:")
     # have been removed from GCC as of GCC 7.
     # See https://gcc.gnu.org/gcc-7/changes.html
-    conflicts("languages=java", when="@7:")
 
     # GCC 5 added the ability to build GCC as a Just-In-Time compiler.
     # See https://gcc.gnu.org/gcc-5/changes.html
-    conflicts("languages=jit", when="@:4")
 
     with when("languages=d"):
         # Support for the D programming language has been added to GCC 9.

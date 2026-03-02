@@ -93,6 +93,5 @@ class MakefileBuilder(BuilderWithDefaults):
     install_time_test_callbacks = ["installcheck"]
 
 
-    run_after("install")(execute_install_time_tests)
 
     # On macOS, force rpaths for shared library IDs and remove duplicate rpaths

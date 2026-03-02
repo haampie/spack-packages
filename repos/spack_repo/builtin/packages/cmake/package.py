@@ -68,17 +68,9 @@ class Cmake(Package):
         with when(f"platform={plat}"):
             depends_on("libmng build_system=autotools", when="+qtgui")
     # See https://gitlab.kitware.com/cmake/cmake/-/issues/21135
-    conflicts(
-        "platform=darwin %gcc",
-        when="@:3.17",
-        msg="CMake <3.18 does not compile with GCC on macOS, "
-        "please use %apple-clang or a newer CMake release. "
-        "See: https://gitlab.kitware.com/cmake/cmake/-/issues/21135",
-    )
 
     # Vendored dependencies do not build with nvhpc; it's also more
     # transparent to patch Spack's versions of CMake's dependencies.
-    conflicts("+ownlibs %nvhpc")
 
     # Use Spack's curl even if +ownlibs, since that allows us to make use of
     # the conflicts on the curl package for TLS libs like OpenSSL.
@@ -123,8 +115,6 @@ class Cmake(Package):
     )
 
     # https://gitlab.kitware.com/cmake/cmake/issues/18166
-    conflicts("%intel", when="@3.11.0:3.11.4")
-    conflicts("%intel@:14", when="@3.14:", msg="Intel 14 has immature C++11 support")
 
 
 

@@ -60,70 +60,6 @@ __all__ = [
 ]
 
 
-def foam_add_lib(*args):
-    """A string with args prepended to 'LD_LIBRARY_PATH'"""
-    return '"' + ":".join(args) + ':${LD_LIBRARY_PATH}"'
-
-
-def pkglib(package, pre=None):
-    """Get lib64 or lib from package prefix.
-
-    Optional parameter 'pre' to provide alternative prefix
-    """
-    libdir = package.prefix.lib64
-    if not os.path.isdir(libdir):
-        libdir = package.prefix.lib
-    if pre:
-        return join_path(pre, os.path.basename(libdir))
-    else:
-        return libdir
-
-
-def mplib_content(spec, pre=None):
-    """The mpi settings (from spack) for the OpenFOAM wmake includes, which
-    allows later reuse within OpenFOAM.
-
-    Optional parameter 'pre' to provide alternative prefix for
-    bin and lib directories.
-    """
-    mpi_spec = spec["mpi"]
-    bin = mpi_spec.prefix.bin
-    inc = mpi_spec.headers.directories[0]  # Currently only need first one
-    lib = pkglib(mpi_spec)
-
-    libname = "mpi"
-    if "mpich" in mpi_spec.name:
-        libname = "mpich"
-
-    if pre:
-        bin = join_path(pre, os.path.basename(bin))
-        inc = join_path(pre, os.path.basename(inc))
-        lib = join_path(pre, os.path.basename(lib))
-    else:
-        pre = mpi_spec.prefix
-
-    info = {
-        "name": "{0}-{1}".format(mpi_spec.name, mpi_spec.version),
-        "prefix": pre,
-        "include": inc,
-        "bindir": bin,
-        "libdir": lib,
-        "FLAGS": "-DOMPI_SKIP_MPICXX -DMPICH_SKIP_MPICXX",
-        "PINC": "-I{0}".format(inc),
-        "PLIBS": "-L{0} -l{1}".format(lib, libname),
-    }
-    return info
-
-
-def submodules(package):
-    submodules = []
-    if package is not None and package.spec.satisfies("plugins=avalanche"):
-        submodules.append("plugins/avalanche")
-    if package is not None and package.spec.satisfies("plugins=cfmesh"):
-        submodules.append("plugins/cfmesh")
-    return submodules
-
-
 # -----------------------------------------------------------------------------
 
 
@@ -194,18 +130,6 @@ class Openfoam(Package):
     #
     # - End of definitions / setup -
     #
-
-    def url_for_version(self, version):
-        """Handles locations for patched and unpatched versions.
-        Patched version (eg '1906_191103') are located in the
-        corresponding unpatched directories (eg '1906').
-        Older versions (eg, v1612+) had additional '+' in naming
-        """
-        if version <= Version("1612"):
-            fmt = "v{0}+/OpenFOAM-v{1}+.tgz"
-        else:
-            fmt = "v{0}/OpenFOAM-v{1}.tgz"
-        return self.list_url + fmt.format(version.up_to(1), version)
 
     # Executables like decomposePar require interface libraries for optional dependencies, but if
     # the dependency is missing, an dummy library is used and put in lib/dummy. Allow this until

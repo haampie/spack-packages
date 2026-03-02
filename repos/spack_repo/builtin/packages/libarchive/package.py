@@ -43,7 +43,6 @@ class Libarchive(AutotoolsPackage):
         values=any_combination_of("bsdtar", "bsdcpio", "bsdcat"),
         description="What executables to build",
     )
-    variant("iconv", default=True, description="Support iconv")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

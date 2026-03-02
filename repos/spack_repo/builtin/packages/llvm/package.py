@@ -265,16 +265,12 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     depends_on("pkgconfig", type="build")
 
     # Universal dependency
-
-
     # openmp dependencies
     depends_on("hwloc@2.0.1:", when="@13")
     with when("@:15"):
         depends_on("elf", when="+cuda")
         depends_on("elf", when="+libomptarget")
-    depends_on("libffi", when="+libomptarget")
 
-    # llvm-config --system-libs libraries.
     depends_on("zlib-api")
 
     # needs zstd cmake config file, which is not added when built with makefile.

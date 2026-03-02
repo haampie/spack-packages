@@ -81,10 +81,6 @@ class Silo(autotools.AutotoolsPackage, cmake.CMakePackage):
     # by relying upon mkinc generated files committed to repo
     depends_on("perl", type="build")
     depends_on("hdf5@1.8:1.10", when="@:4.10+hdf5")
-    depends_on("hdf5@1.12:", when="@4.11:+hdf5")
-    depends_on("qt +gui~framework@4.8:4.9", when="+silex")
-    depends_on("qt-base@6: +gui +widgets", when="@4.12.0: +silex")
-    depends_on("qt@5.0:5", when="@:4.11.1 +silex")
     depends_on("libx11", when="+silex")
     # Xmu dependency is required on Ubuntu 18-20
     depends_on("libxmu", when="+silex")

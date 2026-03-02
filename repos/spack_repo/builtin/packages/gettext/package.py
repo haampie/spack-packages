@@ -69,7 +69,6 @@ class Gettext(AutotoolsPackage, GNUMirrorPackage):
     # https://savannah.gnu.org/bugs/?65811
     conflicts("%gcc@:5", when="@0.22:")
 
-    patch("test-verify-parallel-make-check.patch", when="@:0.19.8.1")
     patch("nvhpc-builtin.patch", when="@:0.21.0 %nvhpc")
     patch("nvhpc-export-symbols.patch", when="%nvhpc")
     patch("nvhpc-long-width.patch", when="%nvhpc")

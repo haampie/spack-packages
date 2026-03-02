@@ -64,9 +64,6 @@ class Hip(CMakePackage):
         depends_on("libx11", when="+asan")
         depends_on("xproto", when="+asan")
         # hipcc likes to add `-lnuma` by default :(
-        # ref https://github.com/ROCm/HIP/pull/2202
-        depends_on("numactl")
-
         for ver in [
             "5.7.0",
             "5.7.1",

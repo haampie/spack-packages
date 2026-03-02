@@ -26,10 +26,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     tags = ["e4s"]
 
     version("master", branch="master")
-    version("1.9.0", sha256="2a8dca78172fbb15eae5a5e9facf26ab021c845f9c09e61b1912e6cf9e72915a")
-    version("1.4.0", sha256="241a1c47fafba751848fac12446e7bf4ad3d342d5eb2fa1ef94dd904acc329ed")
-    version("1.3.0", sha256="cd34da674064c4cc4a331402edbd65c5a1f8058fb46003314ca18fa08423c5ad")
-    version("1.2.1", sha256="8cba9b48e919035176d3b7bbfc2c110df6f07803256626f1dad8d9dde16ab77a")
     version("1.2.0", sha256="20942314bd90064d9775f63b0e58a8ea146af5260a4c84d0854f9f968077c170")
     version("1.1.0", sha256="1f28bbe58d8f0da600d60c3a74a644d75ac777b20a018a5c1c6030a470e8a1c9")
 
@@ -123,7 +119,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
         depends_on("cmake@3.18.0:", type="build")
         depends_on("boost@1.71.0:")
         depends_on("asio@1.12.0:")
-        conflicts("%gcc@:6")
         conflicts("%clang@:6")
 
     # Restrictions for 1.6.X

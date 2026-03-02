@@ -380,15 +380,12 @@ class Openfoam(Package):
 
     # 1706 ok with newer paraview but avoid pv-5.2, pv-5.3 readers
     depends_on("paraview@5.4:", when="@1706:+paraview")
-    # 1612 plugins need older paraview
-
     # Icx only support from v2106 onwards
 
     # General patches
     common = ["spack-Allwmake", "README-spack"]
     assets = []  # type: List[str]
 
-    # Version-specific patches
     # kahip patch (wmake)
     # Fix: missing std::array include (searchable sphere)
 

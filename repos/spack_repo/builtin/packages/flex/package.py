@@ -43,21 +43,14 @@ class Flex(AutotoolsPackage):
     depends_on("gettext@0.19:", type="build", when="+nls")
     depends_on("gettext@0.19:", type="build", when="@:2.6.0,2.6.4")
     depends_on("help2man", type="build", when="@:2.6.0,2.6.4")
-    depends_on("findutils", type="build")
 
     # Older tarballs don't come with a configure script and the patch for
     # 2.6.4 touches configure
-    depends_on("libtool", type="build", when="@:2.6.0,2.6.4")
 
     # 2.6.4 fails to compile with newer versions of gcc/glibc, see:
     # - https://github.com/spack/spack/issues/8152
     # - https://github.com/spack/spack/issues/6942
     # - https://github.com/westes/flex/issues/241
-    patch(
-        "https://github.com/westes/flex/commit/24fd0551333e7eded87b64dd36062da3df2f6380.patch?full_index=1",
-        sha256="f8b85a00849bfb58c9b68e177b369f1e060ed8758253ff8daa57a873eae7b7a5",
-        when="@2.6.4",
-    )
 
     def flag_handler(self, name, flags):
         spec = self.spec

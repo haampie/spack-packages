@@ -352,7 +352,6 @@ supported, and netmod is ignored if device is ch3:sock.""",
 
     @classmethod
     def determine_version(cls, exe):
-        output = Executable(exe)(output=str, error=str)
         match = re.search(r"MPICH Version:\s+(\S+)", output)
         return match.group(1) if match else None
 

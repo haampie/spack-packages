@@ -112,17 +112,13 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
 
     # ifx does not support submodules in separate files
     conflicts("%oneapi@:2022.1.0", when="+fortran")
-
     # https://github.com/ornladios/ADIOS2/issues/4620
     conflicts("^cuda@13:", when="+cuda")
 
 
-
     depends_on("yaml-cpp")
-
     # Standalone CUDA support
     depends_on("cuda", when="+cuda ~kokkos")
-
     # Kokkos support
     with when("+kokkos"):
         depends_on("kokkos@3.7:")

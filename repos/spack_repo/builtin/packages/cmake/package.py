@@ -100,31 +100,15 @@ class Cmake(Package):
 
     # Fix linker error when using external libs on darwin.
     # See https://gitlab.kitware.com/cmake/cmake/merge_requests/2873
-    patch("cmake-macos-add-coreservices.patch", when="@3.11.0:3.13.3")
 
     # Fix builds with XLF + Ninja generator
     # https://gitlab.kitware.com/cmake/cmake/merge_requests/4075
-    patch(
-        "fix-xlf-ninja-mr-4075.patch",
-        sha256="42d8b2163a2f37a745800ec13a96c08a3a20d5e67af51031e51f63313d0dedd1",
-        when="@3.15.5",
-    )
 
     # Statically linked binaries error on install when CMAKE_INSTALL_RPATH is set
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/9623
-    patch("mr-9623.patch", when="@3.22.0:3.30")
 
-    patch(
-        f"{github}/commit/1b0c92a3a1b782ff3e1c4499b6ab8db614d45bcd.patch?full_index=1",
-        sha256="fdea723be9713f3ed4624055bf21ef5876647d63c151b91006608ec44a912ae1",
-        when="@3.11:3.31.6",
-    )
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("ninja", when="platform=windows")
-    depends_on("gmake", type=("build", "run"), when="platform=linux")
     depends_on("gmake", type=("build", "run"), when="platform=darwin")
     depends_on("gmake", type=("build", "run"), when="platform=freebsd")
 

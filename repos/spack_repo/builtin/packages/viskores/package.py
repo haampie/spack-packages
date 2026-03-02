@@ -108,7 +108,6 @@ class Viskores(CMakePackage, CudaPackage, ROCmPackage):
     conflicts("+cuda", when="cuda_arch=none", msg="viskores +cuda requires that cuda_arch be set")
 
     def cmake_args(self):
-        spec = self.spec
         options = []
         gpu_name_table = {
             "30": "kepler",

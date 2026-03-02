@@ -167,10 +167,6 @@ class Qt(Package):
             depends_on("libxcb")
             depends_on("libxkbcommon")
             depends_on("xcb-util-image")
-            depends_on("xcb-util-keysyms")
-
-    for plat in ["linux", "freebsd", "windows"]:
-        with when(f"platform={plat}"):
             conflicts("+framework", msg="QT cannot be built as a framework except on macOS.")
 
     with when("platform=windows +sql"):

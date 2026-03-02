@@ -18,13 +18,8 @@ class Hdf(AutotoolsPackage):
     url = "https://support.hdfgroup.org/ftp/HDF/releases/HDF4.2.14/src/hdf-4.2.14.tar.gz"
     list_url = "https://support.hdfgroup.org/ftp/HDF/releases/"
     list_depth = 2
-    maintainers("lrknox")
 
 
-    variant("szip", default=False, description="Enable szip support")
-    variant(
-        "external-xdr", default=sys.platform != "darwin", description="Use an external XDR backend"
-    )
     variant("netcdf", default=False, description="Build NetCDF API (version 2.3.2)")
     variant("fortran", default=False, description="Enable Fortran interface")
     variant("java", default=False, description="Enable Java JNI interface")

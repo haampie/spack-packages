@@ -30,17 +30,13 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
     provides("c", "cxx", when="languages=c,c++")
     provides("c", when="languages=c")
-    provides("cxx", when="languages=c++")
-    provides("fortran", when="languages=fortran")
 
-    version("master", branch="master")
 
     # Latest stable
 
     # Previous stable series releases
 
     # Final releases of previous versions
-    version("13.4.0", sha256="9c4ce6dbb040568fdc545588ac03c5cbc95a8dbf0c7aa490170843afb59ca8f5")
     version("12.5.0", sha256="71cd373d0f04615e66c5b5b14d49c1a4c1a08efa7b30625cd240b11bab4062b3")
     version("8.5.0", sha256="d308841a511bb830a6100397b0042db24ce11f642dab6ea6ee44842e5325ed50")
     version("7.5.0", sha256="b81946e7f01f90528a1f7352ab08cc602b9ccc05d4e44da4bd501c5a189ee661")
@@ -233,7 +229,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         provides("golang@:1.6.1", when="@6:")
         provides("golang@:1.8.1", when="@7:")
         provides("golang@:1.10.1", when="@8:")
-        provides("golang@:1.12.2", when="@9:")
         provides("golang@:1.14.6", when="@10:")
         provides("golang@1.16.3:1.16.5", when="@11:")
 

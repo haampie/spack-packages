@@ -24,11 +24,6 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
 
 
 
-    version("main", branch="main")
-    version("4.9.3", sha256="990f46d49525d6ab5dc4249f8684c6deeaf54de6fec63a187e9fb382cc0ffdff")
-    version("4.9.2", sha256="bc104d101278c68b303359b3dc4192f81592ae8640f1aee486921138f7f88cb7")
-    version("4.9.0", sha256="9f4cb864f3ab54adb75409984c6202323d2fc66c003e5308f3cdf224ed41c0a6")
-    version("4.8.1", sha256="bc018cc30d5da402622bf76462480664c6668b55eb16ba205a0dfb8647161dd0")
     version("4.8.0", sha256="aff58f02b1c3e91dc68f989746f652fe51ff39e6270764e484920cb8db5ad092")
     version("4.7.4", sha256="99930ad7b3c4c1a8e8831fb061cb02b2170fc8e5ccaeda733bd99c3b9d31666b")
     version("4.7.3", sha256="05d064a2d55147b83feff3747bea13deb77bef390cb562df4f9f9f1ce147840d")
@@ -45,20 +40,16 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
     version("4.4.1", sha256="17599385fd76ccdced368f448f654de2ed000fece44dece9fb5d598798b4c9d6")
     version("4.4.0", sha256="09b78b152d3fd373bee4b5738dc05c7b2f5315fe34aa2d94ee9256661119112f")
     version("4.3.3.1", sha256="f2ee78eb310637c007f001e7c18e2d773d23f3455242bde89647137b7344c2e2")
-    version("4.3.3", sha256="3f16e21bc3dfeb3973252b9addf5defb48994f84fc9c9356081f871526a680e7")
 
     with when("build_system=cmake"):
         # TODO: document why we need to revert https://github.com/Unidata/netcdf-c/pull/1731
         #  with the following patch:
-        patch("4.8.1-win-hdf5-with-zlib.patch", when="@4.8.1:4.9.2 platform=windows")
 
         # TODO: https://github.com/Unidata/netcdf-c/pull/2595 contains some of the changes
         # made in this patch but is not sufficent to replace the patch. There is currently
         # no upstream PR (or set of PRs) covering all changes in this path.
         # When #2595 lands, this patch should be updated to include only
         # the changes not incorporated into that PR
-        patch("netcdfc_correct_and_export_link_interface.patch", when="@:4.8")
-        patch("netcdfc_4.9_correct_and_export_link_interface.patch", when="@4.9:4.9.2")
 
         # Building netcdf-c w/ hdf5+mpi causes CMake's FindMPI to inject a path to the current
         # netcdf-c source directory into its targets interface properties causing CMake configure

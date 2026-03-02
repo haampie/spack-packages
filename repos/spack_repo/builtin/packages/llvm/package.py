@@ -53,7 +53,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
 
     # Latest stable
-    version("21.1.5", sha256="297b35033b84da7c1214b05f901e154c1d7febe8fe51ecdbf27b0d0f9531902f")
     version("21.1.4", sha256="3a0921d78be74302cb054da1dad59e706814d8fed3a6ac9b532e935825a0715c")
     version("21.1.3", sha256="5bc91fe86bafebc64189465faca1ff35626dcb1b8539a14ae2ec07834c3e8e95")
     version("21.1.2", sha256="eced3dd78186621f4df8a1accbcd1ecf2ee399571e62d052c21e9bf363af2166")
@@ -286,14 +285,10 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
     # Universal dependency
     depends_on("python@3.8:", when="@20: +python")
-    depends_on("python", when="+python")
 
     # clang and clang-tools dependencies
-    depends_on("z3@4.7.1:", when="+z3")
 
     # openmp dependencies
-    depends_on("perl-data-dumper", type=("build"))
-    depends_on("hwloc")
     depends_on("hwloc@2.0.1:", when="@13")
     with when("@:15"):
         depends_on("elf", when="+cuda")
@@ -393,9 +388,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     conflicts("cuda_arch=10")
     conflicts("cuda_arch=11")
     conflicts("cuda_arch=12")
-    conflicts("cuda_arch=13")
-    conflicts("cuda_arch=75", when="@:13")
-    conflicts("cuda_arch=80", when="@:13")
     conflicts("cuda_arch=86", when="@:13")
     conflicts("cuda_arch=87", when="@:15")
     conflicts("cuda_arch=89", when="@:15")

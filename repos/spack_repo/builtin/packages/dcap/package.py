@@ -33,7 +33,6 @@ class Dcap(AutotoolsPackage):
 
     depends_on("cunit", type="test")
 
-    variant("plugins", default=True, description="Build plugins")
 
     def patch(self):
         if self.spec.satisfies("~plugins"):

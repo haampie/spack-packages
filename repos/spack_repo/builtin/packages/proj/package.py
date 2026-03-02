@@ -53,10 +53,6 @@ class Proj(CMakePackage, AutotoolsPackage):
     version("6.1.0", sha256="676165c54319d2f03da4349cbd7344eb430b225fe867a90191d848dc64788008")
     version("6.0.0", sha256="4510a2c1c8f9056374708a867c51b1192e8d6f9a5198dd320bf6a168e44a3657")
     version("5.2.0", sha256="ef919499ffbc62a4aae2659a55e2b25ff09cccbbe230656ba71c6224056c7e60")
-    version("5.1.0", sha256="6b1379a53317d9b5b8c723c1dc7bf2e3a8eb22ceb46b8807a1ce48ef65685bb3")
-    version("5.0.1", sha256="a792f78897482ed2c4e2af4e8a1a02e294c64e32b591a635c5294cb9d49fdc8c")
-    version("4.9.2", sha256="60bf9ad1ed1c18158e652dfff97865ba6fb2b67f1511bc8dceae4b3c7e657796")
-    version("4.9.1", sha256="fca0388f3f8bc5a1a803d2f6ff30017532367992b30cf144f2d39be88f36c319")
 
     variant("tiff", default=True, when="@7:", description="Enable TIFF support")
     variant("curl", default=True, when="@7:", description="Enable curl support")

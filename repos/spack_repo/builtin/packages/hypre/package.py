@@ -187,18 +187,12 @@ class Hypre(CMakePackage, AutotoolsPackage, CudaPackage, ROCmPackage):
     depends_on("superlu-dist", when="+superlu-dist+mpi")
     depends_on("caliper", when="+caliper")
     conflicts("+gptune", when="~mpi")
-    conflicts(
-        "+lapack", when="+int64", msg="64-bit integers + external lapack work only with +mixedint"
-    )
 
     # Patch to build shared libraries on Darwin does not apply to
     # versions before 2.13.0
-    conflicts("+shared@:2.12 platform=darwin")
 
     # GPU-related dependencies and conflicts
     gpu_pkgs = ["magma", "umpire", "superlu-dist"]
-    conflicts("+unified-memory", when="~cuda~rocm~sycl")
-    conflicts("+gpu-profiling", when="~cuda~rocm~sycl")
     conflicts("+gpu-aware-mpi", when="~cuda~rocm~sycl")
     with when("+cuda"):
 

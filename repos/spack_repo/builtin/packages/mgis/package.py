@@ -68,16 +68,8 @@ class Mgis(CMakePackage):
         )
         version("1.2.2", sha256="dc24e85cc90ec656ed707eef3d511317ad800915014d9e4e9cf8818b406586d5")
         version("1.2.1", sha256="a2d7cae3a24546adcf1d1bf7f13f012170d359370f5b6b2c1730b19eb507601d")
-        version("1.2.0", sha256="ed82ab91cbe17c00ef36578dbfcb4d1817d4c956619b7cccbea3e3f1a3b31940")
-        version("1.1.0", sha256="06593d7a052678deaee87ef60b2213db7545c5be9823f261d3388b3978a0b7a5")
-        version(
-            "1.0.0",
-            sha256="279c98da00fa6855edf29c2b8f8bad6e7732298dc62ef67d028d6bbeaac043b3",
-            url="https://github.com/thelfer/MFrontGenericInterfaceSupport/archive/MFrontGenericInterfaceSupport-1.0.tar.gz",
-        )
 
     # variants
-    variant("c", default=True, description="Enables c bindings")
     variant("fortran", default=True, description="Enables fortran bindings")
     variant("python", default=True, description="Enables python bindings")
     variant("static", default=False, description="Enables static libraries")

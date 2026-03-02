@@ -17,10 +17,6 @@ class AsdfCxx(CMakePackage):
 
     license("MIT")
 
-    version("7.2.1", sha256="40864f4f27d3ce8acb5169b57211ce6ac3805f0a6de9c1dfd5f994f4a5beccda")
-    version("7.2.0", sha256="faded85d44288afb83f13634d2139adee07e06f7ea60960c6f2ef8d898c0aa09")
-    version("7.1.0", sha256="81fd8c7f91f8daf0f85a1486480ae9e736b9712e82ccb858271f7ee2c2b425f7")
-    version("7.0.0", sha256="a50718dfa68b86b0c3e280e6a9d0a4edb03d500ba70244bd38fa86bac1433979")
     version("6.3.0", sha256="44a24cc490cf776106edcfded6006d63d28889dfe985cce3bd565d5151add9c8")
     version("6.0.0", sha256="76ab0a893191a33a88a753d09a20135470f809c66173794fa3e37a2437ea3cde")
     version("5.0.0", sha256="876c83bcc7514f2584dbf5462bd5b7de89b41301ec127451342079e703cd6a67")

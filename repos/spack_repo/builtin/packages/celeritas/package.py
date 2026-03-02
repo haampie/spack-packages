@@ -54,10 +54,6 @@ class Celeritas(CMakePackage, CudaPackage, ROCmPackage):
     variant("hepmc3", default=True, description="Use HepMC3 I/O interfaces")
     variant("openmp", default=False, description="Use OpenMP multithreading")
     variant("perfetto", default=False, when="@0.5:", description="Use Perfetto profiling")
-    variant("root", default=False, description="Use ROOT I/O")
-    variant("shared", default=True, description="Build shared libraries")
-    variant("swig", default=False, when="@:0.4", description="Generate SWIG Python bindings")
-    variant("vecgeom", default=True, description="Use VecGeom geometry")
 
     depends_on("cxx", type="build")
 

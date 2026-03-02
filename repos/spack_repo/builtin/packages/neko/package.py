@@ -57,10 +57,6 @@ class Neko(AutotoolsPackage, CudaPackage, ROCmPackage):
     depends_on("mpi")
     depends_on("blas")
     depends_on("lapack")
-    depends_on("json-fortran")
-    depends_on("gslib", when="+gslib")
-    depends_on("hdf5+fortran+mpi", when="+hdf5")
-    depends_on("libtool", type="build", when="@0.9.0:")
 
     def configure_args(self):
         args = []

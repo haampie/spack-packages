@@ -15,12 +15,8 @@ class PerlCatalystDevel(PerlPackage):
 
     maintainers("EbiArnie")
 
-    license("Artistic-1.0-Perl OR GPL-1.0-or-later")
 
-    version("1.42", sha256="7ec6f0b6cab5b8c097e47769fc73a4d4c015a58c41fdb40fc24df3ee77c48abd")
 
-    depends_on("perl-catalyst-action-renderview@0.10:", type=("build", "run", "test"))
-    depends_on("perl-catalyst-plugin-configloader@0.30:", type=("build", "run", "test"))
     depends_on("perl-catalyst-plugin-static-simple@0.28:", type=("build", "run", "test"))
     depends_on("perl-catalyst-runtime", type=("build", "run", "test"))
     depends_on("perl-config-general@2.42:", type=("build", "run", "test"))

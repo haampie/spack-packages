@@ -95,15 +95,11 @@ class Berkeleygw(MakefilePackage):
     depends_on("python", type=("build", "run"), when="+python")
     depends_on("py-numpy", type=("build", "run"), when="+python")
     depends_on("py-setuptools", type=("build", "run"), when="+python")
-    depends_on("py-h5py", type=("build", "run"), when="+hdf5+python")
 
-    depends_on("perl", type="test")
 
-    conflicts("+elpa", when="~mpi", msg="elpa is a parallel library and needs MPI support")
 
     # Force openmp propagation on some providers of blas / fftw-api
     with when("+openmp"):
-        depends_on("openblas threads=openmp", when="^[virtuals=blas] openblas")
         depends_on("amdblis threads=openmp", when="^[virtuals=blas] amdblis")
 
     parallel = False

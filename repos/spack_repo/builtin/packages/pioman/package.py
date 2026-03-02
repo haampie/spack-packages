@@ -40,15 +40,6 @@ class Pioman(AutotoolsPackage):
         "2025-03-18", sha256="2d0208809dd17bac4fd7e7f97b22e2240b925d8828b9ab5dc5f435e58ff97010"
     )
     version(
-        "2024-11-21", sha256="76da169bbb9720a13be1f750480e1a7d6510830163878852876932639879d632"
-    )
-    version(
-        "2024-07-12", sha256="ea9bb91b213950a52eb99d787110905d45ed02954ea9133596d690db5be0c31b"
-    )
-    version(
-        "2022-05-31", sha256="afd19809a5a520a477ab596f951bbde3209868ab16febbc246592e8aed20c3ca"
-    )
-    version(
         "2021-05-21", sha256="6a207b032e623b8be0196a42dcaf4311bfe45ede2e044bd47611b6610c04c61e"
     )
 

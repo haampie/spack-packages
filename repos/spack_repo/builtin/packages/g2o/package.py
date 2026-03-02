@@ -34,8 +34,6 @@ class G2o(CMakePackage):
     depends_on("ceres-solver")
     depends_on("freeglut")
     depends_on("suite-sparse")
-    depends_on("qt@5:+gui+opengl")
-    depends_on("libqglviewer")
 
     def cmake_args(self):
         return [

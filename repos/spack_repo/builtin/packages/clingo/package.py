@@ -19,14 +19,10 @@ class Clingo(CMakePackage):
     url = "https://github.com/potassco/clingo/archive/v5.2.2.tar.gz"
     git = "https://github.com/potassco/clingo.git"
     tags = ["windows"]
-    maintainers("tgamblin", "alalazo")
 
-    license("MIT")
 
     # Development version for clingo 6
-    version("develop", branch="wip-20", submodules=True)
 
-    version("master", branch="master", submodules=True)
     version("spack", commit="2a025667090d71b2c9dce60fe924feb6bde8f667", submodules=True)
 
     version("5.8.0", sha256="4ddd5975e79d7a0f8d126039f1b923a371b1a43e0e0687e1537a37d6d6d5cc7c")

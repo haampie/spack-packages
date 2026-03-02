@@ -16,9 +16,7 @@ class G2c(CMakePackage):
     url = "https://github.com/NOAA-EMC/NCEPLIBS-g2c/archive/refs/tags/v1.6.4.tar.gz"
     git = "https://github.com/NOAA-EMC/NCEPLIBS-g2c"
 
-    maintainers("AlexanderRichert-NOAA", "Hang-Lei-NOAA", "edwardhartnett")
 
-    version("develop", branch="develop")
     version("2.3.0", sha256="8520a24c066500cfd0d07a05c6b7b0cb92383d1a4737cf6e79d9f4919c8e79ab")
     version("2.2.0", sha256="cf0ac8f75aed662ccc64f4c44fbe46a70307bc27cbe95417fdfb6caf75245457")
     version("2.1.0", sha256="74e3ef381f0339dc181bc3afaa54c98f76257508375ff664d243d76825006605")

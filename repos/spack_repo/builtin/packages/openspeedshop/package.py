@@ -138,15 +138,9 @@ class Openspeedshop(CMakePackage):
     depends_on(
         "cbtf-krell@develop+openmpi", when="@develop+openmpi", type=("build", "link", "run")
     )
-    depends_on(
-        "cbtf-krell@1.9.3:9999+openmpi", when="@2.4.0:9999+openmpi", type=("build", "link", "run")
-    )
 
-    depends_on("cbtf-argonavis@develop", when="@develop+cuda", type=("build", "link", "run"))
-    depends_on("cbtf-argonavis@1.9.3:9999", when="@2.4.0:9999+cuda", type=("build", "link", "run"))
 
     # For MRNet
-    depends_on("mrnet@5.0.1-3:+lwthreads", when="@develop", type=("build", "link", "run"))
     depends_on("mrnet@5.0.1-3:+lwthreads", when="@2.4.0:9999", type=("build", "link", "run"))
 
     patch("arm.patch", when="target=aarch64:")

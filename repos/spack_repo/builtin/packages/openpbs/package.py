@@ -54,17 +54,13 @@ class Openpbs(AutotoolsPackage):
 
     # The configure script cannot properly handle dependencies in non-system
     # directories.
-    patch("with_lib.patch")
 
     # The package does not really depend on libcrypt but links to it. We
     # eliminate this redundant dependency to avoid linking to a system library.
-    patch("no_crypt.patch")
 
     # Fix installation directories.
-    patch("install.patch")
 
     # Link to the dynamic library of Python instead of the static one.
-    patch("python.patch")
 
     # Provides PBS functionality
     provides("pbs")

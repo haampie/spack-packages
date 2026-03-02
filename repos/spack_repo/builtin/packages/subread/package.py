@@ -30,7 +30,6 @@ class Subread(MakefilePackage):
 
     depends_on("c", type="build")  # generated
 
-    depends_on("zlib-api")
 
     def build(self, spec, prefix):
         plat = sys.platform

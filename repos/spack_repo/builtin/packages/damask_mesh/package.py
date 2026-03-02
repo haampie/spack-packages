@@ -14,7 +14,6 @@ class DamaskMesh(CMakePackage):
     homepage = "https://damask-multiphysics.org"
     url = "https://damask-multiphysics.org/download/damask-3.0.0.tar.xz"
 
-    maintainers("MarDiehl")
 
     license("AGPL-3.0-or-later")
 

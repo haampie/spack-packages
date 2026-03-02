@@ -75,11 +75,8 @@ class Met(AutotoolsPackage):
     depends_on("py-xarray", when="+python", type=("build", "run"))
     depends_on("py-pandas", when="+python", type=("build", "run"))
 
-    patch("openmp_shape_patch.patch", when="@10.1.0")
 
     # https://github.com/JCSDA/spack-stack/issues/615
-    patch("apple-clang-string-cast-operator.patch", when="@10.1.1:11.0 %apple-clang@14:")
-    patch("apple-clang-no-register.patch", when="@10.1.1:11.0 %apple-clang@14:")
 
     # https://github.com/spack/spack-packages/issues/1284
     @when("@11:12.0")

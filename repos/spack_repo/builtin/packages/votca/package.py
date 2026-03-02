@@ -34,13 +34,9 @@ class Votca(CMakePackage):
     variant(
         "new-gmx", default=False, description="Build against gromacs>2019 - no tabulated kernels"
     )
-    variant("xtp", default=True, description="Build xtp parts of votca")
-
-    conflicts("votca-tools")
 
 
-    depends_on("expat")
-    depends_on("fftw-api@3")
+
     depends_on("eigen@3.3:")
     depends_on("boost+filesystem+system+regex+timer")
     depends_on("boost@1.71:")

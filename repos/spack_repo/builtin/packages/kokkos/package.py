@@ -52,49 +52,4 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         "100": "blackwell100",
         "120": "blackwell120",
     }
-    cuda_arches = spack_cuda_arch_map.values()
-    conflicts("+cuda", when="cuda_arch=none")
-    # Kokkos support only one cuda_arch at a time
-    # Since Kokkos supports only one amdgpu_target at a time, the multi-value property is disabled.
-    amdgpu_arch_map = {
-        "gfx900": "vega900",
-        "gfx906": "vega906",
-        "gfx908": "vega908",
-        "gfx90a": "vega90A",
-        "gfx940": "amd_gfx940",
-        "gfx942": "amd_gfx942",
-        "gfx1030": "navi1030",
-        "gfx1100": "navi1100",
-    }
-    amdgpu_apu_arch_map = {"gfx942": "amd_gfx942_apu"}
-    amd_support_conflict_msg = (
-        "{0} is not supported; "
-        "Kokkos supports the following AMD GPU targets: " + ", ".join(amdgpu_arch_map.keys())
-    )
-    amd_apu_support_conflict_msg = (
-        "{0} is not supported; "
-        "Kokkos supports the following AMD GPU targets with unified memory: "
-        + ", ".join(amdgpu_apu_arch_map.keys())
-    )
-    for arch in ROCmPackage.amdgpu_targets:
-        if arch not in amdgpu_arch_map:
-            conflicts(
-                "+rocm", when=f"amdgpu_target={arch}", msg=amd_support_conflict_msg.format(arch)
-            )
-        if arch not in amdgpu_apu_arch_map:
-            conflicts(
-                "+rocm+apu",
-                when=f"amdgpu_target={arch}",
-                msg=amd_apu_support_conflict_msg.format(arch),
-            )
-    intel_gpu_arches = (
-        "intel_gen",
-        "intel_gen9",
-        "intel_gen11",
-        "intel_gen12lp",
-        "intel_dg1",
-        "intel_dg2",
-        "intel_xehp",
-        "intel_pvc",
-    )
     variant("apu", default=False, description="Enable APU support", when="@4.5: +rocm")

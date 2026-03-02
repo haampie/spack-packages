@@ -30,21 +30,6 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     Releases before 2024.0 include icc/icpc"""
     homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html"
     compiler_languages = ["c", "cxx", "fortran"]
-    c_names = ["icx"]
-    cxx_names = ["icpx"]
-    fortran_names = ["ifx"]
-    compiler_version_argument = "--version"
-    compiler_version_regex = (
-        r"(?:(?:oneAPI DPC\+\+(?:\/C\+\+)? Compiler)|(?:\(IFORT\))|(?:\(IFX\))) (\S+)"
-    )
-    debug_flags = ["-debug", "-g", "-g0", "-g1", "-g2", "-g3"]
-    opt_flags = ["-O", "-O0", "-O1", "-O2", "-O3", "-Ofast", "-Os"]
-    openmp_flag = "-fiopenmp"
-    compiler_wrapper_link_paths = {
-        "c": os.path.join("oneapi", "icx"),
-        "cxx": os.path.join("oneapi", "icpx"),
-        "fortran": os.path.join("oneapi", "ifx"),
-    }
     implicit_rpath_libs = [
         "libirc",
         "libifcore",

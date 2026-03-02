@@ -27,7 +27,6 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
     version("3.6.3", sha256="4b4c4943931e811f1073006ce3d8ee022a02b11b501e9cbf4def3613b24a3e63")
     version("3.6.2", sha256="e28ed3aad934de2d1df68be209ac0b454f7b6d3c3d6d01126e5cd2cbadba089a")
 
-    variant("color", default=False, description="Enable experimental colored output", when="@3.4:")
 
     # https://lists.gnu.org/archive/html/bug-bison/2019-08/msg00008.html
     patch("parallel.patch", when="@3.4.2")

@@ -41,19 +41,10 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     # Independent # Code by design.  We're not inherently tied to this approach and can
     # change how we're supporting differnt library types in the package at anytime if
     # spack decides on a standardized way of doing it across packages
-    variant("shared", default=True, when="+pic", description="Build shared libraries")
 
     # Features
-    variant("mpi", default=True, description="Enable MPI")
 
     # Compression libraries
-    variant(
-        "libpressio", default=False, when="@2.8:", description="Enable LibPressio for compression"
-    )
-    variant("blosc", default=True, when="@2.4:2.8", description="Enable Blosc compression")
-    variant("blosc2", default=True, when="@2.9:", description="Enable Blosc2 compression")
-    variant("bzip2", default=True, description="Enable BZip2 compression")
-    variant("zfp", default=True, description="Enable ZFP compression")
     variant("png", default=True, description="Enable PNG compression")
     variant("sz", default=True, description="Enable SZ2 compression")
     variant("sz3", default=True, when="@2.12:", description="Enable SZ3 compression")

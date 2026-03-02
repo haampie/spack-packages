@@ -308,13 +308,9 @@ supported, and netmod is ignored if device is ch3:sock.""",
     depends_on("libxml2", when="@:3.2+hydra+libxml2")
 
     # Starting with version 3.3, MPICH uses hwloc directly.
-    depends_on("libpciaccess", when="@3.3:+pci")
-    depends_on("libxml2", when="@3.3:+libxml2")
 
     # Starting with version 3.3, Hydra can use libslurm for nodelist parsing
-    depends_on("slurm", when="+slurm")
 
-    depends_on("pmix", when="pmi=pmix")
 
     # +argobots variant requires Argobots
     depends_on("argobots", when="+argobots")

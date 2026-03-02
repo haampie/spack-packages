@@ -25,36 +25,8 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
 
     license("Apache-2.0 WITH LLVM-exception")
 
-    version("develop", branch="develop")
 
-    version("5.0.2", sha256="188817bb452ca805ee8701f1c5adbbb4fb83dc8d1c50624566a18a719ba0fa5e")
-    version("5.0.1", sha256="cf7d8515ca993229929be9f051aecd8f93cde325adac8a4f82ed6848adace218")
-    version("5.0.0", sha256="c45f3e19c3eb71fc8b7210cb04cac658015fc1839e7cc0571f7406588ff9bcef")
-    version("4.7.02", sha256="a81826ac0a167933d13506bc2a986fb5517038df9abb780fe9bb2c1d4e80803b")
-    version("4.6.00", sha256="be72cf7fc6ef6b99c614f29b945960013a2aaa23859bfe1a560d8d9aa526ec9c")
-    version("4.5.01", sha256="52d003ffbbe05f30c89966e4009c017efb1662b02b2b73190670d3418719564c")
-    version("4.5.00", sha256="cbfb742feeb9e649db9eca0394e6ca9a22aa017a1e6aab8576990772a0e3135b")
 
-    version(
-        "4.2.00",
-        sha256="ac08765848a0a6ac584a0a46cd12803f66dd2a2c2db99bb17c06ffc589bf5be8",
-        url="https://github.com/kokkos/kokkos/archive/4.2.00.tar.gz",
-    )
-    version(
-        "4.1.00",
-        sha256="cf725ea34ba766fdaf29c884cfe2daacfdc6dc2d6af84042d1c78d0f16866275",
-        url="https://github.com/kokkos/kokkos/archive/4.1.00.tar.gz",
-    )
-    version(
-        "4.0.01",
-        sha256="bb942de8afdd519fd6d5d3974706bfc22b6585a62dd565c12e53bdb82cd154f0",
-        url="https://github.com/kokkos/kokkos/archive/4.0.01.tar.gz",
-    )
-    version(
-        "3.7.02",
-        sha256="5024979f06bc8da2fb696252a66297f3e0e67098595a0cc7345312b3b4aa0f54",
-        url="https://github.com/kokkos/kokkos/archive/3.7.02.tar.gz",
-    )
 
     depends_on("cxx", type="build")  # Kokkos requires a C++ compiler
 

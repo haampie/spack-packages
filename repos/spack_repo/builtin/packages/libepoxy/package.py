@@ -25,12 +25,8 @@ class Libepoxy(AutotoolsPackage, MesonPackage):
     )
 
     version("1.5.10", sha256="a7ced37f4102b745ac86d6a70a9da399cc139ff168ba6b8002b4d8d43c900c15")
-    version("1.4.3", sha256="0b808a06c9685a62fca34b680abb8bc7fb2fda074478e329b063c1f872b826f6")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("pkgconfig", type="build")
-    depends_on("gl")
     depends_on("libx11", when="+glx")
 
     variant("glx", default=True, description="enable GLX support")

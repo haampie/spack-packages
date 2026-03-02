@@ -21,4 +21,3 @@ class Dri3proto(AutotoolsPackage, XorgPackage):
     version("1.0", sha256="e1a0dad3009ecde52c0bf44187df5f95cc9a7cc0e76dfc2f2bbf3e909fe03fa9")
 
     depends_on("pkgconfig", type="build")
-    depends_on("util-macros", type="build")

@@ -58,12 +58,8 @@ class Xtensor(CMakePackage):
     depends_on("xsimd@7.4.9:7", when="@0.23.2 +xsimd")
     depends_on("xsimd@7.2.3:7", when="@0.20.7 +xsimd")
     depends_on("xsimd@4.0.0:4", when="@0.15.1 +xsimd")
-    depends_on("xsimd@3.1.0:3", when="@0.13.1 +xsimd")
-    depends_on("intel-tbb", when="+tbb")
 
     # C++14 support
-    conflicts("%gcc@:4.8")
-    conflicts("%clang@:3.5")
     # untested: conflicts('%intel@:15')
 
     def cmake_args(self):

@@ -326,36 +326,9 @@ class Chapel(AutotoolsPackage, CudaPackage, ROCmPackage):
         when="comm=ofi",
     )
 
-    variant(
-        "libfabric",
-        default="unset",
-        description="Control the libfabric version used for multi-locale communication",
-        values=("bundled", "spack", "unset"),
-        multi=False,
-        when="comm=gasnet comm_substrate=ofi",
-    )
 
-    requires(
-        "^libfabric" + (" fabrics=cxi" if slingshot_network() else ""),
-        when="libfabric=spack",
-        msg="libfabric requires cxi fabric provider on HPE-Cray EX machines",
-    )
 
-    variant(
-        "llvm",
-        default="spack",
-        description="LLVM backend type. The 'spack' value can use an external "
-        "source of LLVM or let spack build a version if no LLVM installs were "
-        "previously detected by 'spack external find'",
-        values=("bundled", "none", "spack"),
-    )
 
-    variant(
-        "python-bindings",
-        description="Also build the Python bindings for Chapel frontend (requires LLVM)",
-        default=False,
-        when="@2.2:",
-    )
 
     variant(
         "re2",
@@ -576,7 +549,6 @@ class Chapel(AutotoolsPackage, CudaPackage, ROCmPackage):
     # TODO: keep up to date with util/chplenv/chpl_llvm.py
     with when("llvm=spack ~rocm"):
         depends_on("llvm@11:17", when="@:2.0.1")
-        depends_on("llvm@11:18", when="@2.1:2.2")
         depends_on("llvm@11:19", when="@2.3:2.4")
         depends_on("llvm@11:20", when="@2.5")
         depends_on("llvm@14:20", when="@2.6:")

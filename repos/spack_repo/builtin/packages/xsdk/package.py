@@ -267,11 +267,7 @@ class Xsdk(BundlePackage, CudaPackage, ROCmPackage):
     )
 
     xsdk_depends_on("py-libensemble@1.4.2+petsc4py", when="@1.1.0 +libensemble")
-    xsdk_depends_on("py-petsc4py@3.22.1", when="@1.1.0 +libensemble")
-    xsdk_depends_on("py-libensemble@1.0.0+petsc4py", when="@1.0.0 +libensemble")
-    xsdk_depends_on("py-petsc4py@3.20.1", when="@1.0.0 +libensemble")
 
-    xsdk_depends_on("precice ~petsc", when="+precice ^cray-mpich")
     xsdk_depends_on("precice@3.1.2", when="@1.1.0 +precice")
     xsdk_depends_on("precice@2.5.0", when="@1.0.0 +precice")
 

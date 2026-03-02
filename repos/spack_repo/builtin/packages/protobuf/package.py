@@ -94,10 +94,6 @@ class Protobuf(CMakePackage):
     version("3.5.0.1", sha256="86be71e61c76575c60839452a4f265449a6ea51570d7983cb929f06ad294b5f5")
     version("3.5.0", sha256="0cc6607e2daa675101e9b7398a436f09167dffb8ca0489b0307ff7260498c13c")
     version("3.4.1", sha256="8e0236242106e680b4f9f576cc44b8cd711e948b20a9fc07769b0a20ceab9cc4")
-    version("3.4.0", sha256="f6600abeee3babfa18591961a0ff21e7db6a6d9ef82418a261ec4fee44ee6d44")
-    version("3.3.0", sha256="9a36bc1265fa83b8e818714c0d4f08b8cec97a1910de0754a321b11e66eb76de")
-    version("3.2.0", sha256="a839d3f1519ff9d68ab908de5a0f269650ef1fc501c10f6eefd4cae51d29b86f")
-    version("3.1.0", sha256="fb2a314f4be897491bb2446697be693d489af645cb0e165a85e7e64e07eb134d")
     version("3.0.2", sha256="a0a265bcc9d4e98c87416e59c33afc37cede9fb277292523739417e449b18c1e")
 
     variant("shared", default=True, description="Enables the build of shared libraries")

@@ -103,10 +103,6 @@ class Glib(MesonPackage):
     depends_on("python@:3.11", type=("build", "run"), when="@:2.78")
     depends_on("pcre2", when="@2.73.2:")
     depends_on("pcre2@10.34:", when="@2.74:")
-    depends_on("pcre+utf", when="@:2.73.1")
-    depends_on("uuid", when="+libmount")
-    depends_on("util-linux", when="+libmount")
-    depends_on("iconv")
     depends_on("elf")  # bin/gresource
 
     # glib prefers the libc version of gettext, which breaks the build if the

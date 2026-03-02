@@ -283,10 +283,6 @@ class Openfoam(Package):
         submodules=submodules,
     )
     version("2506", sha256="63d26f48ae7ee9a7806a0ceb339ef8a0ba485a4714d54fbfb31e78e1a4849965")
-    version("2412", sha256="c353930105c39b75dac7fa7cfbfc346390caa633a868130fd8c9816ef5f732cd")
-    version("2406", sha256="8d1450fb89eec1e7cecc55c3bb7bc486ccbf63d069379d1d5d7518fa16a4686a")
-    version("2312", sha256="f113183a4d027c93939212af8967053c5f8fe76fb62e5848cb11bbcf8e829552")
-    version("2306", sha256="d7fba773658c0f06ad17f90199565f32e9bf502b7bb03077503642064e1f5344")
     version(
         "2212_230612", sha256="604cd731173ec2a3645c838cf2468fae050a35c6340e2ca7c157699899d904c0"
     )

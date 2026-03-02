@@ -27,5 +27,3 @@ class Topaz3dem(PythonPackage):
     depends_on("py-scikit-learn@0.19.0:", type=("build", "run"))
     depends_on("py-scipy@0.17.0:", type=("build", "run"))
     depends_on("py-pillow@6.2.0:", type=("build", "run"))
-    depends_on("py-future", type=("build", "run"))
-    depends_on("py-scikit-image", type=("build", "run"))

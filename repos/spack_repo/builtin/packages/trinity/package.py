@@ -64,10 +64,6 @@ class Trinity(MakefilePackage):
     #  and we have runtime errors without them
     # https://github.com/trinityrnaseq/trinityrnaseq/blob/master/Docker/Dockerfile
     depends_on("r-dexseq", type="run", when="@2.12")
-    depends_on("star", type="run", when="@2.12")
-    depends_on("picard", type="run", when="@2.12")
-    depends_on("subread", type="run", when="@2.12")
-    depends_on("gatk", type="run", when="@2.12")
     depends_on("gmap-gsnap", type="run", when="@2.12")
     depends_on("r-tximport", type="run", when="@2.12")
     depends_on("r-tximportdata", type="run", when="@2.12")

@@ -99,22 +99,9 @@ class Qmcpack(CMakePackage, CudaPackage):
     # by the OpenMP 4.5 code.
 
     # high-level variant conflicts
-    conflicts("~soa", when="@3.10.0:", msg="AoS code path is not available after QMCPACK v3.10.0")
 
-    conflicts(
-        "+phdf5",
-        when="~mpi",
-        msg="Parallel collective I/O requires MPI-enabled QMCPACK. "
-        'Please add "~phdf5" to the Spack install line for serial QMCPACK.',
-    )
 
-    conflicts(
-        "+soa",
-        when="+cuda@:3.4.0",
-        msg="QMCPACK CUDA+SOA variant does not exist prior to v. 3.5.0.",
-    )
 
-    requires("^openblas~ilp64 threads=openmp", when="^[virtuals=blas,lapack] openblas")
     requires("^intel-oneapi-mkl ~ilp64", when="^[virtuals=blas,lapack] intel-oneapi-mkl")
 
     conflicts(

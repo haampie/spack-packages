@@ -17,15 +17,7 @@ class CloverleafRef(MakefilePackage):
     url = "https://github.com/UK-MAC/CloverLeaf_ref/archive/refs/tags/v1.3.tar.gz"
     git = "https://github.com/UK-MAC/CloverLeaf_ref.git"
 
-    maintainers("amd-toolchain-support")
 
-    version("master", branch="master")
-    version(
-        "1.3", sha256="fdff193286a00672bb931baa50d424a2cc19fb5817b62436804eced637e12430"
-    )  # commit "0ddf495"
-    version(
-        "1.1", sha256="0ac87accf81d85b959e5da839e6b0659afb3a2840a13f5da113a1c34eeb87942"
-    )  # commit "5667c3a"
 
     variant(
         "ieee", default=False, description="Build with IEEE754 compliant floating point operations"

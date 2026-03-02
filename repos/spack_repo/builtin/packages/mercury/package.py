@@ -49,18 +49,8 @@ class Mercury(CMakePackage):
         when="@1.0.0:+ofi",
         description="Enable udreg on supported Cray Aries platforms",
     )
-    variant("debug", default=False, description="Enable Mercury to print debug output")
-    variant("checksum", default=True, description="Checksum verify all request/response messages")
-    variant(
-        "hwloc", default=False, when="@2.2.0:", description="Use hwloc to retrieve NIC information"
-    )
-    variant("perf", default=True, when="@2.3.0:", description="Build performance tests")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@2.8.12.2:", type="build")
-    depends_on("bmi", when="+bmi")
     depends_on("mpi", when="+mpi")
     with when("+ofi"):
         depends_on("libfabric@1.5:", when="@:2.0.1")

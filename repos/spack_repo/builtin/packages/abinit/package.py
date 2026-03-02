@@ -105,10 +105,6 @@ class Abinit(AutotoolsPackage, CudaPackage, ROCmPackage):
         requires("^amdfftw+openmp", when="^[virtuals=fftw-api] amdfftw")
         requires("^openblas threads=openmp", when="^[virtuals=blas] openblas")
         requires("^amdblis threads=openmp", when="^[virtuals=blas] amdblis")
-        requires("^intel-oneapi-mkl threads=openmp", when="^[virtuals=blas] intel-oneapi-mkl")
-        requires("^armpl-gcc threads=openmp", when="^[virtuals=blas] armpl-gcc")
-        requires("^acfl threads=openmp", when="^[virtuals=blas] acfl")
-
     with when("+mpi"):
         depends_on("netcdf-c+mpi")
         depends_on("hdf5+mpi")

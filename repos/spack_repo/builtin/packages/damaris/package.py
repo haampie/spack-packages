@@ -38,18 +38,6 @@ class Damaris(CMakePackage):
     variant("static", default=False, description="Builds a static version of the library")
     variant("catalyst", default=False, description="Enables the Catalyst visualization plugin")
     variant("visit", default=False, description="Enables the VisIt visualization plugin")
-    variant(
-        "examples",
-        default=False,
-        description="Enables compilation and installation of the examples code",
-    )
-    variant("docs", default=False, description="Enables the building of dOxygen documentation")
-    variant(
-        "python",
-        default=False,
-        description="Enables building of Python enabled Damaris library using Boost::python",
-    )
-    extends("python", when="+python")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

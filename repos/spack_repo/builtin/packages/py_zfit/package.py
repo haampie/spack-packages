@@ -70,11 +70,7 @@ class PyZfit(PythonPackage):
         depends_on("py-tensorflow-probability@0.25:0", when="@0.28:")
 
         depends_on("py-tensorflow@2.16.2:2.19", when="@0.25.0:0.27")
-        depends_on("py-tensorflow-probability@0.25:0.26", when="@0.25.0:0.27")
 
-        depends_on("py-tensorflow@2.16.2:2.18", when="@0.24.3:0.24")
-        depends_on("py-tensorflow@2.18", when="@0.24:0.24.2")
-        depends_on("py-tensorflow-probability@0.25", when="@0.24:0.24")
 
         depends_on("py-tensorflow@2.16", when="@0.20:0.23")
         depends_on("py-tensorflow-probability@0.24", when="@0.20:0.23")

@@ -44,33 +44,6 @@ class RocprofilerSystems(CMakePackage):
         submodules=submodules,
     )
     version(
-        "7.1.1",
-        git="https://github.com/ROCm/rocprofiler-systems",
-        branch="release/rocm-rel-7.1.1",
-        submodules=True,
-    )
-    version(
-        "7.1.0",
-        git="https://github.com/ROCm/rocprofiler-systems",
-        tag="rocm-7.1.0",
-        commit="427f656162559f21fc3d6cb0e3688f3d31ae374c",
-        submodules=True,
-    )
-    version(
-        "7.0.2",
-        git="https://github.com/ROCm/rocprofiler-systems",
-        tag="rocm-7.0.2",
-        commit="8bad624afb06ea2b567e985484d1b5d604865743",
-        submodules=True,
-    )
-    version(
-        "7.0.0",
-        git="https://github.com/ROCm/rocprofiler-systems",
-        tag="rocm-7.0.0",
-        commit="1030d99db9934a07f1d276f6aadd0eb810b5f5f9",
-        submodules=True,
-    )
-    version(
         "6.4.3",
         git="https://github.com/ROCm/rocprofiler-systems",
         tag="rocm-6.4.3",

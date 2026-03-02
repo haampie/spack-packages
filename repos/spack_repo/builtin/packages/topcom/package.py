@@ -16,9 +16,7 @@ class Topcom(AutotoolsPackage):
     homepage = "https://www.wm.uni-bayreuth.de/de/team/rambau_joerg/TOPCOM/"
     url = "https://www.wm.uni-bayreuth.de/de/team/rambau_joerg/TOPCOM-Downloads/TOPCOM-1_1_2.tgz"
 
-    maintainers("d-torrance")
 
-    license("GPL-3.0-or-later", checked_by="d-torrance")
 
     version("1.1.2", sha256="4fb10754ee5b76056441fea98f2c8dee5db6f2984d8c14283b49239ad4378ab6")
 

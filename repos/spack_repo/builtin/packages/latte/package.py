@@ -31,10 +31,6 @@ class Latte(CMakePackage):
     variant("progress", default=False, description="Use progress for fast solvers")
     variant("shared", default=True, description="Build shared libs")
 
-    depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
-    depends_on("cmake@3.1:", type="build")
-    depends_on("blas")
     depends_on("lapack")
     depends_on("mpi", when="+mpi")
     depends_on("qmd-progress", when="+progress")

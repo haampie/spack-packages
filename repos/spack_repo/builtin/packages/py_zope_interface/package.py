@@ -29,10 +29,6 @@ class PyZopeInterface(PythonPackage):
     version("6.1", sha256="2fdc7ccbd6eb6b7df5353012fbed6c3c5d04ceaca0038f75e601060e95345309")
     version("6.0", sha256="aab584725afd10c710b8f1e6e208dbee2d0ad009f57d674cb9d1b3964037275d")
     version("5.5.2", sha256="bfee1f3ff62143819499e348f5b8a7f3aa0259f9aca5e0ddae7391d059dce671")
-    version("5.5.1", sha256="6d678475fdeb11394dc9aaa5c564213a1567cc663082e0ee85d52f78d1fbaab2")
-    version("5.5.0", sha256="700ebf9662cf8df70e2f0cb4988e078c53f65ee3eefd5c9d80cf988c4175c8e3")
-    version("5.4.0", sha256="5dba5f530fec3f0988d83b78cc591b58c0b6eb8431a85edd1569a0539a8a5a0e")
-    version("5.1.0", sha256="40e4c42bd27ed3c11b2c983fecfb03356fae1209de10686d03c02c8696a1d90e")
 
     with default_args(type=("build", "run")):
         depends_on("py-setuptools@:73", when="@7.1:")

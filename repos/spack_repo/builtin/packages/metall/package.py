@@ -33,10 +33,6 @@ class Metall(CMakePackage):
     version("0.24", sha256="872de2a1b76d44e6876c0b672c0cc518c6f334959e4a229f2f18cc7e01edf477")
     version("0.23.1", sha256="25e8fbc424e66d09e0faf60029288e4612685675bfd947cc142bd9d6d0645ac4")
     version("0.23", sha256="17987922a3eb23a6b904498858db94aca12859d5dbcd8483704619ae93353340")
-    version("0.22", sha256="e937fcb667902b2a578eaad65a44aa4107f63cdede135ead5ef48bb889ed13ad")
-    version("0.21", sha256="feaff7a935f98d3cc1e2b21f6eae40edc674a5bd0133306afd3851148aaed026")
-    version("0.20", sha256="cafe54c682004a66a059f54e2d7128ea7622e9941ea492297d04c260675e9af4")
-    version("0.19", sha256="541f428d4a7e629e1e60754f9d5f5e84fe973d421b2647f5ed2ec25b977ddd56")
     version("0.18", sha256="cd1fee376d0523d43e43b92c43731d45a2c4324278a071a5f626f400afecef24")
     version("0.17", sha256="8de6ec2a430a141a2ad465ccd40ba9d0eb0c57d9f2f2de657fe837a73c466e61")
     version("0.16", sha256="190fa6936cbbfad1844659eb1fcfd1ad8c5880f60e76e223e33c506d371ea3a3")
@@ -45,11 +41,7 @@ class Metall(CMakePackage):
     version("0.10", sha256="58b4b5507d4db5baca315b1bed2b728981755d755b91ef63bd0b6dfaf320f46b")
     version("0.9", sha256="2d7bd9ea2f1e04136050f210884445a9e3dcb96c992cf42ff9ea4b392f85f927")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@3.12:", type="build")
-    depends_on("boost@1.75:", type=("build", "link"))
 
     # googletest is required only for test
     # GCC is also required only for test (Metall is a header-only library)

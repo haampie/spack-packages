@@ -143,17 +143,11 @@ class Ceed(BundlePackage, CudaPackage, ROCmPackage):
     depends_on("nektools@17.0%gcc", when="@1.0.0+nek")
     depends_on("gslib@1.0.3", when="@1.0.0+nek")
     depends_on("nekbone@17.0", when="@1.0.0+nek")
-    depends_on("nekcem@0b8bedd", when="@1.0.0+nek")
 
     # PETSc
     # ceed 5.0
     with when("@5.0.0+petsc"):
-        depends_on("petsc@3.17")
-        depends_on("ratel@0.1.2")
         for arch in CudaPackage.cuda_arch_values:
-            depends_on(
-                "petsc+cuda cuda_arch={0}".format(arch), when="+cuda cuda_arch={0}".format(arch)
-            )
             depends_on(
                 "ratel+cuda cuda_arch={0}".format(arch), when="+cuda cuda_arch={0}".format(arch)
             )

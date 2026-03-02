@@ -281,12 +281,8 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
         depends_on("bzip2", when="@4.9.0:+shared platform={0}".format(__p))
     del __p
 
-    depends_on("szip", when="+szip")
-    depends_on("c-blosc", when="+blosc")
-    depends_on("zstd", when="+zstd")
 
     # Byte-range I/O was added in version 4.7.0:
-    conflicts("+byterange", when="@:4.6")
 
     # Byte-range requires DAP starting version 4.9.3:
     requires("+dap", when="@4.9.3:+byterange")

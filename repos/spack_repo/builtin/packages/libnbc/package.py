@@ -23,4 +23,3 @@ class Libnbc(AutotoolsPackage):
 
     depends_on("c", type="build")  # generated
 
-    depends_on("mpi")

@@ -79,14 +79,6 @@ class Ucx(AutotoolsPackage, CudaPackage):
 
 
     depends_on("gdrcopy", when="@1.7:+gdrcopy")
-    depends_on("gdrcopy@1.3", when="@:1.6+gdrcopy")
-    depends_on("java@8", when="+java")
-    depends_on("knem", when="+knem")
-    depends_on("rdma-core", when="+rdmacm")
-    depends_on("rdma-core", when="+verbs")
-    depends_on("xpmem", when="+xpmem")
-    depends_on("hip", when="+rocm")
-    depends_on("hsa-rocr-dev", when="+rocm")
 
     conflicts("+gdrcopy", when="~cuda", msg="gdrcopy currently requires cuda support")
     def configure_args(self):

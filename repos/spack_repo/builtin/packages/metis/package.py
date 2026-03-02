@@ -56,7 +56,6 @@ class Metis(CMakePackage, MakefilePackage):
         if not self.spec.satisfies("build_system=cmake"):
             return
 
-        source_path = self.stage.source_path
         metis_header = FileFilter(join_path(source_path, "include", "metis.h"))
 
         metis_header.filter(

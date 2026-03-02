@@ -74,14 +74,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         version(
             "5.13.1", sha256="a16503ce37b999c2967d84234596e7bf67ac98221851a288bb1399c7e1dc2004"
         )
-        version(
-            "5.13.0", sha256="886f530bebd6b24c6a7f8a5f4b1afa72c53d4737ccaa4b5fd5946b4e5a758c91"
-        )
-        version(
-            "5.12.0", sha256="d289afe7b48533e2ca4a39a3b48d3874bfe67cf7f37fdd2131271c57e64de20d"
-        )
-        version("5.9.1", sha256="0d486cb6fbf55e428845c9650486f87466efcb3155e40489182a7ea85dfd4c8d")
-        version("5.9.0", sha256="b03258b7cddb77f0ee142e3e77b377e5b1f503bcabc02bfa578298c99a06980d")
         version("5.8.1", sha256="7653950392a0d7c0287c26f1d3a25cdbaa11baa7524b0af0e6a1a0d7d487d034")
         version("5.8.0", sha256="219e4107abf40317ce054408e9c3b22fb935d464238c1c00c0161f1c8697a3f9")
         version("5.7.0", sha256="e41e597e1be462974a03031380d9e5ba9a7efcdb22e4ca2f3fec50361f310874")
@@ -329,13 +321,9 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # https://github.com/spack/spack/issues/37437
     depends_on("protobuf@3.4:3.18", when="@:5.10%oneapi")
     depends_on("protobuf@3.4:3.18", when="@:5.10%intel@2021:")
-    depends_on("protobuf@3.4:3.18", when="@:5.10%xl")
-    depends_on("protobuf@3.4:3.18", when="@:5.10%xl_r")
     # protobuf requires newer abseil-cpp, which in turn requires C++14,
     # but paraview uses C++11 by default. Use for 5.8+ until ParaView updates
     # its C++ standard level.
-    depends_on("protobuf@3.4:21", when="@5.8:%gcc")
-    depends_on("protobuf@3.4:21", when="@5.8:%clang")
     depends_on("protobuf@3.4:21", when="@5.11:")
     depends_on("protobuf@3.4:21", when="@master")
     depends_on("libxml2")

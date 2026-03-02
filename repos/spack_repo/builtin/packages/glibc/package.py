@@ -85,12 +85,9 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     # Use AT_RANDOM provided by the kernel instead of /dev/urandom;
     # recent gcc + binutils have issues with the inline assembly in
     # the fallback code, so better to use the kernel-provided value.
-    patch("965cb60-2.5.patch", when="@2.5")
 
     # include_next <limits.h> not working
-    patch("67fbfa5.patch", when="@:2.7")
 
-    conflicts("musl")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         if self.spec.satisfies("@:2.21"):
@@ -147,7 +144,6 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
             string=True,
         )
 
-    depends_on("bison", type="build")
     depends_on("texinfo", type="build")
     depends_on("gettext", type="build")
     depends_on("perl", type="build")

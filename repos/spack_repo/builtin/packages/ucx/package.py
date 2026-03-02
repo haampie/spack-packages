@@ -55,10 +55,6 @@ class Ucx(AutotoolsPackage, CudaPackage):
     version("1.5.0", sha256="84f6e4fa5740afebb9b1c8bb405c07206e58c56f83120dcfcd8dc89e4b7d7458")
     version("1.4.0", sha256="99891a98476bcadc6ac4ef9c9f083bc6ffb188a96b3c3bc89c8bbca64de2c76e")
     version("1.3.1", sha256="e058c8ec830d2f50d9db1e3aaaee105cd2ad6c1e6df20ae58b9b4179de7a8992")
-    version("1.3.0", sha256="71e69e6d78a4950cc5a1edcbe59bf7a8f8e38d59c9f823109853927c4d442952")
-    version("1.2.2", sha256="914d10fee8f970d4fb286079dd656cf8a260ec7d724d5f751b3109ed32a6da63")
-    version("1.2.1", sha256="fc63760601c03ff60a2531ec3c6637e98f5b743576eb410f245839c84a0ad617")
-    version("1.2.0", sha256="1e1a62d6d0f89ce59e384b0b5b30b416b8fd8d7cedec4182a5319d0dfddf649c")
 
     simd_values = ("avx", "sse41", "sse42")
 
@@ -139,10 +135,6 @@ class Ucx(AutotoolsPackage, CudaPackage):
     depends_on("gdrcopy@1.3", when="@:1.6+gdrcopy")
     depends_on("java@8", when="+java")
     depends_on("knem", when="+knem")
-    depends_on("libfuse@3:", when="+vfs")
-    depends_on("maven", when="+java")
-    depends_on("numactl", when="+numa")
-    depends_on("pkgconfig", type="build")
     depends_on("rdma-core", when="+rdmacm")
     depends_on("rdma-core", when="+verbs")
     depends_on("xpmem", when="+xpmem")

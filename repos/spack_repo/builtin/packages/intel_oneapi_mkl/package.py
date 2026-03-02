@@ -105,14 +105,10 @@ class IntelOneapiMkl(IntelOneApiLibraryPackage):
         msg="MKL with OpenMP threading requires GCC, clang, or Intel compilers",
     )
 
-    depends_on("tbb", when="threads=tbb")
     # cluster libraries need mpi
-    depends_on("mpi", when="+cluster")
 
     # If a +cluster then mpi_family must be set
     with when("+cluster"):
-        conflicts("mpi_family=none")
-        requires("mpi_family=mpich", when="^[virtuals=mpi] intel-oneapi-mpi")
         requires("mpi_family=mpich", when="^[virtuals=mpi] mpich")
         requires("mpi_family=mpich", when="^[virtuals=mpi] mvapich")
         requires("mpi_family=mpich", when="^[virtuals=mpi] mvapich2")

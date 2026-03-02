@@ -185,10 +185,6 @@ class QtBase(QtPackage):
     version("6.4.1", sha256="0ef6db6b3e1074e03dcae7e689144af66fd51b95a6efe949d40281cc43e6fecf")
     version("6.4.0", sha256="fbc462816bf5b87d521e9f69cebe0ce331de2258396e0932fa580283f07fce0c")
     version("6.3.2", sha256="95b78830a99f417ff34ee784ab78f5eeb7bb12adb16d137c3026434c44a904dd")
-    version("6.3.1", sha256="4393e8cea0c58b1e0e901735fcffad141261576a0fa414ed6309910ac3d49df9")
-    version("6.3.0", sha256="c50dc73f633e6c0f6ee3f51980c698800f1a0cadb423679bcef18e446ac72138")
-    version("6.2.4", sha256="657d1405b5e15afcf322cc75b881f62d6a56f16383707742a99eb87f53cb63de")
-    version("6.2.3", sha256="2dd095fa82bff9e0feb7a9004c1b2fb910f79ecc6111aa64637c95a02b7a8abb")
 
     variant("dbus", default=False, description="Build with D-Bus support.")
     variant(
@@ -233,11 +229,7 @@ class QtBase(QtPackage):
         depends_on("freetype")
         depends_on("harfbuzz")
         depends_on("jpeg")
-        depends_on("libpng")
         with when("platform=linux"):
-            depends_on("libxkbcommon")
-            depends_on("libxcb@1.13:")  # requires xinput
-            depends_on("libxrender")
             depends_on("xcb-util-keysyms")
 
 

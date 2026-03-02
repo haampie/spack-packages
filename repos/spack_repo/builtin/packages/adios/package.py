@@ -71,11 +71,7 @@ class Adios(AutotoolsPackage):
     depends_on("sz@1.4.12.3:1.4.12", when="@1.13.1: +sz")
     depends_on("zfp@0.5.1:0.5", when="+zfp")
     depends_on("lz4", when="+lz4")
-    depends_on("c-blosc@1.12.0:", when="+blosc")
     # optional transports & file converters
-    depends_on("hdf5@1.8:+hl+mpi", when="+hdf5")
-    depends_on("netcdf-c", when="+netcdf")
-    depends_on("libevpath", when="staging=flexpath")
     depends_on("dataspaces+mpi", when="staging=dataspaces")
 
     for p in ["+hdf5", "+netcdf", "staging=flexpath", "staging=dataspaces"]:

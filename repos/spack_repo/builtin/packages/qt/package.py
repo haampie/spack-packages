@@ -30,11 +30,7 @@ class Qt(Package):
 
     phases = ["configure", "build", "install"]
 
-    license("LGPL-3.0-only")
 
-    version("5.15.17", sha256="85eb566333d6ba59be3a97c9445a6e52f2af1b52fc3c54b8a2e7f9ea040a7de4")
-    version("5.15.16", sha256="efa99827027782974356aceff8a52bd3d2a8a93a54dd0db4cca41b5e35f1041c")
-    version("5.15.15", sha256="b423c30fe3ace7402e5301afbb464febfb3da33d6282a37a665be1e51502335e")
     version("5.15.14", sha256="fdd3a4f197d2c800ee0085c721f4bef60951cbda9e9c46e525d1412f74264ed7")
     version("5.15.13", sha256="9550ec8fc758d3d8d9090e261329700ddcd712e2dda97e5fcfeabfac22bea2ca")
     version("5.15.12", sha256="93f2c0889ee2e9cdf30c170d353c3f829de5f29ba21c119167dee5995e48ccce")
@@ -47,10 +43,6 @@ class Qt(Package):
     version("5.15.5", sha256="5a97827bdf9fd515f43bc7651defaf64fecb7a55e051c79b8f80510d0e990f06")
     version("5.15.4", sha256="615ff68d7af8eef3167de1fd15eac1b150e1fd69d1e2f4239e54447e7797253b")
     version("5.9.9", sha256="5ce285209290a157d7f42ec8eb22bf3f1d76f2e03a95fc0b99b553391be01642")
-    version("5.6.3", sha256="2fa0cf2e5e8841b29a4be62062c1a65c4f6f2cf1beaf61a5fd661f520cd776d0")
-    version("5.3.2", sha256="c8d3fd2ead30705c6673c5e4af6c6f3973346b4fb2bd6079c7be0943a5b0282d")
-    version("5.2.1", sha256="84e924181d4ad6db00239d87250cc89868484a14841f77fb85ab1f1dbdcd7da1")
-    version("4.8.7", sha256="e2882295097e47fe089f8ac741a95fef47e0a73a3f3cdf21b56990638f626ea0")
     version("4.8.6", sha256="8b14dd91b52862e09b8e6a963507b74bc2580787d171feda197badfa7034032c")
     version("4.8.5", sha256="eb728f8268831dc4373be6403b7dd5d5dde03c169ad6882f9a8cb560df6aa138")
     version("3.3.8b", sha256="1b7a1ff62ec5a9cb7a388e2ba28fda6f960b27f27999482ebeceeadb72ac9f6e")
@@ -91,20 +83,16 @@ class Qt(Package):
     patch("qt4-configure-gcc.patch", when="@4:4.8.6 %gcc")
     patch("qt4-87-configure-gcc.patch", when="@4.8.7 %gcc")
     patch("qt4-tools.patch", when="@4+tools")
-    patch("qt4-mac.patch", when="@4.8.7 platform=darwin")
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=925811
 
     # Patches for qt@4:
     # https://github.com/spack/spack/issues/1517
     # https://bugreports.qt.io/browse/QTBUG-74196
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89585
-    patch("qt5-asm-volatile.patch", when="@5.0.0:5.12.1")
 
     # Patches for qt@5
     # https://bugreports.qt.io/browse/QTBUG-74219
-    patch("qt5-btn_trigger_happy.patch", when="@5.7:5.12")
     # https://bugreports.qt.io/browse/QTBUG-57656
-    patch("qt5-8-framework.patch", when="@5.8.0 +framework")
     # https://bugreports.qt.io/browse/QTBUG-58038
     patch("qt5-8-freetype.patch", when="@5.8.0 +gui")
     # https://codereview.qt-project.org/c/qt/qtbase/+/245425

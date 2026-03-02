@@ -438,44 +438,16 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     #  yet whether we need a version of it for when="@16:"
 
     # Fix hwloc@:2.3 (Conditionally disable hwloc@2.0 and hwloc@2.4 code)
-    patch(
-        "https://github.com/llvm/llvm-project/commit/3a362a9f38b95978160377ee408dbc7d14af9aad.patch?full_index=1",
-        sha256="25bc503f7855229620e56e76161cf4654945aef0be493a2d8d9e94a088157b7c",
-        when="@14:15",
-    )
 
     # Fix false positive detection of a target when building compiler-rt as a runtime
     # https://reviews.llvm.org/D127975
-    patch(
-        "https://github.com/llvm/llvm-project/commit/9f1d90bf91570efa124c4a86cd033de374d1049a.patch?full_index=1",
-        sha256="1f4287465b3e499911e039e6cc2f395b8cb00eb8a0a223fa0db3704ba77f9969",
-        when="@13:14 compiler-rt=runtime",
-    )
 
-    patch("add-include-for-libelf-llvm-12-14.patch", when="@12:14")
-    patch("add-include-for-libelf-llvm-15.patch", when="@15")
 
-    patch("sanitizer-platform-limits-posix-xdr-macos.patch", when="@10:14 platform=darwin")
 
     # https://github.com/spack/spack/issues/48865
-    patch(
-        "https://github.com/llvm/llvm-project/commit/f4be5ed6a3fef0b2b0c60b29e1c0638926638d28.patch?full_index=1",
-        sha256="51740996bbc01a5049fa859134ad44ffc9514da212cc7d9a445c8d16d6cc867e",
-        when="@15",
-    )
     # https://github.com/spack/spack/issues/48865
-    patch(
-        "https://github.com/llvm/llvm-project/commit/73e15b5edb4fa4a77e68c299a6e3b21e610d351f.patch?full_index=1",
-        sha256="b540ef6e3728d7881d95775a163314fac6e2f9207f5d5e8b79c8c73c73ba4dc3",
-        when="@15:16",
-    )
 
     # https://github.com/llvm/llvm-project/issues/156679
-    patch(
-        "https://github.com/llvm/llvm-project/commit/cd24d108a2c19c23c4ac80b501fa7361963cca3d.patch?full_index=1",
-        sha256="0dc6e0bf66edf260b56c088dfbf37abb8417e210f256abe4ee11c395a2665ed8",
-        when="@21.1.0:21.1.4",
-    )
 
     @when("@14:17")
     def patch(self):

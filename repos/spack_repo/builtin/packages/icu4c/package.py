@@ -45,7 +45,6 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
 class AutotoolsBuilder(autotools.AutotoolsBuilder):
     configure_directory = "source"
 
-    # Need to make sure that locale is UTF-8 in order to process source files in UTF-8.
     @when("@59:")
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         env.set("LC_ALL", "en_US.UTF-8")

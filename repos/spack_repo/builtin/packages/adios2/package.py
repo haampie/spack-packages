@@ -179,10 +179,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("dataspaces@1.8.0:", when="+dataspaces")
 
     depends_on("hdf5@:1.12", when="@:2.8 +hdf5")
-    depends_on("hdf5~mpi", when="+hdf5~mpi")
-    depends_on("hdf5+mpi", when="+hdf5+mpi")
-
-    depends_on("sqlite@3", when="+campaign")
 
     depends_on("libpressio", when="+libpressio")
     depends_on("c-blosc", when="+blosc")

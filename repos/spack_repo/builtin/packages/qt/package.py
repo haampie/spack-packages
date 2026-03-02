@@ -46,10 +46,6 @@ class Qt(Package):
     version("5.15.6", sha256="ebc77d27934b70b25b3dc34fbec7c4471eb451848e891c42b32409ea30fe309f")
     version("5.15.5", sha256="5a97827bdf9fd515f43bc7651defaf64fecb7a55e051c79b8f80510d0e990f06")
     version("5.15.4", sha256="615ff68d7af8eef3167de1fd15eac1b150e1fd69d1e2f4239e54447e7797253b")
-    version("5.15.3", sha256="b7412734698a87f4a0ae20751bab32b1b07fdc351476ad8e35328dbe10efdedb")
-    version("5.15.2", sha256="3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240")
-    version("5.14.2", sha256="c6fcd53c744df89e7d3223c02838a33309bd1c291fcb6f9341505fe99f7f19fa")
-    version("5.12.10", sha256="3e0ee1e57f5cf3eeb038d0b4b22c7eb442285c62639290756b39dc93a1d0e14f")
     version("5.9.9", sha256="5ce285209290a157d7f42ec8eb22bf3f1d76f2e03a95fc0b99b553391be01642")
     version("5.6.3", sha256="2fa0cf2e5e8841b29a4be62062c1a65c4f6f2cf1beaf61a5fd661f520cd776d0")
     version("5.3.2", sha256="c8d3fd2ead30705c6673c5e4af6c6f3973346b4fb2bd6079c7be0943a5b0282d")
@@ -121,12 +117,8 @@ class Qt(Package):
     # https://github.com/Homebrew/homebrew-core/pull/5951
     patch("qt5-restore-pc-files.patch", when="@5.9:5.11 platform=darwin")
     # https://github.com/spack/spack/issues/14400
-    patch("qt5-11-intel-overflow.patch", when="@5.11 %intel")
-    patch("qt5-12-intel-overflow.patch", when="@5.12:5.14.0 %intel")
     # https://bugreports.qt.io/browse/QTBUG-78937
-    patch("qt5-12-configure.patch", when="@5.12.7")
     # https://bugreports.qt.io/browse/QTBUG-93402
-    patch("qt5-15-gcc-10.patch", when="@5.12.7:5.15 %gcc@8:")
     patch("qt514.patch", when="@5.14")
     patch("qt514-isystem.patch", when="@5.14.2")
     # https://bugreports.qt.io/browse/QTBUG-84037

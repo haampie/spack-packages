@@ -20,7 +20,6 @@ class Hdf(AutotoolsPackage):
     list_depth = 2
     maintainers("lrknox")
 
-    version("4.2.15", sha256="dbeeef525af7c2d01539906c28953f0fdab7dba603d1bc1ec4a5af60d002c459")
     version("4.2.14", sha256="2d383e87c8a0ca6a5352adbd1d5546e6cc43dc21ff7d90f93efa644d85c0b14a")
     version("4.2.13", sha256="be9813c1dc3712c2df977d4960e1f13f20f447dfa8c3ce53331d610c1f470483")
     version("4.2.12", sha256="dd419c55e85d1a0e13f3ea5ed35d00710033ccb16c85df088eb7925d486e040c")

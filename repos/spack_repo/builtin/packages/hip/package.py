@@ -60,14 +60,10 @@ class Hip(CMakePackage):
 
     depends_on("cuda", when="+cuda")
 
-    depends_on("cmake@3.16.8:", type="build")
-    depends_on("libedit", type="build")
-    depends_on("perl@5.10:", type=("build", "run"))
 
     test_requires_compiler = True
 
     with when("+rocm"):
-        depends_on("gl@4.5:")
         depends_on("py-cppheaderparser", type="build")
         depends_on("libx11", when="+asan")
         depends_on("xproto", when="+asan")

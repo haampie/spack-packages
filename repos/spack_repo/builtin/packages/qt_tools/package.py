@@ -23,10 +23,6 @@ class QtTools(QtPackage):
     version("6.10.1", commit="9e0030f889168f7a0ec1bb47a7d7138a497b3c96", submodules=True)
     version("6.10.0", commit="f33c4bb1dee569eec4ffe1333584cb4b75af6c59", submodules=True)
     version("6.8.3", commit="2649ea1aa5cc1c23bd920ae94dd50071315ea30f", submodules=True)
-    version("6.8.2", commit="8aa2456d4461516f54c98916fcd699557afb41ad", submodules=True)
-    version("6.8.1", commit="b0d66c51cbda17b213bed73d379f0900c77f457c", submodules=True)
-    version("6.8.0", commit="3dd2b6ad0dd1a0480628b4cc74cb7b89a89e4a61", submodules=True)
-    version("6.7.3", commit="ec4747e62a837a0262212a5f4fb03734660c7360", submodules=True)
     version("6.7.2", commit="46ffaed90df8c14d67b4b16fdf5e0b87ab227c88", submodules=True)
 
     variant(

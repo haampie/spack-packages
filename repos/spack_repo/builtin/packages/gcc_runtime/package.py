@@ -23,7 +23,6 @@ class GccRuntime(Package):
     skip_version_audit = ["platform=linux", "platform=darwin", "platform=windows"]
 
 
-
     LIBRARIES = [
         "asan",
         "atomic",
@@ -42,7 +41,6 @@ class GccRuntime(Package):
 
     # libgfortran ABI
     provides("fortran-rt", "libgfortran")
-
 
     depends_on("gcc", type="build")
 

@@ -34,9 +34,7 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
     # https://lists.gnu.org/archive/html/bug-bison/2019-08/msg00008.html
     patch("parallel.patch", when="@3.4.2")
 
-    provides("yacc")
 
-    depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
 
     depends_on("gettext", when="+color")
@@ -56,7 +54,6 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
     if sys.platform == "darwin" and macos_version() >= Version("10.13"):
         patch("secure_snprintf.patch", level=0, when="@3.0.4")
 
-    build_directory = "spack-build"
 
     @classmethod
     def determine_version(cls, exe):

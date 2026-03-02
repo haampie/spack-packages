@@ -56,7 +56,6 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
         # and has no relation to actual runtime requirements for netcdf-c
         # Additionally, Spack on Windows already does this for every package
         # so remove this behavior from netcdf-c
-        patch("netcdf-c-4.9.3_no_glob_deps.patch", when="@4.9.3 platform=windows")
         patch("netcdf-c-4.7-9.2_no_glob_deps.patch", when="@4.7:4.9.2 platform=windows")
 
     # Some of the patches touch configure.ac and, therefore, require forcing the autoreconf stage:

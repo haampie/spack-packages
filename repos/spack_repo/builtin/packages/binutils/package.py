@@ -76,8 +76,6 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
     # pkg-config is used to locate zstd, libdebuginfod
     depends_on("diffutils", type="build")
 
-    depends_on("gettext", when="+nls")
-
     # PGO runs tests, which requires `runtest` from dejagnu
     depends_on("dejagnu", when="+pgo", type="build")
 

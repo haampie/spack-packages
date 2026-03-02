@@ -134,7 +134,6 @@ class QtBase(QtPackage):
 
     provides("qmake")
 
-
     variant("gui", default=True, description="Build the Qt GUI module and dependencies.")
     variant("shared", default=True, description="Build shared libraries.")
     variant("sql", default=True, description="Build with SQL support.")

@@ -270,40 +270,22 @@ class Boost(Package):
             requires("+signals2", when=f"@1.69: +{lib} platform=windows")
 
     # Patch fix from https://svn.boost.org/trac/boost/ticket/11856
-    patch("boost_11856.patch", when="@1.60.0%gcc@4.4.7")
 
     # Patch fix from https://svn.boost.org/trac/boost/ticket/11120
 
     # Patch fix for IBM XL compiler
-    patch("xl_1_62_0_le.patch", when="@1.62.0%xl")
 
     # Patch fix from https://svn.boost.org/trac/boost/ticket/10125
-
     # Patch to override the PGI toolset when using the NVIDIA compilers
-
-    # Patch to workaround compiler bug
 
     # Fix for version comparison on newer Clang on darwin
     # See: https://github.com/macports/macports-ports/pull/6726
-
     # Fix: "Compile issue with flat_tree insert"
-    # See: https://github.com/boostorg/container/pull/101
 
     # Fix: "Unable to compile code using boost/process.hpp"
-    # See: https://github.com/boostorg/process/issues/116
-    # Patch: https://github.com/boostorg/process/commit/6a4d2ff72114ef47c7afaf92e1042aca3dfa41b0.patch
-
-    # Patch fix for warnings from commits 2d37749, af1dc84, c705bab, and
-    # 0134441 on https://github.com/boostorg/system.
-
     # Change the method for version analysis when using Fujitsu compiler.
 
     # Add option to C/C++ compile commands in clang-linux.jam
-
-    # C++20 concepts fix for Beast
-    # See https://github.com/boostorg/beast/pull/1927 for details
-
-    # Cloning a status_code with indirecting_domain leads to segmentation fault
     # See https://github.com/ned14/outcome/issues/223 for details
 
     # Support bzip2 and gzip in other directory
@@ -313,10 +295,8 @@ class Boost(Package):
     # See https://github.com/boostorg/python/pull/218
 
     # Fix B2 bootstrap toolset during installation
-    # See https://github.com/spack/spack/issues/20757
     # and https://github.com/spack/spack/pull/21408
 
-    # Fix compiler used for building bjam during bootstrap
 
     # Allow building context asm sources with GCC on Darwin
     # See https://github.com/spack/spack/pull/24889
@@ -329,18 +309,14 @@ class Boost(Package):
 
     # Fix issues with PTHREAD_STACK_MIN not being a DEFINED constant in newer glibc
     # See https://github.com/spack/spack/issues/28273
-
     # https://www.intel.com/content/www/us/en/developer/articles/technical/building-boost-with-oneapi.html
 
     # https://github.com/spack/spack/issues/44003
 
-    # https://github.com/boostorg/phoenix/issues/111
 
     # https://github.com/boostorg/filesystem/issues/284
-
     # https://github.com/boostorg/context/pull/280
 
     def patch(self):
         # Disable SSSE3 and AVX2 when using the NVIDIA compiler
-        if self.spec.satisfies("%nvhpc"):
             filter_file("dump_avx2", "", "libs/log/build/Jamfile.v2")

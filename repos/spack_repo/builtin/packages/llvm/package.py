@@ -43,7 +43,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     url = "https://github.com/llvm/llvm-project/archive/llvmorg-7.1.0.tar.gz"
     list_url = "https://releases.llvm.org/download.html"
     git = "https://github.com/llvm/llvm-project"
-
     tags = ["e4s", "compiler"]
 
 
@@ -235,9 +234,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     provides("libllvm@9", when="@9.0.0:9")
     provides("libllvm@8", when="@8.0.0:8")
     provides("libllvm@7", when="@7.0.0:7")
-
-    depends_on("cxx", type="build")
-
     # Build dependency
     depends_on("cmake@3.4.3:", type="build")
     depends_on("cmake@3.13.4:", type="build", when="@12:")

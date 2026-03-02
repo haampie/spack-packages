@@ -25,11 +25,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     keep_werror = "all"
 
 
-
     provides("c", "cxx", when="languages=c,c++")
     provides("c", when="languages=c")
-
-
     # Latest stable
 
     # Previous stable series releases
@@ -177,17 +174,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         provides("golang@:1.6.1", when="@6:")
         provides("golang@:1.8.1", when="@7:")
         provides("golang@:1.10.1", when="@8:")
-        provides("golang@:1.14.6", when="@10:")
-        provides("golang@1.16.3:1.16.5", when="@11:")
-
-        # GCC 4.7.1 added full support for the Go 1.x programming language.
-
-        # Go is not supported on macOS
-
-    # For a list of valid languages for a specific release,
-    # run the following command in the GCC source directory:
-    # BRIG is a binary format for HSAIL:
-    # (Heterogeneous System Architecture Intermediate Language).
     conflicts("languages=brig", when="platform=darwin")
 
     # GCC 4.8 added a 'c' language. I'm sure C was always built,

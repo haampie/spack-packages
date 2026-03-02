@@ -24,11 +24,7 @@ class Astral(Package):
         sha256="b49a67c9fe19c0c92a89dc2f1a3928840e698a53054a595c61546ca98448a076",
         url="https://github.com/smirarab/ASTRAL/archive/untagged-697f19dbce69929ece09.tar.gz",
     )
-    version("4.10.7", sha256="314b49e0129ec06a7c78a1b60d590259ede6a5e75253407031e108d8048fcc79")
 
-    depends_on("java@11", type=("build", "run"))
-    depends_on("zip", type="build")
-    depends_on("gmake", type="build")
 
     def install(self, spec, prefix):
         make = Executable("./make.sh")

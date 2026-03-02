@@ -17,9 +17,7 @@ class Masa(AutotoolsPackage):
     homepage = "https://github.com/manufactured-solutions/MASA"
     git = "https://github.com/manufactured-solutions/MASA.git"
 
-    license("LGPL-2.1-or-later")
 
-    version("master", branch="master")
     version("0.51.0", tag="0.51.0")
     version("0.50.0", tag="0.50.0")
     version("0.44.0", tag="0.44.0")

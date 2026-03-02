@@ -78,11 +78,6 @@ class MariadbCClient(CMakePackage):
         when="@:3.1.12",
     )
 
-    patch(
-        "https://github.com/mariadb-corporation/mariadb-connector-c/commit/b10b76e5a2b983d86bd487873608abce8e0d507b.patch?full_index=1",
-        sha256="968a84fd5e33e426b4224bf828ec0f354fce90339dc9e2e27ff2c261e2ad5c00",
-        when="@3: %gcc@15:",
-    )
 
     def url_for_version(self, version):
         url = "https://downloads.mariadb.com/Connectors/c/connector-c-{0}/mariadb-connector-c-{1}-src.tar.gz"

@@ -28,11 +28,7 @@ class Qrmumps(CMakePackage):
     variant("cuda", default=False, when="+starpu", description="Enable StarPU+CUDA")
     variant("fxt", default=False, when="+starpu", description="Enable FxT tracing through StarPU")
 
-    depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("pkgconfig", type="build")
-    depends_on("blas")
     depends_on("lapack")
     depends_on("suite-sparse", when="+amd")
     depends_on("metis", when="+metis")

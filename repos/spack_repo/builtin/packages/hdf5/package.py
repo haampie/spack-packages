@@ -154,18 +154,6 @@ class Hdf5(CMakePackage):
     conflicts("+mpi", "^mpich@4.0:4.0.3")
     conflicts("api=v200", when="@1.6:1.14", msg="v200 is not compatible with this release")
     conflicts(
-        "api=v200",
-        when="@develop-1.8:develop-1.14",
-        msg="v200 is not compatible with this release",
-    )
-    conflicts("api=v114", when="@1.6:1.12", msg="v114 is not compatible with this release")
-    conflicts(
-        "api=v114",
-        when="@develop-1.8:develop-1.12",
-        msg="v114 is not compatible with this release",
-    )
-    conflicts("api=v112", when="@1.6:1.10", msg="v112 is not compatible with this release")
-    conflicts(
         "api=v112",
         when="@develop-1.8:develop-1.10",
         msg="v112 is not compatible with this release",

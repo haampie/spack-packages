@@ -29,10 +29,6 @@ class AsdfCxx(CMakePackage):
     version("2.4.1", sha256="a300bf11d4fd9923eb109c5f8e1067f2ef96f284ea43fafd871b469118d42597")
     version("2.4.0", sha256="965360858bcacb6df4602fdff55924f7b9daf0750b27ac3f31781e23b54e8f93")
     version("2.3.1", sha256="7c3ecf4fdafff5da57edb8b0c75b2e1f9c6bf42097c483025ff49f0a65094e22")
-    version("2.2.1", sha256="a34679d8690ff118bedd20652caebdb9c3fb5f628aca7ed2f535a026b28b3853")
-    version("2.1.1", sha256="f1a801b82facb2c0913ca3dce9c62970651e58fae8bc232f5079a1c4773ec6fa")
-    version("2.1.0", sha256="066c2c1033be41e10b874ceec1e87267fd792c40d46cbc768b05ba94cca234a1")
-    version("1.1.0", sha256="3e23b9cd16254f5adbf878145e320f56b4d3ad75de23d2c761eb7f04150926c5")
     version("1.0.0", sha256="0b63594a1dec27cc85d25adbf900b6e936b5015f579b9b892b983151bec96775")
 
     variant("python", default=True, description="Enable Python support")

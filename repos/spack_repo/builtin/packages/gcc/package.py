@@ -571,17 +571,13 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     patch("signal.patch", when="@4.9,5.1:5.4")
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=85835
     patch("sys_ustat.h.patch", when="@5.0:6.4,7.0:7.3,8.1")
-    patch("sys_ustat-4.9.patch", when="@4.9")
 
     # this patch removes cylades support from gcc-5 and allows gcc-5 to be built
     # with newer glibc versions.
-    patch("glibc-2.31-libsanitizer-3-gcc-5.patch", when="@5.3.0:5.5.0")
 
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=95005
-    patch("zstd.patch", when="@10")
 
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100102
-    patch("patch-fc930b3010bd0de899a3da3209eab20664ddb703.patch", when="@10.1:10.3")
     patch("patch-f1feb74046e0feb0596b93bbb822fae02940a90e.patch", when="@11.1")
 
     # libstdc++: Fix inconsistent noexcept-specific for valarray begin/end

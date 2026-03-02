@@ -291,14 +291,8 @@ class Hip(CMakePackage):
     patch("0014-remove-compiler-rt-linkage-for-host.6.0.patch", when="@6.0")
     patch("0014-remove-compiler-rt-linkage-for-host.6.1.patch", when="@6.1")
     patch("0015-reverting-operator-mixup-fix-for-slate.patch", when="@:6.0")
-    patch("0018-reverting-hipMemoryType-with-memoryType.patch", when="@6.0:6.2")
 
     # See https://github.com/ROCm/HIP/pull/3206
-    patch(
-        "https://github.com/ROCm/HIP/commit/50ee82f6bc4aad10908ce09198c9f7ebfb2a3561.patch?full_index=1",
-        sha256="c469ddecbae6d4ee30132af7c37d5e7958420af2d083f2c50d93fc3a7d162c49",
-        when="@:5.7",
-    )
 
     @property
     def root_cmakelists_dir(self):

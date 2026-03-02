@@ -236,11 +236,7 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
             requires("+x", when="+qt", msg="Qt support requires GLX on Linux/FreeBSD")
 
     with when("+x"):
-        depends_on("libxt", when="@:5.12")
-        depends_on("libx11")
-        depends_on("libxcursor")
         # When Qt and X are enabled, GLX is required in the runtime
-        requires("^[virtuals=gl] glx", when="@:5")
         depends_on("glx", when="@6:", type=("run"))
 
     # ParaView@:5 support Qt5 and requires a GL provider to be known at
@@ -379,13 +375,9 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("libxml2")
     depends_on("lz4")
     depends_on("xz")
-    depends_on("zlib-api")
-    depends_on("libcatalyst@2:", when="+libcatalyst")
 
     # Older builds of pugi export their symbols differently,
     # and pre-5.9 is unable to handle that.
-    depends_on("pugixml@:1.10", when="@:5.8")
-    depends_on("pugixml", when="@5.9:")
     # 5.13 uses 'remove_children': https://github.com/spack/spack/issues/47098
     depends_on("pugixml@1.11:", when="@5.13:")
 

@@ -17,7 +17,6 @@ class HipTensor(CMakePackage, ROCmPackage):
     git = "https://github.com/ROCm/rocm-libraries.git"
 
     tags = ["rocm"]
-    maintainers("srekolam", "afzpatel")
     libraries = ["libhiptensor"]
 
     def url_for_version(self, version):
@@ -27,7 +26,6 @@ class HipTensor(CMakePackage, ROCmPackage):
             url = "https://github.com/ROCm/rocm-libraries/archive/rocm-{0}.tar.gz"
         return url.format(version)
 
-    version("7.2.0", sha256="8ad5f4a11f1ed8a7b927f2e65f24083ca6ce902a42021a66a815190a91ccb654")
     version("7.1.1", sha256="43976aee80cc9c70024f7b4ef9fc6745a7cd39d3a24fa626b79f00aa2a6ebdd0")
     version("7.1.0", sha256="bb51a6bb5831646bcee8965da14239542bbd21a1002d07b90d98b5868cebdeed")
     version("7.0.2", sha256="c326190bf711f41b32441fe28bf92a04fb2a1a2af5e9d23bbafaa17a9b3e661f")

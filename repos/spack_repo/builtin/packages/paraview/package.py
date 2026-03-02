@@ -376,9 +376,7 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     # https://gitlab.kitware.com/paraview/paraview/-/merge_requests/7593
     patch("paraview-cdireader-lazy.patch", when="@:6.0 +cdi")
-    generator("ninja", "make", default="ninja")
     # https://gitlab.kitware.com/paraview/paraview/-/issues/21223
-    conflicts("generator=ninja", when="%xl_r")
     def url_for_version(self, version):
         # Handle ParaView version-based custom URLs
         if version < Version("5.1.0"):

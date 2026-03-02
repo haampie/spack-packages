@@ -184,10 +184,6 @@ class Qt(Package):
     depends_on("python", when="@5.7.0:", type="build")
 
     # Dependencies, then variant- and version-specific dependencies
-    depends_on("icu4c")
-    depends_on("jpeg")
-    depends_on("libtiff")
-    depends_on("libxml2")
     depends_on("zlib-api")
     depends_on("freetype", when="+gui")
 

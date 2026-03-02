@@ -443,13 +443,9 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         # This is needed because `gcc` avoids the superenv shim.
         patch("darwin/gcc-7.1.0-headerpad.patch", when="@5:11.2")
         patch("darwin/gcc-6.1.0-jit.patch", when="@5:7")
-        patch("darwin/gcc-4.9.patch1", when="@4.9.0:4.9.3")
-        patch("darwin/gcc-4.9.patch2", when="@4.9.0:4.9.3")
 
         # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=92061
-        patch("darwin/clang13.patch", when="@:11.1 %apple-clang@13")
 
-    patch("piclibs.patch", when="+piclibs")
     patch("gcc-backport.patch", when="@4.7:4.9.3,5:5.3")
 
     # Backport libsanitizer patch for glibc >= 2.31 and 5.3.0 <= gcc <= 9.2.0

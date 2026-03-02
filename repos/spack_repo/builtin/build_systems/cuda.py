@@ -202,9 +202,7 @@ class CudaPackage(PackageBase):
         # Intel 15.x is compatible with CUDA 7 thru current CUDA
         conflicts("%intel@16.0:", when="+cuda ^cuda@:8.0.43")
         conflicts("%intel@17.0:", when="+cuda ^cuda@:8.0.60")
-        conflicts("%intel@18.0:", when="+cuda ^cuda@:9.9")
         conflicts("%intel@19.0:", when="+cuda ^cuda@:10.0")
-        conflicts("%intel@19.1:", when="+cuda ^cuda@:10.1")
         conflicts("%intel@19.2:", when="+cuda ^cuda@:11.1.0")
         conflicts("%intel", when="+cuda ^cuda@13.0:")
 

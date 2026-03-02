@@ -190,12 +190,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     depends_on("zstd", when="@10:")
     depends_on("diffutils", type="build")
     depends_on("iconv", when="platform=darwin")
-    depends_on("gnat", when="languages=ada")
-    depends_on(
-        "binutils+gas+ld+plugins~libiberty", when="+binutils", type=("build", "link", "run")
-    )
-    depends_on("mold", when="+mold")
-    depends_on("zip", type="build", when="languages=java")
 
     # The server is sometimes a bit slow to respond
     timeout = {"timeout": 60}

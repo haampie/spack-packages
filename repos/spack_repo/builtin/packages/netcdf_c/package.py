@@ -163,15 +163,11 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
             depends_on("m4", type="build", when="build_system=cmake")
             # Apart from the redundant configure-time check, which we suppress below, M4 is not
             # needed when building with Autotools if the man files are in the release tarball:
-            depends_on("m4", type="build", when="@:4.4 build_system=autotools")
     del __p
 
-    depends_on("hdf~netcdf", when="+hdf4")
 
     # curl 7.18.0 or later is required:
     # https://docs.unidata.ucar.edu/nug/current/getting_and_building_netcdf.html
-    depends_on("curl@7.18.0:", when="+dap")
-    depends_on("curl@7.18.0:", when="+byterange")
 
     # curl is supposed to only be needed when +dap or +byterange, but the check is missing
     # this is fixed in 4.9.3. Spack autotools already protects against this

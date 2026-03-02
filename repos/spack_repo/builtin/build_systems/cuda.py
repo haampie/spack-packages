@@ -208,9 +208,5 @@ class CudaPackage(PackageBase):
         conflicts("%xl@:12,14:15,17:", when="+cuda ^cuda@9.2")
         conflicts("%xl@:12,17:", when="+cuda ^cuda@:11.1.0")
 
-        # PowerPC.
-        conflicts("target=ppc64le", when="+cuda ^cuda@12.5:")
-
         # Darwin.
         # TODO: add missing conflicts for %apple-clang cuda@:10
-        conflicts("platform=darwin", when="+cuda ^cuda@11.0.2:")

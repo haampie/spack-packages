@@ -29,16 +29,6 @@ class QtTools(QtPackage):
         default=False,
         description="Qt Widgets Designer for designing and building GUIs with Qt Widgets.",
     )
-    variant(
-        "qdoc",
-        default=False,
-        description="QDoc is Qt's documentation generator for C++ and QML projects.",
-    )
-    variant(
-        "linguist",
-        default=False,
-        description="Qt Linguist can be used by translator to translate text in Qt applications.",
-    )
 
     # use of relative path in https://github.com/qt/qttools/blob/6.8.2/.gitmodules
     conflicts("+assistant", when="@6.8.2", msg="Incorrect git submodule prevents +assistant")

@@ -76,7 +76,6 @@ class Viskores(CMakePackage, CudaPackage, ROCmPackage):
             when="+kokkos +rocm amdgpu_target=%s" % amdgpu_value,
         )
 
-    depends_on("hip@5.2:", when="+rocm")
     # CUDA thrust is already include in the CUDA pkg
 
     # It would be better if this could be expressed as a when clause to disable the rocm variant,
@@ -85,5 +84,4 @@ class Viskores(CMakePackage, CudaPackage, ROCmPackage):
     # Viskores uses the Kokkos SYCL backend.
     # If Kokkos provides multiple backends, the SYCL backend may or
     # may not be used for Viskores depending on the default selected by Kokkos
-    depends_on("kokkos +sycl", when="+kokkos +sycl")
 

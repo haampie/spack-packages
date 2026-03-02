@@ -79,25 +79,7 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     variant("visitbridge", default=False, description="Enable VisItBridge support")
     variant("raytracing", default=False, description="Enable Raytracing support")
     variant("cdi", default=False, description="Enable CDI support")
-    variant(
-        "openpmd",
-        default=False,
-        description="Enable openPMD support (w/ ADIOS2/HDF5)",
-        when="@5.9: +python",
-    )
-    variant("catalyst", default=False, description="Enable Catalyst 1", when="@5.7:")
-    variant(
-        "libcatalyst",
-        default=False,
-        description="Enable Catalyst 2 (libcatalyst) implementation",
-        when="@5.10:",
-    )
 
-    variant(
-        "advanced_debug",
-        default=False,
-        description="Enable all other debug flags beside build_type, such as VTK_DEBUG_LEAK",
-    )
     variant(
         "build_edition",
         default="canonical",
@@ -128,8 +110,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # This affects Paraview <= 5.7 (VTK 8.2.0)
     # https://gitlab.kitware.com/vtk/vtk/-/issues/17670
 
-    depends_on("py-numpy", when="+python", type=("build", "run"))
-    depends_on("py-mpi4py", when="+python+mpi", type=("build", "run"))
 
     depends_on("py-matplotlib", when="+python", type="run")
 

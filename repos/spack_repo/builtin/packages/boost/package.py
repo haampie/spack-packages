@@ -169,7 +169,6 @@ class Boost(Package):
 
     # boost-mpi depends on boost-python since 1.87.0
 
-
     # Boost.System till 1.76 (included) was relying on mutex, which was not
     # detected correctly on Darwin platform when using GCC
     #

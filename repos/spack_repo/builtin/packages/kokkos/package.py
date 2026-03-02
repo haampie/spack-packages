@@ -148,39 +148,3 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         "intel_pvc",
     )
     variant("apu", default=False, description="Enable APU support", when="@4.5: +rocm")
-    for dev, (dflt, desc) in devices_variants.items():
-        variant(dev, default=dflt, description=desc)
-    for opt, (dflt, when, desc) in options_variants.items():
-        variant(opt, default=dflt, description=desc, when=when)
-    for tpl, (dflt, when, desc) in tpls_variants.items():
-        variant(tpl, default=dflt, description=desc, when=when)
-    variant("wrapper", default=False, description="Use nvcc-wrapper for CUDA build")
-    variant("cmake_lang", default=False, description="Use CMake language support for CUDA/HIP")
-    depends_on("kokkos-nvcc-wrapper@develop", when="@develop+wrapper")
-    with default_args(multi=False, description="C++ standard"):
-        variant("cxxstd", default="17", values=("14", "17", "20"), when="@3")
-        variant("cxxstd", default="17", values=("17", "20", "23"), when="@4")
-        variant("cxxstd", default="20", values=("20", "23"), when="@5:")
-    variant("pic", default=False, description="Build position independent code")
-    # Expose a way to disable CudaMallocAsync that can cause problems
-    # with some MPI such as cray-mpich
-    # SYCL and OpenMPTarget require C++17 or higher
-    # HPX should use the same C++ standard
-    for cxxstd in ["14", "17", "20", "23"]:
-        depends_on(f"hpx cxxstd={cxxstd}", when=f"+hpx cxxstd={cxxstd}")
-    # HPX version constraints
-    depends_on("hpx@1.7:", when="+hpx")
-    # Patches
-    # adds amd_gfx940 support to Kokkos 4.2.00 (upstreamed in https://github.com/kokkos/kokkos/pull/6671)
-    # Remove unnecessary C and C++ languages dependency in scripts/spack_test/CMakeLists.txt (upstreamed in https://github.com/kokkos/kokkos/pull/8357)
-    variant("shared", default=True, description="Build shared libraries")
-    for backend_name in ("cuda", "hip", "sycl"):
-        conflicts("+shared", when=f"+{backend_name}_relocatable_device_code")
-    # Filter spack-generated files that may include links to the
-    # spack compiler wrappers
-    # sanity check
-    sanity_check_is_file = [
-        join_path("include", "KokkosCore_config.h"),
-        join_path("include", "Kokkos_Core.hpp"),
-    ]
-    sanity_check_is_dir = ["bin", "include"]

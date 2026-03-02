@@ -41,33 +41,3 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     # https://github.com/ornladios/ADIOS2/issues/4620
     with when("+kokkos"):
         depends_on("kokkos +rocm", when="+rocm")
-        depends_on("kokkos +sycl", when="+sycl")
-    # Propagate CUDA target to kokkos for +cuda
-    for cuda_arch in CudaPackage.cuda_arch_values:
-        depends_on(
-            "kokkos cuda_arch=%s" % cuda_arch, when="+kokkos +cuda cuda_arch=%s" % cuda_arch
-        )
-    # Propagate AMD GPU target to kokkos for +rocm
-    for amdgpu_value in ROCmPackage.amdgpu_targets:
-        depends_on(
-            "kokkos amdgpu_target=%s" % amdgpu_value,
-            when="+kokkos +rocm amdgpu_target=%s" % amdgpu_value,
-        )
-    for _platform in ["linux", "darwin"]:
-        variant(
-            "pic",
-            default=False,
-            description="Build pic-enabled static libraries",
-            when=f"platform={_platform}",
-        )
-        # libffi and libfabric and not currently supported on Windows
-        # see Paraview's superbuild handling of libfabric at
-        # https://gitlab.kitware.com/paraview/paraview-superbuild/-/blob/master/projects/adios2.cmake#L3
-    # cmake build race condition
-    # add missing include <cstdint>
-    # Add missing include <memory>
-    # https://github.com/ornladios/adios2/pull/2710
-    # ROCM: enable support for rocm >= 6
-    # Fix issue with GCC 7
-    # https://github.com/ornladios/ADIOS2/pull/4591
-    # https://github.com/ornladios/ADIOS2/pull/4729

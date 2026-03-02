@@ -51,11 +51,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         url="https://github.com/kokkos/kokkos/archive/4.0.01.tar.gz",
     )
     version(
-        "4.0.00",
-        sha256="1829a423883d4b44223c7c3a53d3c51671145aad57d7d23e6a1a4bebf710dcf6",
-        url="https://github.com/kokkos/kokkos/archive/4.0.00.tar.gz",
-    )
-    version(
         "3.7.02",
         sha256="5024979f06bc8da2fb696252a66297f3e0e67098595a0cc7345312b3b4aa0f54",
         url="https://github.com/kokkos/kokkos/archive/3.7.02.tar.gz",

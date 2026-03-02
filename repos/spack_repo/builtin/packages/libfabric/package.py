@@ -41,9 +41,6 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
     version("1.17.1", sha256="8b372ddb3f46784c53fdad50a701a6eb0e661239aee45a42169afbedf3644035")
     version("1.17.0", sha256="579c0f5ef636c0c72f4d3d6bd4da91a5aed9ac3ac4ea387404c45dbbdee4745d")
     version("1.16.1", sha256="53f992d33f9afe94b8a4ea3d105504887f4311cf4b68cea99a24a85fcc39193f")
-    version("1.13.1", sha256="8e6eed38c4a39aa4cbf7d5d3734f0eecbfc030182f1f9b3be470702f2586d30e")
-    version("1.12.1", sha256="db3c8e0a495e6e9da6a7436adab905468aedfbd4579ee3da5232a5c111ba642c")
-    version("1.12.0", sha256="ca98785fe25e68a26c61e272be64a1efeea37e61b0dcebd34ccfd381bda7d9cc")
     version("1.11.2", sha256="ff2ba821b55a54855d327e6f6fb8a14312c9c9ca7c873525b6a246d8f974d7da")
     version("1.11.1", sha256="a72a7dac6322bed09ef1af33bcade3024ca5847a1e9c8fa369da6ab879111fe7")
     version("1.11.0", sha256="9938abf628e7ea8dcf60a94a4b62d499fbc0dbc6733478b6db2e6a373c80d58f")
@@ -124,25 +121,13 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
 
     # For version 1.9.0:
     # headers: fix forward-declaration of enum fi_collective_op with C++
-
-    # Fix for the inline assembly problem for the Nvidia compilers
-    # https://github.com/ofiwg/libfabric/pull/7665
-
-
     depends_on("rdma-core", when="fabrics=verbs")
     depends_on("rdma-core", when="@1.10.0: fabrics=efa")
     depends_on("opa-psm2", when="fabrics=psm2")
-    depends_on("psm", when="fabrics=psm")
-    depends_on("ucx", when="fabrics=mlx")
-    depends_on("ucx", when="@1.18.0: fabrics=ucx")
-    depends_on("uuid", when="fabrics=opx")
-    depends_on("cassini-headers", when="fabrics=cxi")
     depends_on("cxi-driver", when="fabrics=cxi")
     depends_on("xpmem", when="fabrics=xpmem")
 
-
     conflicts("fabrics=opx", when="@:1.14.99")
-
 
     flag_handler = build_system_flags
 
@@ -152,11 +137,8 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
         match = re.search(r"libfabric: (\d+\.\d+\.\d+)(\D*\S*)", output)
         return match.group(1) if match else None
 
-    @classmethod
-    def determine_variants(cls, exes, version):
         results = []
         for exe in exes:
-            variants = []
             output = Executable(exe)("--list", output=str, error=os.devnull)
             # fabrics
             used_fabrics = []

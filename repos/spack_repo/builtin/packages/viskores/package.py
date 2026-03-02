@@ -66,11 +66,8 @@ class Viskores(CMakePackage, CudaPackage, ROCmPackage):
 
     depends_on("cuda@10.1.0:", when="+cuda_native")
     depends_on("tbb", when="+tbb")
-    depends_on("mpi", when="+mpi")
-    depends_on("llvm-openmp", when="+openmp %apple-clang")
 
     # Viskores uses the default Kokkos backend
-    depends_on("kokkos", when="+kokkos")
     # Viskores native CUDA and Kokkos CUDA backends are not compatible
     depends_on("kokkos ~cuda", when="+kokkos +cuda +cuda_native")
     depends_on("kokkos +cuda", when="+kokkos +cuda ~cuda_native")

@@ -211,15 +211,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
     # For a list of valid languages for a specific release,
     # run the following command in the GCC source directory:
-    #    $ grep ^language= gcc/*/config-lang.in
-    # See https://gcc.gnu.org/install/configure.html
-
-    # Support for processing BRIG 1.0 files was added in GCC 7
     # BRIG is a binary format for HSAIL:
     # (Heterogeneous System Architecture Intermediate Language).
-    # See https://gcc.gnu.org/gcc-7/changes.html
-
-    # BRIG does not seem to be supported on macOS
     conflicts("languages=brig", when="platform=darwin")
 
     # GCC 4.8 added a 'c' language. I'm sure C was always built,
@@ -244,7 +237,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         # older version of GDC to build GDC.
         # See https://gcc.gnu.org/install/prerequisites.html#GDC-prerequisite
         with when("@12:"):
-            # All versions starting 12 have to be built GCC:
             requires("%gcc")
 
             # And it has to be GCC older than the version we build:

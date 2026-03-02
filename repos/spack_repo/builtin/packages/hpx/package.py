@@ -126,7 +126,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
 
     # Restrictions for 1.5.x
     conflicts("cxxstd=11", when="@1.5:")
-    depends_on("apex@2.3:", when="@1.5")
 
     # Restrictions for 1.2.X
     with when("@:1.2.1"):

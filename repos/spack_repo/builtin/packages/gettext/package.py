@@ -57,15 +57,12 @@ class Gettext(AutotoolsPackage, GNUMirrorPackage):
     depends_on("tar", when="+tar", type="run")
     # depends_on('gzip',     when='+gzip')
     depends_on("bzip2", when="+bzip2")
-    depends_on("xz", when="+xz", type=("build", "link", "run"))
 
     # Optional dependencies
     # depends_on('glib')  # circular dependency?
     # depends_on('libcroco@0.6.1:')
-    depends_on("libunistring", when="+libunistring")
     # depends_on('cvs')
 
-    conflicts("+shared~pic")
     # https://savannah.gnu.org/bugs/?65811
 
 

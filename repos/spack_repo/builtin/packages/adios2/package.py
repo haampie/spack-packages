@@ -164,14 +164,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("sz3", when="+sz3")
     depends_on("mgard@compat-2022-11-18:", when="+mgard")
     depends_on("mgard@compat-2023-01-10:", when="@2.9: +mgard")
-
-    extends("python", when="+python")
-    depends_on("python", when="+python", type=("build", "run"))
-
-
-    # error: invalid use of incomplete type 'PyFrameObject' {aka 'struct _frame'}
-    conflicts("^python@3.11:", when="@:2.7")
-
     # cmake build race condition
     patch(
         "https://github.com/ornladios/ADIOS2/commit/16869cf18cb4bd07d500c3048c3d34d1611674c7.patch?full_index=1",

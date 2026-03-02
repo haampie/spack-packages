@@ -10,26 +10,14 @@ from spack.package import (
     execute_install_time_tests,
 )
 # Needed to appease style checks. These names need to be exported here to be compatible
-# with Package API less than v2.2, in case custom repositories import them
-_ = BuilderWithDefaults
-_ = apply_macos_rpath_fixups
-_ = execute_install_time_tests
 def ensure_build_dependencies_or_raise(spec: Spec, dependencies: List[str], error_msg: str):
     """Ensure that some build dependencies are present in the concrete spec.
     If not, raise a RuntimeError with a helpful error message.
     Args:
-        spec: concrete spec to be checked.
-        dependencies: list of package names of required build dependencies
-        error_msg: brief error message to be prepended to a longer description
-    Raises:
           RuntimeError: when the required build dependencies are not found
     """
     assert spec.concrete, "Can ensure build dependencies only on concrete specs"
     build_deps = [d.name for d in spec.dependencies(deptype="build")]
-    missing_deps = [x for x in dependencies if x not in build_deps]
-    if not missing_deps:
-        return
-    # Raise an exception on missing deps.
     msg = (
         "{0}: missing dependencies: {1}.\n\nPlease add "
         "the following lines to the package:\n\n".format(

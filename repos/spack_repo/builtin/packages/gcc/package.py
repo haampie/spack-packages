@@ -1,7 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-import glob
 import os
 import sys
 from spack_repo.builtin.build_systems import compiler
@@ -10,14 +6,6 @@ from spack_repo.builtin.build_systems.compiler import CompilerPackage
 from spack_repo.builtin.build_systems.gnu import GNUMirrorPackage
 from spack.package import *
 class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
-    """The GNU Compiler Collection includes front ends for C, C++, Objective-C,
-    Fortran, Ada, and Go, as well as libraries for these languages."""
-    homepage = "https://gcc.gnu.org"
-    gnu_mirror_path = "gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
-    git = "git://gcc.gnu.org/git/gcc.git"
-    list_url = "https://ftp.gnu.org/gnu/gcc/"
-    list_depth = 1
-    keep_werror = "all"
     provides("c", "cxx", when="languages=c,c++")
     # Previous stable series releases
     # Final releases of previous versions
@@ -38,6 +26,10 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             "c++",
             "d",
             "fortran",
+            "go",
+            "java",
+            "jit",
+            "lto",
             "objc",
             "obj-c++",
         ),
@@ -46,3 +38,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     )
     variant("nvptx", default=False, description="Target nvptx offloading to NVIDIA GPUs")
     variant("bootstrap", default=True, description="Enable 3-stage bootstrap")
+    variant(
+        "graphite", default=False, description="Enable Graphite loop optimizations (requires ISL)"
+    )

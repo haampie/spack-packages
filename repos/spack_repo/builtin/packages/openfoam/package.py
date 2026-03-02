@@ -38,10 +38,6 @@ class Openfoam(Package):
     # Require scotch with ptscotch - corresponds to standard OpenFOAM setup
     # mgridgen is statically linked
     depends_on("vtk", when="+vtk")
-    depends_on("adios2~fortran", when="@1912:")
-    # For OpenFOAM plugins and run-time post-processing this should just be
-    # 'paraview+plugins' but that resolves poorly.
-    #   ~/.spack/packages.yaml
     # 1706 ok with newer paraview but avoid pv-5.2, pv-5.3 readers
     depends_on("paraview@5.4:", when="@1706:+paraview")
     # Icx only support from v2106 onwards

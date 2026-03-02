@@ -242,15 +242,4 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
 
     build_system("cmake", "autotools", default=default_build_system)
 
-    def setup_run_environment(self, env: EnvironmentModifications) -> None:
-        if self.spec.satisfies("@4.9.0:+shared"):
-            # Both HDF5 and NCZarr backends honor the same environment variable:
-            env.append_path("HDF5_PLUGIN_PATH", self.prefix.plugins)
         # Some packages, e.g. ncview, refuse to build if the compiler path returned by nc-config
-    def cmake_args(self):
-        # In 4.9.3, all CMake options were prefixed.
-        # Ref. https://github.com/Unidata/netcdf-c/pull/2895
-        nc = "NETCDF_" if self.spec.satisfies("@4.9.3:") else ""
-
-        # h5_test fails when run in parallel
-        make("check", parallel=False)

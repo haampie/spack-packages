@@ -23,11 +23,7 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
 
     executables = ["^bison$"]
 
-    license("GPL-3.0-or-later")
 
-    version("3.8.2", sha256="06c9e13bdf7eb24d4ceb6b59205a4f67c2c7e7213119644430fe82fbd14a0abb")
-    version("3.8.1", sha256="ce318a47196155fb7c26912b513102f3d0e14757c2e495e34608757b61339c5c")
-    version("3.8", sha256="d5d184d421aee15603939973a6b0f372f908edfb24c5bc740697497021ad9458")
     version("3.7.2", sha256="415cd91044517bbfd8d135dea24e054501db238a5515edd9cdbb795ba3e82a84")
     version("3.7.1", sha256="1dd952839cf0d5a8178c691eeae40dc48fa50d18dcce648b1ad9ae0195367d13")
     version("3.7", sha256="492ad61202de893ca21a99b621d63fa5389da58804ad79d3f226b8d04b803998")

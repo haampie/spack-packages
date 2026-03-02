@@ -180,7 +180,6 @@ class QtBase(QtPackage):
     with when("+gui"):
         depends_on("fontconfig")
         depends_on("freetype")
-        depends_on("harfbuzz")
         depends_on("jpeg")
         with when("platform=linux"):
             depends_on("xcb-util-keysyms")

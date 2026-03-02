@@ -368,13 +368,10 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         conflicts("+bootstrap", when="@11.3.0,13.1: target=aarch64:")
 
         # 14.2.0 cannot bootstrap on x86_64
-        conflicts("+bootstrap", when="@14.2.0")
 
         # Use -headerpad_max_install_names in the build,
         # otherwise updated load commands won't fit in the Mach-O header.
         # This is needed because `gcc` avoids the superenv shim.
-        patch("darwin/gcc-7.1.0-headerpad.patch", when="@5:11.2")
-        patch("darwin/gcc-6.1.0-jit.patch", when="@5:7")
 
         # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=92061
 

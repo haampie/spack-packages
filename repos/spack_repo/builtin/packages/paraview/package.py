@@ -337,13 +337,9 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     patch("stl-reader-pv440.patch", when="@4.4.0")
 
-    patch("gcc-compiler-pv501.patch", when="@:5.0.1")
     # Broken installation (ui_pqExportStateWizard.h) - fixed in 5.2.0
-    patch("ui_pqExportStateWizard.patch", when="@:5.1.2")
     # Broken vtk-m config. Upstream catalyst changes
-    patch("vtkm-catalyst-pv551.patch", when="@5.5.0:5.5.2")
     # Broken H5Part with external parallel HDF5
-    patch("h5part-parallel.patch", when="@5.7.0:5.7")
 
     # Broken downstream FindMPI
     patch("vtkm-findmpi-downstream.patch", when="@5.9.0")

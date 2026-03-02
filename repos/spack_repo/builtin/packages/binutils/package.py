@@ -116,9 +116,6 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
             msg="https://github.com/spack/spack/issues/35817",
         )
 
-    conflicts(
-        "~lto", when="+pgo", msg="Profile-guided optimization enables link-time optimization"
-    )
 
     # When you build binutils with ~ld and +gas and load it in your PATH, you
     # may end up with incompatibilities between a potentially older system ld
@@ -126,7 +123,6 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
     # binutils 2.26 and the assembler from binutils 2.36.1 will result in:
     # "unable to initialize decompress status for section .debug_info"
     # when compiling with debug symbols on gcc.
-    conflicts("+gas", "~ld", msg="Assembler not always compatible with system ld")
 
     @classmethod
     def determine_version(cls, exe):

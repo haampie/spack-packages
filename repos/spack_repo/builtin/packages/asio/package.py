@@ -18,8 +18,6 @@ class Asio(AutotoolsPackage):
 
 
     # As uneven minor versions of asio are not considered stable, they wont be added anymore
-    version("1.34.0", sha256="061ed6c8b97527756aed3e34d2cbcbcb6d3c80afd26ed6304f51119e1ef6a1cd")
-    version("1.32.0", sha256="f1b94b80eeb00bb63a3c8cef5047d4e409df4d8a3fe502305976965827d95672")
     version("1.28.2", sha256="5705a0e403017eba276625107160498518838064a6dd7fd8b00b2e30c0ffbdee")
     version("1.28.1", sha256="5ff6111ec8cbe73a168d997c547f562713aa7bd004c5c02326f0e9d579a5f2ce")
     version("1.28.0", sha256="226438b0798099ad2a202563a83571ce06dd13b570d8fded4840dbc1f97fa328")

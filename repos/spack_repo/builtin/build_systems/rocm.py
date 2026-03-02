@@ -200,10 +200,6 @@ class ROCmPackage(PackageBase):
     depends_on("llvm-amdgpu@5.7.0:", when="amdgpu_target=gfx941")
     depends_on("llvm-amdgpu@5.7.0:", when="amdgpu_target=gfx942")
     depends_on("llvm-amdgpu@5.2.0:", when="amdgpu_target=gfx1036")
-    depends_on("llvm-amdgpu@5.3.0:", when="amdgpu_target=gfx1100")
-    depends_on("llvm-amdgpu@5.3.0:", when="amdgpu_target=gfx1101")
-    depends_on("llvm-amdgpu@5.3.0:", when="amdgpu_target=gfx1102")
-    depends_on("llvm-amdgpu@5.3.0:", when="amdgpu_target=gfx1103")
 
     # Compiler conflicts
 

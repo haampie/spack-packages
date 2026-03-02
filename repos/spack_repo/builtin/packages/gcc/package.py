@@ -94,9 +94,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         version(
             "10.2.0", sha256="b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
         )
-        version(
-            "10.1.0", sha256="b6898a23844b656f1b68691c5c012036c2e694ac4b53a8918d4712ad876e7ea2"
-        )
 
         version("9.4.0", sha256="c95da32f440378d7751dd95533186f7fc05ceb4fb65eb5b85234e6299eb9838e")
 
@@ -104,11 +101,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
         version("6.3.0", sha256="f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f")
         version("6.2.0", sha256="9944589fc722d3e66308c0ce5257788ebd7872982a718aa2516123940671b7c5")
-        version("6.1.0", sha256="09c4c85cabebb971b1de732a0219609f93fc0af5f86f6e437fd8d7f832f1a351")
 
-        version("5.4.0", sha256="608df76dec2d34de6558249d8af4cbee21eceddbcb580d666f7a5a583ca3303a")
-        version("5.3.0", sha256="b84f5592e9218b73dbae612b5253035a7b34a9a1f7688d2e1bfaaf7267d5c4db")
-        version("5.2.0", sha256="5f835b04b5f7dd4f4d2dc96190ec1621b8d89f2dc6f638f9f8bc1b1014ba8cad")
         version("5.1.0", sha256="b7dafdf89cbb0e20333dbf5b5349319ae06e3d1a30bf3515b5488f7e89dca5ad")
 
 
@@ -349,16 +342,12 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         )
 
         nvptx_tools_ver = "2023-09-13"
-        depends_on("nvptx-tools@" + nvptx_tools_ver, type="build")
 
         # NVPTX offloading supported in 7 and later by limited languages
-        conflicts("@:6", msg="NVPTX only supported in gcc 7 and above")
 
         # NVPTX build disables bootstrap
-        conflicts("+bootstrap")
 
     # Binutils can't build ld on macOS
-    conflicts("+binutils", when="platform=darwin")
 
     # Bootstrap comparison failure:
     #   see https://github.com/spack/spack/issues/23296

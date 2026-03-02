@@ -102,19 +102,8 @@ class Pythia8(AutotoolsPackage):
     depends_on("hdf5", when="+hdf5")
     depends_on("highfive@2.2", when="+hdf5")
 
-    extends("python", when="+python")
 
-    conflicts(
-        "^evtgen+pythia8",
-        when="+evtgen",
-        msg="Building pythia with evtgen bindings and "
-        "evtgen with pythia bindings results in a circular dependency "
-        "that cannot be resolved at the moment! "
-        "Use pythia8+evtgen^evtgen~pythia8",
-    )
 
-    conflicts("+evtgen", when="~hepmc", msg="+evtgen requires +hepmc")
-    conflicts("+mpich", when="@:8.304", msg="MPICH support was added in 8.304")
     conflicts("+hdf5", when="@:8.304", msg="HDF5 support was added in 8.304")
     conflicts("+hdf5", when="~mpich", msg="MPICH is required for reading HDF5 files")
 

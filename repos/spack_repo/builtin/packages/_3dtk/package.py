@@ -55,10 +55,6 @@ class _3dtk(CMakePackage):
     depends_on("suite-sparse")
     depends_on("zlib-api")
     depends_on("libpng")
-    depends_on("eigen")
-    depends_on("cgal", when="+cgal")
-    depends_on("gl", when="+opengl")
-    depends_on("glew", when="+opengl")
     depends_on("freeglut", when="+opengl")
     depends_on(
         "opencv+aruco+calib3d+features2d+ffmpeg+highgui+imgcodecs+imgproc+ml+videoio+flann",

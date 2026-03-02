@@ -65,30 +65,6 @@ class IntelOneapiIpp(IntelOneApiLibraryPackage):
         expand=False,
     )
     version(
-        "2021.12.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/ecc315bf-9e5a-4a23-b0ca-f58aea109e39/l_ipp_oneapi_p_2021.12.0.559_offline.sh",
-        sha256="84e4dfba142c3c629424012ad5e8e5f78d2a05983bf03cdc7e3ec6b530142d0e",
-        expand=False,
-    )
-    version(
-        "2021.11.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/c8d09493-ca9b-45b1-b720-12b8719b4136/l_ipp_oneapi_p_2021.11.0.532_offline.sh",
-        sha256="42bfaf593184e3293c10e06ccc9e9781427d86a8a88e3d09f6921ffd7de24ee6",
-        expand=False,
-    )
-    version(
-        "2021.10.0",
-        url="https://registrationcenter-download.intel.com/akdlm//IRC_NAS/2d48c7d9-e716-4c73-8fe5-77a9599a405f/l_ipp_oneapi_p_2021.10.0.670_offline.sh",
-        sha256="c4ad98f96760b0a821dbcd59963c5148fd9dc4eb790af0e6e765a5f36525d202",
-        expand=False,
-    )
-    version(
-        "2021.9.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/616a3fba-4ab6-4317-a17b-2be4b737fc37/l_ipp_oneapi_p_2021.9.0.49454_offline.sh",
-        sha256="2c6e03dea143b6e508f5ff5f2dffb03a9d64b980453575e4a028ecd2c6aebbfe",
-        expand=False,
-    )
-    version(
         "2021.8.0",
         url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/732392fa-41b3-4a92-935e-6a2b823162a7/l_ipp_oneapi_p_2021.8.0.46345_offline.sh",
         sha256="d3348f37d03583dc767d3e3e8b5f0208405772de7991bd9d52112d83d332b749",

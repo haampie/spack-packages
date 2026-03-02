@@ -27,10 +27,6 @@ class Hpddm(Package):
 
     depends_on("fortran", type="build")  # generated
 
-    depends_on("mpi")
-    depends_on("blas")
-    depends_on("lapack")
-    depends_on("mumps")
     depends_on("hypre")
 
     def configure(self):

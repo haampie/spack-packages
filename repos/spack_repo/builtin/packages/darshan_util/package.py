@@ -46,16 +46,7 @@ class DarshanUtil(AutotoolsPackage):
     version("3.1.8", sha256="3ed51c8d5d93b4a8cbb7d53d13052140a9dffe0bc1a3e1ebfc44a36a184b5c82")
     version("3.1.7", sha256="9ba535df292727ac1e8025bdf2dc42942715205cad8319d925723fd88709e8d6")
     version("3.1.6", sha256="21cb24e2a971c45e04476e00441b7fbea63d2afa727a5cf8b7a4a9d9004dd856")
-    version("3.1.0", sha256="b847047c76759054577823fbe21075cfabb478cdafad341d480274fb1cef861c")
-    version("3.0.0", sha256="95232710f5631bbf665964c0650df729c48104494e887442596128d189da43e0")
 
-    variant("bzip2", default=False, description="Enable bzip2 compression")
-    variant(
-        "apmpi",
-        default=False,
-        description="Compile with AutoPerf MPI module support",
-        when="@3.3:",
-    )
     variant(
         "apxc", default=False, description="Compile with AutoPerf XC module support", when="@3.3:"
     )

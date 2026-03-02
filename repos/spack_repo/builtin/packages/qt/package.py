@@ -97,15 +97,11 @@ class Qt(Package):
     patch("qt4-tools.patch", when="@4+tools")
     patch("qt4-mac.patch", when="@4.8.7 platform=darwin")
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=925811
-    patch("qt4-qforeach.patch", when="@4 %gcc@9:")
 
     # Patches for qt@4:
     # https://github.com/spack/spack/issues/1517
-    patch("qt4-pcre.patch", when="@4")
-    patch("qt5-pcre.patch", when="@5:")
     # https://bugreports.qt.io/browse/QTBUG-74196
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89585
-    patch("qt4-asm-volatile.patch", when="@4")
     patch("qt5-asm-volatile.patch", when="@5.0.0:5.12.1")
 
     # Patches for qt@5

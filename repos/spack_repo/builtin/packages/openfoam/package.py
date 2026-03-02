@@ -396,10 +396,6 @@ class Openfoam(Package):
     # introduced by the restriction within scotch!
     depends_on("flex@:2.6.1,2.6.4:")
     depends_on("cmake", type="build")
-    depends_on("m4", type="build")
-    depends_on("json-c")
-    depends_on("libyaml")
-    depends_on("readline")
 
     # Require scotch with ptscotch - corresponds to standard OpenFOAM setup
     depends_on("scotch~metis+mpi~int64", when="+scotch~int64")

@@ -29,10 +29,6 @@ class DarshanRuntime(AutotoolsPackage):
     version("3.4.7", sha256="115a6d840b3bdb30751c271c0dec098b25bed2f8c77175125c133564d76afe5b")
     version("3.4.6", sha256="092b35e7af859af903dce0c51bcb5d3901dd0d9ad79d1b2f3282692407f032ee")
     version("3.4.5", sha256="1c017ac635fab5ee0e87a6b52c5c7273962813569495cb1dd3b7cfa6e19f6ed0")
-    version("3.4.4", sha256="d9c9df5aca94dc5ca3d56fd763bec2f74771d35126d61cb897373d2166ccd867")
-    version("3.4.3", sha256="dca5f9f9b0ead55a8724b218071ecbb5c4f2ef6027eaade3a6477256930ccc2c")
-    version("3.4.2", sha256="b095c3b7c059a8eba4beb03ec092b60708780a3cae3fc830424f6f9ada811c6b")
-    version("3.4.1", sha256="77c0a4675d94a0f9df5710e5b8658cc9ef0f0981a6dafb114d0389b1af64774c")
     version("3.4.0", sha256="7cc88b7c130ec3b574f6b73c63c3c05deec67b1350245de6d39ca91d4cff0842")
     version(
         "3.4.0-pre1", sha256="57d0fd40329b9f8a51bdc9d7635b646692b341d80339115ab203357321706c09"

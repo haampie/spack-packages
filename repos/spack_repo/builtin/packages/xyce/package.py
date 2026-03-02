@@ -67,28 +67,15 @@ class Xyce(CMakePackage):
     cxxstd_choices = ["11"]
     variant("cxxstd", default="11", description="C++ standard", values=cxxstd_choices, multi=False)
 
-    variant("pymi", default=False, description="Enable Python Model Interpreter for Xyce")
     # Downstream dynamic library symbols from pip-installed numpy and other
     # pip-installed python packages can cause conflicts. This is most often
     # seen with blas symbols from numpy, and building blas static resolves
     # this issue.
-    variant(
-        "pymi_static_tpls",
-        default=True,
-        sticky=True,
-        when="+pymi",
-        description="Require static blas build for PyMi",
-    )
 
-    variant("fftw", default=True, description="Depend on FFTW")
-    depends_on("fftw~mpi", type=("build", "run"), when="+fftw~mpi")
-    depends_on("fftw+mpi", type=("build", "run"), when="+fftw+mpi")
 
     # https://github.com/Xyce/Xyce/commit/ddec31a9c42c683831937be17fd6ffc3180e77a1
     # requirement because of use of std::filesystem
-    conflicts("@7.10:", when="%gcc@:8")
 
-    depends_on("python@3:", type=("build", "link", "run"), when="+pymi")
     depends_on("py-pip", type="run", when="+pymi")
     depends_on("py-pybind11@2.6.1:", type=("build", "link"), when="@:7.8 +pymi")
     depends_on("py-pybind11@2.13:", type=("build", "link"), when="@7.9: +pymi")

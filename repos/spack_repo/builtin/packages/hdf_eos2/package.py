@@ -67,13 +67,9 @@ class HdfEos2(AutotoolsPackage):
     variant("fortran", default=False, description="Enable Fortran support")
 
     conflicts("~static", when="~shared", msg="At least one of +static or +shared must be set")
-    conflicts("%gcc@14:", when="@:2", msg="GCC 14+ is only supported for version 3.0+")
 
-    depends_on("c", type="build")
-    depends_on("fortran", type="build", when="+fortran")
 
     # Build dependencies
-    depends_on("hdf")
     # Because hdf always depends on zlib and jpeg in spack, the tests below in configure_args
     # (if self.spec.satisfies("^jpeg"):) always returns true and hdf-eos2 wants zlib and jpeg, too.
     depends_on("zlib-api", when="^hdf")

@@ -43,26 +43,6 @@ class Jube(PythonPackage):
         extension="tar.gz",
     )
     version(
-        "2.5.1",
-        sha256="4c9a754b0e6f2b5e8cd0f5bd643dcfd7863a96b05cd02141d5eb301f2b89f6a3",
-        extension="tar.gz",
-    )
-    version(
-        "2.5.0",
-        sha256="2f136f9c46069e62b7b818e102527bbe7adc84190dbbcb3eb153b7c5b23d7162",
-        extension="tar.gz",
-    )
-    version(
-        "2.4.3",
-        sha256="5ff37495a0c8ef4ec501866217b758d8ea474e985b678af757f7906cc56c6d7e",
-        extension="tar.gz",
-    )
-    version(
-        "2.4.2",
-        sha256="d1de15e9792802f83521b582d1d144ec81e3d5a28c01dbd945288ea29b946729",
-        extension="tar.gz",
-    )
-    version(
         "2.4.1",
         sha256="d5d4a33fd339c7cd721a2836998605b9e492455c7bf755c64c7fd45e07be9016",
         extension="tar.gz",

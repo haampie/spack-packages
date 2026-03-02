@@ -63,11 +63,7 @@ class Puk(AutotoolsPackage):
     depends_on("bash")
     depends_on("expat@2.1.0:")
     depends_on("gdb", when="+debug", type=("build", "run"))
-    depends_on("valgrind", when="+debug", type=("build", "run"))
 
-    conflicts("platform=darwin", msg="Darwin is not supported.")
-    conflicts("platform=windows", msg="Windows is not supported.")
-    conflicts("%gcc@:5", msg="Requires at least gcc 6.")
     conflicts("%gcc@14:", when="@:2024-07-12", msg="Older release do not support gcc >= 14")
 
     configure_directory = "Puk"

@@ -24,10 +24,7 @@ class Jujutsu(CargoPackage):
 
     depends_on("c", type="build")
     depends_on("rust@1.76:", type="build")
-    depends_on("rust@1.84:", type="build", when="@0.31:")
 
-    depends_on("pkgconfig", type="build")
-    depends_on("openssl")
 
 
 class CargoBuilder(cargo.CargoBuilder):

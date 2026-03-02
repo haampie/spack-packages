@@ -106,15 +106,11 @@ class Scr(CMakePackage):
         "Must be an absolute path.",
     )
 
-    variant("fortran", default=True, description="Build SCR with fortran bindings")
 
 
     # SCR_ASYNC_API only used in :2.x.x
 
 
-    variant("bbapi", default=False, when="@3:", description="Enable IBM BBAPI support")
-    depends_on("axl+bbapi", when="+bbapi")
-    depends_on("axl~bbapi", when="~bbapi")
 
     variant(
         "bbapi_fallback",

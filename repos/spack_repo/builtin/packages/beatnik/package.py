@@ -20,13 +20,9 @@ class Beatnik(CMakePackage, CudaPackage, ROCmPackage):
     license("BSD-3-Clause")
 
     version("1.1", commit="7d5a6fa588bcb7065fc53c3e8ae52d4d7f13b6f1", submodules=True)
-    version("1.0", commit="ae31ef9cb44678d5ace77994b45b0778defa3d2f")
-    version("develop", branch="develop", submodules=True)
-    version("main", branch="main", submodules=True)
 
     # Variants are primarily backends to build on GPU systems and pass the right
     # informtion to the packages we depend on
-    variant("cuda", default=False, description="Use CUDA support from subpackages")
     variant("openmp", default=False, description="Use OpenMP support from subpackages")
 
     # Dependencies for all Beatnik versions

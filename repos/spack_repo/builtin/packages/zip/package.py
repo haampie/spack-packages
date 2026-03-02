@@ -25,21 +25,13 @@ class Zip(MakefilePackage):
 
     # Upstream is unmaintained, get patches from:
     # https://deb.debian.org/debian/pool/main/z/zip/zip_3.0-11.debian.tar.xz
-    patch("01-typo-it-is-transferring-not-transfering.patch")
-    patch("02-typo-it-is-privileges-not-priviliges.patch")
-    patch("03-manpages-in-section-1-not-in-section-1l.patch")
-    patch("04-do-not-set-unwanted-cflags.patch")
     patch("05-typo-it-is-preceding-not-preceeding.patch")
     patch("06-stack-markings-to-avoid-executable-stack.patch")
     patch("07-fclose-in-file-not-fclose-x.patch")
     patch("08-hardening-build-fix-1.patch")
-    patch("09-hardening-build-fix-2.patch")
-    patch("10-remove-build-date.patch")
-    patch("11-typo-it-is-ambiguities-not-amgibuities.patch")
 
     # Configure and header changes needed for comatibility with strict gcc14+
     # these are not from the debian branch
-    patch("12-gcc14-no-implicit-declarations-fix.patch", when="%gcc@14:")
 
     executables = ["^zip$"]
 

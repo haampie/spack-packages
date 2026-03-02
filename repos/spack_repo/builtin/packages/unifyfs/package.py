@@ -54,10 +54,6 @@ class Unifyfs(AutotoolsPackage):
     depends_on("fortran", type="build")  # generated
 
     depends_on("autoconf", type="build")
-    depends_on("automake@1.15:", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
-    depends_on("pkgconfig", type="build")
 
     # Required dependencies
     depends_on("gotcha@1.0.4:")

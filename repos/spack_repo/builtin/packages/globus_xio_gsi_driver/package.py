@@ -26,11 +26,7 @@ class GlobusXioGsiDriver(AutotoolsPackage):
 
     version("5.4", sha256="9a28f8da77efbd8560bcfacdd514f81f5653d1c612d7fe3c479e52a4c8c1ed76")
 
-    depends_on("c", type="build")
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
     depends_on("m4", type="build")
 
     depends_on("globus-common@14:")

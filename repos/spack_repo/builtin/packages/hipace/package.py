@@ -16,9 +16,7 @@ class Hipace(CMakePackage):
     url = "https://github.com/Hi-PACE/hipace/archive/refs/tags/v23.07.tar.gz"
     git = "https://github.com/Hi-PACE/hipace.git"
 
-    maintainers("ax3l", "MaxThevenet", "SeverinDiederichs")
 
-    license("BSD-3-Clause-LBNL")
 
     version("develop", branch="development")
     version("23.07", sha256="2b1f61c91d2543d7ee360eba3630c864107e29f7bcfd0221451beea88f414f21")

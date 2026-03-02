@@ -174,12 +174,8 @@ class Hdf5(CMakePackage):
         when="@develop-1.8:develop-1.10",
         msg="v112 is not compatible with this release",
     )
-    conflicts("api=v110", when="@1.6:1.8", msg="v110 is not compatible with this release")
-    conflicts("api=v110", when="@develop-1.8", msg="v110 is not compatible with this release")
-    conflicts("api=v18", when="@1.6", msg="v18 is not compatible with this release")
 
     # The Java wrappers cannot be built without shared libs.
-    conflicts("+java", when="~shared")
     # Fortran fails built with shared for old HDF5 versions
     conflicts("+fortran", when="+shared@:1.8.15")
     # See https://github.com/spack/spack/issues/31085

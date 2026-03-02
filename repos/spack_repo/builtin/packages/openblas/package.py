@@ -140,11 +140,7 @@ class Openblas(CMakePackage, MakefilePackage):
 
     # virtual dependency
     provides("blas", "lapack")
-    provides("lapack@3.9.1:", when="@0.3.15:")
-    provides("lapack@3.7.0", when="@0.2.20")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
     depends_on("fortran", when="+fortran", type="build")
     depends_on("fortran", when="@:0.3.20", type="build")
     depends_on("perl", when="@:0.3.20", type="build")
@@ -166,14 +162,10 @@ class Openblas(CMakePackage, MakefilePackage):
     patch("blas_normalize_test_symbols.patch", when="%msvc")
 
     # https://github.com/OpenMathLib/OpenBLAS/pull/3712
-    patch("cce.patch", when="@0.3.20 %cce")
 
     # https://github.com/OpenMathLib/OpenBLAS/pull/3778
-    patch("fix-cray-fortran-detection-pr3778.patch", when="@0.3.21")
 
     # https://github.com/spack/spack/issues/31732
-    patch("f_check-oneapi.patch", when="@0.3.20 %oneapi")
-    patch("f_check-intel.patch", when="@0.3.21 %intel")
 
     # OpenBLAS >=3.0 has an official way to disable internal parallel builds
     patch("make.patch", when="@0.2.16:0.2.20")

@@ -38,10 +38,6 @@ class Pareval(Package, CudaPackage, ROCmPackage):
         depends_on("py-datasets")
 
     with when("+evaluate"):
-        depends_on("cxx")
-        depends_on("gmake")
-        depends_on("cmake")
-        depends_on("mpi", when="+mpi")
         depends_on("kokkos@4.1.00 +threads", when="+kokkos")
 
     def install(self, spec, prefix):

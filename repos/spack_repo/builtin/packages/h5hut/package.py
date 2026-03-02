@@ -28,11 +28,7 @@ class H5hut(AutotoolsPackage):
     depends_on("cxx", type="build")  # generated
     depends_on("fortran", type="build")  # generated
 
-    depends_on("autoconf", type="build", when="build_system=autotools")
-    depends_on("automake", type="build", when="build_system=autotools")
-    depends_on("libtool", type="build", when="build_system=autotools")
 
-    depends_on("mpi", when="+mpi")
     # h5hut +mpi uses the obsolete function H5Pset_fapl_mpiposix:
     depends_on("hdf5@1.8:+mpi", when="+mpi")
     depends_on("hdf5@1.8:", when="~mpi")

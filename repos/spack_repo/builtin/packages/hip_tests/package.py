@@ -76,9 +76,7 @@ class HipTests(CMakePackage):
         depends_on(f"rocm-core@{ver}", when=f"@{ver}")
         depends_on(f"rocminfo@{ver}", when=f"@{ver}")
         depends_on(f"hipify-clang@{ver}", when=f"@{ver}")
-        depends_on(f"llvm-amdgpu@{ver}", when=f"@{ver}")
 
-    patch("0001_link_numa.patch", when="@7.2")
 
     @property
     def root_cmakelists_dir(self):

@@ -57,11 +57,8 @@ class Re2(CMakePackage):
         when="@2023-02-01:",
     )
     variant("shared", default=False, description="Build shared instead of static libraries")
-    variant("pic", default=True, description="Enable position independent code")
 
-    depends_on("cxx", type="build")
 
-    depends_on("abseil-cpp", when="@2023-09-01:")
 
     depends_on("icu4c", when="+icu")
 

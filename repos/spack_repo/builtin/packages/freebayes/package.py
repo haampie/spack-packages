@@ -23,11 +23,7 @@ class Freebayes(MesonPackage):
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake", type="build")
-    depends_on("zlib-api")
 
-    depends_on("ninja", type="build")
-    depends_on("pkgconfig", type="build")
     depends_on("htslib")
     depends_on("zlib-api")
     depends_on("xz")

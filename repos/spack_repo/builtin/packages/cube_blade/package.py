@@ -19,10 +19,6 @@ class CubeBlade(AutotoolsPackage):
 
     depends_on("cxx", type="build")  # generated
 
-    depends_on("cube@4.5:")
-    depends_on("cubelib@4.5:")
-    depends_on("qt@5.9.1:")
-    depends_on("otf2@2.1.1:")
 
     # Without this patch, the Blade plugin crashes Cube on startup
     patch("return-bool.patch")

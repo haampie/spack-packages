@@ -52,12 +52,8 @@ class Charliecloud(AutotoolsPackage):
     depends_on("git@2.28.1:", type="run")  # build cache
 
     # Man page and html docs.
-    depends_on("rsync", type="build", when="+docs")
-    depends_on("py-sphinx", type="build", when="+docs")
-    depends_on("py-sphinx-rtd-theme", type="build", when="+docs")
 
     # Bash automated testing harness (bats).
-    depends_on("bats@1.10.0:")
 
     # Require pip and wheel for git checkout builds (master).
     depends_on("py-pip@21.1.2:", type="build", when="@master")

@@ -20,13 +20,6 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
     url = "https://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz"
 
 
-    version("64.1", sha256="92f1b7b9d51b396679c17f35a2112423361b8da3c1b9de00aa94fd768ae296e6")
-    version("60.3", sha256="476287b17db6e0b7da230dce4b58e8e5669b1510847f82cab3647920f1374390")
-    version("60.1", sha256="f8f5a6c8fbf32c015a467972bdb1477dc5f5d5dfea908b6ed218715eeb5ee225")
-    version("58.3", sha256="2680f3c547cd26cba1d7ebd819cd336ff92cf444a270e195fd3b10bfdf22276c")
-    version("58.2", sha256="2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c")
-    version("57.2", sha256="623f04b921827a041f42d52495a6f8eee6565a9b7557051ac68e099123ff28dc")
-    version("57.1", sha256="ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581")
 
     build_system("autotools", "msbuild", default="autotools")
     for plat in ["linux", "darwin", "freebsd"]:

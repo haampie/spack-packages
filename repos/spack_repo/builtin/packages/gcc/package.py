@@ -32,26 +32,11 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # Previous stable series releases
 
     # Final releases of previous versions
-    version("5.5.0", sha256="530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87")
-    version("4.9.4", sha256="6c11d292cd01b294f9f84c9a59c230d80e9e4a47e5c6355f046bb36d4f358092")
-    version("12.3.0", sha256="949a5d4f99e786421a93b532b22ffab5578de7321369975b91aec97adfda8c3b")
 
     with default_args(deprecated=True):
 
 
-        version(
-            "12.2.0", sha256="e549cf9cf3594a00e27b6589d4322d70e0720cdd213f39beb4181e06926230ff"
-        )
 
-        version(
-            "11.4.0", sha256="3f2db222b007e8a4a23cd5ba56726ef08e8b1f1eb2055ee72c1402cea73a8dd9"
-        )
-        version(
-            "11.3.0", sha256="b47cf2818691f5b1e21df2bb38c795fac2cfbd640ede2d0a5e1c89e338a3ac39"
-        )
-        version(
-            "11.2.0", sha256="d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
-        )
         version(
             "11.1.0", sha256="4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
         )

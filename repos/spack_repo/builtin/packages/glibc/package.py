@@ -25,8 +25,6 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     provides("libc")
     provides("iconv")
 
-    version("master", branch="master")
-    version("2.43", sha256="e1e622cbd635019090fa23260e5d9ec219b12f97ae7ae02f033d4ae42cf2c004")
     # Fix for newer GCC, related to -fno-common
     patch("locs.patch", when="@2.23:2.25")
     patch("locs-2.22.patch", when="@:2.22")

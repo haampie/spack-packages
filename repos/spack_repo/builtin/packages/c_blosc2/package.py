@@ -44,11 +44,7 @@ class CBlosc2(CMakePackage):
     variant("zlib", default=True, description="support for ZLIB")
     variant("zstd", default=True, description="support for ZSTD")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("cmake@3.16.3:", type="build")
-    depends_on("lizard", when="+lizard")
-    depends_on("lz4", when="+lz4")
     depends_on("snappy", when="+snappy")
     depends_on("zlib-api", when="+zlib")
     depends_on("zstd", when="+zstd")

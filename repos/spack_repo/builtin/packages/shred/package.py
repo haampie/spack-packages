@@ -29,11 +29,7 @@ class Shred(MakefilePackage):
 
     depends_on("blas")
     depends_on("fftw+mpi+openmp")
-    depends_on("lapack")
     # need libxc version to be less than 6
-    depends_on("libxc@:5")
-    depends_on("mpi")
-    depends_on("scalapack")
 
     build_system("makefile", default="makefile")
 

@@ -55,10 +55,6 @@ class Roary(Package):
     # roary_plots dependencies
     depends_on("python", type="run")
     depends_on("py-biopython", type="run")
-    depends_on("py-numpy", type="run")
-    depends_on("py-pandas", type="run")
-    depends_on("py-matplotlib", type="run")
-    depends_on("py-seaborn", type="run")
 
     def install(self, spec, prefix):
         install_tree(".", prefix)

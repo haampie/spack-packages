@@ -17,7 +17,6 @@ class Asciidoc(AutotoolsPackage, PythonPackage):
     url = "https://github.com/asciidoc-py/asciidoc-py/archive/8.6.10.tar.gz"
     git = "https://github.com/asciidoc-py/asciidoc-py.git"
 
-    license("GPL-2.0-only", checked_by="tgamblin")
 
     build_system(
         conditional("autotools", when="@:9"),

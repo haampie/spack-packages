@@ -293,10 +293,6 @@ class Mfem(Package, CudaPackage, ROCmPackage):
     conflicts("+mpi ^hypre+rocm", when="@:4.3")
 
     conflicts("+superlu-dist", when="~mpi")
-    conflicts("+strumpack", when="~mpi")
-    conflicts("+petsc", when="~mpi")
-    conflicts("+slepc", when="~petsc")
-    conflicts("+pumi", when="~mpi")
     conflicts("timer=mpi", when="~mpi")
     conflicts("+mumps", when="~mpi")
 

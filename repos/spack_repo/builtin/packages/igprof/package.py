@@ -23,14 +23,12 @@ class Igprof(CMakePackage):
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
 
-    depends_on("libunwind")
 
     # Three patches in one: C++11 compatibility (src/analyse.cc),
     # libunwind "compatibility" (remove -Werror in CMakeLists.txt) -
     # see also https://github.com/spack/spack/pull/21537,
     # and gcc 8.x compatibility (the rest of the changes).
     # Adopted from LCGCMake https://gitlab.cern.ch/sft/lcgcmake
-    patch("igprof-5.9.16.patch", when="@5.9.16", level=0)
 
     def build_system_flags(pkg, name, flags):
         if name == "cxxflags":

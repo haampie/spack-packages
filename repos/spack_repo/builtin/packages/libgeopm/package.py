@@ -18,7 +18,6 @@ class Libgeopm(AutotoolsPackage):
     git = "https://github.com/geopm/geopm.git"
     url = "https://github.com/geopm/geopm/tarball/v3.2.2"
 
-    maintainers("bgeltz", "cmcantalupo")
     license("BSD-3-Clause")
     tags = ["e4s"]
 

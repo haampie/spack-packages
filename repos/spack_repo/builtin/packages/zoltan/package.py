@@ -38,10 +38,6 @@ class Zoltan(AutotoolsPackage):
 
     depends_on("autoconf", type="build")
     depends_on("automake", type="build")
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
-    depends_on("fortran", type="build")
-    depends_on("m4", type="build")
 
     depends_on("mpi", when="+mpi")
     depends_on("metis", when="+parmetis")

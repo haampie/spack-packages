@@ -13,7 +13,6 @@ class Rdptools(MakefilePackage):
     homepage = "https://github.com/rdpstaff/RDPTools"
     url = "https://github.com/rdpstaff/RDPTools/archive/2.0.2.tar.gz"
 
-    version("2.0.2", sha256="fc3d7f8129b45e602fc2c23e5e037a7f48c14d5a6b05c64f8c1d48e9767ac01d")
 
     # https://github.com/bioconda/bioconda-recipes/blob/master/recipes/rdptools/meta.yaml
     depends_on("java")

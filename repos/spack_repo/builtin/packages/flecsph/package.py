@@ -18,7 +18,6 @@ class Flecsph(CMakePackage):
     homepage = "http://flecsi.org"
     git = "https://github.com/laristra/flecsph.git"
 
-    maintainers("JulienLoiseau")
     version("master", branch="master", submodules=True, preferred=True)
 
     variant("debug_tree", default=False, description="Enable debug for Ntree")

@@ -22,19 +22,15 @@ class Hdf5(CMakePackage):
     url = "https://support.hdfgroup.org/releases/hdf5/v1_14/v1_14_5/downloads/hdf5-1.14.5.tar.gz"
 
     git = "https://github.com/HDFGroup/hdf5.git"
-    maintainers("lrknox", "brtnfld", "byrnHDF", "gheber", "hyoklee", "lkurz")
 
     tags = ["e4s", "windows"]
     executables = ["^h5cc$", "^h5pcc$"]
 
     test_requires_compiler = True
 
-    license("custom")
 
     # The 'develop' version is renamed so that we could uninstall (or patch) it
     # without affecting other develop version.
-    version("develop-2.0", branch="develop")
-    version("develop-1.14", branch="hdf5_1_14")
     version("develop-1.12", branch="hdf5_1_12")
     version("develop-1.10", branch="hdf5_1_10")
     version("develop-1.8", branch="hdf5_1_8")
@@ -252,13 +248,7 @@ class Hdf5(CMakePackage):
 
     # Fixes BOZ literal constant error when compiled with GCC 10.
     # The issue is described here: https://github.com/spack/spack/issues/18625
-    patch(
-        "hdf5_1.8_gcc10.patch",
-        when="@:1.8.21",
-        sha256="0e20187cda3980a4fdff410da92358b63de7ebef2df1d7a425371af78e50f666",
-    )
 
-    patch("fortran-kinds.patch", when="@1.10.7")
 
     # This patch may only be needed with GCC 11.2 on macOS, but it's valid for
     # any of the head HDF5 versions as of 12/2021. Since it's impossible to
@@ -266,14 +256,12 @@ class Hdf5(CMakePackage):
     # macOS (which is the norm), and this might be an issue for other compilers
     # as well, we just apply it to all platforms.
     # See https://github.com/HDFGroup/hdf5/issues/1157
-    patch("fortran-kinds-2.patch", when="@1.10.8,1.12.1")
 
     # Patch needed for HDF5 1.14.0 where dependency on MPI::MPI_C was declared
     # PUBLIC.  Dependent packages using the default hdf5 package but not
     # expecting to use MPI then failed to configure because they did not call
     # find_package(MPI).  This patch does that for them.  Later HDF5 versions
     # will include the patch code changes.
-    patch("hdf5_1_14_0_config_find_mpi.patch", when="@1.14.0")
 
     # The argument 'buf_size' of the C function 'h5fget_file_image_c' is
     # declared as intent(in) though it is modified by the invocation. As a

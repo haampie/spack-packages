@@ -56,7 +56,6 @@ class Genomeworks(CMakePackage, CudaPackage):
     # See https://github.com/clara-parabricks/GenomeWorks/issues/570
     # This patch breaks GenomeWorks with Cuda <11, cuda@11: is
     # therefore used as dependency.
-    patch("3rdparty.patch")
 
     def cmake_args(self):
         args = []

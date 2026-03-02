@@ -140,10 +140,8 @@ class FluxCore(AutotoolsPackage):
     # Testing Dependencies
     depends_on("mpich pmi=pmi", type="test")
     depends_on("valgrind", type="test")
-    depends_on("jq", type="test")
 
     # Patch 0.27-0.30 for build errors when czmq built with "draft APIs":
-    patch("0001-build-fix-build-errors-with-side-installed-0MQ.patch", when="@0.27.0:0.30.0")
 
     def url_for_version(self, version):
         """

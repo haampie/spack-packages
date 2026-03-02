@@ -63,11 +63,7 @@ class LlvmAmdgpu(CMakePackage, LlvmDetection, CompilerPackage):
     version("6.1.1", sha256="f1a67efb49f76a9b262e9735d3f75ad21e3bd6a05338c9b15c01e6c625c4460d")
     version("6.1.0", sha256="6bd9912441de6caf6b26d1323e1c899ecd14ff2431874a2f5883d3bc5212db34")
     version("6.0.2", sha256="7d35acc84de1adee65406f92a369a30364703f84279241c444cd93a48c7eeb76")
-    version("6.0.0", sha256="c673708d413d60ca8606ee75c77e9871b6953c59029c987b92f2f6e85f683626")
-    version("5.7.1", sha256="6b54c422e45ad19c9bf5ab090ec21753e7f7d854ca78132c30eb146657b168eb")
-    version("5.7.0", sha256="4abdf00b297a77c5886cedb37e63acda2ba11cb9f4c0a64e133b05800aadfcf0")
 
-    provides("c", "cxx")
     provides("fortran", when="@7.0:")
 
     variant(
@@ -104,11 +100,7 @@ class LlvmAmdgpu(CMakePackage, LlvmDetection, CompilerPackage):
     depends_on("python", type="build")
     depends_on("z3", type="link")
     depends_on("zlib-api", type="link")
-    depends_on("ncurses+termlib", type="link")
-    depends_on("libxml2", type="link")
-    depends_on("pkgconfig", type="build")
 
-    depends_on("numactl", when="@7.1:")
     depends_on("libdrm", when="@7.1:")
     depends_on("libelf", when="@7.1:")
     depends_on("xxd", when="@7.1:")

@@ -27,8 +27,4 @@ class Fluxbox(AutotoolsPackage):
     patch("fix_zero_comparison.patch")
 
     depends_on("pkgconfig", type="build")
-    depends_on("freetype")
-    depends_on("libxrender")
-    depends_on("libxext")
-    depends_on("expat")
     depends_on("libx11")

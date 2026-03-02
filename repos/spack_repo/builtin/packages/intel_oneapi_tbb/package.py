@@ -90,30 +90,6 @@ class IntelOneapiTbb(IntelOneApiLibraryPackage):
         expand=False,
     )
     version(
-        "2021.8.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/19143/l_tbb_oneapi_p_2021.8.0.25334_offline.sh",
-        sha256="41074fcf6a33e41f9e8007609100e40c27f4e36b709b964835eff823e655486b",
-        expand=False,
-    )
-    version(
-        "2021.7.1",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/19041/l_tbb_oneapi_p_2021.7.1.15005_offline.sh",
-        sha256="f13a8e740d69347b5985c1be496a3259a86d64ec94933b3d26100dbc2f059fd4",
-        expand=False,
-    )
-    version(
-        "2021.7.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/18901/l_tbb_oneapi_p_2021.7.0.8712_offline.sh",
-        sha256="879bd2004b8e93bc12c53c43eab44cd843433e3da7a976baa8bf07a1069a87c5",
-        expand=False,
-    )
-    version(
-        "2021.6.0",
-        url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/18728/l_tbb_oneapi_p_2021.6.0.835_offline.sh",
-        sha256="e9ede40a3d7745de6d711d43818f820c8486ab544a45610a71118fbca20698e5",
-        expand=False,
-    )
-    version(
         "2021.5.1",
         url="https://registrationcenter-download.intel.com/akdlm/IRC_NAS/18473/l_tbb_oneapi_p_2021.5.1.738_offline.sh",
         sha256="c154749f1f370e4cde11a0a7c80452d479e2dfa53ff2b1b97003d9c0d99c91e3",

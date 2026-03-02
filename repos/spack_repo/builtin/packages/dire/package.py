@@ -31,9 +31,7 @@ class Dire(Package):
     depends_on("lhapdf")
     depends_on("hepmc")
     depends_on("pythia8@8.226:")
-    depends_on("gmake", type="build")
 
-    conflicts("^pythia8@8.301:", msg="Dire is included in Pythia8 since version 8.301")
 
     def install(self, spec, prefix):
         configure_args = ["--prefix={0}".format(prefix)]

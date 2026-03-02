@@ -77,12 +77,8 @@ class Bohrium(CMakePackage, CudaPackage):
     #      is the strictly required lapack provider
     #      for bohrium right now.
     depends_on("netlib-lapack+lapacke", when="+lapack")
-    depends_on("blas", when="+blas")
 
     # Make sure an appropriate opencv is used
-    depends_on("opencv@:3+imgproc", when="+opencv")
-    depends_on("opencv+cudev", when="+opencv+cuda")
-    depends_on("opencv+openmp", when="+opencv+openmp")
 
     depends_on("python", type="build", when="~python")
     depends_on("python", type=("build", "link", "test"), when="+python")

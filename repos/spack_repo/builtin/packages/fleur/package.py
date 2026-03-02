@@ -69,9 +69,6 @@ class Fleur(Package):
     conflicts("%gcc@:6.3.0", msg="gfortran is known to work with versions newer than v6.3")
     conflicts("~scalapack", when="+elpa", msg="ELPA requires scalapack support")
     conflicts("@:5.0", when="fft=fftw", msg="FFTW interface is supported from Fleur v5.0")
-    conflicts("@:5.0", when="+wannier90", msg="wannier90 is supported from Fleur v5.0")
-    conflicts("@:4.0", when="+spfft", msg="SpFFT is supported from Fleur v4.0")
-    conflicts("@:4.0", when="+external_libxc", msg="External libxc is supported from Fleur v4.0")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         spec = self.spec

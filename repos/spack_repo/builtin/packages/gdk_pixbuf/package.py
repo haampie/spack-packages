@@ -18,11 +18,8 @@ class GdkPixbuf(MesonPackage):
     list_url = "https://download.gnome.org/sources/gdk-pixbuf/"
     list_depth = 1
 
-    license("LGPL-2.1-or-later", checked_by="wdconinc")
 
-    version("2.42.12", sha256="b9505b3445b9a7e48ced34760c3bcb73e966df3ac94c95a148cb669ab748e3c7")
 
-    variant("tiff", default=False, description="Enable TIFF support(partially broken)")
     # Man page creation was getting docbook errors, see issue #18853
     variant("man", default=False, description="Enable man page creation")
 

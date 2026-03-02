@@ -35,21 +35,10 @@ class Gloo(CMakePackage, CudaPackage):
     version("2018-05-29", commit="69eef748cc1dfbe0fefed69b34e6545495f67ac5")  # py-torch@0.4.1
     version("2018-04-06", commit="aad0002fb40612e991390d8e807f247ed23f13c5")  # py-torch@:0.4.0
 
-    variant("libuv", default=False, description="Build libuv transport")
 
     # Gloo does not build on Linux >=6.0.3 (fixed in master)
     # See: https://github.com/facebookincubator/gloo/issues/345
-    patch(
-        "https://github.com/facebookincubator/gloo/commit/10909297fedab0a680799211a299203e53515032.patch?full_index=1",
-        sha256="8e6e9a44e0533ba4303a95a651b1934e5d73632cab08cc7d5a9435e1e64aa424",
-        when="@:2023-01-16",
-    )
     # Fix building with gcc 12, see https://github.com/facebookincubator/gloo/pull/333
-    patch(
-        "https://github.com/facebookincubator/gloo/commit/4a5e339b764261d20fc409071dc7a8b8989aa195.patch?full_index=1",
-        sha256="dc8b3a9bea4693f32d6850ea2ce6ce75e1778538bfba464b50efca92bac425e3",
-        when="@2021-05-21:2022-05-18",
-    )
 
     generator("ninja")
 

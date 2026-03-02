@@ -13,7 +13,6 @@ class Tramonto(CMakePackage):
     homepage = "https://software.sandia.gov/tramonto/"
     git = "https://github.com/Tramonto/Tramonto.git"
 
-    version("develop", branch="master")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

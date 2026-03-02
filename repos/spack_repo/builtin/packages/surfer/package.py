@@ -14,9 +14,7 @@ class Surfer(CargoPackage):
     url = "https://gitlab.com/surfer-project/surfer/-/archive/v0.3.0/surfer-v0.3.0.tar.gz"
     git = "https://gitlab.com/surfer-project/surfer.git"
 
-    maintainers("davekeeshan")
 
-    license("EUPL-1.2")
 
     version("main", branch="main", submodules=True)
 

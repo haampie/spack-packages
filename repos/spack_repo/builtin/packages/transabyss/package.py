@@ -16,9 +16,6 @@ class Transabyss(Package):
     version("1.5.5", sha256="7804961c13296c587a1b22180dd3f02091a4494cbbd04fc33c2060599caadb0b")
 
     depends_on("abyss@1.5.2")
-    depends_on("python@2.7.6:", type=("build", "run"))
-    depends_on("py-python-igraph@0.7.0:", type=("build", "run"))
-    depends_on("blat")
 
     def install(self, spec, prefix):
         install("transabyss", prefix)

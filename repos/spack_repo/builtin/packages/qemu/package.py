@@ -114,11 +114,7 @@ class Qemu(AutotoolsPackage):
 
     depends_on("pkgconfig", type="build")
     depends_on("diffutils", type="build")
-    depends_on("py-tomli", when="@9:", type="build")
-    depends_on("meson@1.1.0:", when="@9:", type="build")
 
-    depends_on("bison", when="@9:")
-    depends_on("bzip2", when="@9:")
     depends_on("capstone", when="@9:")
     depends_on("dtc", when="@9:")
     depends_on("flex", when="@9:")

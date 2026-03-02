@@ -69,10 +69,6 @@ class Celeritas(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("geant4@10.5:", when="@0.5: +geant4")
     depends_on("g4vg@1.0.2:", when="@0.6: +geant4 +vecgeom")
     depends_on("hepmc3", when="+hepmc3")
-    depends_on("root", when="+root")
-    depends_on("swig@4.1:", when="+swig")
-    depends_on("vecgeom@1.2.5:", when="+vecgeom")
-    depends_on("vecgeom@1.2.8:", when="@0.6: +vecgeom")
     depends_on("vecgeom@1.2.10:", when="@0.6: +vecgeom +cuda")
 
     depends_on("python", type="build")

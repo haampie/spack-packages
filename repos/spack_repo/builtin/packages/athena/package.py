@@ -110,24 +110,8 @@ class Athena(AutotoolsPackage):
     # PHYSICS "features":
     variant("conduction", default=False, description="Enable thermal conduction")
     variant("resistivity", default=False, description="Enable resistivity")
-    variant(
-        "special_relativity", default=False, description="Enable special relativistic hydro or MHD"
-    )
-    variant("viscosity", default=False, description="Enable viscosity")
 
     # ALGORITHM "packages":
-    variant(
-        "order",
-        default="2",
-        description="Order and type of spatial reconstruction",
-        values=["1", "2", "3", "2p", "3p"],
-    )
-    variant(
-        "flux",
-        default="roe",
-        description="Flux function",
-        values=["roe", "hllc", "hlld", "hlle", "force", "exact", "two-shock"],
-    )
     variant(
         "integrator",
         default="ctu",

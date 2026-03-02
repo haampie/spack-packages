@@ -70,10 +70,6 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
     version("1.11.7", sha256="ac16bed9cdd3c63bca1fe1ac3de522a1376b1487c4fc85b7b19592e28fd98e26")
     version("1.11.6", sha256="67963f15197e6b551539c4ed95a4f8882be9a16cf336300902004361cf89bdee")
     version("1.11.5", sha256="da2c780fce9b5440a1a7d1caf78f637feff9181a9d1ca090278cae4bea71b3df")
-    version("1.11.4", sha256="1b6a58049c31ce36aff162cf4332998fd468486bd08fdfe0249a47437311512d")
-    version("1.11.3", sha256="03a1cc63f23fed7e17e4d4369a75dc77d5c145111b8578b70e0964a12712dea0")
-    version("1.11.2", sha256="d11f091ed54c56c325ffca1083113a405fcd8a25d5888af64f5cd6cf587b7b0a")
-    version("1.11.1", sha256="b41f877d79b6026640943d57ef25311299378450f2995d507a5e633da711be61")
     version("1.9", sha256="9fb572daef35a1c8608d1a6232a4a9f56846bab2854c50562dfb9a7be294f4e8")
 
     variant("nvml", default=False, description="Support NVML device discovery")

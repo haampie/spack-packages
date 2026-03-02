@@ -36,9 +36,6 @@ class Libmicrohttpd(AutotoolsPackage, GNUMirrorPackage):
 
     depends_on("c", type="build")
 
-    depends_on("gettext")
-    depends_on("gnutls", when="+https")
-    depends_on("libgcrypt", when="+https")
 
     def configure_args(self):
         options = [

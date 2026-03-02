@@ -170,10 +170,6 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
     depends_on("gdrcopy", when="+gdrcopy")
 
     depends_on("m4", when="@main", type="build")
-    depends_on("autoconf", when="@main", type="build")
-    depends_on("automake", when="@main", type="build")
-    depends_on("libtool", when="@main", type="build")
-    depends_on("json-c", when="fabrics=cxi")
     depends_on("curl", when="fabrics=cxi")
 
     conflicts("@1.9.0", when="platform=darwin", msg="This distribution is missing critical files")

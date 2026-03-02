@@ -14,9 +14,7 @@ class Flux(CMakePackage):
     homepage = "https://tristanbrindle.com/flux/"
     url = "https://github.com/tcbrindle/flux/archive/refs/tags/v0.4.0.tar.gz"
 
-    maintainers("pranav-sivaraman")
 
-    license("BSL-1.0", checked_by="pranav-sivaraman")
 
     version("0.4.0", sha256="95e7d9d71c9ee9e89bb24b46ccba77ddfb0a1580630c2faab0b415dacc7c8d56")
 

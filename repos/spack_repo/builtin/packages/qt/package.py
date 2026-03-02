@@ -228,10 +228,6 @@ class Qt(Package):
             depends_on("libxkbcommon")
             depends_on("xcb-util-image")
             depends_on("xcb-util-keysyms")
-            depends_on("xcb-util-renderutil")
-            depends_on("xcb-util-wm")
-            depends_on("libxext")
-            depends_on("libxrender")
 
     for plat in ["linux", "freebsd", "windows"]:
         with when(f"platform={plat}"):

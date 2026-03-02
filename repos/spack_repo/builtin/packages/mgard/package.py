@@ -94,10 +94,6 @@ class Mgard(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("python", type=("build",), when="@compat-2022-11-18:")
     depends_on("sed", type=("build",), when="@compat-2022-11-18:")
     depends_on("zlib-api")
-    depends_on("zlib@1.2.9:", when="^[virtuals=zlib-api] zlib")  # crc32_z
-    depends_on("pkgconfig", type=("build",), when="@compat-2022-11-18:")
-    depends_on("zstd")
-    depends_on("protobuf@3.4:", when="@compat-2022-11-18:")
     # See https://github.com/CODARcode/MGARD/issues/240
     depends_on("protobuf@:28", when="@:1.5.2")
     depends_on("libarchive", when="@compat-2021-11-12:")

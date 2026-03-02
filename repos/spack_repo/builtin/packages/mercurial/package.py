@@ -29,10 +29,6 @@ class Mercurial(PythonPackage):
         version("6.3.3", sha256="13c97ff589c7605e80a488f336852ce1d538c5d4143cfb33be69bdaddd9157bd")
         version("6.2.3", sha256="98d1ae002f68adf53d65c5947fe8b7a379f98cf05d9b8ea1f4077d2ca5dce9db")
         version("6.1.4", sha256="f361f9802b36e357ac019ceb712ca11de8332b07deadeed8dfa904f05bf7ca78")
-        version("6.0.3", sha256="67f13647a46517a2b567cdcb73c98721d75d36a0432debb15022b77f9c138333")
-        version("5.8", sha256="fc5d6a8f6478d88ef83cdd0ab6d86ad68ee722bbdf4964e6a0b47c3c6ba5309f")
-        version("5.7.1", sha256="cb5139144ccb2ef648f36963c8606d47dea1cb0e22aa2c055d6f860ce3fde7b0")
-        version("5.7", sha256="609c3e7c9276dd75b03b713eccc10f5e0553001f35ae21600bcea1509699c601")
         version("5.6.1", sha256="e55c254f4904c45226a106780e57f4279aee03368f6ff6a981d5d2a38243ffad")
         version("5.3", sha256="e57ff61d6b67695149dd451922b40aa455ab02e01711806a131a1e95c544f9b9")
 

@@ -100,9 +100,7 @@ class Survey(CMakePackage):
     depends_on("py-packaging", type=("build", "run"), when="@1.0.9:")
     depends_on("py-pillow", type=("build", "run"), when="@1.0.9:")
     depends_on("py-cycler", type=("build", "run"), when="@1.0.9:")
-    depends_on("py-kiwisolver", type=("build", "run"), when="@1.0.9:")
 
-    extends("python")
 
     parallel = False
 

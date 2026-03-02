@@ -14,9 +14,7 @@ class Imagemagick(AutotoolsPackage):
     homepage = "https://www.imagemagick.org"
     url = "https://github.com/ImageMagick/ImageMagick/archive/7.0.2-7.tar.gz"
 
-    license("ImageMagick")
 
-    version("7.1.1-39", sha256="b2eb652d9221bdeb65772503891d8bfcfc36b3b1a2c9bb35b9d247a08965fd5d")
     version("7.1.1-29", sha256="27bd25f945efdd7e38f6f9845a7c0a391fdb732f652dda140b743769c5f106e8")
     version("7.1.1-11", sha256="98bb2783da7d5b06e7543529bd07b50d034fba611ff15e8817a0f4f73957d934")
 

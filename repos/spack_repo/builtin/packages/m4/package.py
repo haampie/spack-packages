@@ -29,23 +29,13 @@ class M4(AutotoolsPackage, GNUMirrorPackage):
     # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
     patch("secure_snprintf.patch", when="@:1.4.18 os=bigsur")
     # https://bugzilla.redhat.com/show_bug.cgi?id=1573342
-    patch(
-        "https://src.fedoraproject.org/rpms/m4/raw/5d147168d4b93f38a4833f5dd1d650ad88af5a8a/f/m4-1.4.18-glibc-change-work-around.patch",
-        sha256="fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8",
-        when="@1.4.18",
-    )
     # from: https://www.mail-archive.com/m4-patches@gnu.org/msg01208.html
     # tests: Fix failing test checks/198.sysval with upstream patch for doc/m4.texi
-    patch("checks-198.sysval.1.patch", when="@1.4.19")
-    patch("checks-198.sysval.2.patch", when="@1.4.19")
 
     variant("sigsegv", default=True, description="Build the libsigsegv dependency")
 
     depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("diffutils", type="build")
-    depends_on("libsigsegv", when="+sigsegv")
 
     # Older versions require too many patches for newer compilers
     with when("@:1.4.18"):
@@ -53,11 +43,6 @@ class M4(AutotoolsPackage, GNUMirrorPackage):
         conflicts("%clang@16:", msg="This version is incompatible with clang@16")
 
     # Fix c++17 '[[nodiscard]]' attribute ordering (fixed in 1.4.20)
-    patch(
-        "nodiscard.patch",
-        when="@1.4.19",
-        sha256="5c4071ae35e6ecf7f683ad714558a0030f21cc2b0673dde2ca6ca753cd0dbb2e",
-    )
 
     build_directory = "spack-build"
 

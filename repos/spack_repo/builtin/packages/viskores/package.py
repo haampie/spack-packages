@@ -14,13 +14,3 @@ class Viskores(CMakePackage, CudaPackage, ROCmPackage):
     computing by providing abstract models for data and execution that can be
     applied to a variety of algorithms across many different processor
     architectures."""
-    homepage = "https://github.com/Viskores/viskores"
-    url = "https://github.com/Viskores/Viskores/archive/refs/tags/v1.0.0.tar.gz"
-    variant(
-        "cuda_native", default=True, description="build using native cuda backend", when="+cuda"
-    )
-    variant("openmp", default=(sys.platform != "darwin"), description="build openmp support")
-    variant("tbb", default=(sys.platform == "darwin"), description="build TBB support")
-    variant("sycl", default=False, description="Build with SYCL backend")
-    depends_on("tbb", when="+tbb")
-    # Viskores uses the default Kokkos backend

@@ -30,21 +30,6 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
 class AutotoolsBuilder(autotools.AutotoolsBuilder):
     configure_directory = "source"
 class MSBuildBuilder(msbuild.MSBuildBuilder):
-    # Need to make sure that locale is UTF-8 in order to process source files in UTF-8.
-    def msbuild_args(self):
-        return [
-            "allinone.sln",
-            self.define("OutputPath", self.spec.prefix),
-            self.define("Configuration", "Release"),
-            self.define("SkipUWP", "true"),
-        ]
-    @property
-    def build_directory(self):
-        solution_path = pathlib.Path(self.pkg.stage.source_path)
-        if self.spec.satisfies("@:67"):
-            solution_path = solution_path / "icu"
-        solution_path = solution_path / "source" / "allinone"
-        return str(solution_path)
     def install(self, pkg, spec, prefix):
         mkdirp(prefix.lib)
         mkdirp(prefix.bin)

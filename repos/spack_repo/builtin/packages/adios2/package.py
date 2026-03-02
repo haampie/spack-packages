@@ -14,22 +14,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     homepage = "https://adios2.readthedocs.io"
     url = "https://github.com/ornladios/ADIOS2/archive/v2.8.0.tar.gz"
     git = "https://github.com/ornladios/ADIOS2.git"
-    test_requires_compiler = True
-    tags = ["e4s"]
-    # There's not really any consistency about how static and shared libs are
-    # implemented across spack.  What we're trying to support is specifically three
-    # library build types:
-    #   shared (which is implicitly w/ pic)
-    #     Implemented by +shared +pic
-    #   static w/o pic
-    #     Implemented by ~shared ~pic
-    #   static w/ pic
-    #     Implemented by ~shared +pic
-    # shared w/o pic is not a valid configuration because shared libraries are Position
-    # Independent # Code by design.  We're not inherently tied to this approach and can
-    # change how we're supporting differnt library types in the package at anytime if
-    # spack decides on a standardized way of doing it across packages
-    # Features
     # Compression libraries
     # Optional language bindings, C++11 and C always provided
     variant("kokkos", default=False, when="@2.9:", description="Enable Kokkos support")

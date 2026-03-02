@@ -29,10 +29,6 @@ class OpenpmdApi(CMakePackage):
     variant("adios2", default=True, description="Enable ADIOS2 support")
     variant("python", default=False, description="Enable Python bindings")
 
-    depends_on("c", type="build")
-    depends_on("cmake@3.15.0:", type="build")
-    depends_on("toml11@3.7.1:", when="@0.16:")
-    depends_on("toml11@4.2.0: cxx_std=17", when="@0.16.1:")
     with when("+hdf5"):
         depends_on("hdf5@1.8.13:")
     with when("+python"):

@@ -94,13 +94,9 @@ class Openfoam(Package):
     # not know which OpenFOAM added support for 5.x and conservatively
     # use 2312 in the check.
     depends_on("flex@:2.6.1,2.6.4:")
-    depends_on("cmake", type="build")
 
     # Require scotch with ptscotch - corresponds to standard OpenFOAM setup
-    depends_on("scotch~metis+mpi~int64", when="+scotch~int64")
     # mgridgen is statically linked
-    depends_on("parmgridgen", when="+mgridgen", type="build")
-    depends_on("zoltan", when="+zoltan")
     depends_on("vtk", when="+vtk")
     depends_on("adios2~fortran", when="@1912:")
 

@@ -102,7 +102,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     )
     variant("libsanitizer", default=True, description="Use libsanitizer")
 
-    depends_on("c", type="build")
 
 
     # https://gcc.gnu.org/install/prerequisites.html

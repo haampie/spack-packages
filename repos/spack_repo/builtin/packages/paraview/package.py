@@ -132,12 +132,8 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("py-mpi4py", when="+python+mpi", type=("build", "run"))
 
     depends_on("py-matplotlib", when="+python", type="run")
-    # openPMD is implemented as a Python module and provides ADIOS2 and HDF5 backends
-    depends_on("openpmd-api +adios2", when="+openpmd +adios2", type=("build", "run"))
 
-    # Handle X11 dependencies
     # X is only used on Unix like platforms
-    # When on linux, X is required for Qt
     for plat in ["linux", "freebsd"]:
         with when(f"platform={plat}"):
             requires("+x", when="+qt", msg="Qt support requires GLX on Linux/FreeBSD")

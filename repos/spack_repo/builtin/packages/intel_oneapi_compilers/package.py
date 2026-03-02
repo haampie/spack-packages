@@ -6,12 +6,9 @@ import os.path
 import pathlib
 import platform
 import warnings
-
 from spack_repo.builtin.build_systems.compiler import CompilerPackage
 from spack_repo.builtin.build_systems.oneapi import IntelOneApiPackage
-
 from spack.package import *
-
 versions = [
     {
         "version": "2025.3.2",
@@ -401,16 +398,11 @@ versions = [
         },
     },
 ]
-
-
 @IntelOneApiPackage.update_description
 class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     """Intel oneAPI Compilers. Includes: icx, icpx, ifx, and ifort.
     Releases before 2024.0 include icc/icpc"""
-
-
     homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html"
-
     compiler_languages = ["c", "cxx", "fortran"]
     c_names = ["icx"]
     cxx_names = ["icpx"]
@@ -419,18 +411,14 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     compiler_version_regex = (
         r"(?:(?:oneAPI DPC\+\+(?:\/C\+\+)? Compiler)|(?:\(IFORT\))|(?:\(IFX\))) (\S+)"
     )
-
     debug_flags = ["-debug", "-g", "-g0", "-g1", "-g2", "-g3"]
     opt_flags = ["-O", "-O0", "-O1", "-O2", "-O3", "-Ofast", "-Os"]
-
     openmp_flag = "-fiopenmp"
-
     compiler_wrapper_link_paths = {
         "c": os.path.join("oneapi", "icx"),
         "cxx": os.path.join("oneapi", "icpx"),
         "fortran": os.path.join("oneapi", "ifx"),
     }
-
     implicit_rpath_libs = [
         "libirc",
         "libifcore",
@@ -442,17 +430,12 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
         "libsycl",
         "libOpenCL",
     ]
-
     stdcxx_libs = ("-cxxlib",)
-
     provides("c", "cxx")
-
     # See https://github.com/spack/spack/issues/39252
     depends_on("patchelf@:0.17", type="build", when="@:2024.1")
     # Add the nvidia variant
     # Add the amd variant
-
-
     for v in versions:
         version(v["version"], expand=False, **v["cpp"])
         if "ftn" in v:
@@ -479,4 +462,3 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
                 expand=False,
                 **v["amd-plugin"],
             )
-

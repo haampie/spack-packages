@@ -1,34 +1,24 @@
 # Copyright Spack Project Developers. See COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
-
 import os
 import sys
 from pathlib import Path
-
 from spack_repo.builtin.build_systems.generic import Package
-
 from spack.package import *
-
-
 class Boost(Package):
     """Boost provides free peer-reviewed portable C++ source
     libraries, emphasizing libraries that work well with the C++
     Standard Library.
-
     Boost libraries are intended to be widely useful, and usable
     across a broad spectrum of applications. The Boost license
     encourages both commercial and non-commercial use.
     """
-
     homepage = "https://www.boost.org"
     url = "https://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2"
     git = "https://github.com/boostorg/boost.git"
     list_url = "https://sourceforge.net/projects/boost/files/boost/"
     list_depth = 1
-
-
-
     with_default_variants = "boost" + "".join(
         [
             "+atomic",
@@ -45,7 +35,6 @@ class Boost(Package):
             "+wave",
         ]
     )
-
     # mpi/python are not installed by default because they pull in many
     # dependencies and/or because there is a great deal of customization
     # possible (and it would be difficult to choose sensible defaults)
@@ -93,7 +82,6 @@ class Boost(Package):
         "url",
         "wave",
     ]
-
     # Add any extra requirements for specific libraries
     # signals library was removed from boost in 1.69
     # https://www.boost.org/releases/1.69.0/#:~:text=Discontinued
@@ -104,11 +92,9 @@ class Boost(Package):
         "signals": {"when": "@:1.68"},
         "signals2": {"when": "@1.4:"},
     }
-
     for lib in all_libs:
         lib_opts = all_libs_opts.get(lib, {})
         variant(lib, default=False, description="Compile with {0} library".format(lib), **lib_opts)
-
     variant(
         "context-impl",
         default="fcontext",
@@ -117,7 +103,6 @@ class Boost(Package):
         description="Use the specified backend for boost-context",
         when="@1.65.0: +context",
     )
-
     variant(
         "cxxstd",
         default="11",
@@ -136,9 +121,7 @@ class Boost(Package):
         multi=False,
         description="Use the specified C++ standard when building.",
     )
-
     # 1.84.0 dropped support for 98/03
-
     variant("debug", default=False, description="Switch to the debug version of Boost")
     variant("shared", default=True, description="Additionally build shared libraries")
     variant(
@@ -154,96 +137,67 @@ class Boost(Package):
         default=False,
         description="Augment library layout with versioned subdirs",
     )
-
     # https://boostorg.github.io/build/manual/develop/index.html#bbv2.builtin.features.visibility
-
-
     # Unicode support
     depends_on("icu4c cxxstd=11", when="+icu cxxstd=11")
     # NOTE: 1.64.0 seems fine for *most* applications, but if you need
     #       +python and +mpi, there seem to be errors with out-of-date
     #       API calls from mpi/python.
     #       See: https://github.com/spack/spack/issues/3963
-
     # boost-python in 1.72.0 broken with cxxstd=98
-
     # boost-mpi depends on boost-python since 1.87.0
-
     # Boost.System till 1.76 (included) was relying on mutex, which was not
     # detected correctly on Darwin platform when using GCC
     #
     # More details here:
     # https://github.com/STEllAR-GROUP/hpx/issues/5442#issuecomment-878889166
     # https://github.com/STEllAR-GROUP/hpx/issues/5442#issuecomment-878913339
-
     # Boost 1.80 does not build with the Intel oneapi compiler
     # (https://github.com/spack/spack/pull/32879#issuecomment-1265933265)
-
     # Boost did not support the oneapi compilers prior to 1.76
-
     # Boost 1.85.0 stacktrace added a hard compilation error that has to
     # explicitly be suppressed on some platforms:
     # https://github.com/boostorg/stacktrace/pull/150. This conflict could be
     # turned into a variant that allows users to opt-in when they know it is
     # safe to do so on affected platforms.
-
     # https://github.com/boostorg/python/issues/400
     conflicts(
         "@:1.80.0",
         when="+python ^python@3.11:",
         msg="Boost.python.enum has a known bug for boost@:1.80.0 and python@3.11:",
     )
-
     # On Windows, the signals variant is required when building any of
     # the all_libs variants.
     for lib in all_libs:
         if lib not in ["signals", "signals2"]:
             # <= 1.68 needs signals, after that needs signals2
             requires("+signals", when=f"@:1.68 +{lib} platform=windows")
-
     # Patch fix from https://svn.boost.org/trac/boost/ticket/11120
-
     # Patch fix for IBM XL compiler
-
     # Patch fix from https://svn.boost.org/trac/boost/ticket/10125
     # Patch to override the PGI toolset when using the NVIDIA compilers
-
     # Fix for version comparison on newer Clang on darwin
     # See: https://github.com/macports/macports-ports/pull/6726
     # Fix: "Compile issue with flat_tree insert"
-
     # Fix: "Unable to compile code using boost/process.hpp"
     # Change the method for version analysis when using Fujitsu compiler.
-
     # Add option to C/C++ compile commands in clang-linux.jam
     # See https://github.com/ned14/outcome/issues/223 for details
-
     # Support bzip2 and gzip in other directory
     # See https://github.com/boostorg/build/pull/154
-
     # Backport Python3 import problem
     # See https://github.com/boostorg/python/pull/218
-
     # Fix B2 bootstrap toolset during installation
     # and https://github.com/spack/spack/pull/21408
-
-
     # Allow building context asm sources with GCC on Darwin
     # See https://github.com/spack/spack/pull/24889
     # and https://github.com/boostorg/context/issues/177
-
     # Fix float128 support when building with CUDA and Cray compiler
     # See https://github.com/boostorg/config/pull/378
-
     # Fix building with Intel compilers
-
     # Fix issues with PTHREAD_STACK_MIN not being a DEFINED constant in newer glibc
     # See https://github.com/spack/spack/issues/28273
     # https://www.intel.com/content/www/us/en/developer/articles/technical/building-boost-with-oneapi.html
-
     # https://github.com/spack/spack/issues/44003
-
-
     # https://github.com/boostorg/filesystem/issues/284
     # https://github.com/boostorg/context/pull/280
-

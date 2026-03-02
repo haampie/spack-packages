@@ -1,42 +1,26 @@
 # Copyright Spack Project Developers. See COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
-
 import re
 import sys
-
 from spack_repo.builtin.build_systems.autotools import AutotoolsPackage
 from spack_repo.builtin.build_systems.gnu import GNUMirrorPackage
-
 from spack.package import *
-
-
 class Bison(AutotoolsPackage, GNUMirrorPackage):
     """Bison is a general-purpose parser generator that converts
     an annotated context-free grammar into a deterministic LR or
     generalized LR (GLR) parser employing LALR(1) parser tables."""
-
     homepage = "https://www.gnu.org/software/bison/"
     gnu_mirror_path = "bison/bison-3.6.4.tar.gz"
-
     tags = ["build-tools"]
-
     executables = ["^bison$"]
-
-
     version("3.6.3", sha256="4b4c4943931e811f1073006ce3d8ee022a02b11b501e9cbf4def3613b24a3e63")
     version("3.6.2", sha256="e28ed3aad934de2d1df68be209ac0b454f7b6d3c3d6d01126e5cd2cbadba089a")
-
-
     # https://lists.gnu.org/archive/html/bug-bison/2019-08/msg00008.html
     patch("parallel.patch", when="@3.4.2")
-
-
     depends_on("cxx", type="build")  # generated
-
     depends_on("m4@1.4.6:", type=("build", "run"))
     # Detect this case and use the fallback path.
-
     conflicts(
         "%oneapi",
         msg=(
@@ -44,8 +28,5 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
             "see https://github.com/spack/spack/issues/37172"
         ),
     )
-
     if sys.platform == "darwin" and macos_version() >= Version("10.13"):
         patch("secure_snprintf.patch", level=0, when="@3.0.4")
-
-

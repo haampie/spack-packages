@@ -79,14 +79,9 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("boost +context", when="+generic_coroutines")
     for cxxstd in cxxstds:
         depends_on(f"boost cxxstd={cxxstd}", when=f"cxxstd={cxxstd}")
-        depends_on(f"asio cxxstd={cxxstd}", when=f"@1.7: cxxstd={cxxstd}")
 
 
-    depends_on("mpi", when="networking=mpi")
-    depends_on("mpi", when="+async_mpi")
-    depends_on("lci", when="networking=lci")
 
-    depends_on("cuda", when="+async_cuda")
 
 
     # Only ROCm or CUDA maybe be enabled at once
@@ -100,12 +95,9 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     with when("@1.8:"):
         conflicts("cxxstd=14")
         conflicts("%gcc@:7")
-        depends_on("cuda@11:", when="+cuda")
 
     # Restrictions for 1.7.X
     with when("@1.7:"):
-        depends_on("cmake@3.18.0:", type="build")
-        depends_on("boost@1.71.0:")
         depends_on("asio@1.12.0:")
 
     # Restrictions for 1.6.X

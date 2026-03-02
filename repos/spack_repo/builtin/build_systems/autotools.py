@@ -79,30 +79,3 @@ class AutotoolsBuilder(BuilderWithDefaults):
         +-----------------------------------------------+--------------------+
     """
     #: Phases of a GNU Autotools package
-    phases = ("autoreconf", "configure", "build", "install")
-    #: Names associated with package methods in the old build-system format
-    package_methods = ("configure_args", "check", "installcheck")
-    #: Names associated with package attributes in the old build-system format
-    package_attributes = (
-        "archive_files",
-        "patch_libtool",
-        "build_targets",
-        "install_targets",
-        "build_time_test_callbacks",
-        "install_time_test_callbacks",
-        "force_autoreconf",
-        "autoreconf_extra_args",
-        "install_libtool_archives",
-        "patch_config_files",
-        "configure_directory",
-        "configure_abs_path",
-        "build_directory",
-        "autoreconf_search_path_args",
-    )
-    #: Whether to update ``libtool`` (e.g. for Arm/Clang/Fujitsu/NVHPC compilers)
-    patch_libtool = True
-    #: Targets for ``make`` during the :py:meth:`~.AutotoolsBuilder.build` phase
-    build_targets: List[str] = []
-    #: Targets for ``make`` during the :py:meth:`~.AutotoolsBuilder.install` phase
-    install_targets = ["install"]
-    #: Callback names for build-time test

@@ -40,12 +40,8 @@ class Findutils(AutotoolsPackage, GNUMirrorPackage):
     version("4.2.31", sha256="e0d34b8faca0b3cca0703f6c6b498afbe72f0ba16c35980c10ec9ef7724d6204")
     version("4.2.26", sha256="74fa9030b97e074cbeb4f6c8ec964c5e8292cf5a62b195086113417f75ab836a")
     version("4.2.25", sha256="a2bc59e80ee599368584f4ac4a6e647011700e1b5230e65eb3170c603047bb51")
-    version("4.2.23", sha256="d3ca95bf003685c3c34eb59e41c5c4b366fb582a53c4cfa9da0424d98ff23be3")
-    version("4.1", sha256="487ecc0a6c8c90634a11158f360977e5ce0a9a6701502da6cb96a5a7ec143fac")
 
-    depends_on("c", type="build")
 
-    depends_on("gettext", type="build")
     depends_on("gettext@0.19.8:", type="build")
 
     depends_on("faketime", when="@4.5.13:", type="test")

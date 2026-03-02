@@ -178,8 +178,6 @@ class CudaPackage(PackageBase):
         conflicts("%clang@:3.7,8.1:", when="+cuda ^cuda@10.1.105:10.1.243 target=x86_64:")
         conflicts("%clang@:3.2,9:", when="+cuda ^cuda@10.2.89 target=x86_64:")
         conflicts("%clang@:5", when="+cuda ^cuda@11.0.2: target=x86_64:")
-        conflicts("%clang@10:", when="+cuda ^cuda@:11.0.3 target=x86_64:")
-        conflicts("%clang@11:", when="+cuda ^cuda@:11.1.0 target=x86_64:")
 
         # x86_64 vs. ppc64le differ according to NVidia docs
         # Linux ppc64le compiler conflicts from Table from the docs below:
@@ -190,8 +188,6 @@ class CudaPackage(PackageBase):
         # https://docs.nvidia.com/cuda/archive/8.0/cuda-installation-guide-linux/index.html
 
         # information prior to CUDA 9 difficult to find
-        conflicts("%gcc@6:", when="+cuda ^cuda@:9 target=ppc64le:")
-        conflicts("%gcc@8:", when="+cuda ^cuda@:10.0.130 target=ppc64le:")
         conflicts("%gcc@9:", when="+cuda ^cuda@:10.1.243 target=ppc64le:")
         # officially, CUDA 11.0.2 only supports the system GCC 8.3 on ppc64le
         conflicts("%clang@4:", when="+cuda ^cuda@:9.0.176 target=ppc64le:")

@@ -490,20 +490,10 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
                 sha256="e56489a4bcf3c3636e206adca366bfcda2722ad81a5fa9a0360faed63933191a",
                 when="@6:8",
             )
-            patch(
-                "https://github.com/llvm/llvm-project/commit/d9a42ec98adcb1ebc0c3837715df4e5a50c7ccc0.patch?full_index=1",
-                sha256="50bfc4e82c02bb5b7739990f363d99b1e43d5d11a5104f6aabbc303ebce6fbe3",
-                when="@9:10",
-            )
     del libcxx_as
 
     # Backport from llvm to fix issues related to Python 3.7
     # see https://bugs.llvm.org/show_bug.cgi?id=38233
-    patch(
-        "https://github.com/llvm/llvm-project/commit/5457b426f5e15a29c0acc8af1a476132f8be2a36.patch?full_index=1",
-        sha256="7a1e4aa80760167807255c3e3121b1281bfcf532396b2d8fb3dce021f3f18758",
-        when="@4:6+python+lldb ^python@3.7:",
-    )
 
     # fix building on SUSE (with panel.h being in /usr/include/ncurses/)
     # see https://reviews.llvm.org/D85219
@@ -518,7 +508,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     # https://reviews.llvm.org/D102059
     # The patch above is not applicable when "@:9" due to the file renaming and reformatting. The
     # following patch is applicable starting at least version 5.0.0, the oldest we try to support.
-    patch("no_cyclades9.patch", when="@5:9")
 
     with when("+libomptarget"):
         # libomptarget makes use of multithreading via the standard C++ library (e.g.
@@ -531,7 +520,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
         # TODO: figure out why we do not use LLVM_PTHREAD_LIB but run find_package(Threads), at
         #  least for newer versions (the solution must work with both openmp=runtime and
         #  openmp=project)
-        patch("llvm12-thread.patch", when="@12")
         patch("llvm13-14-thread.patch", when="@13:14")
         patch("llvm15-thread.patch", when="@15")
 

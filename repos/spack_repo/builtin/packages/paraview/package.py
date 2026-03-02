@@ -319,10 +319,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("protobuf@3.4:")
     # Paraview 5.10 can't build with protobuf > 3.18
     # https://github.com/spack/spack/issues/37437
-    depends_on("protobuf@3.4:3.18", when="@:5.10%oneapi")
-    depends_on("protobuf@3.4:3.18", when="@:5.10%intel@2021:")
-    # protobuf requires newer abseil-cpp, which in turn requires C++14,
-    # but paraview uses C++11 by default. Use for 5.8+ until ParaView updates
     # its C++ standard level.
     depends_on("protobuf@3.4:21", when="@5.11:")
     depends_on("protobuf@3.4:21", when="@master")

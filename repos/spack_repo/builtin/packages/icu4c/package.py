@@ -55,19 +55,7 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
         patch("ICU4C_NMAKE_NO_DOUBLE_QUOTE_VARS.patch", when="@64.1:")
         patch("Quote_datagen.patch", when="@64.1:")
 
-    conflicts(
-        "%intel@:16",
-        when="@60.1:",
-        msg="Intel compilers have immature C++11 and multibyte support",
-    )
-    conflicts("%gcc@:4", when="@67.1:", msg="Older GCC compilers have immature C++11 support")
 
-    patch(
-        "https://github.com/unicode-org/icu/commit/ddfc30860354cbcb78c2c0bcf800be5ab44a9e4f.patch?full_index=1",
-        sha256="6be0b8068b0f5047dad7f4f6f655529304f1abbc551c93223c6f41dafc1e8acc",
-        level=2,
-        when="@58.0:59",
-    )
 
     def url_for_version(self, version):
         url = "https://github.com/unicode-org/icu/releases/download/release-{0}/icu4c-{1}-src.tgz"

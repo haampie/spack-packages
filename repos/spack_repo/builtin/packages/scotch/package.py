@@ -19,11 +19,7 @@ class Scotch(CMakePackage, MakefilePackage):
     url = "https://gitlab.inria.fr/scotch/scotch/-/archive/v7.0.1/scotch-v7.0.1.tar.gz"
     list_url = "https://gforge.inria.fr/frs/?group_id=248"
 
-    maintainers("AlexanderRichert-NOAA", "climbfuji")
 
-    version("7.0.10", sha256="8327725a08cdd4fc7575e291251883b4f93f75b07a54bc58f89f50dcbba7b244")
-    version("7.0.9", sha256="6d50c3f66e3e0e2058bce45ed9eee171fd8d6c01123c802a98544948a1c3d5d1")
-    version("7.0.8", sha256="21f48ac85c7991a5eb5fae9232dd68584556ccc500f85e2ebd6b5b275617e11a")
     version("7.0.7", sha256="02084471d2ca525f8a59b4bb8c607eb5cca452d6a38cf5c89f5f92f7edc1a5b5")
     version("7.0.6", sha256="b44acd0d2f53de4b578fa3a88944cccc45c4d2961cd8cefa9b9a1d5431de8e2b")
     version("7.0.4", sha256="8ef4719d6a3356e9c4ca7fefd7e2ac40deb69779a5c116f44da75d13b3d2c2c3")
@@ -36,7 +32,6 @@ class Scotch(CMakePackage, MakefilePackage):
     version("6.0.5a", sha256="5b21b95e33acd5409d682fa7253cefbdffa8db82875549476c006d8cbe7c556f")
     version("6.0.4", sha256="f53f4d71a8345ba15e2dd4e102a35fd83915abf50ea73e1bf6efe1bc2b4220c7")
     version("6.0.3", sha256="6461cc9f28319a9dbe6cc10e28c0cbe90b4b25e205723c3edcde9a3ff974d6d8")
-    version("6.0.0", sha256="8206127d038bda868dda5c5a7f60ef8224f2e368298fbb01bf13fa250e378dd4")
     version("5.1.10b", sha256="54c9e7fafefd49d8b2017d179d4f11a655abe10365961583baaddc4eeb6a9add")
 
     build_system(conditional("cmake", when="@7:"), "makefile", default="cmake")

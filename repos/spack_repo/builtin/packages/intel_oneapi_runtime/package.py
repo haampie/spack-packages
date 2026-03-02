@@ -18,12 +18,9 @@ class IntelOneapiRuntime(Package):
     has_code = False
     license("https://intel.ly/393CijO")
 
-    maintainers("rscohn2")
 
     tags = ["runtime"]
 
-    depends_on("intel-oneapi-compilers", type="build")
-    depends_on("gcc-runtime", type="link")
 
     LIBRARIES = [
         "imf",

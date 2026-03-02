@@ -28,7 +28,6 @@ class Hip(CMakePackage):
     version("7.1.1", sha256="c64b3219237903d6b27944f236930a1024ed17eb5399165875fbf410fcacf6f4")
     version("7.1.0", sha256="e757a6e4a15d4113cd7cd8a4e9a2a3ff7a6a9ccbc65951179419331214f2784a")
     version("7.0.2", sha256="80486998b115e5f61b72913887ccc0507ac332eda4068879bdfb7e3c8611f666")
-    version("7.0.0", sha256="762794050eb9f47d8278a3d023bb47fd075c30c91ea9c4719cae55d91535de3c")
     version("6.4.3", sha256="3def2459ca9258f04d35d1d3b0173237cea2b963814886bb8af6a0e317718d3d")
     version("6.4.2", sha256="27e3558ecafa9a7471441aabdd870648fa2619147caa721bd98514fa00d246c1")
     version("6.4.1", sha256="f26f098b08504636c6f4e1da45b162f1df2ce6608eba85606fa7932d8fea960f")
@@ -46,9 +45,6 @@ class Hip(CMakePackage):
     variant("cuda", default=False, description="Build with CUDA")
     variant("asan", default=False, description="Build with address-sanitizer enabled or disabled")
     conflicts("+cuda +rocm", msg="CUDA and ROCm support are mutually exclusive")
-    conflicts("~cuda ~rocm", msg="CUDA or ROCm support is required")
-    conflicts("~rocm +asan", msg="ROCm must be enabled for asan")
-
     conflicts("+asan", when="os=rhel9")
 
 

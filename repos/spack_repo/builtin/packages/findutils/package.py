@@ -45,18 +45,14 @@ class Findutils(AutotoolsPackage, GNUMirrorPackage):
     depends_on("gettext@0.19.8:", type="build")
 
     depends_on("faketime", when="@4.5.13:", type="test")
-    depends_on("python", when="@4.5.13:", type="test")
 
     # The NVIDIA compilers do not currently support some GNU builtins.
     # Detect this case and use the fallback path.
-    patch("nvhpc.patch", when="@4.6.0 %nvhpc")
     # Workaround bug where __LONG_WIDTH__ is not defined
-    patch("nvhpc-long-width.patch", when="@4.8.0:4.8 %nvhpc")
     # Auto-detecting whether `__attribute__((__nonnull__(...)))` is supported
     # does not work for GCC on macOS
     # <https://savannah.gnu.org/bugs/?func=detailitem&item_id=59972>; we thus
     # disable this attribute manually
-    patch("nonnull.patch", when="@4.8.0:")
 
     build_directory = "spack-build"
 

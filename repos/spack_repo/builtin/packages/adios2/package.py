@@ -27,7 +27,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
     tags = ["e4s"]
 
 
-    version("master", branch="master")
     version(
         "2.11.0",
         sha256="0a2bd745e3f39745f07587e4a5f92d72f12fa0e2be305e7957bdceda03735dbf",

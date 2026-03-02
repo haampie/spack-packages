@@ -84,19 +84,8 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
     _force_autoreconf_when = []
     with when("build_system=autotools"):
         # See https://github.com/Unidata/netcdf-c/pull/1752
-        patch(
-            "https://github.com/Unidata/netcdf-c/commit/386e2695286702156eba27ab7c68816efb192230.patch?full_index=1",
-            sha256="cb928a91f87c1615a0788f95b95d7a2e3df91dc16822f8b8a34a85d4e926c0de",
-            when="@4.7.3:4.7.4 +parallel-netcdf",
-        )
-        _force_autoreconf_when.append("@4.7.3:4.7.4 +parallel-netcdf")
 
         # See https://github.com/Unidata/netcdf-c/pull/2293
-        patch(
-            "https://github.com/Unidata/netcdf-c/commit/a7ea050ebb3c412a99cc352859d5176a9b5ef986.patch?full_index=1",
-            sha256="38d34de38bad99737d3308867071196f20a3fb39b936de7bfcfbc85eb0c7ef54",
-            when="@4.8.1",
-        )
         _force_autoreconf_when.append("@4.8.1")
 
         # See https://github.com/Unidata/netcdf-c/pull/2710

@@ -62,16 +62,12 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     patch("locs-2.22.patch", when="@:2.22")
 
     # _obstack_compat symbol is not initialized
-    patch("39b1f61.patch", when="@:2.17")
 
     # docs: install fails with "unknown command hsep / vsep"
-    patch("texi.patch", when="@2.16.0")
 
     # rpc/types.h include issue, should be from local version, not system.
-    patch("fb21f89.patch", when="@:2.16")
 
     # Avoid linking libgcc_eh
-    patch("95f5a9a-2.11.patch", when="@:2.11")
 
     # Use init_array (modified commit 4a531bb to unconditionally define
     # NO_CTORS_DTORS_SECTIONS)

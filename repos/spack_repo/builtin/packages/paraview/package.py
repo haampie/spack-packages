@@ -217,11 +217,7 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
         depends_on("gl@3.2:", when="+opengl2")
         depends_on("gl@1.2:", when="~opengl2")
-        depends_on("glew")
 
-        # CUDA ARCH
-
-        # VTK-m and transitively ParaView does not support Tesla Arch
         for _arch in ("10", "11", "12", "13"):
             conflicts(f"cuda_arch={_arch}", when="+cuda", msg="ParaView requires cuda_arch >= 20")
 
@@ -321,7 +317,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     # Older builds of pugi export their symbols differently,
     # and pre-5.9 is unable to handle that.
-    # 5.13 uses 'remove_children': https://github.com/spack/spack/issues/47098
     depends_on("pugixml@1.11:", when="@5.13:")
 
     # ParaView depends on cli11 due to changes in MR

@@ -26,10 +26,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     tags = ["e4s"]
 
     version("master", branch="master")
-    version("stable", tag="stable", commit="103a7b8e3719a0db948d1abde29de0ff91e070be")
-    version("1.11.0", sha256="01ec47228a2253b41e318bb09c83325a75021eb6ef3262400fbda30ac7389279")
-    version("1.10.0", sha256="5720ed7d2460fa0b57bd8cb74fa4f70593fe8675463897678160340526ec3c19")
-    version("1.9.1", sha256="1adae9d408388a723277290ddb33c699aa9ea72defadf3f12d4acc913a0ff22d")
     version("1.9.0", sha256="2a8dca78172fbb15eae5a5e9facf26ab021c845f9c09e61b1912e6cf9e72915a")
     version("1.4.0", sha256="241a1c47fafba751848fac12446e7bf4ad3d342d5eb2fa1ef94dd904acc329ed")
     version("1.3.0", sha256="cd34da674064c4cc4a331402edbd65c5a1f8058fb46003314ca18fa08423c5ad")
@@ -177,18 +173,15 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
 
     # boost 1.73.0 build problem with HPX 1.4.0 and 1.4.1
     # https://github.com/STEllAR-GROUP/hpx/issues/4728#issuecomment-640685308
-    depends_on("boost@:1.72.0", when="@:1.4")
 
     # COROUTINES
     # ~generic_coroutines conflict is not fully implemented
-    # for additional information see:
     # https://github.com/spack/spack/pull/17654
     # https://github.com/STEllAR-GROUP/hpx/issues/4829
     depends_on("boost+context", when="+generic_coroutines")
 
     _msg_generic_coroutines_platform = "This platform requires +generic_coroutines"
     conflicts("~generic_coroutines", when="platform=darwin", msg=_msg_generic_coroutines_platform)
-
     _msg_generic_coroutines_target = "This target requires +generic_coroutines"
 
 

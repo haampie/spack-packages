@@ -18,5 +18,3 @@ class Hwdata(AutotoolsPackage):
     version("0.345", sha256="fafcc97421ba766e08a2714ccc3eebb0daabc99e67d53c2d682721dd01ccf7a7")
     version("0.340", sha256="e3a0ef18af6795a362345a2c2c7177be351cb27b4cc0ed9278b7409759258802")
 
-    def configure_args(self):
-        return [f"--datarootdir={self.prefix.share}"]  # Will default to /usr/share if not set

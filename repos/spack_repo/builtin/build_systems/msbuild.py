@@ -28,10 +28,6 @@ class MSBuildPackage(PackageBase):
     conflicts("platform=darwin", when="build_system=msbuild")
     conflicts("platform=freebsd", when="build_system=msbuild")
 
-    def define(self, msbuild_arg, value):
-        return define(msbuild_arg, value)
-
-
 @register_builder("msbuild")
 class MSBuildBuilder(BuilderWithDefaults):
     """The MSBuild builder encodes the most common way of building software with
@@ -71,59 +67,3 @@ class MSBuildBuilder(BuilderWithDefaults):
     #: Targets for ``msbuild`` during the :py:meth:`~.MSBuildBuilder.install` phase
     install_targets: List[str] = ["INSTALL"]
 
-    @property
-    def build_directory(self):
-        """Return the directory containing the MSBuild solution or vcxproj."""
-        return windows_sfn(self.pkg.stage.source_path)
-
-    @property
-    def toolchain_version(self):
-        """Return currently targeted version of MSVC toolchain
-        Override this method to select a specific version of the toolchain or change
-        selection heuristics.
-        Default is whatever version of msvc has been selected by concretization"""
-        return "v" + self.spec["msvc"].package.platform_toolset_ver
-
-    @property
-    def std_msbuild_args(self):
-        """Return common msbuild cl arguments, for now just toolchain"""
-        return [self.define("PlatformToolset", self.toolchain_version)]
-
-    def define_targets(self, *targets):
-        return "/target:" + ";".join(targets) if targets else ""
-
-    def define(self, msbuild_arg, value):
-        return define(msbuild_arg, value)
-
-    def msbuild_args(self):
-        """Define build arguments to MSbuild. This is an empty list by default.
-        Individual packages should override to specify MSBuild args to command line
-        PlatformToolset is already defined an can be controlled via the `toolchain_version`
-        property"""
-        return []
-
-    def msbuild_install_args(self):
-        """Define install arguments to MSBuild outside of the INSTALL target. This is the same
-        as `msbuild_args` by default."""
-        return self.msbuild_args()
-
-    def build(self, pkg: MSBuildPackage, spec: Spec, prefix: Prefix) -> None:
-        """Run "msbuild" on the build targets specified by the builder."""
-        with working_dir(self.build_directory):
-            pkg.module.msbuild(
-                *self.std_msbuild_args,
-                *self.msbuild_args(),
-                self.define_targets(*self.build_targets),
-            )
-
-    def install(self, pkg: MSBuildPackage, spec: Spec, prefix: Prefix) -> None:
-        """Run "msbuild" on the install targets specified by the builder.
-        This is INSTALL by default"""
-        with working_dir(self.build_directory):
-            pkg.module.msbuild(
-                *self.msbuild_install_args(), self.define_targets(*self.install_targets)
-            )
-
-
-def define(msbuild_arg, value):
-    return "/p:{}={}".format(msbuild_arg, value)

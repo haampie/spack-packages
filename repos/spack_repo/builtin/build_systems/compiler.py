@@ -56,107 +56,6 @@ class CompilerPackage(PackageBase):
     #: Flags for generating debug information
     debug_flags: Sequence[str] = []
 
-    def __init__(self, spec: Spec):
-        super().__init__(spec)
-        msg = f"Supported languages for {spec} are not a subset of possible supported languages"
-        msg += f"    supports: {self.supported_languages}, valid values: {self.compiler_languages}"
-        assert set(self.supported_languages) <= set(self.compiler_languages), msg
-
-    @property
-    def supported_languages(self) -> Sequence[str]:
-        """Dynamic definition of languages supported by this package"""
-        return self.compiler_languages
-
-    @classproperty
-    def compiler_names(cls) -> Sequence[str]:
-        """Construct list of compiler names from per-language names"""
-        names = []
-        for language in cls.compiler_languages:
-            names.extend(getattr(cls, f"{language}_names"))
-        return names
-
-    @classproperty
-    def executables(cls) -> Sequence[str]:
-        """Construct executables for external detection from names, prefixes, and suffixes."""
-        regexp_fmt = r"^({0}){1}({2})$"
-        prefixes = [""] + cls.compiler_prefixes
-        suffixes = [""] + cls.compiler_suffixes
-        if sys.platform == "win32":
-            ext = r"\.(?:exe|bat)"
-            suffixes += [suf + ext for suf in suffixes]
-        return [
-            regexp_fmt.format(prefix, re.escape(name), suffix)
-            for prefix, name, suffix in itertools.product(prefixes, cls.compiler_names, suffixes)
-        ]
-
-    @classmethod
-    def determine_version(cls, exe: Path) -> str:
-        version_argument = cls.compiler_version_argument
-        if isinstance(version_argument, str):
-            version_argument = (version_argument,)
-
-        for va in version_argument:
-            try:
-                output = compiler_output(exe, version_argument=va)
-                match = re.search(cls.compiler_version_regex, output)
-                if match:
-                    return ".".join(match.groups())
-            except ProcessError:
-                pass
-            except Exception as e:
-                tty.debug(
-                    f"[{__file__}] Cannot detect a valid version for the executable "
-                    f"{str(exe)}, for package '{cls.name}': {e}"
-                )
-        return ""
-
-    @classmethod
-    def compiler_bindir(cls, prefix: Path) -> Path:
-        """Overridable method for the location of the compiler bindir within the prefix"""
-        return os.path.join(prefix, "bin")
-
-    @classmethod
-    def determine_compiler_paths(cls, exes: Sequence[Path]) -> Dict[str, Path]:
-        """Compute the paths to compiler executables associated with this package
-
-        This is a helper method for ``determine_variants`` to compute the ``extra_attributes``
-        to include with each spec object."""
-        # There are often at least two copies (not symlinks) of each compiler executable in the
-        # same directory: one with a canonical name, e.g. "gfortran", and another one with the
-        # target prefix, e.g. "x86_64-pc-linux-gnu-gfortran". There also might be a copy of "gcc"
-        # with the version suffix, e.g. "x86_64-pc-linux-gnu-gcc-6.3.0". To ensure the consistency
-        # of values in the "paths" dictionary (i.e. we prefer all of them to reference copies
-        # with canonical names if possible), we iterate over the executables in the reversed sorted
-        # order:
-        # First pass over languages identifies exes that are perfect matches for canonical names
-        # Second pass checks for names with prefix/suffix
-        # Second pass is sorted by language name length because longer named languages
-        # e.g. cxx can often contain the names of shorter named languages
-        # e.g. c (e.g. clang/clang++)
-        paths = {}
-        exes = sorted(exes, reverse=True)
-        languages = {
-            lang: getattr(cls, f"{lang}_names")
-            for lang in sorted(cls.compiler_languages, key=len, reverse=True)
-        }
-        for exe in exes:
-            for lang, names in languages.items():
-                if os.path.basename(exe) in names:
-                    paths[lang] = exe
-                    break
-            else:
-                for lang, names in languages.items():
-                    if any(name in os.path.basename(exe) for name in names):
-                        paths[lang] = exe
-                        break
-
-        return paths
-
-    @classmethod
-    def determine_variants(cls, exes: Sequence[Path], version_str: str) -> Tuple:
-        # path determination is separated so it can be reused in subclasses
-        return "", {"compilers": cls.determine_compiler_paths(exes=exes)}
-
     #: Returns the argument needed to set the RPATH, or None if it does not exist
     rpath_arg: Optional[str] = "-Wl,-rpath,"
     #: Flag that needs to be used to pass an argument to the linker
@@ -169,20 +68,6 @@ class CompilerPackage(PackageBase):
     openmp_flag: str = "-fopenmp"
 
     implicit_rpath_libs: List[str] = []
-
-    def standard_flag(self, *, language: str, standard: str) -> str:
-        """Returns the flag used to enforce a given standard for a language"""
-        if language not in self.supported_languages:
-            raise CompilerError(f"{self.spec} does not provide the '{language}' language")
-        try:
-            return self._standard_flag(language=language, standard=standard)
-        except (KeyError, RuntimeError) as e:
-            raise CompilerError(
-                f"{self.spec} does not provide the '{language}' standard {standard}"
-            ) from e
-
-    def _standard_flag(self, *, language: str, standard: str) -> str:
-        raise NotImplementedError("Must be implemented by derived classes")
 
     def archspec_name(self) -> str:
         """Name that archspec uses to refer to this compiler"""

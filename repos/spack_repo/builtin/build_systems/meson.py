@@ -66,13 +66,6 @@ class MesonPackage(PackageBase):
         # We have patches to make it work with meson 1.1 and above.
         conflicts("^python@3.12:", when="^meson@:1.0")
 
-    def flags_to_build_system_args(self, flags):
-        """Produces a list of all command line arguments to pass the specified
-        compiler flags to meson."""
-        # Has to be dynamic attribute due to caching
-        setattr(self, "meson_flag_args", [])
-
-
 @register_builder("meson")
 class MesonBuilder(BuilderWithDefaults):
     """The Meson builder encodes the default way to build software with Meson.
@@ -118,112 +111,5 @@ class MesonBuilder(BuilderWithDefaults):
 
     build_time_test_callbacks = ["check"]
 
-    @property
-    def archive_files(self):
-        """Files to archive for packages based on Meson"""
-        return [os.path.join(self.build_directory, "meson-logs", "meson-log.txt")]
-
-    @property
-    def root_mesonlists_dir(self) -> str:
-        """Relative path to the directory containing meson.build
-
-        This path is relative to the root of the extracted tarball,
-        not to the ``build_directory``. Defaults to the current directory.
-        """
-        return self.pkg.stage.source_path
-
-    @property
-    def std_meson_args(self) -> List[str]:
-        """Standard meson arguments provided as a property for convenience
-        of package writers.
-        """
-        # standard Meson arguments
-
-        std_meson_args = MesonBuilder.std_args(self.pkg)
-        std_meson_args += getattr(self, "meson_flag_args", [])
-        return std_meson_args
-
-    @staticmethod
-    def std_args(pkg) -> List[str]:
-        """Standard meson arguments for a generic package."""
-        try:
-            build_type = pkg.spec.variants["buildtype"].value
-        except KeyError:
-            build_type = "release"
-
-        strip = "true" if "+strip" in pkg.spec else "false"
-
-        if "default_library=static,shared" in pkg.spec:
-            default_library = "both"
-        elif "default_library=static" in pkg.spec:
-            default_library = "static"
-        else:
-            default_library = "shared"
-
-        return [
-            "-Dprefix={0}".format(pkg.prefix),
-            # If we do not specify libdir explicitly, Meson chooses something
-            # like lib/x86_64-linux-gnu, which causes problems when trying to
-            # find libraries and pkg-config files.
-            # See https://github.com/mesonbuild/meson/issues/2197
-            "-Dlibdir={0}".format(pkg.prefix.lib),
-            "-Dbuildtype={0}".format(build_type),
-            "-Dstrip={0}".format(strip),
-            "-Ddefault_library={0}".format(default_library),
-            # Do not automatically download and install dependencies
-            "-Dwrap_mode=nodownload",
-        ]
-
-    @property
-    def build_dirname(self):
-        """Returns the directory name to use when building the package."""
-        return "spack-build-{}".format(self.spec.dag_hash(7))
-
-    @property
-    def build_directory(self):
-        """Directory to use when building the package."""
-        return os.path.join(self.pkg.stage.path, self.build_dirname)
-
-    def meson_args(self) -> List[str]:
-        """List of arguments that must be passed to meson, except:
-
-        * ``--prefix``
-        * ``--libdir``
-        * ``--buildtype``
-        * ``--strip``
-        * ``--default_library``
-
-        which will be set automatically.
-        """
-        return []
-
-    def meson(self, pkg: MesonPackage, spec: Spec, prefix: Prefix) -> None:
-        """Run ``meson`` in the build directory"""
-        options = []
-        if self.spec["meson"].satisfies("@0.64:"):
-            options.append("setup")
-        options.append(os.path.abspath(self.root_mesonlists_dir))
-        options += self.std_meson_args
-        options += self.meson_args()
-        with working_dir(self.build_directory, create=True):
-            pkg.module.meson(*options)
-
-    def build(self, pkg: MesonPackage, spec: Spec, prefix: Prefix) -> None:
-        """Make the build targets"""
-        options = ["-v"]
-        options += self.build_targets
-        with working_dir(self.build_directory):
-            pkg.module.ninja(*options)
-
-    def install(self, pkg: MesonPackage, spec: Spec, prefix: Prefix) -> None:
-        """Make the install targets"""
-        with working_dir(self.build_directory):
-            pkg.module.ninja(*self.install_targets)
-
     run_after("build")(execute_build_time_tests)
 
-    def check(self) -> None:
-        """Search Meson-generated files for the target ``test`` and run it if found."""
-        with working_dir(self.build_directory):
-            self.pkg._if_ninja_target_execute("test")
-            self.pkg._if_ninja_target_execute("check")

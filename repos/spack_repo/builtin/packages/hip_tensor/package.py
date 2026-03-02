@@ -19,13 +19,6 @@ class HipTensor(CMakePackage, ROCmPackage):
     tags = ["rocm"]
     libraries = ["libhiptensor"]
 
-    def url_for_version(self, version):
-        if version <= Version("7.1.1"):
-            url = "https://github.com/ROCm/hipTensor/archive/refs/tags/rocm-{0}.tar.gz"
-        else:
-            url = "https://github.com/ROCm/rocm-libraries/archive/rocm-{0}.tar.gz"
-        return url.format(version)
-
     version("7.1.1", sha256="43976aee80cc9c70024f7b4ef9fc6745a7cd39d3a24fa626b79f00aa2a6ebdd0")
     version("6.4.2", sha256="de5285ae9eb105153ac6e2cd699d9020a30c7e99d7918f90ea83bdcda935f6d9")
     version("6.4.1", sha256="25d9d63bc4aef76e64b679b14c0fb102a0d513a3ab188d66ed91ac9bd35c5f39")
@@ -80,30 +73,3 @@ class HipTensor(CMakePackage, ROCmPackage):
         depends_on(f"hipcc@{ver}", when=f"@{ver}")
         depends_on(f"hip@{ver}", when=f"@{ver}")
 
-    @property
-    def root_cmakelists_dir(self):
-        if self.spec.satisfies("@7.2:"):
-            return "projects/hiptensor"
-        else:
-            return "."
-
-    @classmethod
-    def determine_version(cls, lib):
-        match = re.search(r"lib\S*\.so\.\d+\.\d+\.(\d)(\d\d)(\d\d)", lib)
-        if match:
-            ver = "{0}.{1}.{2}".format(
-                int(match.group(1)), int(match.group(2)), int(match.group(3))
-            )
-        else:
-            ver = None
-        return ver
-
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        if self.spec.satisfies("@6.1"):
-            env.set("CXX", self.spec["hipcc"].prefix.bin.hipcc)
-        else:
-            env.set("CXX", self.spec["hip"].hipcc)
-        if self.spec.satisfies("@7.2:"):
-            env.set("CC", self.spec["hip"].hipcc)
-        if self.spec.satisfies("+asan"):
-            self.asan_on(env)

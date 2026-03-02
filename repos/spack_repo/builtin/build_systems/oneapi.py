@@ -289,11 +289,6 @@ class IntelOneApiLibraryPackageWithSdk(IntelOneApiLibraryPackage):
     def headers(self):
         return self.header_directories([self.component_prefix.sdk.include])
 
-    @property
-    def libs(self):
-        return find_libraries("*", self.component_prefix.sdk.lib64)
-
-
 class IntelOneApiStaticLibraryList(LibraryList):
     """Provides ld_flags when static linking is needed
 
@@ -304,29 +299,6 @@ class IntelOneApiStaticLibraryList(LibraryList):
     Allow both static and dynamic libraries to be supplied by the
     package.
     """
-
-    def __init__(self, static_libs, dynamic_libs):
-        self.static_libs = static_libs
-        self.dynamic_libs = dynamic_libs
-
-    @property
-    def directories(self):
-        return self.dynamic_libs.directories
-
-    @property
-    def search_flags(self):
-        return self.dynamic_libs.search_flags
-
-    @property
-    def link_flags(self):
-        return "-Wl,--start-group {0} -Wl,--end-group {1}".format(
-            " ".join(self.static_libs.libraries), self.dynamic_libs.link_flags
-        )
-
-    @property
-    def ld_flags(self):
-        return "{0} {1}".format(self.search_flags, self.link_flags)
-
 
 #: Tuple of Intel math libraries, exported to packages
 INTEL_MATH_LIBRARIES = ("intel-oneapi-mkl",)

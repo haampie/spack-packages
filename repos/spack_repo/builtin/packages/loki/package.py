@@ -21,7 +21,6 @@ class Loki(MakefilePackage):
 
     depends_on("cxx", type="build")  # generated
 
-    variant("shared", default=True, description="Build shared libraries")
 
     def flag_handler(self, name, flags):
         if name == "cxxflags":

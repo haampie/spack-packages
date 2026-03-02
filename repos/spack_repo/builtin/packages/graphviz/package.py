@@ -20,7 +20,6 @@ class Graphviz(AutotoolsPackage):
     git = "https://gitlab.com/graphviz/graphviz.git"
     url = "https://gitlab.com/graphviz/graphviz/-/archive/2.46.0/graphviz-2.46.0.tar.bz2"
 
-    maintainers("sethrj")
 
     license("EPL-1.0")
 

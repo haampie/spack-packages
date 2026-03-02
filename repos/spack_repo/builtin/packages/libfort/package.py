@@ -19,11 +19,7 @@ class Libfort(CMakePackage):
 
     variant("enable_astyle", default=False, description="Enable astyle")
     variant("enable_wchar", default=True, description="Enable wchar support")
-    variant("enable_utf8", default=True, description="Enable utf8 support")
-    variant("enable_testing", default=True, description="Enables building tests and examples")
-    variant("shared", default=False, description="Build shared library")
 
-    depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
 
     depends_on("cmake@3.0.0:", type="build")

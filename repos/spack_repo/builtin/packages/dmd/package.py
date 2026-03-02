@@ -27,24 +27,6 @@ class Dmd(MakefilePackage):
     depends_on("curl")
 
     # https://wiki.dlang.org/Building_under_Posix
-    resource(
-        name="druntime",
-        url="https://github.com/dlang/druntime/archive/v2.081.1.tar.gz",
-        sha256="8313af32dce71f767fb0072cae699cbfe7196cf01b0ce1c5dd416a71d94f5fee",
-        placement="druntime",
-    )
-    resource(
-        name="phobos",
-        url="https://github.com/dlang/phobos/archive/v2.081.1.tar.gz",
-        sha256="d945c6fd1be14dff5fcbf45c1e11302e12bebac56d55e4e97e48e150f2899e04",
-        placement="phobos",
-    )
-    resource(
-        name="tools",
-        url="https://github.com/dlang/tools/archive/v2.081.1.tar.gz",
-        sha256="71fa249dbfd278eec2b95ce577af32e623e44caf0d993905ddc189e3beec21d0",
-        placement="tools",
-    )
 
     def setup_run_environment(self, env: EnvironmentModifications) -> None:
         env.prepend_path("PATH", self.prefix.linux.bin64)

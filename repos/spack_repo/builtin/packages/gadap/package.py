@@ -13,7 +13,6 @@ class Gadap(AutotoolsPackage):
     homepage = "http://cola.gmu.edu/grads/gadoc/supplibs.html"
     url = "http://cola.gmu.edu/grads/Supplibs/2.1/src/gadap-2.0.tar.gz"
 
-    maintainers("vanderwb")
 
     license("GPL-2.0-only")
 

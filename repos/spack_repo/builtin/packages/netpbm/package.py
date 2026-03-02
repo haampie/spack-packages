@@ -35,15 +35,9 @@ class Netpbm(MakefilePackage):
     # Variants are there in case compilation was a problem.
     variant("all", default=True, description="Enable all 3rd party libs")
     variant("X", default=True, description="Enable X libs for pamx")
-    variant("fiasco", default=True, description="Enable fiasco")
-    variant(
-        "ghostscript", default=True, description="Ghostscript is called by pstopnm and pbmtextps"
-    )
     # netpbm can provide it's own jasper and jbig : better use the ones
     # from their respective spack package.
-    variant("builtin", default=False, description="Use builtin libs instead of 3rd party")
 
-    depends_on("c", type="build")  # generated
 
     depends_on("perl", type=("build", "run"))
     depends_on("gmake", type="build")

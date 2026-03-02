@@ -16,9 +16,7 @@ class Trimal(MakefilePackage):
 
     license("GPL-3.0-or-later")
 
-    version("1.4.1", sha256="cb8110ca24433f85c33797b930fa10fe833fa677825103d6e7f81dd7551b9b4e")
 
-    depends_on("cxx", type="build")  # generated
 
     build_directory = "source"
 

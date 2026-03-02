@@ -225,11 +225,7 @@ class Hypre(CMakePackage, AutotoolsPackage, CudaPackage, ROCmPackage):
         conflicts("@:2.20")
         conflicts("amdgpu_target=none")
         conflicts("precision=longdouble")
-        conflicts("precision=mixed")
-        conflicts("+int64", msg="Use +mixedint for 64-bit integer support for GPUs!")
         conflicts("+sycl", msg="ROCm and SYCL are mutually exclusive")
-        conflicts("cxxstd=11", when="^hip@7:")
-        conflicts("cxxstd=14", when="^hip@7:")
         for pkg, gfx in product(gpu_pkgs, ROCmPackage.amdgpu_targets):
             requires(f"^{pkg} amdgpu_target={gfx}", when=f"+{pkg} amdgpu_target={gfx}")
 

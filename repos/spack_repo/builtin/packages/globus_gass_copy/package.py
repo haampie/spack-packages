@@ -20,11 +20,8 @@ class GlobusGassCopy(AutotoolsPackage):
     homepage = "https://github.com/gridcf/gct/tree/master/gass/copy/source"
     url = "https://repo.gridcf.org/gct6/sources/globus_gass_copy-10.13.tar.gz"
 
-    maintainers("wdconinc")
 
-    license("Apache-2.0", checked_by="wdconinc")
 
-    version("10.13", sha256="f8b301b99de8f236733486767409d952024e16ff44ccfa8627063eefcbc8fe45")
 
     depends_on("c", type="build")
 

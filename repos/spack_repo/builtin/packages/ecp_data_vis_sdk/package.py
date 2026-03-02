@@ -73,10 +73,6 @@ class EcpDataVisSdk(BundlePackage, CudaPackage, ROCmPackage):
     ############################################################
 
     # I/O
-    variant("adios2", default=False, description="Enable ADIOS2")
-    variant("darshan", default=False, description="Enable Darshan")
-    variant("faodel", default=False, description="Enable FAODEL")
-    variant("hdf5", default=False, description="Enable HDF5")
     variant("pnetcdf", default=False, description="Enable PNetCDF")
     variant("unifyfs", default=False, description="Enable UnifyFS")
     variant("veloc", default=False, description="Enable VeloC")

@@ -23,12 +23,8 @@ class PerlBioEnsemblVariation(Package):
     ]:
         version(vers, sha256=sha)
         depends_on(f"perl-bio-ensembl@{vers}", when=f"@{vers}")
-        depends_on(f"perl-bio-ensembl-io@{vers}", when=f"@{vers}+tools", type="run")
-        depends_on(f"perl-bio-ensembl-funcgen@{vers}", when=f"@{vers}", type="run")
 
-    extends("perl")
 
-    variant("sql", default=False, description="Install SQL files")
     variant("schema", default=False, description="Install schema documentation")
     variant("nextflow", default=False, description="Install nextflow workflows")
     variant("scripts", default=False, description="Install additional scripts")

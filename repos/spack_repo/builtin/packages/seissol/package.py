@@ -32,18 +32,8 @@ class Seissol(CMakePackage, CudaPackage, ROCmPackage):
     version(
         "1.1.4", tag="v1.1.4", commit="6d301757378ad8446173e0a12c095a695a708aaf", submodules=True
     )
-    version(
-        "1.1.3", tag="v1.1.3", commit="01ae1b127fcc6f766b819d2e797df6a3547d730a", submodules=True
-    )
-    version(
-        "1.1.2", tag="v1.1.2", commit="71002c1c1498ebd6f50a954731da68fa4f9d436b", submodules=True
-    )
 
-    version(
-        "1.0.1", tag="v1.0.1", commit="9b1b0ec970af4ad79a155c63035234b660838476", submodules=True
-    )
 
-    maintainers("Thomas-Ulrich", "davschneller", "vikaskurapati")
 
     depends_on("cxx", type="build")
     depends_on("c", type="build")

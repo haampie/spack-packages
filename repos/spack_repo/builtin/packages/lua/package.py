@@ -251,9 +251,6 @@ class Lua(LuaImplPackage):
     provides("lua-lang@5.3", when="@5.3:5.3.99")
     provides("lua-lang@5.4", when="@5.4:5.4.99")
 
-    depends_on("c", type="build")
-    depends_on("ncurses+termlib")
-    depends_on("readline")
 
     def build(self, spec, prefix):
         if spec.satisfies("platform=darwin"):

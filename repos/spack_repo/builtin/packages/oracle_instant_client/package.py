@@ -85,19 +85,15 @@ class OracleInstantClient(Package):
         oracle_version = release["version"]
         main_pkg = release["components"]["basic"]
         url, sha256 = main_pkg
-        version(oracle_version, sha256=sha256, url=url)
         for rname, atts in release["components"].items():
             if rname == "basic":
                 continue
             url, sha256 = atts
             condition = "@{0}".format(oracle_version)
-            resource(name=rname, url=url, sha256=sha256, when=condition, placement=rname)
 
-    depends_on("libaio", type="link")
 
     # TODO: add URLs for macOS. Unfortunately still no native M1 support.
     # https://www.oracle.com/database/technologies/instant-client/macos-intel-x86-downloads.html
-    conflicts("platform=darwin")
 
     def install(self, spec, prefix):
         mkdirp(prefix.bin)

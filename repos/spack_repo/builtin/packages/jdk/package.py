@@ -35,9 +35,6 @@ class Jdk(Package):
 
     requires("target=x86_64:", msg="binaries only availble for x86_64")
     # requires("platform=linux")  # bug in concretizer
-    conflicts("platform=windows")
-    conflicts("platform=darwin")
-    conflicts("platform=freebsd")
 
     # FIXME:
     # 1. `extends('java')` doesn't work, you need to use `extends('jdk')`

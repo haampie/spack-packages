@@ -224,11 +224,8 @@ class Tau(Package):
 
     # ADIOS2, SQLite only available from 2.29.1 on
     conflicts("+adios2", when="@:2.29.1")
-    conflicts("+sqlite", when="@:2.29.1")
     conflicts("+dyninst", when="@:2.32.1")
     conflicts("+disable-no-pie", when="@:2.33.2")
-    patch("unwind.patch", when="@2.29.0")
-    patch("pycuda.patch", when="@2.33:2.35.0")
 
     conflicts("+rocprofiler", when="+rocprofv2", msg="Use either rocprofiler or rocprofv2")
     conflicts(

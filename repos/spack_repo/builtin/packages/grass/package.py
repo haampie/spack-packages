@@ -98,9 +98,6 @@ class Grass(AutotoolsPackage):
     depends_on("liblas", when="+liblas")
     depends_on("wxwidgets", when="+wxwidgets")
     depends_on("py-wxpython@2.8.10.1:", when="+wxwidgets", type=("build", "run"))
-    depends_on("netcdf-c", when="+netcdf")
-    depends_on("geos", when="+geos")
-    depends_on("libx11", when="+x")
 
     def url_for_version(self, version):
         url = "https://grass.osgeo.org/grass{0}/source/grass-{1}.tar.gz"

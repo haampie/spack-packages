@@ -18,11 +18,8 @@ class Hive(Package):
     homepage = "https://hive.apache.org/"
     url = "https://www.apache.org/dist/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz"
 
-    license("Apache-2.0", checked_by="wdconinc")
 
-    version("4.0.1", sha256="2bf988a1ed17437b1103e367939c25a13f64d36cf6d1c3bef8c3f319f0067619")
 
-    depends_on("hadoop", type="run")
 
     def install(self, spec, prefix):
         install_tree(".", prefix)

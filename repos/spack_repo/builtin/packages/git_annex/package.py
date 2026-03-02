@@ -50,7 +50,6 @@ class GitAnnex(Package):
 
     skip_version_audit = ["platform=darwin", "platform=windows"]
 
-    license("AGPL-3.0-or-later")
 
     if platform.system() == "Linux" and platform.machine() == "aarch64":
         # git-annex-standalone-arm64.tar.gz

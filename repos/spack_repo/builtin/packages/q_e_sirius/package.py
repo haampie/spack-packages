@@ -44,11 +44,7 @@ class QESirius(CMakePackage):
     depends_on("sirius +openmp", when="+openmp")
     depends_on("sirius@develop", when="@develop-ristretto")
 
-    depends_on("mpi")
-    depends_on("elpa", when="+elpa")
-    depends_on("libxc", when="+libxc")
     depends_on("fftw-api@3")
-    depends_on("blas")
     depends_on("lapack")
     depends_on("git", type="build")
     depends_on("pkgconfig", type="build")

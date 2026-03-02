@@ -68,11 +68,7 @@ class Ecflow(CMakePackage):
         when="@5: +static_boost",
     )
 
-    depends_on("openssl@1:", when="@5:")
-    depends_on("pkgconfig", type="build", when="+ssl ^openssl ~shared")
-    depends_on("qt@5: +gui", when="+ui")
     # Requirement to use the Python3_EXECUTABLE variable
-    depends_on("cmake@3.16:", type="build")
 
     # https://github.com/JCSDA/spack-stack/issues/1001
     # https://github.com/JCSDA/spack-stack/issues/1009

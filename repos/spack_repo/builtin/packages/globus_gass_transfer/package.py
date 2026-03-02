@@ -37,4 +37,3 @@ class GlobusGassTransfer(AutotoolsPackage):
     depends_on("globus-common@14:")
     depends_on("globus-gssapi-gsi@10:")
     depends_on("globus-gss-assist@8:")
-    depends_on("globus-io@8:")

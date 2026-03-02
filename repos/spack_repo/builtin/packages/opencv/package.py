@@ -554,12 +554,8 @@ class Opencv(CMakePackage, CudaPackage):
 
     with when("+saliency"):
         conflicts("%intel")
-        conflicts("~features2d")
-        conflicts("~imgproc")
 
     with when("+sfm"):
-        conflicts("~calib3d")
-        conflicts("~eigen")
         conflicts("~features2d")
         conflicts("~imgcodecs")
         conflicts("~xfeatures2d")

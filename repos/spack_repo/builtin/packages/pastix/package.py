@@ -33,16 +33,6 @@ class Pastix(CMakePackage, CudaPackage):
     variant("doc", default=False, description="Enable documentation")
     variant("int64", default=False, description="To use 64 bits integers")
     variant("metis", default=False, description="Enable Metis")
-    variant("scotch", default=True, description="Enable Scotch")
-    variant(
-        "runtime",
-        default="none",
-        description="Runtime support",
-        values=("none", "starpu"),
-        multi=False,
-    )
-    variant("cuda", default=False, when="runtime=starpu", description="Enable CUDA")
-    variant("mpi", default=False, description="Enable MPI")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

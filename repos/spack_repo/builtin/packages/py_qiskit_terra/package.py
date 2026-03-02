@@ -24,10 +24,6 @@ class PyQiskitTerra(PythonPackage):
 
     depends_on("py-setuptools", type="build")
     depends_on("py-numpy@1.17:", type=("build", "run"))
-    depends_on("py-ply@3.10:", type=("build", "run"))
-    depends_on("py-sympy@1.3:", type=("build", "run"))
-    depends_on("py-dill@0.3:", type=("build", "run"))
-    depends_on("py-python-dateutil@2.8.0:", type=("build", "run"))
     depends_on("py-stevedore@3.0.0:", type=("build", "run"))
     depends_on("py-psutil@5:", type=("build", "run"))
 

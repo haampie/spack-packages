@@ -13,8 +13,6 @@ class TrilinosCatalystIossAdapter(CMakePackage):
     homepage = "https://trilinos.org/"
     git = "https://github.com/trilinos/Trilinos.git"
 
-    version("develop", branch="develop")
-    version("master", branch="master")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

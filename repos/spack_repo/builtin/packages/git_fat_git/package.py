@@ -18,9 +18,6 @@ class GitFatGit(Package):
 
     version("2018-08-21", commit="e1733b1c7c4169d0a1d31cb76f168fb0880176c0")
 
-    depends_on("python", type="run")
-    depends_on("git", type="run")
-    depends_on("rsync", type="run")
 
     def install(self, spec, prefix):
         install_tree(".", prefix.bin)

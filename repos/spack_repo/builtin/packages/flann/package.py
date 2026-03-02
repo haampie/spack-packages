@@ -52,11 +52,7 @@ class Flann(CMakePackage):
     # Additional options
     variant("cuda", default=False, description="Build the CUDA library.")
     variant("examples", default=False, description="Build the examples.")
-    variant("doc", default=False, description="Build the documentation.")
-    variant("openmp", default=True, description="Use OpenMP multi-threading.")
     # mpi and hdf5 are the bread and butter of this library, use 'em
-    variant("mpi", default=True, description="Use MPI.")
-    variant("hdf5", default=True, description="Enable HDF5 support.")
 
     # Dependencies
     depends_on("c", type="build")  # generated

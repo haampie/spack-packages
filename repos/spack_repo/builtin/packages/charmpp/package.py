@@ -158,11 +158,9 @@ class Charmpp(Package):
     conflicts("~tracing", "+papi")
 
     conflicts("backend=multicore", when="~smp", msg="The 'multicore' backend always uses SMP")
-    conflicts("backend=ucx", when="@:6.9")
 
     # Shared-lib builds with GCC are broken on macOS:
     # https://github.com/UIUC-PPL/charm/issues/3181
-    conflicts("+shared", when="platform=darwin %gcc")
 
     # Charm++ versions below 7.0.0 have build issues on macOS, mainly due to the
     # pre-7.0.0 `VERSION` file conflicting with other version files on the
@@ -171,8 +169,6 @@ class Charmpp(Package):
     # comply with the C++20 standard:
     # https://en.cppreference.com/w/cpp/header/version. The conflict only occurs
     # on case-insensitive file systems, as typically used on macOS machines.
-    conflicts("@:6", when="platform=darwin %apple-clang@7:")
-    conflicts("@:6", when="platform=darwin %clang@7:")
 
     @property
     def charmarch(self):

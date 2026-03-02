@@ -50,11 +50,7 @@ class NcbiToolkit(AutotoolsPackage):
 
     variant("debug", default=False, description="Build debug versions of libs and apps")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("boost@1.35.0:+test+log")
-    depends_on("bzip2")
     depends_on("cpio", type="build")
     depends_on("diffutils", type="build")
     depends_on("jpeg")
@@ -63,7 +59,6 @@ class NcbiToolkit(AutotoolsPackage):
     depends_on("libxml2")
     depends_on("libxslt@1.1.14:")
     depends_on("lzo")
-    depends_on("pcre")
     depends_on("giflib")
     depends_on("sqlite@3.6.6:")
     depends_on("zlib-api")

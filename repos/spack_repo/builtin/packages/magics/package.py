@@ -55,10 +55,6 @@ class Magics(CMakePackage):
     depends_on("fortran", type="build")  # generated
 
     depends_on("cmake@2.8.11:", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("python", type="build")
-    depends_on("perl", type="build")
-    depends_on("perl-xml-parser", type="build")
 
     # Non-optional dependencies
     # change of proj4 api starting from version 4.3.0

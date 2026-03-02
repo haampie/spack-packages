@@ -22,12 +22,8 @@ class Newt(AutotoolsPackage):
 
     # newt prior to 0.51.21 did not allow one to specify where to find Python and would
     # only look in /usr. Avoid using Python with earlier versions.
-    variant("python", when="@0.52.21:", default=False, description="Build the snack python module")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("gettext")
-    depends_on("popt")
     depends_on("slang")
 
     depends_on("python", when="@0.52.21: +python")

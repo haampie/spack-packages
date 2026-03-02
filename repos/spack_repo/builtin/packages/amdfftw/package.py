@@ -104,17 +104,9 @@ class Amdfftw(FftwBase):
     )
 
     depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("texinfo")
 
-    provides("fftw-api@3")
 
-    conflicts(
-        "precision=quad",
-        when="@2.2 %aocc",
-        msg="Quad precision is not supported by AOCC clang version 2.2",
-    )
     conflicts(
         "+debug", when="@2.2 %aocc", msg="debug mode is not supported by AOCC clang version 2.2"
     )

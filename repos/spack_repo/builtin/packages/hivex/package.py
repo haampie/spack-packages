@@ -22,4 +22,3 @@ class Hivex(AutotoolsPackage):
 
     depends_on("c", type="build")  # generated
 
-    depends_on("perl")

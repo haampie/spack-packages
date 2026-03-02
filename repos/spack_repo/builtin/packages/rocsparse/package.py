@@ -229,30 +229,6 @@ class Rocsparse(CMakePackage):
             destination="mtx",
         )
         resource(
-            name="mplate",
-            url="https://sparse.tamu.edu/MM/Cote/mplate.tar.gz",
-            sha256="647b848343e423a24e05d3a3d462fa6b77958e362aadf70e9bb51bd420730df2",
-            destination="mtx",
-        )
-        resource(
-            name="qc2534",
-            url="https://sparse.tamu.edu/MM/Bai/qc2534.tar.gz",
-            sha256="591c54ceee70222909353d2a400dd9819e3432143b2c25b6c4ffa262b8e397c8",
-            destination="mtx",
-        )
-        resource(
-            name="Chevron2",
-            url="https://sparse.tamu.edu/MM/Chevron/Chevron2.tar.gz",
-            sha256="9334b61c25958f5221fd114e9698c11ac0ec57a0432150731d3fe80033da3026",
-            destination="mtx",
-        )
-        resource(
-            name="Chevron3",
-            url="https://sparse.tamu.edu/MM/Chevron/Chevron3.tar.gz",
-            sha256="5679292ba86defedb0a6afc25274948521ace7ca90fc765265be11ca6eaaaee4",
-            destination="mtx",
-        )
-        resource(
             name="Chevron4",
             url="https://sparse.tamu.edu/MM/Chevron/Chevron4.tar.gz",
             sha256="2ac9dc0d8d38cbf4a62089c74e53aea87edbb3f0b553b77b27c70df70e1d17d5",

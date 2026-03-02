@@ -144,49 +144,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
         default=(sys.platform != "darwin"),
         description="Add support for LTO with the gold linker plugin",
     )
-    variant("split_dwarf", default=False, description="Build with split dwarf information")
-    variant(
-        "llvm_dylib",
-        default=True,
-        description="Build a combined LLVM shared library with all components",
-    )
-    variant(
-        "link_llvm_dylib",
-        default=False,
-        when="+llvm_dylib",
-        description="Link LLVM tools against the LLVM shared library",
-    )
-    variant(
-        "targets",
-        default="all",
-        description=(
-            "What targets to build. Spack's target family is always added "
-            "(e.g. X86 is automatically enabled when targeting znver2)."
-        ),
-        values=(
-            "all",
-            "none",
-            "aarch64",
-            "amdgpu",
-            "arm",
-            "avr",
-            "bpf",
-            "cppbackend",
-            "hexagon",
-            "lanai",
-            "mips",
-            "msp430",
-            "nvptx",
-            "powerpc",
-            "riscv",
-            "sparc",
-            "systemz",
-            "webassembly",
-            "x86",
-            "xcore",
-        ),
-        multi=True,
-    )
     variant(
         "openmp",
         values=("project", conditional("runtime", when="+clang @12:")),

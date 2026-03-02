@@ -162,10 +162,6 @@ class Openfoam(Package):
 
     # Require scotch with ptscotch - corresponds to standard OpenFOAM setup
     depends_on("scotch~metis+mpi~int64", when="+scotch~int64")
-    depends_on("scotch~metis+mpi+int64", when="+scotch+int64")
-    depends_on("kahip", when="+kahip")
-    depends_on("metis@5:", when="+metis")
-    depends_on("metis+int64", when="+metis+int64")
     # mgridgen is statically linked
     depends_on("parmgridgen", when="+mgridgen", type="build")
     depends_on("zoltan", when="+zoltan")

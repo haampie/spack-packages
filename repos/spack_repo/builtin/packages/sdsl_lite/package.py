@@ -15,14 +15,7 @@ class SdslLite(Package):
 
     homepage = "https://github.com/simongog/sdsl-lite"
 
-    version(
-        "2.1.1",
-        sha256="2f192977b47406ae8992292c7e841ef23d4656bf72f6140540bed53af68e06ed",
-        expand=False,
-    )
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     depends_on("cmake", type="build")
     depends_on("tar", type="build")

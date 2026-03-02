@@ -71,10 +71,7 @@ class ScineMolassembler(CMakePackage):
     depends_on("py-pybind11@2.6.2:", when="+python", type="build")
     # depends_on("ringdecomposerlib")
     depends_on("scine-core")
-    depends_on("scine-utilities")
-    depends_on("scine-utilities+python", when="+python", type=("build", "run"))
 
-    extends("python", when="+python")
 
     def patch(self):
         os.rmdir("dev")

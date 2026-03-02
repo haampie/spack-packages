@@ -27,11 +27,7 @@ class OpenradiossStarter(CMakePackage):
     license("AGPL-3.0-only")
 
     maintainers("kjrstory")
-    version("main", branch="main")
 
-    variant("sp", default=False, description="Using single precision option")
-    variant("debug", default=False, description="Debug Option")
-    variant("static_link", default=False, description="Static_link Option")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

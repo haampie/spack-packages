@@ -201,11 +201,7 @@ class Hypre(CMakePackage, AutotoolsPackage, CudaPackage, ROCmPackage):
     conflicts("+gpu-profiling", when="~cuda~rocm~sycl")
     conflicts("+gpu-aware-mpi", when="~cuda~rocm~sycl")
     with when("+cuda"):
-        depends_on("umpire+c+cuda", when="@3:")
-        requires("+umpire", when="@3:")
 
-        conflicts("@:2.18")
-        conflicts("cuda_arch=none")
         conflicts("precision=longdouble")
         conflicts("precision=mixed")
         conflicts("+shared +umpire", when="@:2")

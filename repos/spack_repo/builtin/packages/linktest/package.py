@@ -27,8 +27,6 @@ class Linktest(MakefilePackage):
 
     depends_on("c", type="build")  # generated
 
-    depends_on("mpi")
-    depends_on("sionlib")
 
     def edit(self, spec, prefix):
         with working_dir("src"):

@@ -23,4 +23,3 @@ class Sdl2Ttf(CMakePackage):
 
     depends_on("sdl2")
 
-    maintainers("georgemalerbo", "amklinv")

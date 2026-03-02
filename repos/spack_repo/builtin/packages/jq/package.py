@@ -23,7 +23,6 @@ class Jq(AutotoolsPackage):
     depends_on("c", type="build")  # generated
 
     depends_on("oniguruma")
-    depends_on("bison@3.0:", type="build")
 
     def configure_args(self):
         # on darwin, required math functions like lgammaf_r are gated behind

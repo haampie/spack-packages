@@ -36,19 +36,7 @@ class Gpi2(AutotoolsPackage):
     version("1.2.0", sha256="0a1411276aa0787382573df5e0f60cc38ca8079f2353fb7a7e8dc57050a7d2cb")
     version("1.1.0", sha256="626727565a8b78be0dc8883539b01aaff2bb3bd42395899643bc4d6cc2313773")
     version("1.0.2", sha256="b03b4ac9f0715279b2a5e064fd85047cb640a85c2361d732930307f8bbf2aeb8")
-    version("1.0.1", sha256="b1341bb39e7e70334d7acf831fe7f2061376e7516b44d18b31797748c2a169a3")
 
-    variant("fortran", default=False, description="Enable Fortran modules")
-    variant("mpi", default=False, description="Enable MPI support")
-    variant(
-        "fabrics",
-        values=disjoint_sets(("auto",), ("infiniband",), ("ethernet",)).with_non_feature_values(
-            "auto", "none"
-        ),
-        description="List of fabrics that are enabled; "
-        "'none' use GPI-2 default (infiniband), "
-        "'infiniband' will use 'rdma-core' from Spack",
-    )
     variant(
         "schedulers",
         values=disjoint_sets(

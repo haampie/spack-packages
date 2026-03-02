@@ -15,7 +15,6 @@ class ScineQcmaquis(CMakePackage):
     homepage = "https://scine.ethz.ch/download/qcmaquis"
     git = "https://github.com/qcscine/qcmaquis.git"
 
-    maintainers("adam-grofe")
 
     version("master", branch="master")
     version("3.1.4", branch="release-3.1.4")

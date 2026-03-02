@@ -177,12 +177,8 @@ class Qmcpack(CMakePackage, CudaPackage):
 
     # HDF5
     depends_on("hdf5~mpi", when="~phdf5")
-    depends_on("hdf5+mpi", when="+phdf5")
 
     # Math libraries
-    depends_on("blas")
-    depends_on("lapack")
-    depends_on("fftw-api@3")
 
     # qmcpack data analysis tools
     # basic command line tool based on Python and NumPy

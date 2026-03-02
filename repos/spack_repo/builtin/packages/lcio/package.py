@@ -75,11 +75,7 @@ class Lcio(CMakePackage):
     depends_on("c", type="build", when="@:2.22.5")
     depends_on("cxx", type="build")
 
-    depends_on("sio@0.0.2:", when="@2.14:")
-    depends_on("sio@0.1:", when="@2.16:")
-    depends_on("sio@0.2:", when="@2.21:")
 
-    depends_on("root@6.04:", when="+rootdict")
     depends_on("root@6.04: cxxstd=11", when="+rootdict cxxstd=11")
     depends_on("root@6.04: cxxstd=14", when="+rootdict cxxstd=14")
     depends_on("root@6.04: cxxstd=17", when="+rootdict cxxstd=17")

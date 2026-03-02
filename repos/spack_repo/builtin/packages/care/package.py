@@ -146,10 +146,6 @@ class Care(CachedCMakePackage, CudaPackage, ROCmPackage):
     depends_on("blt", type="build")
     depends_on("blt@0.7.1:", type="build", when="@0.15.2:")
     depends_on("blt@0.6.2:", type="build", when="@0.13.0:")
-    depends_on("blt@0.6.1:", type="build", when="@0.12.0:")
-    depends_on("blt@0.5.2:", type="build", when="@0.10.0:")
-    depends_on("blt@0.4.1:", type="build", when="@0.3.1:")
-    depends_on("blt@:0.3.6", type="build", when="@:0.3.0")
     conflicts("^blt@:0.3.6", when="+rocm")
 
     depends_on("camp", when="@:0.11.1")

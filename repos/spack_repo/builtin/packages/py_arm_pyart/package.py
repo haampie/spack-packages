@@ -23,10 +23,6 @@ class PyArmPyart(PythonPackage):
 
     version("1.12.7", sha256="b7b23ecef270c60b017d94603941f0c117de072a10125c5f58c0685d801f9161")
 
-    variant("cartopy", description="Plot grids on maps", default=False)
-    variant("cylp", description="Linear programming solver", default=False)
-    variant("gdal", description="Output GeoTIFFs from grid objects", default=False)
-    variant("hdf5", description="Support for HDF5 files", default=False)
     variant("rsl", description="Use RSL library", default=False)
     variant("wradlib", description="Calculate texture of differential phase field", default=False)
 

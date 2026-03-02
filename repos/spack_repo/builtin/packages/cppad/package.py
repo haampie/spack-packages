@@ -14,15 +14,7 @@ class Cppad(CMakePackage):
     url = "https://github.com/coin-or/CppAD/archive/refs/tags/20240000.4.tar.gz"
     git = "https://github.com/coin-or/CppAD.git"
 
-    maintainers("whart222")
 
-    version("master", branch="master")
-    version(
-        "20240000.4", sha256="0dfc1e30b32d5dd3086ee3adb6d2746a019e9d670b644c4d5ec1df3c35dd1fe5"
-    )
-    version(
-        "20220000.5", sha256="9fb4562f6169855eadcd86ac4671593d1c0edf97bb6ce7cbb28e19af2bfc165e"
-    )
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

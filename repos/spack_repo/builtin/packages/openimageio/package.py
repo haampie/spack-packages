@@ -24,12 +24,8 @@ class Openimageio(CMakePackage):
     # Core dependencies
     depends_on("cmake@3.2.2:", type="build")
     depends_on("boost+atomic+filesystem+thread+chrono@1.53:")
-    depends_on("libtiff@4.0:")
-    depends_on("openexr@3.1:")
-    depends_on("libpng@1.6:")
 
     # Optional dependencies
-    variant("ffmpeg", default=False, description="Support video frames")
     depends_on("ffmpeg", when="+ffmpeg")
 
     variant("jpeg2k", default=False, description="Support for JPEG2000 format")

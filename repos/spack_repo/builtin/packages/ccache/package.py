@@ -70,11 +70,7 @@ class Ccache(CMakePackage):
     depends_on("cxx", type="build")  # generated
 
     depends_on("cmake@3.15:", when="@4.7:", type="build")
-    depends_on("cmake@3.10:", when="@4.4:", type="build")
-    depends_on("cmake@3.4.3:", when="@4.0:", type="build")
 
-    depends_on("gperf", when="@:3")
-    depends_on("libxslt", when="@:3")
     depends_on("zlib-api", when="@:3")
 
     depends_on("zstd", when="@4.0:")

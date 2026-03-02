@@ -96,15 +96,8 @@ class Vecgeom(CMakePackage, CudaPackage):
         when="@1.2.7:1.2.10 +cuda ^cuda@:11",
     )
     # Fix -Wmissing-template-arg-list-after-template-kw
-    patch(
-        "https://gitlab.cern.ch/VecGeom/VecGeom/-/merge_requests/1251.diff",
-        sha256="b9419c6666389b69ee2c9125d10f25b423fce339495413ac4762ae6f32bdea63",
-        when="@:1.2.10 ^apple-clang@17:",
-    )
 
     for _std, _when in _std_when(_cxxstd_values):
-        depends_on(f"geant4 cxxstd={_std}", when=f"{_when} +geant4 cxxstd={_std}")
-        depends_on(f"root cxxstd={_std}", when=f"{_when} +root cxxstd={_std}")
         depends_on(f"xerces-c cxxstd={_std}", when=f"{_when} +gdml cxxstd={_std}")
 
     def cmake_args(self):

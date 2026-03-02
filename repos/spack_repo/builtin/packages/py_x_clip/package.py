@@ -24,5 +24,3 @@ class PyXClip(PythonPackage):
     depends_on("py-einops@0.6:", type=("build", "run"))
     depends_on("py-ftfy", type=("build", "run"))
     depends_on("py-regex", type=("build", "run"))
-    depends_on("py-torch@1.6:", type=("build", "run"))
-    depends_on("py-torchvision", type=("build", "run"))

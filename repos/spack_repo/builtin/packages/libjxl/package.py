@@ -33,16 +33,12 @@ class Libjxl(CMakePackage):
     depends_on("cmake@3.10:", type="build")
     depends_on("pkgconfig", type="build")
     depends_on("brotli")
-    depends_on("highway")
 
     # Only needed at test time, but unfortunately "test" doesn't cause the dep to be added
     # by Spack's compiler wrappers. Solution of adding "link" means that dependency is now
     # always required...
-    depends_on("googletest+gmock", type=("link", "test"))
 
     # https://github.com/libjxl/libjxl/pull/582
-    conflicts("%clang", when="@0.6")
-    conflicts("%apple-clang", when="@0.6")
 
     def cmake_args(self):
         args = [

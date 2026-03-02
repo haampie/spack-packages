@@ -18,7 +18,6 @@ class Smartmontools(AutotoolsPackage):
     version("6.6", sha256="51f43d0fb064fccaf823bbe68cf0d317d0895ff895aa353b3339a3b316a53054")
 
     depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     def setup_run_environment(self, env: EnvironmentModifications) -> None:
         env.prepend_path("PATH", self.prefix.sbin)

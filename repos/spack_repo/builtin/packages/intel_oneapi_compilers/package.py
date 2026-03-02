@@ -10,10 +10,6 @@ versions = [
         },
         "cpp": {
         },
-        "ftn": {
-            "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/17508/l_fortran-compiler_p_2021.1.2.62_offline.sh",
-            "sha256": "29345145268d08a59fa7eb6e58c7522768466dd98f6d9754540d1a0803596829",
-        },
     },
 ]
 @IntelOneApiPackage.update_description
@@ -26,10 +22,6 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
         "libirc",
         "libifcore",
         "libifcoremt",
-        "libirng",
-        "libsvml",
-        "libintlc",
-        "libimf",
         "libsycl",
         "libOpenCL",
     ]

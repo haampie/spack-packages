@@ -1,7 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-import collections.abc
 import os
 import pathlib
 import platform
@@ -26,10 +22,6 @@ def generator(*names: str, default: Optional[str] = None) -> None:
         return x in allowed_values
     _values.__doc__ = f"{','.join(names)}"
     variant(
-        "generator",
-        default=default,
-        values=_values,
-        description="the build system generator to use",
         when="build_system=cmake",
     )
     for x in not_used:

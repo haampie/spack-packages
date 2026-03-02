@@ -2,10 +2,6 @@ from spack.package import (
     EnvironmentModifications,
     Executable,
     HeaderList,
-    InstallError,
-    LibraryList,
-    LinkTree,
-    conflicts,
     symlink,
     tty,
     variant,
@@ -14,10 +10,6 @@ from .generic import Package
 class IntelOneApiPackage(Package):
     """Base class for Intel oneAPI packages."""
     homepage = "https://software.intel.com/oneapi"
-    # oneAPI license does not allow mirroring outside of the
-    # organization (e.g. University/Company).
-    # contains precompiled binaries without rpaths
-    unresolved_libraries = ["*"]
     variant("envmods", default=True, description="Toggles environment modifications")
     @staticmethod
     def update_description(cls):
@@ -34,9 +26,3 @@ class IntelOneApiLibraryPackage(IntelOneApiPackage):
     """
     # HFP: for the time being, this package queries
     # - compiler for its library path
-    # - spec about C-compiler
-    # Depending on a lanaguage seem to enable above.
-    #
-    # find_headers uses heuristics to determine the include directory
-    # that does not work for oneapi packages. Use explicit directories
-INTEL_MATH_LIBRARIES = ("intel-oneapi-mkl",)

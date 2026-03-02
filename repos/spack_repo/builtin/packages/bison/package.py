@@ -36,10 +36,6 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
     version("3.6.2", sha256="e28ed3aad934de2d1df68be209ac0b454f7b6d3c3d6d01126e5cd2cbadba089a")
     version("3.6.1", sha256="1120f8bfe2cc13e5e1e3f671dc41b1a535ca5a75a70d5b349c19da9d4389f74d")
     version("3.6", sha256="f630645e330bde5847266cc5c8194f0135ced75cced150358d9abe572b95f81c")
-    version("3.5.3", sha256="34e201d963156618a0ea5bc87220f660a1e08403dd3c7c7903d4f38db3f40039")
-    version("3.4.1", sha256="7007fc89c216fbfaff5525359b02a7e5b612694df5168c74673f67055f015095")
-    version("3.3.2", sha256="0fda1d034185397430eb7b0c9e140fb37e02fbfc53b90252fa5575e382b6dbd1")
-    version("3.0.5", sha256="cd399d2bee33afa712bac4b1f4434e20379e9b4099bce47189e09a7675a2d566")
     version("3.0.4", sha256="b67fd2daae7a64b5ba862c66c07c1addb9e6b1b05c5f2049392cfd8a2172952e")
     version("2.7", sha256="19bbe7374fd602f7a6654c131c21a15aebdc06cc89493e8ff250cb7f9ed0a831")
 

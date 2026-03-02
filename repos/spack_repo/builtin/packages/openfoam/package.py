@@ -390,7 +390,6 @@ class Openfoam(Package):
     # 1706 ok with newer paraview but avoid pv-5.2, pv-5.3 readers
     depends_on("paraview@5.4:", when="@1706:+paraview")
     # 1612 plugins need older paraview
-    depends_on("paraview@:5.0.1", when="@1612+paraview")
 
     # Icx only support from v2106 onwards
 

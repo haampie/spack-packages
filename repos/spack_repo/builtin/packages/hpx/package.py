@@ -108,12 +108,8 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
 
     depends_on("cuda", when="+async_cuda")
 
-    depends_on("gperftools", when="instrumentation=google_perftools")
-    depends_on("papi", when="instrumentation=papi")
-    depends_on("valgrind", when="instrumentation=valgrind")
 
     # Only ROCm or CUDA maybe be enabled at once
-    conflicts("+rocm", when="+cuda")
 
     # Restrictions for 1.9.X
     with when("@1.9:"):

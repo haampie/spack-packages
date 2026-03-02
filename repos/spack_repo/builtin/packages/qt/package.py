@@ -207,11 +207,7 @@ class Qt(Package):
         depends_on("openssl")
         depends_on("openssl@1.1.1:", when="@5.15.0:")
 
-    depends_on("libpng", when="@4:")
-    depends_on("dbus", when="@4:+dbus")
-    depends_on("gl", when="@4:+opengl")
 
-    depends_on("harfbuzz", when="@5:")
     depends_on("double-conversion", when="@5.7:")
     depends_on("pcre2+multibyte", when="@5.9:")
     depends_on("llvm", when="@5.11: +doc")

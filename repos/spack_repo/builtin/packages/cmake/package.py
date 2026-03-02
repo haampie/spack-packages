@@ -210,21 +210,7 @@ class Cmake(Package):
     conflicts("%intel", when="@3.11.0:3.11.4")
     conflicts("%intel@:14", when="@3.14:", msg="Intel 14 has immature C++11 support")
 
-    resource(
-        name="cmake-bootstrap",
-        url="https://cmake.org/files/v3.21/cmake-3.21.2-windows-x86_64.zip",
-        checksum="213a4e6485b711cb0a48cbd97b10dfe161a46bfe37b8f3205f47e99ffec434d2",
-        placement="cmake-bootstrap",
-        when="@3.0.2: platform=windows",
-    )
 
-    resource(
-        name="cmake-bootstrap",
-        url="https://cmake.org/files/v2.8/cmake-2.8.4-win32-x86.zip",
-        checksum="8b9b520f3372ce67e33d086421c1cb29a5826d0b9b074f44a8a0304e44cf88f3",
-        placement="cmake-bootstrap",
-        when="@:2.8.10.2 platform=windows",
-    )
 
     phases = ["bootstrap", "build", "install"]
 

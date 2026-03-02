@@ -72,15 +72,7 @@ class LlvmAmdgpu(CMakePackage, LlvmDetection, CompilerPackage):
         description="Build LLVM shared library, containing all "
         "components in a single shared library",
     )
-    variant(
-        "link_llvm_dylib",
-        default=False,
-        description="Link LLVM tools against the LLVM shared library",
-    )
 
-    provides("libllvm@17", when="@5.7:6.1")
-    provides("libllvm@18", when="@6.2:6.3")
-    provides("libllvm@19", when="@6.4")
     provides("libllvm@20", when="@7.0:7.1")
     provides("libllvm@22", when="@7.2")
 

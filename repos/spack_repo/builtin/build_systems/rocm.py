@@ -1,6 +1,3 @@
-#    /opt/rocm/hsa also has an hsa.h file, but it won't be found because spack
-#    does not like its directory structure.
-#
 import os
 from spack.package import (
     EnvironmentModifications,

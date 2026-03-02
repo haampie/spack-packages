@@ -1,9 +1,6 @@
 from spack.package import (
     EnvironmentModifications,
     Executable,
-    HeaderList,
-    symlink,
-    tty,
     variant,
 )
 from .generic import Package

@@ -78,21 +78,17 @@ class CudaPackage(PackageBase):
 
     # https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#nvcc-examples
     # https://llvm.org/docs/CompileCudaWithLLVM.html#compiling-cuda-code
-    depends_on("cuda", when="+cuda")
 
     # CUDA version vs Architecture
     # https://en.wikipedia.org/wiki/CUDA#GPUs_supported
     # https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#deprecated-features
     # Tesla support:
-    depends_on("cuda@:6.0", when="cuda_arch=10")
 
     # Fermi support:
 
     # Kepler support:
-    depends_on("cuda@6.5:11.8", when="cuda_arch=37")
 
     # Maxwell support:
-    depends_on("cuda@6.0:12.9", when="cuda_arch=50")
     depends_on("cuda@6.5:12.9", when="cuda_arch=52")
     depends_on("cuda@6.5:12.9", when="cuda_arch=53")
 

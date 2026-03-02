@@ -306,10 +306,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
         depends_on("libedit")
         depends_on("libxml2")
         depends_on("lua@5.3", when="+lua")  # purposefully not a range
-        depends_on("ncurses")
-        depends_on("py-six", when="+python")
-        depends_on("swig", when="+lua")
-        depends_on("swig", when="+python")
         depends_on("xz")
 
     for _when_spec in ("+lldb+python", "+lldb+lua"):

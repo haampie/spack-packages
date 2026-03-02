@@ -318,12 +318,6 @@ class Openfoam(Package):
     version(
         "1812_200312", sha256="925d2877c12740fab177a30fdcaa8899c262c15b90225f9c29d18a2d97532de0"
     )
-    version(
-        "1812_191001", sha256="857a3d476696679313ea9a3f022b33446ddef2bcd417049a9486d504c12038dd"
-    )
-    version(
-        "1812_190531", sha256="51f0ef49a199edf3cd94e2ccfc7330e54e93c8e4ddb29ee66fe3e6b443583b34"
-    )
     version("1612", sha256="2909c43506a68e1f23efd0ca6186a6948ae0fc8fe1e39c78cc23ef0d69f3569d")
 
     variant("int64", default=False, description="With 64-bit labels")

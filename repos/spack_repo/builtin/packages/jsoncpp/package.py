@@ -20,9 +20,6 @@ class Jsoncpp(CMakePackage, MesonPackage):
     tags = ["windows"]
 
 
-    version("1.8.4", sha256="c49deac9e0933bcb7044f08516861a2d560988540b23de2ac1ad443b219afdb6")
-    version("1.7.7", sha256="087640ebcf7fbcfe8e2717a0b9528fff89c52fcf69fa2a18cc2b538008098f97")
-    version("1.7.6", sha256="07cf5d4f184394ec0a9aa657dd4c13ea682c52a1ab4da2fb176cb2d5501101e8")
     version("1.7.5", sha256="4338c6cab8af8dee6cdfd54e6218bd0533785f552c6162bb083f8dd28bf8fbbe")
     version("1.7.4", sha256="10dcd0677e80727e572a1e462193e51a5fde3e023b99e144b2ee1a469835f769")
     version("1.7.3", sha256="1cfcad14054039ba97c22531888796cb9369e6353f257aacaad34fda956ada53")

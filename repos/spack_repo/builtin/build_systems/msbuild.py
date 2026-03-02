@@ -23,7 +23,6 @@ class MSBuildPackage(PackageBase):
     #: system base class
     build_system_class = "MSBuildPackage"
 
-    conflicts("platform=freebsd", when="build_system=msbuild")
 
 @register_builder("msbuild")
 class MSBuildBuilder(BuilderWithDefaults):

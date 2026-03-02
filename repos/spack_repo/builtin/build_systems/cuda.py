@@ -119,8 +119,6 @@ class CudaPackage(PackageBase):
         # these conflicts are valid independently from the architecture
 
         # minimum supported versions
-        conflicts("%gcc@:4", when="+cuda ^cuda@11.0:")
-        conflicts("%gcc@:5", when="+cuda ^cuda@11.4:")
 
         # maximum supported version
         # NOTE:

@@ -130,18 +130,9 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         ' "on" or "off" will always override the build_edition.',
     )
 
-    conflicts("~hdf5", when="+visitbridge")
-    conflicts("+fides", when="@:5 use_vtkm=off", msg="Fides needs VTK-m")
-    conflicts("+fides", when="@:5 use_vtkm=default", msg="Fides needs VTK-m")
-    conflicts("+openpmd", when="~adios2 ~hdf5", msg="openPMD needs ADIOS2 and/or HDF5")
-    conflicts("~shared", when="+cuda")
-    conflicts("+cuda", when="@5.8:5.10")
-    conflicts("+cuda", when="use_vtkm=off")
     # Legacy rendering dropped in 5.5
     # See commit: https://gitlab.kitware.com/paraview/paraview/-/commit/798d328c
-    conflicts("~opengl2", when="@5.5:5")
     # in 5.7 you cannot reduce the size of the code for Catalyst builds.
-    conflicts("build_edition=catalyst_rendering", when="@:5.7")
     conflicts("build_edition=catalyst", when="@:5.7")
     # before 5.3.0, ParaView didn't have VTK-m/Viskores
 

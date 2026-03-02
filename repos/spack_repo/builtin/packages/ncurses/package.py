@@ -47,4 +47,3 @@ class Ncurses(AutotoolsPackage, GNUMirrorPackage):
     # avoid disallowed const_cast from T* to void* and use reinterpret_cast
     # Ref: https://lists.gnu.org/archive/html/bug-ncurses/2014-08/msg00008.html
     patch("rxvt_unicode_6_4.patch", when="@6.1:")
-

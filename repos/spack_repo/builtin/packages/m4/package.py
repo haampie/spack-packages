@@ -39,8 +39,6 @@ class M4(AutotoolsPackage, GNUMirrorPackage):
     # Older versions require too many patches for newer compilers
     with when("@:1.4.18"):
         conflicts("%gcc@14:", msg="This version is incompatible with gcc@14:")
-        conflicts("%clang@16:", msg="This version is incompatible with clang@16")
-
     # Fix c++17 '[[nodiscard]]' attribute ordering (fixed in 1.4.20)
 
     build_directory = "spack-build"

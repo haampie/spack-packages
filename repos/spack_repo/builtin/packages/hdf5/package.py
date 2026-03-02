@@ -76,19 +76,10 @@ class Hdf5(CMakePackage):
     for plat in ["darwin", "linux"]:
         depends_on("pkgconfig", when=f"platform={plat}", type="run")
 
-    conflicts("+mpi", "^mpich@4.0:4.0.3")
-    conflicts("api=v200", when="@1.6:1.14", msg="v200 is not compatible with this release")
-    conflicts(
-        "api=v112",
-        when="@develop-1.8:develop-1.10",
-        msg="v112 is not compatible with this release",
-    )
 
     # The Java wrappers cannot be built without shared libs.
     # Fortran fails built with shared for old HDF5 versions
-    conflicts("+fortran", when="+shared@:1.8.15")
     # See https://github.com/spack/spack/issues/31085
-    conflicts("+fortran+mpi", when="@1.8.22")
     # See https://github.com/HDFGroup/hdf5/issues/2906#issue-1697749645
     # delete the first search, otherwise it may find a system zlib. See
     # https://github.com/HDFGroup/hdf5/issues/4904

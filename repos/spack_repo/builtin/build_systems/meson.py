@@ -43,16 +43,6 @@ class MesonPackage(PackageBase):
             description="Meson build type",
             values=("plain", "debug", "debugoptimized", "release", "minsize"),
         )
-        variant(
-            "default_library",
-            default="shared",
-            values=("shared", "static"),
-            multi=True,
-            description="Build shared libs, static libs or both",
-        )
-        variant("strip", default=False, description="Strip targets on install")
-        depends_on("meson", type="build")
-        depends_on("ninja", type="build")
         # Meson uses pkg-config for dependency detection, and this dependency is
         # often overlooked by packages that use meson as a build system.
         for plat in ["linux", "freebsd", "darwin"]:

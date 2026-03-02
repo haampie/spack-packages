@@ -19,9 +19,6 @@ class Cgdb(AutotoolsPackage):
 
 
     # Required dependency
-    depends_on("readline")
-    depends_on("autoconf", type="build", when="@master")
-    depends_on("automake", type="build", when="@master")
     depends_on("libtool", type="build", when="@master")
     depends_on("m4", type="build", when="@master")
     depends_on("flex", type="build")

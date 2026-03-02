@@ -369,15 +369,11 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     patch("stl-reader-pv440.patch", when="@4.4.0")
 
-    # Broken gcc-detection - improved in 5.1.0, redundant later
     patch("gcc-compiler-pv501.patch", when="@:5.0.1")
-
     # Broken installation (ui_pqExportStateWizard.h) - fixed in 5.2.0
     patch("ui_pqExportStateWizard.patch", when="@:5.1.2")
-
     # Broken vtk-m config. Upstream catalyst changes
     patch("vtkm-catalyst-pv551.patch", when="@5.5.0:5.5.2")
-
     # Broken H5Part with external parallel HDF5
     patch("h5part-parallel.patch", when="@5.7.0:5.7")
 
@@ -406,17 +402,13 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # a patch with the same name is also applied to vtk
     # the two patches are the same but for the path to the files they patch
     patch("vtk_alias_hdf5.patch", when="@5.9.0:")
-
     # Fix VTK to work with external freetype using CONFIG mode for find_package
     patch("FindFreetype.cmake.patch", when="@5.10.1:")
-
     # Fix VTK to remove deprecated ADIOS2 functions
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/10113
-    patch("adios2-remove-deprecated-functions.patch", when="@5.10:5.11 ^adios2@2.9:")
 
     patch("exodusII-netcdf4.9.0.patch", when="@5.10.0:5.10.2")
 
-    patch("kits_with_catalyst_5_12.patch", when="@5.12.0")
 
     # https://github.com/Kitware/VTK-m/commit/c805a6039ea500cb96158cfc11271987c9f67aa4
     patch("vtkm-remove-unused-method-from-mir-tables.patch", when="@5.13.2 %oneapi@2025:")
@@ -429,14 +421,10 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     # https://gitlab.kitware.com/paraview/paraview/-/merge_requests/7593
     patch("paraview-cdireader-lazy.patch", when="@:6.0 +cdi")
-
     generator("ninja", "make", default="ninja")
     # https://gitlab.kitware.com/paraview/paraview/-/issues/21223
-    conflicts("generator=ninja", when="%xl")
     conflicts("generator=ninja", when="%xl_r")
-
     # Versions 5.13.0-5.13.2 do not compile with Intel classic compilers
-    conflicts("%intel", when="@5.13:5.13.2")
 
     def url_for_version(self, version):
         _urlfmt = "http://www.paraview.org/files/v{0}/ParaView-v{1}{2}.tar.{3}"

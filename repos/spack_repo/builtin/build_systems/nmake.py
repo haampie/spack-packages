@@ -24,8 +24,6 @@ class NMakePackage(PackageBase):
     build_system_class = "NMakePackage"
 
     build_system("nmake")
-    conflicts("platform=linux", when="build_system=nmake")
-    conflicts("platform=darwin", when="build_system=nmake")
 
 
 @register_builder("nmake")

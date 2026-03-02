@@ -21,7 +21,6 @@ class Diffutils(AutotoolsPackage, GNUMirrorPackage):
     homepage = "https://www.gnu.org/software/diffutils/"
     gnu_mirror_path = "diffutils/diffutils-3.7.tar.xz"
 
-    license("GPL-3.0-or-later", checked_by="wdconinc")
 
     version("3.12", sha256="7c8b7f9fc8609141fdea9cece85249d308624391ff61dedaf528fcb337727dfd")
     version("3.7", sha256="b3a7a6221c3dc916085f0d205abf6b8e1ba443d4dd965118da364a1dc1cb3a26")

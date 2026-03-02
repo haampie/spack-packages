@@ -51,12 +51,8 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
     license("Apache-2.0")
 
-    version("main", branch="main")
 
     # Latest stable
-    version("21.1.8", sha256="7ba3f2a8d8fda88be18a31d011e8195d3b7f87f9fa92b20c94cba2d7f65b0e3f")
-    version("21.1.7", sha256="9ee167cdf8f6b5221d6b02dbe9a664cf8c6fee70fab071aaa4a3889c7c265258")
-    version("21.1.6", sha256="2380973eb435b48bd70881939da3629069009a851c81676dfb211a1b068d72a6")
     version("21.1.5", sha256="297b35033b84da7c1214b05f901e154c1d7febe8fe51ecdbf27b0d0f9531902f")
     version("21.1.4", sha256="3a0921d78be74302cb054da1dad59e706814d8fed3a6ac9b532e935825a0715c")
     version("21.1.3", sha256="5bc91fe86bafebc64189465faca1ff35626dcb1b8539a14ae2ec07834c3e8e95")
@@ -223,14 +219,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
             "xcore",
         ),
         multi=True,
-    )
-    variant(
-        "libomp_tsan",
-        default=False,
-        # Added in https://reviews.llvm.org/D13072
-        # Removed in https://reviews.llvm.org/D103767
-        when="@4:12",
-        description="Build with OpenMP capable thread sanitizer",
     )
     variant(
         "openmp",

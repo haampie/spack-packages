@@ -128,26 +128,6 @@ class QtPackage(CMakePackage):
         with open(qt_module_pri, "w") as file:
             file.write("\n".join(defs))
 
-    def setup_run_environment(self, env: EnvironmentModifications) -> None:
-        env.prepend_path("QMAKEPATH", self.prefix)
-        if os.path.exists(self.prefix.mkspecs.modules):
-            env.prepend_path("QMAKE_MODULE_PATH", self.prefix.mkspecs.modules)
-        if os.path.exists(self.prefix.plugins):
-            env.prepend_path("QT_PLUGIN_PATH", self.prefix.plugins)
-
-    def setup_dependent_build_environment(
-        self, env: EnvironmentModifications, dependent_spec: Spec
-    ) -> None:
-        # Qt components typically install cmake config files in a single prefix,
-        # so we have to point dependencies to the cmake config files.
-        env.prepend_path("QT_ADDITIONAL_PACKAGES_PREFIX_PATH", self.spec.prefix)
-
-        # Qt creates SBOM files based on the used SBOM files in the prefix, and
-        # in additional paths for other components.
-        if self.spec.satisfies("@6.9:"):
-            env.prepend_path("QT_ADDITIONAL_SBOM_DOCUMENT_PATHS", self.spec.prefix)
-
-
 class QtBase(QtPackage):
     """Qt Base (Core, Gui, Widgets, Network, ...)"""
 
@@ -236,14 +216,6 @@ class QtBase(QtPackage):
             sha256="e4d9f1aee0566558e77eef5609b63c1fde3f3986bea1b9d5d7930b297f916a5e",
         )
 
-    @property
-    def archive_files(self):
-        """Save both the CMakeCache and the config summary."""
-        return [
-            join_path(self.build_directory, filename)
-            for filename in ["CMakeCache.txt", "config.summary"]
-        ]
-
     vendor_deps_to_remove = [
         "double-conversion",
         "freetype",
@@ -253,77 +225,3 @@ class QtBase(QtPackage):
         "libpsl",
     ]
 
-    def cmake_args(self):
-        spec = self.spec
-
-        args = super().cmake_args()
-
-        # Top-level features
-        args.extend(
-            [
-                self.define_from_variant("BUILD_SHARED_LIBS", "shared"),
-                self.define_qt_feature("optimize_size", spec.satisfies("build_type=MinSizeRel")),
-                self.define_qt_feature_from_variant("accessibility"),
-                # concurrent: default to on
-                self.define_qt_feature_from_variant("dbus"),
-                self.define_qt_feature_from_variant("framework"),
-                self.define_qt_feature_from_variant("gui"),
-                self.define_qt_feature_from_variant("network"),  # note: private feature
-                # testlib: default to on
-                # thread: default to on
-                self.define_qt_feature_from_variant("widgets"),  # note: private feature
-                self.define_qt_feature_from_variant("sql"),  # note: private feature
-                # xml: default to on
-            ]
-        )
-
-        # Extra FEATURE_ toggles
-        features = []
-        if "+dbus" in spec:
-            features.append("dbus_linked")
-        if "+network" in spec:
-            features.extend(["openssl_linked", "openssl"])
-            if sys.platform == "linux":
-                features.append("libproxy")
-        for k in features:
-            args.append(self.define_qt_feature(k, True))
-
-        # Disable EGL feature to avoid implicit EGL detection
-        args.append(self.define("FEATURE_egl", "no"))
-        if "~opengl" in spec:
-            args.append(self.define("INPUT_opengl", "no"))
-
-        # INPUT_* arguments: undefined/no/qt/system
-        sys_inputs = ["doubleconversion"]
-        if "+sql" in spec:
-            sys_inputs.append("sqlite")
-        for k in sys_inputs:
-            args.append(self.define("INPUT_" + k, "system"))
-
-        # FEATURE_system_* arguments: on/off
-        sys_features = [
-            ("doubleconversion", True),
-            ("pcre2", True),
-            ("zlib", True),
-            ("libb2", False),
-        ]
-        if "+gui" in spec:
-            sys_features += [
-                ("jpeg", True),
-                ("png", True),
-                ("sqlite", True),
-                ("freetype", True),
-                ("harfbuzz", True),
-                ("textmarkdownreader", False),
-            ]
-            with when("platform=linux"):
-                sys_features += [("xcb_xinput", True)]
-        if "+network" in spec:
-            sys_features += [("proxies", True)]
-        for k, v in sys_features:
-            args.append(self.define_qt_feature(f"system_{k}", v))
-
-        return args
-
-    def setup_dependent_package(self, module, dependent_spec):
-        module.qmake = Executable(self.spec.prefix.bin.qmake)

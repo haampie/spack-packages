@@ -142,17 +142,6 @@ class Openfoam(Package):
     list_depth = 2
 
 
-    version("2006", sha256="30c6376d6f403985fc2ab381d364522d1420dd58a42cb270d2ad86f8af227edc")
-    version(
-        "1906_200312", sha256="f75645151ed5d8c5da592d307480979fe580a25627cc0c9718ef370211577594"
-    )
-    version(
-        "1906_191103", sha256="631a7fcd926ccbcdef0ab737a9dc55e58d6bedae2f3acaa041ea679db6c9303b"
-    )
-    version("1906", sha256="bee03c4b1da0d2c9f98eb469eeffbce3a8614728ef8e87f664042a7490976537")
-    version(
-        "1812_200312", sha256="925d2877c12740fab177a30fdcaa8899c262c15b90225f9c29d18a2d97532de0"
-    )
     version("1612", sha256="2909c43506a68e1f23efd0ca6186a6948ae0fc8fe1e39c78cc23ef0d69f3569d")
 
     variant("int64", default=False, description="With 64-bit labels")

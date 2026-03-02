@@ -21,9 +21,6 @@ class OpenpmdApi(CMakePackage):
     # C++17 up until here
     # C++14 up until here
     version("0.14.2", sha256="25c6b4bcd0ae1ba668b633b8514e66c402da54901c26861fc754fca55717c836")
-    version("0.14.1", sha256="172fd1d785627d01c77f1170adc5a18bd8a6302e804d0f271dc0d616a5156791")
-    version("0.14.0", sha256="7bb561c1a6f54e9a6a1b56aaf1d4d098bbe290d204f84ebe5a6f11b3cab2be6e")
-    version("0.13.0", sha256="97c2e43d80ee5c5288f278bd54f0dcb40e7f48a575b278fcef9660214b779bb0")
     # C++11 up until here
 
     variant("mpi", default=True, description="Enable parallel I/O")

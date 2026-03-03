@@ -22,18 +22,6 @@ versions = [
 class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     """Intel oneAPI Compilers. Includes: icx, icpx, ifx, and ifort.
     Releases before 2024.0 include icc/icpc"""
-    homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html"
-    compiler_languages = ["c", "cxx", "fortran"]
-    c_names = ["icx"]
-    compiler_wrapper_link_paths = {
-        "c": os.path.join("oneapi", "icx"),
-        "cxx": os.path.join("oneapi", "icpx"),
-        "fortran": os.path.join("oneapi", "ifx"),
-    }
-    implicit_rpath_libs = [
-        "libirc",
-        "libifcore",
-    ]
     stdcxx_libs = ("-cxxlib",)
     provides("c", "cxx")
     provides("fortran")

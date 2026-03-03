@@ -18,9 +18,3 @@ class QtTools(QtPackage):
     conflicts("+assistant", when="@6.8.2", msg="Incorrect git submodule prevents +assistant")
     depends_on("c")
     depends_on("cxx")
-    for _v in QtBase.versions:
-        v = str(_v)
-    def cmake_args(self):
-        return super().cmake_args() + [
-            self.define_qt_feature("fullqthelp", True),
-        ]

@@ -12,7 +12,5 @@ class IntelOneApiPackage(Package):
         and conditions of the software license agreements at https://intel.ly/393CijO."""
         cls.__doc__ = cls.__doc__ + text
         return cls
-    @property
-    def component_dir(self):
         """Subdirectory for this component in the install prefix."""
         raise NotImplementedError

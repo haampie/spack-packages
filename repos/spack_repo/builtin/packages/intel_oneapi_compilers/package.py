@@ -94,9 +94,3 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     conflicts("@:2022.2.1", when="+amd", msg="Codeplay AMD plugin requires newer release")
     for v in versions:
         version(v["version"], expand=False, **v["cpp"])
-        if "ftn" in v:
-            resource(
-                name="fortran-installer",
-                placement="fortran-installer",
-                when="@{0}".format(v["version"]),
-            )

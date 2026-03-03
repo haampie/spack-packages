@@ -32,7 +32,6 @@ class Libzip(CMakePackage):
             return f"https://libzip.org/download/libzip-{version}.tar.gz"
         return f"https://github.com/nih-at/libzip/releases/download/v{version}/libzip-{version}.tar.gz"
 
-    depends_on("zlib-api")
 
     variant("gnutls", default=True, description="Enable gnutls support")
     variant("bzip2", default=True, description="Enable bzip2 support")
@@ -41,15 +40,7 @@ class Libzip(CMakePackage):
     variant("zstd", default=True, description="Enable zstd support", when="@1.8:")
     variant("mbedtls", default=True, description="Enable mbedtls support")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("gnutls", when="+gnutls")
-    depends_on("bzip2", when="+bzip2")
-    depends_on("lzma", when="+lzma")
-    depends_on("openssl", when="+openssl")
-    depends_on("mbedtls", when="+mbedtls")
-    depends_on("zstd", when="+zstd")
 
     def cmake_args(self):
         return [

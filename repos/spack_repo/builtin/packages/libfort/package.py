@@ -23,10 +23,7 @@ class Libfort(CMakePackage):
     variant("enable_testing", default=True, description="Enables building tests and examples")
     variant("shared", default=False, description="Build shared library")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@3.0.0:", type="build")
 
     def cmake_args(self):
         args = [

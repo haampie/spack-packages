@@ -17,12 +17,5 @@ class LibnetfilterCttimeout(AutotoolsPackage):
 
     version("1.0.1", sha256="0b59da2f3204e1c80cb85d1f6d72285fc07b01a2f5678abf5dccfbbefd650325")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
-    depends_on("pkgconfig", type="build")
 
-    depends_on("libmnl")

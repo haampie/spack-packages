@@ -28,18 +28,7 @@ class Libmypaint(AutotoolsPackage):
     variant("gegl", default=False, description="Enable GEGL based code in build")
     variant("introspection", default=True, description="Enable introspection for this build")
 
-    depends_on("c", type="build")
-    depends_on("gettext", type="build")
-    depends_on("pkgconfig", type="build")
 
-    depends_on("intltool")
-    depends_on("json-c")
-    depends_on("perl@5.8.1:")
-    depends_on("perl-xml-parser")
-    depends_on("babl", when="+gegl")
-    depends_on("gegl", when="+gegl")
-    depends_on("gobject-introspection", when="+introspection")
-    depends_on("glib", when="+introspection")
 
     def configure_args(self):
         args = []

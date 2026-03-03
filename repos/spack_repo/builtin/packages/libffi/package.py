@@ -37,8 +37,6 @@ class Libffi(AutotoolsPackage):
         sha256="d06ebb8e1d9a22d19e38d63fdb83954253f39bedc5d46232a05645685722ca37",
     )
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     patch("clang-powerpc-3.2.1.patch", when="@3.2.1 platform=linux %clang")
     # ref.: https://github.com/libffi/libffi/pull/561

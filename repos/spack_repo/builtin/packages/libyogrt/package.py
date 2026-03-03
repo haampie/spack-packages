@@ -47,12 +47,7 @@ class Libyogrt(AutotoolsPackage):
         multi=False,
     )
 
-    depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("flux-core@0.21.0:", when="scheduler=flux")
-    depends_on("lsf", when="scheduler=lsf")
-    depends_on("slurm", when="scheduler=slurm")
 
     # support for flux added in libyogrt 1.27
     conflicts("scheduler=flux", when="@:1.26")

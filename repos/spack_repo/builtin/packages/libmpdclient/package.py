@@ -22,4 +22,3 @@ class Libmpdclient(MesonPackage):
     version("2.16", sha256="6651898489b69d2f2f8e94f0ed6ddcc0dd2cdbcf99b02131b790551922558d6c")
     version("2.15", sha256="dd3d36801e397bf43719a291289ff610af71859c08f3196a506e4b1af43c290c")
 
-    depends_on("c", type="build")  # generated

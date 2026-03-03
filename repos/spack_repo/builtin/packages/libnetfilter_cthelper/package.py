@@ -17,12 +17,5 @@ class LibnetfilterCthelper(AutotoolsPackage):
 
     version("1.0.1", sha256="14073d5487233897355d3ff04ddc1c8d03cc5ba8d2356236aa88161a9f2dc912")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
-    depends_on("pkgconfig", type="build")
 
-    depends_on("libmnl@1.0:")

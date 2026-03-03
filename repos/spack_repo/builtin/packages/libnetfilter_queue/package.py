@@ -17,13 +17,5 @@ class LibnetfilterQueue(AutotoolsPackage):
 
     version("1.0.5", sha256="f9ff3c11305d6e03d81405957bdc11aea18e0d315c3e3f48da53a24ba251b9f5")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
-    depends_on("pkgconfig", type="build")
 
-    depends_on("libnfnetlink")
-    depends_on("libmnl@1.0.3:")

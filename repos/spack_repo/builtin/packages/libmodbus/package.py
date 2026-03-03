@@ -19,4 +19,3 @@ class Libmodbus(AutotoolsPackage):
 
     version("3.1.10", sha256="899be4e25ab7fe5799d43f9567510d6f063d2e8f56136dd726b6fd976f9b2253")
 
-    depends_on("c", type="build")  # generated

@@ -25,11 +25,7 @@ class Libfms(CMakePackage):
     variant("conduit", default=True, description="Build with Conduit I/O support")
     variant("shared", default=True, description="Build shared libraries")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@3.1:", type="build")
-    depends_on("conduit@0.7.1:", when="+conduit")
 
     def cmake_args(self):
         args = []

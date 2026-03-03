@@ -151,25 +151,8 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
     # https://github.com/ofiwg/libfabric/pull/7665
     patch("nvhpc-symver.patch", when="@1.6.0:1.14.0 %nvhpc")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("rdma-core", when="fabrics=verbs")
-    depends_on("rdma-core", when="@1.10.0: fabrics=efa")
-    depends_on("opa-psm2", when="fabrics=psm2")
-    depends_on("psm", when="fabrics=psm")
-    depends_on("ucx", when="fabrics=mlx")
-    depends_on("ucx", when="@1.18.0: fabrics=ucx")
-    depends_on("uuid", when="fabrics=opx")
-    depends_on("numactl", when="fabrics=opx")
-    depends_on("liburing@2.1:", when="+uring")
-    depends_on("oneapi-level-zero", when="+level_zero")
-    depends_on("libcxi", when="fabrics=cxi")
-    depends_on("cassini-headers", when="fabrics=cxi")
-    depends_on("cxi-driver", when="fabrics=cxi")
-    depends_on("xpmem", when="fabrics=xpmem")
-    depends_on("gdrcopy", when="+gdrcopy")
 
-    depends_on("m4", when="@main", type="build")
     depends_on("autoconf", when="@main", type="build")
     depends_on("automake", when="@main", type="build")
     depends_on("libtool", when="@main", type="build")

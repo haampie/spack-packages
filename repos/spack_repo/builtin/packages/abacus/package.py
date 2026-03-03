@@ -32,17 +32,8 @@ class Abacus(MakefilePackage):
 
     variant("openmp", default=True, description="Enable OpenMP support")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("elpa+openmp", when="+openmp")
-    depends_on("elpa~openmp", when="~openmp")
-    depends_on("cereal")
-    depends_on("libxc")
-    depends_on("fftw")
     # MPI is a necessary dependency
-    depends_on("mpi", type=("build", "link", "run"))
-    depends_on("mkl")
 
     build_directory = "source"
 

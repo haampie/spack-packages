@@ -36,30 +36,8 @@ class Xtensor(CMakePackage):
     variant("xsimd", default=True, description="Enable SIMD intrinsics")
     variant("tbb", default=True, description="Enable TBB parallelization")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("xtl", when="@develop")
-    depends_on("xtl@0.8.0:0.8", when="@0.26:")
-    depends_on("xtl@0.7.5:0.7", when="@0.24.5:0.25")
-    depends_on("xtl@0.7.2:0.7", when="@0.23")
-    depends_on("xtl@0.6.4:0.6", when="@0.20.7")
-    depends_on("xtl@0.4.0:0.4", when="@0.15.1")
-    depends_on("xtl@0.3.3:0.3", when="@0.13.1")
-    depends_on("xsimd", when="@develop")
 
-    depends_on("xsimd@13.2.0:", when="@0.26.0: +xsimd")
-    depends_on("xsimd@11.0.0:", when="@0.25 +xsimd")
-    depends_on("xsimd@10.0.0:", when="@0.24.4:0.24 +xsimd")
-    depends_on("xsimd@9.0.1:", when="@0.24.3:0.24 +xsimd")
-    depends_on("xsimd@8.0.5:", when="@0.24.1:0.24 +xsimd")
-    depends_on("xsimd@8.0.2:", when="@0.24.0 +xsimd")
-    depends_on("xsimd@7.4.10:7", when="@0.23.4:0.23 +xsimd")
-    depends_on("xsimd@7.4.9:7", when="@0.23.2 +xsimd")
-    depends_on("xsimd@7.2.3:7", when="@0.20.7 +xsimd")
-    depends_on("xsimd@4.0.0:4", when="@0.15.1 +xsimd")
-    depends_on("xsimd@3.1.0:3", when="@0.13.1 +xsimd")
-    depends_on("intel-tbb", when="+tbb")
 
     # C++14 support
     # untested: conflicts('%intel@:15')

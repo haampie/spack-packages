@@ -33,16 +33,8 @@ class Pass(MakefilePackage):
     variant("xclip", default=False, description="install the X11 clipboard provider")
 
     # Required dependencies
-    depends_on("bash")
-    depends_on("git")
-    depends_on("gnupg")
-    depends_on("libqrencode")
-    depends_on("openssl")  # used for base64 only
-    depends_on("tree")
-    depends_on("util-linux")  # for GNU getopt
 
     # Optional dependencies
-    depends_on("xclip", when="+xclip")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         """Set required environment variables for build."""

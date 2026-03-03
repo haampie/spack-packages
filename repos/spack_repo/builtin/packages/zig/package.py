@@ -37,15 +37,8 @@ class Zig(CMakePackage):
     )
 
     # See https://codeberg.org/ziglang/zig#building-from-source
-    depends_on("cmake@3.5:", type="build")
-    depends_on("cmake@3.15:", type="build", when="@0.13:")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("llvm@20", when="@0.15")
-    depends_on("llvm@19", when="@0.14")
-    depends_on("llvm@18", when="@0.13")
     depends_on("llvm@17", when="@0.12")
     depends_on("llvm@16", when="@0.11")
     depends_on("llvm@15", when="@0.10")

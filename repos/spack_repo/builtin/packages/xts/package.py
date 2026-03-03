@@ -17,13 +17,7 @@ class Xts(AutotoolsPackage, XorgPackage):
 
     version("0.99.1", sha256="d04d987b9a9f8b3921dfe8de8577d0c2a0f21d2c4c3196948fc9805838a352e6")
 
-    depends_on("c", type="build")
 
-    depends_on("libx11", type="link")
-    depends_on("libxext", type="link")
-    depends_on("libxi", type="link")
-    depends_on("libxtst", type="link")
-    depends_on("libxau", type="link")
     depends_on("libxt", type="link")
     depends_on("libxmu", type="link")
     depends_on("libxaw", type="link")

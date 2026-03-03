@@ -30,7 +30,6 @@ class SConsPackage(PackageBase):
 
     build_system("scons")
 
-    depends_on("scons", type="build", when="build_system=scons")
 
 
 @register_builder("scons")

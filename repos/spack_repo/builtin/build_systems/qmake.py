@@ -32,7 +32,6 @@ class QMakePackage(PackageBase):
     build_system("qmake")
 
     depends_on("qmake", type="build", when="build_system=qmake")
-    depends_on("gmake", type="build")
 
 
 @register_builder("qmake")

@@ -39,16 +39,7 @@ class Zerosum(CMakePackage):
     # for all attributes except for the when clauses."
     variant("ompt", default=True, description="Enable OpenMP Tools support")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake", type="build")
-    depends_on("hwloc", when="+hwloc")
-    depends_on("mpi", when="+mpi")
-    depends_on("rocm-smi-lib", when="+hip")
-    depends_on("cuda", when="+cuda")
-    depends_on("hip", when="+hip")
-    depends_on("sycl", when="+sycl")
 
     # GCC has no support for OMPT, and doesn't plan to add it any time soon.
     # For that reason, we let the user know this support is not allowed.

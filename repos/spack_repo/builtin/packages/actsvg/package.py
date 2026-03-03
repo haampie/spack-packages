@@ -54,12 +54,7 @@ class Actsvg(CMakePackage):
         "web", default=True, when="@0.4.36:", description="Build the webpage builder interface"
     )
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("boost +program_options", type="test")
-    depends_on("boost +program_options", when="+examples")
-    depends_on("googletest", when="+examples")
     depends_on("python@3.8:", when="+python")
     depends_on("py-pybind11@2.10:", when="+python @0.4.42:")
     depends_on("py-pybind11@2.13:", when="+python @0.4.53:")

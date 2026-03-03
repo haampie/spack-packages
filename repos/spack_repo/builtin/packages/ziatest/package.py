@@ -19,8 +19,6 @@ class Ziatest(MakefilePackage):
 
     version("main", branch="main")
 
-    depends_on("c", type="build")
-    depends_on("mpi")
 
     @property
     def build_targets(self):

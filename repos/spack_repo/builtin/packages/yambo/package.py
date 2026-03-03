@@ -53,28 +53,16 @@ class Yambo(AutotoolsPackage):
     variant("openmp", default=False, description="Enable OpenMP support")
 
     depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("blas")
-    depends_on("lapack")
 
     # MPI dependencies are forced, until we have proper forwarding of variants
     #
     # Note that yambo is used as an application, and not linked as a library,
     # thus there will be no case where another package pulls-in e.g.
     # netcdf-c+mpi and wants to depend on yambo~mpi.
-    depends_on("mpi", when="+mpi")
-    depends_on("netcdf-c+mpi", when="+mpi")
 
-    depends_on("hdf5~mpi", when="~mpi")
-    depends_on("fftw~mpi", when="~mpi")
 
-    depends_on("hdf5+fortran")
-    depends_on("netcdf-c")
-    depends_on("netcdf-fortran")
-    depends_on("libxc@2.0.3:")
 
-    depends_on("etsf-io", when="io=etsf-io")
 
     build_targets = ["all"]
 

@@ -23,8 +23,6 @@ class _3dtk(CMakePackage):
     version("trunk", svn="https://svn.code.sf.net/p/slam6d/code/trunk", preferred=True)
     version("1.2", svn="https://svn.code.sf.net/p/slam6d/code/branches/3dtk-release-1.2")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     variant("cgal", default=False, description="Compile with CGAL support")
     variant("opengl", default=True, description="Compile with OpenGL support")
@@ -48,24 +46,6 @@ class _3dtk(CMakePackage):
 
     generator("ninja")
 
-    depends_on("cmake@3.5:", when="@trunk", type="build")
-    depends_on("cmake@2.6.1:2", when="@1.2", type="build")
-    depends_on(
-        "boost@:1.75+serialization+graph+regex+filesystem+system+thread+date_time+program_options"
-    )
-    depends_on("suite-sparse")
-    depends_on("zlib-api")
-    depends_on("libpng")
-    depends_on("eigen")
-    depends_on("cgal", when="+cgal")
-    depends_on("gl", when="+opengl")
-    depends_on("glew", when="+opengl")
-    depends_on("freeglut", when="+opengl")
-    depends_on(
-        "opencv+aruco+calib3d+features2d+ffmpeg+highgui+imgcodecs+imgproc+ml+videoio+flann",
-        when="+opencv",
-    )
-    depends_on("cuda", when="+cuda")
 
     # TODO: add Spack packages for these instead of using vendored copies
     # depends_on('ann')

@@ -16,10 +16,5 @@ class Xsetmode(AutotoolsPackage, XorgPackage):
 
     version("1.0.0", sha256="9ee0d6cf72dfaacb997f9570779dcbc42f5395ae102180cb19382860b4b02ef3")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("libxi")
-    depends_on("libx11")
 
-    depends_on("pkgconfig", type="build")
-    depends_on("util-macros", type="build")

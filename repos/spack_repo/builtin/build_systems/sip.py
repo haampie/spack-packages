@@ -46,8 +46,6 @@ class SIPPackage(PackageBase):
 
     with when("build_system=sip"):
         extends("python", type=("build", "link", "run"))
-        depends_on("py-sip", type="build")
-        depends_on("gmake", type="build")
 
     @property
     def import_modules(self):

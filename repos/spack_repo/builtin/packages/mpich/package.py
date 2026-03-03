@@ -322,34 +322,18 @@ supported, and netmod is ignored if device is ch3:sock.""",
     depends_on("libxml2", when="@:3.2+hydra+libxml2")
 
     # Starting with version 3.3, MPICH uses hwloc directly.
-    depends_on("libpciaccess", when="@3.3:+pci")
-    depends_on("libxml2", when="@3.3:+libxml2")
 
     # Starting with version 3.3, Hydra can use libslurm for nodelist parsing
-    depends_on("slurm", when="+slurm")
 
-    depends_on("pmix", when="pmi=pmix")
 
     # +argobots variant requires Argobots
-    depends_on("argobots", when="+argobots")
 
     # building from git requires regenerating autotools files
-    depends_on("automake@1.15:", when="@develop", type="build")
-    depends_on("libtool@2.4.4:", when="@develop", type="build")
-    depends_on("m4", when="@develop", type="build")
-    depends_on("autoconf@2.67:", when="@develop", type="build")
 
     # building with "+hwloc' also requires regenerating autotools files
-    depends_on("automake@1.15:", when="@3.3 +hwloc", type="build")
-    depends_on("libtool@2.4.4:", when="@3.3 +hwloc", type="build")
-    depends_on("m4", when="@3.3 +hwloc", type="build")
-    depends_on("autoconf@2.67:", when="@3.3 +hwloc", type="build")
 
     # MPICH's Yaksa submodule requires python to configure
-    depends_on("python@3.0:", when="@develop", type="build")
 
-    depends_on("cray-pmi", when="pmi=cray")
-    depends_on("oneapi-level-zero", when="+level_zero")
 
     conflicts("device=ch4", when="@:3.2")
     conflicts("netmod=ofi", when="@:3.1.4")

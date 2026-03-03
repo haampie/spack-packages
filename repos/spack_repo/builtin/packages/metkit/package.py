@@ -21,19 +21,10 @@ class Metkit(CMakePackage):
     variant("grib", default=True, description="Enable support for GRIB format")
     variant("odb", default=False, description="Enable support for ODB data")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@3.12:", type="build")
-    depends_on("ecbuild@3.4:", type="build")
 
-    depends_on("eckit@1.16:")
-    depends_on("eckit@1.21:", when="@1.10:")
-    depends_on("eckit@:1.21", when="@:1.10")
 
-    depends_on("eccodes@2.5:", when="+grib")
-    depends_on("eccodes@2.27:", when="@1.10.2: +grib")
 
-    depends_on("odc", when="+odb")
 
     conflicts(
         "+tools",

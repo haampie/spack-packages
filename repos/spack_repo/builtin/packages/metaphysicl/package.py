@@ -15,9 +15,4 @@ class Metaphysicl(AutotoolsPackage):
     url = "https://github.com/roystgnr/MetaPhysicL/archive/v0.2.0.tar.gz"
 
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")

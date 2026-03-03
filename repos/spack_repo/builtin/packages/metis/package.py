@@ -27,8 +27,6 @@ class Metis(CMakePackage, MakefilePackage):
     # not a metis developer, just package reviewer!
 
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     variant(
         "no_warning",

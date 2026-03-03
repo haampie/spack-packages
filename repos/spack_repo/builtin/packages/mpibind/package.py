@@ -38,13 +38,7 @@ class Mpibind(AutotoolsPackage):
     # variant("slurm", default=False,
     #         description="Build the Slurm plugin")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
 
 
 

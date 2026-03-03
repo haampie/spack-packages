@@ -19,11 +19,7 @@ class Methyldackel(MakefilePackage):
     url = "https://github.com/dpryan79/MethylDackel/archive/refs/tags/0.6.1.tar.gz"
 
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("htslib@1.11:")
-    depends_on("libbigwig")
-    depends_on("curl")
 
     def edit(self, spec, prefix):
         filter_file(r"^prefix \?=.*$", "prefix = " + spec.prefix, "Makefile")

@@ -43,8 +43,3 @@ class QtBase(QtPackage):
     )
     variant("gtk", default=False, when="+gui", description="Build with gtkplus.")
     variant("opengl", default=False, when="+gui", description="Build with OpenGL support.")
-    variant("widgets", default=True, when="+gui", description="Build with widgets.")
-    # Dependencies, then variant- and version-specific dependencies
-    depends_on("zstd")
-    with when("platform=linux"):
-        depends_on("at-spi2-core", when="+accessibility")

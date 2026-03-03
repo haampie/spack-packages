@@ -26,18 +26,3 @@ class ROCmPackage(PackageBase):
     )
     # need amd gpu type for rocm builds
     # https://github.com/ROCm-Developer-Tools/HIP/blob/master/bin/hipcc
-    # It seems that hip-clang does not (yet?) accept this flag, in which case
-    # we will still need to set the HCC_AMDGPU_TARGET environment flag in the
-    # hip package file. But I will leave this here for future development.
-    # HIP version vs Architecture
-    # TODO: add a bunch of lines like:
-    # depends_on('hip@:6.0', when='amdgpu_target=gfx701')
-    # to indicate minimum version for each architecture.
-    # Add compiler minimum versions based on the first release where the
-    # processor is included in llvm/lib/Support/TargetParser.cpp
-    # Compiler conflicts
-    # TODO: add conflicts statements along the lines of
-    # arch_platform = ' target=x86_64: platform=linux'
-    # conflicts('%gcc@5:', when='+cuda ^cuda@:7.5' + arch_platform)
-    # conflicts('platform=darwin', when='+cuda ^cuda@11.0.2:')
-    # for hip-related limitations.

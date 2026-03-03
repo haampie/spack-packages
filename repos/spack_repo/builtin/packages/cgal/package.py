@@ -76,36 +76,22 @@ class Cgal(CMakePackage):
     # More details here https://github.com/CGAL/cgal/issues/8606
     variant("gmp", default=True, description="Enable the GMP backend", when="@6:")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("cmake@3.12:3", type="build", when="@6:")
-    depends_on("cmake@2.8.11:", type="build", when="@:5")
 
     # Essential Third Party Libraries
-    depends_on("boost+exception+math+random+container", when="@5.0:")
-    depends_on("boost@1.72.0:+exception+math+random+container", when="@6:")
-    depends_on("boost+thread+system", when="@:5.0")
 
-    depends_on("gmp", when="@:5")
-    depends_on("mpfr", when="@:5")
 
-    depends_on("gmp", when="@6: +gmp")
-    depends_on("mpfr", when="@6: +gmp")
 
     # Required for CGAL_ImageIO
     # depends_on('opengl', when='+imageio') # not yet in Spack
-    depends_on("zlib-api")
 
     # Optional to build CGAL_Qt5 (demos)
     # depends_on('opengl', when='+demos')   # not yet in Spack
-    depends_on("qt@5:", when="@:5 +demos")
 
     # Demos are now based on qt6, but at the moment qt6 is not in spack
     # depends_on("qt@6:", when="@6: +demos")
 
     # Optional Third Party Libraries
-    depends_on("eigen", when="+eigen")
 
     # depends_on('leda')
     # depends_on('mpfi')

@@ -163,25 +163,8 @@ class Chai(CachedCMakePackage, CudaPackage, ROCmPackage):
         description="Tests to run",
     )
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("cmake", type="build")
-    depends_on("cmake@3.23:", type="build", when="@2024.07.0:")
-    depends_on("cmake@3.14:", type="build", when="@2022.03.0:2024.2")
-    depends_on("cmake@3.9:", type="build", when="+cuda")
-    depends_on("cmake@3.8:", type="build")
 
-    depends_on("blt", type="build")
-    depends_on("blt@0.7.1:", type="build", when="@2025.09.0:")
-    depends_on("blt@0.7.0:", type="build", when="@2025.03.0:")
-    depends_on("blt@0.6.2:", type="build", when="@2024.02.1:")
-    depends_on("blt@0.6.1", type="build", when="@2024.02.0")
-    depends_on("blt@0.5.3", type="build", when="@2023.06.0")
-    depends_on("blt@0.5.2:0.5.3", type="build", when="@2022.10.0")
-    depends_on("blt@0.5.0:0.5.3", type="build", when="@2022.03.0")
-    depends_on("blt@0.4.1:0.5.3", type="build", when="@2.4.0")
-    depends_on("blt@0.4.0:0.5.3", type="build", when="@2.3.0")
     depends_on("blt@0.3.6:0.5.3", type="build", when="@:2.2.2")
     conflicts("^blt@:0.3.6", when="+rocm")
 

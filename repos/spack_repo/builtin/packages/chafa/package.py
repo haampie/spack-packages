@@ -42,20 +42,6 @@ class Chafa(AutotoolsPackage):
 
     conflicts("~shared~static")
 
-    depends_on("c", type="build")
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("libxml2", type="build")
-    depends_on("glib", type="link")
-    depends_on("freetype", type="link", when="+tools")
-    depends_on("jpeg", type="link", when="+jpeg")
-    depends_on("libtiff", type="link", when="+tiff")
-    depends_on("librsvg", type="link", when="+svg")
-    depends_on("libwebp +libwebpdemux", type="link", when="+webp")
-    depends_on("libavif", type="link", when="+avif")
-    depends_on("libjxl", type="link", when="+jxl")
 
     @when("@master")
     def autoreconf(self, spec, prefix):

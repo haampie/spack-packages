@@ -34,15 +34,7 @@ class Cloverleaf(MakefilePackage):
     variant("ieee", default=False, description="Build with IEEE standards")
     variant("debug", default=False, description="Build with DEBUG flags")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("mpi", when="build=cuda")
-    depends_on("mpi", when="build=mpi_only")
-    depends_on("mpi", when="build=openacc_cray")
-    depends_on("mpi", when="build=ref")
-    depends_on("cuda", when="build=cuda")
 
     conflicts("build=cuda", when="%aocc", msg="Currently AOCC supports only ref variant")
     conflicts("build=openacc_cray", when="%aocc", msg="Currently AOCC supports only ref variant")

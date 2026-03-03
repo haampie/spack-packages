@@ -24,9 +24,7 @@ class Cgm(AutotoolsPackage):
     variant("debug", default=False, description="enable debug symbols")
     variant("shared", default=False, description="enable shared builds")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("mpi", when="+mpi")
 
     def configure_args(self):
         spec = self.spec

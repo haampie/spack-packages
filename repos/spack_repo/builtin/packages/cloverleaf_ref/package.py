@@ -32,10 +32,7 @@ class CloverleafRef(MakefilePackage):
     )
     variant("debug", default=False, description="Build with DEBUG flags")
 
-    depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("mpi")
 
     # Cloverleaf_ref Makefile contains some but not all required options for each compiler.
     # This package.py inserts what is needed for Intel, AOCC, and LLVM compilers.

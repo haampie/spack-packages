@@ -26,21 +26,9 @@ class Cernlib(CMakePackage):
 
     variant("shared", default=True, description="Build shared libraries")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("freetype")
-    depends_on("motif")
-    depends_on("libnsl")
-    depends_on("libx11")
-    depends_on("libxaw")
-    depends_on("libxt")
-    depends_on("libxcrypt")
 
-    depends_on("xbae", when="@2023:")
 
-    depends_on("openssl", when="platform=linux")
 
     def patch(self):
         if self.spec.satisfies("@:2023.08.14.0-free"):

@@ -29,17 +29,7 @@ class CeresSolver(CMakePackage):
     variant("shared", default=True, description="Build shared libraries")
     variant("examples", default=False, description="Build examples")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@2.8.0:", type="build", when="@1.12.0:1.14.0")
-    depends_on("cmake@3.5:", type="build", when="@2.0.0")
-    depends_on("cmake@3.16:3.27", type="build", when="@2.2.0")
-    depends_on("eigen@3:")
-    depends_on("eigen@3.3:", when="@2.0.0:")
-    depends_on("lapack")
-    depends_on("glog@0.3.5:")
-    depends_on("suite-sparse", when="+suitesparse")
 
     def cmake_args(self):
         args = []

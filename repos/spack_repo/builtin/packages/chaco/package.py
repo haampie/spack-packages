@@ -22,10 +22,7 @@ class Chaco(CMakePackage):
 
     variant("shared", default=True, description="build shared library")
 
-    depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("cmake@3.16:", type="build")
 
     def cmake_args(self):
         opts = [self.define_from_variant("BUILD_SHARED_LIBS", "shared")]

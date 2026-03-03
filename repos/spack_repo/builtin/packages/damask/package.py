@@ -40,42 +40,12 @@ class Damask(BundlePackage):
     version("3.0.0-alpha5")
     version("3.0.0-alpha4")
 
-    depends_on("damask-grid@3.0.2", when="@3.0.2", type="run")
-    depends_on("damask-mesh@3.0.2", when="@3.0.2", type="run")
-    depends_on("py-damask@3.0.2", when="@3.0.2", type="run")
 
-    depends_on("damask-grid@3.0.1", when="@3.0.1", type="run")
-    depends_on("damask-mesh@3.0.1", when="@3.0.1", type="run")
-    depends_on("py-damask@3.0.1", when="@3.0.1", type="run")
 
-    depends_on("damask-grid@3.0.0", when="@3.0.0", type="run")
-    depends_on("damask-mesh@3.0.0", when="@3.0.0", type="run")
-    depends_on("py-damask@3.0.0", when="@3.0.0", type="run")
 
-    depends_on("damask-grid@3.0.0-beta2", when="@3.0.0-beta2", type="run")
-    depends_on("damask-mesh@3.0.0-beta2", when="@3.0.0-beta2", type="run")
-    depends_on("py-damask@3.0.0-beta2", when="@3.0.0-beta2", type="run")
 
-    depends_on("damask-grid@3.0.0-beta", when="@3.0.0-beta", type="run")
-    depends_on("damask-mesh@3.0.0-beta", when="@3.0.0-beta", type="run")
-    depends_on("py-damask@3.0.0-beta", when="@3.0.0-beta", type="run")
 
-    depends_on("damask-grid@3.0.0-alpha8", when="@3.0.0-alpha8", type="run")
-    depends_on("damask-mesh@3.0.0-alpha8", when="@3.0.0-alpha8", type="run")
-    depends_on("py-damask@3.0.0-alpha8", when="@3.0.0-alpha8", type="run")
 
-    depends_on("damask-grid@3.0.0-alpha7", when="@3.0.0-alpha7", type="run")
-    depends_on("damask-mesh@3.0.0-alpha7", when="@3.0.0-alpha7", type="run")
-    depends_on("py-damask@3.0.0-alpha7", when="@3.0.0-alpha7", type="run")
 
-    depends_on("damask-grid@3.0.0-alpha6", when="@3.0.0-alpha6", type="run")
-    depends_on("damask-mesh@3.0.0-alpha6", when="@3.0.0-alpha6", type="run")
-    depends_on("py-damask@3.0.0-alpha6", when="@3.0.0-alpha6", type="run")
 
-    depends_on("damask-grid@3.0.0-alpha5", when="@3.0.0-alpha5", type="run")
-    depends_on("damask-mesh@3.0.0-alpha5", when="@3.0.0-alpha5", type="run")
-    depends_on("py-damask@3.0.0-alpha5", when="@3.0.0-alpha5", type="run")
 
-    depends_on("damask-grid@3.0.0-alpha4", when="@3.0.0-alpha4", type="run")
-    depends_on("damask-mesh@3.0.0-alpha4", when="@3.0.0-alpha4", type="run")
-    depends_on("py-damask@3.0.0-alpha4", when="@3.0.0-alpha4", type="run")

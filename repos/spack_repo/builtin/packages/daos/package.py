@@ -29,30 +29,6 @@ class Daos(SConsPackage):
 
     patch("0001-LIBPATH-fix-for-ALT_PREFIX.2.patch", when="@2.2.0:")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("argobots@1.1:")
-    depends_on("boost", type="build")
-    depends_on("cmocka", type="build")
-    depends_on("go", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("hwloc")
-    depends_on("isa-l@2.30.0:")
-    depends_on("isa-l-crypto@2.23.0:")
-    depends_on("libfabric@1.15.1:")
-    depends_on("libfuse@3.6.1:")
-    depends_on("uuid")
-    depends_on("libunwind")
-    depends_on("libyaml")
-    depends_on("mercury@2.2.0:+boostsys")
-    depends_on("openssl")
-    depends_on("pmdk@1.12.1:")
-    depends_on("protobuf-c@1.3.3:")
-    depends_on("py-distro")
-    depends_on("readline")
-    depends_on("scons@4.4.0:")
-    depends_on("spdk@23.01:+shared+rdma+dpdk")
-    depends_on("ucx@1.12.1:")
 
     def build_args(self, spec, prefix):
         args = ["PREFIX={0}".format(prefix), "USE_INSTALLED=all"]

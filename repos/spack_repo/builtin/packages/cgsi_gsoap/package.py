@@ -20,14 +20,4 @@ class CgsiGsoap(CMakePackage):
 
     version("1.3.12", sha256="ebb141ea7fe6d883ebeca031b4f2e3697895efb8fde55ee214128d5ca37e13e4")
 
-    depends_on("c", type="build")
 
-    depends_on("pkgconfig", type="build")
-    depends_on("gsoap")
-    depends_on("voms")
-    depends_on("globus-common")
-    depends_on("globus-gssapi-gsi")
-    depends_on("globus-gss-assist")
-    depends_on("globus-gsi-cert-utils")
-    depends_on("globus-gsi-credential")
-    depends_on("globus-openssl-module")

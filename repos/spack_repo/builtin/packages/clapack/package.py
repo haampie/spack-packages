@@ -23,7 +23,6 @@ class Clapack(MakefilePackage):
 
     version("3.2.1", sha256="6dc4c382164beec8aaed8fd2acc36ad24232c406eda6db462bd4c41d5e455fac")
 
-    depends_on("c", type="build")  # generated
 
     build_targets = ["f2clib", "blaslib", "lib"]
 

@@ -30,11 +30,7 @@ class Cloverleaf3d(MakefilePackage):
 
     variant("openacc", default=False, description="Enable OpenACC Support")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("mpi")
 
     @property
     def type_of_build(self):

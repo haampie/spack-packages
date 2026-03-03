@@ -36,11 +36,7 @@ class Cfitsio(AutotoolsPackage):
     variant("fortran", default=True, description="Build with fortran support")
     variant("shared", default=True, description="Build shared libraries", when="@:3.46")
 
-    depends_on("c", type="build")
-    depends_on("fortran", type="build", when="+fortran")
 
-    depends_on("curl")
-    depends_on("bzip2", when="+bzip2")
 
     def url_for_version(self, version):
         if self.spec.satisfies("@3.47:"):

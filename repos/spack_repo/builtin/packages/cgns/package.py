@@ -54,24 +54,9 @@ class Cgns(CMakePackage):
     variant("tools", default=False, description="Enable CGNS tools")
     variant("pic", default=False, description="Produce position-independent code")
 
-    depends_on("c", type="build")
-    depends_on("fortran", type="build", when="+fortran")
 
-    depends_on("cmake@3.20:", when="@4.5:", type="build")
-    depends_on("cmake@3.12:", when="@4.3:", type="build")
-    depends_on("cmake@3.8:", when="@4.2:", type="build")
-    depends_on("cmake@2.8:", when="@:4.1", type="build")
-    depends_on("hdf5~mpi", when="+hdf5~mpi")
-    depends_on("hdf5+mpi", when="+hdf5+mpi")
-    depends_on("mpi", when="+mpi")
 
     # cgnsview requires tk to run
-    depends_on("tk", when="+tools", type=("build", "link", "run"))
-    depends_on("tcl", when="+tools")
-    depends_on("gl", when="+tools")
-    depends_on("glu", when="+tools")
-    depends_on("libxmu", when="+tools")
-    depends_on("libsm", when="+tools")
 
     conflicts("~pic", when="+fortran", msg="+pic required when +fortran")
 

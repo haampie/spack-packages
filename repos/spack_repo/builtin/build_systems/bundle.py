@@ -24,5 +24,3 @@ class BundlePackage(PackageBase):
 class BundleBuilder(Builder):
     phases = ("install",)
 
-    def install(self, pkg: BundlePackage, spec: Spec, prefix: Prefix) -> None:
-        pass

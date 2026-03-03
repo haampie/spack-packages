@@ -68,7 +68,6 @@ class QtBase(QtPackage):
     list_url = QtPackage.get_list_url(__qualname__)
 
 
-
     variant("dbus", default=False, description="Build with D-Bus support.")
     variant(
         "framework", default=bool(MACOS_VERSION), description="Build as a macOS Framework package."

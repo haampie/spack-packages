@@ -21,11 +21,6 @@ class Readline(AutotoolsPackage, GNUMirrorPackage):
     gnu_mirror_path = "readline/readline-8.0.tar.gz"
 
     version("8.3", sha256="fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc")
-
-    depends_on("c", type="build")  # generated
-
-    depends_on("ncurses")
-
     # TODO: patches below are not managed by the GNUMirrorPackage base class
     for verstr, num, checksum in [
         ("8.3", "001", "21f0a03106dbe697337cd25c70eb0edbaa2bdb6d595b45f83285cdd35bac84de"),

@@ -71,11 +71,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
         " context switch implementation.",
     )
 
-    variant("tools", default=False, description="Build HPX tools")
-    variant("examples", default=False, description="Build examples")
-    variant("async_mpi", default=False, description="Enable MPI Futures.")
-    variant("async_cuda", default=False, description="Enable CUDA Futures.")
-    variant("apex", default=False, description="Enable APEX support")
 
     # Build dependencies
     depends_on("cmake", type="build")

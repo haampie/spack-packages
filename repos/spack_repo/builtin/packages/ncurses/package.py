@@ -37,25 +37,10 @@ class Ncurses(AutotoolsPackage, GNUMirrorPackage):
     version("6.0", sha256="f551c24b30ce8bfb6e96d9f59b42fbea30fa3a6123384172f9e7284bcf647260")
     version("5.9", sha256="9046298fb440324c9d4135ecea7879ffed8546dd1b58e59430ea07a4633f563b")
 
-    variant("symlinks", default=False, description="Enables symlinks. Needed on AFS filesystem.")
-    variant(
-        "termlib",
-        default=True,
-        description="Enables termlib features. This is an extra "
-        "lib and optional internal dependency.",
-    )
     # Build ncurses with ABI compaitibility.
-    variant(
-        "abi",
-        default="none",
-        description="choose abi compatibility",
-        values=("none", "5", "6"),
-        multi=False,
-    )
 
 
 
 
     # avoid disallowed const_cast from T* to void* and use reinterpret_cast
     # Ref: https://lists.gnu.org/archive/html/bug-ncurses/2014-08/msg00008.html
-

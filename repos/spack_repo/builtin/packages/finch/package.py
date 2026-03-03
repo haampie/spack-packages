@@ -20,7 +20,6 @@ class Finch(CMakePackage, CudaPackage, ROCmPackage):
 
     maintainers("streeve", "MattRolchigo", "colemanjs")
 
-    license("BSD-3-Clause")
 
     version("main", branch="main")
     version("0.2.0", sha256="cd00fa87be734e800799f47aaa7259d0dbad7110f4c42f6bf59b56c658e2fe60")

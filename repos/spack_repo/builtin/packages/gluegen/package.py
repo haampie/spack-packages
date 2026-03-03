@@ -16,7 +16,6 @@ class Gluegen(Package):
     homepage = "https://jogamp.org/gluegen/www/"
     git = "https://github.com/WadeWalker/gluegen.git"
 
-    license("Apache-2.0")
 
     version("java-11-fixes", branch="java-11-fixes", submodules=True)
 

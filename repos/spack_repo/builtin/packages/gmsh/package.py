@@ -23,7 +23,6 @@ class Gmsh(CMakePackage):
 
     maintainers("fspiga")
 
-    license("GPL-2.0-or-later")
 
     version("master", branch="master")
     version("4.13.1", sha256="77972145f431726026d50596a6a44fb3c1c95c21255218d66955806b86edbe8d")

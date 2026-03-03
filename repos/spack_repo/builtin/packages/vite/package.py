@@ -17,7 +17,6 @@ class Vite(CMakePackage):
     maintainers("trahay")
     git = "https://gitlab.inria.fr/solverstack/vite.git"
 
-    license("CECILL-2.0")
 
     version("master", branch="master")
 

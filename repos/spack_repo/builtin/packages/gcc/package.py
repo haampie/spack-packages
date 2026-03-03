@@ -26,7 +26,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
     maintainers("michaelkuhn", "alalazo")
 
-    license("GPL-2.0-or-later AND LGPL-2.1-or-later")
 
     provides("c", "cxx", when="languages=c,c++")
     provides("c", when="languages=c")

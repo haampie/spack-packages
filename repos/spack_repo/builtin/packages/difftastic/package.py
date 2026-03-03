@@ -15,7 +15,6 @@ class Difftastic(CargoPackage):
 
     maintainers("alecbcs")
 
-    license("MIT")
 
     version("0.67.0", sha256="a6a15d6ca9f9ab7c034d1770417d1829deb3fbe9dcf4731b9cba867e50e78437")
     version("0.64.0", sha256="54c7c93309ff9a2cbe87153ac1d16e80bacac4042c80f6b7206e9b71a6f10d0b")

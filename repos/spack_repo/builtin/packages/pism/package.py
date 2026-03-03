@@ -16,7 +16,6 @@ class Pism(CMakePackage):
 
     maintainers("citibeth")
 
-    license("GPL-3.0-only")
 
     version("develop", branch="dev")
     version("2.1.1", sha256="be4ac3ac42abbcb4d23af5c35284e06333dff0797eb11fa9745a214033857ab0")

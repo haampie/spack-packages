@@ -27,7 +27,6 @@ class Xz(MSBuildPackage, AutotoolsPackage, SourceforgePackage):
 
     executables = [r"^xz$"]
 
-    license("GPL-2.0-or-later AND Public-Domain AND LGPL-2.1-or-later", checked_by="tgamblin")
 
     version("5.6.3", sha256="a95a49147b2dbb5487517acc0adcd77f9c2032cf00664eeae352405357d14a6c")
     version("5.6.2", sha256="e12aa03cbd200597bd4ce11d97be2d09a6e6d39a9311ce72c91ac7deacde3171")

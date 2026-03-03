@@ -22,7 +22,6 @@ class GftlShared(CMakePackage):
 
     maintainers("mathomp4", "tclune")
 
-    license("Apache-2.0")
 
     version("main", branch="main")
 

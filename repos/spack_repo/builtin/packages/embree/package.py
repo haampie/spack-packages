@@ -14,7 +14,6 @@ class Embree(CMakePackage):
     url = "https://github.com/embree/embree/archive/v3.7.0.tar.gz"
     maintainers("aumuell")
 
-    license("Apache-2.0", checked_by="wdconinc")
 
     version("4.4.0", sha256="acb517b0ea0f4b442235d5331b69f96192c28da6aca5d5dde0cbe40799638d5c")
     version("4.3.3", sha256="8a3bc3c3e21aa209d9861a28f8ba93b2f82ed0dc93341dddac09f1f03c36ef2d")

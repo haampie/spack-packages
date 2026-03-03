@@ -24,7 +24,6 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
 
     maintainers("skosukhin", "WardF")
 
-    license("BSD-3-Clause")
 
     version("main", branch="main")
     version("4.9.3", sha256="990f46d49525d6ab5dc4249f8684c6deeaf54de6fec63a187e9fb382cc0ffdff")

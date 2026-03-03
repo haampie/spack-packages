@@ -16,7 +16,6 @@ class Mepo(PythonPackage):
 
     maintainers("pchakraborty", "mathomp4")
 
-    license("Apache-2.0", checked_by="mathomp4")
 
     version("2.4.0", sha256="70088348f0671bd339b93dc22bbd0c8325387193a799218c794990987a848d1a")
     version("2.3.2", sha256="82affbf7e40856c6d8e8b3c4998ab4ea4d37c0baac73ddc1d698bce0d73a5082")

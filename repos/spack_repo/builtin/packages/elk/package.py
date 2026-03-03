@@ -14,7 +14,6 @@ class Elk(MakefilePackage):
     homepage = "https://elk.sourceforge.io/"
     url = "https://sourceforge.net/projects/elk/files/elk-3.3.17.tgz"
 
-    license("LGPL-3.0-or-later")
 
     version("10.2.4", sha256="015e1d2a04a6c8335af2e5f5adaae143c6c0287f34772e069834a691bb15ac9d")
     version("9.6.8", sha256="d5b60406744a13be42a258a6efd9545ce38a7006d8e76e40e3770368e05c1dae")

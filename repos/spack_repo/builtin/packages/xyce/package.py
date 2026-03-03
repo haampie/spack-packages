@@ -32,7 +32,6 @@ class Xyce(CMakePackage):
 
     tags = ["e4s"]
 
-    license("GPL-3.0-or-later")
 
     version("master", branch="master")
     version("7.10.0", sha256="b5a883196f0a2b3972fd13c541fecf04735bfabc7d124d7c7e17de707204f4e2")

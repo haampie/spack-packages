@@ -24,7 +24,6 @@ class GccRuntime(Package):
 
     maintainers("haampie")
 
-    license("GPL-3.0-or-later WITH GCC-exception-3.1")
 
     LIBRARIES = [
         "asan",

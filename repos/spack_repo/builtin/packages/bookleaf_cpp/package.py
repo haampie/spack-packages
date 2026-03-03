@@ -14,7 +14,6 @@ class BookleafCpp(CMakePackage):
     url = "https://github.com/UK-MAC/BookLeaf_Cpp/archive/v2.0.tar.gz"
     git = "https://github.com/UK-MAC/BookLeaf_Cpp.git"
 
-    license("GPL-3.0-or-later")
 
     version("develop", branch="develop")
 

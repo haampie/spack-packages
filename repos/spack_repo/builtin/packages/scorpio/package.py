@@ -19,7 +19,6 @@ class Scorpio(CMakePackage):
 
     maintainers("pbrady", "zjibben")
 
-    license("LGPL-3.0-only")
 
     version("develop", branch="truchas")
 

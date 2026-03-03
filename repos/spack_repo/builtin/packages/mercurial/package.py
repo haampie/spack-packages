@@ -14,7 +14,6 @@ class Mercurial(PythonPackage):
     homepage = "https://www.mercurial-scm.org"
     url = "https://www.mercurial-scm.org/release/mercurial-5.3.tar.gz"
 
-    license("GPL-2.0-or-later")
 
     version("7.1.2", sha256="ce27b9a4767cf2ea496b51468bae512fa6a6eaf0891e49f8961dc694b4dc81ca")
     version("7.0.3", sha256="59fc84640524da6f1938ea7e4eb0cd579fc7fedaaf563a916cb4f9dac0eacf6c")

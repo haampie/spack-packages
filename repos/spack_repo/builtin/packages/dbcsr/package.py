@@ -21,7 +21,6 @@ class Dbcsr(CMakePackage, CudaPackage, ROCmPackage):
 
     maintainers("dev-zero", "mtaillefumier", "RMeli", "hfp")
 
-    license("GPL-2.0-or-later")
 
     version("develop", branch="develop")
     version("2.9.1", sha256="fa5a4aeba0a07761511af2c26c779bd811b5ea0ef06a5d94535b6dd7b2e0ce59")

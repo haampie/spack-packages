@@ -15,7 +15,6 @@ class Gfal2Util(PythonPackage):
 
     maintainers("wdconinc")
 
-    license("Apache-2.0", checked_by="wdconinc")
 
     version("1.9.0", sha256="9a5194b7ac80381c0787ec7c2405cc3e060fc03bb99e80bbeb388ec3675cb13d")
 

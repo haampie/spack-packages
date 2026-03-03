@@ -15,7 +15,6 @@ class Zydis(CMakePackage):
 
     maintainers("RMeli")
 
-    license("MIT", checked_by="RMeli")
 
     version("4.1.1", sha256="45c6d4d499a1cc80780f7834747c637509777c01dca1e98c5e7c0bfaccdb1514")
 

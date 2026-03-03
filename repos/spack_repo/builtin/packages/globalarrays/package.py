@@ -22,7 +22,6 @@ class Globalarrays(AutotoolsPackage):
 
     tags = ["e4s"]
 
-    license("BSD-3-Clause")
 
     version("5.8.2", sha256="51599e4abfe36f05cecfaffa33be19efbe9e9fa42d035fd3f866469b663c22a2")
     version("5.8", sha256="64df7d1ea4053d24d84ca361e67a6f51c7b17ed7d626cb18a9fbc759f4a078ac")

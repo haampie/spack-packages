@@ -15,7 +15,6 @@ class Gfal2(CMakePackage):
 
     maintainers("wdconinc")
 
-    license("Apache-2.0", checked_by="wdconinc")
 
     version("2.23.0", sha256="e3fc9c2ccb2f54b1d0d460545e1b6c581470d2a2968928a8973045089892e509")
 

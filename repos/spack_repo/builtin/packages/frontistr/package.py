@@ -51,7 +51,6 @@ class Frontistr(FrontistrBase):
 
     maintainers("hiroshi.okuda", "kgoto", "morita", "inagaki", "michioga")
 
-    license("MIT")
 
     version("5.3", tag="v5.3", commit="5db1d80452b951905658da828285c2fd0537603c")
     version("5.2", tag="v5.2", commit="c66bdc397de319ca59a0565b3f3b1a3b33f0c50c")

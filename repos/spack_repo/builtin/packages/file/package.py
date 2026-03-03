@@ -18,7 +18,6 @@ class File(AutotoolsPackage):
 
     maintainers("sethrj")
 
-    license("BSD-2-Clause")
 
     version("5.45", sha256="fc97f51029bb0e2c9f4e3bffefdaf678f0e039ee872b9de5c002a6d09c784d82")
     version("5.44", sha256="3751c7fba8dbc831cb8d7cc8aff21035459b8ce5155ef8b0880a27d028475f3b")

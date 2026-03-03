@@ -41,7 +41,6 @@ class Glvis(MakefilePackage):
     # glvis does not need mfem+mpi but will build that by default, to just build
     # a serial mfem: `spack install glvis ^mfem~mpi~metis'
 
-    license("BSD-3-Clause")
 
     version("develop", branch="master")
 

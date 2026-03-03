@@ -19,7 +19,6 @@ class Comgr(CMakePackage):
     tags = ["rocm"]
     maintainers("srekolam", "renjithravindrankannath", "haampie", "afzpatel")
     libraries = ["libamd_comgr"]
-    license("NCSA")
 
     def url_for_version(self, version):
         if version <= Version("6.0.2"):

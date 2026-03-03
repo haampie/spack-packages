@@ -18,7 +18,6 @@ class Direnv(GoPackage):
 
     maintainers("acastanedam", "alecbcs")
 
-    license("MIT")
 
     # Versions (newest to oldest)
     version("master", branch="master")

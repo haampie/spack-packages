@@ -23,7 +23,6 @@ class Sqlite(AutotoolsPackage, NMakePackage):
     homepage = "https://www.sqlite.org"
     tags = ["windows"]
 
-    license("blessing")
 
     version("3.51.2", sha256="fbd89f866b1403bb66a143065440089dd76100f2238314d92274a082d4f2b7bb")
     version("3.50.4", sha256="a3db587a1b92ee5ddac2f66b3edb41b26f9c867275782d46c3a088977d6a5b18")

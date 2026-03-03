@@ -28,7 +28,6 @@ class Boost(Package):
     list_depth = 1
     maintainers("hainest")
 
-    license("BSL-1.0")
 
     version("develop", branch="develop", submodules=True)
     version("1.89.0", sha256="85a33fa22621b4f314f8e85e1a5e2a9363d22e4f4992925d4bb3bc631b5a0c7a")

@@ -18,7 +18,6 @@ class Mergiraf(CargoPackage):
 
     maintainers("alecbcs")
 
-    license("GPL-3.0-only")
 
     version("0.13.0", sha256="8b3851bac8ebac3c973c0f82fcaf1e4cc7a68d4effe3a4d727963b3824972909")
     version("0.12.1", sha256="5006c72d446e2b634e41d6d760661773ad449fed93154a8c8d461ad91461f997")

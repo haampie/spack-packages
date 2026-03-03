@@ -59,7 +59,6 @@ class Ascent(CMakePackage, CudaPackage, ROCmPackage):
 
     maintainers("cyrush")
 
-    license("BSD-3-Clause")
 
     version("develop", branch="develop", submodules=True)
 

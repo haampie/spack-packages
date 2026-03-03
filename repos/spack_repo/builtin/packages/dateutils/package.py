@@ -14,7 +14,6 @@ class Dateutils(AutotoolsPackage):
     homepage = "https://www.fresse.org/dateutils/"
     url = "https://github.com/hroptatyr/dateutils/releases/download/v0.4.6/dateutils-0.4.6.tar.xz"
 
-    license("BSD-3-Clause")
 
     version("0.4.11", sha256="b8fea0b09714bbadf202b9b3434cce6b59c282e7869268d0c08b85880fdbb446")
     version("0.4.7", sha256="49725457f5bef45ea424baade8999a6e54496e357f64280474ff7134a54f599a")

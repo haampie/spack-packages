@@ -18,7 +18,6 @@ class Zoxide(CargoPackage):
 
     maintainers("pranav-sivaraman")
 
-    license("MIT")
 
     version("0.9.8", sha256="1b276edbf328aafc86afe1ebce41f45ccba3a3125412e89c8c5d8e825b0c7407")
     version("0.9.6", sha256="e1811511a4a9caafa18b7d1505147d4328b39f6ec88b88097fe0dad59919f19c")

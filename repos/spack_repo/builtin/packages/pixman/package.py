@@ -19,7 +19,6 @@ class Pixman(AutotoolsPackage, MesonPackage):
     homepage = "https://www.pixman.org"
     url = "https://cairographics.org/releases/pixman-0.32.6.tar.gz"
 
-    license("MIT")
 
     version("0.46.4", sha256="d09c44ebc3bd5bee7021c79f922fe8fb2fb57f7320f55e97ff9914d2346a591c")
     version("0.44.2", sha256="6349061ce1a338ab6952b92194d1b0377472244208d47ff25bef86fc71973466")

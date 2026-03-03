@@ -23,7 +23,6 @@ class Gnutls(AutotoolsPackage):
 
     maintainers("alecbcs")
 
-    license("LGPL-2.1-or-later")
 
     sanity_check_is_file = ["include/gnutls/gnutls.h"]
     sanity_check_is_dir = ["lib", "share"]

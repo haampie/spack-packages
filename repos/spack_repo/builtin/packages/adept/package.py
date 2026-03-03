@@ -15,7 +15,6 @@ class Adept(AutotoolsPackage):
 
     maintainers("jehicken")
 
-    license("Apache-2.0", checked_by="jehicken")
 
     version("2.1.1", sha256="0cef334e82df4526d3761bdd8319a63e7582c96b2f1cc88391729018b4825c47")
 

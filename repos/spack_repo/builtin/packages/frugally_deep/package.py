@@ -14,7 +14,6 @@ class FrugallyDeep(CMakePackage):
     git = "https://github.com/Dobiasd/frugally-deep.git"
     url = "https://github.com/Dobiasd/frugally-deep/archive/refs/tags/v0.16.3.tar.gz"
 
-    license("MIT")
 
     version("0.18.2", sha256="e4274735261c89fd312e5a23e16bfa540752d1a61a190037f63f4d2612495c64")
     version("0.18.1", sha256="86e54c8faf47a9c5a217d71b9f7ea902dbaa05baf6e22b0e2e1e48337550cc59")

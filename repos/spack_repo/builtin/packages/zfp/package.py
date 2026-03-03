@@ -25,7 +25,6 @@ class Zfp(CMakePackage, CudaPackage):
     maintainers("lindstro", "Danielle-Asher")
     tags = ["radiuss", "e4s"]
 
-    license("BSD-3-Clause")
 
     # Versions
     version("develop", branch="develop")

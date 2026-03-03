@@ -17,7 +17,6 @@ class Discotec(CMakePackage):
 
     maintainers("freifrauvonbleifrei", "pfluegdk")
 
-    license("LGPL-3.0-only")
 
     version("main", branch="main")
 

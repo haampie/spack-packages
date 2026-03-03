@@ -24,7 +24,6 @@ class Adiak(CachedCMakePackage):
     variant("python", default=False, when="@0.5.0:", description="Build Python bindings")
     variant("tests", default=False, description="Build tests")
 
-    license("MIT")
     version("master", branch="master")
     version(
         "0.5.0", commit="f08c8375c613e13e9b9c6a1db271cbf8f0d3f3e3", submodules=True, preferred=True

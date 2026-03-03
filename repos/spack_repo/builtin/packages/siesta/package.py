@@ -42,7 +42,6 @@ class Siesta(MakefilePackage, CMakePackage):
         sha256="adc88619bf7e17fca2c67ecdcdae1f07ec4b3caf3541c0edf12964c8c330edc9",
     )
 
-    license("GPL-3.0-or-later")
 
     version("4.0.2", sha256="bafbda19358f0c1dd39bb1253c92ee548791a1c0f648977051d2657216874f7e")
     version(

@@ -15,7 +15,6 @@ class Fribidi(AutotoolsPackage):
     homepage = "https://github.com/fribidi/fribidi"
     url = "https://github.com/fribidi/fribidi/releases/download/v1.0.5/fribidi-1.0.5.tar.bz2"
 
-    license("LGPL-2.1-or-later")
 
     version("1.0.12", sha256="0cd233f97fc8c67bb3ac27ce8440def5d3ffacf516765b91c2cc654498293495")
     version("1.0.8", sha256="94c7b68d86ad2a9613b4dcffe7bbeb03523d63b5b37918bdf2e4ef34195c1e6c")

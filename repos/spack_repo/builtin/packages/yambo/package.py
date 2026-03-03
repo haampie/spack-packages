@@ -25,7 +25,6 @@ class Yambo(AutotoolsPackage):
 
     maintainers("LydDeb")
 
-    license("GPL-2.0-or-later")
 
     version("5.2.4", sha256="7c3f2602389fc29a0d8570c2fe85fe3768d390cfcbb2d371e83e75c6c951d5fc")
     version("5.2.3", sha256="a6168d1fa820af857ac51217bd6ad26dda4cc89c07e035bd7dc230038ae1ab9c")

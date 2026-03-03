@@ -23,7 +23,6 @@ class GlobusCallout(AutotoolsPackage):
 
     maintainers("wdconinc")
 
-    license("Apache-2.0", checked_by="wdconinc")
 
     version("4.3", sha256="367e3fda18c3c3eb2b12496abc504186d0bfa0dadc666f626f580a443bba3000")
 

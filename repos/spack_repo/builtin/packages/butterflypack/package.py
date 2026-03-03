@@ -28,7 +28,6 @@ class Butterflypack(CMakePackage):
 
     tags = ["e4s"]
 
-    license("BSD-3-Clause-LBNL")
 
     version("master", branch="master")
     version("3.2.0", sha256="0f1570947f0a7c0e130bbec3abbb2fa275ae453dc3f428e7a3a2265fecafe1ae")

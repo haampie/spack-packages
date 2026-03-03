@@ -18,7 +18,6 @@ class YamlCpp(CMakePackage):
     git = "https://github.com/jbeder/yaml-cpp.git"
     maintainers("eschnett")
 
-    license("MIT")
 
     version("develop", branch="master")
     version("0.8.0", sha256="fbe74bbdcee21d656715688706da3c8becfd946d92cd44705cc6098bb23b3a16")

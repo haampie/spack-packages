@@ -15,7 +15,6 @@ class Cfitsio(AutotoolsPackage):
     homepage = "https://heasarc.gsfc.nasa.gov/fitsio/"
     url = "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-3.49.tar.gz"
 
-    license("custom")
 
     version("4.5.0", sha256="e4854fc3365c1462e493aa586bfaa2f3d0bb8c20b75a524955db64c27427ce09")
     version("4.4.1", sha256="66a1dc3f21800f9eeabd9eac577b91fcdd9aabba678fbba3b8527319110d1d25")

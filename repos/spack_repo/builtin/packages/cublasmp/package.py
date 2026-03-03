@@ -34,7 +34,6 @@ class Cublasmp(Package, CudaPackage):
 
     maintainers("albestro")
 
-    license("UNKNOWN")
 
     for ver, packages in _versions.items():
         package = packages.get(f"{platform.system()}-{platform.machine()}")

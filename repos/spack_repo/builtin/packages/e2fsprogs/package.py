@@ -14,7 +14,6 @@ class E2fsprogs(AutotoolsPackage):
     homepage = "https://github.com/tytso/e2fsprogs"
     url = "https://github.com/tytso/e2fsprogs/archive/v1.47.3.tar.gz"
 
-    license("GPL-2.0-or-later AND LGPL-2.0-or-later AND BSD-3-Clause AND MIT")
 
     version("1.47.3", sha256="9286ee5471a8a5339a61eb952739e4614a5b1dbed79ca73a78f014885ce2ad53")
     version("1.47.1", sha256="db95ff1cb6ef741c9aa8875d9f3f52a34168360febba765b6377b80bada09a8c")

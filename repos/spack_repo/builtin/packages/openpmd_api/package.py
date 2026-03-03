@@ -18,7 +18,6 @@ class OpenpmdApi(CMakePackage):
 
     tags = ["e4s"]
 
-    license("LGPL-3.0-only")
 
     # C++17 up until here
     version("develop", branch="dev")

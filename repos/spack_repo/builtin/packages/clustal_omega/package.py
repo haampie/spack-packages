@@ -13,7 +13,6 @@ class ClustalOmega(AutotoolsPackage):
     homepage = "http://www.clustal.org/omega/"
     url = "http://www.clustal.org/omega/clustal-omega-1.2.4.tar.gz"
 
-    license("GPL-2.0-or-later")
 
     version("1.2.4", sha256="8683d2286d663a46412c12a0c789e755e7fd77088fb3bc0342bb71667f05a3ee")
 

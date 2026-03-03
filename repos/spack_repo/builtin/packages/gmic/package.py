@@ -19,7 +19,6 @@ class Gmic(MakefilePackage):
     homepage = "https://gmic.eu/"
     git = "https://github.com/GreycLab/gmic.git"
 
-    license("CECILL-2.1")
 
     version("develop", branch="master")
     version("3.1.6", tag="v.3.1.6")

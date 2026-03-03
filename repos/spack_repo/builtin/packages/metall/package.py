@@ -19,7 +19,6 @@ class Metall(CMakePackage):
 
     tags = ["e4s"]
 
-    license("MIT")
 
     version("master", branch="master")
     version("develop", branch="develop")

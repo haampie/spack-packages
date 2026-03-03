@@ -156,7 +156,6 @@ class QtBase(QtPackage):
 
     provides("qmake")
 
-    license("BSD-3-Clause")
 
     version("6.10.1", sha256="088c248d7dfbcba1e60fc4fa7a46406c6c638687cd3dbd412cdd13fc21198df9")
     version("6.10.0", sha256="6bc0cab63e70ef9634825de47790409079e00da77bad18d036b7ab83c5618346")

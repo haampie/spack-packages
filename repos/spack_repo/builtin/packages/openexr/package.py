@@ -14,7 +14,6 @@ class Openexr(CMakePackage, AutotoolsPackage):
     homepage = "https://www.openexr.com/"
     url = "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.1.5.tar.gz"
 
-    license("BSD-3-Clause")
 
     # New versions should come from github now
     version("3.3.1", sha256="58aad2b32c047070a52f1205b309bdae007442e0f983120e4ff57551eb6f10f1")

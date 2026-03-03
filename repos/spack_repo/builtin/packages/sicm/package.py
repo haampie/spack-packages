@@ -15,7 +15,6 @@ class Sicm(CMakePackage):
 
     tags = ["e4s"]
 
-    license("BSD-2-Clause")
 
     version("master")
 

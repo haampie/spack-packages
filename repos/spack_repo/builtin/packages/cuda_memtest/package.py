@@ -21,7 +21,6 @@ class CudaMemtest(CMakePackage):
 
     maintainers("ax3l")
 
-    license("Unlicense")
 
     version("master", branch="dev")
 

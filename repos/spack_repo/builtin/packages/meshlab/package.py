@@ -16,7 +16,6 @@ class Meshlab(CMakePackage):
 
     maintainers("wdconinc")
 
-    license("GPL-3.0", checked_by="wdconinc")
 
     version("main", branch="main", submodules=True)
     version("2025.07", commit="dc48b91ae562756a6988048c5d5c7f1d2b687256", submodules=True)

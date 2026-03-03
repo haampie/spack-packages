@@ -16,7 +16,6 @@ class Boringssl(CMakePackage):
 
     maintainers("ta7mid")
 
-    license("Apache-2.0", checked_by="ta7mid")
 
     version("main", branch="main")
 

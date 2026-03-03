@@ -47,7 +47,6 @@ class Mfem(Package, CudaPackage, ROCmPackage):
     # If this quick verification procedure fails, additional discussion
     # will be required to verify the new version.
 
-    license("BSD-3-Clause")
 
     # 'develop' is a special version that is always larger (or newer) than any
     # other version.

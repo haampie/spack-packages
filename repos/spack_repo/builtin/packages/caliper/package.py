@@ -35,7 +35,6 @@ class Caliper(CachedCMakePackage, CudaPackage, ROCmPackage):
 
     test_requires_compiler = True
 
-    license("BSD-3-Clause")
 
     version("master", branch="master")
     version("2.14.0", sha256="b42c35dfbe485960dd326033893dae37ac00d9807c5c3e6b5b1f396bc4af273f")

@@ -18,7 +18,6 @@ class Zerosum(CMakePackage):
 
     maintainers("khuck", "wspear", "sameershende")
 
-    license("MIT", checked_by="khuck")
 
     version("main", branch="main")
 

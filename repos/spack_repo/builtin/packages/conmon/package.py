@@ -16,7 +16,6 @@ class Conmon(MakefilePackage):
 
     maintainers("bernhardkaindl")
 
-    license("Apache-2.0")
 
     sanity_check_is_file = ["bin/conmon"]
 

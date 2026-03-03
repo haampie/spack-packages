@@ -272,7 +272,6 @@ class Openfoam(Package):
     list_url = "https://sourceforge.net/projects/openfoam/files/"
     list_depth = 2
 
-    license("GPL-3.0-or-later")
 
     version("develop", branch="develop", submodules=True)
     version("master", branch="master", submodules=True)

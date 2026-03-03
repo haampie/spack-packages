@@ -15,7 +15,6 @@ class Bwa(Package):
     homepage = "https://github.com/lh3/bwa"
     url = "https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2"
 
-    license("GPL-3.0-only")
 
     version(
         "0.7.19",

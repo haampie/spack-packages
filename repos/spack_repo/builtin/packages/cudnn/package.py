@@ -352,7 +352,6 @@ class Cudnn(Package):
 
     skip_version_audit = ["platform=darwin", "platform=windows"]
 
-    license("MIT")
 
     for ver, packages in _versions.items():
         key = "{0}-{1}".format(platform.system(), platform.machine())

@@ -61,7 +61,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     maintainers("danlipsa", "vicentebolea", "kwryankrattiger")
     tags = ["e4s"]
 
-    license("Apache-2.0")
 
     version("master", branch="master", submodules=True)
     version(

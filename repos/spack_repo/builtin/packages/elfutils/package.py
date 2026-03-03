@@ -26,7 +26,6 @@ class Elfutils(AutotoolsPackage, SourcewarePackage):
 
     maintainers("mwkrentel")
 
-    license("GPL-3.0-or-later AND ( GPL-2.0-or-later OR LGPL-3.0-or-later )")
 
     version("0.194", sha256="09e2ff033d39baa8b388a2d7fbc5390bfde99ae3b7c67c7daaf7433fbcf0f01e")
     version("0.193", sha256="7857f44b624f4d8d421df851aaae7b1402cfe6bcdd2d8049f15fc07d3dde7635")

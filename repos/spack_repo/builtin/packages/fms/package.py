@@ -17,7 +17,6 @@ class Fms(CMakePackage):
     url = "https://github.com/NOAA-GFDL/FMS/archive/refs/tags/2022.04.tar.gz"
     git = "https://github.com/NOAA-GFDL/FMS.git"
 
-    license("LGPL-3.0-or-later")
 
     maintainers("AlexanderRichert-NOAA", "Hang-Lei-NOAA", "edwardhartnett", "rem1776", "climbfuji")
     version("2025.03", sha256="17bdbac86bd3b1e5c1c3a5496c1495e8badcd5f671c659b17921532c990f014c")

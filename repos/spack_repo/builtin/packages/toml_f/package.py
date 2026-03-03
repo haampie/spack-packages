@@ -18,7 +18,6 @@ class TomlF(MesonPackage, CMakePackage):
 
     maintainers("awvwgk", "mtaillefumier")
 
-    license("Apache-2.0")
 
     build_system("cmake", "meson", default="meson")
 

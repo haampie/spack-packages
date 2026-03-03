@@ -16,7 +16,6 @@ class Orthofiller(Package):
     homepage = "https://github.com/mpdunne/orthofiller/"
     url = "https://github.com/mpdunne/orthofiller/archive/1.1.4.tar.gz"
 
-    license("GPL-3.0-only")
 
     version("1.1.4", sha256="a693a3372a3f05041ce30cbf84da1be88e85eae4effe32dbd7809ccef119a295")
 

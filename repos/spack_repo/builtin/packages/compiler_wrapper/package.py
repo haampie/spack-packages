@@ -35,7 +35,6 @@ class CompilerWrapper(Package):
 
     maintainers("haampie")
 
-    license("Apache-2.0 OR MIT")
 
     if sys.platform != "win32":
         version(

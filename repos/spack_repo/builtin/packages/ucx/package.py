@@ -19,7 +19,6 @@ class Ucx(AutotoolsPackage, CudaPackage):
 
     maintainers("hppritcha")
 
-    license("BSD-3-Clause")
 
     version("master", branch="master", submodules=True)
 

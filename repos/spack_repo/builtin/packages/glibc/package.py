@@ -23,7 +23,6 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     build_directory = "build"
     tags = ["runtime"]
 
-    license("LGPL-2.1-or-later")
 
     provides("libc")
     provides("iconv")

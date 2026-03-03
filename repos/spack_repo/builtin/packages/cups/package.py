@@ -19,7 +19,6 @@ class Cups(AutotoolsPackage):
         "https://github.com/OpenPrinting/cups/releases/download/v2.4.10/cups-2.4.10-source.tar.gz"
     )
 
-    license("Apache-2.0", checked_by="wdconinc")
 
     version("2.4.11", sha256="9a88fe1da3a29a917c3fc67ce6eb3178399d68e1a548c6d86c70d9b13651fd71")
     version("2.4.10", sha256="d75757c2bc0f7a28b02ee4d52ca9e4b1aa1ba2affe16b985854f5336940e5ad7")

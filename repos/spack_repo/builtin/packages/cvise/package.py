@@ -15,7 +15,6 @@ class Cvise(CMakePackage):
     url = "https://github.com/marxin/cvise"
     git = "https://github.com/marxin/cvise.git"
 
-    license("NCSA")
 
     version("master", branch="master")
     version("2.10.0", tag="v2.10.0", commit="c8606497e354ddab273745cf823823bdd3e86bd8")

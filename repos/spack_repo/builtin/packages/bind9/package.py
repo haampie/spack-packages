@@ -17,7 +17,6 @@ class Bind9(AutotoolsPackage):
     list_url = "https://downloads.isc.org/isc/bind9/"
     git = "https://gitlab.isc.org/isc-projects/bind9"
 
-    license("MPL-2.0", checked_by="wdconinc")
 
     # Only even minor releases are stable
     version("9.20.0", sha256="cc580998017b51f273964058e8cb3aa5482bc785243dea71e5556ec565a13347")

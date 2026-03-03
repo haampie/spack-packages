@@ -22,7 +22,6 @@ class Binder(CMakePackage):
 
     maintainers("lyskov", "kliegeois")
 
-    license("MIT")
 
     version("master", branch="master")
     version("1.4.2", tag="v1.4.2", commit="b9f309e0513e745a7465571321e87595fa33d195")

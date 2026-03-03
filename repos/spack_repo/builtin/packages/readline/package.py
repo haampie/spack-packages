@@ -20,7 +20,6 @@ class Readline(AutotoolsPackage, GNUMirrorPackage):
     # URL must remain http:// so Spack can bootstrap curl
     gnu_mirror_path = "readline/readline-8.0.tar.gz"
 
-    license("GPL-3.0-or-later")
 
     version("8.3", sha256="fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc")
     version("8.2", sha256="3feb7171f16a84ee82ca18a36d7b9be109a52c04f492a053331d7d1095007c35")

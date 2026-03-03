@@ -16,7 +16,6 @@ class AutodockVina(MakefilePackage):
     homepage = "http://vina.scripps.edu/"
     url = "https://github.com/ccsb-scripps/AutoDock-Vina/archive/refs/tags/v1.2.3.tar.gz"
 
-    license("Apache-2.0")
 
     version("1.2.6", sha256="9a3b888feaab511e3188b012bde1d41be0d72b54aa9516465b383f31dc394743")
     version("1.2.3", sha256="22f85b2e770b6acc363429153b9551f56e0a0d88d25f747a40d2f55a263608e0")

@@ -15,7 +15,6 @@ class Cgdb(AutotoolsPackage):
     url = "https://cgdb.me/files/cgdb-0.7.1.tar.gz"
     git = "https://github.com/cgdb/cgdb.git"
 
-    license("GPL-2.0-or-later")
 
     version("master", branch="master", submodules=False, preferred=True)
     version("0.7.1", sha256="bb723be58ec68cb59a598b8e24a31d10ef31e0e9c277a4de07b2f457fe7de198")

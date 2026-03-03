@@ -13,7 +13,6 @@ class ParquetFormat(MavenPackage):
     homepage = "https://github.com/apache/parquet-format/"
     url = "https://github.com/apache/parquet-format/archive/apache-parquet-format-2.8.0.tar.gz"
 
-    license("Apache-2.0")
 
     version("2.11.0", sha256="ed7f5a91db0567a221bc5b61624589b8b7f816588ee4b15a34d7a99b9bec7e7c")
     version("2.8.0", sha256="345c044cea73997162e0c38ae830509ee424faf49c90974e4f244079a3df01b0")

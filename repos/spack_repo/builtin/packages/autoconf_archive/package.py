@@ -15,7 +15,6 @@ class AutoconfArchive(AutotoolsPackage, GNUMirrorPackage):
     homepage = "https://www.gnu.org/software/autoconf-archive/"
     gnu_mirror_path = "autoconf-archive/autoconf-archive-2019.01.06.tar.xz"
 
-    license("GPL-3.0-or-later")
 
     version(
         "2024.10.16", sha256="7bcd5d001916f3a50ed7436f4f700e3d2b1bade3ed803219c592d62502a57363"

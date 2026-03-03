@@ -13,7 +13,6 @@ class Ncompress(MakefilePackage):
     homepage = "https://vapier.github.io/ncompress/"
     url = "https://github.com/vapier/ncompress/archive/v4.2.4.6.tar.gz"
 
-    license("Unlicense")
 
     version("5.0", sha256="96ec931d06ab827fccad377839bfb91955274568392ddecf809e443443aead46")
     version("4.2.4.6", sha256="112acfc76382e7b631d6cfc8e6ff9c8fd5b3677e5d49d3d9f1657bc15ad13d13")

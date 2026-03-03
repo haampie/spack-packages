@@ -17,7 +17,6 @@ class Glm(CMakePackage):
     git = "https://github.com/g-truc/glm.git"
     tags = ["windows"]
 
-    license("MIT")
 
     version("develop", branch="master")
     version("1.0.1", sha256="9f3174561fd26904b23f0db5e560971cbf9b3cbda0b280f04d5c379d03bf234c")

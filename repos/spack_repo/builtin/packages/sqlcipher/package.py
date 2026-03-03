@@ -17,7 +17,6 @@ class Sqlcipher(AutotoolsPackage):
 
     maintainers("rmsds")
 
-    license("BSD-3-Clause")
 
     version("4.6.1", sha256="d8f9afcbc2f4b55e316ca4ada4425daf3d0b4aab25f45e11a802ae422b9f53a3")
 

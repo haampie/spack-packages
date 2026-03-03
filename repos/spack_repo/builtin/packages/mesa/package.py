@@ -19,7 +19,6 @@ class Mesa(MesonPackage):
     git = "https://gitlab.freedesktop.org/mesa/mesa.git"
     url = "https://archive.mesa3d.org/mesa-20.2.1.tar.xz"
 
-    license("MIT AND SGI-B-2.0 AND BSL-1.0")
 
     version("main", branch="main")
     version(

@@ -27,7 +27,6 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
 
     tags = ["e4s"]
 
-    license("Apache-2.0")
 
     version("master", branch="master")
     version(

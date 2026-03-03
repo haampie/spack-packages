@@ -18,7 +18,6 @@ class Osqp(CMakePackage):
     homepage = "https://osqp.org"
     git = "https://github.com/oxfordcontrol/osqp.git"
 
-    license("Apache-2.0")
 
     version("master", branch="master", submodules=True)
     version("0.6.0", commit="0baddd36bd57ec1cace0a52c6dd9663e8f16df0a", submodules=True)

@@ -16,7 +16,6 @@ class Asagi(CMakePackage):
     homepage = "https://github.com/TUM-I5/ASAGI"
     git = "https://github.com/TUM-I5/ASAGI.git"
 
-    license("LGPL-3.0-only")
 
     # fetching the package via git with submodules
     # is preferred to satisfy internal-dependencies

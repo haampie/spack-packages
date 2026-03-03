@@ -18,7 +18,6 @@ class Gnina(CMakePackage, CudaPackage):
 
     maintainers("RMeli")
 
-    license("Apache-2.0")
 
     version("master", branch="master")
     version("1.3", sha256="79630705190576669c9613cc3e1e63f1122cba4e363e73c3a0bd7e21f76f443f")

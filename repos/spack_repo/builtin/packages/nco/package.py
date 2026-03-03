@@ -18,7 +18,6 @@ class Nco(AutotoolsPackage):
 
     tags = ["e4s"]
 
-    license("BSD-3-Clause")
 
     version("5.3.4", sha256="265059157ab4e64e73b6aad96da1e09427ba8a03ed3e2348d0a5deb57cf76006")
     version("5.3.3", sha256="f9185e115e246fe884dcae0804146b56df7257f53de7ba190fea66977ccd5a64")

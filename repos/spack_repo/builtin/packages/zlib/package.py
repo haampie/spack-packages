@@ -46,7 +46,6 @@ class Zlib(MakefilePackage, Package):
 
     provides("zlib-api")
 
-    license("Zlib")
 
     @classmethod
     def determine_version(cls, lib):

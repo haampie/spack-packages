@@ -23,7 +23,6 @@ class Additivefoam(Package):
 
     tags = ["ecp"]
 
-    license("GPL-3.0-only")
 
     version("main", branch="main")
     version("1.1.0", sha256="a13770bd66fe10224705fb3a2bfb557e63e0aea98c917b0084cf8b91eaa53ee2")

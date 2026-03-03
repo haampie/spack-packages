@@ -16,7 +16,6 @@ class Zpp(PythonPackage):
     homepage = "https://github.com/jbigot/zpp"
     pypi = "zpp/zpp-1.0.16.tar.gz"
 
-    license("BSD-3-Clause")
 
     maintainers("jbigot")
 

@@ -21,7 +21,6 @@ class Zoltan(AutotoolsPackage):
     homepage = "https://sandialabs.github.io/Zoltan/"
     url = "https://github.com/sandialabs/Zoltan/archive/v3.83.tar.gz"
 
-    license("Unlicense")
 
     maintainers("tukss")
 

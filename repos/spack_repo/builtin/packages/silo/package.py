@@ -19,7 +19,6 @@ class Silo(autotools.AutotoolsPackage, cmake.CMakePackage):
     # Base license is BSD; fpzip and hzip variants change effective licensing.
     # Versions of both hzip and fpzip built into silo are NOT BSD licensed.
     # Newer versions of fpzip are BSD licensed but not version 1.0.2 in Silo.
-    license("BSD-3-Clause", when="license=bsdonly")
 
     version("main", branch="main")
     version("4.12RC", branch="4.12RC")

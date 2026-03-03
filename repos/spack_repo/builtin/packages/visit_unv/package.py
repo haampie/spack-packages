@@ -20,7 +20,6 @@ class VisitUnv(CMakePackage):
 
     maintainers("cyrush", "cessenat")
 
-    license("BSD-3-Clause")
 
     # Here we provide a local file that contains only the plugin in a flat directory
     version("local", url="file://{0}/visit-unv.tgz".format(os.getcwd()))

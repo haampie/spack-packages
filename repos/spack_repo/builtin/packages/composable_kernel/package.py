@@ -18,7 +18,6 @@ class ComposableKernel(CMakePackage):
 
     tags = ["rocm"]
     maintainers("srekolam", "afzpatel")
-    license("MIT")
 
     def url_for_version(self, version):
         if version <= Version("7.1.1"):

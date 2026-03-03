@@ -22,7 +22,6 @@ class CommonsLogging(Package):
     homepage = "https://commons.apache.org/proper/commons-logging/"
     url = "https://archive.apache.org/dist/commons/logging/binaries/commons-logging-1.2-bin.tar.gz"
 
-    license("Apache-2.0")
 
     version("1.3.0", sha256="8a3ea33a2d58fe243ff47b78d672ad98e7590af7f436636c7851b1069caad5f8")
     version("1.2", sha256="3f758805c7290d9c6d22d1451587c9f7232744aef4c984e88aa683cdea0587bd")

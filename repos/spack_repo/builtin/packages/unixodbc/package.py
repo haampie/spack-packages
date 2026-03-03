@@ -15,7 +15,6 @@ class Unixodbc(AutotoolsPackage):
     homepage = "https://www.unixodbc.org/"
     url = "https://www.unixodbc.org/unixODBC-2.3.4.tar.gz"
 
-    license("LGPL-2.0-or-later")
 
     version("2.3.12", sha256="f210501445ce21bf607ba51ef8c125e10e22dffdffec377646462df5f01915ec")
     version("2.3.4", sha256="2e1509a96bb18d248bf08ead0d74804957304ff7c6f8b2e5965309c632421e39")

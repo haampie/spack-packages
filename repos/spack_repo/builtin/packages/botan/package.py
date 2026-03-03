@@ -15,7 +15,6 @@ class Botan(MakefilePackage):
 
     maintainers("aumuell")
 
-    license("BSD-2-Clause")
 
     version("3.4.0", sha256="71843afcc0a2c585f8f33fa304f0b58ae4b9c5d8306f894667b3746044277557")
     version("3.3.0", sha256="368f11f426f1205aedb9e9e32368a16535dc11bd60351066e6f6664ec36b85b9")

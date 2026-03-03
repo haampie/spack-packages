@@ -16,7 +16,6 @@ class Mpidiff(CMakePackage):
 
     maintainers("adayton1")
 
-    license("BSD-3-Clause", checked_by="alecbcs")
 
     version("0.2.0", sha256="726b59fe4af0bb0812fc34c456cb0d801e03313a8fdfb9dc63d23a9b316b6118")
 

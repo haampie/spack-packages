@@ -18,7 +18,6 @@ class Pkgconf(AutotoolsPackage):
     url = "https://distfiles.ariadne.space/pkgconf/pkgconf-1.6.3.tar.xz"
     tags = ["build-tools"]
 
-    license("ISC")
 
     version("2.5.1", sha256="cd05c9589b9f86ecf044c10a2269822bc9eb001eced2582cfffd658b0a50c243")
     version("2.3.0", sha256="3a9080ac51d03615e7c1910a0a2a8df08424892b5f13b0628a204d3fcce0ea8b")

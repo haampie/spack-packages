@@ -14,7 +14,6 @@ class Cmaq(Package):
     homepage = "https://www.epa.gov/CMAQ"
     url = "https://github.com/USEPA/CMAQ/archive/CMAQv5.3.1_19Dec2019.tar.gz"
 
-    license("CC0-1.0")
 
     version(
         "5.3.1",

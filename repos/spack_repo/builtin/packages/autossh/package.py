@@ -14,7 +14,6 @@ class Autossh(AutotoolsPackage):
     homepage = "https://www.harding.motd.ca/autossh/"
     url = "https://www.harding.motd.ca/autossh/autossh-1.4g.tgz"
 
-    license("custom")
 
     version("1.4g", sha256="5fc3cee3361ca1615af862364c480593171d0c54ec156de79fc421e31ae21277")
 

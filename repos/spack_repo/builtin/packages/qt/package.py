@@ -30,7 +30,6 @@ class Qt(Package):
 
     phases = ["configure", "build", "install"]
 
-    license("LGPL-3.0-only")
 
     version("5.15.17", sha256="85eb566333d6ba59be3a97c9445a6e52f2af1b52fc3c54b8a2e7f9ea040a7de4")
     version("5.15.16", sha256="efa99827027782974356aceff8a52bd3d2a8a93a54dd0db4cca41b5e35f1041c")

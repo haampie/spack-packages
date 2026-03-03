@@ -45,7 +45,6 @@ class Cusolvermp(Package, CudaPackage):
     maintainers("albestro")
 
     # https://docs.nvidia.com/cuda/cusolvermp/license.html
-    license("NVIDIA Software License Agreement")
 
     for ver, packages in _versions.items():
         package = packages.get(f"{platform.system()}-{platform.machine()}")

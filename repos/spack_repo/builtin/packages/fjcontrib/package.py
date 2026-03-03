@@ -15,7 +15,6 @@ class Fjcontrib(AutotoolsPackage):
 
     tags = ["hep"]
 
-    license("GPL-2.0-or-later")
 
     version("1.101", sha256="dbe8ad2199f72d64dd29f6218f6f53efddc8fb3e5dd9c5d10f2fd1e23d6e44f6")
     version("1.100", sha256="52ad945d9195c40f347958dc04041e41c7130e845ebdf0c13f1bbdd5b6d2429b")

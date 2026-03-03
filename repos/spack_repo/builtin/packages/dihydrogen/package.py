@@ -60,7 +60,6 @@ class Dihydrogen(CachedCMakePackage, CudaPackage, ROCmPackage):
 
     maintainers("benson31", "bvanessen")
 
-    license("Apache-2.0")
 
     version("develop", branch="develop")
     version("master", branch="master")

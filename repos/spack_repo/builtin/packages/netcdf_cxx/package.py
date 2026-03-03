@@ -18,7 +18,6 @@ class NetcdfCxx(AutotoolsPackage):
 
     maintainers("climbfuji")
 
-    license("NetCDF")
 
     version("4.2", sha256="95ed6ab49a0ee001255eac4e44aacb5ca4ea96ba850c08337a3e4c9a0872ccd1")
 

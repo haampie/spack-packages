@@ -15,7 +15,6 @@ class Filo(CMakePackage):
 
     tags = ["ecp"]
 
-    license("MIT")
 
     version("main", branch="main")
 

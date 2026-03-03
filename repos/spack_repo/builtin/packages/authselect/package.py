@@ -13,7 +13,6 @@ class Authselect(AutotoolsPackage):
     homepage = "https://github.com/authselect/authselect"
     url = "https://github.com/authselect/authselect/archive/1.2.1.tar.gz"
 
-    license("GPL-3.0-or-later")
 
     version("1.2.1", sha256="6f58c36d8b405da836dc9d1f44c1a22660c60f9e7ece327138d1b2492cb57749")
     version("1.2", sha256="c354c87a0115612cb51b09b5157f151569e16384cdd69f32b8515209036531b4")

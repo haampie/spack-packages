@@ -13,7 +13,6 @@ class Signify(MakefilePackage):
     homepage = "https://github.com/aperezdc/signify"
     url = "https://github.com/aperezdc/signify/archive/v23.tar.gz"
 
-    license("ISC")
 
     version("32", sha256="48cfd7bfe55be01909b37e78045f240b950ea51c954bab205bcdcddc0492dca4")
     version("31", sha256="8111af7424f4cc69dab5cd43a14ccd607ca2d171ac77dd3ae288264a53254e5f")

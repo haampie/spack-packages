@@ -27,7 +27,6 @@ class Rocalution(CMakePackage):
     maintainers("cgmb", "srekolam", "renjithravindrankannath", "afzpatel")
     libraries = ["librocalution"]
 
-    license("MIT")
 
     version("7.2.0", sha256="15cf2f3cded70c300a2b5ee2af5b887397640ece922b4e384daef26e3ef65656")
     version("7.1.1", sha256="354c892f1e6964977631c681876dbb45a96d4ed07a103403232ca5ec7c85a3cf")

@@ -23,7 +23,6 @@ class Ghost(CMakePackage, CudaPackage):
 
     maintainers("jthies")
 
-    license("BSD-3-Clause")
 
     version("develop", branch="devel")
 

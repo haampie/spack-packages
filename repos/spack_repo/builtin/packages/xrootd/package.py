@@ -22,7 +22,6 @@ class Xrootd(CMakePackage):
 
     maintainers("gartung", "greenc-FNAL", "marcmengel", "vitodb", "wdconinc")
 
-    license("LGPL-3.0-only")
 
     version("5.9.1", sha256="39946509a50e790ab3fcc77ba0f4c9b66abef221262756aa8bb2494f00a0e321")
     version("5.8.4", sha256="d8716bf764a7e8103aab83fbf4906ea2cc157646b1a633d99f91edbf204ff632")

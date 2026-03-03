@@ -14,7 +14,6 @@ class QtDeclarative(QtPackage):
     url = QtPackage.get_url(__qualname__)
     list_url = QtPackage.get_list_url(__qualname__)
 
-    license("BSD-3-Clause")
 
     version("6.10.1", sha256="2df250e9245e3af7e72e955948810017adb21911f993c86d78b3e3b6b33e23d4")
     version("6.10.0", sha256="d5dcb10bd3152cfc616afababaa2cd7ea21119bdd03239700d37690c0db8211e")

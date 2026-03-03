@@ -13,7 +13,6 @@ class Ziatest(MakefilePackage):
     git = "https://gitlab.com/NERSC/N10-benchmarks/ziatest"
     maintainers("giordano")
 
-    license("custom")
 
     executables = ["^ziatest$", "^ziaprobe$"]
 

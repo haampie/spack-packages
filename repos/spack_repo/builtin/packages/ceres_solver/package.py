@@ -18,7 +18,6 @@ class CeresSolver(CMakePackage):
     homepage = "http://ceres-solver.org"
     url = "http://ceres-solver.org/ceres-solver-1.12.0.tar.gz"
 
-    license("Apache-2.0")
 
     version("2.2.0", sha256="48b2302a7986ece172898477c3bcd6deb8fb5cf19b3327bc49969aad4cede82d")
     version("2.0.0", sha256="10298a1d75ca884aa0507d1abb0e0f04800a92871cd400d4c361b56a777a7603")

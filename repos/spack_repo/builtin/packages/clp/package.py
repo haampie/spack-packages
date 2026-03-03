@@ -14,7 +14,6 @@ class Clp(AutotoolsPackage):
     homepage = "https://projects.coin-or.org/Clp"
     url = "https://github.com/coin-or/Clp/archive/releases/1.17.6.tar.gz"
 
-    license("EPL-2.0")
 
     version("1.17.9", sha256="b02109be54e2c9c6babc9480c242b2c3c7499368cfca8c0430f74782a694a49f")
     version("1.17.7", sha256="c4c2c0e014220ce8b6294f3be0f3a595a37bef58a14bf9bac406016e9e73b0f5")

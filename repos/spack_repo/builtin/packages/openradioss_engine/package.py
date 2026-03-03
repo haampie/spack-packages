@@ -23,7 +23,6 @@ class OpenradiossEngine(CMakePackage):
     homepage = "https://www.openradioss.org/"
     git = "https://github.com/OpenRadioss/OpenRadioss.git"
 
-    license("AGPL-3.0-or-later")
 
     maintainers("kjrstory")
     version("main", branch="main")

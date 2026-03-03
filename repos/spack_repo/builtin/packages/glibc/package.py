@@ -18,11 +18,3 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     # Fix for newer GCC, related to -fno-common
     # _obstack_compat symbol is not initialized
     # docs: install fails with "unknown command hsep / vsep"
-    # rpc/types.h include issue, should be from local version, not system.
-    # Avoid linking libgcc_eh
-    # Use init_array (modified commit 4a531bb to unconditionally define
-    # NO_CTORS_DTORS_SECTIONS)
-    # make: mixed implicit and static pattern rules (trivial issue in docs)
-    # linker flag output regex
-    # Use AT_RANDOM provided by the kernel instead of /dev/urandom;
-    # recent gcc + binutils have issues with the inline assembly in

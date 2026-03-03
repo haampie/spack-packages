@@ -18,9 +18,3 @@ class Gmake(Package, GNUMirrorPackage):
     with when("+guile"):
         depends_on("guile@:2.0", when="@:4.2")
         depends_on("guile@:3.0")
-        depends_on("pkgconfig", type="build")
-    # Avoid symlinking GNUMakefile to GNUMakefile
-    build_directory = "spack-build"
-    # See https://savannah.gnu.org/bugs/?57962
-    tags = ["build-tools"]
-    executables = ["^make$"]

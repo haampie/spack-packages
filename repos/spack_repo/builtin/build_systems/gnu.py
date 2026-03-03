@@ -8,10 +8,3 @@ class GNUMirrorPackage(PackageBase):
     #: Path of the package in a GNU mirror
     gnu_mirror_path: Optional[str] = None
     #: List of GNU mirrors used by Spack
-    base_mirrors = [
-        "https://ftpmirror.gnu.org/",
-        "https://ftp.gnu.org/gnu/",
-        # Fall back to http if https didn't work (for instance because
-        # Spack is bootstrapping curl)
-        "http://ftpmirror.gnu.org/",
-    ]

@@ -28,16 +28,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # Deprecated older non-final releases
     with default_args(deprecated=True):
         version("4.8.4", sha256="4a80aa23798b8e9b5793494b8c976b39b8d9aa2e53cd5ed5534aff662a7f8695")
-    # In that respect, the name 'all' is rather misleading.
-    # (ii) Languages other than c,c++,fortran are prone to configure bug in GCC
-    # For example, 'java' appears to ignore custom location of zlib
-    # (iii) meaning of 'all' changes with GCC version, i.e. 'java' is not part
-    # of gcc7. Correctly specifying conflicts() and depends_on() in such a
-    # case is a PITA.
-    #
-    # Also note that some languages get enabled by the configure scripts even if not listed in the
-    # arguments. For example, c++ is enabled when the bootstrapping is enabled and lto is enabled
-    # when the link time optimization support is enabled.
     variant(
         "languages",
         default="c,c++,fortran",

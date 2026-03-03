@@ -18,16 +18,6 @@ class CudaPackage(PackageBase):
         "12",
         "13",
         "20",
-        "21",
-        "30",
-        "32",
-        "35",
-        "37",
-        "50",
-        "52",
-        "53",
-        "121",
-        "121a",
         "121f",
     )
     # FIXME: keep cuda and cuda_arch separate to make usage easier until

@@ -8,16 +8,6 @@ from spack_repo.builtin.build_systems.generic import Package
 from spack.package import *
 class CompilerWrapper(Package):
     """Spack compiler wrapper script.
-    Compiler commands go through this compiler wrapper in Spack builds.
-    The compiler wrapper is a thin layer around the standard compilers.
-    It enables several key pieces of functionality:
-    1. It allows Spack to swap compilers into and out of builds easily.
-    2. It adds several options to the compile line so that spack
-       packages can find their dependencies at build time and run time:
-       -I and/or -isystem arguments for dependency /include directories.
-       -L                 arguments for dependency /lib directories.
-       -Wl,-rpath         arguments for dependency /lib directories.
-    3. It provides a mechanism to inject flags from specs
     """
     homepage = "https://github.com/spack/spack"
     url = f"file:///{pathlib.PurePath(__file__).parent}/cc.sh"

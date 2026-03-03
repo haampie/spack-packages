@@ -44,12 +44,8 @@ class Nek5000(Package):
     #       Spack installed/configured blas.
 
     # Dependencies
-    depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("mpi", when="+mpi")
 
-    depends_on("visit", when="+visit")
 
     patch("add_fjfortran.patch", when="%fj")
 

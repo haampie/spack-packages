@@ -22,12 +22,7 @@ class MpiRockstar(MakefilePackage):
 
     variant("hdf5", default=False, description="Enable HDF5 support")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("mpi")
-    depends_on("hdf5", when="+hdf5")
-    depends_on("libtirpc")
 
     build_directory = "src"
 

@@ -33,14 +33,8 @@ class Mpc(AutotoolsPackage, GNUMirrorPackage):
         description="Build shared libs, static libs or both",
     )
 
-    depends_on("c", type="build")  # generated
 
     # Could also be built against mpir instead
-    depends_on("gmp@4.3.2:")
-    depends_on("gmp@5.0.0:", when="@1.1.0:")
-    depends_on("mpfr@2.4.2:")
-    depends_on("mpfr@3.0.0:", when="@1.1.0:")
-    depends_on("mpfr@4.1.0:", when="@1.2.1:")
 
     def configure_args(self):
         spec = self.spec

@@ -28,16 +28,12 @@ class Mozjpeg(CMakePackage):
     variant("jpeg8", default=False, description="Emulate libjpeg v8 API/ABI")
     variant("png", default=False, description="Enable PNG support")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     # Can use either of these. But in the current version of the package
     # only nasm is used. In order to use yasm an environmental variable
     # NASM must be set.
     # TODO: Implement the selection between two supported assemblers.
     # depends_on("yasm", type="build")
-    depends_on("nasm", type="build")
-    depends_on("libpng@1.6:", when="+png")
 
     @property
     def libs(self):

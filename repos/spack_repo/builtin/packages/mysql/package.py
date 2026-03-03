@@ -33,49 +33,25 @@ class Mysql(CMakePackage):
 
     provides("mysql-client")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     # https://dev.mysql.com/doc/refman/8.0/en/source-installation.html
     # https://dev.mysql.com/doc/refman/8.0/en/source-configuration-options.html
 
     # See CMAKE_MINIMUM_REQUIRED in CMakeLists.txt
-    depends_on("cmake@3.8.0:", type="build", when="platform=win32")
-    depends_on("cmake@3.9.2:", type="build", when="platform=darwin")
-    depends_on("cmake@3.4.0:", type="build", when="platform=solaris")
-    depends_on("cmake@2.8.12:", type="build")
 
-    depends_on("gmake@3.75:", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("doxygen", type="build")
 
     # Each version of MySQL requires a specific version of boost
     # See BOOST_PACKAGE_NAME in cmake/boost.cmake
     # 8.0.35
-    depends_on("boost@1.77.0 cxxstd=17", type="build", when="@8.0.35 cxxstd=17")
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')
     # See https://github.com/spack/spack/pull/22303 for reference
-    depends_on(Boost.with_default_variants)
 
-    depends_on("openssl@3:")
     requires("cxxstd=17")
 
-    depends_on("zstd")
 
-    depends_on("patchelf", type="build")
-    depends_on("curl")
-    depends_on("zlib-api")
-    depends_on("libevent")
-    depends_on("lz4")
 
-    depends_on("rpcsvc-proto")
-    depends_on("ncurses")
-    depends_on("libtirpc", when="platform=linux")
-    depends_on("libedit", type=("build", "run"))
-    depends_on("bison@2.1:", type="build")
-    depends_on("m4", type="build", when="@develop platform=solaris")
 
     @property
     def command(self):

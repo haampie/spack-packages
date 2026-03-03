@@ -25,9 +25,6 @@ class MpiSyncClocks(AutotoolsPackage):
     version("master", branch="master")
     version("1.0", sha256="06c63adc2f3ae7d00e3bdbbe62ee6800660fde320a3d36a232799e015165a1ff")
 
-    depends_on("c", type="build")
-    depends_on("autoconf@2.69:", type="build")
-    depends_on("mpi", type=("build", "link", "run"))
 
     @property
     def configure_directory(self) -> str:

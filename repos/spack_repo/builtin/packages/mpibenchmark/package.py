@@ -37,13 +37,6 @@ class Mpibenchmark(AutotoolsPackage):
     variant("debug", default=False, description="Build in debug mode")
     variant("asan", default=False, description="Build with Address Sanitizer (ASAN)")
 
-    depends_on("c", type="build")
-    depends_on("autoconf@2.69:", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("gmake", type="build")
-    depends_on("hwloc")
-    depends_on("mpi", type=("build", "link", "run"))
-    depends_on("gnuplot+cairo", type=("build", "run"))
 
     build_directory = "build"
 

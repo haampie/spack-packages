@@ -132,27 +132,7 @@ class Mvapich2(MpichEnvironmentModifications, AutotoolsPackage):
         values=auto_or_any_combination_of("lustre", "gpfs", "nfs", "ufs"),
     )
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
-    depends_on("fortran", type="build")
 
-    depends_on("automake@1.15", type="build")  # needed for torque patch
-    depends_on("autoconf", type="build")
-    depends_on("findutils", type="build")
-    depends_on("bison", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("zlib-api")
-    depends_on("libpciaccess", when=(sys.platform != "darwin"))
-    depends_on("libxml2")
-    depends_on("psm", when="fabrics=psm")
-    depends_on("opa-psm2", when="fabrics=psm2")
-    depends_on("rdma-core", when="fabrics=mrail")
-    depends_on("rdma-core", when="fabrics=nemesisib")
-    depends_on("rdma-core", when="fabrics=nemesistcpib")
-    depends_on("rdma-core", when="fabrics=nemesisibtcp")
-    depends_on("libfabric", when="fabrics=nemesisofi")
-    depends_on("slurm", when="process_managers=slurm")
-    depends_on("pmix", when="pmi_version=pmix")
 
     # Fix segmentation fault in `MPIR_Attr_delete_list`:
     # <https://lists.osu.edu/pipermail/mvapich-discuss/2023-January/010695.html>.

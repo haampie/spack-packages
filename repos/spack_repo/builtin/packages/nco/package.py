@@ -74,19 +74,10 @@ class Nco(AutotoolsPackage):
     variant("doc", default=False, description="Build/install NCO TexInfo-based documentation")
     variant("openmp", default=True, description="Include OpenMP support")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     # See "Compilation Requirements" at:
     # http://nco.sourceforge.net/#bld
-    depends_on("netcdf-c")
-    depends_on("antlr@2.7.7+cxx")  # required for ncap2
-    depends_on("gsl")  # desirable for ncap2
-    depends_on("udunits")  # allows dimensional unit transformations
 
-    depends_on("flex", type="build")
-    depends_on("bison", type="build")
-    depends_on("texinfo@4.12:", type="build", when="+doc")
 
     conflicts("%gcc@9:", when="@:4.7.8")
 

@@ -57,10 +57,7 @@ class Ncurses(AutotoolsPackage, GNUMirrorPackage):
 
     conflicts("abi=6", when="@:5.9", msg="6 is not compatible with this release")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("pkgconfig", type="build")
 
     # avoid disallowed const_cast from T* to void* and use reinterpret_cast
     # Ref: https://lists.gnu.org/archive/html/bug-ncurses/2014-08/msg00008.html

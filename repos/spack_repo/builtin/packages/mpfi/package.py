@@ -26,13 +26,6 @@ class Mpfi(AutotoolsPackage):
         sha256="2383d457b208c6cd3cf2e66b69c4ce47477b2a0db31fbec0cd4b1ebaa247192f",
     )
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
-    depends_on("texinfo", type="build")
-    depends_on("gmp", type=("build", "link"))
-    depends_on("mpfr", type=("build", "link"))
 
     def configure_args(self):
         args = ["--with-gmp=" + self.spec["gmp"].prefix, "--with-mpfr=" + self.spec["mpfr"].prefix]

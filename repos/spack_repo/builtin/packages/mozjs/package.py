@@ -26,17 +26,7 @@ class Mozjs(AutotoolsPackage):
 
     conflicts("platform=darwin", msg="Darwin is not currently supported.")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("curl", type="build")
-    depends_on("llvm", type="build")
-    depends_on("python@:3.13", type="build")
-    depends_on("py-pip", type="build")
-    depends_on("rust", type="build")
-    depends_on("cbindgen@0.27:", type="build", when="@140:")
-    depends_on("cbindgen", type="build")
-    depends_on("zlib-api")
 
     configure_directory = "js/src"
     build_directory = "spack-build"

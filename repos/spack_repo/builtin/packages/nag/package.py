@@ -27,7 +27,6 @@ class Nag(Package, CompilerPackage):
     version("7.0.7048", sha256="6d509208533d79139e5a9f879b7b93e7b58372b78d404d51f35e491ecbaa54c7")
     version("6.2.6252", sha256="9b60f6ffa4f4be631079676963e74eea25e8824512e5c864eb06758b2a3cdd2d")
 
-    depends_on("gcc languages=c", type="run", when="platform=linux")
     provides("fortran")
 
     # Licensing

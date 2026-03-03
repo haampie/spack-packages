@@ -41,30 +41,11 @@ class Mxnet(CMakePackage, CudaPackage, PythonExtension):
     variant("mkldnn", default=False, description="Build with MKL-DNN support")
     variant("python", default=True, description="Install python bindings")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     generator("ninja")
-    depends_on("cmake@3.13:", type="build")
-    depends_on("pkgconfig", when="@1.6.0", type="build")
-    depends_on("blas")
-    depends_on("cuda", when="+cuda")
-    depends_on("cudnn", when="+cudnn")
-    depends_on("nccl", when="+nccl")
-    depends_on("opencv+highgui+imgproc+imgcodecs", when="+opencv")
-    depends_on("lapack", when="+lapack")
-    depends_on("onednn", when="+mkldnn")
 
     # python/setup.py
     extends("python", when="+python")
-    depends_on("py-pip", when="+python", type="build")
-    depends_on("py-wheel", when="+python", type="build")
-    depends_on("py-setuptools", when="+python", type="build")
-    depends_on("py-cython", when="+python", type="build")
-    depends_on("py-numpy@1.17:", when="@2.0.0:+python", type=("build", "run"))
-    depends_on("py-numpy@1.16.1:1", when="@1.6:1.8.0+python", type=("build", "run"))
-    depends_on("py-requests@2.20.0:2", when="@1.6:+python", type=("build", "run"))
-    depends_on("py-graphviz@0.8.1:0.8", when="+python", type=("build", "run"))
 
     conflicts("+cudnn", when="~cuda")
     conflicts("+nccl", when="~cuda")

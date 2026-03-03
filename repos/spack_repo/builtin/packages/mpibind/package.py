@@ -62,24 +62,16 @@ class Mpibind(AutotoolsPackage):
     depends_on("automake", type="build")
     depends_on("libtool", type="build")
     depends_on("m4", type="build")
-    depends_on("pkgconfig", type="build")
 
-    depends_on("hwloc@2:+libxml2", type="link")
-    depends_on("hwloc@2:+pci", type="link", when=(sys.platform != "darwin"))
 
-    depends_on("hwloc@2: +cuda +nvml", type="link", when="+cuda")
-    depends_on("hwloc@2.4: +rocm +opencl", type="link", when="@:0.19 +rocm")
-    depends_on("hwloc@2.4: +rocm", type="link", when="@0.20: +rocm")
 
     # Need mpibind v0.23+ and hwloc v2.12+ for NV Grace Hopper
-    depends_on("hwloc@2.12: +cuda +nvml", type="link", when="@0.23: +cuda target=neoverse_v2:")
     conflicts(
         "@:0.22 +cuda target=neoverse_v2:", msg="version 0.23+ is needed for NVIDIA Grace Hopper"
     )
 
     # flux-core >= 0.30.0 supports FLUX_SHELL_RC_PATH,
     # which is needed to load the plugin into Flux
-    depends_on("flux-core@0.30:", type="link", when="+flux")
 
     # The slurm spack package does not provide
     # slurm.pc (pkgconf). If mpibind can't find
@@ -91,8 +83,6 @@ class Mpibind(AutotoolsPackage):
     # depends_on("slurm", type="link",
     #            when="+slurm")
 
-    depends_on("python@3:", type=("build", "run"), when="+python")
-    depends_on("py-cffi", type=("build", "run"), when="+python")
 
     def autoreconf(self, spec, prefix):
         autoreconf("--install", "--verbose", "--force")

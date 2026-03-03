@@ -70,58 +70,28 @@ class Ncl(Package):
     # The following variant is typically set for little-endian targets
     variant("byteswapped", default=True, description="Use byteswapped mode for binary data.")
 
-    depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
     # Non-optional dependencies according to the manual:
-    depends_on("jpeg")
-    depends_on("netcdf-c")
-    depends_on("cairo+X+ft+pdf")
 
     # Extra dependencies that may be missing from build system:
-    depends_on("bison", type="build")
-    depends_on("flex+lex")
-    depends_on("iconv")
-    depends_on("tcsh")
-    depends_on("makedepend", type="build")
 
     # Also, the manual says that ncl requires zlib, but that comes as a
     # mandatory dependency of libpng, which is a mandatory dependency of cairo.
 
     # The following dependencies are required, otherwise several components
     # fail to compile:
-    depends_on("curl")
-    depends_on("iconv")
-    depends_on("libx11")
-    depends_on("libxaw")
-    depends_on("libxmu")
-    depends_on("pixman")
-    depends_on("bzip2")
-    depends_on("freetype")
-    depends_on("fontconfig")
-    depends_on("zstd")
 
     # In Spack, we do not have an option to compile netcdf-c without netcdf-4
     # support, so we will tell the ncl configuration script that we want
     # support for netcdf-4, but the script assumes that hdf5 is compiled with
     # szip support. We introduce this restriction with the following dependency
     # statement.
-    depends_on("hdf5+szip")
-    depends_on("szip")
 
     # ESMF is only required at runtime (for ESMF_regridding.ncl)
     # There might be more requirements to ESMF but at least the NetCDF support is required to run
     # the examples (see https://www.ncl.ucar.edu/Applications/ESMF.shtml)
-    depends_on("esmf+netcdf", type="run")
 
     # Some of the optional dependencies according to the manual:
-    depends_on("hdf", when="+hdf4")
-    depends_on("hdf-eos2", when="+hdf-eos2")
-    depends_on("hdf-eos5", when="+hdf-eos5")
-    depends_on("udunits", when="+udunits2")
-    depends_on("jasper@:2", when="+grib")
-    depends_on("gsl", when="+eemd")
-    depends_on("gmake", type="build")
 
     # We need src files of triangle to appear in ncl's src tree if we want
     # triangle's features.

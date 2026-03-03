@@ -29,9 +29,6 @@ class Mutationpp(CMakePackage):
     variant("data", default=True, description="Install default model data")
     variant("examples", default=True, description="Install examples")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
     def cmake_args(self):
         args = []

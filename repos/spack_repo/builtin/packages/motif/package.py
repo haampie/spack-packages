@@ -22,25 +22,9 @@ class Motif(AutotoolsPackage):
 
     version("2.3.8", sha256="859b723666eeac7df018209d66045c9853b50b4218cecadb794e2359619ebce7")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("flex")
-    depends_on("libx11")
-    depends_on("libxt")
-    depends_on("libxext")
-    depends_on("libxft")
-    depends_on("libxcomposite")
-    depends_on("libxfixes")
-    depends_on("xbitmaps")
-    depends_on("jpeg")
 
     # we need the following for autoreconf
-    depends_on("automake", type="build")
-    depends_on("autoconf", type="build")
-    depends_on("m4", type="build")
-    depends_on("libtool", type="build")
-    depends_on("pkgconfig", type="build")
 
     patch("add_xbitmaps_dependency.patch")
     # ensure tools/wml/wmluiltok.c has a main function

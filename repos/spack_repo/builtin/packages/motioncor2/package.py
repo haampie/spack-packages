@@ -24,10 +24,7 @@ class Motioncor2(Package):
     version("1.6.4", sha256="28bb3e6477abf34fe41a78bcb9da9d77d08e2e89ecd41240fab085a308e6c498")
     version("1.4.7", sha256="8c33969b10916835b55f14f3c370f67ebe5c4b2a9df9ec487c5251710f038e6b")
 
-    depends_on("patchelf", type="build")
 
-    depends_on("cuda@10.2,11.1:11.8,12.1", type="run")
-    depends_on("libtiff", type="run")
 
     def url_for_version(self, version):
         return "file://{0}/MotionCor2_{1}.zip".format(os.getcwd(), version)

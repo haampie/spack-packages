@@ -90,16 +90,6 @@ class MvapichPlus(Package, CudaPackage, ROCmPackage):
         values=auto_or_any_combination_of("lustre", "gpfs", "nfs", "ufs"),
     )
 
-    depends_on("zlib-api")
-    depends_on("rpm")
-    depends_on("libpciaccess", when=(sys.platform != "darwin"))
-    depends_on("libxml2")
-    depends_on("libfabric", when="netmod=ofi")
-    depends_on("slurm", when="process_managers=slurm")
-    depends_on("ucx", when="netmod=ucx")
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
-    depends_on("fortran", type="build")
     requires("%fortran=gcc", when="%c=gcc")
     requires("%fortran=clang", when="%c=clang")
     requires("%fortran=intel-oneapi-compilers", when="%c=intel-oneapi-compilers")

@@ -45,22 +45,6 @@ class Neko(AutotoolsPackage, CudaPackage, ROCmPackage):
         description="Builds a shared version of the library",
     )
 
-    depends_on("c", type="build")
-    depends_on("fortran", type="build")
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("parmetis", when="+parmetis")
-    depends_on("libxsmm", when="+xsmm")
-    depends_on("mpi")
-    depends_on("blas")
-    depends_on("lapack")
-    depends_on("json-fortran")
-    depends_on("gslib", when="+gslib")
-    depends_on("hdf5+fortran+mpi", when="+hdf5")
-    depends_on("libtool", type="build", when="@0.9.0:")
 
     def configure_args(self):
         args = []

@@ -57,11 +57,7 @@ class Nekrs(Package, CMakePackage, CudaPackage, ROCmPackage):
     # Dependencies
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("mpi")
-    depends_on("git")
-    depends_on("cmake")
 
     def patch(self):
         with working_dir("scripts"):

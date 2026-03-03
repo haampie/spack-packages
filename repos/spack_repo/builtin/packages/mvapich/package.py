@@ -85,19 +85,7 @@ class Mvapich(MpichEnvironmentModifications, AutotoolsPackage):
         values=auto_or_any_combination_of("lustre", "gpfs", "nfs", "ufs"),
     )
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
-    depends_on("fortran", type="build")
 
-    depends_on("findutils", type="build")
-    depends_on("bison", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("zlib-api")
-    depends_on("libpciaccess", when=(sys.platform != "darwin"))
-    depends_on("libxml2")
-    depends_on("libfabric", when="netmod=ofi")
-    depends_on("slurm", when="process_managers=slurm")
-    depends_on("ucx", when="netmod=ucx")
 
     filter_compiler_wrappers("mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin")
 

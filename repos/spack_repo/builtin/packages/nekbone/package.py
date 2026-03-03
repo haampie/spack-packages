@@ -32,10 +32,7 @@ class Nekbone(Package):
     variant("mpi", default=True, description="Build with MPI")
 
     # dependencies
-    depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("mpi", when="+mpi")
 
     def install(self, spec, prefix):
         mkdir(prefix.bin)

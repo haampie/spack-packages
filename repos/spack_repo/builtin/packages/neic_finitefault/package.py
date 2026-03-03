@@ -26,8 +26,6 @@ class NeicFinitefault(PythonPackage):
     version("20240410", commit="ef6a1a92d60549100885112e24a18e38d8d4ce0b")
     version("0.1.0", sha256="36b400dfc418bf78a3099f6fc308681c87ae320e6d71c7d0e98a2738e72fb570")
 
-    depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
     resource(
         name="fd_bank",
@@ -50,32 +48,11 @@ class NeicFinitefault(PythonPackage):
         when="@0.1.0:",
     )
 
-    depends_on("python@3.9:3.12", type=("build", "run"))
 
-    depends_on("py-poetry-core@1:", type="build")
 
-    depends_on("py-cartopy@0.21.1:0", type=("build", "run"))
-    depends_on("py-ipykernel@6.15:6", type=("build", "run"))
-    depends_on("py-matplotlib@3.8.3:3", type=("build", "run"))
-    depends_on("py-matplotlib@3.7.2:3", type=("build", "run"), when="@0.1.0")
-    depends_on("py-netcdf4@1.6.4:1~mpi", type=("build", "run"))
-    depends_on("py-numpy@1.25:1", type=("build", "run"))
-    depends_on("py-obspy@1.4:1", type=("build", "run"))
-    depends_on("py-pygmt@0.9:0.9", type=("build", "run"))
-    depends_on("py-pyproj@3.3:3", type=("build", "run"))
-    depends_on("py-scipy@1.11.1:1", type=("build", "run"))
-    depends_on("py-shapely@=1.7.1", type=("build", "run"))
-    depends_on("py-pyrocko@=2023.6.29", type=("build", "run"))
-    depends_on("py-typer@0.9", type=("build", "run"))
-    depends_on("py-okada-wrapper@=18.12.07.3", type=("build", "run"))
 
     # non python deps
-    depends_on("geos@=3.11.2", type=("build", "run"))
-    depends_on("gmt@=6.4.0", type=("build", "run"))
-    depends_on("proj@=9.2.0", type=("build", "run"))
     # not a direct dep, but we do need gdal to have these variants
-    depends_on("gdal+jpeg+jxl+openjpeg", type=("build", "run"))
-    depends_on("gmake", type="build")
 
     parallel = False
 

@@ -69,10 +69,6 @@ class CompilerPackage(PackageBase):
 
     implicit_rpath_libs: List[str] = []
 
-    def archspec_name(self) -> str:
-        """Name that archspec uses to refer to this compiler"""
-        return self.spec.name
-
     @property
     def cc(self) -> Optional[str]:
         assert self.spec.concrete, "cannot retrieve C compiler, spec is not concrete"

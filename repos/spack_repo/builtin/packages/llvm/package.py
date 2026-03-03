@@ -655,44 +655,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
                 # Newer LLVM versions have a simple script that sets up
                 # automatically when run with sudo priviliges
                 setup = Executable("./lldb/scripts/macos-setup-codesign.sh")
-                try:
-                    setup()
-                except Exception:
-                    raise RuntimeError(
-                        "spack was unable to either find or set up"
-                        "code-signing on your system. Please refer to"
-                        "https://lldb.llvm.org/resources/build.html#"
-                        "code-signing-on-macos for details on how to"
-                        "create this identity."
-                    )
-
-    def flag_handler(self, name, flags):
-        if name == "ldflags" and self.spec.satisfies("%intel"):
-            flags.append("-shared-intel")
-            return (None, flags, None)
-        return (flags, None, None)
-
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        """When using %clang, add only its ld.lld-$ver and/or ld.lld to our PATH"""
-        if self.compiler.name in ["clang", "apple-clang"]:
-            for lld in "ld.lld-{0}".format(self.compiler.version.version[0]), "ld.lld":
-                bin = os.path.join(os.path.dirname(self.compiler.cc), lld)
-                sym = os.path.join(self.stage.path, "ld.lld")
-                if os.path.exists(bin) and not os.path.exists(sym):
-                    mkdirp(self.stage.path)
-                    symlink(bin, sym)
-            env.prepend_path("PATH", self.stage.path)
-
-        if self.spec.satisfies("platform=darwin"):
-            # set the SDKROOT so the bootstrap compiler finds its C++ headers
-            env.set("SDKROOT", _macos_sdk_path())
-
-        if self.spec.satisfies("%intel-oneapi-compilers"):
-            intel_libs = find_libraries(
-                ["libsvml", "libimf", "libirc"], self.spec["intel-oneapi-runtime"].prefix.lib
-            )
-            env.append_flags("LDFLAGS", intel_libs.ld_flags)
-
     def setup_run_environment(self, env: EnvironmentModifications) -> None:
         if self.spec.satisfies("+clang"):
             env.set("CC", join_path(self.spec.prefix.bin, "clang"))

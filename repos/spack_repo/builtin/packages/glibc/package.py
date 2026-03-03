@@ -51,62 +51,6 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     # include_next <limits.h> not working
 
 
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        if self.spec.satisfies("@:2.21"):
-            env.append_flags("LDFLAGS", "-no-pie")
-        if self.spec.satisfies("@:2.16"):
-            # for some reason CPPFLAGS -U_FORTIFY_SOURCE is not enough, it has to be CFLAGS
-            env.append_flags("CPPFLAGS", "-U_FORTIFY_SOURCE")
-            env.append_flags("CFLAGS", "-O2 -g -fno-stack-protector -U_FORTIFY_SOURCE")
-        if self.spec.satisfies("@:2.9"):
-            # missing defines in elf.h after 965cb60.patch
-            env.append_flags("CFLAGS", "-DAT_BASE_PLATFORM=24 -DAT_RANDOM=25")
-        if self.spec.satisfies("@:2.6"):
-            # change of defaults in gcc 10
-            env.append_flags("CFLAGS", "-fcommon")
-        if self.spec.satisfies("@2.5"):
-            env.append_flags("CFLAGS", "-fgnu89-inline")
-
-    def patch(self):
-        # Support gmake >= 4
-        filter_file(
-            "    3.79* | 3.[89]*)",
-            "    3.79* | 3.[89]* |  [4-9].* | [1-9][0-9]*)",
-            "configure",
-            string=True,
-        )
-
-        # Suport gcc >= 5
-        filter_file(
-            "3.4* | 4.[0-9]* )",
-            "3.4* | 4.[0-9]* | [5-9].* | [1-9][0-9]*)",
-            "configure",
-            string=True,
-        )
-
-        # Support gcc >= 10
-        filter_file(
-            "4.[3-9].* | 4.[1-9][0-9].* | [5-9].* )",
-            "4.[3-9].* | 4.[1-9][0-9].* | [5-9].* | [1-9][0-9]*)",
-            "configure",
-            string=True,
-        )
-        filter_file(
-            "4.[4-9].* | 4.[1-9][0-9].* | [5-9].* )",
-            "4.[4-9].* | 4.[1-9][0-9].* | [5-9].* | [1-9][0-9]*)",
-            "configure",
-            string=True,
-        )
-
-        # Support binutils
-        filter_file(
-            "2.1[3-9]*)",
-            "2.1[3-9]*|2.1[0-9][0-9]*|2.[2-9][0-9]*|[3-9].*|[1-9][0-9]*)",
-            "configure",
-            string=True,
-        )
-
-
     # See 2d7ed98add14f75041499ac189696c9bd3d757fe
     # Since f2873d2da0ac9802e0b570e8e0b9e7e04a82bf55
 

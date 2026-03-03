@@ -699,37 +699,3 @@ def _libc_include_dir_from_startfile_prefix(
     """Heuristic to determine the glibc include directory from the startfile prefix. Replaces
     $libc_prefix/lib*/<multiarch> with $libc_prefix/include/<multiarch>. This function does not
     check if the include directory actually exists or is correct."""
-    parts = os.path.relpath(startfile_prefix, libc_prefix).split(os.path.sep)
-    if parts[0] not in ("lib", "lib64", "libx32", "lib32"):
-        return None
-    parts[0] = "include"
-    return os.path.join(libc_prefix, *parts)
-
-
-def _startfile_prefix(prefix: str, compatible_with: str = sys.executable) -> Optional[str]:
-    # Search for crt1.o at max depth 2 compatible with the ELF file provided in compatible_with.
-    # This is useful for finding external libc startfiles on a multiarch system.
-    try:
-        compat = get_elf_compat(compatible_with)
-        accept = lambda path: get_elf_compat(path) == compat
-    except Exception:
-        accept = lambda path: True
-
-    stack = [(0, prefix)]
-    while stack:
-        depth, path = stack.pop()
-        try:
-            iterator = os.scandir(path)
-        except OSError:
-            continue
-        with iterator:
-            for entry in iterator:
-                try:
-                    if entry.is_dir(follow_symlinks=True):
-                        if depth < 2:
-                            stack.append((depth + 1, entry.path))
-                    elif entry.name == "crt1.o" and accept(entry.path):
-                        return path
-                except Exception:
-                    continue
-    return None

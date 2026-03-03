@@ -50,44 +50,9 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
         when="@58.0:59",
     )
 
-    def url_for_version(self, version):
-        url = "https://github.com/unicode-org/icu/releases/download/release-{0}/icu4c-{1}-src.tgz"
-
     # Need to make sure that locale is UTF-8 in order to process source files in UTF-8.
-    @when("@59:")
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        env.set("LC_ALL", "en_US.UTF-8")
-
-    def configure_args(self):
-        args = []
-
-        if self.spec.satisfies("^python"):
-            # Make sure configure uses Spack's python package
-            # Without this, configure could pick a broken global installation
-            args.append(f"PYTHON={self.spec['python'].command}")
-
-        # The --enable-rpath option is only needed on MacOS, and it
-        # breaks the build for xerces-c on Linux.
-        if self.spec.satisfies("platform=darwin"):
-            args.append("--enable-rpath")
-
-        return args
-
-
 class MSBuildBuilder(msbuild.MSBuildBuilder):
     # Need to make sure that locale is UTF-8 in order to process source files in UTF-8.
-    @when("@59:")
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        env.set("LC_ALL", "en_US.UTF-8")
-
-    def msbuild_args(self):
-        return [
-            "allinone.sln",
-            self.define("OutputPath", self.spec.prefix),
-            self.define("Configuration", "Release"),
-            self.define("SkipUWP", "true"),
-        ]
-
     @property
     def build_directory(self):
         solution_path = pathlib.Path(self.pkg.stage.source_path)

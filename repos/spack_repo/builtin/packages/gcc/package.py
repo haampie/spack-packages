@@ -185,14 +185,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         provides("go-or-gccgo-bootstrap@:1.8.1", when="@7:")
         provides("go-or-gccgo-bootstrap@:1.10.1", when="@8:")
         provides("go-or-gccgo-bootstrap@:1.12.2", when="@9:")
-        provides("go-or-gccgo-bootstrap@:1.14.6", when="@10:")
-        provides("go-or-gccgo-bootstrap@1.16.3:1.16.5", when="@11:")
 
-        provides("golang@:1.0", when="@4.7.1:")
-        provides("golang@:1.2", when="@4.9:")
-        provides("golang@:1.4", when="@5:")
-        provides("golang@:1.6.1", when="@6:")
-        provides("golang@:1.8.1", when="@7:")
     # For a list of valid languages for a specific release,
     # See https://gcc.gnu.org/gcc-7/changes.html
 

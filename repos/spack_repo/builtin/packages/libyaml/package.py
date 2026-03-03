@@ -27,5 +27,4 @@ class Libyaml(AutotoolsPackage):
 
     @run_before("configure")
     def bootstrap(self):
-            bootstrap = Executable("./bootstrap")
             bootstrap()

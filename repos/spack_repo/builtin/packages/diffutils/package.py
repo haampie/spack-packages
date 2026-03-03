@@ -29,12 +29,10 @@ class Diffutils(AutotoolsPackage, GNUMirrorPackage):
     version("3.7", sha256="b3a7a6221c3dc916085f0d205abf6b8e1ba443d4dd965118da364a1dc1cb3a26")
     version("3.6", sha256="d621e8bdd4b573918c8145f7ae61817d1be9deb4c8d2328a65cea8e11d783bd6")
 
-    depends_on("c", type="build")
 
     build_directory = "spack-build"
 
 
-    conflicts("%nvhpc", when="@:3.6,3.8:")
 
     depends_on("iconv")
 

@@ -77,40 +77,19 @@ class Curl(NMakePackage, AutotoolsPackage, CMakePackage):
         variant("static-crt", default=False, description="Link to static CRT")
         variant("unicode", default=False, description="Use the unicode version of Windows API")
 
-    conflicts("platform=linux", when="tls=secure_transport", msg="Only supported on macOS")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("pkgconfig", type="build", when="platform=darwin")
-    depends_on("pkgconfig", type="build", when="platform=linux")
-    depends_on("pkgconfig", type="build", when="platform=freebsd")
 
     # CMake 4.0: is not compatible with CMake systems requiring
     # 3.0, which curl@7.63 requires
-    depends_on("cmake@:3", type="build", when="build_system=cmake @:7.63")
 
-    depends_on("gnutls@3.6.5:", when="tls=gnutls @8.18:")
-    depends_on("gnutls", when="tls=gnutls")
-    depends_on("mbedtls@3: +pic", when="tls=mbedtls @8.17:")
-    depends_on("mbedtls@2: +pic", when="tls=mbedtls")
-    depends_on("openssl@3:", when="tls=openssl @8.18:")
-    depends_on("openssl", when="tls=openssl")
 
-    depends_on("libidn2", when="+libidn2")
-    depends_on("zlib-api")
-    depends_on("nghttp2", when="+nghttp2")
-    depends_on("libssh2", when="+libssh2")
-    depends_on("libssh", when="+libssh")
-    depends_on("krb5", when="+gssapi")
-    depends_on("rtmpdump", when="+librtmp")
 
     # Perl pops up as a build-time dependency sometimes in curl.
     # They try to fix it quickly when it happens.
     # https://github.com/curl/curl/issues/12832
     # https://github.com/curl/curl/issues/13508
     # https://github.com/curl/curl/issues/18088
-    depends_on("perl", type="build", when="@8.15.0")
 
     build_system(
         "autotools",

@@ -24,9 +24,6 @@ class Embree(CMakePackage):
 
     # official aarch64 support on macOS starting with 3.13.0, on Linux since 4.0.0
     # upstream patch for Linux/aarch64 applies cleanly to 3.13.5, and 3.13.3 works by chance
-    conflicts("@:3.12", when="target=aarch64:")
-    conflicts("@:3.13.2", when="target=aarch64: platform=linux")
-    conflicts("@3.13.4", when="target=aarch64: platform=linux")
 
     def cmake_args(self):
         spec = self.spec

@@ -272,10 +272,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         provides("golang@1.16.3:1.16.5", when="@11:")
 
         # GCC 4.7.1 added full support for the Go 1.x programming language.
-        conflicts("@:4.7.0")
 
         # Go is not supported on macOS
-        conflicts("platform=darwin", msg="GCC cannot build Go support on MacOS")
 
     # For a list of valid languages for a specific release,
     # run the following command in the GCC source directory:
@@ -286,23 +284,18 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # BRIG is a binary format for HSAIL:
     # (Heterogeneous System Architecture Intermediate Language).
     # See https://gcc.gnu.org/gcc-7/changes.html
-    conflicts("languages=brig", when="@:6")
 
     # BRIG does not seem to be supported on macOS
-    conflicts("languages=brig", when="platform=darwin")
 
     # GCC 4.8 added a 'c' language. I'm sure C was always built,
     # but this is the first version that accepts 'c' as a valid language.
-    conflicts("languages=c", when="@:4.7")
 
     # The GCC Java frontend and associated libjava runtime library
     # have been removed from GCC as of GCC 7.
     # See https://gcc.gnu.org/gcc-7/changes.html
-    conflicts("languages=java", when="@7:")
 
     # GCC 5 added the ability to build GCC as a Just-In-Time compiler.
     # See https://gcc.gnu.org/gcc-5/changes.html
-    conflicts("languages=jit", when="@:4")
 
     with when("languages=d"):
         # Support for the D programming language has been added to GCC 9.

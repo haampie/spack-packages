@@ -60,24 +60,18 @@ class Elfutils(AutotoolsPackage, SourcewarePackage):
         depends_on("curl@7.29.0:")
         depends_on("json-c@0.11:", when="@0.192:")
 
-    conflicts("%gcc@7.2.0:", when="@0.163")
 
     # https://sourceware.org/bugzilla/show_bug.cgi?id=32684 elfutils on aarch64 requires
     # linux-headers 5.0 or higher, which is a dependency of glibc we don't model. So this is a more
     # strict constraint than necessary.
-    conflicts("@0.192 arch=aarch64:")
 
     provides("elf@1")
 
     # libarchive@:3.7 with iconv doesn't configure
     # see https://github.com/spack/spack/issues/36710
     # fix: https://github.com/libarchive/libarchive/pull/2611
-    conflicts("^libarchive@:3.7 +iconv", when="+debuginfod")
 
     # https://sourceware.org/bugzilla/show_bug.cgi?id=24964
-    conflicts("%apple-clang")
-    conflicts("%clang", when="@:0.185")
-    conflicts("%cce")
 
     # Elfutils uses -Wall and we don't want to fail the build over a
     # stray warning.

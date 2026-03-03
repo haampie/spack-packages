@@ -212,8 +212,6 @@ class Cmake(Package):
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/5882
 
     # https://gitlab.kitware.com/cmake/cmake/issues/18166
-    conflicts("%intel", when="@3.11.0:3.11.4")
-    conflicts("%intel@:14", when="@3.14:", msg="Intel 14 has immature C++11 support")
 
     resource(
         name="cmake-bootstrap",

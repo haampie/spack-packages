@@ -87,24 +87,7 @@ class Openfoam(Package):
         "paraview", default=False, description="Build paraview plugins and runtime post-processing"
     )
     variant("vtk", default=False, description="With VTK runTimePostProcessing")
-    variant(
-        "source", default=True, description="Install library/application sources and tutorials"
-    )
-    variant(
-        "precision",
-        default="dp",
-        description="Precision option",
-        values=("sp", "dp", conditional("spdp", when="@1906:")),
-        multi=False,
-    )
 
-    variant(
-        "plugins",
-        default="none",
-        description="With optional plugins",
-        values=("none", conditional("avalanche", "cfmesh", when="@2512:")),
-        multi=True,
-    )
 
     # After 1712, could suggest openmpi+thread_multiple for collated output
     # conflicts('^openmpi~thread_multiple', when='@1712:')

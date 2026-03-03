@@ -18,7 +18,6 @@ class Ospray(CMakePackage):
     # maintainers("aumuell")
 
 
-    variant("apps", default=False, description="Enable building OSPRay Apps")
     variant("denoiser", default=True, description="Enable denoiser image operation")
     variant("glm", default=False, description="Build ospray_cpp GLM tests/tutorial")
     variant("mpi", default=True, description="Enable MPI support")

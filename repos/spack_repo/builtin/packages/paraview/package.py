@@ -89,43 +89,7 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     variant("visitbridge", default=False, description="Enable VisItBridge support")
     variant("raytracing", default=False, description="Enable Raytracing support")
     variant("cdi", default=False, description="Enable CDI support")
-    variant(
-        "openpmd",
-        default=False,
-        description="Enable openPMD support (w/ ADIOS2/HDF5)",
-        when="@5.9: +python",
-    )
-    variant("catalyst", default=False, description="Enable Catalyst 1", when="@5.7:")
-    variant(
-        "libcatalyst",
-        default=False,
-        description="Enable Catalyst 2 (libcatalyst) implementation",
-        when="@5.10:",
-    )
 
-    variant(
-        "advanced_debug",
-        default=False,
-        description="Enable all other debug flags beside build_type, such as VTK_DEBUG_LEAK",
-    )
-    variant(
-        "build_edition",
-        default="canonical",
-        multi=False,
-        values=("canonical", "catalyst_rendering", "catalyst", "rendering", "core"),
-        description="Build editions include only certain modules. "
-        "Editions are listed in decreasing order of size.",
-    )
-    variant(
-        "use_vtkm",
-        default="default",
-        when="@5.3.0:5.13",
-        multi=False,
-        values=("default", "on", "off"),
-        description="Build VTK-m with ParaView."
-        ' "default" lets the build_edition make the decision.'
-        ' "on" or "off" will always override the build_edition.',
-    )
 
     # Legacy rendering dropped in 5.5
     # See commit: https://gitlab.kitware.com/paraview/paraview/-/commit/798d328c

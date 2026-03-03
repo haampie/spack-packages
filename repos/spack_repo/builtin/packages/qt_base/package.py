@@ -67,10 +67,6 @@ class QtBase(QtPackage):
     list_url = QtPackage.get_list_url(__qualname__)
 
 
-    variant("dbus", default=False, description="Build with D-Bus support.")
-    variant(
-        "framework", default=bool(MACOS_VERSION), description="Build as a macOS Framework package."
-    )
     variant("gui", default=True, description="Build the Qt GUI module and dependencies.")
     variant("shared", default=True, description="Build shared libraries.")
     variant("sql", default=True, description="Build with SQL support.")

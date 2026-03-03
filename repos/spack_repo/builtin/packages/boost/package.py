@@ -214,15 +214,7 @@ class Boost(Package):
 
     # Improve the error message when the context-impl variant is conflicting
     conflicts("context-impl=fcontext", when="@:1.65.0")
-
-    # NOTE: 1.64.0 seems fine for *most* applications, but if you need
     # boost-mpi depends on boost-python since 1.87.0
-
-    # Container's Extended Allocators were not added until 1.56.0
-
-    # Boost.System till 1.76 (included) was relying on mutex, which was not
-    # More details here:
-    conflicts("%gcc", when="@:1.76 +system platform=darwin")
 
     # (https://github.com/spack/spack/pull/32879#issuecomment-1265933265)
     conflicts("%oneapi", when="@1.80")

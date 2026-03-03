@@ -169,36 +169,3 @@ class Boost(Package):
     # See: https://github.com/macports/macports-ports/pull/6726
     # Fix missing declaration of uintptr_t with glibc>=2.17 - https://bugs.gentoo.org/482372
     # Fix: "Compile issue with flat_tree insert"
-    # See: https://github.com/boostorg/container/pull/101
-    # Fix: "Unable to compile code using boost/process.hpp"
-    # See: https://github.com/boostorg/process/issues/116
-    # Patch: https://github.com/boostorg/process/commit/6a4d2ff72114ef47c7afaf92e1042aca3dfa41b0.patch
-    # Patch fix for warnings from commits 2d37749, af1dc84, c705bab, and
-    # 0134441 on https://github.com/boostorg/system.
-    # Change the method for version analysis when using Fujitsu compiler.
-    # Add option to C/C++ compile commands in clang-linux.jam
-    # C++20 concepts fix for Beast
-    # See https://github.com/boostorg/beast/pull/1927 for details
-    # Cloning a status_code with indirecting_domain leads to segmentation fault
-    # See https://github.com/ned14/outcome/issues/223 for details
-    # Support bzip2 and gzip in other directory
-    # See https://github.com/boostorg/build/pull/154
-    # Backport Python3 import problem
-    # See https://github.com/boostorg/python/pull/218
-    # Fix B2 bootstrap toolset during installation
-    # See https://github.com/spack/spack/issues/20757
-    # and https://github.com/spack/spack/pull/21408
-    # Fix compiler used for building bjam during bootstrap
-    # Allow building context asm sources with GCC on Darwin
-    # See https://github.com/spack/spack/pull/24889
-    # and https://github.com/boostorg/context/issues/177
-    # Fix float128 support when building with CUDA and Cray compiler
-    # See https://github.com/boostorg/config/pull/378
-    # Fix building with Intel compilers
-    # Fix issues with PTHREAD_STACK_MIN not being a DEFINED constant in newer glibc
-    # See https://github.com/spack/spack/issues/28273
-    # https://www.intel.com/content/www/us/en/developer/articles/technical/building-boost-with-oneapi.html
-    # https://github.com/spack/spack/issues/44003
-    # https://github.com/boostorg/phoenix/issues/111
-    # https://github.com/boostorg/filesystem/issues/284
-    # https://github.com/boostorg/context/pull/280

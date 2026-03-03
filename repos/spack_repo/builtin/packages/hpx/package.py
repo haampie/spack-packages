@@ -55,33 +55,3 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     )
     # Other dependecies
     depends_on("boost +context", when="+generic_coroutines")
-    for cxxstd in cxxstds:
-        depends_on(f"boost cxxstd={cxxstd}", when=f"cxxstd={cxxstd}")
-    depends_on("jemalloc", when="malloc=jemalloc")
-    # Restrictions for 1.9.X
-    with when("@1.9:"):
-        conflicts("%clang@:9")
-    with when("@1.8:"):
-        conflicts("%gcc@:7")
-    # Restrictions for 1.5.x
-    # Restrictions for 1.2.X
-    with when("@:1.2.1"):
-        depends_on("hwloc@1.11:")
-    with when("@:1.1.0"):
-        depends_on("boost@1.55.0:")
-        depends_on("hwloc@1.6:")
-    # https://github.com/chriskohlhoff/asio/commit/a70f2df321ff40c1809773c2c09986745abf8d20.
-    # Boost and HIP don't work together in certain versions:
-    # https://github.com/boostorg/config/issues/392. Boost 1.78.0 and HPX 1.8.0
-    # to compile:
-    # https://github.com/spack/spack/issues/38104
-    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=103022
-    # https://github.com/STEllAR-GROUP/hpx/issues/4728#issuecomment-640685308
-    depends_on("boost@:1.72.0", when="@:1.4")
-    # COROUTINES
-    # ~generic_coroutines conflict is not fully implemented
-    # for additional information see:
-    # https://github.com/STEllAR-GROUP/hpx/issues/4829
-    depends_on("boost+context", when="+generic_coroutines")
-    _msg_generic_coroutines_platform = "This platform requires +generic_coroutines"
-    _msg_generic_coroutines_target = "This target requires +generic_coroutines"

@@ -31,16 +31,8 @@ class Adios(AutotoolsPackage):
     variant("shared", default=True, description="Builds a shared version of the library")
 
 
-
-    # transforms
-    variant("lz4", default=True, description="Enable LZ4 transform support")
     variant("blosc", default=True, description="Enable Blosc transform support")
     # transports and serial file converters
-    variant(
-        "hdf5",
-        default=False,
-        description="Enable parallel HDF5 transport and serial bp2h5 " + "converter",
-    )
     variant("netcdf", default=False, description="Enable netcdf support")
 
     variant(

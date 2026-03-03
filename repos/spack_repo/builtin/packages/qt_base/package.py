@@ -22,9 +22,6 @@ class QtPackage(CMakePackage):
     # List of unnecessary directories in src/3rdparty
     vendor_deps_to_remove = []
 class QtBase(QtPackage):
-    """Qt Base (Core, Gui, Widgets, Network, ...)"""
-    url = QtPackage.get_url(__qualname__)
-    list_url = QtPackage.get_list_url(__qualname__)
     variant("gui", default=True, description="Build the Qt GUI module and dependencies.")
     variant("shared", default=True, description="Build shared libraries.")
     variant("sql", default=True, description="Build with SQL support.")
@@ -33,8 +30,6 @@ class QtBase(QtPackage):
     variant(
         "accessibility",
         default=False,
-        when="+gui",
-        description="Build with accessibility support.",
     )
     variant("gtk", default=False, when="+gui", description="Build with gtkplus.")
     variant("opengl", default=False, when="+gui", description="Build with OpenGL support.")

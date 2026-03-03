@@ -308,78 +308,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     newlib_linked = False
 
     # Copy nvptx-tools into the GCC install prefix
-    def copy_nvptx_tools(self):
-        nvptx_tools_bin_path = self.spec["nvptx-tools"].prefix.bin
-        gcc_bin_path = self.prefix.bin
-        mkdirp(gcc_bin_path)
-        copy_list = ["as", "ld", "nm", "run", "run-single"]
-        for file in copy_list:
-            fullname = f"nvptx-none-{file}"
-            copy(join_path(nvptx_tools_bin_path, fullname), join_path(gcc_bin_path, fullname))
-        link_list = ["ar", "ranlib"]
-        for file in link_list:
-            fullname = f"nvptx-none-{file}"
-            orig_target = readlink(join_path(nvptx_tools_bin_path, fullname))
-            symlink(orig_target, join_path(gcc_bin_path, fullname))
-        util_dir_path = join_path(self.prefix, "nvptx-none", "bin")
-        mkdirp(util_dir_path)
-        util_list = ["ar", "as", "ld", "nm", "ranlib"]
-        for file in util_list:
-            rel_target = join_path("..", "..", "bin", f"nvptx-none-{file}")
-            dest_link = join_path(util_dir_path, file)
-            symlink(rel_target, dest_link)
-
     # run configure/make/make(install) for the nvptx-none target
     # before running the host compiler phases
-    @run_before("configure")
-    def nvptx_install(self):
-        spec = self.spec
-        prefix = self.prefix
-
-        if not spec.satisfies("+nvptx"):
-            return
-
-        # config.guess returns the host triple, e.g. "x86_64-pc-linux-gnu"
-        guess = Executable("./config.guess")
-        targetguess = guess(output=str).rstrip("\n")
-
-        options = getattr(self, "configure_flag_args", [])
-        options += ["--prefix={0}".format(prefix)]
-
-        options += [
-            "--with-cuda-driver-include={0}".format(spec["cuda"].prefix.include),
-            "--with-cuda-driver-lib={0}".format(spec["cuda"].libs.directories[0]),
-        ]
-
-        self.copy_nvptx_tools()
-
-        self.link_newlib()
-
-        # self.build_directory = 'spack-build-nvptx'
-        with working_dir("spack-build-nvptx", create=True):
-            options = [
-                "--prefix={0}".format(prefix),
-                "--enable-languages={0}".format(",".join(spec.variants["languages"].value)),
-                "--with-mpfr={0}".format(spec["mpfr"].prefix),
-                "--with-gmp={0}".format(spec["gmp"].prefix),
-                "--target=nvptx-none",
-                "--with-build-time-tools={0}".format(join_path(prefix, "nvptx-none", "bin")),
-                "--enable-as-accelerator-for={0}".format(targetguess),
-                "--disable-sjlj-exceptions",
-                "--enable-newlib-io-long-long",
-            ]
-
-            configure = Executable("../configure")
-            configure(*options)
-            make()
-            make("install")
-
-    @property
-    def build_targets(self):
-        if self.spec.satisfies("+profiled"):
-            return ["profiledbootstrap"]
-        return []
-
     @property
     def install_targets(self):
         if self.spec.satisfies("+strip"):

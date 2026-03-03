@@ -238,9 +238,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
             depends_on("cmake@:3.16", type="build", when="{0}=runtime".format(runtime))
         del runtime
     depends_on("python@3.8:", when="@20: ~python", type="build")
-    depends_on("python", when="~python", type="build")
-    depends_on("pkgconfig", type="build")
-
     # Universal dependency
     depends_on("python@3.8:", when="@20: +python")
     depends_on("python", when="+python")
@@ -493,14 +490,9 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     # https://reviews.llvm.org/D127975
 
 
-    # https://github.com/spack/spack/issues/48865
-    # https://github.com/spack/spack/issues/48865
-
     # https://github.com/llvm/llvm-project/issues/156679
-
     @when("@14:17")
     def patch(self):
-        # https://github.com/llvm/llvm-project/pull/69458
         filter_file(
             r"${TERMINFO_LIB}",
             r"${Terminfo_LIBRARIES}",

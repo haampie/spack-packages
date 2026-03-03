@@ -140,7 +140,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
 
 
-    extends("python", when="+python")
 
     # VTK < 8.2.1 can't handle Python 3.8
     # This affects Paraview <= 5.7 (VTK 8.2.0)

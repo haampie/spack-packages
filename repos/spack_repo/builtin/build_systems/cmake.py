@@ -192,7 +192,6 @@ class CMakePackage(PackageBase):
         else:
             generator("ninja", "make", default="make")
 
-        depends_on("ninja", type="build", when="generator=ninja")
 
         # CMake earlier than 4.1 improperly handles arguments provided to
         # the linker when using msvc as a c/cxx compiler and oneapi as a

@@ -786,8 +786,6 @@ class Cuda(Package):
     # see https://docs.nvidia.com/cuda/archive/11.3.1/cuda-gdb/index.html#common-issues-oss
     # see https://docs.nvidia.com/cuda/archive/11.4.0/cuda-gdb/index.html#release-notes
 
-    provides("opencl@:1.2", when="@7:")
-    provides("opencl@:1.1", when="@:6")
 
     def setup_run_environment(self, env: EnvironmentModifications) -> None:
         env.set("CUDA_HOME", self.prefix)

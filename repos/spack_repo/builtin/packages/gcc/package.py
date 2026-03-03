@@ -27,8 +27,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
     provides("c", "cxx", when="languages=c,c++")
     provides("c", when="languages=c")
-    provides("cxx", when="languages=c++")
-    provides("fortran", when="languages=fortran")
 
     version("master", branch="master")
 
@@ -169,9 +167,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         # See https://gcc.gnu.org/gcc-9/changes.html#d
         conflicts("@:8", msg="support for D has been added in GCC 9.1")
 
-        # Versions of GDC prior to 12 can be built with an ISO C++11 compiler. Starting version 12,
-        # the D frontend requires a working GDC. Moreover, it is strongly recommended to use an
-        # older version of GDC to build GDC.
         # See https://gcc.gnu.org/install/prerequisites.html#GDC-prerequisite
         with when("@12:"):
             # All versions starting 12 have to be built GCC:
@@ -296,28 +291,13 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             when="@13.1.0 target=aarch64:",
         )
         # 14.2.0 cannot bootstrap on x86_64
-    # Older versions do not compile with newer versions of glibc
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81712
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81066
     # https://bugs.busybox.net/show_bug.cgi?id=10061
-    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=85835
-
-    # this patch removes cylades support from gcc-5 and allows gcc-5 to be built
-    # with newer glibc versions.
-
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=95005
-
-    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100102
-
-    # libstdc++: Fix inconsistent noexcept-specific for valarray begin/end
 
     # patch ICE on aarch64 in tree-vect-slp, cf: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=111478
     # patch taken from releases/gcc-12 branch
-    # patch taken from releases/gcc-13 branch
-
-    # see https://gcc.gnu.org/gcc-11/changes.html 11.5 Caveats
-
-    build_directory = "spack-build"
 
     compiler_languages = ["c", "cxx", "fortran", "d", "go"]
 

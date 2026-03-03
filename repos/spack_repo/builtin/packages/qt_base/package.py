@@ -36,7 +36,6 @@ class QtPackage(CMakePackage):
 
 
     # Default dependencies for all qt-* components
-    generator("ninja")
 
     # List of unnecessary directories in src/3rdparty
     vendor_deps_to_remove = []

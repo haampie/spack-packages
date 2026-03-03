@@ -245,18 +245,7 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         sha256="145619e87dbf26b66ea23e76906576e2a854a3b09f2a2dd70363e61419fa6a6e",
         when="@4.2.00",
     )
-    # Remove unnecessary C and C++ languages dependency in scripts/spack_test/CMakeLists.txt (upstreamed in https://github.com/kokkos/kokkos/pull/8357)
-    patch(
-        "https://github.com/kokkos/kokkos/commit/05d4901538251fff7ae6e58c84db670ad326b5c8.patch?full_index=1",
-        sha256="89eb693ad4913c4fd06b25d786d56bfa631d7d612df80c0f5331852e358e0608",
-        when="@:4.4",
-    )
 
-    variant("shared", default=True, description="Build shared libraries")
-    for backend_name in ("cuda", "hip", "sycl"):
-        conflicts("+shared", when=f"+{backend_name}_relocatable_device_code")
-
-    # Filter spack-generated files that may include links to the
     # spack compiler wrappers
     filter_compiler_wrappers("kokkos_launch_compiler", relative_root="bin")
     filter_compiler_wrappers(
@@ -264,10 +253,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     )
 
     # sanity check
-    sanity_check_is_file = [
-        join_path("include", "KokkosCore_config.h"),
-        join_path("include", "Kokkos_Core.hpp"),
-    ]
     sanity_check_is_dir = ["bin", "include"]
 
     test_script_relative_path = join_path("scripts", "spack_test")

@@ -89,9 +89,6 @@ class CudaPackage(PackageBase):
     # Kepler support:
 
     # Maxwell support:
-    depends_on("cuda@6.0:12.9", when="cuda_arch=50")
-    depends_on("cuda@6.5:12.9", when="cuda_arch=52")
-    depends_on("cuda@6.5:12.9", when="cuda_arch=53")
 
     # Pascal support:
 

@@ -21,12 +21,6 @@ class Qt5compat(QtPackage):
     version("6.9.2", sha256="49ddd0de9f76b35ef5f9420b024e6c066fd03218da732fb2ec131973db39c3b5")
     version("6.9.1", sha256="14a97fb93c342a6dcfff3bc827c7cdaff4dcb4853135aa7e391aa5df96fd7440")
     version("6.9.0", sha256="7c8fe0709d8efd758a788b1db47294ec1fb33387b11b4765e5ef98606aaa562c")
-    version("6.8.3", sha256="67340c9c7a1d2007b593847363342c65570dc9e86edb6315226589dc4533e5ed")
-    version("6.8.2", sha256="9b78a025f17d65eb826ee153f167546e6c12790235d75b7f4fcd03c166d9c689")
-    version("6.8.1", sha256="5e51feb8d9362d860017ae72f63daa5caeddf3ec3396e73a4b27c672536fd774")
-    version("6.8.0", sha256="0ea312a2d7e7033857712273e5ea42e61d1f485d23420307f7bbf0b8ca701453")
-    version("6.7.3", sha256="959634d1a6a53f9a483882e81da87ec182ff44d7747a0cc771c786b0f2cf52e0")
-    version("6.7.2", sha256="331a1e617952217868beeef7964828500388abeeb502ea3436f16eec816426c4")
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")

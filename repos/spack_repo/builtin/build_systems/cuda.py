@@ -132,49 +132,19 @@ class CudaPackage(PackageBase):
     depends_on("cuda@6.5:12.9", when="cuda_arch=53")
 
     # Pascal support:
-    depends_on("cuda@8.0:12.9", when="cuda_arch=60")
-    depends_on("cuda@8.0:12.9", when="cuda_arch=61")
-    depends_on("cuda@8.0:12.9", when="cuda_arch=62")
 
     # Volta support:
-    depends_on("cuda@9.0:12.9", when="cuda_arch=70")
 
     # Turing support:
-    depends_on("cuda@9.0:", when="cuda_arch=72")
-    depends_on("cuda@10.0:", when="cuda_arch=75")
 
     # Ampere support:
-    depends_on("cuda@11.0:", when="cuda_arch=80")
-    depends_on("cuda@11.1:", when="cuda_arch=86")
-    depends_on("cuda@11.4:", when="cuda_arch=87")
     # Ada support:
-    depends_on("cuda@11.8:", when="cuda_arch=89")
 
     # Hopper support:
-    depends_on("cuda@12.0:", when="cuda_arch=90")
-    depends_on("cuda@12.0:", when="cuda_arch=90a")
 
     # Blackwell support:
-    depends_on("cuda@12.8:", when="cuda_arch=100")
-    depends_on("cuda@12.8:", when="cuda_arch=100a")
-    depends_on("cuda@12.9:", when="cuda_arch=100f")
-    depends_on("cuda@12.9:", when="cuda_arch=103")
-    depends_on("cuda@12.9:", when="cuda_arch=103a")
-    depends_on("cuda@12.9:", when="cuda_arch=103f")
     # Compute Capability 101 was renamed to 110 in CUDA 13
-    depends_on("cuda@12.8:12.9", when="cuda_arch=101")
-    depends_on("cuda@12.8:12.9", when="cuda_arch=101a")
-    depends_on("cuda@12.9", when="cuda_arch=101f")
-    depends_on("cuda@13.0:", when="cuda_arch=110")
-    depends_on("cuda@13.0:", when="cuda_arch=110a")
-    depends_on("cuda@13.0:", when="cuda_arch=110f")
 
-    depends_on("cuda@12.8:", when="cuda_arch=120")
-    depends_on("cuda@12.8:", when="cuda_arch=120a")
-    depends_on("cuda@12.9:", when="cuda_arch=120f")
-    depends_on("cuda@12.9:", when="cuda_arch=121")
-    depends_on("cuda@12.9:", when="cuda_arch=121a")
-    depends_on("cuda@12.9:", when="cuda_arch=121f")
     # From the NVIDIA install guide we know of conflicts for particular
     # platforms (linux, darwin), architectures (x86, powerpc) and compilers
     # (gcc, clang). We don't restrict %gcc and %clang conflicts to

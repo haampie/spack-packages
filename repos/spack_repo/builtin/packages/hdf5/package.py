@@ -86,39 +86,11 @@ class Hdf5(CMakePackage):
     for plat in ["darwin", "linux"]:
         depends_on("pkgconfig", when=f"platform={plat}", type="run")
 
-    conflicts("+mpi", "^mpich@4.0:4.0.3")
-    conflicts("api=v200", when="@1.6:1.14", msg="v200 is not compatible with this release")
-    conflicts(
-        "api=v200",
-        when="@develop-1.8:develop-1.14",
-        msg="v200 is not compatible with this release",
-    )
-    conflicts("api=v114", when="@1.6:1.12", msg="v114 is not compatible with this release")
-    conflicts(
-        "api=v114",
-        when="@develop-1.8:develop-1.12",
-        msg="v114 is not compatible with this release",
-    )
-    conflicts("api=v112", when="@1.6:1.10", msg="v112 is not compatible with this release")
-    conflicts(
-        "api=v112",
-        when="@develop-1.8:develop-1.10",
-        msg="v112 is not compatible with this release",
-    )
-    conflicts("api=v110", when="@1.6:1.8", msg="v110 is not compatible with this release")
-    conflicts("api=v110", when="@develop-1.8", msg="v110 is not compatible with this release")
-    conflicts("api=v18", when="@1.6", msg="v18 is not compatible with this release")
 
     # The Java wrappers cannot be built without shared libs.
-    conflicts("+java", when="~shared")
     # Fortran fails built with shared for old HDF5 versions
-    conflicts("+fortran", when="+shared@:1.8.15")
     # See https://github.com/spack/spack/issues/31085
-    conflicts("+fortran+mpi", when="@1.8.22")
     # See https://github.com/HDFGroup/hdf5/issues/2906#issue-1697749645
-    conflicts(
-        "+fortran", when="@1.13.3:^cmake@:3.22", msg="cmake_minimum_required is not set correctly."
-    )
 
     # HDF5 searches for zlib CMake config files before it falls back to
     # FindZLIB.cmake. We don't build zlib with CMake by default, so have to

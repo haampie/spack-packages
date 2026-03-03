@@ -70,7 +70,6 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     # include_next <limits.h> not working
     patch("67fbfa5.patch", when="@:2.7")
 
-    conflicts("musl")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         if self.spec.satisfies("@:2.21"):

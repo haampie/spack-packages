@@ -131,10 +131,8 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
         conflicts("%clang@:6")
 
     # Restrictions for 1.6.X
-    conflicts("+rocm", when="@:1.5")
 
     # Restrictions for 1.5.x
-    conflicts("cxxstd=11", when="@1.5:")
     depends_on("apex@2.3:", when="@1.5")
 
     # Restrictions for 1.2.X
@@ -152,27 +150,20 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
 
     # Asio 1.34.0 removed io_context::work, used by HPX:
     # https://github.com/chriskohlhoff/asio/commit/a70f2df321ff40c1809773c2c09986745abf8d20.
-    conflicts("^asio@1.34:")
 
     # Certain Asio headers don't compile with nvcc from 1.17.0 onwards with
     # C++17. Starting with CUDA 11.3 they compile again.
-    conflicts("^asio@1.17.0:", when="+cuda cxxstd=17 ^cuda@:11.2")
 
     # Starting from ROCm 5.0.0 hipcc miscompiles asio 1.17.0 and newer
-    conflicts("^asio@1.17.0:", when="+rocm ^hip@5:")
 
     # Boost and HIP don't work together in certain versions:
     # https://github.com/boostorg/config/issues/392. Boost 1.78.0 and HPX 1.8.0
     # both include a fix.
-    conflicts("^boost@:1.77.0", when="@:1.7 +rocm")
 
     # libstdc++ has a broken valarray in some versions that clang/hipcc refuses
     # to compile:
     # https://github.com/spack/spack/issues/38104
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=103022
-    conflicts("%gcc@9.1:9.4", when="+rocm")
-    conflicts("%gcc@10.1:10.3", when="+rocm")
-    conflicts("%gcc@11.2", when="+rocm")
 
     # boost 1.73.0 build problem with HPX 1.4.0 and 1.4.1
     # https://github.com/STEllAR-GROUP/hpx/issues/4728#issuecomment-640685308
@@ -186,11 +177,8 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("boost+context", when="+generic_coroutines")
 
     _msg_generic_coroutines_platform = "This platform requires +generic_coroutines"
-    conflicts("~generic_coroutines", when="platform=darwin", msg=_msg_generic_coroutines_platform)
 
     _msg_generic_coroutines_target = "This target requires +generic_coroutines"
-    conflicts("~generic_coroutines", when="target=aarch64:", msg=_msg_generic_coroutines_target)
-    conflicts("~generic_coroutines", when="target=arm:", msg=_msg_generic_coroutines_target)
 
     patch("mimalloc_no_version_requirement.patch", when="@:1.8.0 malloc=mimalloc")
 

@@ -46,22 +46,17 @@ class Hdf(AutotoolsPackage):
     # https://forum.hdfgroup.org/t/cant-build-hdf-4-2-14-with-jdk-11-and-enable-java/5702
     patch("disable_doclint.patch", when="@:4.2.14^java@9:")
 
-    conflicts("^libjpeg@:6a")
 
     # configure: error: Cannot build shared fortran libraries.
     # Please configure with --disable-fortran flag.
-    conflicts("+fortran", when="+shared")
 
     # configure: error: Java requires shared libraries to be built
-    conflicts("+java", when="~shared")
 
     # configure: WARNING: unrecognized options: --enable-java
-    conflicts("+java", when="@:4.2.11")
 
     # The Java interface library uses netcdf-related macro definitions even
     # when netcdf is disabled and the macros are not defined, e.g.:
     # hdfsdsImp.c:158:30: error: 'MAX_NC_NAME' undeclared
-    conflicts("+java", when="@4.2.12:4.2.13~netcdf")
 
     # TODO: '@:4.2.14 ~external-xdr' and the fact that we compile for 64 bit
     #  architecture should be in conflict

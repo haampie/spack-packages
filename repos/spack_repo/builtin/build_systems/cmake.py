@@ -192,8 +192,6 @@ class CMakePackage(PackageBase):
         else:
             generator("ninja", "make", default="make")
 
-        depends_on("cmake", type="build")
-        depends_on("gmake", type="build", when="generator=make")
         depends_on("ninja", type="build", when="generator=ninja")
 
         # CMake earlier than 4.1 improperly handles arguments provided to

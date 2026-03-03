@@ -787,8 +787,5 @@ class Cuda(Package):
     # see https://docs.nvidia.com/cuda/archive/11.4.0/cuda-gdb/index.html#release-notes
 
 
-    def setup_run_environment(self, env: EnvironmentModifications) -> None:
-        env.set("CUDA_HOME", self.prefix)
-
     # contains precompiled binaries without rpaths
     unresolved_libraries = ["*"]

@@ -100,12 +100,3 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
     # "unable to initialize decompress status for section .debug_info"
     # when compiling with debug symbols on gcc.
 
-    @classmethod
-    def determine_version(cls, exe):
-        output = Executable(exe)("--version", output=str, error=str)
-        match = re.search(r"GNU (nm|readelf).* (\S+)", output)
-        return Version(match.group(2)).dotted.up_to(3) if match else None
-
-        platform = self.spec.platform
-        # grab the full binutils set of headers
-        install_tree("include", extradir)

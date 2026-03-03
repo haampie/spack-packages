@@ -78,30 +78,20 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
     patch("gold-gcc4.patch", when="@2.42 %gcc@:4.8.5")
 
     depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     # compression libs for debug symbols.
-    depends_on("zstd@1.4.0:", when="@2.40:")
-    depends_on("zlib-api")
 
-    depends_on("elfutils+debuginfod", when="+debuginfod")
 
     # pkg-config is used to locate zstd, libdebuginfod
-    depends_on("pkgconfig", type="build")
-    depends_on("diffutils", type="build")
 
-    depends_on("gettext", when="+nls")
 
     # PGO runs tests, which requires `runtest` from dejagnu
-    depends_on("dejagnu", when="+pgo", type="build")
 
     # 2.34:2.40 needs makeinfo due to a bug, see:
     # https://sourceware.org/bugzilla/show_bug.cgi?id=25491
     # https://sourceware.org/bugzilla/show_bug.cgi?id=28909
-    depends_on("texinfo", type="build", when="@2.34:2.40")
 
     # gprofng requires bison
-    depends_on("bison@3.0.4:", type="build", when="+gprofng")
 
     with when("platform=darwin"):
         conflicts("+gold", msg="Binutils cannot build linkers on macOS")

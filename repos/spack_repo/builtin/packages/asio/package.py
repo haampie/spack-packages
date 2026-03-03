@@ -18,13 +18,7 @@ class Asio(AutotoolsPackage):
 
     # As uneven minor versions of asio are not considered stable, they wont be added anymore
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("m4", type="build")
-    depends_on("libtool", type="build")
     depends_on("pkgconfig", type="build", when="@1.23:")
 
     # See https://github.com/chriskohlhoff/asio/issues/944 and

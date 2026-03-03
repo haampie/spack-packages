@@ -215,35 +215,19 @@ class Boost(Package):
     # Improve the error message when the context-impl variant is conflicting
     conflicts("context-impl=fcontext", when="@:1.65.0")
 
-    # Coroutine, Context, Fiber, etc., are not straightforward.
-
     # NOTE: 1.64.0 seems fine for *most* applications, but if you need
-    #       +python and +mpi, there seem to be errors with out-of-date
-    #       API calls from mpi/python.
-    #       See: https://github.com/spack/spack/issues/3963
-
-
-    # boost-python in 1.72.0 broken with cxxstd=98
-
     # boost-mpi depends on boost-python since 1.87.0
 
     # Container's Extended Allocators were not added until 1.56.0
 
     # Boost.System till 1.76 (included) was relying on mutex, which was not
-    # detected correctly on Darwin platform when using GCC
-    #
     # More details here:
-    # https://github.com/STEllAR-GROUP/hpx/issues/5442#issuecomment-878889166
-    # https://github.com/STEllAR-GROUP/hpx/issues/5442#issuecomment-878913339
     conflicts("%gcc", when="@:1.76 +system platform=darwin")
 
-    # Boost 1.80 does not build with the Intel oneapi compiler
     # (https://github.com/spack/spack/pull/32879#issuecomment-1265933265)
     conflicts("%oneapi", when="@1.80")
-
     # Boost did not support the oneapi compilers prior to 1.76
     conflicts("%oneapi@2023:", when="@:1.75")
-
     # Boost 1.85.0 stacktrace added a hard compilation error that has to
     # explicitly be suppressed on some platforms:
     # https://github.com/boostorg/stacktrace/pull/150. This conflict could be

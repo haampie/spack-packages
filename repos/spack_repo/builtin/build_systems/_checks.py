@@ -16,12 +16,6 @@ _ = apply_macos_rpath_fixups
 _ = execute_install_time_tests
 def ensure_build_dependencies_or_raise(spec: Spec, dependencies: List[str], error_msg: str):
     """Ensure that some build dependencies are present in the concrete spec.
-    If not, raise a RuntimeError with a helpful error message.
-    Args:
-        spec: concrete spec to be checked.
-        dependencies: list of package names of required build dependencies
-        error_msg: brief error message to be prepended to a longer description
-    Raises:
           RuntimeError: when the required build dependencies are not found
     """
     assert spec.concrete, "Can ensure build dependencies only on concrete specs"

@@ -141,7 +141,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     variant(
         "profiled", default=False, description="Use Profile Guided Optimization", when="+bootstrap"
     )
-    variant("libsanitizer", default=True, description="Use libsanitizer")
 
 
 

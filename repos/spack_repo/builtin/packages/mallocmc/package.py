@@ -36,13 +36,8 @@ class Mallocmc(CMakePackage):
     version("2.0.0crp", sha256="1a6b5b4f9a890d4389703cb853868cc31a97457bfea3b62d6b3ae31e56d7bbd9")
     version("1.0.2crp", sha256="696c5bb7e90a75937a2479c40e7cfddcc876f8fc634dca04b61d132ab1243f12")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@2.8.12.2:", type="build")
-    depends_on("boost@1.48.0:", type="link")
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')
     # See https://github.com/spack/spack/pull/22303 for reference
-    depends_on(Boost.with_default_variants, type="link")
-    depends_on("cuda@5.0:", type="link")

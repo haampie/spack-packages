@@ -33,17 +33,8 @@ class Macsio(CMakePackage):
     variant("scr", default=False, description="Build with SCR support")
     variant("typhonio", default=False, description="Build TYPHONIO plugin")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("json-cwx")
-    depends_on("mpi", when="+mpi")
-    depends_on("silo", when="+silo")
-    depends_on("hdf5+hl", when="+hdf5")
     # depends_on('hdf5+szip', when="+szip")
-    depends_on("exodusii", when="+exodus")
-    depends_on("typhonio", when="+typhonio")
-    depends_on("scr", when="+scr")
     # macsio@1.1 has bug with ~mpi configuration
     conflicts("~mpi", when="@1.1")
     # pdb is packaged with silo

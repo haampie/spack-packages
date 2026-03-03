@@ -50,23 +50,11 @@ class Magics(CMakePackage):
     )
 
     # Build dependencies
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("cmake@2.8.11:", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("python", type="build")
-    depends_on("perl", type="build")
-    depends_on("perl-xml-parser", type="build")
 
     # Non-optional dependencies
     # change of proj4 api starting from version 4.3.0
     # https://github.com/OSGeo/PROJ/wiki/proj.h-adoption-status
-    depends_on("proj@:5", when="@:4.2.6")
-    depends_on("proj@6:", when="@4.3:")
-    depends_on("boost+exception")
-    depends_on("expat")
 
     # Magics (at least up to version 2.34.3) should directly and
     # unconditionally depend on zlib, which is not reflected neither in the
@@ -77,24 +65,15 @@ class Magics(CMakePackage):
     # that files that make calls to png library get compiled and linked
     # unconditionally, which makes png a non-optional dependency (and
     # ENABLE_PNG always has to be set to ON).
-    depends_on("zlib-api")
-    depends_on("libpng")
 
     # GRIB support is non-optional, regardless of what the instruction says.
-    depends_on("eccodes")
 
     # Even if netcdf is disabled and -DENABLE_NETCDF=OFF is set, building
     # magics still requires legacy netcdf-cxx
     conflicts("~netcdf", when="@4.1.0:4.3.1,4.15.3:")
 
     # Optional dependencies
-    depends_on("netcdf-cxx", when="+netcdf")
-    depends_on("pango", when="+cairo")
-    depends_on("libemos", when="+bufr")
-    depends_on("qt", when="+metview+qt")
 
-    depends_on("python", type=("build"))
-    depends_on("py-jinja2", type=("build"))
 
     # Replace system python and perl by spack versions:
     def patch(self):

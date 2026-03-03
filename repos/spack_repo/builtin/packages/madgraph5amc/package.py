@@ -43,17 +43,8 @@ class Madgraph5amc(MakefilePackage):
     variant("collier", default=False, description="Use external installation" + " of Collier")
     variant("pythia8", default=False, description="Use external installation of Pythia8")
 
-    depends_on("fortran", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("gosam-contrib", when="+ninja")
-    depends_on("collier", when="+collier")
-    depends_on("lhapdf")
-    depends_on("fastjet")
-    depends_on("py-six", type=("build", "run"))
 
-    depends_on("libtirpc")
-    depends_on("pythia8", when="+pythia8")
 
     patch("gcc14.patch", when="@:3.5.5%gcc@14:")
     patch("madgraph5amc.patch", level=0, when="@:2.9")

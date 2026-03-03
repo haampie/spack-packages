@@ -26,11 +26,7 @@ class Maeparser(CMakePackage):
         description="Build maeparser as a shared library (turn off for a static one)",
     )
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("boost +iostreams +filesystem +test")
-    depends_on("zlib-api")
 
     def cmake_args(self):
         args = [self.define_from_variant("MAEPARSER_BUILD_SHARED_LIBS", "shared")]

@@ -33,14 +33,8 @@ class Madx(CMakePackage):
         when="@:5.07.00",
     )
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("cmake@2.8:", type="build")
 
-    depends_on("libx11")
-    depends_on("zlib-api")
 
     def cmake_args(self):
         args = [

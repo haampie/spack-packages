@@ -53,11 +53,7 @@ class M4(AutotoolsPackage, GNUMirrorPackage):
 
     variant("sigsegv", default=True, description="Build the libsigsegv dependency")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("diffutils", type="build")
-    depends_on("libsigsegv", when="+sigsegv")
 
     # Older versions require too many patches for newer compilers
     with when("@:1.4.18"):

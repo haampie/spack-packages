@@ -30,9 +30,7 @@ class MagicEnum(CMakePackage):
         conflicts("%msvc@:14.10")
         conflicts("%apple-clang@:9")
 
-    depends_on("cxx", type="build")
 
-    depends_on("cmake@3.14:", type="build")
 
     def cmake_args(self):
         define = self.define

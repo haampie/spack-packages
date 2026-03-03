@@ -24,5 +24,3 @@ class Mahout(MavenPackage):
     version("0.12.1", sha256="32e334115e4b2bfa21ba58e888fc47cdde2ca32c915d1694ed6761bda3b05dbb")
     version("0.12.0", sha256="65f340072131b1178b7bf4da115782254bdb20d6abd9789f10fc6dfe1ea7e7ad")
 
-    depends_on("java@8:", type=("build", "run"))
-    depends_on("maven@3.3.3:", type="build")

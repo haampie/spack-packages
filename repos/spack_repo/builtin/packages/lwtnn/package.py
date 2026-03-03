@@ -19,7 +19,4 @@ class Lwtnn(CMakePackage):
 
 
 
-    depends_on("boost@1.54:")
-    depends_on("eigen")
     # https://github.com/lwtnn/lwtnn/issues/161
-    depends_on("eigen@:3.3.99", when="@2.11:2.12")

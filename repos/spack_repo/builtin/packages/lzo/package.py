@@ -30,7 +30,6 @@ class Lzo(AutotoolsPackage):
         description="Build shared libs, static libs or both",
     )
 
-    depends_on("c", type="build")  # generated
 
     def configure_args(self):
         args = ["--disable-dependency-tracking"]

@@ -24,5 +24,3 @@ class Lzma(AutotoolsPackage):
 
     version("4.32.7", sha256="9f337a8c51e5ded198d1032f5087ba3fe438f2a54e9df419e513a151775b032c")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated

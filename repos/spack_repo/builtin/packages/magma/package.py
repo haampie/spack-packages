@@ -45,18 +45,7 @@ class Magma(CMakePackage, CudaPackage, ROCmPackage):
     variant("shared", default=True, description="Enable shared library")
     variant("cuda", default=True, description="Build with CUDA")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("blas")
-    depends_on("lapack")
-    depends_on("cuda@8:", when="@2.5.1: +cuda")  # See PR #14471
-    depends_on("hipblas", when="+rocm")
-    depends_on("hipblas@:6", when="@:2.9.0 +rocm")
-    depends_on("hipsparse", when="+rocm")
-    depends_on("rocm-core", when="@2.8.0: +rocm")
-    depends_on("python", when="@master", type="build")
 
     conflicts("~cuda", when="~rocm", msg="magma: Either CUDA or HIP support must be enabled")
     conflicts("+rocm", when="+cuda", msg="magma: CUDA must be disabled to support HIP (ROCm)")

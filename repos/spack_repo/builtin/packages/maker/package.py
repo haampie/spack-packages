@@ -48,27 +48,6 @@ class Maker(Package):
     patch("mpi.patch")
     patch("MpiChunk.patch")
 
-    depends_on("perl", type=("build", "run"))
-    depends_on("perl-module-build", type="build")
-    depends_on("perl-dbi", type=("build", "run"))
-    depends_on("perl-dbd-mysql", type=("build", "run"))
-    depends_on("perl-dbd-pg", type=("build", "run"))
-    depends_on("perl-dbd-sqlite", type=("build", "run"))
-    depends_on("perl-forks", type=("build", "run"))
-    depends_on("perl-file-which", type=("build", "run"))
-    depends_on("perl-perl-unsafe-signals", type=("build", "run"))
-    depends_on("perl-bit-vector", type=("build", "run"))
-    depends_on("perl-inline-c", type=("build", "run"))
-    depends_on("perl-io-all", type=("build", "run"))
-    depends_on("perl-io-prompt", type=("build", "run"))
-    depends_on("perl-bioperl", type=("build", "run"))
-    depends_on("blast-plus")
-    depends_on("snap-korf")
-    depends_on("repeatmasker")
-    depends_on("exonerate")
-    depends_on("augustus")
-    depends_on("interproscan@:4.8")
-    depends_on("mpi", when="+mpi")
 
     def install(self, spec, prefix):
         if "+mpi" in spec:

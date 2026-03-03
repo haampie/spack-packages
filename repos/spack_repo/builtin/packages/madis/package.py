@@ -27,10 +27,7 @@ class Madis(MakefilePackage):
     variant("pic", default=True, description="Build with position-independent code (PIC)")
     variant("pnetcdf", default=False, description="Build with parallel NetCDF")
 
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("netcdf-fortran")
-    depends_on("parallel-netcdf", when="+pnetcdf")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         fflags = []

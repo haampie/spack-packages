@@ -51,10 +51,7 @@ class BlastPlus(AutotoolsPackage):
     # No...
     # depends_on :mysql => :optional
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cpio", type="build")
 
     variant("static", default=False, description="Build with static linkage")
     variant("jpeg", default=True, description="Build with jpeg support")
@@ -71,24 +68,9 @@ class BlastPlus(AutotoolsPackage):
     variant("perl", default=True, description="Build with perl support")
     variant("python", default=True, description="Build with python support")
 
-    depends_on("jpeg", when="+jpeg")
-    depends_on("libpng", when="+png")
-    depends_on("freetype", when="+freetype")
     # depends_on('hdf5', when='+hdf5')
-    depends_on("gnutls", when="+gnutls")
-    depends_on("openssl", when="+openssl")
-    depends_on("zlib-api", when="+zlib")
-    depends_on("bzip2", when="+bzip2")
-    depends_on("lzo", when="+lzo")
-    depends_on("pcre", when="+pcre")
 
-    depends_on("python@:3.11", when="+python")
-    depends_on("py-setuptools@48:", when="+python ^python@3.12:", type="build")
-    depends_on("perl", when="+perl")
 
-    depends_on("lmdb", when="@2.7.1:")
-    depends_on("sqlite", when="@2.15:")
-    depends_on("zstd", when="@2.17:")
 
     configure_directory = "c++"
 

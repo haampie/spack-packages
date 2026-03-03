@@ -23,7 +23,6 @@ class Baurmc(AutotoolsPackage):
 
     version("1.0", sha256="de5027ed2e66028bed890760bee9d869e1e330ac7f7112ee5cb25868cea5c35b")
 
-    depends_on("fortran", type="build")  # generated
 
     @property
     def configure_directory(self):

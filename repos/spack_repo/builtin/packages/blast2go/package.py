@@ -18,9 +18,6 @@ class Blast2go(Package):
 
     requires("target=x86_64:", msg="blast2go is available x86_64 only")
 
-    depends_on("bash", type="build")
-    depends_on("blast-plus", type="run")
-    depends_on("java", type="build")
 
     def url_for_version(self, version):
         fname = "Blast2GO_unix_{0}.zip".format(version.underscored)

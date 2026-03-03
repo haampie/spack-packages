@@ -23,4 +23,3 @@ class Bitlbee(AutotoolsPackage):
 
     depends_on("glib")
     depends_on("gnutls")
-    depends_on("libgcrypt")

@@ -27,15 +27,7 @@ class AwsOfiRccl(AutotoolsPackage):
     variant("trace", default=False, description="Enable printing trace messages")
     variant("tests", default=False, description="Build tests")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("libfabric")
-    depends_on("hip")
-    depends_on("rccl")
-    depends_on("mpi")
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
 
     # To enable this plug-in to work with RCCL add it to the LD_LIBRARY_PATH
     def setup_run_environment(self, env: EnvironmentModifications) -> None:

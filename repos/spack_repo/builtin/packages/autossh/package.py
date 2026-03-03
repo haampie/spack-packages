@@ -18,7 +18,4 @@ class Autossh(AutotoolsPackage):
 
     version("1.4g", sha256="5fc3cee3361ca1615af862364c480593171d0c54ec156de79fc421e31ae21277")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("libnsl")
-    depends_on("openssh")

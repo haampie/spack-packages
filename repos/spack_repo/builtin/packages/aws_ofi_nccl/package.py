@@ -50,17 +50,7 @@ class AwsOfiNccl(AutotoolsPackage):
     variant("trace", default=False, description="Enable printing trace messages")
     variant("tests", default=False, description="Build tests")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build", when="@1.15:")
 
-    depends_on("libfabric")
-    depends_on("cuda")
-    depends_on("nccl fabrics=auto")
-    depends_on("mpi")
-    depends_on("hwloc", when="@1.7:")
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
 
     def url_for_version(self, version):
         if version < Version("1.7.0") or version >= Version("1.14.0"):

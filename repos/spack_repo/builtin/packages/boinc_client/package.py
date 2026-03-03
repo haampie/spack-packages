@@ -29,27 +29,10 @@ class BoincClient(AutotoolsPackage):
     # https://boinc.berkeley.edu/trac/wiki/SoftwarePrereqsUnix
     conflicts("%gcc@:3.0.4")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("autoconf@2.58:", type="build")
-    depends_on("automake@1.8:", type="build")
-    depends_on("libtool@1.5:", type="build")
-    depends_on("m4@1.4:", type="build")
 
-    depends_on("curl@7.17.1:")
-    depends_on("openssl@0.9.8:")
 
-    depends_on("freeglut@3:", when="+graphics")
-    depends_on("libsm", when="+graphics")
-    depends_on("libice", when="+graphics")
-    depends_on("libxmu", when="+graphics")
-    depends_on("libxi", when="+graphics")
-    depends_on("libx11", when="+graphics")
-    depends_on("libjpeg", when="+graphics")
 
-    depends_on("wxwidgets@3.0.0:", when="+manager")
-    depends_on("libnotify", when="+manager")
     depends_on("sqlite@3.1:", when="+manager")
 
     patch("systemd-fix.patch")

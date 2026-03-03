@@ -24,7 +24,6 @@ class BlisBase(MakefilePackage):
 
     maintainers("jeffhammond")
 
-    depends_on("python@2.7:2.8,3.4:", type="build")
 
     variant(
         "threads",
@@ -147,9 +146,6 @@ class Blis(BlisBase):
     version("0.3.0", sha256="d34d17df7bdc2be8771fe0b7f867109fd10437ac91e2a29000a4a23164c7f0da")
     version("0.2.2", sha256="4a7ecb56034fb20e9d1d8b16e2ef587abbc3d30cb728e70629ca7e795a7998e8")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
     # Problems with permissions on installed libraries:
     # https://github.com/flame/blis/issues/343

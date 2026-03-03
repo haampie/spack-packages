@@ -33,20 +33,13 @@ class Bml(CMakePackage):
     version("1.2.2", sha256="babc2fd0229397e418be00f3691277e86f549b5a23cadbcee66078595e9176a0")
     version("1.1.0", sha256="a90ede19d80ed870f0bf1588875a9f371484d89006a7296010d8d791da3eac33")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
-    depends_on("blas")
-    depends_on("lapack")
 
     variant("shared", default=True, description="Build shared libs")
 
     variant("mpi", default=True, description="Build with MPI Support")
-    depends_on("mpi", when="+mpi")
     conflicts("+mpi", when="@:1.2.2")
 
     variant("magma", default=False, description="Build with magma support")
-    depends_on("magma", when="+magma")
     conflicts("+magma", when="@1.1.0:2.2.0", msg="Must use master branch of bml")
 
     variant(
@@ -55,7 +48,6 @@ class Bml(CMakePackage):
         when="+magma",
         description="Use cusolver diagonalization instead internal magma one.",
     )
-    depends_on("cuda", when="+cusolver")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         if "+magma" in self.spec:

@@ -68,14 +68,8 @@ class Blaze(CMakePackage):
         description="Shared memory parallelization mode",
     )
 
-    depends_on("cxx", type="build")  # generated
 
     # Blaze requires at least cmake 3.8.0 for C++14 features.
-    depends_on("cmake@3.8.0:", type="build")
-    depends_on("blas", when="+blas")
-    depends_on("lapack", when="+lapack")
-    depends_on("boost@1.54.0: +thread", when="smp=boost")
-    depends_on("hpx", when="smp=hpx")
 
     def cmake_args(self):
         args = [

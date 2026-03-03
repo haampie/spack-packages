@@ -21,9 +21,6 @@ class Bliss(Package):
 
     # Note: Bliss can also be built without gmp, but we don't support this yet
 
-    depends_on("gmp")
-    depends_on("libtool", type="build")
-    depends_on("gmake", type="build")
 
     patch("Makefile.spack.patch")
 

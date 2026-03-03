@@ -65,15 +65,7 @@ class Blaspp(CMakePackage, CudaPackage, ROCmPackage):
     variant("shared", default=True, description="Build shared libraries")
     variant("sycl", default=False, description="Build support for the SYCL backend")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@3.15.0:", type="build")
-    depends_on("blas")
-    depends_on("lapack")
-    depends_on("llvm-openmp", when="+openmp %apple-clang")
-    depends_on("rocblas", when="+rocm")
-    depends_on("intel-oneapi-mkl", when="+sycl")
-    depends_on("intel-oneapi-mkl threads=openmp", when="+sycl")
 
     # only supported with clingo solver: virtual dependency preferences
     # depends_on('openblas threads=openmp', when='+openmp ^openblas')

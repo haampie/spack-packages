@@ -35,13 +35,6 @@ class Autodiff(CMakePackage, CudaPackage):
 
 
 
-    depends_on("cmake@3.0:", type="build")
-    depends_on("cmake@3.22:", when="@0.6.8", type="build")
-    depends_on("cmake@3.16:", when="@0.6.9:", type="build")
-    depends_on("eigen")
-    depends_on("py-pybind11", type=("build", "run"))
-    depends_on("catch2", type="test")
-    depends_on("catch2@3:", when="@0.6.12:", type="test")
 
     conflicts("+cuda", when="@:1.0", msg="CUDA support was added in 1.1.0")
 

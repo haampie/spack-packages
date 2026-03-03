@@ -25,12 +25,8 @@ class Autogen(AutotoolsPackage, GNUMirrorPackage):
 
     variant("xml", default=True, description="Enable XML support")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("pkgconfig", type="build")
 
-    depends_on("guile@1.8:2.0")
-    depends_on("libxml2", when="+xml")
 
     def configure_args(self):
         spec = self.spec

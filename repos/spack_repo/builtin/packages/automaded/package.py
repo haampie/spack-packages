@@ -25,16 +25,11 @@ class Automaded(CMakePackage):
 
     version("1.0", sha256="600740cdd594cc6968c7bcb285d0829eb0ddbd5597c32c06c6ae5d9929a2625d")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("mpi")
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')
     # See https://github.com/spack/spack/pull/22303 for reference
-    depends_on(Boost.with_default_variants)
-    depends_on("callpath")
-    depends_on("cmake@2.8:", type="build")
 
     def cmake_args(self):
         return ["-DSTATE_TRACKER_WITH_CALLPATH=ON"]

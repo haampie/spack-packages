@@ -63,43 +63,22 @@ class Bohrium(CMakePackage, CudaPackage):
     #
     # Dependencies
     #
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@2.8:", type="build")
-    depends_on("boost+system+serialization+filesystem+regex")
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')
     # See https://github.com/spack/spack/pull/22303 for reference
-    depends_on(Boost.with_default_variants)
 
     # cuda dependencies managed by CudaPackage class
-    depends_on("opencl", when="+opencl")
 
     # NOTE The lapacke interface and hence netlib-lapack
     #      is the strictly required lapack provider
     #      for bohrium right now.
-    depends_on("netlib-lapack+lapacke", when="+lapack")
-    depends_on("blas", when="+blas")
 
     # Make sure an appropriate opencv is used
-    depends_on("opencv@:3+imgproc", when="+opencv")
-    depends_on("opencv+cudev", when="+opencv+cuda")
-    depends_on("opencv+openmp", when="+opencv+openmp")
 
-    depends_on("python", type="build", when="~python")
-    depends_on("python", type=("build", "link", "test"), when="+python")
-    depends_on("py-numpy", type=("build", "test", "run"), when="+python")
-    depends_on("swig", type="build", when="+python")
-    depends_on("py-cython", type="build", when="+python")
-    depends_on("py-virtualenv", type="build", when="+python")
-    depends_on("py-pip", type="build", when="+python")
-    depends_on("py-wheel", type="build", when="+python")
 
-    depends_on("zlib-api", when="+proxy")
 
-    depends_on("libsigsegv")
 
     @property
     def config_file(self):

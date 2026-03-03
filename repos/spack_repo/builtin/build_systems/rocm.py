@@ -12,8 +12,3 @@ class ROCmPackage(PackageBase):
     Maintainers: dtaller
     """
     # https://llvm.org/docs/AMDGPUUsage.html
-    # Possible architectures
-    amdgpu_targets = (
-    )
-    # need amd gpu type for rocm builds
-    # https://github.com/ROCm-Developer-Tools/HIP/blob/master/bin/hipcc

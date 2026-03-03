@@ -214,14 +214,10 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     variant("cmake_lang", default=False, description="Use CMake language support for CUDA/HIP")
     depends_on("kokkos-nvcc-wrapper@develop", when="@develop+wrapper")
     conflicts("+wrapper", when="~cuda")
-
     with default_args(multi=False, description="C++ standard"):
         variant("cxxstd", default="17", values=("14", "17", "20"), when="@3")
         variant("cxxstd", default="17", values=("17", "20", "23"), when="@4")
         variant("cxxstd", default="20", values=("20", "23"), when="@5:")
-    variant("pic", default=False, description="Build position independent code")
-
-
     # Expose a way to disable CudaMallocAsync that can cause problems
     # with some MPI such as cray-mpich
     variant("alloc_async", default=False, description="Use CudaMallocAsync", when="@4.2: +cuda")

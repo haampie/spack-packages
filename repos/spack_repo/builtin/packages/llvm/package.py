@@ -434,14 +434,8 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
         # libomptarget makes use of multithreading via the standard C++ library (e.g.
         # std::call_once), which, depending on the platform and the implementation of the standard
         # library, might or might not require linking to libpthread (note that the failure might
-        # happen at the linking time as well as at the runtime). In some cases, the required linker
-        # flag comes as a transitive dependency (e.g. from the static LLVMSupport component). The
-        # following patches enforce linking to the thread library that is relevant for the system,
-        # which might lead to overlinking in some cases though.
-        # TODO: figure out why we do not use LLVM_PTHREAD_LIB but run find_package(Threads), at
         #  least for newer versions (the solution must work with both openmp=runtime and
         #  openmp=project)
-        patch("llvm12-thread.patch", when="@12")
         patch("llvm13-14-thread.patch", when="@13:14")
         patch("llvm15-thread.patch", when="@15")
 
@@ -454,8 +448,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     # patch for missing hwloc.h include for libompd
     # see https://reviews.llvm.org/D123888
 
-    # make libflags a list in openmp subproject when openmp=project
-    # see https://reviews.llvm.org/D125370
 
     # fix detection of LLDB_PYTHON_EXE_RELATIVE_PATH
     # see https://reviews.llvm.org/D133513

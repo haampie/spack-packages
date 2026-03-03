@@ -39,7 +39,6 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
     patch("nvhpc-3.6.patch", when="@3.6.0:3.6 %nvhpc")
     patch("nvhpc-3.7.patch", when="@3.7.0:3.7 %nvhpc")
 
-    conflicts("%intel@:14", when="@3.4.2:", msg="Intel 14 has immature C11 support")
     conflicts(
         "%oneapi",
         msg=(

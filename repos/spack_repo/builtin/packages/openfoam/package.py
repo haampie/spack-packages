@@ -80,8 +80,6 @@ class Openfoam(Package):
 
     version("develop", branch="develop", submodules=True)
 
-    variant("scotch", default=True, description="With scotch/ptscotch decomposition")
-    variant("zoltan", default=False, description="With zoltan renumbering")
     variant("mgridgen", default=False, description="With mgridgen support")
     variant(
         "paraview", default=False, description="Build paraview plugins and runtime post-processing"

@@ -188,20 +188,13 @@ class Boost(Package):
 
     # (https://github.com/spack/spack/pull/32879#issuecomment-1265933265)
     # Boost did not support the oneapi compilers prior to 1.76
-    conflicts("%oneapi@2023:", when="@:1.75")
     # Boost 1.85.0 stacktrace added a hard compilation error that has to
     # explicitly be suppressed on some platforms:
     # https://github.com/boostorg/stacktrace/pull/150. This conflict could be
     # turned into a variant that allows users to opt-in when they know it is
     # safe to do so on affected platforms.
-    conflicts("+clanglibcpp", when="@1.85: +stacktrace")
 
     # https://github.com/boostorg/python/issues/400
-    conflicts(
-        "@:1.80.0",
-        when="+python ^python@3.11:",
-        msg="Boost.python.enum has a known bug for boost@:1.80.0 and python@3.11:",
-    )
 
     # On Windows, the signals variant is required when building any of
     # the all_libs variants.

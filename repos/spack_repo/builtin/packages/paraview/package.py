@@ -87,8 +87,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     variant("adios2", default=False, description="Enable ADIOS2 support", when="@5.8:")
     variant("fides", default=False, description="Enable Fides support", when="@5.9:")
     variant("visitbridge", default=False, description="Enable VisItBridge support")
-    variant("raytracing", default=False, description="Enable Raytracing support")
-    variant("cdi", default=False, description="Enable CDI support")
 
 
     # Legacy rendering dropped in 5.5

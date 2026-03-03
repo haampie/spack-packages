@@ -174,15 +174,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         ' "on" or "off" will always override the build_edition.',
     )
 
-    conflicts("~hdf5", when="+visitbridge")
-    conflicts("+adios2", when="@:5.10 ~mpi")
-    conflicts("+fides", when="~adios2", msg="Fides needs ADIOS2")
-    conflicts("+fides", when="@:5 use_vtkm=off", msg="Fides needs VTK-m")
-    conflicts("+fides", when="@:5 use_vtkm=default", msg="Fides needs VTK-m")
-    conflicts("+openpmd", when="~adios2 ~hdf5", msg="openPMD needs ADIOS2 and/or HDF5")
-    conflicts("~shared", when="+cuda")
-    conflicts("+cuda", when="@5.8:5.10")
-    conflicts("+cuda", when="use_vtkm=off")
     conflicts("+rocm", when="+cuda")
     conflicts("+rocm", when="use_vtkm=off")
     conflicts("paraview@:5.10", when="+rocm")

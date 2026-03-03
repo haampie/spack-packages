@@ -185,7 +185,6 @@ supported, and netmod is ignored if device is ch3:sock.""",
     conflicts("datatype-engine=yaksa", when="device=ch3")
     conflicts("datatype-engine=yaksa", when="device=ch3:sock")
     conflicts("datatype-engine=dataloop", when="+cuda")
-    conflicts("datatype-engine=dataloop", when="+rocm")
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
@@ -196,13 +195,6 @@ supported, and netmod is ignored if device is ch3:sock.""",
 
     # Todo: cuda can be a conditional variant, but it does not seem to work when
     # overriding the variant from CudaPackage.
-    conflicts("+cuda", when="@:3.3")
-    conflicts("+cuda", when="device=ch3")
-    conflicts("+cuda", when="device=ch3:sock")
-    conflicts("+rocm", when="@:4.0")
-    conflicts("+rocm", when="device=ch3")
-    conflicts("+rocm", when="device=ch3:sock")
-    conflicts("+cuda", when="+rocm", msg="CUDA must be disabled to support ROCm")
 
     provides("mpi@:4.0")
     provides("mpi@:3.1", when="@:3.2")
@@ -335,22 +327,10 @@ supported, and netmod is ignored if device is ch3:sock.""",
     # MPICH's Yaksa submodule requires python to configure
 
 
-    conflicts("device=ch4", when="@:3.2")
-    conflicts("netmod=ofi", when="@:3.1.4")
-    conflicts("netmod=ucx", when="device=ch3")
-    conflicts("netmod=mxm", when="device=ch4")
-    conflicts("netmod=mxm", when="@:3.1.3")
-    conflicts("netmod=tcp", when="device=ch4")
-    conflicts("pmi=pmi2", when="device=ch3 netmod=ofi")
-    conflicts("pmi=pmix", when="device=ch3")
-    conflicts("pmi=pmix", when="device=ch3:sock")
-    conflicts("pmi=pmix", when="+hydra")
-    conflicts("pmi=cray", when="+hydra")
 
     # MPICH does not require libxml2 and libpciaccess for versions before 3.3
     # when ~hydra is set: prevent users from setting +libxml2 and +pci in this
     # case to avoid generating an identical MPICH installation.
-    conflicts("+pci", when="@:3.2~hydra")
 
     # see https://github.com/pmodels/mpich/pull/5031
 

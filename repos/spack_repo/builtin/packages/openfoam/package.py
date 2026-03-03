@@ -360,7 +360,6 @@ class Openfoam(Package):
     depends_on("paraview@:5.0.1", when="@1612+paraview")
 
     # Icx only support from v2106 onwards
-    conflicts("%oneapi", when="@:2012", msg="OneAPI compiler not supported. Try v2106 or greater.")
 
     # General patches
     common = ["spack-Allwmake", "README-spack"]

@@ -24,7 +24,6 @@ class Ospray(CMakePackage):
     variant("mpi", default=True, description="Enable MPI support")
     variant("volumes", default=True, description="Enable volumetric rendering with Open VKL")
 
-    conflicts("~volumes", when="@:2.10")
 
 
     with when("+volumes"):

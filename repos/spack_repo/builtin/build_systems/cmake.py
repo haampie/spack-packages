@@ -110,35 +110,6 @@ class CMakePackage(PackageBase):
     #: system base class
     build_system_class = "CMakePackage"
     #: Legacy buildsystem attribute used to deserialize and install old specs
-    default_buildsystem = "cmake"
-    build_system("cmake")
-    with when("build_system=cmake"):
-        # https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
-        # See https://github.com/spack/spack/pull/36679 and related issues for a
-        # discussion of the trade-offs between Release and RelWithDebInfo for default
-        # builds. Release is chosen to maximize performance and reduce disk-space burden,
-        # at the cost of more difficulty in debugging.
-        variant(
-            "build_type",
-            default="Release",
-            description="CMake build type",
-            values=("Debug", "Release", "RelWithDebInfo", "MinSizeRel"),
-        )
-        # CMAKE_INTERPROCEDURAL_OPTIMIZATION only exists for CMake >= 3.9
-        # https://cmake.org/cmake/help/latest/variable/CMAKE_INTERPROCEDURAL_OPTIMIZATION.html
-        variant(
-            "ipo",
-            default=False,
-            when="^cmake@3.9:",
-            description="CMake interprocedural optimization",
-        )
-        if sys.platform == "win32":
-            generator("ninja")
-        else:
-            generator("ninja", "make", default="make")
-        # CMake earlier than 4.1 improperly handles arguments provided to
-        # the linker when using msvc as a c/cxx compiler and oneapi as a
-        # fortran compiler https://gitlab.kitware.com/cmake/cmake/-/issues/26005
         #
         # Currently in Spack msvc is modeled as both the fortran/cxx compiler
         # due to restrictions w/ oneapi on Windows, but in reality, when msvc

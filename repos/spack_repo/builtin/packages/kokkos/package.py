@@ -82,34 +82,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     cuda_arches = spack_cuda_arch_map.values()
     conflicts("+cuda", when="cuda_arch=none")
     # Kokkos support only one cuda_arch at a time
-    variant(
-        "cuda_arch",
-        description="CUDA architecture",
-        values=("none",) + CudaPackage.cuda_arch_values,
-        default="none",
-        multi=False,
-        sticky=True,
-        when="+cuda",
-    )
-    for dev, (dflt, desc) in devices_variants.items():
-        variant(dev, default=dflt, description=desc)
-    conflicts("+cuda", when="+rocm", msg="CUDA and ROCm are not compatible in Kokkos.")
-    for opt, (dflt, when, desc) in options_variants.items():
-        variant(opt, default=dflt, description=desc, when=when)
-    for tpl, (dflt, when, desc) in tpls_variants.items():
-        variant(tpl, default=dflt, description=desc, when=when)
-    variant("wrapper", default=False, description="Use nvcc-wrapper for CUDA build")
-    variant("cmake_lang", default=False, description="Use CMake language support for CUDA/HIP")
-    depends_on("kokkos-nvcc-wrapper@develop", when="@develop+wrapper")
-    conflicts("+wrapper", when="~cuda")
-    with default_args(multi=False, description="C++ standard"):
-        variant("cxxstd", default="17", values=("14", "17", "20"), when="@3")
-        variant("cxxstd", default="17", values=("17", "20", "23"), when="@4")
-        variant("cxxstd", default="20", values=("20", "23"), when="@5:")
-    # Expose a way to disable CudaMallocAsync that can cause problems
-    # with some MPI such as cray-mpich
-    variant("alloc_async", default=False, description="Use CudaMallocAsync", when="@4.2: +cuda")
-    # SYCL and OpenMPTarget require C++17 or higher
     conflicts("+openmptarget", when="cxxstd=14", msg="OpenMPTarget requires C++17 or higher")
     # HPX should use the same C++ standard
     for cxxstd in ["14", "17", "20", "23"]:

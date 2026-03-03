@@ -127,17 +127,7 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
     depends_on("json-c", when="fabrics=cxi")
     depends_on("curl", when="fabrics=cxi")
 
-    conflicts("@1.9.0", when="platform=darwin", msg="This distribution is missing critical files")
-    conflicts("fabrics=opx", when="@:1.14.99")
-    conflicts("fabrics=lnx", when="@:1")
-    conflicts(
-        "fabrics=opx",
-        when="@1.20.0",
-        msg="Libfabric 1.20.0 uses values in memory that are not correctly "
-        "set by OPX, resulting in undefined behavior.",
-    )
 
-    conflicts("+asan +tsan")
 
     flag_handler = build_system_flags
 

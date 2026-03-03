@@ -41,7 +41,6 @@ class IntelOneapiRuntime(Package):
     provides("sycl")
 
     conflicts("platform=windows", msg="IntelOneAPI can only be installed on Linux, and FreeBSD")
-    conflicts("platform=darwin", msg="IntelOneAPI can only be installed on Linux, and FreeBSD")
 
     depends_on("libc", type="link", when="platform=linux")
 

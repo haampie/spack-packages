@@ -142,7 +142,6 @@ supported, and netmod is ignored if device is ch3:sock.""",
     provides("mpi@:3.1", when="@:3.2")
     provides("mpi@:3.0", when="@:3.1")
     provides("mpi@:2.2", when="@:1.2")
-    provides("mpi@:2.1", when="@:1.1")
     provides("mpi@:2.0", when="@:1.0")
 
     filter_compiler_wrappers("mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin")

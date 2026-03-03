@@ -266,20 +266,9 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             # See https://github.com/D-Programming-GDC/gdc
             # We, however, require at least the oldest version that officially supports GDC. It is
             # also a good opportunity to tell the users that they need a working GDC:
-            conflicts(
-                "%gcc@:8",
-                msg="'gcc@12: languages=d' requires '%gcc@9:' with the D language support",
-            )
 
     # GPU offload backend supported by limited languages
     with when("+nvptx"):
-        conflicts("languages=ada")
-        conflicts("languages=brig")
-        conflicts("languages=go")
-        conflicts("languages=java")
-        conflicts("languages=jit")
-        conflicts("languages=objc")
-        conflicts("languages=obj-c++")
         conflicts("languages=d")
 
     # Newlib version table

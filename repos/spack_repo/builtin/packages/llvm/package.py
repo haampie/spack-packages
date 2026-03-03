@@ -119,11 +119,8 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
     variant("flang", default=False, description="Build the LLVM Fortran compiler frontend ")
 
-    conflicts("+flang", when="@:10")
-    conflicts("+flang", when="~clang")
 
     variant("lldb", default=True, description="Build the LLVM debugger")
-    conflicts("+lldb", when="~clang")
 
     variant("lld", default=True, description="Build the LLVM linker")
     variant("mlir", default=False, when="@10:", description="Build with MLIR support")
@@ -434,14 +431,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
     # clang/test/Misc/target-invalid-cpu-note.c
     conflicts("cuda_arch=10")
-    conflicts("cuda_arch=11")
-    conflicts("cuda_arch=12")
-    conflicts("cuda_arch=13")
-    conflicts("cuda_arch=75", when="@:13")
-    conflicts("cuda_arch=80", when="@:13")
-    conflicts("cuda_arch=86", when="@:13")
-    conflicts("cuda_arch=87", when="@:15")
-    conflicts("cuda_arch=89", when="@:15")
     conflicts("cuda_arch=90", when="@:15")
     conflicts("cuda_arch=90a", when="@:17")
 

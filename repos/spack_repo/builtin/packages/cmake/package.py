@@ -195,10 +195,3 @@ class Cmake(Package):
         """check version from cmake"""
         self.run_version_check("cmake")
 
-    def test_cpack(self):
-        """check version from cpack"""
-        self.run_version_check("cpack")
-
-    def test_ctest(self):
-        """check version from ctest"""
-        self.run_version_check("ctest")

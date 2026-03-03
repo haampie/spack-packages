@@ -268,15 +268,3 @@ class AutotoolsBuilder(autotools.AutotoolsBuilder):
         mkdirp(extradir)
         # grab the full binutils set of headers
         install_tree("include", extradir)
-        # also grab the headers from the bfd directory
-        install(join_path(self.build_directory, "bfd", "*.h"), extradir)
-
-    def flag_handler(self, name, flags):
-        spec = self.spec
-        if name == "ldflags":
-            if spec.satisfies("%cce"):
-                flags.append("-Wl,-z,muldefs")
-        elif name == "ldlibs":
-            if "+nls" in self.spec and "intl" in self.spec["gettext"].libs.names:
-                flags.append("-lintl")
-        return self.build_system_flags(name, flags)

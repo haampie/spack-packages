@@ -791,39 +791,6 @@ class Cuda(Package):
     provides("opencl@:1.2", when="@7:")
     provides("opencl@:1.1", when="@:6")
 
-    @classmethod
-    def determine_version(cls, exe):
-        output = Executable(exe)("--version", output=str, error=str)
-        match = re.search(r"Cuda compilation tools, release .*?, V(\S+)", output)
-        return match.group(1) if match else None
-
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        if self.spec.satisfies("@:8.0.61"):
-            # Perl 5.26 removed current directory from module search path,
-            # CUDA 9 has a fix for this, but CUDA 8 and lower don't.
-            env.append_path("PERL5LIB", self.stage.source_path)
-
-        if self.spec.satisfies("@10.1.243:"):
-            libxml2_home = self.spec["libxml2"].prefix
-            env.set("LIBXML2HOME", libxml2_home)
-            env.append_path("LD_LIBRARY_PATH", libxml2_home.lib)
-
-    def setup_dependent_build_environment(
-        self, env: EnvironmentModifications, dependent_spec: Spec
-    ) -> None:
-        if "cxx" in dependent_spec:
-            env.set("CUDAHOSTCXX", dependent_spec["cxx"].package.cxx)
-        env.set("CUDA_HOME", self.prefix)
-        env.set("NVHPC_CUDA_HOME", self.prefix)
-
-    @property
-    def cmake_prefix_paths(self):
-        cmake_prefix_paths = [self.prefix]
-        if self.spec.satisfies("target=x86_64:"):
-            cub_path = self.prefix.targets + "/x86_64-linux/lib/cmake"
-            cmake_prefix_paths.append(cub_path)
-        return cmake_prefix_paths
-
     def setup_run_environment(self, env: EnvironmentModifications) -> None:
         env.set("CUDA_HOME", self.prefix)
         env.set("NVHPC_CUDA_HOME", self.prefix)

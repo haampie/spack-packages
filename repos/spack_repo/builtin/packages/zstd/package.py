@@ -20,18 +20,6 @@ class Zstd(CMakePackage, MakefilePackage):
     git = "https://github.com/facebook/zstd.git"
 
 
-    version("develop", branch="dev")
-    version("1.5.7", sha256="37d7284556b20954e56e1ca85b80226768902e2edabd3b649e9e72c0c9012ee3")
-    version("1.5.6", sha256="30f35f71c1203369dc979ecde0400ffea93c27391bfd2ac5a9715d2173d92ff7")
-    version("1.5.5", sha256="98e9c3d949d1b924e28e01eccb7deed865eefebf25c2f21c702e5cd5b63b85e1")
-    version("1.5.4", sha256="35ad983197f8f8eb0c963877bf8be50490a0b3df54b4edeb8399ba8a8b2f60a4")
-    version("1.5.2", sha256="f7de13462f7a82c29ab865820149e778cbfe01087b3a55b5332707abf9db4a6e")
-    version("1.5.0", sha256="0d9ade222c64e912d6957b11c923e214e2e010a18f39bec102f572e693ba2867")
-    version("1.4.9", sha256="acf714d98e3db7b876e5b540cbf6dee298f60eb3c0723104f6d3f065cd60d6a8")
-    version("1.4.8", sha256="f176f0626cb797022fbf257c3c644d71c1c747bb74c32201f9203654da35e9fa")
-    version("1.4.7", sha256="085500c8d0b9c83afbc1dc0d8b4889336ad019eba930c5d6a9c6c86c20c769c8")
-    version("1.4.5", sha256="734d1f565c42f691f8420c8d06783ad818060fc390dee43ae0a89f86d0a4f8c2")
-    version("1.4.4", sha256="a364f5162c7d1a455cc915e8e3cf5f4bd8b75d09bc0f53965b0c9ca1383c52c8")
     version("1.4.3", sha256="5eda3502ecc285c3c92ee0cc8cd002234dee39d539b3f692997a0e80de1d33de")
     version("1.4.2", sha256="7a6e1dad34054b35e2e847eb3289be8820a5d378228802239852f913c6dcf6a7")
     version("1.4.0", sha256="63be339137d2b683c6d19a9e34f4fb684790e864fee13c7dd40e197a64c705c1")

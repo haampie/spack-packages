@@ -19,13 +19,6 @@ class Findutils(AutotoolsPackage, GNUMirrorPackage):
     homepage = "https://www.gnu.org/software/findutils/"
     gnu_mirror_path = "findutils/findutils-4.8.0.tar.xz"
 
-    def url_for_version(self, version):
-        # Before 4.7.0 it used tar.gz instead of tar.xz
-        if version < Version("4.7.0"):
-            self.gnu_mirror_path = "findutils/findutils-{0}.tar.gz".format(version)
-
-        return super().url_for_version(version)
-
     executables = ["^find$"]
 
     version("4.10.0", sha256="1387e0b67ff247d2abde998f90dfbf70c1491391a59ddfecb8ae698789f0a4f5")

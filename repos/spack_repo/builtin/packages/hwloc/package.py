@@ -138,12 +138,6 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
             *self.enable_or_disable("netloc"),
             *self.enable_or_disable("cairo"),
             *self.enable_or_disable("nvml"),
-            *self.enable_or_disable("gl"),
-            *self.enable_or_disable("cuda"),
-            *self.enable_or_disable("libxml2"),
-            *self.enable_or_disable("libudev"),
-            *self.enable_or_disable("pci"),
-            *self.enable_or_disable("libs"),
             *self.enable_or_disable("levelzero", variant="level_zero"),
         ]
 

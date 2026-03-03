@@ -1,6 +1,3 @@
-import pathlib
-import platform
-import warnings
 from spack_repo.builtin.build_systems.compiler import CompilerPackage
 from spack_repo.builtin.build_systems.oneapi import IntelOneApiPackage
 from spack.package import *
@@ -8,8 +5,6 @@ versions = [
     {
         "version": "2025.3.2",
         "cpp": {
-            "url": "https://registrationcenter-download.intel.com/akdlm/IRC_NAS/0d61d48a-4fe8-4cb2-bd9d-94d2c19c6227/intel-dpcpp-cpp-compiler-2025.3.2.26_offline.sh",
-            "sha256": "37d6c9c22f90fbb4d2072fd45d0284f2b6b1ffd030d699e1e7a669087d093396",
         },
     },
 ]

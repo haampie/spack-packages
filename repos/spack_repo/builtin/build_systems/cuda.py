@@ -32,14 +32,6 @@ class CudaPackage(PackageBase):
     )
     # FIXME: keep cuda and cuda_arch separate to make usage easier until
     # Spack has depends_on(cuda, when='cuda_arch!=None') or alike
-    # https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#nvcc-examples
-    # https://llvm.org/docs/CompileCudaWithLLVM.html#compiling-cuda-code
-    # CUDA version vs Architecture
-    # https://en.wikipedia.org/wiki/CUDA#GPUs_supported
-    # https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#deprecated-features
-    # Tesla support:
-    # Fermi support:
-    # Kepler support:
     # Maxwell support:
     # Pascal support:
     # Volta support:

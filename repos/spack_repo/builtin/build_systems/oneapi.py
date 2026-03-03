@@ -43,7 +43,6 @@ class IntelOneApiPackage(Package):
     ]:
         conflicts(c, msg="This package in only available for x86_64 and Linux")
     # Add variant to toggle environment modifications from vars.sh
-    @staticmethod
     def update_description(cls):
         """Updates oneapi package descriptions with common text."""
         text = """ LICENSE INFORMATION: By downloading and using this software, you agree to the terms

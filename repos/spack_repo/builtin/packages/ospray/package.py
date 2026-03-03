@@ -31,5 +31,3 @@ class Ospray(CMakePackage):
     with when("+denoiser"):
         depends_on("openimagedenoise@1.2.3:")
         depends_on("openimagedenoise@1.3:", when="@2.5:")
-        depends_on("openimagedenoise@:1", when="@:2.11")
-        depends_on("openimagedenoise@2:", when="@2.12:")

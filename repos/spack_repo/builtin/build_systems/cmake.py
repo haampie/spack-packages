@@ -5,8 +5,6 @@ from spack.package import (
     working_dir,
 )
 # Regex to extract the primary generator from the CMake generator
-def _conditional_cmake_defaults(pkg: PackageBase, args: List[str]) -> None:
-        return
 def generator(*names: str, default: Optional[str] = None) -> None:
     """The build system generator to use.
     """

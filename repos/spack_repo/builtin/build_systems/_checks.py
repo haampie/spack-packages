@@ -7,9 +7,6 @@ from spack.package import (
     execute_install_time_tests,
 )
 def ensure_build_dependencies_or_raise(spec: Spec, dependencies: List[str], error_msg: str):
-    """Ensure that some build dependencies are present in the concrete spec.
-          RuntimeError: when the required build dependencies are not found
-    """
     # Raise an exception on missing deps.
     msg = (
         "{0}: missing dependencies: {1}.\n\nPlease add "

@@ -200,18 +200,9 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
 
     extends("python", when="+python")
     depends_on("python", when="+python", type=("build", "run"))
-    depends_on("python@3.5:3.10", when="@:2.7 +python", type=("build", "run"))
-    depends_on("python@3.8:", when="@2.10: +python", type=("build", "run"))
 
-    depends_on("python", type="test")
-    depends_on("python@3.5:3.10", when="@:2.7", type="test")
 
-    depends_on("py-numpy@1.6.1:", when="+python", type=("build", "run"))
-    depends_on("py-mpi4py@2.0.0:", when="+mpi +python", type=("build", "run"))
-    depends_on("aws-sdk-cpp", when="+aws")
-    depends_on("libcatalyst@2", when="+libcatalyst")
 
-    depends_on("xrootd~davix", when="+xrootd")
 
     # error: invalid use of incomplete type 'PyFrameObject' {aka 'struct _frame'}
     conflicts("^python@3.11:", when="@:2.7")

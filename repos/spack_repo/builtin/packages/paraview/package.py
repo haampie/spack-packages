@@ -346,72 +346,29 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("expat")
     depends_on("eigen@3")
     depends_on("freetype")
-    # depends_on('hdf5+mpi', when='+mpi')
     # depends_on('hdf5~mpi', when='~mpi')
     # Paraview 5.10 can't build with protobuf > 3.18
-    # https://github.com/spack/spack/issues/37437
-    # protobuf requires newer abseil-cpp, which in turn requires C++14,
-    # but paraview uses C++11 by default. Use for 5.8+ until ParaView updates
-    # its C++ standard level.
-    depends_on("lz4")
-    depends_on("xz")
-    depends_on("zlib-api")
-    depends_on("libcatalyst@2:", when="+libcatalyst")
-
-    # Older builds of pugi export their symbols differently,
-    # and pre-5.9 is unable to handle that.
-    depends_on("pugixml@:1.10", when="@:5.8")
-    depends_on("pugixml", when="@5.9:")
-    # 5.13 uses 'remove_children': https://github.com/spack/spack/issues/47098
-    depends_on("pugixml@1.11:", when="@5.13:")
-
-    # ParaView depends on cli11 due to changes in MR
-    # https://gitlab.kitware.com/paraview/paraview/-/merge_requests/4951
-    depends_on("cli11@1.9.1", when="@5.10:")
-
-    # ParaView depends on nlohmann-json due to changes in MR
-    # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/8550
     depends_on("nlohmann-json", when="@5.11:")
 
-    # ParaView depends on proj@8.1.0 due to changes in MR
-    # v8.1.0 is required for VTK::GeoVis
-    # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/8474
-    depends_on("proj@8.1.0", when="@5.11:")
 
     # Patches to vendored VTK-m are needed for forward compat with CUDA 12 (mr 2972 and 3259)
     depends_on("cuda@:11", when="@5.3:5.12 +cuda")
 
-
-    # Broken gcc-detection - improved in 5.1.0, redundant later
-
-    # Broken installation (ui_pqExportStateWizard.h) - fixed in 5.2.0
-
-    # Broken vtk-m config. Upstream catalyst changes
-
-    # Broken H5Part with external parallel HDF5
-
     # Broken downstream FindMPI
 
-    # Include limits header wherever needed to fix compilation with GCC 11
-
     # Fix IOADIOS2 module to work with kits
-    # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/8653
 
     # Patch for paraview 5.9.0%xl_r
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/7591
-
     # intel oneapi doesn't compile some code in catalyst
 
     # Patch for paraview 5.8: ^hdf5@1.13.2:
-    # Even with ~hdf5, hdf5 is part of the dependency tree due to netcdf-c
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/9690
     # a patch with the same name is also applied to vtk
     # the two patches are the same but for the path to the files they patch
 
-    # Fix VTK to work with external freetype using CONFIG mode for find_package
 
     # Fix VTK to remove deprecated ADIOS2 functions
-    # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/10113
 
 
 

@@ -40,15 +40,8 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
 
     with when("build_system=msbuild platform=windows"):
         patch("ICU4C_NMAKE_NO_DOUBLE_QUOTE_VARS.patch", when="@64.1:")
-        patch("Quote_datagen.patch", when="@64.1:")
 
 
-    patch(
-        "https://github.com/unicode-org/icu/commit/ddfc30860354cbcb78c2c0bcf800be5ab44a9e4f.patch?full_index=1",
-        sha256="6be0b8068b0f5047dad7f4f6f655529304f1abbc551c93223c6f41dafc1e8acc",
-        level=2,
-        when="@58.0:59",
-    )
 
     # Need to make sure that locale is UTF-8 in order to process source files in UTF-8.
 class MSBuildBuilder(msbuild.MSBuildBuilder):

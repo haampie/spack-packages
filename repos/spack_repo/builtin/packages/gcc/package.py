@@ -128,11 +128,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     with when("+graphite"):
         depends_on("isl@0.14", when="@5.0:5.2")
         depends_on("isl@0.15", when="@5.3:5.9")
-        depends_on("isl@0.15:0.18", when="@6:8.9")
-        depends_on("isl@0.15:0.20", when="@9:9.9")
-        depends_on("isl@0.15:", when="@10:")
 
-    depends_on("zlib-api", when="@6:")
     depends_on("zstd", when="@10:")
     depends_on("diffutils", type="build")
 

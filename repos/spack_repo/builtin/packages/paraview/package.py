@@ -197,11 +197,7 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
             for target in ROCmPackage.amdgpu_targets:
                 depends_on(f"viskores amdgpu_target={target}", when=f"amdgpu_target={target}")
 
-    depends_on("ospray@2.1:2", when="+raytracing")
-    depends_on("openimagedenoise", when="+raytracing")
-    depends_on("ospray +mpi", when="+raytracing +mpi")
 
-    depends_on("cdi", when="+cdi")
 
     # depends_on('hdf5~mpi', when='~mpi')
     # Paraview 5.10 can't build with protobuf > 3.18
@@ -236,9 +232,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # https://gitlab.kitware.com/paraview/paraview/-/merge_requests/7593
 
     # https://gitlab.kitware.com/paraview/paraview/-/issues/21223
-    conflicts("generator=ninja", when="%xl")
-    conflicts("generator=ninja", when="%xl_r")
 
     # Versions 5.13.0-5.13.2 do not compile with Intel classic compilers
-    conflicts("%intel", when="@5.13:5.13.2")
 

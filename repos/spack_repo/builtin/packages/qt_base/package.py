@@ -98,7 +98,6 @@ class QtBase(QtPackage):
             depends_on("libproxy")
 
     # Qt6 requires newer compilers: see https://github.com/spack/spack/issues/34418
-    conflicts("%gcc@:7")
     # The oldest compiler for Qt 6.5 is GCC 9: https://doc.qt.io/qt-6.5/supported-platforms.html
     with when("@6.5:"):
         conflicts("%gcc@:8")

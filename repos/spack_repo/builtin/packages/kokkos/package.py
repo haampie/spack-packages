@@ -232,12 +232,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     # HPX version constraints
 
     # Patches
-    patch("sycl_bhalft_test.patch", when="@4.2.00 +sycl")
-    patch(
-        "https://github.com/rbberger/kokkos/commit/293319c5844f4d8eea51eb9cd1457115a5016d3f.patch?full_index=1",
-        sha256="145619e87dbf26b66ea23e76906576e2a854a3b09f2a2dd70363e61419fa6a6e",
-        when="@4.2.00",
-    )
 
     # spack compiler wrappers
 

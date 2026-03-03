@@ -58,8 +58,3 @@ class AutotoolsBuilder(BuilderWithDefaults):
     #: Set to true to force the autoreconf step even if configure is present
     force_autoreconf = False
     #: Options to be passed to autoreconf when using the default implementation
-    autoreconf_extra_args: List[str] = []
-    #: If False deletes all the .la files in the prefix folder after the installation.
-    #: If True instead it installs them.
-    install_libtool_archives = False
-    # On macOS, force rpaths for shared library IDs and remove duplicate rpaths

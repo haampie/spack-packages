@@ -68,8 +68,3 @@ class CMakePackage(PackageBase):
     #: List of package names for which CMake argument injection should be disabled
     disable_cmake_hints_from: List[str] = []
     #: This attribute is used in UI queries that need to know the build
-    #: system base class
-    build_system_class = "CMakePackage"
-    #: Legacy buildsystem attribute used to deserialize and install old specs
-        #
-        # Currently in Spack msvc is modeled as both the fortran/cxx compiler

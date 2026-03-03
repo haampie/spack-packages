@@ -23,17 +23,12 @@ class Hal(MakefilePackage):
     version("2.1", sha256="540255be1af55abf390359fe034b82d7e61bdf6c3277df3cc01259cd450994e5")
 
     depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     maintainers("ilbiondo")
 
     # HAL expects to be compiled alongside sonlib so we need both the
     # source version and python library version
 
-    depends_on("hdf5+cxx~mpi")
-    depends_on("sonlib", type="build")
-    depends_on("python", type="run")
-    depends_on("py-sonlib", type="run")
 
     # As we install sonlib seperately the include.mk needs
     # editing to comment out an include

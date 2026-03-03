@@ -36,18 +36,7 @@ class Guile(AutotoolsPackage, GNUMirrorPackage):
         description="Use the thread interface",
     )
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("bdw-gc@7.0: threads=none", when="threads=none")
-    depends_on("bdw-gc@7.0: threads=posix", when="threads=posix")
-    depends_on("bdw-gc@7.0: threads=dgux386", when="threads=dgux386")
-    depends_on("gmp@4.2:")
-    depends_on("gettext")
-    depends_on("libtool@1.5.6:", type="link")  # links to libltdl.so
-    depends_on("libunistring@0.9.3:")
-    depends_on("libffi")
-    depends_on("readline", when="+readline")
-    depends_on("pkgconfig", type="build")
 
     build_directory = "spack-build"
 

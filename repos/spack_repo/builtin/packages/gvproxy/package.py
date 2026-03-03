@@ -17,7 +17,6 @@ class Gvproxy(MakefilePackage):
 
     version("0.8.6", sha256="eb08309d452823ca7e309da2f58c031bb42bb1b1f2f0bf09ca98b299e326b215")
 
-    depends_on("go@1.23.0:", type="build")
 
     def install(self, spec, prefix):
         mkdirp(prefix.bin)

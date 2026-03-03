@@ -41,11 +41,6 @@ class Gxsview(QMakePackage):
         "2021.07.01", sha256="000f9b4721d4ee03b02730dbbfe83947f96a60a183342b127f0b6b63b03e8f9a"
     )
 
-    depends_on("cxx", type="build")
-    depends_on("fontconfig")
-    depends_on("qt@5.14.0:+opengl+gui")
-    depends_on("vtk@8.0:+qt+opengl2")  # +mpi+python are optional
-    depends_on("vtk@9:+qt+opengl2", when="@2024.03.15:")
     conflicts("%gcc@:7.2.0", msg="Requires C++17 compiler support")  # need C++17 standard
 
     # gcc11 compilation rule for std::numeric_limits,

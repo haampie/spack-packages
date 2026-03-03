@@ -23,18 +23,7 @@ class Hicup(Package):
     variant("bowtie2", description="Use bowtie2 aligner", default=True)
     variant("bowtie", description="Use bowtie aligner", default=False)
 
-    depends_on("pandoc", type="run")
-    depends_on("perl", type="run")
-    depends_on("perl-math-round", type="run")
-    depends_on("r", type="run")
-    depends_on("r-stringi@1.7.8:", type="run")
-    depends_on("r-markdown", type="run")
-    depends_on("r-tidyverse", type="run")
-    depends_on("r-plotly", type="run")
-    depends_on("samtools@0.1.18:", type="run")
     # variant dependencies
-    depends_on("bowtie2", type="run", when="+bowtie2")
-    depends_on("bowtie", type="run", when="+bowtie")
 
     def edit(self, spec, prefix):
         grep = which("grep")

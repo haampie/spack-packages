@@ -19,13 +19,4 @@ class GuacamoleServer(AutotoolsPackage):
 
     version("1.5.5", sha256="50430c0f0f3b92f2cd3e60436fab0cedee8c1a9f762696a666016347039c731e")
 
-    depends_on("c", type="build")
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
-    depends_on("cairo +pdf +png")  # pdf enables zlib support required for CairoScript
-    depends_on("libjpeg")
-    depends_on("libpng")
-    depends_on("uuid")

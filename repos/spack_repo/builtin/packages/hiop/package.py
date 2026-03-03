@@ -182,15 +182,9 @@ class Hiop(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("hip", when="+rocm")
     depends_on("hiprand", when="+rocm")
     depends_on("hipblas", when="+rocm")
-    depends_on("hipsparse", when="+rocm")
 
-    depends_on("suite-sparse", when="+kron")
-    depends_on("suite-sparse", when="+cusolver_lu")
 
-    depends_on("coinhsl+blas", when="+sparse")
-    depends_on("metis", when="+sparse")
 
-    depends_on("ginkgo@1.5.0.glu_experimental", when="+ginkgo")
 
     flag_handler = build_system_flags
 

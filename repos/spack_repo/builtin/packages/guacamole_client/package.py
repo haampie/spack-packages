@@ -26,8 +26,6 @@ class GuacamoleClient(MavenPackage):
         when="@1.5:1.5.5",
     )
 
-    depends_on("java@8:", type=("build", "run"))
-    depends_on("java@:16", type=("build", "run"), when="@:1.4")
 
     def build_args(self):
         # The file .spack_patched is flagged as an unapproved license

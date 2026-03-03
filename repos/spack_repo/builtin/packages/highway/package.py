@@ -29,12 +29,8 @@ class Highway(CMakePackage):
     variant("shared", default=True, description="Build shared libs")
     variant("examples", default=False, description="Build examples")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("cmake@3.10:", type="build")
 
-    depends_on("googletest", type="test")
 
     def cmake_args(self):
         define = self.define

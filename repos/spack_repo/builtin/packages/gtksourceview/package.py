@@ -26,30 +26,11 @@ class Gtksourceview(MesonPackage, AutotoolsPackage):
     version("4.2.0", sha256="c431eb234dc83c7819e58f77dd2af973252c7750da1c9d125ddc94268f94f675")
     version("3.24.11", sha256="691b074a37b2a307f7f48edc5b8c7afa7301709be56378ccf9cc9735909077fd")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
     build_system(
         conditional("autotools", when="@:4.2"), conditional("meson", when="@4.8:"), default="meson"
     )
 
-    depends_on("m4", type="build")
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("gobject-introspection", type="build")
-    depends_on("intltool", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("gettext")
-    depends_on("glib@2.48.0:", when="@3.24.11:")
-    depends_on("gtkplus@3.20.0:", when="@3.24.11:")
-    depends_on("libxml2@2.6:", when="@3.24.11:")
-    depends_on("pango")
-    depends_on("gdk-pixbuf")
-    depends_on("atk")
-    depends_on("iconv")
-    depends_on("vala", when="@4.8:")
 
     def url_for_version(self, version):
         url = "https://download.gnome.org/sources/gtksourceview/"

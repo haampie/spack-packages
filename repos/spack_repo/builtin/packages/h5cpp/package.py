@@ -24,13 +24,7 @@ class H5cpp(CMakePackage):
 
     variant("mpi", default=True, description="Include MPI support")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake @3.10:", type="build")
-    depends_on("hdf5 @1.10.4:")
-    depends_on("hdf5 +mpi", when="+mpi")
-    depends_on("mpi", when="+mpi")
 
     def cmake_args(self):
         return [

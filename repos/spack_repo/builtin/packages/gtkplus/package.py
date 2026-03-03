@@ -32,8 +32,6 @@ class Gtkplus(AutotoolsPackage, MesonPackage):
 
     variant("cups", default=False, description="enable cups support")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     # See meson.build for version requirements
     depends_on("meson@0.48.0:", when="build_system=meson", type="build")

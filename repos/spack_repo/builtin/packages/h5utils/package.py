@@ -30,19 +30,11 @@ class H5utils(AutotoolsPackage):
     variant("hdf4", default=False, description="Enable HDF4 support")
     variant("math", default=False, description="Build h5math")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     # Required dependencies
-    depends_on("hdf5")
 
     # Optional dependencies
-    depends_on("libpng", when="+png")
-    depends_on("libpng@:1.5.0", when="@1.12.1+png")
     # depends_on('vis5d',       when='+vis5d')  # TODO: Add a vis5d package
-    depends_on("octave", when="+octave")
-    depends_on("hdf", when="+hdf4")
-    depends_on("libmatheval", when="+math")
 
     def configure_args(self):
         spec = self.spec

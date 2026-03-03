@@ -26,11 +26,7 @@ class Haccabana(CMakePackage):
 
     variant("shared", default=True, description="Build shared libraries")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@3.9:", type="build")
-    depends_on("kokkos@3.0:")
-    depends_on("cabana@master")
 
     def cmake_args(self):
         options = [self.define_from_variant("BUILD_SHARED_LIBS", "shared")]

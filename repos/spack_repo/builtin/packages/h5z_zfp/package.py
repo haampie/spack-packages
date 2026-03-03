@@ -24,12 +24,6 @@ class H5zZfp(CMakePackage):
     variant("fortran", default=True, description="Enable Fortran support")
     variant("tests", default=False, description="Build tests")
 
-    depends_on("c", type="build")
-    depends_on("fortran", type="build", when="+fortran")
-    depends_on("hdf5")
-    depends_on("zfp bsws=8")
-    depends_on("hdf5+fortran", when="+fortran")
-    depends_on("mpi", when="^hdf5+mpi")
 
     def cmake_args(self):
         args = [

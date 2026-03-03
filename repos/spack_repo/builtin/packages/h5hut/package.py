@@ -24,18 +24,9 @@ class H5hut(AutotoolsPackage):
     variant("fortran", default=True, description="Enable Fortran support")
     variant("mpi", default=True, description="Enable MPI support")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("autoconf", type="build", when="build_system=autotools")
-    depends_on("automake", type="build", when="build_system=autotools")
-    depends_on("libtool", type="build", when="build_system=autotools")
 
-    depends_on("mpi", when="+mpi")
     # h5hut +mpi uses the obsolete function H5Pset_fapl_mpiposix:
-    depends_on("hdf5@1.8:+mpi", when="+mpi")
-    depends_on("hdf5@1.8:", when="~mpi")
 
     # If built in parallel, the following error message occurs:
     # install: .libs/libH5hut.a: No such file or directory

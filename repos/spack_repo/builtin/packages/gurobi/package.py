@@ -39,9 +39,6 @@ class Gurobi(Package):
     license_url = "http://www.gurobi.com/downloads/download-center"
 
     extends("python")
-    depends_on("python@2.7,3.6:", when="@:10")
-    depends_on("python@3.8:", when="@11")
-    depends_on("python@3.9:", when="@12")
 
     def url_for_version(self, version):
         return "file://{0}/gurobi{1}_linux64.tar.gz".format(os.getcwd(), version)

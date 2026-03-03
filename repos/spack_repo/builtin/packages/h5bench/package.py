@@ -33,16 +33,7 @@ class H5bench(CMakePackage):
     variant("async", default=False, description="Enables ASYNC VOL Connector")
     variant("all", default=False, description="Enables all h5bench benchmarks")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("cmake@3.10:", type="build")
-    depends_on("mpi")
-    depends_on("hdf5+mpi@1.12.0:1,develop-1.12:")
-    depends_on("hdf5-vol-async@1.5", when="+async")
-    depends_on("parallel-netcdf", when="+e3sm")
-    depends_on("parallel-netcdf", when="+all")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         env.set("HDF5_HOME", self.spec["hdf5"].prefix)

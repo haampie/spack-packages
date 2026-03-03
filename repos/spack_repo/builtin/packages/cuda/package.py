@@ -787,5 +787,3 @@ class Cuda(Package):
     # see https://docs.nvidia.com/cuda/archive/11.4.0/cuda-gdb/index.html#release-notes
 
 
-    # contains precompiled binaries without rpaths
-    unresolved_libraries = ["*"]

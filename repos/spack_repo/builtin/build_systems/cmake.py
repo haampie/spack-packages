@@ -34,28 +34,6 @@ from ._checks import execute_build_time_tests
 _primary_generator_extractor = re.compile(r"(?:.* - )?(.*)")
 
 
-def _extract_primary_generator(generator):
-    """Use the compiled regex _primary_generator_extractor to extract the
-    primary generator from the generator string which may contain an
-    optional secondary generator.
-    """
-    return _primary_generator_extractor.match(generator).group(1)
-
-
-def _supports_compilation_databases(pkg: PackageBase) -> bool:
-    """Check if this package (and CMake) can support compilation databases."""
-
-    # CMAKE_EXPORT_COMPILE_COMMANDS only exists for CMake >= 3.5
-    if not pkg.spec.satisfies("^cmake@3.5:"):
-        return False
-
-    # CMAKE_EXPORT_COMPILE_COMMANDS is only implemented for Makefile and Ninja generators
-    if not (pkg.spec.satisfies("generator=make") or pkg.spec.satisfies("generator=ninja")):
-        return False
-
-    return True
-
-
 def _conditional_cmake_defaults(pkg: PackageBase, args: List[str]) -> None:
     """Set a few default defines for CMake, depending on its version."""
     cmakes = pkg.spec.dependencies("cmake", deptype="build")

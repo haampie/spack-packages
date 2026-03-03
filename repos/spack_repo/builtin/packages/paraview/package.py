@@ -164,8 +164,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
             depends_on("qt-base+accessibility+gui+opengl+sql+network")
             depends_on("qt-tools+assistant")
             depends_on("qt-5compat")
-            depends_on("qt-svg")
-            depends_on("libxslt")
 
         # ParaView@6: and later will depend on OSMesa as a fallback for
         # OpenGL.
@@ -173,11 +171,9 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         # * the system rendering default (WGL/AGL/GLX)
         # * EGL
         # * OSMesa (guarenteed to exist and work on all systems)
-        depends_on("osmesa", type=("run"), when="~qt")
 
         # Depend on Viskores when it is needed
         for vk_variant in viskores_dependency_variants:
-            depends_on("viskores +vtktypes +64bitids +doubleprecision", when=f"{vk_variant}")
             depends_on("viskores +fpic", when=f"+shared {vk_variant}")
 
         with when("+cuda"):

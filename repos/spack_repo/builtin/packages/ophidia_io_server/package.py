@@ -15,18 +15,7 @@ class OphidiaIoServer(AutotoolsPackage):
     maintainers("eldoo", "SoniaScard")
     version("1.7.3", sha256="a33f1010f72f163f103593d14e7b4480258e4c8f0094c792d2a19bcb88ef323f")
 
-    depends_on("c", type="build")  # generated
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
 
-    depends_on("boost@1.79.0")
-    depends_on("netcdf-c")
-    depends_on("mysql")
-    depends_on("bison")
-    depends_on("flex")
-    depends_on("ophidia-primitives")
 
     def autoreconf(self, spec, prefix):
         autoreconf("--install", "--verbose", "--force")

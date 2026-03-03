@@ -19,4 +19,3 @@ class Netperf(AutotoolsPackage):
     version("2.6.0", sha256="560b9c0ef0eed826941f74708b3ac53d91ec13b0b8c565fb107a1b5e6d99ded4")
     version("2.5.0", sha256="bebc94102fb74071cf289e0c116f83920dbd982f9e6c913ec0f1c7f6fcffbf77")
 
-    depends_on("c", type="build")  # generated

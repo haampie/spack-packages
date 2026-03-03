@@ -113,7 +113,6 @@ class DavSdk(BundlePackage, CudaPackage, ROCmPackage):
     # compatible with 'hdf5@1.14:'. Until there is a version of VisIt with an updated VTK or Spack
     # allows the concretization of multiple versions of the same build only dependency
     # concretization with VisIt and Cinema variants will not allow building VOLs.
-    dav_sdk_depends_on("hdf5@1.12: +shared+mpi", when="+hdf5", propagate=["fortran"])
 
     # HDF5 VOL Adapters require hdf5@1.14:
 
@@ -133,15 +132,9 @@ class DavSdk(BundlePackage, CudaPackage, ROCmPackage):
     depends_on("hdf5-vol-cache", when="+hdf5 ^hdf5@1.14:")
     depends_on("hdf5-vol-log", when="+hdf5 ^hdf5@1.14:")
 
-    dav_sdk_depends_on("parallel-netcdf+shared", when="+pnetcdf", propagate=["fortran"])
 
     # Fortran support with ascent is problematic on some Cray platforms so the
     # SDK is explicitly disabling it until the issues are resolved.
-    dav_sdk_depends_on(
-        "ascent+mpi~fortran+python+shared+vtkh~test",
-        when="+ascent",
-        propagate=["adios2", "cuda"] + cuda_arch_variants,
-    )
     depends_on("ascent+openmp", when="~rocm+ascent")
     depends_on("ascent~openmp", when="+rocm+ascent")
 
@@ -152,29 +145,15 @@ class DavSdk(BundlePackage, CudaPackage, ROCmPackage):
     # releases 0.8 and ascent can build with conduit@0.8: and vtk-m@1.7:
     conflicts("^ascent@develop", when="+ascent")
 
-    dav_sdk_depends_on("diy@3:", when="+diy")
 
     # ParaView needs @5.11: in order to use CUDA/ROCM, therefore it is the minimum
     # required version since GPU capability is desired for ECP
-    dav_sdk_depends_on(
-        "paraview@5.11:+mpi+openpmd+python+kits+shared+catalyst+libcatalyst use_vtkm=on",
-        when="+paraview",
-        propagate=["adios2", "cuda", "hdf5", "rocm"] + amdgpu_target_variants + cuda_arch_variants,
-    )
-    dav_sdk_depends_on("libcatalyst@2:+mpi", when="+paraview")
     conflicts("^paraview@master", when="+paraview")
 
-    dav_sdk_depends_on("visit+mpi+python+silo", when="+visit", propagate=["hdf5", "adios2"])
 
-    dav_sdk_depends_on(
-        "vtk-m@1.7:+shared+mpi+rendering",
-        when="+vtkm",
-        propagate=["cuda", "rocm"] + cuda_arch_variants + amdgpu_target_variants,
-    )
     # TODO: When Ascent is updated to use VTK-m >= 1.8 move examples to
     # the main spec.
     conflicts("^vtk-m~examples", when="+vtkm ^vtk-m@1.8:")
     depends_on("vtk-m+openmp", when="~rocm+vtkm")
     depends_on("vtk-m~openmp", when="+rocm+vtkm")
 
-    dav_sdk_depends_on("zfp", when="+zfp", propagate=["cuda"] + cuda_arch_variants)

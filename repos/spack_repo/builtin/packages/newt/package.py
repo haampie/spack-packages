@@ -24,13 +24,8 @@ class Newt(AutotoolsPackage):
     # only look in /usr. Avoid using Python with earlier versions.
     variant("python", when="@0.52.21:", default=False, description="Build the snack python module")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("gettext")
-    depends_on("popt")
-    depends_on("slang")
 
-    depends_on("python", when="@0.52.21: +python")
 
     # Beginning with newt 0.52.25, snack is installed into Python's site-packages, but
     # we prefer the module to stay within newt's prefix

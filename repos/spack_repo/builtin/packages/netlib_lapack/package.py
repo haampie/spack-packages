@@ -148,12 +148,6 @@ class NetlibLapack(CMakePackage):
     provides("lapack", "blas", when="~external-blas")
     provides("lapack")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build", when="@:3.12.0")
-    depends_on("fortran", type="build")
-    depends_on("blas", when="+external-blas")
-    depends_on("netlib-xblas+fortran+plain_blas", when="+xblas")
-    depends_on("python@2.7:", type="test")
 
     # We need to run every phase twice in order to get static and shared
     # versions of the libraries. When ~shared, we run the default

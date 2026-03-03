@@ -17,7 +17,6 @@ class NetkitFtp(AutotoolsPackage):
 
     version("master", branch="master")
 
-    depends_on("c", type="build")  # generated
 
     def install(self, spec, prefix):
         mkdirp(prefix.bin)

@@ -19,9 +19,5 @@ class NfSeqerakit(PythonPackage):
 
     version("0.4.5", sha256="792bd4fa53de4b3959929413d1ad8f39e20587971c9c5451419da1ff68cf3f49")
 
-    depends_on("nf-tower-cli", type="run")
 
-    depends_on("python@3.8:3", type=("build", "run"))
-    depends_on("py-setuptools", type="build")
 
-    depends_on("py-pyyaml@6:", type=("build", "run"))

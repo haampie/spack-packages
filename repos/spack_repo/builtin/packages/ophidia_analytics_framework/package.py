@@ -15,23 +15,7 @@ class OphidiaAnalyticsFramework(AutotoolsPackage):
     maintainers("eldoo", "SoniaScard")
     version("1.7.3", sha256="f8fc6374613efd10d9878e216b40494fd38622389c52005e3b85dd9956fa7cd5")
 
-    depends_on("c", type="build")  # generated
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
-    depends_on("pkgconfig", type="build")
 
-    depends_on("gsl")
-    depends_on("mpich")
-    depends_on("jansson")
-    depends_on("libxml2")
-    depends_on("libssh2")
-    depends_on("openssl")
-    depends_on("mysql")
-    depends_on("netcdf-c")
-    depends_on("curl")
-    depends_on("ophidia-io-server")
 
     def autoreconf(self, spec, prefix):
         autoreconf("--install", "--verbose", "--force")

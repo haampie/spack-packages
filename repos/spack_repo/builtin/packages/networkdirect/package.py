@@ -25,11 +25,8 @@ class Networkdirect(msbuild.MSBuildPackage):
 
     requires("platform=windows")
 
-    depends_on("cxx")
     requires("%msvc")
 
-    depends_on("win-sdk")
-    depends_on("win-wdk")
 
     # Networkdirect uses a build system called CBT that is built on top of MSBuild
     # CBT is entirely deprecated, and fully incompatible with modern dotnet versions

@@ -35,18 +35,7 @@ class Opensubdiv(CMakePackage, CudaPackage):
     variant("tbb", default=False, description="Builds with Intel TBB support")
     variant("openmp", default=False, description="Builds with OpenMP support")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@2.8.6:", type="build")
-    depends_on("gl")
-    depends_on("glew@1.9.0:")
-    depends_on("glfw@3.0.0:")
-    depends_on("intel-tbb@4.0:", when="+tbb")
-    depends_on("libxrandr")
-    depends_on("libxxf86vm")
-    depends_on("libxcursor")
-    depends_on("libxinerama")
-    depends_on("llvm-openmp", when="+openmp")
 
     def cmake_args(self):
         spec = self.spec

@@ -19,10 +19,6 @@ class ScalapackBase(CMakePackage):
 
     provides("scalapack")
 
-    depends_on("mpi")
-    depends_on("lapack")
-    depends_on("blas")
-    depends_on("cmake", when="@2.0.0:", type="build")
 
     # See: https://github.com/Reference-ScaLAPACK/scalapack/issues/9
     patch("cmake_fortran_mangle.patch", when="@2.0.2:2.0")
@@ -131,8 +127,6 @@ class NetlibScalapack(ScalapackBase):
     version("2.0.0", sha256="e51fbd9c3ef3a0dbd81385b868e2355900148eea689bf915c5383d72daf73114")
     version("master", branch="master")
 
-    depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
     # versions before 2.0.0 are not using cmake and requires blacs as
     # a separated package
 

@@ -43,36 +43,22 @@ class Netpbm(MakefilePackage):
     # from their respective spack package.
     variant("builtin", default=False, description="Use builtin libs instead of 3rd party")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("perl", type=("build", "run"))
-    depends_on("gmake", type="build")
-    depends_on("pkgconfig", type="build")
 
     # These are general pre-requisites indicated at
     # http://netpbm.sourceforge.net/prereq.html
-    depends_on("zlib-api")
-    depends_on("jpeg")
-    depends_on("libtiff")
-    depends_on("libpng")
     # Ghostscript is called as "gs" by pstopnm and pbmtextps
-    depends_on("ghostscript", type="run", when="+ghostscript")
 
     # These are the optional libs:
     # svgtopam : http://netpbm.sourceforge.net/prereq.html
     # homebrew also sets a dependancy to libxml2
     # https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/netpbm.rb
-    depends_on("libxml2", when="+all")
     # thinkjettopbm : http://netpbm.sourceforge.net/prereq.html
-    depends_on("flex", type=("build", "run"), when="+all")
     # https://formulae.brew.sh/formula/netpbm
-    depends_on("jasper", when="+all~builtin")
     # Only Mac Ports sets a dependency to jbig
     # https://ports.macports.org/port/netpbm/summary
-    depends_on("jbigkit", when="+all~builtin")
 
     # pamx depends on X11 libraries:
-    depends_on("libx11", when="+X")
 
     def edit(self, spec, prefix):
         # We better not run the interactive perl script buildtools/configure.pl

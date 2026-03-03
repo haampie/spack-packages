@@ -22,15 +22,7 @@ class Openwsman(CMakePackage):
 
     extends("python", when="+python")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("python", type=("build", "link", "run"))
-    depends_on("curl", type="link")
-    depends_on("swig", type="build")
-    depends_on("libxml2", type="link")
-    depends_on("openssl", type="link")
-    depends_on("sblim-sfcc", type="link")
 
     def patch(self):
         """Change python install directory."""

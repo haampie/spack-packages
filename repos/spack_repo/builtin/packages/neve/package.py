@@ -21,9 +21,7 @@ class Neve(MakefilePackage):
     variant("openmp", default=True, description="Build with OpenMP support")
     variant("opt", default=True, description="Optimization flags")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("mpi")
 
     @property
     def build_targets(self):

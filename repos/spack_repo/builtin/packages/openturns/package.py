@@ -35,26 +35,11 @@ class Openturns(CMakePackage):
     variant("python", default=True, description="Build Python bindings")
     variant("libxml2", default=False, description="Use LibXML2 for XML support")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("cmake@2.8:", type="build")
-    depends_on("bison", type="build")
-    depends_on("flex", type="build")
 
-    depends_on("lapack")
-    depends_on("boost+system+serialization+thread")
-    depends_on("intel-tbb")
-    depends_on("libxml2", when="+libxml2")
 
     with when("+python"):
         extends("python")
-        depends_on("swig")
-        depends_on("py-numpy@1.7:", type=("build", "run"))
-        depends_on("py-pandas", type=("build", "run"))
-        depends_on("py-matplotlib", type=("build", "run"))
-        depends_on("py-cloudpickle", type=("build", "run"))
-        depends_on("py-urllib3", type=("build", "run"))
 
     def cmake_args(self):
         args = [

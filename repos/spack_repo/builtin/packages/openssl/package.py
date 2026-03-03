@@ -72,16 +72,8 @@ class Openssl(Package):  # Uses Fake Autotools, should subclass Package
     with when("platform=windows"):
         variant("dynamic", default=False, description="Link with MSVC's dynamic runtime library")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")
 
-    depends_on("zlib-api")
-    depends_on("perl@5.14.0:", type=("build", "test"))
-    depends_on("ca-certificates-mozilla", type="build", when="certs=mozilla")
-    depends_on("nasm", when="platform=windows")
 
-    depends_on("gmake", type="build", when="platform=linux")
-    depends_on("gmake", type="build", when="platform=darwin")
 
     @classmethod
     def determine_version(cls, exe):

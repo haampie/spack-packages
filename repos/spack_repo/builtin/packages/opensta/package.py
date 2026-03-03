@@ -32,14 +32,7 @@ class Opensta(CMakePackage):
     variant("zlib", default=True, description="build with zlib support")
     variant("cudd", default=True, description="build with cudd support")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("tcl@8.6.11", type="build")
-    depends_on("flex", type="build")
-    depends_on("swig", type="build")
-    depends_on("llvm")
-    depends_on("zlib", type="build", when="+zlib")
-    depends_on("cudd", type="build", when="+cudd")
 
     def cmake_args(self):
         args = []

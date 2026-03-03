@@ -29,8 +29,3 @@ class Opentsdb(AutotoolsPackage):
     version("2.2.1", sha256="e2f335dcb3dfdc74cc80b2f70dc3c68d239d0832c4bf9af278b7df5a58c06990")
     version("2.2.0", sha256="fa9856e17fcd9c804878ea0be59377b64cca3ce25bc8424ed1ab786dce2432a0")
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
-    depends_on("java", type="run")

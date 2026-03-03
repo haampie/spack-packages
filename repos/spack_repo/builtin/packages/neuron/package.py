@@ -65,37 +65,13 @@ class Neuron(CMakePackage):
 
     generator("ninja")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("bison@3:", type="build")
-    depends_on("flex@2.6:", type="build")
-    depends_on("ninja", type="build")
 
-    depends_on("gettext")
-    depends_on("libdwarf", when="+backtrace")
-    depends_on("mpi", when="+mpi")
-    depends_on("ncurses")
-    depends_on("readline")
 
-    depends_on("python", when="+python")
-    depends_on("py-pytest", when="+python+tests")
-    depends_on("py-mpi4py", when="+mpi+python+tests")
-    depends_on("py-numpy", when="+python")
-    depends_on("py-cython", when="+rx3d", type="build")
-    depends_on("py-pytest-cov", when="+tests")
 
     # next two needed after neuronsimulator/nrn#2235.
-    depends_on("py-pip", type="build")
-    depends_on("py-setuptools", type="build")
-    depends_on("py-packaging", type="run")
 
-    depends_on("boost", when="+coreneuron+tests")
-    depends_on("cuda", when="+coreneuron+gpu")
-    depends_on("py-sympy@1.3:", when="+coreneuron")
 
-    depends_on("caliper", when="+caliper")
 
     gpu_compiler_message = "neuron+gpu needs %nvhpc"
     requires("%nvhpc", when="+gpu", msg=gpu_compiler_message)

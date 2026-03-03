@@ -14,7 +14,6 @@ class Hard(CMakePackage):
     git = "https://github.com/lanl/hard"
 
     version("main", branch="main")
-
     variant("catalyst", default=False, description="Enable catalyst for paraview interface")
     variant("radiation", default=True, description="Enable support for radiation physics")
     variant("tests", default=False, description="Enable unit tests")

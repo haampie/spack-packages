@@ -121,13 +121,9 @@ class Openfoam(Package):
     # The flex restriction is ONLY to deal with a spec resolution clash
     # introduced by the restriction within scotch!
     depends_on("flex@:2.6.1,2.6.4:")
-    depends_on("libyaml")
-    depends_on("readline")
 
     # mgridgen is statically linked
-    depends_on("parmgridgen", when="+mgridgen", type="build")
     # 'paraview+plugins' but that resolves poorly.
-    depends_on("paraview@5.4:", when="@1706:+paraview")
     # 1612 plugins need older paraview
     depends_on("paraview@:5.0.1", when="@1612+paraview")
 

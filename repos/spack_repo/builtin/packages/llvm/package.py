@@ -252,19 +252,11 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     depends_on("libffi", when="+libomptarget")
 
     depends_on("zlib-api")
-
     # needs zstd cmake config file, which is not added when built with makefile.
 
-    # lldb dependencies
-    with when("+lldb"):
-        depends_on("xz")
 
     for _when_spec in ("+lldb+python", "+lldb+lua"):
-        with when(_when_spec):
-            depends_on("swig@2:", when="@10:")
-            depends_on("swig@3:", when="@12:")
             depends_on("swig@4:", when="@17:")
-            # Commits f0a25fe0b746f56295d5c02116ba28d2f965c175 and
             # 81fc5f7909a4ef5a8d4b5da2a10f77f7cb01ba63 fixed swig 4.1 support
             depends_on("swig@:4.0", when="@:15")
 
@@ -279,10 +271,8 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     conflicts("%gcc@8:", when="@:5")
     conflicts("%gcc@:5.0", when="@8:")
     conflicts("%gcc@8.4:8.4.9", when="@12: target=aarch64:")
-    # Compiler will throw errors like e.g. "no type named 'iterator'" or "class has no member"
 
     # libcxx=project imposes compiler conflicts
-    # and https://github.com/llvm/www-releases for older releases
     with when("libcxx=project"):
         for v, compiler_conflicts in {
             "@7:": {"clang": "@:3.4", "gcc": "@:4.6"},

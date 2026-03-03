@@ -33,11 +33,3 @@ class Ospray(CMakePackage):
         depends_on("openimagedenoise@1.3:", when="@2.5:")
         depends_on("openimagedenoise@:1", when="@:2.11")
         depends_on("openimagedenoise@2:", when="@2.12:")
-        depends_on("openimagedenoise@2.1:", when="@3:")
-        depends_on("openimagedenoise@2.3:", when="@3.2:")
-    depends_on("ispc@1.14.1:", type=("build"))
-
-    with when("+mpi"):
-        depends_on("snappy@1.1.8:")
-        depends_on("snappy@1.2.1:", when="@3.2:")
-

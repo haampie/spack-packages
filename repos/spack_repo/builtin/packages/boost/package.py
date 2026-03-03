@@ -181,12 +181,8 @@ class Boost(Package):
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
-
-    # Unicode support
     depends_on("icu4c", when="+icu")
     depends_on("icu4c cxxstd=11", when="+icu cxxstd=11")
-    depends_on("icu4c cxxstd=14", when="+icu cxxstd=14")
-
     depends_on("py-numpy", when="+numpy", type=("build", "run"))
     # https://github.com/boostorg/python/issues/431
     depends_on("py-numpy@:1", when="@:1.86+numpy", type=("build", "run"))

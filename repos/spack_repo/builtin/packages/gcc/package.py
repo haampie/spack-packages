@@ -150,11 +150,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # See https://go.dev/doc/install/gccgo#Releases
     with when("languages=go"):
         provides("go-or-gccgo-bootstrap@:1.0", when="@4.7.1:")
-        provides("go-or-gccgo-bootstrap@:1.2", when="@4.9:")
-        provides("go-or-gccgo-bootstrap@:1.12.2", when="@9:")
-
     # For a list of valid languages for a specific release,
-    # See https://gcc.gnu.org/gcc-7/changes.html
 
     # BRIG does not seem to be supported on macOS
 

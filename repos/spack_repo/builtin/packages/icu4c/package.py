@@ -37,8 +37,6 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
     depends_on("python", type="build", when="@64.1:")
     with when("build_system=autotools"):
         depends_on("autoconf", type="build")
-        depends_on("automake", type="build")
-        depends_on("libtool", type="build")
 
     with when("build_system=msbuild platform=windows"):
         patch("ICU4C_NMAKE_NO_DOUBLE_QUOTE_VARS.patch", when="@64.1:")

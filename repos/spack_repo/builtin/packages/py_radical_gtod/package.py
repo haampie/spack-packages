@@ -24,6 +24,3 @@ class PyRadicalGtod(PythonPackage):
     version("develop", branch="devel")
     version("1.90.0", sha256="70889239d3a60f8f323f62b942939665464fa368c4a00d0fbc49c878658f57b2")
 
-    depends_on("c", type="build")  # generated
-    depends_on("py-radical-utils@1.90:1.99", type=("build", "run"), when="@1.90:")
-    depends_on("py-setuptools", type="build")

@@ -17,9 +17,3 @@ class PyQudida(PythonPackage):
 
     version("0.0.4", sha256="db198e2887ab0c9aa0023e565afbff41dfb76b361f85fd5e13f780d75ba18cc8")
 
-    depends_on("python@3.5:", type=("build", "run"))
-    depends_on("py-setuptools", type="build")
-    depends_on("py-numpy@0.18:", type=("build", "run"))
-    depends_on("py-scikit-learn@0.19.1:", type=("build", "run"))
-    depends_on("py-typing-extensions", type=("build", "run"))
-    depends_on("opencv@4.0.1:+python3", type=("build", "run"))

@@ -27,31 +27,15 @@ class PyPyvista(PythonPackage):
     version("0.37.0", sha256="d36a2c6d5f53f473ab6a9241669693acee7a5179394dc97595da14cc1de23141")
     version("0.32.1", sha256="585ac79524e351924730aff9b7207d6c5ac4175dbb5d33f7a9a2de22ae53dbf9")
 
-    depends_on("py-setuptools", type="build")
-    depends_on("py-matplotlib@3.0.1:", when="@0.39:", type=("build", "run"))
-    depends_on("py-numpy@1.21:", when="@0.44:", type=("build", "run"))
-    depends_on("py-numpy", type=("build", "run"))
     # https://github.com/pyvista/pyvista/releases/tag/v0.44.0
-    depends_on("py-numpy@:1", when="@:0.43", type=("build", "run"))
 
     # this is a virtual that can provide py-pillow as needed
-    depends_on("pil", type=("build", "run"))
-    depends_on("py-pooch", when="@0.37:", type=("build", "run"))
-    depends_on("py-scooby@0.5.1:", type=("build", "run"))
 
     # https://github.com/pyvista/pyvista/issues/6857
-    depends_on("vtk@:9.3+python", type=("build", "run"), when="@:0.44.1")
     # 9.4.0 and 9.4.1 are not supported
     # https://github.com/pyvista/pyvista/issues/6731
-    depends_on("vtk@:9.3,9.4.2:9.6+python", type=("build", "run"), when="@0.45.3:")
 
-    depends_on("py-typing-extensions@4.10:", when="@0.46.1:", type=("build", "run"))
-    depends_on("py-typing-extensions", when="^python@:3.7", type=("build", "run"))
 
     # Historical dependencies
-    depends_on("py-appdirs", when="@:0.36", type=("build", "run"))
-    depends_on("py-imageio", when="@:0.38", type=("build", "run"))
-    depends_on("py-meshio@4.0.3:4", when="@:0.32", type=("build", "run"))
 
     # '>=3.7.*' in python_requires: setuptools parser changed in v60 and errors.
-    depends_on("py-setuptools@:59", when="@:0.37", type="build")

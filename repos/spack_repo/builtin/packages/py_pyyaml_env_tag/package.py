@@ -18,6 +18,3 @@ class PyPyyamlEnvTag(PythonPackage):
 
     version("0.1", sha256="70092675bda14fdec33b31ba77e7543de9ddc88f2e5b99160396572d11525bdb")
 
-    depends_on("python@3.6:", type=("build", "run"))
-    depends_on("py-flit-core@2:3", type="build")
-    depends_on("py-pyyaml", type=("build", "run"))

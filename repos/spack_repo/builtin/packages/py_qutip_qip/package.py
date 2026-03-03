@@ -21,10 +21,5 @@ class PyQutipQip(PythonPackage):
     version("0.2.3", sha256="a6a3a549cf6983e3ecef2cf07d00be83c146321fb588e250a49d020788a4e590")
     version("0.2.2", sha256="4a9c79bb31c2fb2c72428764b2a5f6d8b1c667cebc8257cce1395c7e87d11217")
 
-    depends_on("py-setuptools@42:", type="build")
-    depends_on("py-packaging", type=("build", "run"))
 
-    depends_on("py-numpy@1.16.6:", type=("build", "run"))
-    depends_on("py-scipy@1.0:", type=("build", "run"))
 
-    depends_on("py-qutip@4.6:", type=("build", "run"))

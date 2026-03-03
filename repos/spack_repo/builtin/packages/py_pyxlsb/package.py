@@ -19,4 +19,3 @@ class PyPyxlsb(PythonPackage):
     version("1.0.8", sha256="dcf26d6494b45d8852d68571f828c2361b74711a2e19ba03eee77f96b9210464")
     version("1.0.6", sha256="47e8230582de15ad9824a456d1d4cb36a6535f4ad5e5eb2464d31f0445b9db46")
 
-    depends_on("py-setuptools", type="build")

@@ -23,10 +23,3 @@ class PyRadicalPilot(PythonPackage):
     version("develop", branch="devel")
     version("1.92.0", sha256="5c65df02ec097f71648259db8ed8638580ea8e4c1c7f360879afff7f99e56134")
 
-    depends_on("py-radical-utils@1.90:1.99", type=("build", "run"), when="@1.90:")
-    depends_on("py-radical-gtod@1.90:1.99", type=("build", "run"), when="@1.90:")
-    depends_on("py-requests", type=("build", "run"), when="@1.90:")
-    depends_on("py-psij-python", type=("build", "run"), when="@1.48:")
-    depends_on("py-dill", type=("build", "run"), when="@1.14:")
-    depends_on("py-setproctitle", type=("build", "run"))
-    depends_on("py-setuptools", type="build")

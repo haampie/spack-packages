@@ -24,6 +24,3 @@ class PyRadicalSaga(PythonPackage):
     version("develop", branch="devel")
     version("1.90.0", sha256="55758339f58087477574ed598e5a34cb99d045a540a74ba9e11b34eead4af78d")
 
-    depends_on("py-radical-utils@1.90:1.99", type=("build", "run"), when="@1.90:")
-    depends_on("py-parse", type=("build", "run"))
-    depends_on("py-setuptools", type="build")

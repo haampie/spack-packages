@@ -18,7 +18,4 @@ class PyQuantumXir(PythonPackage):
 
     version("0.2.2", sha256="4b6a60bd3dcddb455e33b036b320cf634c5bd772ecea031b110fc5fb2fcf8a51")
 
-    depends_on("python@3.7:", type=("build", "run"))
-    depends_on("py-setuptools", type="build")
 
-    depends_on("py-lark-parser@0.11.0:", type=("build", "run"))

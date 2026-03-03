@@ -22,12 +22,5 @@ class PyRadicalUtils(PythonPackage):
     version("develop", branch="devel")
     version("1.91.1", sha256="5293f375f699161e451982b2e7668613c24e2562252f65e765ebbc83d8ae0118")
 
-    depends_on("py-colorama", type=("build", "run"))
-    depends_on("py-msgpack", type=("build", "run"))
-    depends_on("py-netifaces", type=("build", "run"))
-    depends_on("py-ntplib", type=("build", "run"))
-    depends_on("py-pyzmq", type=("build", "run"))
-    depends_on("py-regex", type=("build", "run"))
-    depends_on("py-setproctitle", type=("build", "run"))
     with default_args(type="build"):
         depends_on("py-setuptools")

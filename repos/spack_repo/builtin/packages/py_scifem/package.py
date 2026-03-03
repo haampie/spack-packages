@@ -33,13 +33,7 @@ class PyScifem(PythonPackage):
     variant("biomed", default=False, description="Biomedical imaging support")
     variant("hdf5", default=False, description="HDF5 support")
 
-    depends_on("python@3.10:", type=("build", "run"))
 
-    depends_on("cxx", type="build")
-    depends_on("py-nanobind@2:", type="build")
-    depends_on("py-scikit-build-core+pyproject", type="build")
-    depends_on("py-setuptools@42:", type="build")
-    depends_on("cmake@3.21:", type="build")
     depends_on("fenics-dolfinx@main", when="@main", type=("build", "link"))
     depends_on("fenics-dolfinx@0.9:", when="@0.4:", type=("build", "link"))
     depends_on("fenics-basix@main", when="@main", type=("build", "link"))

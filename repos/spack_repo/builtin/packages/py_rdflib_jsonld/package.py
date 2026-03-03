@@ -20,6 +20,4 @@ class PyRdflibJsonld(PythonPackage):
     version("0.6.0", sha256="03af8b5540a8e7bb0dae0d9ba1a3bd7f6435abd82cfb4b3ad5e0cdb1bf45a2a6")
 
     depends_on("python@3.6:", type=("build", "run"))
-    depends_on("py-setuptools", type="build")
 
-    depends_on("py-rdflib@5.0.0:", type=("build", "run"))

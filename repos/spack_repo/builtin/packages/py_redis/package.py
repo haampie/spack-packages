@@ -26,10 +26,4 @@ class PyRedis(PythonPackage):
         description="Support for hiredis which speeds up parsing of multi bulk replies",
     )
 
-    depends_on("py-setuptools", type="build")
-    depends_on("py-importlib-metadata@1:", when="@4: ^python@:3.7", type=("build", "run"))
-    depends_on("py-typing-extensions", when="@4: ^python@:3.7", type=("build", "run"))
-    depends_on("py-async-timeout@4.0.2:", when="@4:", type=("build", "run"))
 
-    depends_on("py-hiredis@1:", when="@4: +hiredis", type=("build", "run"))
-    depends_on("py-hiredis@0.1.3:", when="+hiredis", type=("build", "run"))

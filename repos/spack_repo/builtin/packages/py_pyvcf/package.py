@@ -16,4 +16,3 @@ class PyPyvcf(PythonPackage):
     version("0.6.8", sha256="e9d872513d179d229ab61da47a33f42726e9613784d1cb2bac3f8e2642f6f9d9")
     version("0.6.0", sha256="d9ec3bbedb64fa35c2648a9c41fdefaedd3912ff597a436e073d27aeccf5de7c")
 
-    depends_on("py-setuptools@:57", type="build")

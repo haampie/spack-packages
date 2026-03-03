@@ -30,15 +30,7 @@ class PyPytuq(PythonPackage):
 
     version("1.0.0", sha256="1fc9fabf7bf183d38e104564e99d1950f7e2103baac5a13960c356173b9997ff")
 
-    depends_on("python@3.8:", type=("build", "run"))
-    depends_on("py-setuptools", type="build")
-    depends_on("py-wheel", type="build")
 
-    depends_on("py-numpy", type=("build", "run"))
-    depends_on("py-scipy", type=("build", "run"))
-    depends_on("py-matplotlib", type=("build", "run"))
 
     variant("nn", default=False, description="Enable neural network support")
 
-    depends_on("py-torch", type=("build", "run"), when="+nn")
-    depends_on("py-uqinn", type=("build", "run"), when="+nn")

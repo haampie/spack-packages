@@ -28,31 +28,16 @@ class PyPyzmq(PythonPackage):
     version("17.1.2", sha256="a72b82ac1910f2cf61a49139f4974f994984475f771b0faa730839607eeedddf")
     version("16.0.2", sha256="0322543fff5ab6f87d11a8a099c4c07dd8a1719040084b6ce9162bcdf5c45c9d")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("py-cython@3:", type="build", when="@26:")
-    depends_on("py-cython@0.29.35:", type="build", when="@25.1.1:25 ^python@3.12:")
-    depends_on("py-cython@0.29:", type="build", when="@19:25")
-    depends_on("py-cython@0.20:", type="build", when="@:18")
-    depends_on("py-packaging", type="build")
-    depends_on("py-scikit-build-core+pyproject@0.10:", type="build", when="@26.3:")
-    depends_on("py-scikit-build-core+pyproject", type="build", when="@26.0:26.2")
 
     # from README
-    depends_on("libzmq@3.2.2:", type=("build", "link"), when="@22.3.0:")
-    depends_on("libzmq", type=("build", "link"))
 
     # Undocumented dependencies
-    depends_on("py-gevent", type=("build", "run"))
 
     # https://github.com/zeromq/pyzmq/issues/1915
     conflicts("^py-cython@3.1:", when="@:25")
 
     # Historical dependencies
-    depends_on("py-setuptools@:59", type="build", when="@17:18.0")
-    depends_on("py-setuptools", type="build", when="@:25")
-    depends_on("py-setuptools-scm+toml", type="build", when="@25.1.1:25")
     # Only when python is provided by 'pypy'
     depends_on("py-py", type=("build", "run"), when="@:22")
     depends_on("py-cffi", type=("build", "run"), when="@:22")

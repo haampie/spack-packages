@@ -22,6 +22,3 @@ class PyRadicalEntk(PythonPackage):
     version("develop", branch="devel")
     version("1.92.0", sha256="908a5d35cbc801c8b064837a21cbf5ad1a9b4aed0db48f2db84ef85d4e529cef")
 
-    depends_on("py-radical-utils@1.90:1.99", type=("build", "run"), when="@1.90:")
-    depends_on("py-radical-pilot@1.90:1.99", type=("build", "run"), when="@1.90:")
-    depends_on("py-setuptools", type="build")

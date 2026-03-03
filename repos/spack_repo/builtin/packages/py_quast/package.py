@@ -24,25 +24,8 @@ class PyQuast(PythonPackage):
     version("4.6.1", sha256="7ace5bebebe9d2a70ad45e5339f998bd651c1c6b9025f7a3b51f44c87ea5bae0")
     version("4.6.0", sha256="3a7ee7a2abfeb0541b299b67f263ba95f9743f8809ddf5dfaca9c3c8f9b6a215")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("boost@1.56.0")
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')
     # See https://github.com/spack/spack/pull/22303 for reference
-    depends_on(Boost.with_default_variants)
-    depends_on("perl@5.6.0:", type=("build", "run"))
-    depends_on("python@2.5:,3.3:", type=("build", "run"))
-    depends_on("py-setuptools", type="build")
-    depends_on("py-matplotlib", type=("build", "run"))
-    depends_on("py-joblib", type=("build", "run"))
-    depends_on("py-simplejson", type=("build", "run"))
-    depends_on("java", type=("build", "run"))
-    depends_on("perl-time-hires", type=("build", "run"))
-    depends_on("gnuplot", type=("build", "run"))
-    depends_on("mummer", type=("build", "run"))
-    depends_on("bedtools2", type=("build", "run"))
-    depends_on("bwa", type=("build", "run"))
-    depends_on("glimmer", type=("build", "run"))

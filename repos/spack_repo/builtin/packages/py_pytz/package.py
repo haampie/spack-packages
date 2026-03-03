@@ -33,4 +33,3 @@ class PyPytz(PythonPackage):
     version("2015.4", sha256="c4ee70cb407f9284517ac368f121cf0796a7134b961e53d9daf1aaae8f44fb90")
     version("2016.3", sha256="3449da19051655d4c0bb5c37191331748bcad15804d81676a88451ef299370a8")
 
-    depends_on("py-setuptools", type="build")

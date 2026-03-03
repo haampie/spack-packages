@@ -1,5 +1,4 @@
 from spack.package import *
-# Not the nice way of doing things, but is a start for refactoring
 __all__ = [
 ]
 class Openfoam(Package):

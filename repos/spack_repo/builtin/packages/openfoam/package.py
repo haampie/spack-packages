@@ -112,34 +112,3 @@ class Openfoam(Package):
     phases = ["configure", "build", "install"]
     build_script = "./spack-Allwmake"  # From patch() method.
     #
-    # - End of definitions / setup -
-    #
-    # Executables like decomposePar require interface libraries for optional dependencies, but if
-    # the dependency is missing, an dummy library is used and put in lib/dummy. Allow this until
-    # the https://gitlab.com/openfoam/core/openfoam/-/issues/3283 is resolved.
-    unresolved_libraries = [
-        "libkahipDecomp.so",
-        "libmetisDecomp.so",
-        "libMGridGen.so",
-        "libPstream.so",
-        "libptscotchDecomp.so",
-        "libscotchDecomp.so",
-    ]
-# -----------------------------------------------------------------------------
-class OpenfoamArch:
-    """OpenfoamArch represents architecture/compiler settings for OpenFOAM.
-    The string representation is WM_OPTIONS.
-    Keywords
-        label-size=[True]   supports int32/int64
-        compile-option[=-spack]
-        mplib[=USERMPI]
-    """
-    #: Map spack compiler names to OpenFOAM compiler names
-    #  By default, simply capitalize the first letter
-    compiler_mapping = {
-        "aocc": "Amd",
-        "fj": "Fujitsu",
-        "intel": "Icc",
-        "intel-oneapi-compilers": "Icx",
-    }
-# -----------------------------------------------------------------------------

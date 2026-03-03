@@ -118,26 +118,3 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
         depends_on("automake", type="build")
         depends_on("libtool", type="build")
 
-    def configure_args(self):
-        return [
-            "--enable-kernel=4.4.1",
-            "--with-headers={}".format(self.spec["linux-headers"].prefix.include),
-            "--without-selinux",
-        ]
-
-    def build(self, spec, prefix):
-        # 1. build just ld.so
-        # 2. drop the rpath from ld.so -- otherwise it cannot be executed
-        # 3. do the rest of the build that may directly run ld.so
-        with working_dir(self.build_directory):
-            make("-C", "..", f"objdir={os.getcwd()}", "lib")
-            delete_rpath(join_path("elf", "ld.so"))
-            make()
-
-    @property
-    def libs(self):
-        return LibraryList([])
-
-    @property
-    def headers(self):
-        return HeaderList([])

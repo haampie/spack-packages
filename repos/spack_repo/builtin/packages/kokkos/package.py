@@ -297,7 +297,3 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
             )
         else:
             cmake_args.append(self.define("CMAKE_CXX_COMPILER", self["cxx"].cxx))
-
-        cmake(cmake_path, *cmake_args)
-        cmake("--build", ".")
-        cmake("--build", ".", "--target", "test")

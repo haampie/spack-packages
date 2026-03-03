@@ -52,22 +52,6 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
 
     def url_for_version(self, version):
         url = "https://github.com/unicode-org/icu/releases/download/release-{0}/icu4c-{1}-src.tgz"
-        return url.format(version.dashed, version.underscored)
-
-    def flag_handler(self, name, flags):
-        if name == "cxxflags" and not self.spec.platform == "windows":
-            # Control of the C++ Standard is via adding the required "-std"
-            # flag to CXXFLAGS in env
-            flags.append(getattr(self.compiler, f"cxx{self.spec.variants['cxxstd'].value}_flag"))
-        return (None, flags, None)
-
-    @property
-    def libs(self):
-        return find_libraries("libicu*", root=self.prefix, recursive=True)
-
-
-class AutotoolsBuilder(autotools.AutotoolsBuilder):
-    configure_directory = "source"
 
     # Need to make sure that locale is UTF-8 in order to process source files in UTF-8.
     @when("@59:")

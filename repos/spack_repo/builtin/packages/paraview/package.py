@@ -7,8 +7,5 @@ from spack.package import *
 IS_WINDOWS = sys.platform == "win32"
 class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     git = "https://gitlab.kitware.com/paraview/paraview.git"
-    tags = ["e4s"]
-    with default_args(deprecated=True):
-        version("5.4.0", sha256="f488d84a53b1286d2ee1967e386626c8ad05a6fe4e6cbdaa8d5e042f519f94a9")
     with when("@6:"):
             depends_on("qt-tools+assistant")

@@ -4,9 +4,6 @@ from spack.package import (
     depends_on,
     execute_install_time_tests,
     find,
-    force_remove,
-    safe_remove,
-    tty,
     when,
     working_dir,
 )

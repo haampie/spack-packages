@@ -113,29 +113,16 @@ class Cmake(Package):
 
     # Revert the change that introduced a regression when parsing mpi link
     # flags, see: https://gitlab.kitware.com/cmake/cmake/issues/19516
-    patch("cmake-revert-findmpi-link-flag-list.patch", when="@3.15.0")
 
     # Fix linker error when using external libs on darwin.
     # See https://gitlab.kitware.com/cmake/cmake/merge_requests/2873
-    patch("cmake-macos-add-coreservices.patch", when="@3.11.0:3.13.3")
 
     # Fix builds with XLF + Ninja generator
     # https://gitlab.kitware.com/cmake/cmake/merge_requests/4075
-    patch(
-        "fix-xlf-ninja-mr-4075.patch",
-        sha256="42d8b2163a2f37a745800ec13a96c08a3a20d5e67af51031e51f63313d0dedd1",
-        when="@3.15.5",
-    )
 
     # Statically linked binaries error on install when CMAKE_INSTALL_RPATH is set
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/9623
-    patch("mr-9623.patch", when="@3.22.0:3.30")
 
-    patch(
-        f"{github}/commit/1b0c92a3a1b782ff3e1c4499b6ab8db614d45bcd.patch?full_index=1",
-        sha256="fdea723be9713f3ed4624055bf21ef5876647d63c151b91006608ec44a912ae1",
-        when="@3.11:3.31.6",
-    )
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
@@ -203,37 +190,26 @@ class Cmake(Package):
 
     # Cannot build with Intel, should be fixed in 3.6.2
     # https://gitlab.kitware.com/cmake/cmake/issues/16226
-    patch("intel-c-gnu11.patch", when="@3.6.0:3.6.1")
 
     # Cannot build with Intel again, should be fixed in 3.17.4 and 3.18.1
     # https://gitlab.kitware.com/cmake/cmake/-/issues/21013
-    patch("intel-cxx-bootstrap.patch", when="@3.17.0:3.17.3,3.18.0")
 
     # https://gitlab.kitware.com/cmake/cmake/issues/18232
-    patch("nag-response-files.patch", when="@3.7:3.12")
 
     # Cray libhugetlbfs and icpc warnings failing CXX tests
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/4698
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/4681
-    patch("ignore_crayxc_warnings.patch", when="@3.7:3.17.2")
 
     # The Fujitsu compiler requires the '--linkfortran' option
     # to combine C++ and Fortran programs.
-    patch("fujitsu_add_linker_option.patch", when="%fj")
 
     # Remove -A from the C++ flags we use when CXX_EXTENSIONS is OFF
     # Should be fixed in 3.19. This patch is needed also for nvhpc.
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/5025
-    patch("pgi-cxx-ansi.patch", when="@3.15:3.18")
 
     # Adds CCE v11+ fortran preprocessing definition.
     # requires Cmake 3.19+
     # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/5882
-    patch(
-        "5882-enable-cce-fortran-preprocessing.patch",
-        sha256="b48396c0e4f61756248156b6cebe9bc0d7a22228639b47b5aa77c9330588ce88",
-        when="@3.19.0:3.19",
-    )
 
     # https://gitlab.kitware.com/cmake/cmake/issues/18166
     conflicts("%intel", when="@3.11.0:3.11.4")

@@ -562,42 +562,21 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     patch("signal.patch", when="@4.9,5.1:5.4")
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=85835
     patch("sys_ustat.h.patch", when="@5.0:6.4,7.0:7.3,8.1")
-    patch("sys_ustat-4.9.patch", when="@4.9")
 
     # this patch removes cylades support from gcc-5 and allows gcc-5 to be built
     # with newer glibc versions.
-    patch("glibc-2.31-libsanitizer-3-gcc-5.patch", when="@5.3.0:5.5.0")
 
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=95005
-    patch("zstd.patch", when="@10")
 
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100102
-    patch("patch-fc930b3010bd0de899a3da3209eab20664ddb703.patch", when="@10.1:10.3")
-    patch("patch-f1feb74046e0feb0596b93bbb822fae02940a90e.patch", when="@11.1")
 
     # libstdc++: Fix inconsistent noexcept-specific for valarray begin/end
-    patch(
-        "https://github.com/gcc-mirror/gcc/commit/423cd47cfc9640ba3d6811b780e8a0b94b704dcb.patch?full_index=1",
-        sha256="0d136226eb07bc43f1b15284f48bd252e3748a0426b5d7ac9084ebc406e15490",
-        when="@9.5.0:10.4.0,11.1.0:11.2.0",
-    )
 
     # patch ICE on aarch64 in tree-vect-slp, cf: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=111478
     # patch taken from releases/gcc-12 branch
-    patch(
-        "https://github.com/gcc-mirror/gcc/commit/9d033155254ac6df5f47ab32896dbf336f991589.patch?full_index=1",
-        sha256="8b76fe575ef095b48ac45e8b56544c331663f840ce4b63abdb61510bf3647597",
-        when="@12.3.0 target=aarch64:",
-    )
     # patch taken from releases/gcc-13 branch
-    patch(
-        "https://github.com/gcc-mirror/gcc/commit/7c67939ec384425a3d7383dfb4fb39aa7e9ad20a.patch?full_index=1",
-        sha256="f0826d7a9c9808af40f3434918f24ad942f1c6a6daec73f11cf52c544cf5fc01",
-        when="@13.2.0 target=aarch64:",
-    )
 
     # see https://gcc.gnu.org/gcc-11/changes.html 11.5 Caveats
-    patch("patch-5522dec054cb940fe83661b96249aa12c54c1d77.patch", when="@11.5.0 target=aarch64:")
 
     build_directory = "spack-build"
 

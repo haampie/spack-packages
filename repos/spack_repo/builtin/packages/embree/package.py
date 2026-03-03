@@ -27,11 +27,6 @@ class Embree(CMakePackage):
     conflicts("@:3.12", when="target=aarch64:")
     conflicts("@:3.13.2", when="target=aarch64: platform=linux")
     conflicts("@3.13.4", when="target=aarch64: platform=linux")
-    patch(
-        "https://github.com/embree/embree/commit/82ca6b5ccb7abe0403a658a0e079926478f04cb1.patch?full_index=1",
-        sha256="3af5a65e8875549b4c930d4b0f2840660beba4a7f295d8c89068250a1df376f2",
-        when="@3.13.5",
-    )
 
     def cmake_args(self):
         spec = self.spec

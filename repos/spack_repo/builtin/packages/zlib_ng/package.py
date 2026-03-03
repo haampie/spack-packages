@@ -42,7 +42,6 @@ class ZlibNg(AutotoolsPackage, CMakePackage):
     depends_on("cxx", type="build")  # generated
 
     # Default to autotools, since cmake would result in circular dependencies if it's not
-    # reused.
     build_system("autotools", "cmake", default="autotools")
 
     # fix building with NVHPC, see https://github.com/zlib-ng/zlib-ng/pull/1698

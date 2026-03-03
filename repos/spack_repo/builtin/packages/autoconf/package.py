@@ -23,18 +23,8 @@ class Autoconf(AutotoolsPackage, GNUMirrorPackage):
     version("2.59", sha256="9cd05c73c5fcb1f5ccae53dd6cac36bb8cb9c7b3e97ffae5a7c05c72594c88d8")
 
     # https://savannah.gnu.org/support/?110396
-    patch(
-        "https://git.savannah.gnu.org/cgit/autoconf.git/patch/?id=05972f49ee632cd98057a3caf82ebfb9574846da",
-        sha256="eaa3f69d927a853313a0b06e2117c51adab6377a2278549b05abc5df93643e16",
-        when="@2.70",
-    )
     # Apply long-time released and already in-use upstream patches to fix test cases:
     # tests/foreign.at (Libtool): Be tolerant of 'quote' replacing the older `quote'
-    patch(
-        "https://mirrors.mit.edu/gentoo-portage/dev-build/autoconf/files/autoconf-2.69-fix-libtool-test.patch",
-        sha256="7793209b33013dc0f81208718c68440c5aae80e7a1c4b8d336e382525af791a7",
-        when="@2.69",
-    )
     # Fix bin/autoscan.in for current perl releases (reported already in January 2013)
     patch(
         "https://mirrors.mit.edu/gentoo-portage/dev-build/autoconf/files/autoconf-2.69-perl-5.26.patch",

@@ -18,7 +18,6 @@ class Pcre(AutotoolsPackage, CMakePackage):
     url = "https://sourceforge.net/projects/pcre/files/pcre/8.42/pcre-8.42.tar.bz2"
 
 
-    maintainers("drkennetz")
 
     build_system("autotools", "cmake", default="autotools")
 

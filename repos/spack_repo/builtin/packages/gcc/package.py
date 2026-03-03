@@ -341,76 +341,26 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
                 sha256="33ee92bf678586357ee8ab9d2faddf807e671ad37b97afdd102d5d153d03ca84",
                 when="@6:8.3",
             )
-        if macos_version() >= Version("10.15"):
-            # Fix system headers for Catalina SDK
-            # (otherwise __OSX_AVAILABLE_STARTING ends up undefined)
-            patch(
-                "https://raw.githubusercontent.com/Homebrew/formula-patches/b8b8e65e/gcc/9.2.0-catalina.patch",
-                sha256="0b8d14a7f3c6a2f0d2498526e86e088926671b5da50a554ffa6b7f73ac4f132b",
-                when="@9.2.0",
-            )
 
             # See https://raw.githubusercontent.com/Homebrew/homebrew-core/3b7db4457ac64a31e3bbffc54b04c4bd824a4a4a/Formula/gcc.rb
             patch(
                 "https://github.com/iains/gcc-darwin-arm64/commit/20f61faaed3b335d792e38892d826054d2ac9f15.patch?full_index=1",
                 sha256="c0605179a856ca046d093c13cea4d2e024809ec2ad4bf3708543fc3d2e60504b",
-                when="@11.2.0",
             )
 
         # aarch64-darwin support from Iain Sandoe's branch
-        # the 14.2.0 branch has patches applicable to the x86_64 builds too, e.g., https://gcc.gnu.org/bugzilla/show_bug.cgi?id=116809
         patch(
             "https://github.com/iains/gcc-14-branch/compare/04696df09633baf97cdbbdd6e9929b9d472161d3..a495b2dded281beeafec91074e4e82a5a3df8104.patch?full_index=1",
             sha256="838cf070bec5468340018bf003f714f6340c562b878f3244303d2b7ba9949ccd",
-            when="@14.2.0",
-        )
-        patch(
-            "https://github.com/iains/gcc-14-branch/compare/cd0059a1976303638cea95f216de129334fc04d1..gcc-14.1-darwin-r1.patch?full_index=1",
-            sha256="159cc2a1077ad5d9a3cca87880cd977b8202d8fb464a6ec7b53804475d21a682",
             when="@14.1.0 target=aarch64:",
         )
 
         patch(
-            "https://github.com/iains/gcc-13-branch/compare/b71f1de6e9cf7181a288c0f39f9b1ef6580cf5c8..7808d253bf53c6c6ce63f04a66601b595e2bae08.patch?full_index=1",
-            sha256="e7d4415e66ba09dd65b102a842e62e6f9ba6b41da878e08235e59a3fc53058eb",
-            when="@13.3.0 target=aarch64:",
-        )
-        patch(
             "https://github.com/iains/gcc-13-branch/compare/c891d8dc23e1a46ad9f3e757d09e57b500d40044..gcc-13.2-darwin-r0.patch?full_index=1",
-            sha256="6a49d1074d7dd2e3b76e61613a0f143c668ed648fb8d9d48ed76a6b127815c88",
-            when="@13.2.0 target=aarch64:",
-        )
-        patch(
-            "https://github.com/iains/gcc-13-branch/compare/cc035c5d8672f87dc8c2756d9f8367903aa72d93..gcc-13.1-darwin-r0.patch?full_index=1",
             sha256="36d2c04d487edb6792b48dedae6936f8b864b6f969bd3fd03763e072d471c022",
             when="@13.1.0 target=aarch64:",
         )
-
-        patch(
-            "https://github.com/iains/gcc-12-branch/compare/2bada4bc59bed4be34fab463bdb3c3ebfd2b41bb..99533d94172ed7a24c0e54c4ea97e6ae2260409e.patch?full_index=1",
-            sha256="4f59c671b34cc24b57eaa528592a5188f18716cd3cd63c4601fbbda92d397ce2",
-            when="@12.4.0 target=aarch64:",
-        )
-
-
-        conflicts("+bootstrap", when="@11.3.0,13.1: target=aarch64:")
-
         # 14.2.0 cannot bootstrap on x86_64
-        conflicts("+bootstrap", when="@14.2.0")
-
-        # Use -headerpad_max_install_names in the build,
-        # otherwise updated load commands won't fit in the Mach-O header.
-        # This is needed because `gcc` avoids the superenv shim.
-
-        # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=92061
-
-
-    # Backport libsanitizer patch for glibc >= 2.31 and 5.3.0 <= gcc <= 9.2.0
-    # https://bugs.gentoo.org/708346
-
-    # Backport libsanitizer patch for glibc >= 2.36
-    # https://reviews.llvm.org/D129471
-
     # Older versions do not compile with newer versions of glibc
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81712
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81066

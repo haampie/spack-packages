@@ -158,14 +158,6 @@ class Qt(Package):
         )
 
     depends_on("python", when="@5.7.0:", type="build")
-
-    # Dependencies, then variant- and version-specific dependencies
-    depends_on("icu4c")
-    depends_on("jpeg")
-    depends_on("libtiff")
-    depends_on("libxml2")
-    depends_on("zlib-api")
-    depends_on("freetype", when="+gui")
     depends_on("gtkplus", when="+gtk")
 
     depends_on("libpng@1.2.57", when="@3")
@@ -173,7 +165,6 @@ class Qt(Package):
 
     with when("+ssl"):
         depends_on("openssl")
-        depends_on("openssl@1.1.1:", when="@5.15.0:")
 
     depends_on("libpng", when="@4:")
     depends_on("dbus", when="@4:+dbus")
@@ -183,27 +174,12 @@ class Qt(Package):
     depends_on("double-conversion", when="@5.7:")
     depends_on("pcre2+multibyte", when="@5.9:")
     depends_on("llvm", when="@5.11: +doc")
-    depends_on("zstd@1.3:", when="@5.13:")
 
     with when("+webkit"):
-        # the gl headers and dbus are needed to build webkit
-        conflicts("~opengl")
-        conflicts("~dbus")
 
-        depends_on("flex", type="build")
-        depends_on("bison", type="build")
-        depends_on("gperf")
-
-        with when("@5.10:"):
-            depends_on("nss@3.62:")
 
         with when("@5.7:"):
-            # https://www.linuxfromscratch.org/blfs/view/svn/x/qtwebengine.html
-            depends_on("ninja", type="build")
 
-        # https://doc.qt.io/qt-5.15/qtwebengine-platform-notes.html
-        with when("@5.7: platform=linux"):
-            depends_on("libdrm")
             depends_on("libxcomposite")
             depends_on("libxcursor")
             depends_on("libxi")
@@ -235,8 +211,6 @@ class Qt(Package):
         # above that replaces calls to "icc" with calls to "icx" in
         # qtbase/mkspecs/*
         "intel-oneapi-compilers": ("icc",),
-        "apple-clang": ("clang-libc++", "clang"),
-        "clang": ("clang-libc++", "clang"),
         "aocc": ("clang-libc++", "clang"),
         "fj": ("clang",),
         "gcc": ("g++",),

@@ -53,7 +53,6 @@ class Xz(MSBuildPackage, AutotoolsPackage, SourceforgePackage):
             flags.append(self.compiler.cc_pic_flag)
         return (flags, None, None)
 
-    @property
     def libs(self):
         return find_libraries(
             ["liblzma"],

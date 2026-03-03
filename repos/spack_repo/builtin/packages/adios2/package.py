@@ -205,28 +205,15 @@ class Adios2(CMakePackage, CudaPackage, ROCmPackage):
 
     # Fix mismatched datatypes in comparison
     # See https://github.com/ornladios/ADIOS2/pull/2701
-    patch("2.7.1-fix-broken-endian-reverse-compile.patch", when="@2.7.1")
 
     # cmake: find threads package first
     # https://github.com/ornladios/ADIOS2/pull/3893
-    patch("2.9.2-cmake-find-threads-package-first.patch", when="@2.9")
 
     # ROCM: enable support for rocm >= 6
     # https://github.com/ornladios/ADIOS2/pull/4214
-    patch("2.10-enable-rocm6.patch", when="@2.9.1:2.10.1")
 
     # Fix issue with GCC 7
     # https://github.com/ornladios/ADIOS2/pull/4591
-    patch(
-        "https://github.com/ornladios/adios2/commit/b7a5957.patch?full_index=1",
-        sha256="d854008ab27d6ebfa66fffb78126b17713cda3234ed19bf331f85a720e599a32",
-        when="@2.8:2.10",
-    )
 
     # https://github.com/ornladios/ADIOS2/pull/4729
-    patch(
-        "https://github.com/ornladios/ADIOS2/commit/0bdda7d4729b898397e024010b1e82cb72921501.patch?full_index=1",
-        sha256="c7214845bc9e4262deb901f9d689236e014f5193018617675bea4bed80ca20aa",
-        when="@2.11",
-    )
 

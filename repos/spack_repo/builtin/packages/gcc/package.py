@@ -3,7 +3,6 @@ from spack_repo.builtin.build_systems.compiler import CompilerPackage
 from spack_repo.builtin.build_systems.gnu import GNUMirrorPackage
 from spack.package import *
 class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
-    list_url = "https://ftp.gnu.org/gnu/gcc/"
     provides("c", "cxx", when="languages=c,c++")
     version("15.2.0", sha256="438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e")
     variant(
@@ -14,5 +13,4 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             "c++",
         ),
         multi=True,
-        description="Compilers and runtime libraries to build",
     )

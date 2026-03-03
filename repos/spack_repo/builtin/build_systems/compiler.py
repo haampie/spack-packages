@@ -1,4 +1,3 @@
-import pathlib
 from typing import Dict, List, Optional, Sequence, Tuple, Union
 from spack.package import (
     PackageBase,

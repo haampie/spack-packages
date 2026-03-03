@@ -209,10 +209,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         nvptx_tools_ver = "2023-09-13"
 
         # NVPTX offloading supported in 7 and later by limited languages
-        conflicts("@:6", msg="NVPTX only supported in gcc 7 and above")
 
         # NVPTX build disables bootstrap
-        conflicts("+bootstrap")
 
     # Binutils can't build ld on macOS
 

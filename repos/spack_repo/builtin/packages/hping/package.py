@@ -14,7 +14,6 @@ class Hping(AutotoolsPackage):
     git = "https://github.com/antirez/hping.git"
 
 
-    version("master", commit="3547c7691742c6eaa31f8402e0ccbb81387c1b99")
 
     depends_on("c", type="build")  # generated
 

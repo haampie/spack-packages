@@ -22,13 +22,6 @@ class Hpx5(AutotoolsPackage):
     homepage = "http://hpx.crest.iu.edu"
     url = "https://github.com/adk9/hpx5/archive/v3.1.0.tar.gz"
 
-    version("4.1.0", sha256="3f01009f5e517c8dfca266dabb49894d688db5adce09608fb1c877263605a9f8")
-    version("4.0.0", sha256="e35b1161566a65ffbd875c1413ea97a84be0c7b528a3dee99f5e250b2aecbd19")
-    version("3.1.0", sha256="359d457a26b87abb415605911d791ce0ff6edbb064bc40b0f830960f8f612b84")
-    version("3.0.0", sha256="10f14ba198a32787cee05962e346bafb922f74a5135fb09a1ba8c32a1e942800")
-    version("2.2.0", sha256="e34c7513a287d517e67cce5aa3011474c48718e7860c3860ba1290c702be28a8")
-    version("2.1.0", sha256="675826f669eeb3eab40947715af8c8495e2b3d299223372431dc01c1f7d5d616")
-    version("2.0.0", sha256="0278728557b6684aeb86228f44d548ac809302f05a0b9c8b433cdd157629e384")
 
     # Don't second-guess what compiler we are using on Cray
     patch("configure.patch", when="@4.0.0")

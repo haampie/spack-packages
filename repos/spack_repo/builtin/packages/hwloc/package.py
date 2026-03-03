@@ -36,12 +36,6 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
 
     executables = ["^hwloc-bind$"]
 
-    version("master", branch="master")
-    version("2.12.2", sha256="ff7d309fdff7ceddfe15c1e79eaff25f3126a134f29f44d4e85571f187a6bab8")
-    version("2.11.1", sha256="9f320925cfd0daeaf3a3d724c93e127ecac63750c623654dca0298504aac4c2c")
-    version("2.10.0", sha256="c7fd8a1404a9719c76aadc642864b9f77aed1dc1fc8882d6af861a9260ba240d")
-    version("2.9.3", sha256="5985db3a30bbe51234c2cd26ebe4ae9b4c3352ab788b1a464c40c0483bf4de59")
-    version("2.9.2", sha256="ffb554d5735e0e0a19d1fd4b2b86e771d3b58b2d97f257eedacae67ade5054b3")
     version("2.9.1", sha256="a440e2299f7451dc10a57ddbfa3f116c2a6c4be1bb97c663edd3b9c7b3b3b4cf")
     version("2.9.0", sha256="9d7d3450e0a5fea4cb80ca07dc8db939abb7ab62e2a7bb27f9376447658738ec")
     version("2.8.0", sha256="20b2bd4df436827d8e50f7afeafb6f967259f2fb374ce7330244f8d0ed2dde6f")

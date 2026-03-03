@@ -21,61 +21,7 @@ class KokkosKernels(CMakePackage, CudaPackage):
 
 
 
-    version("develop", branch="develop")
 
-    version("5.0.2", sha256="7c7af2c3659ecc620cc7b7016876330d9f288e8c6fd7b70b70907687df823b43")
-    version("5.0.1", sha256="c9d0b507ab754b347b71b530683e9dea8dbf4d2e3cdadb863dcb494b07bbf0b2")
-    version("5.0.0", sha256="e1d7e7040b86f141004126c3fa5711f28697803d921c3558d82192a32156b1b2")
-    version("4.7.02", sha256="2d3b3e10ac112e382b88c50d66e4222ce543fca5d42be6d8376a684b82b8b238")
-    version("4.7.01", sha256="f3e1452db0e182c8e32c61632465e3a829159b9ae0645d9e4cd97b4fa09c36e1")
-    version("4.7.00", sha256="5c7c8c8f91817ab22dbc50ea72f02292bbd6c5b412d6f1588b27574600c478ef")
-    version("4.6.02", sha256="a953f445660ed5aaab10e18fc4a90c4c178291e9d9d97d20abd4e6027f1193ec")
-    version("4.6.01", sha256="95b9357f37ab3b9c3913c00741acb2501831c28ea8664de67818ae79c69c5908")
-    version("4.6.00", sha256="f2b18f3df78c3c8dd970fe8ead54e05c8c09c8ac6d1893655c2a1769d33aa364")
-    version("4.5.01", sha256="c111a6561f23a85af9850d1df1e9015f37a586f1da0be4b6fb1e98001d75e074")
-    version("4.5.00", sha256="94726a64e349adf6cd276e9fdc1b2bf7ff81efec833e479a5d3024b83f165a59")
-    version("4.4.01", sha256="4a32bc8330e0113856bdf181df94cc4f9902e3cebb5dc7cea5948f30df03bfa1")
-    version("4.4.00", sha256="66d5c3f728a8c7689159c97006996164ea00fd39702476220e3dbf2a05c49e8f")
-    version(
-        "4.3.01",
-        sha256="749553a6ea715ba1e56fa0b13b42866bb9880dba7a94e343eadf40d08c68fab8",
-        url="https://github.com/kokkos/kokkos-kernels/archive/4.3.01.tar.gz",
-    )
-    version(
-        "4.3.00",
-        sha256="03c3226ee97dbca4fa56fe69bc4eefa0673e23c37f2741943d9362424a63950e",
-        url="https://github.com/kokkos/kokkos-kernels/archive/4.3.00.tar.gz",
-    )
-    version(
-        "4.2.01",
-        sha256="058052b3a40f5d4e447b7ded5c480f1b0d4aa78373b0bc7e43804d0447c34ca8",
-        url="https://github.com/kokkos/kokkos-kernels/archive/4.2.01.tar.gz",
-    )
-    version(
-        "4.2.00",
-        sha256="c65df9a101dbbef2d8fd43c60c9ea85f2046bb3535fa1ad16e7c661ddd60401e",
-        url="https://github.com/kokkos/kokkos-kernels/archive/4.2.00.tar.gz",
-    )
-    version(
-        "4.1.00",
-        sha256="d6a4108444ea226e43bf6a9c0dfc557f223a72b1142bf81aa78dd60e16ac2d56",
-        url="https://github.com/kokkos/kokkos-kernels/archive/4.1.00.tar.gz",
-    )
-    version(
-        "4.0.01",
-        sha256="3f493fcb0244b26858ceb911be64092fbf7785616ad62c81abde0ea1ce86688a",
-        url="https://github.com/kokkos/kokkos-kernels/archive/4.0.01.tar.gz",
-    )
-    version(
-        "4.0.00",
-        sha256="750079d0be1282d18ecd280e130ca303044ac399f1e5864488284b92f5ce0a86",
-        url="https://github.com/kokkos/kokkos-kernels/archive/4.0.00.tar.gz",
-    )
-    version(
-        "3.7.02",
-        sha256="43b1d4f726bccd8d7d632ae8b81c8edc7d7afa347fbab0654f7ca0c664edf05c",
-        url="https://github.com/kokkos/kokkos-kernels/archive/3.7.02.tar.gz",
-    )
 
     variant("shared", default=True, description="Build shared libraries")
     variant(

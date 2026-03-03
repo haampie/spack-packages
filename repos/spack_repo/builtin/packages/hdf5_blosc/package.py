@@ -34,7 +34,6 @@ class Hdf5Blosc(Package):
 
     license("MIT")
 
-    version("master", branch="master")
 
     depends_on("c", type="build")  # generated
 

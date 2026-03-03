@@ -25,7 +25,6 @@ class Jsonnet(MakefilePackage, CMakePackage):
     version("0.20.0", sha256="77bd269073807731f6b11ff8d7c03e9065aafb8e4d038935deb388325e52511b")
     version("0.19.1", sha256="f5a20f2dc98fdebd5d42a45365f52fa59a7e6b174e43970fea4f9718a914e887")
     version("0.18.0", sha256="85c240c4740f0c788c4d49f9c9c0942f5a2d1c2ae58b2c71068107bc80a3ced4")
-    version("0.17.0", sha256="076b52edf888c01097010ad4299e3b2e7a72b60a41abbc65af364af1ed3c8dbe")
 
     variant("python", default=False, description="Provide Python bindings for jsonnet")
 

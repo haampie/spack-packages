@@ -28,20 +28,7 @@ class OpenpmdApi(CMakePackage):
     variant("adios2", default=True, description="Enable ADIOS2 support")
     variant("python", default=False, description="Enable Python bindings")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("cmake@3.15.0:", type="build")
-    depends_on("cmake@3.22.0:", type="build", when="@0.16.0:")
-    depends_on("catch2@2.6.1:2", type="test")
-    depends_on("catch2@2.13.4:2", type="test", when="@0.14.0:")
-    depends_on("catch2@2.13.10:2", type="test", when="@0.15.0:")
-    depends_on("mpi@2.3:", when="+mpi")  # might become MPI 3.0+
-    depends_on("nlohmann-json@3.9.1:")
-    depends_on("mpark-variant@1.4.0:", when="@:0.14")  # pre C++17 releases
-    depends_on("toml11@3.7.1:3", when="@0.15")
-    depends_on("toml11@3.7.1:", when="@0.16:")
-    depends_on("toml11@4.2.0: cxx_std=17", when="@0.16.1:")
     with when("+hdf5"):
         depends_on("hdf5@1.8.13:")
         depends_on("hdf5@1.8.13: ~mpi", when="~mpi")
@@ -53,15 +40,7 @@ class OpenpmdApi(CMakePackage):
     with when("+adios2"):
         depends_on("adios2@2.5.0:")
         depends_on("adios2@2.6.0:", when="@0.12.0:")
-        depends_on("adios2@2.7.0:", when="@0.14.0:")
-        depends_on("adios2@2.9.0:", when="@0.17.0:")
-        depends_on("adios2@2.5.0: ~mpi", when="~mpi")
-        depends_on("adios2@2.5.0: +mpi", when="+mpi")
     with when("+python"):
-        depends_on("py-pybind11@2.6.2:", type="link")
-        depends_on("py-pybind11@2.13.0:", type="link", when="@0.16.0:")
-        depends_on("py-numpy@1.15.1:", type=("test", "run"))
-        depends_on("py-mpi4py@2.1.0:", when="+mpi", type=("test", "run"))
         with default_args(type=("link", "test", "run")):
             depends_on("python@3.7:")
             depends_on("python@3.8:", when="@0.15.2:")

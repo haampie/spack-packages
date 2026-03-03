@@ -234,51 +234,27 @@ class Openfoam(Package):
         multi=True,
     )
 
-
-
     # After 1712, could suggest openmpi+thread_multiple for collated output
-    # but particular mixes of mpi versions and InfiniBand may not work so well
     # conflicts('^openmpi~thread_multiple', when='@1712:')
 
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')
-    # See https://github.com/spack/spack/pull/22303 for reference
-
     # Earlier versions of OpenFOAM may not work with CGAL 5.6. I do
     # not know which OpenFOAM added support for 5.x and conservatively
     # use 2312 in the check.
     # cgal@6 needs c++17, but until v2412 OpenFOAM forced c++14
-    depends_on("cgal@:5", when="@2312:2406")
     depends_on("cgal@:4", when="@:2306")
 
     # The flex restriction is ONLY to deal with a spec resolution clash
     # introduced by the restriction within scotch!
     depends_on("flex@:2.6.1,2.6.4:")
-    depends_on("cmake", type="build")
-    depends_on("m4", type="build")
-    depends_on("json-c")
     depends_on("libyaml")
     depends_on("readline")
 
-    # Require scotch with ptscotch - corresponds to standard OpenFOAM setup
-    depends_on("scotch~metis+mpi~int64", when="+scotch~int64")
-    depends_on("scotch~metis+mpi+int64", when="+scotch+int64")
-    depends_on("kahip", when="+kahip")
-    depends_on("metis@5:", when="+metis")
-    depends_on("metis+int64", when="+metis+int64")
     # mgridgen is statically linked
     depends_on("parmgridgen", when="+mgridgen", type="build")
-    depends_on("zoltan", when="+zoltan")
-    depends_on("vtk", when="+vtk")
-    depends_on("adios2~fortran", when="@1912:")
-
-    # For OpenFOAM plugins and run-time post-processing this should just be
     # 'paraview+plugins' but that resolves poorly.
-    # Workaround: use preferred variants "+plugins +qt" in
-    #   ~/.spack/packages.yaml
-
-    # 1706 ok with newer paraview but avoid pv-5.2, pv-5.3 readers
     depends_on("paraview@5.4:", when="@1706:+paraview")
     # 1612 plugins need older paraview
     depends_on("paraview@:5.0.1", when="@1612+paraview")
@@ -286,9 +262,7 @@ class Openfoam(Package):
     # Icx only support from v2106 onwards
 
     # General patches
-    common = ["spack-Allwmake", "README-spack"]
     assets = []  # type: List[str]
-
     # Version-specific patches
     # kahip patch (wmake)
     # Fix: missing std::array include (searchable sphere)

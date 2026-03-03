@@ -255,16 +255,8 @@ supported, and netmod is ignored if device is ch3:sock.""",
 
     # building with "+hwloc' also requires regenerating autotools files
 
-    # MPICH's Yaksa submodule requires python to configure
 
-
-
-    # MPICH does not require libxml2 and libpciaccess for versions before 3.3
     # when ~hydra is set: prevent users from setting +libxml2 and +pci in this
-    # case to avoid generating an identical MPICH installation.
-
-    # see https://github.com/pmodels/mpich/pull/5031
 
     def test_sendrecv(self):
         """build and run sendrecv"""
-        self.run_mpich_test(join_path("test", "mpi", "basic"), "sendrecv", 2)

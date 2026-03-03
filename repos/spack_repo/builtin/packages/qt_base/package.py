@@ -16,9 +16,3 @@ class QtBase(QtPackage):
     variant("sql", default=True, description="Build with SQL support.")
     variant("network", default=False, description="Build with SSL support.")
     # GUI-only dependencies
-    variant(
-        "accessibility",
-        default=False,
-    )
-    variant("gtk", default=False, when="+gui", description="Build with gtkplus.")
-    variant("opengl", default=False, when="+gui", description="Build with OpenGL support.")

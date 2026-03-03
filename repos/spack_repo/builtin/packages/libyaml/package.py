@@ -23,11 +23,6 @@ class Libyaml(AutotoolsPackage):
     version("0.2.1", sha256="78281145641a080fb32d6e7a87b9c0664d611dcb4d542e90baf731f51cbb59cd")
     version("0.1.7", sha256="8088e457264a98ba451a90b8661fcb4f9d6f478f7265d48322a196cec2480729")
     version("0.1.6", sha256="7da6971b4bd08a986dd2a61353bc422362bd0edcc67d7ebaac68c95f74182749")
-    version("0.1.5", sha256="fa87ee8fb7b936ec04457bc044cd561155e1000a4d25029867752e543c2d3bef")
-    version("0.1.4", sha256="7bf81554ae5ab2d9b6977da398ea789722e0db75b86bffdaeb4e66d961de6a37")
-    version("0.1.3", sha256="a8bbad7e5250b3735126b7e3bd9f6fce9db19d6be7cc13abad17a24b59ec144a")
-    version("0.1.2", sha256="5beb94529cc7ac79b17e354f9b03aea311f5af17be5d48bc39e6f1db5059f70f")
-
 
 
     @run_before("configure")

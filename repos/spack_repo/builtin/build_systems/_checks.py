@@ -37,6 +37,4 @@ def execute_build_time_tests(builder: Builder):
         builder: builder prescribing the test callbacks. The name of the callbacks is
             stored as a list of strings in the ``build_time_test_callbacks`` attribute.
     """
-    if not builder.pkg.run_tests or not builder.build_time_test_callbacks:
-        return
     builder.pkg.tester.phase_tests(builder, "build", builder.build_time_test_callbacks)

@@ -1,8 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-import os
-import shutil
 import sys
 import tempfile
 from spack_repo.builtin.build_systems.cmake import CMakePackage, generator

@@ -475,37 +475,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             sha256="4f59c671b34cc24b57eaa528592a5188f18716cd3cd63c4601fbbda92d397ce2",
             when="@12.4.0 target=aarch64:",
         )
-        patch(
-            "https://github.com/iains/gcc-12-branch/compare/8fc1a49c9312b05d925b7d21f1d2145d70818151..gcc-12.3-darwin-r0.patch?full_index=1",
-            sha256="1ebac2010eb9ced33cf46a8d8378193671ed6830f262219aa3428de5bc9fd668",
-            when="@12.3.0 target=aarch64:",
-        )
-        patch(
-            "https://github.com/iains/gcc-12-branch/compare/2ee5e4300186a92ad73f1a1a64cb918dc76c8d67..gcc-12.2-darwin-r0.patch?full_index=1",
-            sha256="16d5203ddb97cd43d6c1e9c34e0f681154aed1d127f2324b2a50006b92960cfd",
-            when="@12.2.0 target=aarch64:",
-        )
-        patch(
-            "https://github.com/iains/gcc-12-branch/compare/1ea978e3066ac565a1ec28a96a4d61eaf38e2726..gcc-12.1-darwin-r1.patch?full_index=1",
-            sha256="b0a811e33c3451ebd1882eac4e2b4b32ce0b60cfa0b8ccf8c5fda7b24327c820",
-            when="@12.1.0 target=aarch64:",
-        )
 
-        patch(
-            "https://github.com/iains/gcc-11-branch/compare/5cc4c42a0d4de08715c2eef8715ad5b2e92a23b6..gcc-11.5-darwin-r0.patch?full_index=1",
-            sha256="6c92190a9acabd6be13bd42ca675f59f44be050a7121214abeaea99d898db30c",
-            when="@11.5.0 target=aarch64:",
-        )
-        patch(
-            "https://github.com/iains/gcc-11-branch/compare/ff4bf326d03e750a8d4905ea49425fe7d15a04b8..gcc-11.4-darwin-r0.patch?full_index=1",
-            sha256="05810e5cdb052c06490f7d987c66a13d47ae7bd2eb285a3a881ad4aa6dd0d13f",
-            when="@11.4.0 target=aarch64:",
-        )
-        patch(
-            "https://github.com/iains/gcc-11-branch/compare/2d280e7eafc086e9df85f50ed1a6526d6a3a204d..gcc-11.3-darwin-r2.patch?full_index=1",
-            sha256="a8097c232dfb21b0e02f3d99e3c3e47443db3982dafbb584938ac1a9a4afd33d",
-            when="@11.3.0 target=aarch64:",
-        )
 
         conflicts("+bootstrap", when="@11.3.0,13.1: target=aarch64:")
 
@@ -515,46 +485,21 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         # Use -headerpad_max_install_names in the build,
         # otherwise updated load commands won't fit in the Mach-O header.
         # This is needed because `gcc` avoids the superenv shim.
-        patch("darwin/gcc-7.1.0-headerpad.patch", when="@5:11.2")
-        patch("darwin/gcc-6.1.0-jit.patch", when="@5:7")
-        patch("darwin/gcc-4.9.patch1", when="@4.9.0:4.9.3")
-        patch("darwin/gcc-4.9.patch2", when="@4.9.0:4.9.3")
 
         # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=92061
-        patch("darwin/clang13.patch", when="@:11.1 %apple-clang@13")
 
-    patch("piclibs.patch", when="+piclibs")
-    patch("gcc-backport.patch", when="@4.7:4.9.3,5:5.3")
 
     # Backport libsanitizer patch for glibc >= 2.31 and 5.3.0 <= gcc <= 9.2.0
     # https://bugs.gentoo.org/708346
-    patch("glibc-2.31-libsanitizer-1.patch", when="@7.1.0:7.5.0,8.1.0:8.3.0,9.0.0:9.2.0")
-    patch("glibc-2.31-libsanitizer-1-gcc-6.patch", when="@5.3.0:5.5.0,6.1.0:6.5.0")
-    patch("glibc-2.31-libsanitizer-2.patch", when="@8.1.0:8.3.0,9.0.0:9.2.0")
-    patch("glibc-2.31-libsanitizer-2-gcc-6.patch", when="@5.3.0:5.5.0,6.1.0:6.5.0")
-    patch("glibc-2.31-libsanitizer-2-gcc-7.patch", when="@7.1.0:7.5.0")
-    patch(
-        "patch-2b40941d23b1570cdd90083b58fa0f66aa58c86e.patch",
-        when="@6.5.0,7.4.0:7.5.0,8.2.0:9.3.0",
-    )
-    patch("patch-745dae5923aba02982563481d75a21595df22ff8.patch", when="@10.1.0:10.3.0,11.1.0")
 
     # Backport libsanitizer patch for glibc >= 2.36
     # https://reviews.llvm.org/D129471
-    patch("glibc-2.36-libsanitizer-gcc-5-9.patch", when="@5:9")
-    patch("glibc-2.36-libsanitizer-gcc-10-12.patch", when="@10:10.4,11:11.3,12.1.0")
 
     # Older versions do not compile with newer versions of glibc
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81712
-    patch("ucontext_t.patch", when="@4.9,5.1:5.4,6.1:6.4,7.1")
-    patch("ucontext_t-java.patch", when="@4.9,5.1:5.4,6.1:6.4 languages=java")
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81066
-    patch("stack_t-4.9.patch", when="@4.9")
-    patch("stack_t.patch", when="@5.1:5.4,6.1:6.4,7.1")
     # https://bugs.busybox.net/show_bug.cgi?id=10061
-    patch("signal.patch", when="@4.9,5.1:5.4")
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=85835
-    patch("sys_ustat.h.patch", when="@5.0:6.4,7.0:7.3,8.1")
 
     # this patch removes cylades support from gcc-5 and allows gcc-5 to be built
     # with newer glibc versions.

@@ -33,7 +33,6 @@ class Metis(CMakePackage, MakefilePackage):
         default=False,
         description="Disable failed partition warning print on all ranks",
     )
-    patch("no_warning.patch", when="@5:+no_warning")
 
     build_system(
         conditional("cmake", when="@5:"), conditional("makefile", when="@:4"), default="cmake"
@@ -45,11 +44,8 @@ class Metis(CMakePackage, MakefilePackage):
         variant("real64", default=False, description="Use real type of 64 bit")
 
         # Use the correct path to GKLIB when building out of source
-        patch("gklib_path.patch")
         # Install both gklib_defs.h and gklib_rename.h
-        patch("install_gklib_defs_rename.patch")
         # Disable the "misleading indentation" warning when compiling
-        patch("gklib_nomisleadingindentation_warning.patch", when="%gcc@6:")
 
     with when("build_system=makefile"):
         variant("debug", default=False, description="Compile in debug mode")

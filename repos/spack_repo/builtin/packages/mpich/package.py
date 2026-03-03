@@ -204,7 +204,6 @@ supported, and netmod is ignored if device is ch3:sock.""",
     provides("mpi@:2.0", when="@:1.0")
 
     filter_compiler_wrappers("mpicc", "mpicxx", "mpif77", "mpif90", "mpifort", relative_root="bin")
-
     # Set correct rpath flags for Intel Fortran Compiler (%oneapi)
     # See https://github.com/pmodels/mpich/pull/5824
     # and https://github.com/spack/spack/issues/31678

@@ -30,45 +30,27 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     depends_on("cxx", type="build")  # generated
 
     # Fix for newer GCC, related to -fno-common
-    patch("locs.patch", when="@2.23:2.25")
-    patch("locs-2.22.patch", when="@:2.22")
 
     # _obstack_compat symbol is not initialized
-    patch("39b1f61.patch", when="@:2.17")
 
     # docs: install fails with "unknown command hsep / vsep"
-    patch("texi.patch", when="@2.16.0")
 
     # rpc/types.h include issue, should be from local version, not system.
-    patch("fb21f89.patch", when="@:2.16")
 
     # Avoid linking libgcc_eh
-    patch("95f5a9a-stub.patch", when="@:2.16")
-    patch("95f5a9a-2.16.patch", when="@2.16")
-    patch("95f5a9a-2.15.patch", when="@2.14:2.15")
-    patch("95f5a9a-2.13.patch", when="@2.12:2.13")
-    patch("95f5a9a-2.11.patch", when="@:2.11")
 
     # Use init_array (modified commit 4a531bb to unconditionally define
     # NO_CTORS_DTORS_SECTIONS)
-    patch("4a531bb.patch", when="@:2.12")
 
     # make: mixed implicit and static pattern rules (trivial issue in docs)
-    patch("32cf406.patch", when="@:2.10")
 
     # linker flag output regex
-    patch("7c8a673.patch", when="@:2.9")
 
     # Use AT_RANDOM provided by the kernel instead of /dev/urandom;
     # recent gcc + binutils have issues with the inline assembly in
     # the fallback code, so better to use the kernel-provided value.
-    patch("965cb60.patch", when="@2.8:2.9")
-    patch("965cb60-2.7.patch", when="@2.7")
-    patch("965cb60-2.6.patch", when="@2.6")
-    patch("965cb60-2.5.patch", when="@2.5")
 
     # include_next <limits.h> not working
-    patch("67fbfa5.patch", when="@:2.7")
 
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:

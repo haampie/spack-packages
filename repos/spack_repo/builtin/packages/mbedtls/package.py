@@ -56,7 +56,6 @@ class Mbedtls(CMakePackage, MakefilePackage):
 
     # See https://github.com/ARMmbed/mbedtls/pull/5126
     # and the 2.x backport: https://github.com/ARMmbed/mbedtls/pull/5133
-    patch("fix-dt-needed-shared-libs.patch", when="@2.7:2.27,3.0.0")
 
     def url_for_version(self, version):
         if self.spec.satisfies("@:2.28.7,3:3.5"):

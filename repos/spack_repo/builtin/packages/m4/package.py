@@ -24,31 +24,14 @@ class M4(AutotoolsPackage, GNUMirrorPackage):
     version("1.4.18", sha256="ab2633921a5cd38e48797bf5521ad259bdc4b979078034a3b790d7fec5493fab")
     version("1.4.17", sha256="3ce725133ee552b8b4baca7837fb772940b25e81b2a9dc92537aeaf733538c9e")
 
-    patch("gnulib-pgi.patch", when="@1.4.18")
-    patch("pgi.patch", when="@1.4.17")
     # The NVIDIA compilers do not currently support some GNU builtins.
     # Detect this case and use the fallback path.
-    patch("nvhpc.patch", when="@1.4.18 %nvhpc")
-    patch("nvhpc-1.4.19.patch", when="@1.4.19 %nvhpc")
     # Workaround bug where __LONG_WIDTH__ is not defined
-    patch("nvhpc-long-width.patch", when="@1.4.19 %nvhpc")
-    patch("oneapi.patch", when="@1.4.18 %oneapi")
     # from: https://github.com/Homebrew/homebrew-core/blob/master/Formula/m4.rb
     # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
-    patch("secure_snprintf.patch", when="@:1.4.18 os=highsierra")
-    patch("secure_snprintf.patch", when="@:1.4.18 os=mojave")
-    patch("secure_snprintf.patch", when="@:1.4.18 os=catalina")
-    patch("secure_snprintf.patch", when="@:1.4.18 os=bigsur")
     # https://bugzilla.redhat.com/show_bug.cgi?id=1573342
-    patch(
-        "https://src.fedoraproject.org/rpms/m4/raw/5d147168d4b93f38a4833f5dd1d650ad88af5a8a/f/m4-1.4.18-glibc-change-work-around.patch",
-        sha256="fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8",
-        when="@1.4.18",
-    )
     # from: https://www.mail-archive.com/m4-patches@gnu.org/msg01208.html
     # tests: Fix failing test checks/198.sysval with upstream patch for doc/m4.texi
-    patch("checks-198.sysval.1.patch", when="@1.4.19")
-    patch("checks-198.sysval.2.patch", when="@1.4.19")
 
     variant("sigsegv", default=True, description="Build the libsigsegv dependency")
 
@@ -60,11 +43,6 @@ class M4(AutotoolsPackage, GNUMirrorPackage):
         conflicts("%clang@16:", msg="This version is incompatible with clang@16")
 
     # Fix c++17 '[[nodiscard]]' attribute ordering (fixed in 1.4.20)
-    patch(
-        "nodiscard.patch",
-        when="@1.4.19",
-        sha256="5c4071ae35e6ecf7f683ad714558a0030f21cc2b0673dde2ca6ca753cd0dbb2e",
-    )
 
     build_directory = "spack-build"
 

@@ -34,24 +34,11 @@ class Gmake(Package, GNUMirrorPackage):
         depends_on("guile@:3.0")
         depends_on("pkgconfig", type="build")
 
-    patch(
-        "https://src.fedoraproject.org/rpms/make/raw/519a7c5bcbead22e6ea2d2c2341d981ef9e25c0d/f/make-4.2.1-glob-fix-2.patch",
-        level=1,
-        sha256="fe5b60d091c33f169740df8cb718bf4259f84528b42435194ffe0dd5b79cd125",
-        when="@4.2.1",
-    )
-    patch(
-        "https://src.fedoraproject.org/rpms/make/raw/519a7c5bcbead22e6ea2d2c2341d981ef9e25c0d/f/make-4.2.1-glob-fix-3.patch",
-        level=1,
-        sha256="ca60bd9c1a1b35bc0dc58b6a4a19d5c2651f7a94a4b22b2c5ea001a1ca7a8a7f",
-        when="@:4.2.1",
-    )
 
     # Avoid symlinking GNUMakefile to GNUMakefile
     build_directory = "spack-build"
 
     # See https://savannah.gnu.org/bugs/?57962
-    patch("findprog-in-ignore-directories.patch", when="@4.3")
 
     tags = ["build-tools"]
 

@@ -136,33 +136,16 @@ class Hdf5(CMakePackage):
     # pre-C99 code is restricted to just five lines of line comments in
     # three src files, this patch accomplishes the simple task of patching the
     # three src files and leaves the hdf5 build system alone.
-    patch("pre-c99-comments.patch", when="@1.8.10")
 
     # There are build errors with GCC 8, see
     # https://forum.hdfgroup.org/t/1-10-2-h5detect-compile-error-gcc-8-1-0-on-centos-7-2-solved/4441
-    patch(
-        "https://salsa.debian.org/debian-gis-team/hdf5/raw/bf94804af5f80f662cad80a5527535b3c6537df6/debian/patches/gcc-8.patch",
-        sha256="57cee5ff1992b4098eda079815c36fc2da9b10e00a9056df054f2384c4fc7523",
-        when="@1.10.2%gcc@8:",
-    )
 
     # Disable MPI C++ interface when C++ is disabled, otherwise downstream
     # libraries fail to link; see https://github.com/spack/spack/issues/12586
-    patch(
-        "h5public-skip-mpicxx.patch",
-        when="@1.8.10:1.8.21,1.10.0:1.10.5+mpi~cxx",
-        sha256="b61e2f058964ad85be6ee5ecea10080bf79e73f83ff88d1fa4b602d00209da9c",
-    )
 
     # Fixes BOZ literal constant error when compiled with GCC 10.
     # The issue is described here: https://github.com/spack/spack/issues/18625
-    patch(
-        "hdf5_1.8_gcc10.patch",
-        when="@:1.8.21",
-        sha256="0e20187cda3980a4fdff410da92358b63de7ebef2df1d7a425371af78e50f666",
-    )
 
-    patch("fortran-kinds.patch", when="@1.10.7")
 
     # This patch may only be needed with GCC 11.2 on macOS, but it's valid for
     # any of the head HDF5 versions as of 12/2021. Since it's impossible to
@@ -170,14 +153,12 @@ class Hdf5(CMakePackage):
     # macOS (which is the norm), and this might be an issue for other compilers
     # as well, we just apply it to all platforms.
     # See https://github.com/HDFGroup/hdf5/issues/1157
-    patch("fortran-kinds-2.patch", when="@1.10.8,1.12.1")
 
     # Patch needed for HDF5 1.14.0 where dependency on MPI::MPI_C was declared
     # PUBLIC.  Dependent packages using the default hdf5 package but not
     # expecting to use MPI then failed to configure because they did not call
     # find_package(MPI).  This patch does that for them.  Later HDF5 versions
     # will include the patch code changes.
-    patch("hdf5_1_14_0_config_find_mpi.patch", when="@1.14.0")
 
     # The argument 'buf_size' of the C function 'h5fget_file_image_c' is
     # declared as intent(in) though it is modified by the invocation. As a

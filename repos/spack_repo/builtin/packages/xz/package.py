@@ -59,11 +59,6 @@ class Xz(MSBuildPackage, AutotoolsPackage, SourceforgePackage):
     # __asm__(.symver) for newer GCC releases.
     # prior to 5.2.3, build system is for MinGW only, not currently supported by Spack
 
-    patch(
-        "nvhpc.patch",
-        when="@5.2.10: %nvhpc",
-        sha256="32228638c462651ec7dedab706d05aa352995f064ace2dee915f31c75cc995c0",
-    )
 
     build_system(conditional("msbuild", when="platform=windows"), "autotools", default="autotools")
 

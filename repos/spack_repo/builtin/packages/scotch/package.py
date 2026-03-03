@@ -86,11 +86,8 @@ class Scotch(CMakePackage, MakefilePackage):
     patch("esmumps-ldflags-6.0.4.patch", when="@6.0.4")
     patch("metis-headers-6.0.4.patch", when="@6.0.4")
 
-    patch("libscotchmetis-return-6.0.5a.patch", when="@6.0.5a")
-    patch("libscotch-scotcherr-link-7.0.1.patch", when="@7.0.1 +link_error_lib")
 
     # Avoid OpenMPI segfaults by using MPI_Comm_F2C for parmetis communicator
-    patch("parmetis-mpi.patch", when="@6.1.1:7.0.3 +metis ^openmpi")
 
     # Vendored dependency of METIS/ParMETIS conflicts with standard
     # installations

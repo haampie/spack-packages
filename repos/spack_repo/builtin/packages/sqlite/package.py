@@ -79,16 +79,13 @@ class Sqlite(AutotoolsPackage, NMakePackage):
     # defines a macro B0. Sqlite has a shell.c source file that declares a
     # variable named B0 and will fail to compile when the macro is found. The
     # following patch undefines the macro in shell.c
-    patch("sqlite_b0.patch", when="@3.18.0:3.21.0")
 
     # Starting version 3.17.0, SQLite uses compiler built-ins
     # __builtin_sub_overflow(), __builtin_add_overflow(), and
     # __builtin_mul_overflow(), which are not supported by Intel compiler.
     # Starting version 3.21.0 SQLite doesn't use the built-ins if Intel
     # compiler is used.
-    patch("remove_overflow_builtins.patch", when="@3.17.0:3.20%intel")
 
-    patch("quote_compiler_in_makefile.patch", when="platform=windows")
 
     build_system("autotools", "nmake")
 

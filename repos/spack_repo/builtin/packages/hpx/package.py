@@ -180,7 +180,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
 
     _msg_generic_coroutines_target = "This target requires +generic_coroutines"
 
-    patch("mimalloc_no_version_requirement.patch", when="@:1.8.0 malloc=mimalloc")
 
     def url_for_version(self, version):
         if version >= Version("1.9.0"):

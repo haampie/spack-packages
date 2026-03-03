@@ -23,31 +23,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         "threads": [False, "Whether to build the C++ threads backend"],
         "serial": [False, "Whether to build serial backend"],
         "rocm": [False, "Whether to build HIP backend"],
-        "sycl": [False, "Whether to build the SYCL backend"],
-        "openmptarget": [False, "Whether to build the OpenMPTarget backend"],
-    }
-    tpls_variants = {
-        "hpx": [False, None, "Whether to enable the HPX library"],
-        "hwloc": [False, None, "Whether to enable the HWLOC library"],
-        "numactl": [False, "@:4", "Whether to enable the LIBNUMA library"],
-        "memkind": [False, "@:4", "Whether to enable the MEMKIND library"],
-    }
-    options_variants = {
-        "aggressive_vectorization": [False, None, "Aggressively vectorize loops"],
-        "atomics_bypass": [
-            False,
-            "@4.6: +serial~threads~cuda~rocm~hpx~openmp~sycl~openmptarget",
-            "Make atomics non-atomic for non-threaded MPI-only use cases",
-        ],
-        "compiler_warnings": [False, "@:4", "Print all compiler warnings"],
-        "complex_align": [True, None, "Align complex numbers"],
-        "cuda_constexpr": [False, "+cuda", "Activate experimental constexpr features"],
-        "cuda_lambda": [False, "@:4 +cuda", "Activate experimental lambda features"],
-        "cuda_ldg_intrinsic": [False, "@:4 +cuda", "Use CUDA LDG intrinsics"],
-        "cuda_relocatable_device_code": [False, "+cuda", "Enable RDC for CUDA"],
-        "hip_relocatable_device_code": [False, None, "Enable RDC for HIP"],
-        "sycl_relocatable_device_code": [False, "@4.5: +sycl", "Enable RDC for SYCL"],
-        "cuda_uvm": [False, "@:4 +cuda", "Enable unified virtual memory (UVM) for CUDA"],
         "debug": [False, None, "Activate extra debug features - may increase compiletimes"],
         "debug_bounds_check": [False, None, "Use bounds checking - will increase runtime"],
         "debug_dualview_modify_check": [False, "@:4", "Debug check on dual views"],

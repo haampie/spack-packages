@@ -23,32 +23,6 @@ class ROCmPackage(PackageBase):
     # https://llvm.org/docs/AMDGPUUsage.html
     # Possible architectures
     amdgpu_targets = (
-        "gfx701",
-        "gfx801",
-        "gfx802",
-        "gfx1035",
-        "gfx1036",
-        "gfx1100",
-        "gfx1101",
-        "gfx1102",
-        "gfx1103",
-        "gfx1150",
-        "gfx1151",
-        "gfx1152",
-        "gfx1153",
-        "gfx1200",
-        "gfx1201",
-        "gfx1250",
-        "gfx1251",
-    )
-    variant("rocm", default=False, description="Enable ROCm support")
-    # possible amd gpu targets for rocm builds
-    variant(
-        "amdgpu_target",
-        description="AMD GPU architecture",
-        values=any_combination_of(*amdgpu_targets),
-        sticky=True,
-        when="+rocm",
     )
     # need amd gpu type for rocm builds
     # https://github.com/ROCm-Developer-Tools/HIP/blob/master/bin/hipcc

@@ -31,30 +31,8 @@ class Hybpiper(PythonPackage, Package):
         default="python_pip",
     )
 
-    depends_on("python@2.7:", type=("build", "run"))
-    depends_on("python@3.9:", type=("build", "run"), when="@2.1:")
 
-    depends_on("py-biopython", type=("build", "run"))
-    depends_on("py-biopython@1.80:", type=("build", "run"), when="@2.1:")
-    depends_on("py-matplotlib", type=("build", "run"), when="@2.1:")
-    depends_on("py-pandas", type=("build", "run"), when="@2.1:")
-    depends_on("py-pebble", type=("build", "run"), when="@2.1:")
-    depends_on("py-progressbar2", type=("build", "run"), when="@2.1:")
-    depends_on("py-psutil", type=("build", "run"), when="@2.1:")
-    depends_on("py-scipy", type=("build", "run"), when="@2.1:")
-    depends_on("py-seaborn", type=("build", "run"), when="@2.1:")
 
-    depends_on("exonerate")
-    depends_on("exonerate@2.4:", when="@2.1:")
-    depends_on("bbmap", when="@2.1:")
-    depends_on("blast-plus")
-    depends_on("blast-plus@2.9.0:", when="@2.1:")
-    depends_on("bwa")
-    depends_on("diamond", when="@2.1:")
-    depends_on("mafft", when="@2.1:")
-    depends_on("parallel")
-    depends_on("samtools")
-    depends_on("samtools@1.14", when="@2.1:")
     depends_on("spades")
     depends_on("spades@3.15.4:", when="@2.1:")
 

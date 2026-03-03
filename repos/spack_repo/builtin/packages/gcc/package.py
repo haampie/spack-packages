@@ -239,13 +239,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     depends_on("zlib-api", when="@6:")
     depends_on("zstd", when="@10:")
     depends_on("diffutils", type="build")
-    depends_on("iconv", when="platform=darwin")
-    depends_on("gnat", when="languages=ada")
-    depends_on(
-        "binutils+gas+ld+plugins~libiberty", when="+binutils", type=("build", "link", "run")
-    )
-    depends_on("mold", when="+mold")
-    depends_on("zip", type="build", when="languages=java")
 
     # The server is sometimes a bit slow to respond
     timeout = {"timeout": 60}
@@ -255,11 +248,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     # depends_on('cloog')
 
     # https://gcc.gnu.org/install/test.html
-    depends_on("dejagnu@1.4.4", type="test")
-    depends_on("expect", type="test")
-    depends_on("tcl", type="test")
-    depends_on("autogen@5.5.4:", type="test")
-    depends_on("guile@1.4.1:", type="test")
 
     # See https://go.dev/doc/install/gccgo#Releases
     with when("languages=go"):
@@ -371,7 +359,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     }
 
     with when("+nvptx"):
-        depends_on("cuda")
         nvptx_newlib_ver = "4.5.0.20241231"
         resource(
             name="newlib",
@@ -382,7 +369,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         )
 
         nvptx_tools_ver = "2023-09-13"
-        depends_on("nvptx-tools@" + nvptx_tools_ver, type="build")
 
         # NVPTX offloading supported in 7 and later by limited languages
         conflicts("@:6", msg="NVPTX only supported in gcc 7 and above")

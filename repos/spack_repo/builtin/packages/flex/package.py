@@ -35,7 +35,6 @@ class Flex(AutotoolsPackage):
     variant("nls", default=False, description="Enable native language support")
     variant("lex", default=True, description="Provide symlinks for lex and libl")
 
-    depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
 
     depends_on("bison", type="build")

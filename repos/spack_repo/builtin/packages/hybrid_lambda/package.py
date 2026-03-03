@@ -26,18 +26,11 @@ class HybridLambda(AutotoolsPackage):
 
     version("develop", submodules=True)
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')
     # See https://github.com/spack/spack/pull/22303 for reference
-    depends_on(Boost.with_default_variants)
-    depends_on("cppunit", type="test")
 
     @run_after("configure")
     def change_install_option_in_makefile(self):

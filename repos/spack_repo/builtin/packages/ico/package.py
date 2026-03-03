@@ -25,5 +25,3 @@ class Ico(AutotoolsPackage, XorgPackage):
     depends_on("libx11@0.99.1:")
 
     depends_on("xproto@7.0.22:", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("util-macros", type="build")

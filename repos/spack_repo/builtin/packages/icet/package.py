@@ -21,10 +21,7 @@ class Icet(CMakePackage):
     variant("opengl", default=False, description="Use opengl")
     variant("shared", default=True, description="Enable shared library")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("mpi")
-    depends_on("gl", when="+opengl")
 
     def cmake_args(self):
         return [

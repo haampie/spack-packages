@@ -20,16 +20,8 @@ class Flex(AutotoolsPackage):
 
     executables = ["^flex$"]
 
-    version("2.6.4", sha256="e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995")
-    version(
-        "2.6.3",
-        sha256="68b2742233e747c462f781462a2a1e299dc6207401dac8f0bbb316f48565c2aa",
-        preferred=True,
-    )
     # Avoid flex '2.6.2' (major bug)
     # See issue #2554; https://github.com/westes/flex/issues/113
-    version("2.6.1", sha256="3c43f9e658e45e8aae3cf69fa11803d60550865f023852830d557c5f0623c13b")
-    version("2.6.0", sha256="cde6e46064a941a3810f7bbc612a2c39cb3aa29ce7eb775089c2515d0adfa7e9")
     version("2.5.39", sha256="258d3c9c38cae05932fb470db58b6a288a361c448399e6bda2694ef72a76e7cd")
 
 

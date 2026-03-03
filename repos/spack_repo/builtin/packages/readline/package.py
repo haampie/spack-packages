@@ -25,7 +25,6 @@ class Readline(AutotoolsPackage, GNUMirrorPackage):
     for verstr, num, checksum in [
         ("8.3", "001", "21f0a03106dbe697337cd25c70eb0edbaa2bdb6d595b45f83285cdd35bac84de"),
         ("8.2", "001", "bbf97f1ec40a929edab5aa81998c1e2ef435436c597754916e6a5868f273aff7"),
-        ("8.2", "002", "e06503822c62f7bc0d9f387d4c78c09e0ce56e53872011363c74786c7cd4c053"),
         ("8.2", "003", "24f587ba46b46ed2b1868ccaf9947504feba154bb8faabd4adaea63ef7e6acb0"),
         ("8.2", "004", "79572eeaeb82afdc6869d7ad4cba9d4f519b1218070e17fa90bbecd49bd525ac"),
         ("8.2", "005", "622ba387dae5c185afb4b9b20634804e5f6c1c6e5e87ebee7c35a8f065114c99"),

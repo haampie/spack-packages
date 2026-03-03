@@ -258,14 +258,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     # Python distutils were removed with 3.12 and are required to build LLVM <= 14
     conflicts("^python@3.12:", when="@:14")
 
-    variant(
-        "zstd",
-        default=False,
-        when="@15:",
-        description="Enable zstd support for static analyzer / lld",
-    )
-
-    variant("utils", default=False, description="Install utility binaries (FileCheck, etc.)")
 
     provides("libllvm@20", when="@20.0.0:20")
     provides("libllvm@19", when="@19.0.0:19")
@@ -273,12 +265,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     provides("libllvm@17", when="@17.0.0:17")
     provides("fortran", when="+flang")
 
-    extends("python", when="+python")
-
-
-    # Build dependency
-    depends_on("cmake@3.13.4:", type="build", when="@12:")
-    depends_on("cmake@3.20:", type="build", when="@16:")
     with when("@:10"):
         # Versions 10 and older cannot build runtimes with cmake@3.17:
         # See https://reviews.llvm.org/D77284

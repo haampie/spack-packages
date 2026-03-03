@@ -54,61 +54,6 @@ class AutotoolsPackage(PackageBase):
     # need to forward to the builder)
 @register_builder("autotools")
 class AutotoolsBuilder(BuilderWithDefaults):
-    """The autotools builder encodes the default way of installing software built
-    with autotools. It has four phases that can be overridden, if need be:
-        1. :py:meth:`~.AutotoolsBuilder.autoreconf`
-        2. :py:meth:`~.AutotoolsBuilder.configure`
-        3. :py:meth:`~.AutotoolsBuilder.build`
-        4. :py:meth:`~.AutotoolsBuilder.install`
-    They all have sensible defaults and for many packages the only thing necessary
-    is to override the helper method
-    :meth:`~spack_repo.builtin.build_systems.autotools.AutotoolsBuilder.configure_args`.
-    For a finer tuning you may also override:
-        +-----------------------------------------------+--------------------+
-        | **Method**                                    | **Purpose**        |
-        +===============================================+====================+
-        | :py:attr:`~.AutotoolsBuilder.build_targets`   | Specify ``make``   |
-        |                                               | targets for the    |
-        |                                               | build phase        |
-        +-----------------------------------------------+--------------------+
-        | :py:attr:`~.AutotoolsBuilder.install_targets` | Specify ``make``   |
-        |                                               | targets for the    |
-        |                                               | install phase      |
-        +-----------------------------------------------+--------------------+
-        | :py:meth:`~.AutotoolsBuilder.check`           | Run  build time    |
-        |                                               | tests if required  |
-        +-----------------------------------------------+--------------------+
-    """
-    #: Phases of a GNU Autotools package
-    phases = ("autoreconf", "configure", "build", "install")
-    #: Names associated with package methods in the old build-system format
-    package_methods = ("configure_args", "check", "installcheck")
-    #: Names associated with package attributes in the old build-system format
-    package_attributes = (
-        "archive_files",
-        "patch_libtool",
-        "build_targets",
-        "install_targets",
-        "build_time_test_callbacks",
-        "install_time_test_callbacks",
-        "force_autoreconf",
-        "autoreconf_extra_args",
-        "install_libtool_archives",
-        "patch_config_files",
-        "configure_directory",
-        "configure_abs_path",
-        "build_directory",
-        "autoreconf_search_path_args",
-    )
-    #: Whether to update ``libtool`` (e.g. for Arm/Clang/Fujitsu/NVHPC compilers)
-    patch_libtool = True
-    #: Targets for ``make`` during the :py:meth:`~.AutotoolsBuilder.build` phase
-    build_targets: List[str] = []
-    #: Targets for ``make`` during the :py:meth:`~.AutotoolsBuilder.install` phase
-    install_targets = ["install"]
-    #: Callback names for build-time test
-    build_time_test_callbacks = ["check"]
-    #: Callback names for install-time test
     install_time_test_callbacks = ["installcheck"]
     #: Set to true to force the autoreconf step even if configure is present
     force_autoreconf = False

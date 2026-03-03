@@ -26,33 +26,6 @@ class Viskores(CMakePackage, CudaPackage, ROCmPackage):
     # Device variants
     # CudaPackage provides cuda variant
     # ROCmPackage provides rocm variant
-    variant("kokkos", default=False, description="build using Kokkos backend")
-    variant(
-        "cuda_native", default=True, description="build using native cuda backend", when="+cuda"
-    )
-    variant("openmp", default=(sys.platform != "darwin"), description="build openmp support")
-    variant("tbb", default=(sys.platform == "darwin"), description="build TBB support")
-    variant("sycl", default=False, description="Build with SYCL backend")
-    # Viskores uses the default Kokkos backend
-    # Viskores native CUDA and Kokkos CUDA backends are not compatible
-    depends_on("kokkos ~cuda", when="+kokkos +cuda +cuda_native")
-    depends_on("kokkos +cuda", when="+kokkos +cuda ~cuda_native")
-    for cuda_arch in CudaPackage.cuda_arch_values:
-        depends_on(
-            "kokkos cuda_arch=%s" % cuda_arch,
-            when="+kokkos +cuda ~cuda_native cuda_arch=%s" % cuda_arch,
-        )
-    # Viskores uses the Kokkos HIP backend.
-    # If Kokkos provides multiple backends, the HIP backend may or
-    # may not be used for Viskores depending on the default selected by Kokkos
-    depends_on("kokkos +rocm", when="+kokkos +rocm")
-    # Propagate AMD GPU target to kokkos for +rocm
-    for amdgpu_value in ROCmPackage.amdgpu_targets:
-        depends_on(
-            "kokkos amdgpu_target=%s" % amdgpu_value,
-            when="+kokkos +rocm amdgpu_target=%s" % amdgpu_value,
-        )
-    depends_on("hip@5.2:", when="+rocm")
     # CUDA thrust is already include in the CUDA pkg
     depends_on("rocthrust", when="+kokkos+rocm ^cmake@3.24:")
     # It would be better if this could be expressed as a when clause to disable the rocm variant,

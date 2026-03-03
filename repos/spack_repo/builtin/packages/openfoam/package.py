@@ -1,30 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-#
-# Author: Mark Olesen <mark.olesen@esi-group.com>
-#
-# Legal Notice
-# ------------
-# OPENFOAM is a trademark owned by OpenCFD Ltd
-# (producer and distributor of the OpenFOAM software via www.openfoam.com).
-# The trademark information must remain visible and unadulterated in this
-# file and via the "spack info" and comply with the term set by
-# http://openfoam.com/legal/trademark-policy.php
-#
-# This file is not part of OpenFOAM, nor does it constitute a component of an
-# OpenFOAM distribution.
-#
-##############################################################################
-#
-# Notes
-# - mpi handling: WM_MPLIB=USERMPI and use spack to generate mplibUSERMPI
-#   wmake rules.
-#
-# - Resolution of flex, zlib needs more attention (within OpenFOAM)
-# - +paraview:
-#   depends_on should just be 'paraview+plugins' but that resolves poorly.
-#   Workaround: use preferred variants "+plugins +qt"
 #       packages:
 #           paraview:
 #               variants: +plugins +qt

@@ -112,22 +112,4 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
                 name="fortran-installer",
                 placement="fortran-installer",
                 when="@{0}".format(v["version"]),
-                expand=False,
-                **v["ftn"],
-            )
-        if "nvidia-plugin" in v:
-            resource(
-                name="nvidia-plugin-installer",
-                placement="nvidia-plugin-installer",
-                when="@{0}+nvidia".format(v["version"]),
-                expand=False,
-                **v["nvidia-plugin"],
-            )
-        if "amd-plugin" in v:
-            resource(
-                name="amd-plugin-installer",
-                placement="amd-plugin-installer",
-                when="@{0}+amd".format(v["version"]),
-                expand=False,
-                **v["amd-plugin"],
             )

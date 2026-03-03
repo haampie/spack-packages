@@ -15,8 +15,6 @@ def generator(*names: str, default: Optional[str] = None) -> None:
         default: default generator
     """
     allowed_values = ("make", "ninja")
-    if any(x not in allowed_values for x in names):
-        msg = "only 'make' and 'ninja' are allowed for CMake's 'generator' directive"
 class CMakePackage(PackageBase):
     """Specialized class for packages built using CMake
     """

@@ -1,20 +1,8 @@
 import pathlib
-import re
-import sys
 from typing import Dict, List, Optional, Sequence, Tuple, Union
 from spack.package import (
-    CompilerError,
-    Executable,
     PackageBase,
-    ProcessError,
-    Spec,
-    classproperty,
-    memoized,
-    tty,
-    which_string,
 )
-# Local "type" for type hints
-Path = Union[str, pathlib.Path]
 class CompilerPackage(PackageBase):
     """A Package mixin for all common logic for packages that implement compilers"""
     # TODO: how do these play nicely with other tags

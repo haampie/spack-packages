@@ -19,11 +19,6 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
     # https://lists.gnu.org/archive/html/bug-bison/2019-08/msg00008.html
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
-    depends_on("gettext", when="+color")
-    # The NVIDIA compilers do not currently support some GNU builtins.
-    # Detect this case and use the fallback path.
-    patch("nvhpc-3.6.patch", when="@3.6.0:3.6 %nvhpc")
-    patch("nvhpc-3.7.patch", when="@3.7.0:3.7 %nvhpc")
     conflicts(
         "%oneapi",
         msg=(
@@ -31,6 +26,4 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
             "see https://github.com/spack/spack/issues/37172"
         ),
     )
-    if sys.platform == "darwin" and macos_version() >= Version("10.13"):
-        patch("secure_snprintf.patch", level=0, when="@3.0.4")
     build_directory = "spack-build"

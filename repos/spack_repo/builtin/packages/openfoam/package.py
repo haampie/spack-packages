@@ -68,20 +68,6 @@ class Openfoam(Package):
     assets = []  # type: List[str]
     # Version-specific patches
     # kahip patch (wmake)
-    # Fix: missing std::array include (searchable sphere)
-    # Some user config settings
-    # default: 'compile-option': '-spack',
-    # default: 'mplib': 'USERMPI',  # User-defined mpi for spack
-    config = {
-        # Add links into bin/, lib/ (eg, for other applications)
-        "link": False
-    }
-    # The openfoam architecture, compiler information etc
-    _foam_arch = None
-    # Content for etc/prefs.{csh,sh}
-    etc_prefs = {}  # type: Dict[str,str]
-    # Content for etc/config.{csh,sh}/ files
-    etc_config = {}  # type: Dict[str,str]
     phases = ["configure", "build", "install"]
     build_script = "./spack-Allwmake"  # From patch() method.
     #

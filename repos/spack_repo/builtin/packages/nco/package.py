@@ -79,7 +79,6 @@ class Nco(AutotoolsPackage):
     # http://nco.sourceforge.net/#bld
 
 
-    conflicts("%gcc@9:", when="@:4.7.8")
 
     def configure_args(self):
         config_args = self.enable_or_disable("doc")

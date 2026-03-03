@@ -29,7 +29,6 @@ class Mysql(CMakePackage):
 
     # Server code has a macro 'byte', which conflicts with C++17's
     # std::byte.
-    conflicts("cxxstd=17", when="~client_only")
 
     provides("mysql-client")
 

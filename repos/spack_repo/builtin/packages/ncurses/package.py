@@ -55,7 +55,6 @@ class Ncurses(AutotoolsPackage, GNUMirrorPackage):
         multi=False,
     )
 
-    conflicts("abi=6", when="@:5.9", msg="6 is not compatible with this release")
 
 
 

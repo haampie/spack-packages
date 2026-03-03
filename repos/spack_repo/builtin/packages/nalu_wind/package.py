@@ -117,31 +117,6 @@ class NaluWind(CMakePackage, CudaPackage, ROCmPackage):
             when="+hypre+rocm amdgpu_target={0}".format(_arch),
         )
 
-    conflicts(
-        "~hypre~trilinos-solvers",
-        msg="nalu-wind: Must enable at least one of the linear-solvers: hypre or trilinos-solvers",
-    )
-    conflicts(
-        "+shared",
-        when="+cuda",
-        msg="invalid device functions are generated with shared libs and cuda",
-    )
-    conflicts(
-        "+shared",
-        when="+rocm",
-        msg="invalid device functions are generated with shared libs and rocm",
-    )
-    conflicts("+cuda", when="+rocm")
-    conflicts("+rocm", when="+cuda")
-    conflicts("^hypre+cuda", when="~cuda")
-    conflicts("^hypre+rocm", when="~rocm")
-    conflicts("^hypre+sycl")
-    conflicts("^trilinos+cuda", when="~cuda")
-    conflicts("^trilinos+rocm", when="~rocm")
-    conflicts("+shared", when="+trilinos-solvers")
-    conflicts(
-        "openfast@4.0.0:4.0.1", msg="OpenFAST 4.0.0:4.0.1 contains a bug. Use OpenFAST >= 4.0.2."
-    )
 
     def setup_dependent_run_environment(
         self, env: EnvironmentModifications, dependent_spec: Spec

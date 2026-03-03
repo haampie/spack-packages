@@ -101,11 +101,6 @@ class DavSdk(BundlePackage, CudaPackage, ROCmPackage):
     cuda_arch_variants = ["cuda_arch={0}".format(x) for x in CudaPackage.cuda_arch_values]
     amdgpu_target_variants = ["amdgpu_target={0}".format(x) for x in ROCmPackage.amdgpu_targets]
 
-    dav_sdk_depends_on(
-        "adios2+shared+mpi+python+sst+dataman",
-        when="+adios2",
-        propagate=["cuda", "hdf5", "zfp", "fortran"] + cuda_arch_variants,
-    )
 
     # HDF5 1.14 is a soft requirement for the ECP Data and Vis SDK.
     # When building with VisIt and CinemaSci in the same SDK environment there is a conflict

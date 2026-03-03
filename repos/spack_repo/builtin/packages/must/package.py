@@ -33,7 +33,6 @@ class Must(CMakePackage):
 
     # Don't enable stackwalker, backward simultaneously
     # Use either backward or stackwalker for unwinding
-    conflicts("+stackwalker +backward")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

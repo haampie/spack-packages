@@ -44,7 +44,6 @@ class Mpifileutils(CMakePackage):
 
     patch("nosys_getdents.patch", when="@:0.10.1 target=aarch64:")
 
-    conflicts("platform=darwin")
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")

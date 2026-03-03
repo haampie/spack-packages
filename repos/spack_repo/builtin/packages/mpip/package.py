@@ -57,7 +57,6 @@ class Mpip(AutotoolsPackage):
 
     variant("add_shared_target", default=False, description="Add shared make target")
 
-    conflicts("platform=darwin")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

@@ -47,9 +47,6 @@ class Mxnet(CMakePackage, CudaPackage, PythonExtension):
     # python/setup.py
     extends("python", when="+python")
 
-    conflicts("+cudnn", when="~cuda")
-    conflicts("+nccl", when="~cuda")
-    conflicts("platform=darwin target=aarch64:", when="@:1")
 
     patch("openblas-1.7.0.patch", when="@1.7.0:1")
     patch("openblas-1.6.0.patch", when="@1.6.0")

@@ -88,10 +88,6 @@ class Mumps(Package):
     patch("mumps.src-makefile.5.5.patch", when="@5.5:5.7 +shared")
     patch("mumps.src-makefile.5.8.patch", when="@5.8: +shared")
 
-    conflicts("+parmetis", when="~mpi", msg="You cannot use the parmetis variant without mpi")
-    conflicts("+parmetis", when="~metis", msg="You cannot use the parmetis variant without metis")
-    conflicts("+ptscotch", when="~mpi", msg="You cannot use the ptscotch variant without mpi")
-    conflicts("+blr_mt", when="~openmp", msg="You cannot use the blr_mt variant without openmp")
 
     @when("+incfort")
     def patch(self):

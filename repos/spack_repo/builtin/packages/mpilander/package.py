@@ -35,12 +35,7 @@ class Mpilander(CMakePackage):
     provides("mpi@:3.1")
 
     # compiler support
-    conflicts("%gcc@:4.7")
-    conflicts("%clang@:3.8")
-    conflicts("%apple-clang@:7.4")
-    conflicts("%intel@:16")
 
-    conflicts("platform=windows")
 
     def cmake_args(self):
         args = [

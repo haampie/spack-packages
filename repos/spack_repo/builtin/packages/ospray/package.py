@@ -50,30 +50,3 @@ class Ospray(CMakePackage):
         depends_on("snappy@1.1.8:")
         depends_on("snappy@1.2.1:", when="@3.2:")
 
-    def cmake_args(self):
-        args = [
-            self.define_from_variant("OSPRAY_MODULE_DENOISER", "denoiser"),
-            self.define("OSPRAY_ENABLE_MODULES", True),
-            self.define("OSPRAY_ENABLE_APPS", False),
-            self.define_from_variant("OSPRAY_MODULE_MPI", "mpi"),
-            self.define("OSPRAY_MPI_BUILD_TUTORIALS", False),
-            self.define("OSPRAY_ISPC_DIRECTORY", self.spec["ispc"].prefix.bin),
-            self.define_from_variant("OSPRAY_APPS_ENABLE_GLM", "glm"),
-        ]
-
-        # support for volumetric data
-        if self.spec.satisfies("@2.11:"):
-            args.append(self.define_from_variant("OSPRAY_ENABLE_VOLUMES", "volumes"))
-
-        # Apps
-        enable_apps_arg = "" if self.spec.satisfies("@2.9:") else "ENABLE_"
-        args.extend(
-            [
-                self.define("OSPRAY_{0}APPS_TESTING".format(enable_apps_arg), False),
-                self.define("OSPRAY_{0}APPS_EXAMPLES".format(enable_apps_arg), False),
-                self.define("OSPRAY_{0}APPS_TUTORIALS".format(enable_apps_arg), False),
-                self.define("OSPRAY_{0}APPS_BENCHMARK".format(enable_apps_arg), False),
-            ]
-        )
-
-        return args

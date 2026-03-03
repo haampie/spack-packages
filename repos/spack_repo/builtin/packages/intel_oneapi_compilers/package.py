@@ -448,18 +448,6 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     provides("c", "cxx")
     provides("fortran")
 
-    def _standard_flag(self, *, language, standard):
-        flags = {
-            "cxx": {
-                "11": "-std=c++11",
-                "14": "-std=c++14",
-                "17": "-std=c++17",
-                "20": "-std=c++20",
-            },
-            "c": {"99": "-std=c99", "11": "-std=c1x"},
-        }
-        return flags[language][standard]
-
     # See https://github.com/spack/spack/issues/39252
     # Add the nvidia variant
     variant("nvidia", default=False, description="Install NVIDIA plugin for OneAPI")
@@ -495,16 +483,4 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
                 expand=False,
                 **v["amd-plugin"],
             )
-
-    @property
-    def v2_layout_versions(self):
-        return "@2024:"
-
-    @property
-    def component_dir(self):
-        return "compiler"
-
-    @property
-    def _llvm_bin(self):
-        return self.component_prefix.bin if self.v2_layout else self.component_prefix.linux.bin
 

@@ -7,5 +7,4 @@ class CompilerPackage(PackageBase):
     verbose_flags: str = "-v"
     @property
     def cc(self) -> Optional[str]:
-        if self.spec.external:
             return self.spec.extra_attributes.get("compilers", {}).get("c", None)

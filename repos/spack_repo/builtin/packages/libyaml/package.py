@@ -27,6 +27,5 @@ class Libyaml(AutotoolsPackage):
 
     @run_before("configure")
     def bootstrap(self):
-        if self.spec.satisfies("@master"):
             bootstrap = Executable("./bootstrap")
             bootstrap()

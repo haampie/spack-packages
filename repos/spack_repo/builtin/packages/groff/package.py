@@ -42,20 +42,10 @@ class Groff(AutotoolsPackage, GNUMirrorPackage):
 
     conflicts("+uchardet", when="@:1.22.3")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("m4", type="build")
-    depends_on("gawk", type="build")
-    depends_on("gmake", type="build")
-    depends_on("sed", type="build")
-    depends_on("ghostscript", when="+pdf")
     # iconv is being asked whatever the release
-    depends_on("iconv")
     # makeinfo is being searched for
-    depends_on("texinfo", type="build", when="@1.22.4:")
     # configure complains when there is no uchardet that enhances preconv
-    depends_on("uchardet", when="@1.22.4:")
     depends_on("pkgconfig", type="build")
 
     depends_on("libice", when="+x")

@@ -79,29 +79,13 @@ class Grid(AutotoolsPackage, CudaPackage, ROCmPackage):
     # Prefer 4 colours by default when enabling Sp.
     requires("Nc=4", "Nc=5", "Nc=8", "Nc=2", "Nc=3", "@:", when="+Sp", policy="any_of")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
-    depends_on("gmp")
-    depends_on("mpfr")
-    depends_on("openssl")
 
-    depends_on("mpi", when="comms=mpi")
-    depends_on("cray-mpich", when="comms=shmem")
-    depends_on("mpi@3:", when="comms=mpi3")
 
-    depends_on("fftw-api@3", when="+fftw")
 
-    depends_on("lapack", when="+lapack")
 
-    depends_on("hdf5", when="+hdf5")
 
-    depends_on("c-lime", when="+lime")
 
-    depends_on("doxygen", type="build", when="+doxygen-doc")
 
     conflicts(
         "+cuda",

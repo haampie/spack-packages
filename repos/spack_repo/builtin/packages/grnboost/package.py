@@ -26,10 +26,6 @@ class Grnboost(Package):
         commit="26c836b3dcbb85852d3c6f4b8340e8655434da02",
     )
 
-    depends_on("sbt", type="build")
-    depends_on("java", type=("build", "run"))
-    depends_on("xgboost", type="run")
-    depends_on("spark+hadoop", type="run")
 
     def setup_run_environment(self, env: EnvironmentModifications) -> None:
         grnboost_jar = join_path(self.prefix, "target", "scala-2.11", "GRNBoost.jar")

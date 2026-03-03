@@ -35,18 +35,10 @@ class GreenMbpt(CMakePackage, CudaPackage):
     )
 
     # Build system dependency
-    depends_on("cmake@3.27:", type="build")
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     # Other dependencies
-    depends_on("mpi")
-    depends_on("eigen")
-    depends_on("hdf5@1.10.0: ~mpi+hl")
-    depends_on("blas")
 
     # CUDA variant dependency
-    depends_on("cuda@12:", when="+cuda")
 
     def cmake_args(self):
         args = []

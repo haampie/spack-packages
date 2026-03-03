@@ -21,7 +21,6 @@ class Graylog2Server(Package):
     version("3.2.1", sha256="f570dbb557888ca4dbc932fb6ed840dbb616b9ed50e034d17de69a69f08d1aec")
     version("3.2.0", sha256="094eed607d0d0a7c380825d6507c1e40a53c4493b5f9fe8ae5a3ddd86521711e")
 
-    depends_on("java@8", type=("build", "run"))
 
     def install(self, spec, prefix):
         install_tree(".", prefix)

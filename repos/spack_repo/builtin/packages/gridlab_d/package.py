@@ -29,16 +29,7 @@ class GridlabD(AutotoolsPackage):
     variant("helics", default=False, description="Enable Helics support for Gridlab-D.")
 
     # Add dependencies.
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
-    depends_on("libtool", type="build")
-    depends_on("m4", type="build")
-    depends_on("xerces-c")
-    depends_on("superlu-mt")
-    depends_on("helics", when="+helics")
 
     def configure_args(self):
         args = []

@@ -35,13 +35,8 @@ class Greenx(CMakePackage):
     variant("lbasis", default=False, description="Enable localized basis component")
     variant("paw", default=False, description="Enable PAW component")
 
-    depends_on("cxx", type="build")
-    depends_on("fortran", type="build")
 
-    depends_on("blas")
-    depends_on("lapack")
 
-    depends_on("gmp", when="+gmp")
 
     # fix a missing dependency in the greenXConfig.cmake file.
     # A linking error will show up when clang is used.

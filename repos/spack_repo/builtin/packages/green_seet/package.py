@@ -28,17 +28,8 @@ class GreenSeet(CMakePackage):
     version("seet-dev", branch="SEET", commit="7b076bf07930157d9583f9e942867bc08605a4dd")
 
     # Build system dependency
-    depends_on("cmake@3.27:", type="build")
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     # Other dependencies
-    depends_on("mpi")
-    depends_on("eigen")
-    depends_on("hdf5@1.10.0: ~mpi+hl")
-    depends_on("blas")
-    depends_on("arpack-ng@3.5.0:")
-    depends_on("alpscore@2.3.2:")
 
     # TODO: CUDA Variant -- consider later
 

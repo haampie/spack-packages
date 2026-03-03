@@ -56,51 +56,16 @@ class Grass(AutotoolsPackage):
     variant("geos", default=False, description="Enable GEOS support")
     variant("x", default=False, description="Use the X Window System")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     # https://htmlpreview.github.io/?https://github.com/OSGeo/grass/blob/master/REQUIREMENTS.html
     # General requirements
-    depends_on("gmake@3.81:", type="build")
-    depends_on("iconv")
-    depends_on("zlib-api")
-    depends_on("flex", type="build")
-    depends_on("bison", type="build")
-    depends_on("proj")
     # GRASS 7.8.0 was supposed to support PROJ 6, but it still checks for
     # share/proj/epsg, which was removed in PROJ 6
-    depends_on("proj@:5", when="@:7.8.0")
     # PROJ6 support released in GRASS 7.8.1
     # https://courses.neteler.org/grass-gis-7-8-1-released-with-proj-6-and-gdal-3-support/
-    depends_on("proj@6:", when="@7.8.1:")
-    depends_on("python@2.7:", type=("build", "run"))
-    depends_on("py-six", when="@7.8:", type=("build", "run"))
 
     # Optional packages
-    depends_on("libtiff", when="+tiff")
-    depends_on("libpng", when="+png")
-    depends_on("postgresql", when="+postgres")
-    depends_on("mariadb", when="+mysql")
-    depends_on("sqlite", when="+sqlite")
-    depends_on("gl", when="+opengl")
-    depends_on("unixodbc", when="+odbc")
-    depends_on("fftw", when="+fftw")
-    depends_on("blas", when="+blas")
-    depends_on("lapack", when="+lapack")
-    depends_on("cairo@1.5.8:", when="+cairo")
-    depends_on("freetype", when="+freetype")
-    depends_on("readline", when="+readline")
-    depends_on("opencl", when="+opencl")
-    depends_on("bzip2", when="+bzlib")
-    depends_on("zstd", when="+zstd")
-    depends_on("gdal", when="+gdal")
     conflicts("^gdal@3.3:", when="@7.8")
-    depends_on("liblas", when="+liblas")
-    depends_on("wxwidgets", when="+wxwidgets")
-    depends_on("py-wxpython@2.8.10.1:", when="+wxwidgets", type=("build", "run"))
-    depends_on("netcdf-c", when="+netcdf")
-    depends_on("geos", when="+geos")
-    depends_on("libx11", when="+x")
 
     def url_for_version(self, version):
         url = "https://grass.osgeo.org/grass{0}/source/grass-{1}.tar.gz"

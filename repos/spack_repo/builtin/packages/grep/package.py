@@ -28,9 +28,6 @@ class Grep(AutotoolsPackage, GNUMirrorPackage):
 
     variant("pcre", default=False, description="Enable Perl Compatible Regular Expression support")
 
-    depends_on("c", type="build")
-    depends_on("pcre2", when="@3.8:+pcre")
-    depends_on("pcre", when="@:3.7+pcre")
 
     build_directory = "spack-build"
 

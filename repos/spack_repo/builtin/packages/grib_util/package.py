@@ -27,29 +27,10 @@ class GribUtil(CMakePackage):
 
     variant("openmp", default=False, description="Use OpenMP multithreading")
 
-    depends_on("c", type="build")
-    depends_on("fortran", type="build")
 
-    depends_on("jasper@2.0.25:")
-    depends_on("libpng")
-    depends_on("zlib-api")
-    depends_on("w3emc", when="@1.2.4:")
     requires("^w3emc +extradeps", when="^w3emc@2.10:2.11")
     requires("^w3emc precision=4,d", when="^w3emc@2.10:")
-    depends_on("w3emc@2.10:", when="@1.3:")
-    depends_on("w3nco", when="@:1.2.3")
-    depends_on("g2")
-    depends_on("g2@3.5:", when="@1.5:")
-    depends_on("g2@3.4.9:", when="@1.4:")
-    depends_on("g2@3.4.8:", when="@1.3:")
-    depends_on("g2@3.4:", when="@1.2.4:")
-    depends_on("g2c@1.8: +utils", when="@1.3:", type="test")
-    depends_on("bacio")
-    depends_on("bacio@2.4:", when="@1.2.4:")
     requires("^ip precision=d", when="^ip@4.1:")
-    depends_on("ip@3.3.3:", when="@1.2.4:")
-    depends_on("ip@:3.3.3", when="@:1.2")
-    depends_on("sp", when="^ip@:4")
     requires("^sp precision=d", when="^sp@2.4:")
 
     def cmake_args(self):

@@ -22,16 +22,7 @@ class Gribjump(CMakePackage):
 
     version("0.10.0", sha256="04a6c7322e585acb7e432e74d68f073ab584a42af9dcb2b4b97f17aebf17d07f")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
-    depends_on("cmake@3.12:", type="build")
-    depends_on("ecbuild", type="build")
-    depends_on("eckit")
-    depends_on("eccodes")
-    depends_on("fdb")
-    depends_on("metkit")
-    depends_on("libaec@1.1.1:")
 
     def cmake_args(self):
         args = [

@@ -1,9 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-import itertools
-import os
-import re
 import sys
 from subprocess import Popen
 from spack_repo.builtin.build_systems.cmake import CMakePackage, generator

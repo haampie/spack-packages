@@ -1,9 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-import os
-import re
-from spack_repo.builtin.build_systems.generic import Package
 from spack_repo.builtin.build_systems.gnu import GNUMirrorPackage
 from spack.package import *
 class Gmake(Package, GNUMirrorPackage):

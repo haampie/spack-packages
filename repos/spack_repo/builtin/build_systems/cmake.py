@@ -22,12 +22,6 @@ def _conditional_cmake_defaults(pkg: PackageBase, args: List[str]) -> None:
         return
 def generator(*names: str, default: Optional[str] = None) -> None:
     """The build system generator to use.
-    See ``cmake --help`` for a list of valid generators.
-    Currently, "Unix Makefiles" and "Ninja" are the only generators
-    that Spack supports. Defaults to "Unix Makefiles".
-    See https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html
-    for more information.
-    Args:
         names: allowed generators for this package
         default: default generator
     """

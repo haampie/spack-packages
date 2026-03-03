@@ -23,10 +23,6 @@ class Binutils(AutotoolsPackage, GNUMirrorPackage):
 
     executables = ["^nm$", "^readelf$"]
 
-    version("2.36.1", sha256="5b4bd2e79e30ce8db0abd76dd2c2eae14a94ce212cfc59d3c37d23e24bc6d7a3")
-    version("2.35.2", sha256="cfa7644dbecf4591e136eb407c1c1da16578bd2b03f0c2e8acdceba194bb9d61")
-    version("2.35.1", sha256="320e7a1d0f46fcd9f413f1046e216cbe23bb2bce6deb6c6a63304425e48b1942")
-    version("2.35", sha256="7d24660f87093670738e58bcc7b7b06f121c0fcb0ca8fc44368d675a5ef9cff7")
     version("2.34", sha256="89f010078b6cf69c23c27897d686055ab89b198dddf819efb0a4f2c38a0b36e6")
     version("2.33.1", sha256="0cb4843da15a65a953907c96bad658283f3c4419d6bcc56bf2789db16306adb2")
     version("2.32", sha256="de38b15c902eb2725eac6af21183a5f34ea4634cb0bcef19612b50e5ed31072d")

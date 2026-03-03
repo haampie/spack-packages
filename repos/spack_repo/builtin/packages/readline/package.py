@@ -21,11 +21,6 @@ class Readline(AutotoolsPackage, GNUMirrorPackage):
     gnu_mirror_path = "readline/readline-8.0.tar.gz"
 
     version("8.3", sha256="fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc")
-    version("8.2", sha256="3feb7171f16a84ee82ca18a36d7b9be109a52c04f492a053331d7d1095007c35")
-    version("8.1", sha256="f8ceb4ee131e3232226a17f51b164afc46cd0b9e6cef344be87c65962cb82b02")
-    version("8.0", sha256="e339f51971478d369f8a053a330a190781acb9864cf4c541060f12078948e461")
-    version("7.0", sha256="750d437185286f40a369e1e4f4764eda932b9459b5ec9a731628393dd3d32334")
-    version("6.3", sha256="56ba6071b9462f980c5a72ab0023893b65ba6debb4eeb475d7a563dc65cafd43")
 
     depends_on("c", type="build")  # generated
 
@@ -75,14 +70,3 @@ class Readline(AutotoolsPackage, GNUMirrorPackage):
             sha256=checksum,
         )
 
-    def build(self, spec, prefix):
-        make("SHLIB_LIBS=" + spec["ncurses:wide"].libs.ld_flags)
-
-    def flag_handler(self, name, flags):
-        # nvhpc is detected as a gnu compiler, which causes the build system
-        # to add unrecognized -W flags. Defining CFLAGS overrides those defaults.
-        if name == "cflags" and self.spec.satisfies("%nvhpc"):
-            flags.append("-O2")
-            flags.append("-g")
-            return (None, flags, None)
-        return (flags, None, None)

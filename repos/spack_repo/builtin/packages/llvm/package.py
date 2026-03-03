@@ -49,25 +49,10 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     generator("ninja")
 
 
-    version("main", branch="main")
 
     # Latest stable
-    version("21.1.8", sha256="7ba3f2a8d8fda88be18a31d011e8195d3b7f87f9fa92b20c94cba2d7f65b0e3f")
-    version("21.1.7", sha256="9ee167cdf8f6b5221d6b02dbe9a664cf8c6fee70fab071aaa4a3889c7c265258")
-    version("21.1.6", sha256="2380973eb435b48bd70881939da3629069009a851c81676dfb211a1b068d72a6")
-    version("21.1.5", sha256="297b35033b84da7c1214b05f901e154c1d7febe8fe51ecdbf27b0d0f9531902f")
-    version("21.1.4", sha256="3a0921d78be74302cb054da1dad59e706814d8fed3a6ac9b532e935825a0715c")
-    version("21.1.3", sha256="5bc91fe86bafebc64189465faca1ff35626dcb1b8539a14ae2ec07834c3e8e95")
-    version("21.1.2", sha256="eced3dd78186621f4df8a1accbcd1ecf2ee399571e62d052c21e9bf363af2166")
-    version("21.1.1", sha256="5f048351ee63050d7fa45b6a1160768fb222a8d306a89e1344515ef7a4bcd278")
-    version("21.1.0", sha256="fba0618cf8de48ec05880c446edd756a2669157eab9d29949e971c77da10275f")
 
     # Previous stable series releases
-    version("20.1.8", sha256="a6cbad9b2243b17e87795817cfff2107d113543a12486586f8a055a2bb044963")
-    version("20.1.7", sha256="91865189d0ca30ca81b7f7af637aca745b6eeeba97c5dfb0ab7d79a1d9659289")
-    version("20.1.6", sha256="afa487c401613f5e4a35935b2abfb5d07e6ebfa20df32787e34a5c7e97c6ea4b")
-    version("20.1.5", sha256="205c436f93a7e185cf9d63ae57e645f23561a4d1bf854f2c5bd78995a43a5c05")
-    version("20.1.4", sha256="65e3a582c4c684fa707a56ff643427bce3633eceaceae3295d81c0e830f44b89")
     version("20.1.3", sha256="b40c0d185b98c2ee3c0cb2f14cde65a06008b33dfb471cc7ad868f8ca3f7f897")
     version("20.1.2", sha256="9ee597456405ddf4809bcf66a4765137a68a85361347ca2a4bb13d9176e932ab")
     version("20.1.1", sha256="edde69aa3e48a3892a8f01332ff79cfb6179151b42503c4ba77d2cd408b013bf")

@@ -92,14 +92,10 @@ class QtBase(QtPackage):
     # Dependencies, then variant- and version-specific dependencies
     depends_on("zstd")
     with when("platform=linux"):
-        depends_on("libdrm")
         depends_on("at-spi2-core", when="+accessibility")
-
-    with when("+gui"):
         with when("platform=linux"):
             depends_on("xcb-util-keysyms")
             depends_on("xcb-util-renderutil")
-            depends_on("xcb-util-wm")
 
     with when("+network"):
         depends_on("openssl")

@@ -138,17 +138,9 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # Legacy rendering dropped in 5.5
     # See commit: https://gitlab.kitware.com/paraview/paraview/-/commit/798d328c
     # in 5.7 you cannot reduce the size of the code for Catalyst builds.
-    conflicts("build_edition=core", when="@:5.7")
     # before 5.3.0, ParaView didn't have VTK-m/Viskores
-    conflicts("+cuda", when="@:5.3")
-    conflicts("+rocm", when="@:5.3")
     # paraview@5.9.0 is recommended when using the xl compiler
     # See https://gitlab.kitware.com/paraview/paraview/-/merge_requests/4433
-    conflicts(
-        "paraview@:5.8",
-        when="%xl_r",
-        msg="Use paraview@5.9.0 with %xl_r. Earlier versions are not able to build with xl.",
-    )
 
 
 
@@ -163,11 +155,9 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # openPMD is implemented as a Python module and provides ADIOS2 and HDF5 backends
 
 
-    conflicts("mpi", when="~mpi")
 
     # Handle X11 dependencies
     # X is only used on Unix like platforms
-    conflicts("glx", when="~x")
     # When on linux, X is required for Qt
     for plat in ["linux", "freebsd"]:
         with when(f"platform={plat}"):

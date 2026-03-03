@@ -33,13 +33,6 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     implicit_rpath_libs = [
         "libirc",
         "libifcore",
-        "libifcoremt",
-        "libirng",
-        "libsvml",
-        "libintlc",
-        "libimf",
-        "libsycl",
-        "libOpenCL",
     ]
     stdcxx_libs = ("-cxxlib",)
     provides("c", "cxx")

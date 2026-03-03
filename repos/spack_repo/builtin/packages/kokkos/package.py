@@ -2,35 +2,21 @@
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 import os
-
 from spack_repo.builtin.build_systems.cmake import CMakePackage
 from spack_repo.builtin.build_systems.cuda import CudaPackage
 from spack_repo.builtin.build_systems.rocm import ROCmPackage
-
 from spack.package import *
-
-
 class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     """Kokkos implements a programming model in C++ for writing performance
     portable applications targeting all major HPC platforms."""
-
     homepage = "https://github.com/kokkos/kokkos"
     git = "https://github.com/kokkos/kokkos.git"
     url = "https://github.com/kokkos/kokkos/releases/download/4.4.01/kokkos-4.4.01.tar.gz"
-
     tags = ["e4s"]
-
     test_requires_compiler = True
-
-
-
-
-
-
     with when("@5:"):
         conflicts("%msvc@:19.2")
     conflicts("^cmake@3.28", when="@:4.2.01 +cuda")
-
     devices_variants = {
         "cuda": [False, "Whether to build CUDA backend"],
         "openmp": [False, "Whether to build OpenMP backend"],
@@ -40,14 +26,12 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         "sycl": [False, "Whether to build the SYCL backend"],
         "openmptarget": [False, "Whether to build the OpenMPTarget backend"],
     }
-
     tpls_variants = {
         "hpx": [False, None, "Whether to enable the HPX library"],
         "hwloc": [False, None, "Whether to enable the HWLOC library"],
         "numactl": [False, "@:4", "Whether to enable the LIBNUMA library"],
         "memkind": [False, "@:4", "Whether to enable the MEMKIND library"],
     }
-
     options_variants = {
         "aggressive_vectorization": [False, None, "Aggressively vectorize loops"],
         "atomics_bypass": [
@@ -73,9 +57,7 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         "tuning": [False, None, "Create bindings for tuning tools"],
         "tests": [False, None, "Build for tests"],
     }
-
     conflicts("~debug_dualview_modify_check", when="@4.7:")  # always enable from 4.7.00
-
     spack_micro_arch_map = {
         "thunderx2": "THUNDERX2",
         "zen": "ZEN",
@@ -103,7 +85,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         "skylake_avx512": "SKX",
         "sapphirerapids": "SPR",
     }
-
     spack_cuda_arch_map = {
         "30": "kepler30",
         "32": "kepler32",
@@ -127,7 +108,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     }
     cuda_arches = spack_cuda_arch_map.values()
     conflicts("+cuda", when="cuda_arch=none")
-
     # Kokkos support only one cuda_arch at a time
     variant(
         "cuda_arch",
@@ -138,7 +118,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         sticky=True,
         when="+cuda",
     )
-
     # Since Kokkos supports only one amdgpu_target at a time, the multi-value property is disabled.
     variant(
         "amdgpu_target",
@@ -149,7 +128,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         sticky=True,
         when="+rocm",
     )
-
     amdgpu_arch_map = {
         "gfx900": "vega900",
         "gfx906": "vega906",
@@ -181,7 +159,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
                 when=f"amdgpu_target={arch}",
                 msg=amd_apu_support_conflict_msg.format(arch),
             )
-
     intel_gpu_arches = (
         "intel_gen",
         "intel_gen9",
@@ -199,17 +176,13 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         description="Intel GPU architecture",
     )
     variant("apu", default=False, description="Enable APU support", when="@4.5: +rocm")
-
     for dev, (dflt, desc) in devices_variants.items():
         variant(dev, default=dflt, description=desc)
     conflicts("+cuda", when="+rocm", msg="CUDA and ROCm are not compatible in Kokkos.")
-
     for opt, (dflt, when, desc) in options_variants.items():
         variant(opt, default=dflt, description=desc, when=when)
-
     for tpl, (dflt, when, desc) in tpls_variants.items():
         variant(tpl, default=dflt, description=desc, when=when)
-
     variant("wrapper", default=False, description="Use nvcc-wrapper for CUDA build")
     variant("cmake_lang", default=False, description="Use CMake language support for CUDA/HIP")
     depends_on("kokkos-nvcc-wrapper@develop", when="@develop+wrapper")
@@ -221,22 +194,14 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     # Expose a way to disable CudaMallocAsync that can cause problems
     # with some MPI such as cray-mpich
     variant("alloc_async", default=False, description="Use CudaMallocAsync", when="@4.2: +cuda")
-
     # SYCL and OpenMPTarget require C++17 or higher
     conflicts("+openmptarget", when="cxxstd=14", msg="OpenMPTarget requires C++17 or higher")
-
     # HPX should use the same C++ standard
     for cxxstd in ["14", "17", "20", "23"]:
         depends_on(f"hpx cxxstd={cxxstd}", when=f"+hpx cxxstd={cxxstd}")
-
     # HPX version constraints
-
     # Patches
-
     # spack compiler wrappers
-
     # sanity check
     sanity_check_is_dir = ["bin", "include"]
-
     test_script_relative_path = join_path("scripts", "spack_test")
-

@@ -4,5 +4,3 @@ from spack.package import PackageBase, join_url
 class GNUMirrorPackage(PackageBase):
     """Mixin that takes care of setting url and mirrors for GNU packages."""
     #: Path of the package in a GNU mirror
-    gnu_mirror_path: Optional[str] = None
-    #: List of GNU mirrors used by Spack

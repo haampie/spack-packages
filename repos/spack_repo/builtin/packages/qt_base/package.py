@@ -13,6 +13,3 @@ class QtPackage(CMakePackage):
 class QtBase(QtPackage):
     variant("gui", default=True, description="Build the Qt GUI module and dependencies.")
     variant("shared", default=True, description="Build shared libraries.")
-    variant("sql", default=True, description="Build with SQL support.")
-    variant("network", default=False, description="Build with SSL support.")
-    # GUI-only dependencies

@@ -33,8 +33,6 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
                 description="Use the specified C++ standard when building",
             )
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     depends_on("python", type="build", when="@64.1:")
     with when("build_system=autotools"):

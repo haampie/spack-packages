@@ -81,15 +81,8 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("boost +context", when="+generic_coroutines")
     for cxxstd in cxxstds:
         depends_on(f"boost cxxstd={cxxstd}", when=f"cxxstd={cxxstd}")
-        depends_on(f"asio cxxstd={cxxstd}", when=f"@1.7: cxxstd={cxxstd}")
-
-    depends_on("gperftools", when="malloc=tcmalloc")
     depends_on("jemalloc", when="malloc=jemalloc")
 
-
-
-
-    # Only ROCm or CUDA maybe be enabled at once
     conflicts("+rocm", when="+cuda")
 
     # Restrictions for 1.9.X
@@ -113,11 +106,8 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     with when("@:1.1.0"):
         depends_on("boost@1.55.0:")
         depends_on("hwloc@1.6:")
-    # Asio 1.34.0 removed io_context::work, used by HPX:
     # https://github.com/chriskohlhoff/asio/commit/a70f2df321ff40c1809773c2c09986745abf8d20.
 
-    # Certain Asio headers don't compile with nvcc from 1.17.0 onwards with
-    # C++17. Starting with CUDA 11.3 they compile again.
 
 
     # Boost and HIP don't work together in certain versions:
@@ -131,12 +121,10 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     # COROUTINES
     # ~generic_coroutines conflict is not fully implemented
     # for additional information see:
-    # https://github.com/spack/spack/pull/17654
     # https://github.com/STEllAR-GROUP/hpx/issues/4829
     depends_on("boost+context", when="+generic_coroutines")
 
     _msg_generic_coroutines_platform = "This platform requires +generic_coroutines"
 
     _msg_generic_coroutines_target = "This target requires +generic_coroutines"
-
 

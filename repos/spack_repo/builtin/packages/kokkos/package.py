@@ -29,8 +29,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
 
     with when("@5:"):
         conflicts("%msvc@:19.2")
-    depends_on("cmake@3.22:", type="build", when="@5:")
-    depends_on("cmake@3.25.2:", type="build", when="@5: +cuda +cmake_lang")
     conflicts("^cmake@3.28", when="@:4.2.01 +cuda")
 
     devices_variants = {
@@ -208,8 +206,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     for dev, (dflt, desc) in devices_variants.items():
         variant(dev, default=dflt, description=desc)
     conflicts("+cuda", when="+rocm", msg="CUDA and ROCm are not compatible in Kokkos.")
-    depends_on("intel-oneapi-dpl", when="+sycl")
-    depends_on("rocthrust", when="@4.3: +rocm")
 
     for opt, (dflt, when, desc) in options_variants.items():
         variant(opt, default=dflt, description=desc, when=when)
@@ -247,7 +243,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
         depends_on(f"hpx cxxstd={cxxstd}", when=f"+hpx cxxstd={cxxstd}")
 
     # HPX version constraints
-    depends_on("hpx@1.7:", when="+hpx")
 
     # Patches
     patch("sycl_bhalft_test.patch", when="@4.2.00 +sycl")

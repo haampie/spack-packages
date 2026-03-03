@@ -1,4 +1,3 @@
-import sys
 from typing import Any, List, Optional, Tuple
 from spack.package import (
     PackageBase,

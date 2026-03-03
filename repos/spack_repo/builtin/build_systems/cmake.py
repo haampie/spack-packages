@@ -4,7 +4,6 @@ from spack.package import (
     PackageBase,
     working_dir,
 )
-# Regex to extract the primary generator from the CMake generator
 def generator(*names: str, default: Optional[str] = None) -> None:
     allowed_values = ("make", "ninja")
 class CMakePackage(PackageBase):

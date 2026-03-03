@@ -18,11 +18,6 @@ def ensure_build_dependencies_or_raise(spec: Spec, dependencies: List[str], erro
     """Ensure that some build dependencies are present in the concrete spec.
           RuntimeError: when the required build dependencies are not found
     """
-    assert spec.concrete, "Can ensure build dependencies only on concrete specs"
-    build_deps = [d.name for d in spec.dependencies(deptype="build")]
-    missing_deps = [x for x in dependencies if x not in build_deps]
-    if not missing_deps:
-        return
     # Raise an exception on missing deps.
     msg = (
         "{0}: missing dependencies: {1}.\n\nPlease add "

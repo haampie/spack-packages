@@ -13,6 +13,3 @@ class CudaPackage(PackageBase):
         "20",
         "121f",
     )
-    # FIXME: keep cuda and cuda_arch separate to make usage easier until
-    # Spack has depends_on(cuda, when='cuda_arch!=None') or alike
-    # Maxwell support:

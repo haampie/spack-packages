@@ -28,14 +28,6 @@ def generator(*names: str, default: Optional[str] = None) -> None:
     allowed_values = ("make", "ninja")
     if any(x not in allowed_values for x in names):
         msg = "only 'make' and 'ninja' are allowed for CMake's 'generator' directive"
-        raise ValueError(msg)
-    for x in not_used:
-        conflicts(f"generator={x}")
 class CMakePackage(PackageBase):
     """Specialized class for packages built using CMake
-    For more information on the CMake build system, see:
-    https://cmake.org/cmake/help/latest/
     """
-    #: List of package names for which CMake argument injection should be disabled
-    disable_cmake_hints_from: List[str] = []
-    #: This attribute is used in UI queries that need to know the build

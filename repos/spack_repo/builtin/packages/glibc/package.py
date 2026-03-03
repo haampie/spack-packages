@@ -26,8 +26,6 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     provides("iconv")
 
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     # Fix for newer GCC, related to -fno-common
 
@@ -108,27 +106,15 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
             string=True,
         )
 
-    depends_on("bison", type="build")
-    depends_on("texinfo", type="build")
-    depends_on("gettext", type="build")
-    depends_on("perl", type="build")
-    depends_on("gawk", type="build")
-    depends_on("sed", type="build")
-    depends_on("gmake", type="build")
 
     # See 2d7ed98add14f75041499ac189696c9bd3d757fe
-    depends_on("gmake@:4.3", type="build", when="@:2.36")
     # Since f2873d2da0ac9802e0b570e8e0b9e7e04a82bf55
-    depends_on("gmake@4.0:", type="build", when="@2.28:")
 
     # From 2.29: generates locale/C-translit.h
     # before that it's a test dependency.
-    depends_on("python@3.4:", type="build", when="@2.29:")
 
-    depends_on("linux-headers")
 
     with when("@master"):
-        depends_on("autoconf", type="build")
         depends_on("automake", type="build")
         depends_on("libtool", type="build")
 

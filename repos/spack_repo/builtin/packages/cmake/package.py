@@ -131,19 +131,11 @@ class Cmake(Package):
 
     with when("~ownlibs"):
         depends_on("expat")
-        # expat/zlib are used in CMake/CTest, so why not require them in libarchive.
         for plat in ["darwin", "linux", "freebsd"]:
             with when("platform=%s" % plat):
-                depends_on("libarchive@3.1.0: xar=expat compression=bz2lib,lzma,zlib,zstd")
                 depends_on("libarchive@3.3.3:", when="@3.15.0:")
                 depends_on("libuv@1.0.0:1.10", when="@3.7.0:3.10.3")
                 depends_on("libuv@1.10.0:1.10", when="@3.11.0:3.11")
-                depends_on("libuv@1.10.0:", when="@3.12.0:")
-                depends_on("rhash", when="@3.8.0:")
-                depends_on("jsoncpp build_system=meson", when="@3.2:")
-
-    depends_on("ncurses", when="+ncurses")
-
     with when("+doc"):
         depends_on("python@2.7.11:", type="build")
         depends_on("py-sphinx", type="build")

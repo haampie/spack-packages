@@ -42,16 +42,6 @@ class LuaPackage(PackageBase):
         with when("^[virtuals=lua-lang] lua-luajit-openresty"):
             extends("lua-luajit-openresty+lualinks")
 
-    @property
-    def lua(self):
-        return Executable(self.spec["lua-lang"].prefix.bin.lua)
-
-    @property
-    def luarocks(self):
-        lr = Executable(self.spec["lua-lang"].prefix.bin.luarocks)
-        return lr
-
-
 @register_builder("lua")
 class LuaBuilder(Builder):
     phases = ("unpack", "generate_luarocks_config", "preprocess", "install")
@@ -62,57 +52,3 @@ class LuaBuilder(Builder):
     #: Names associated with package attributes in the old build-system format
     package_attributes = ()
 
-    def unpack(self, pkg: LuaPackage, spec: Spec, prefix: Prefix) -> None:
-        if (
-            pkg.stage.archive_file is not None
-            and os.path.splitext(pkg.stage.archive_file)[1] == ".rock"
-        ):
-            directory = pkg.luarocks("unpack", pkg.stage.archive_file, output=str)
-            dirlines = directory.split("\n")
-            # TODO: figure out how to scope this better
-            os.chdir(dirlines[2])
-
-    @staticmethod
-    def _generate_tree_line(name, prefix):
-        return """{{ name = "{name}", root = "{prefix}" }};""".format(name=name, prefix=prefix)
-
-    def generate_luarocks_config(self, pkg: LuaPackage, spec: Spec, prefix: Prefix) -> None:
-        spec = self.pkg.spec
-        table_entries = []
-        for d in spec.traverse(deptype=("build", "run")):
-            if d.package.extends(self.pkg.extendee_spec):
-                table_entries.append(self._generate_tree_line(d.name, d.prefix))
-
-        with open(self._luarocks_config_path(), "w", encoding="utf-8") as config:
-            config.write(
-                """
-                deps_mode="all"
-                rocks_trees={{
-                {}
-                }}
-                """.format(
-                    "\n".join(table_entries)
-                )
-            )
-
-    def preprocess(self, pkg: LuaPackage, spec: Spec, prefix: Prefix) -> None:
-        """Override this to preprocess source before building with luarocks"""
-        pass
-
-    def luarocks_args(self):
-        return []
-
-    def install(self, pkg: LuaPackage, spec: Spec, prefix: Prefix) -> None:
-        rock = "."
-        specs = find(".", "*.rockspec", recursive=False)
-        if specs:
-            rock = specs[0]
-        rocks_args = self.luarocks_args()
-        rocks_args.append(rock)
-        pkg.luarocks("--tree=" + prefix, "make", *rocks_args)
-
-    def _luarocks_config_path(self):
-        return os.path.join(self.pkg.stage.source_path, "spack_luarocks.lua")
-
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        env.set("LUAROCKS_CONFIG", self._luarocks_config_path())

@@ -47,19 +47,3 @@ class OctaveBuilder(BuilderWithDefaults):
     #: Names associated with package attributes in the old build-system format
     package_attributes = ()
 
-    def install(self, pkg: OctavePackage, spec: Spec, prefix: Prefix) -> None:
-        """Install the package from the archive file"""
-        pkg.module.octave(
-            "--quiet",
-            "--norc",
-            "--built-in-docstrings-file=/dev/null",
-            "--texi-macros-file=/dev/null",
-            "--eval",
-            "pkg prefix %s; pkg install %s" % (prefix, self.pkg.stage.archive_file),
-        )
-
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        # octave does not like those environment variables to be set:
-        env.unset("CC")
-        env.unset("CXX")
-        env.unset("FC")

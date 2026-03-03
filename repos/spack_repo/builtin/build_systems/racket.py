@@ -23,12 +23,6 @@ from spack.package import (
 )
 
 
-def _homepage(cls: "RacketPackage") -> Optional[str]:
-    if cls.racket_name:
-        return f"https://pkgs.racket-lang.org/package/{cls.racket_name}"
-    return None
-
-
 class RacketPackage(PackageBase):
     """Specialized class for packages that are built using Racket's
     `raco pkg install` and `raco setup` commands.
@@ -66,51 +60,3 @@ class RacketBuilder(Builder):
 
     racket_name: Optional[str] = None
 
-    @property
-    def subdirectory(self):
-        if self.pkg.racket_name:
-            return "pkgs/{0}".format(self.pkg.racket_name)
-        return None
-
-    @property
-    def build_directory(self):
-        ret = os.getcwd()
-        if self.subdirectory:
-            ret = os.path.join(ret, self.subdirectory)
-        return ret
-
-    def install(self, pkg: RacketPackage, spec: Spec, prefix: Prefix) -> None:
-        """Install everything from build directory."""
-        raco = Executable("raco")
-        with working_dir(self.build_directory):
-            parallel = pkg.parallel and (
-                os.environ.get("SPACK_NO_PARALLEL_MAKE", "false").lower() not in ("true", "1")
-            )
-            name = pkg.racket_name
-            assert name is not None, "Racket package name is not set"
-            args = [
-                "pkg",
-                "install",
-                "-t",
-                "dir",
-                "-n",
-                name,
-                "--deps",
-                "fail",
-                "--ignore-implies",
-                "--copy",
-                "-i",
-                "-j",
-                str(determine_number_of_jobs(parallel=parallel)),
-                "--",
-                os.getcwd(),
-            ]
-            try:
-                raco(*args)
-            except ProcessError:
-                args.insert(-2, "--skip-installed")
-                raco(*args)
-                tty.warn(
-                    f"Racket package {name} was already installed, uninstalling via "
-                    "Spack may make someone unhappy!"
-                )

@@ -78,50 +78,5 @@ class GoBuilder(BuilderWithDefaults):
     # Enable or Disable CGO functionality in builds. (Disabled by default)
     cgo_enabled = False
 
-    @property
-    def build_directory(self):
-        """Return the directory containing the main go.mod."""
-        return self.pkg.stage.source_path
-
-    @property
-    def build_args(self):
-        """Arguments for ``go build``."""
-        # Pass ldflags -s = --strip-all and -w = --no-warnings by default
-        return [
-            "-p",
-            str(self.pkg.module.make_jobs),
-            "-modcacherw",
-            "-ldflags",
-            "-s -w",
-            "-o",
-            f"{self.pkg.name}",
-        ]
-
-    @property
-    def check_args(self):
-        """Argument for ``go test`` during check phase"""
-        return []
-
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        env.set("CGO_ENABLED", "1" if self.cgo_enabled else "0")
-        env.set("GO111MODULE", "on")
-        env.set("GOTOOLCHAIN", "local")
-        env.set("GOPATH", join_path(self.pkg.stage.path, "go"))
-
-    def build(self, pkg: GoPackage, spec: Spec, prefix: Prefix) -> None:
-        """Runs ``go build`` in the source directory"""
-        with working_dir(self.build_directory):
-            pkg.module.go("build", *self.build_args)
-
-    def install(self, pkg: GoPackage, spec: Spec, prefix: Prefix) -> None:
-        """Install built binaries into prefix bin."""
-        with working_dir(self.build_directory):
-            mkdirp(prefix.bin)
-            install(pkg.name, prefix.bin)
-
     run_after("install")(execute_install_time_tests)
 
-    def check(self):
-        """Run ``go test .`` in the source directory"""
-        with working_dir(self.build_directory):
-            self.pkg.module.go("test", *self.check_args)

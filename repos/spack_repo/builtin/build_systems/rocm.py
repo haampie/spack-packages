@@ -161,30 +161,6 @@ class ROCmPackage(PackageBase):
     # It seems that hip-clang does not (yet?) accept this flag, in which case
     # we will still need to set the HCC_AMDGPU_TARGET environment flag in the
     # hip package file. But I will leave this here for future development.
-    @staticmethod
-    def hip_flags(amdgpu_target):
-        archs = ",".join(amdgpu_target)
-        return "--amdgpu-target={0}".format(archs)
-
-    def asan_on(self, env: EnvironmentModifications):
-        llvm_path = self.spec["llvm-amdgpu"].prefix
-        env.set("CC", llvm_path + "/bin/clang")
-        env.set("CXX", llvm_path + "/bin/clang++")
-        env.set("ASAN_OPTIONS", "detect_leaks=0")
-
-        for root, _, files in os.walk(llvm_path):
-            if "libclang_rt.asan-x86_64.so" in files:
-                asan_lib_path = root
-        env.prepend_path("LD_LIBRARY_PATH", asan_lib_path)
-        if "rhel" in self.spec.os or "sles" in self.spec.os:
-            SET_DWARF_VERSION_4 = "-gdwarf-5"
-        else:
-            SET_DWARF_VERSION_4 = ""
-
-        env.set("CFLAGS", f"-fsanitize=address -shared-libasan -g {SET_DWARF_VERSION_4}")
-        env.set("CXXFLAGS", f"-fsanitize=address -shared-libasan -g {SET_DWARF_VERSION_4}")
-        env.set("LDFLAGS", "-Wl,--enable-new-dtags -fuse-ld=lld  -fsanitize=address -g -Wl,")
-
     # HIP version vs Architecture
 
     # TODO: add a bunch of lines like:

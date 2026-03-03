@@ -53,25 +53,3 @@ class MavenBuilder(BuilderWithDefaults):
     #: Names associated with package attributes in the old build-system format
     package_attributes = ("build_directory",)
 
-    @property
-    def build_directory(self):
-        """The directory containing the ``pom.xml`` file."""
-        return self.pkg.stage.source_path
-
-    def build_args(self):
-        """List of args to pass to build phase."""
-        return []
-
-    def build(self, pkg: MavenPackage, spec: Spec, prefix: Prefix) -> None:
-        """Compile code and package into a JAR file."""
-        with working_dir(self.build_directory):
-            mvn = which("mvn", required=True)
-            if self.pkg.run_tests:
-                mvn("verify", *self.build_args())
-            else:
-                mvn("package", "-DskipTests", *self.build_args())
-
-    def install(self, pkg: MavenPackage, spec: Spec, prefix: Prefix) -> None:
-        """Copy to installation prefix."""
-        with working_dir(self.build_directory):
-            install_tree(".", prefix)

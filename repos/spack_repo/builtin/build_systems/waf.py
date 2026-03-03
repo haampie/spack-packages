@@ -86,69 +86,6 @@ class WafBuilder(BuilderWithDefaults):
     # Callback names for install-time test
     install_time_test_callbacks = ["install_test"]
 
-    @property
-    def build_directory(self):
-        """The directory containing the ``waf`` file."""
-        return self.stage.source_path
-
-    def python(self, *args, **kwargs):
-        """The python ``Executable``."""
-        self.pkg.module.python(*args, **kwargs)
-
-    def waf(self, *args, **kwargs):
-        """Runs the waf ``Executable``."""
-        jobs = self.pkg.module.make_jobs
-
-        with working_dir(self.build_directory):
-            self.python("waf", "-j{0}".format(jobs), *args, **kwargs)
-
-    def configure(self, pkg: WafPackage, spec: Spec, prefix: Prefix) -> None:
-        """Configures the project."""
-        args = ["--prefix={0}".format(self.pkg.prefix)]
-        args += self.configure_args()
-
-        self.waf("configure", *args)
-
-    def configure_args(self):
-        """Arguments to pass to configure."""
-        return []
-
-    def build(self, pkg: WafPackage, spec: Spec, prefix: Prefix) -> None:
-        """Executes the build."""
-        args = self.build_args()
-
-        self.waf("build", *args)
-
-    def build_args(self):
-        """Arguments to pass to build."""
-        return []
-
-    def install(self, pkg: WafPackage, spec: Spec, prefix: Prefix) -> None:
-        """Installs the targets on the system."""
-        args = self.install_args()
-
-        self.waf("install", *args)
-
-    def install_args(self):
-        """Arguments to pass to install."""
-        return []
-
-    def build_test(self):
-        """Run unit tests after build.
-
-        By default, does nothing. Override this if you want to
-        add package-specific tests.
-        """
-        pass
-
     run_after("build")(execute_build_time_tests)
-
-    def install_test(self):
-        """Run unit tests after install.
-
-        By default, does nothing. Override this if you want to
-        add package-specific tests.
-        """
-        pass
 
     run_after("install")(execute_install_time_tests)

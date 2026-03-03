@@ -46,32 +46,3 @@ class RubyBuilder(BuilderWithDefaults):
     #: Names associated with package attributes in the old build-system format
     package_attributes = ()
 
-    def build(self, pkg: RubyPackage, spec: Spec, prefix: Prefix) -> None:
-        """Build a Ruby gem."""
-
-        # ruby-rake provides both rake.gemspec and Rakefile, but only
-        # rake.gemspec can be built without an existing rake installation
-        gemspecs = glob.glob("*.gemspec")
-        rakefiles = glob.glob("Rakefile")
-        if gemspecs:
-            pkg.module.gem("build", "--norc", gemspecs[0])
-        elif rakefiles:
-            jobs = pkg.module.make_jobs
-            pkg.module.rake("package", "-j{0}".format(jobs))
-        else:
-            # Some Ruby packages only ship `*.gem` files, so nothing to build
-            pass
-
-    def install(self, pkg: RubyPackage, spec: Spec, prefix: Prefix) -> None:
-        """Install a Ruby gem.
-
-        The ruby package sets ``GEM_HOME`` to tell gem where to install to."""
-
-        gems = glob.glob("*.gem")
-        if gems:
-            # if --install-dir is not used, GEM_PATH is deleted from the
-            # environement, and Gems required to build native extensions will
-            # not be found. Those extensions are built during `gem install`.
-            pkg.module.gem(
-                "install", "--norc", "--ignore-dependencies", "--install-dir", prefix, gems[0]
-            )

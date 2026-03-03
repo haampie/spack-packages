@@ -74,27 +74,3 @@ class Asio(AutotoolsPackage):
         depends_on(f"boost +regex cxxstd={std}", when=f"cxxstd={std} +boost_regex")
         depends_on(f"boost +context+coroutine cxxstd={std}", when=f"cxxstd={std} +boost_coroutine")
 
-    def configure_args(self):
-        variants = self.spec.variants
-
-        args = ["CXXFLAGS=-std=c++{0}".format(variants["cxxstd"].value)]
-
-        if variants["separate_compilation"].value:
-            args.append("--enable-separate-compilation")
-
-        if variants["boost_coroutine"].value:
-            args.append("--enable-boost-coroutine")
-
-        if variants["boost_coroutine"].value or variants["boost_regex"].value:
-            args.append("--with-boost={self.spec['boost'].prefix}")
-
-        return args
-
-    def url_for_version(self, version):
-        return "https://github.com/chriskohlhoff/asio/archive/asio-{0}.tar.gz".format(
-            version.dashed
-        )
-
-    @property
-    def configure_directory(self):
-        return os.path.join(self.stage.source_path, "asio")

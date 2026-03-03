@@ -56,12 +56,3 @@ class Automake(AutotoolsPackage, GNUMirrorPackage):
                 shebang_string, "#!/usr/bin/env perl", files_to_be_patched_fmt.format(file)
             )
 
-    def _make_executable(self, name):
-        return Executable(join_path(self.prefix.bin, name))
-
-    def setup_dependent_package(self, module, dependent_spec):
-        # Automake is very likely to be a build dependency,
-        # so we add the tools it provides to the dependent module
-        executables = ["aclocal", "automake"]
-        for name in executables:
-            setattr(module, name, self._make_executable(name))

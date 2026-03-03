@@ -93,41 +93,9 @@ class MakefileBuilder(BuilderWithDefaults):
     #: Callback names for install-time test
     install_time_test_callbacks = ["installcheck"]
 
-    @property
-    def build_directory(self) -> str:
-        """Return the directory containing the main Makefile."""
-        return self.pkg.stage.source_path
-
-    def edit(self, pkg: MakefilePackage, spec: Spec, prefix: Prefix) -> None:
-        """Edit the Makefile before calling make. The default is a no-op."""
-        pass
-
-    def build(self, pkg: MakefilePackage, spec: Spec, prefix: Prefix) -> None:
-        """Run "make" on the build targets specified by the builder."""
-        with working_dir(self.build_directory):
-            pkg.module.make(*self.build_targets)
-
-    def install(self, pkg: MakefilePackage, spec: Spec, prefix: Prefix) -> None:
-        """Run "make" on the install targets specified by the builder."""
-        with working_dir(self.build_directory):
-            pkg.module.make(*self.install_targets)
-
     run_after("build")(execute_build_time_tests)
 
-    def check(self) -> None:
-        """Run "make" on the ``test`` and ``check`` targets, if found."""
-        with working_dir(self.build_directory):
-            self.pkg._if_make_target_execute("test")
-            self.pkg._if_make_target_execute("check")
-
     run_after("install")(execute_install_time_tests)
-
-    def installcheck(self) -> None:
-        """Searches the Makefile for an ``installcheck`` target
-        and runs it if found.
-        """
-        with working_dir(self.build_directory):
-            self.pkg._if_make_target_execute("installcheck")
 
     # On macOS, force rpaths for shared library IDs and remove duplicate rpaths
     run_after("install", when="platform=darwin")(apply_macos_rpath_fixups)

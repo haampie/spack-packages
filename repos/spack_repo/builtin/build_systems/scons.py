@@ -60,28 +60,4 @@ class SConsBuilder(BuilderWithDefaults):
     #: Callback names for build-time test
     build_time_test_callbacks = ["build_test"]
 
-    def build_args(self, spec, prefix):
-        """Arguments to pass to build."""
-        return []
-
-    def build(self, pkg: SConsPackage, spec: Spec, prefix: Prefix) -> None:
-        """Build the package."""
-        pkg.module.scons(*self.build_args(spec, prefix))
-
-    def install_args(self, spec, prefix):
-        """Arguments to pass to install."""
-        return []
-
-    def install(self, pkg: SConsPackage, spec: Spec, prefix: Prefix) -> None:
-        """Install the package."""
-        pkg.module.scons("install", *self.install_args(spec, prefix))
-
-    def build_test(self):
-        """Run unit tests after build.
-
-        By default, does nothing. Override this if you want to
-        add package-specific tests.
-        """
-        pass
-
     run_after("build")(execute_build_time_tests)

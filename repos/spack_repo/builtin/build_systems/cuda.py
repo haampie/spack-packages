@@ -146,17 +146,12 @@ class CudaPackage(PackageBase):
         # Intel is mostly relevant for x86_64 Linux, even though it also
         # exists for Mac OS X. No information prior to CUDA 3.2 or Intel 11.1
         # Intel 15.x is compatible with CUDA 7 thru current CUDA
-
-        # ARM
         # https://github.com/spack/spack/pull/39666#issuecomment-2377609263
         # Might need to be expanded to other gcc versions
 
         # XL is mostly relevant for ppc64le Linux
-        conflicts("%xl@:12,17:", when="+cuda ^cuda@:11.1.0")
 
         # PowerPC.
-        conflicts("target=ppc64le", when="+cuda ^cuda@12.5:")
-
         # Darwin.
         # TODO: add missing conflicts for %apple-clang cuda@:10
         conflicts("platform=darwin", when="+cuda ^cuda@11.0.2:")

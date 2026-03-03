@@ -144,7 +144,6 @@ class Boost(Package):
     )
 
     # 1.84.0 dropped support for 98/03
-
     variant("debug", default=False, description="Switch to the debug version of Boost")
     variant("shared", default=True, description="Additionally build shared libraries")
     variant(
@@ -188,8 +187,6 @@ class Boost(Package):
     depends_on("icu4c cxxstd=11", when="+icu cxxstd=11")
     depends_on("icu4c cxxstd=14", when="+icu cxxstd=14")
 
-    # https://github.com/boostorg/python/commit/cbd2d9f033c61d29d0a1df14951f4ec91e7d05cd
-
     depends_on("py-numpy", when="+numpy", type=("build", "run"))
     # https://github.com/boostorg/python/issues/431
     depends_on("py-numpy@:1", when="@:1.86+numpy", type=("build", "run"))
@@ -198,7 +195,6 @@ class Boost(Package):
     # boost-mpi depends on boost-python since 1.87.0
 
     # (https://github.com/spack/spack/pull/32879#issuecomment-1265933265)
-    conflicts("%oneapi", when="@1.80")
     # Boost did not support the oneapi compilers prior to 1.76
     conflicts("%oneapi@2023:", when="@:1.75")
     # Boost 1.85.0 stacktrace added a hard compilation error that has to

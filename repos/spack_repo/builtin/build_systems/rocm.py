@@ -155,7 +155,6 @@ class ROCmPackage(PackageBase):
 
 
     # need amd gpu type for rocm builds
-    conflicts("amdgpu_target=none", when="+rocm")
 
     # https://github.com/ROCm-Developer-Tools/HIP/blob/master/bin/hipcc
     # It seems that hip-clang does not (yet?) accept this flag, in which case

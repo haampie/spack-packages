@@ -191,7 +191,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
                     "with the D language support".format(curr_v, prev_v),
                 )
 
-            # In principle, it is possible to have GDC even with GCC 5.
             # See https://github.com/D-Programming-GDC/gdc
             # We, however, require at least the oldest version that officially supports GDC. It is
             # also a good opportunity to tell the users that they need a working GDC:

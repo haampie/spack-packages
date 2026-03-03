@@ -88,10 +88,7 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
     # Restrictions for 1.8.X
     with when("@1.8:"):
         conflicts("%gcc@:7")
-        conflicts("%clang@:8")
 
-        conflicts("%gcc@:6")
-        conflicts("%clang@:6")
 
     # Restrictions for 1.5.x
 

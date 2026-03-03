@@ -25,8 +25,6 @@ class MSBuildPackage(PackageBase):
 
     build_system("msbuild")
     conflicts("platform=linux", when="build_system=msbuild")
-
-@register_builder("msbuild")
 class MSBuildBuilder(BuilderWithDefaults):
     """The MSBuild builder encodes the most common way of building software with
     Mircosoft's MSBuild tool. It has two phases that can be overridden, if need be:

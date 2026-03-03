@@ -19,13 +19,5 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     Releases before 2024.0 include icc/icpc"""
     stdcxx_libs = ("-cxxlib",)
     provides("c", "cxx")
-    provides("fortran")
-    # See https://github.com/spack/spack/issues/39252
-    # Add the nvidia variant
-    variant("nvidia", default=False, description="Install NVIDIA plugin for OneAPI")
-    conflicts("@:2022.2.1", when="+nvidia", msg="Codeplay NVIDIA plugin requires newer release")
-    # Add the amd variant
-    variant("amd", default=False, description="Install AMD plugin for OneAPI")
-    conflicts("@:2022.2.1", when="+amd", msg="Codeplay AMD plugin requires newer release")
     for v in versions:
         version(v["version"], expand=False, **v["cpp"])

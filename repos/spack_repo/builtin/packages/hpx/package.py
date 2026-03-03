@@ -77,11 +77,9 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
         depends_on(f"boost cxxstd={cxxstd}", when=f"cxxstd={cxxstd}")
     depends_on("jemalloc", when="malloc=jemalloc")
 
-
     # Restrictions for 1.9.X
     with when("@1.9:"):
         conflicts("%clang@:9")
-    # Restrictions for 1.8.X
     with when("@1.8:"):
         conflicts("%gcc@:7")
 

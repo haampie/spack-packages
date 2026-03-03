@@ -34,10 +34,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     version("15.2.0", sha256="438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e")
 
     # Previous stable series releases
-    version("15.1.0", sha256="e2b09ec21660f01fecffb715e0120265216943f038d0e48a9868713e54f06cea")
 
     # Final releases of previous versions
-    version("11.5.0", sha256="a6e21868ead545cf87f0c01f84276e4b5281d672098591c1c896241f09363478")
 
     # Used in the tutorial
 
@@ -53,8 +51,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
 
 
-        version("4.9.2", sha256="2020c98295856aa13fda0f2f3a4794490757fc24bcca918d52cc8b4917b972dd")
-        version("4.9.1", sha256="d334781a124ada6f38e63b545e2a3b8c2183049515a1abab6d513f109f1d717e")
         version("4.8.4", sha256="4a80aa23798b8e9b5793494b8c976b39b8d9aa2e53cd5ed5534aff662a7f8695")
 
     # We specifically do not add 'all' variant here because:
@@ -209,10 +205,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         nvptx_tools_ver = "2023-09-13"
 
         # NVPTX offloading supported in 7 and later by limited languages
-
         # NVPTX build disables bootstrap
 
-    # Binutils can't build ld on macOS
 
     # Bootstrap comparison failure:
     #   see https://github.com/spack/spack/issues/23296

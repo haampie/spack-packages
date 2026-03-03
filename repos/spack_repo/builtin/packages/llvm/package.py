@@ -227,21 +227,13 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
         del runtime
     depends_on("python@3.8:", when="@20: ~python", type="build")
     # Universal dependency
-    depends_on("python@3.8:", when="@20: +python")
-    depends_on("python", when="+python")
-    depends_on("z3@4.7.1:", when="+z3")
 
     # openmp dependencies
-    depends_on("perl-data-dumper", type=("build"))
-    depends_on("hwloc@2.0.1:", when="@13")
-    depends_on("libffi", when="+libomptarget")
 
-    depends_on("zlib-api")
     # needs zstd cmake config file, which is not added when built with makefile.
 
 
     for _when_spec in ("+lldb+python", "+lldb+lua"):
-            depends_on("swig@4:", when="@17:")
             # 81fc5f7909a4ef5a8d4b5da2a10f77f7cb01ba63 fixed swig 4.1 support
             depends_on("swig@:4.0", when="@:15")
 

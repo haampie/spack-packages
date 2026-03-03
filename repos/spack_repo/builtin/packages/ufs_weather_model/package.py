@@ -151,7 +151,6 @@ class UfsWeatherModel(CMakePackage):
     depends_on("w3nco", when="@:2.0.0")
     depends_on("python", type="build", when="@:2.0.0")
 
-    conflicts("%gcc@:8", when="@develop")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         spec = self.spec

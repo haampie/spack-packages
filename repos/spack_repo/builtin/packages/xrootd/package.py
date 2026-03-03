@@ -84,11 +84,6 @@ class Xrootd(CMakePackage):
     # and https://github.com/xrootd/xrootd/commit/9ef3a2a00b52105883613d2adb6d46a8409b2249
     # Related: C++>14 causes compilation errors with ~client_only.
     # See https://github.com/xrootd/xrootd/pull/1933.
-    conflicts("cxxstd=17", when="@5.0:5.5.2")
-    conflicts("cxxstd=20", when="@5.0:5.5.2")
-    conflicts("cxxstd=17", when="@5:5.6 ~client_only")
-    conflicts("cxxstd=20", when="@5:5.6 ~client_only")
-    conflicts("^scitokens-cpp", when="@:5.5.2 +client_only")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
@@ -96,8 +91,6 @@ class Xrootd(CMakePackage):
     depends_on("bzip2")
     depends_on("cmake@2.6:", type="build", when="@3.1.0:")
     depends_on("cmake@3.16:", type="build", when="@5.6:")
-    conflicts("^cmake@:3.0", when="@5.0.0")
-    conflicts("^cmake@:3.15.99", when="@5.5.4:5.5")
     depends_on("davix", when="+davix")
     depends_on("isa-l", when="+ec")
     depends_on("pkgconfig", type="build", when="+davix")

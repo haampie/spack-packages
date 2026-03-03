@@ -60,11 +60,7 @@ class Xz(MSBuildPackage, AutotoolsPackage, SourceforgePackage):
 
     # xz-5.2.7/src/liblzma/common/common.h:56 uses attribute __symver__ instead of
     # __asm__(.symver) for newer GCC releases.
-    conflicts("%intel", when="@5.2.7", msg="icc does not support attribute __symver__")
-    conflicts("platform=windows", when="+pic")  # no pic on Windows
     # prior to 5.2.3, build system is for MinGW only, not currently supported by Spack
-    conflicts("platform=windows", when="@:5.2.3")
-    conflicts("platform=windows", when="@5.6:")  # CMake is required
 
     patch(
         "nvhpc.patch",

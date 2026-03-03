@@ -46,8 +46,6 @@ class Xsimd(CMakePackage):
     depends_on("googletest", type="test")
 
     # C++14 support
-    conflicts("%gcc@:4.8")
-    conflicts("%clang@:3.6")
     # untested: conflicts('%intel@:15')
 
     def cmake_args(self):

@@ -62,18 +62,9 @@ class Yafyaml(CMakePackage):
     depends_on("cmake@3.24:", type="build", when="@1.6:")
 
     # yafyaml only works with the Fujitsu compiler from 1.3.0 onwards
-    conflicts(
-        "%fj",
-        when="@:1.2.0",
-        msg="yaFyaml only works with the Fujitsu compiler from 1.3.0 onwards",
-    )
 
-    conflicts("%gcc@13.3:", when="@:1.3.0", msg="GCC 13.3+ only works with yafyaml 1.4.0 onwards")
 
     # https://community.intel.com/t5/Intel-Fortran-Compiler/Regression-with-fpp-2025-2-0/td-p/1703735
-    conflicts(
-        "%oneapi@2025.2", when="@:1.5.0", msg="oneAPI 2025.2 only works with yafyaml 1.5.1 onwards"
-    )
 
     # This is needed because for ifx 2025.2, we need to use cpp from GNU as fpp from oneapi
     # is broken. To pull that in, we need to say yafyaml depends on C, even though it really

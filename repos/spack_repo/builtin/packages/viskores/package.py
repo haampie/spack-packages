@@ -66,7 +66,6 @@ class Viskores(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("cmake@3.12:", type="build")  # CMake >= 3.12
     depends_on("cmake@3.18:", when="+rocm", type="build")  # CMake >= 3.18
 
-    conflicts("%gcc@:4.10", msg="viskores requires gcc >= 5. Please install a newer version")
 
     depends_on("cuda@10.1.0:", when="+cuda_native")
     depends_on("tbb", when="+tbb")
@@ -100,16 +99,11 @@ class Viskores(CMakePackage, CudaPackage, ROCmPackage):
 
     # It would be better if this could be expressed as a when clause to disable the rocm variant,
     # but that is not currently possible since when clauses are stacked, not overwritten.
-    conflicts("+rocm", when="+cuda")
-    conflicts("+rocm", when="~kokkos", msg="Viskores does not support HIP without Kokkos")
 
     # Viskores uses the Kokkos SYCL backend.
     # If Kokkos provides multiple backends, the SYCL backend may or
     # may not be used for Viskores depending on the default selected by Kokkos
     depends_on("kokkos +sycl", when="+kokkos +sycl")
-    conflicts("+sycl", when="~kokkos", msg="Viskores does not support SYCL without Kokkos")
-    conflicts("+cuda~cuda_native~kokkos", msg="Cannot have +cuda without a cuda device")
-    conflicts("+cuda", when="cuda_arch=none", msg="viskores +cuda requires that cuda_arch be set")
 
     def cmake_args(self):
         spec = self.spec

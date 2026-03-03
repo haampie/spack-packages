@@ -43,7 +43,6 @@ class Zsh(AutotoolsPackage):
     depends_on("pcre")
     depends_on("ncurses")
 
-    conflicts("+lmod", when="~etcdir", msg="local etc required to setup env for lmod")
 
     patch("pointer-types.patch", when="@5.6.2:")
 

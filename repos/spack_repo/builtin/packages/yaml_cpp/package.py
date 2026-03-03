@@ -50,15 +50,6 @@ class YamlCpp(CMakePackage):
         when="@0.7:",
     )
 
-    conflicts("%gcc@:4.7", when="@0.6.0:", msg="versions 0.6.0: require c++11 support")
-    conflicts("%clang@:3.3.0", when="@0.6.0:", msg="versions 0.6.0: require c++11 support")
-    conflicts("%apple-clang@:4.0.0", when="@0.6.0:", msg="versions 0.6.0: require c++11 support")
-    conflicts("%intel@:11.1", when="@0.6.0:", msg="versions 0.6.0: require c++11 support")
-    conflicts("%xl@:13.1", when="@0.6.0:", msg="versions 0.6.0: require c++11 support")
-    conflicts("%xl_r@:13.1", when="@0.6.0:", msg="versions 0.6.0: require c++11 support")
-    conflicts(
-        'cxxflags="-stdlib=libc++" %clang', when="+tests", msg=yaml_cpp_tests_libcxx_error_msg
-    )
 
     def flag_handler(self, name, flags):
         # We cannot catch all conflicts with the conflicts directive because

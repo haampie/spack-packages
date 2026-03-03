@@ -62,8 +62,6 @@ class Xtensor(CMakePackage):
     depends_on("intel-tbb", when="+tbb")
 
     # C++14 support
-    conflicts("%gcc@:4.8")
-    conflicts("%clang@:3.5")
     # untested: conflicts('%intel@:15')
 
     def cmake_args(self):

@@ -35,8 +35,6 @@ class Xsbench(MakefilePackage, CudaPackage):
 
     depends_on("mpi", when="+mpi")
 
-    conflicts("cuda_arch=none", when="+cuda", msg="Must select a CUDA architecture")
-    conflicts("+cuda", when="+openmp", msg="OpenMP must be disabled to support CUDA")
 
     @property
     def build_directory(self):

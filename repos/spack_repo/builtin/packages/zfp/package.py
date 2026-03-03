@@ -121,11 +121,6 @@ class Zfp(CMakePackage, CudaPackage):
     variant("twoway", default=False, description="Use two-way skew-associative cache")
 
     # Conflicts
-    conflicts(
-        "+tight-error",
-        when="round=never",
-        msg="Using zfp with tight error requires a rounding mode other than never",
-    )
 
     # CMake options
     def cmake_args(self):

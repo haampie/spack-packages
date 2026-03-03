@@ -43,7 +43,6 @@ class Zlib(MakefilePackage, Package):
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
 
-    conflicts("build_system=makefile", when="platform=windows")
 
     provides("zlib-api")
 

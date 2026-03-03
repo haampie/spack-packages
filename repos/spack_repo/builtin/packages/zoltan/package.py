@@ -50,7 +50,6 @@ class Zoltan(AutotoolsPackage):
     depends_on("parmetis@4: +int64", when="+parmetis+int64")
     depends_on("scotch", when="+scotch")
 
-    conflicts("+parmetis", when="~mpi")
 
     patch("notparallel.patch", when="@3.8")
 

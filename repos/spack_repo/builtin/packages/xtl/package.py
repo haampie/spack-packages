@@ -33,6 +33,4 @@ class Xtl(CMakePackage):
     depends_on("cxx", type="build")  # generated
 
     # C++14 support
-    conflicts("%gcc@:4.8")
-    conflicts("%clang@:3.6")
     # untested: conflicts('%intel@:15')

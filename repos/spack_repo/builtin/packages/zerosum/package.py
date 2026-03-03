@@ -52,10 +52,7 @@ class Zerosum(CMakePackage):
 
     # GCC has no support for OMPT, and doesn't plan to add it any time soon.
     # For that reason, we let the user know this support is not allowed.
-    conflicts("+ompt", when="%gcc")
 
-    conflicts("platform=darwin", msg="zerosum runs only on Linux.")
-    conflicts("platform=windows", msg="zerosum runs only on Linux.")
 
     def cmake_args(self):
         args = [

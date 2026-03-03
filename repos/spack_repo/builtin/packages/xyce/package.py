@@ -55,11 +55,6 @@ class Xyce(CMakePackage):
     depends_on("adms", type=("build", "run"), when="+plugin")
 
     variant("shared", default=False, description="Enable shared libraries for Xyce")
-    conflicts(
-        "~shared",
-        when="+plugin",
-        msg="Disabling shared libraries is incompatible with the activation of plug-in support",
-    )
 
     # any option other than cxxstd=11 would be ignored in Xyce
     # this defaults to 11, consistent with what will be used,
@@ -86,7 +81,6 @@ class Xyce(CMakePackage):
 
     # https://github.com/Xyce/Xyce/commit/ddec31a9c42c683831937be17fd6ffc3180e77a1
     # requirement because of use of std::filesystem
-    conflicts("@7.10:", when="%gcc@:8")
 
     depends_on("python@3:", type=("build", "link", "run"), when="+pymi")
     depends_on("py-pip", type="run", when="+pymi")
@@ -133,10 +127,6 @@ class Xyce(CMakePackage):
         depends_on("clblast~shared", when="^[virtuals=blas] clblast+netlib")
         depends_on("intel-oneapi-mkl~shared", when="^[virtuals=blas] intel-oneapi-mkl")
         depends_on("veclibfort~shared", when="^[virtuals=blas] veclibfort")
-        conflicts("^essl", msg="essl not supported with +pymi_static_tpls")
-        conflicts("^flexiblas", msg="flexiblas not supported with +pymi_static_tpls")
-        conflicts("^nvhpc", msg="nvhpc not supported with +pymi_static_tpls")
-        conflicts("^cray-libsci", msg="cray-libsci not supported with +pymi_static_tpls")
         # netlib-xblas+plain_blas is always static
 
     # fix missing type

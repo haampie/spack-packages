@@ -37,5 +37,3 @@ class XtensorBlas(CMakePackage):
     depends_on("xtensor@0.21.2:", when="@:0.17.1")
 
     # C++14 support
-    conflicts("%gcc@:4.8")
-    conflicts("%clang@:3.5")

@@ -36,7 +36,6 @@ class Votca(CMakePackage):
     )
     variant("xtp", default=True, description="Build xtp parts of votca")
 
-    conflicts("votca-tools")
 
 
     depends_on("expat")

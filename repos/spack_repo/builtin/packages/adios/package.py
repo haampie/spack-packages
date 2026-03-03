@@ -30,17 +30,9 @@ class Adios(AutotoolsPackage):
 
     variant("shared", default=True, description="Builds a shared version of the library")
 
-    variant("fortran", default=False, description="Enable Fortran bindings support")
 
-    variant("mpi", default=True, description="Enable MPI support")
-    variant("infiniband", default=False, description="Enable infiniband support")
 
     # transforms
-    variant("zlib", default=True, description="Enable zlib transform support")
-    variant("bzip2", default=False, description="Enable bzip2 transform support")
-    variant("szip", default=False, description="Enable szip transform support")
-    variant("zfp", default=True, description="Enable ZFP transform support")
-    variant("sz", default=True, description="Enable SZ transform support")
     variant("lz4", default=True, description="Enable LZ4 transform support")
     variant("blosc", default=True, description="Enable Blosc transform support")
     # transports and serial file converters

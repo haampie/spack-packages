@@ -193,23 +193,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         provides("golang@:1.4", when="@5:")
         provides("golang@:1.6.1", when="@6:")
         provides("golang@:1.8.1", when="@7:")
-        provides("golang@:1.10.1", when="@8:")
-        provides("golang@:1.12.2", when="@9:")
-        provides("golang@:1.14.6", when="@10:")
-        provides("golang@1.16.3:1.16.5", when="@11:")
-
-        # GCC 4.7.1 added full support for the Go 1.x programming language.
-
-        # Go is not supported on macOS
-
     # For a list of valid languages for a specific release,
-    # run the following command in the GCC source directory:
-    #    $ grep ^language= gcc/*/config-lang.in
-    # See https://gcc.gnu.org/install/configure.html
-
-    # Support for processing BRIG 1.0 files was added in GCC 7
-    # BRIG is a binary format for HSAIL:
-    # (Heterogeneous System Architecture Intermediate Language).
     # See https://gcc.gnu.org/gcc-7/changes.html
 
     # BRIG does not seem to be supported on macOS

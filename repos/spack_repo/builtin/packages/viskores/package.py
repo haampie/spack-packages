@@ -29,12 +29,6 @@ class Viskores(CMakePackage, CudaPackage, ROCmPackage):
 
     test_requires_compiler = True
 
-    variant("shared", default=True, description="build shared libs")
-    variant("doubleprecision", default=True, description="enable double precision")
-    variant("logging", default=True, description="build logging support")
-    variant("mpi", default=True, description="build mpi support")
-    variant("rendering", default=True, description="build rendering support")
-    variant("64bitids", default=False, description="enable 64 bits ids")
     variant("vtktypes", default=False, description="Build with VTK Types")
     variant("testlib", default=False, description="build test library")
     variant("fpic", default=False, description="build fpic support")

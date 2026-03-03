@@ -22,18 +22,6 @@ class Boost(Package):
     with_default_variants = "boost" + "".join(
         [
             "+atomic",
-            "+chrono",
-            "+date_time",
-            "+exception",
-            "+filesystem",
-            "+graph",
-            "+iostreams",
-            "+locale",
-            "+log",
-            "+math",
-            "+program_options",
-            "+random",
-            "+regex",
             "+serialization",
             "+system",
             "+test",

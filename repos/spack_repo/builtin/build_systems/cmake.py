@@ -34,18 +34,6 @@ def _conditional_cmake_defaults(pkg: PackageBase, args: List[str]) -> None:
     cmakes = pkg.spec.dependencies("cmake", deptype="build")
     if len(cmakes) != 1:
         return
-    cmake = cmakes[0]
-    # CMAKE_INTERPROCEDURAL_OPTIMIZATION only exists for CMake >= 3.9
-    try:
-        ipo = pkg.spec.variants["ipo"].value
-    except KeyError:
-        ipo = False
-    if cmake.satisfies("@3.9:"):
-        args.append(define("CMAKE_INTERPROCEDURAL_OPTIMIZATION", ipo))
-    # Disable Package Registry: export(PACKAGE) may put files in the user's home directory, and
-    # find_package may search there. This is not what we want.
-    # Do not populate CMake User Package Registry
-    if cmake.satisfies("@3.15:"):
         # see https://cmake.org/cmake/help/latest/policy/CMP0090.html
         args.append(define("CMAKE_POLICY_DEFAULT_CMP0090", "NEW"))
     elif cmake.satisfies("@3.1:"):
@@ -70,18 +58,6 @@ def generator(*names: str, default: Optional[str] = None) -> None:
     if any(x not in allowed_values for x in names):
         msg = "only 'make' and 'ninja' are allowed for CMake's 'generator' directive"
         raise ValueError(msg)
-    default = default or names[0]
-    not_used = [x for x in allowed_values if x not in names]
-    def _values(x):
-        return x in allowed_values
-    _values.__doc__ = f"{','.join(names)}"
-    variant(
-        "generator",
-        default=default,
-        values=_values,
-        description="the build system generator to use",
-        when="build_system=cmake",
-    )
     for x in not_used:
         conflicts(f"generator={x}")
 class CMakePackage(PackageBase):

@@ -58,9 +58,3 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         multi=True,
         description="Compilers and runtime libraries to build",
     )
-    variant("binutils", default=True, description="Use binutils linker and assembler")
-    variant("mold", default=False, description="Use mold as the linker by default", when="@12:")
-    variant(
-        "piclibs", default=False, description="Build PIC versions of libgfortran.a and libstdc++.a"
-            )
-            # See https://raw.githubusercontent.com/Homebrew/homebrew-core/3b7db4457ac64a31e3bbffc54b04c4bd824a4a4a/Formula/gcc.rb

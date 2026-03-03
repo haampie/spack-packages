@@ -1,16 +1,12 @@
 # Copyright Spack Project Developers. See COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
-
 import os
 import platform
 import re
 from glob import glob
-
 from spack_repo.builtin.build_systems.generic import Package
-
 from spack.package import *
-
 # FIXME Remove hack for polymorphic versions
 # This package uses a ugly hack to be able to dispatch, given the same
 # version, to different binary packages based on the platform that is
@@ -21,7 +17,6 @@ from spack.package import *
 #  - checksum must be sha256
 #  - package key must be in the form '{os}-{arch}' where 'os' is in the
 #    format returned by platform.system() and 'arch' by platform.machine()
-
 _versions = {
     "13.1.1": {
         "Linux-aarch64": (
@@ -738,28 +733,20 @@ _versions = {
         )
     },
 }
-
-
 class Cuda(Package):
     """CUDA is a parallel computing platform and programming model invented
     by NVIDIA. It enables dramatic increases in computing performance by
     harnessing the power of the graphics processing unit (GPU).
-
     Note: This package does not currently install the drivers necessary
     to run CUDA. These will need to be installed manually. See:
     https://docs.nvidia.com/cuda/ for details."""
-
     homepage = "https://developer.nvidia.com/cuda-zone"
-
     executables = ["^nvcc$"]
-
     skip_version_audit = ["platform=darwin", "platform=windows"]
-
     for ver, packages in _versions.items():
         pkg = packages.get(f"{platform.system()}-{platform.machine()}")
         if pkg:
             version(ver, sha256=pkg[0], url=pkg[1], expand=False)
-
     # macOS Mojave drops NVIDIA graphics card support -- official NVIDIA
     # drivers do not exist for Mojave. See
     # https://devtalk.nvidia.com/default/topic/1043070/announcements/faq-about-macos-10-14-mojave-nvidia-drivers/
@@ -769,9 +756,7 @@ class Cuda(Package):
     # macOS NVIDIA drivers at
     # https://www.nvidia.com/en-us/drivers/cuda/mac-driver-archive/ mention
     # Mojave support -- only macOS High Sierra 10.13 is supported.
-
     # cuda-12.8 libcusolver.so requires log2f@GLIBC_2.27
-
     variant(
         "dev", default=False, description="Enable development dependencies, i.e to use cuda-gdb"
     )
@@ -781,9 +766,6 @@ class Cuda(Package):
         sticky=True,
         description="Allow unsupported host compiler and CUDA version combinations",
     )
-
     # cuda-gdb needed libncurses.so.5 before 11.4.0
     # see https://docs.nvidia.com/cuda/archive/11.3.1/cuda-gdb/index.html#common-issues-oss
     # see https://docs.nvidia.com/cuda/archive/11.4.0/cuda-gdb/index.html#release-notes
-
-

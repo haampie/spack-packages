@@ -8,7 +8,6 @@ import platform
 import re
 import sys
 from typing import Any, List, Optional, Tuple
-
 from spack.package import (
     BuilderWithDefaults,
     InstallError,
@@ -26,35 +25,25 @@ from spack.package import (
     when,
     working_dir,
 )
-
 from ._checks import execute_build_time_tests
-
 # Regex to extract the primary generator from the CMake generator
 # string.
 _primary_generator_extractor = re.compile(r"(?:.* - )?(.*)")
-
-
 def _conditional_cmake_defaults(pkg: PackageBase, args: List[str]) -> None:
     """Set a few default defines for CMake, depending on its version."""
     cmakes = pkg.spec.dependencies("cmake", deptype="build")
-
     if len(cmakes) != 1:
         return
-
     cmake = cmakes[0]
-
     # CMAKE_INTERPROCEDURAL_OPTIMIZATION only exists for CMake >= 3.9
     try:
         ipo = pkg.spec.variants["ipo"].value
     except KeyError:
         ipo = False
-
     if cmake.satisfies("@3.9:"):
         args.append(define("CMAKE_INTERPROCEDURAL_OPTIMIZATION", ipo))
-
     # Disable Package Registry: export(PACKAGE) may put files in the user's home directory, and
     # find_package may search there. This is not what we want.
-
     # Do not populate CMake User Package Registry
     if cmake.satisfies("@3.15:"):
         # see https://cmake.org/cmake/help/latest/policy/CMP0090.html
@@ -62,7 +51,6 @@ def _conditional_cmake_defaults(pkg: PackageBase, args: List[str]) -> None:
     elif cmake.satisfies("@3.1:"):
         # see https://cmake.org/cmake/help/latest/variable/CMAKE_EXPORT_NO_PACKAGE_REGISTRY.html
         args.append(define("CMAKE_EXPORT_NO_PACKAGE_REGISTRY", True))
-
     # Do not use CMake User/System Package Registry
     # https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html#disabling-the-package-registry
     if cmake.satisfies("@3.16:"):
@@ -70,33 +58,25 @@ def _conditional_cmake_defaults(pkg: PackageBase, args: List[str]) -> None:
     elif cmake.satisfies("@3.1:3.15"):
         args.append(define("CMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY", False))
         args.append(define("CMAKE_FIND_PACKAGE_NO_SYSTEM_PACKAGE_REGISTRY", False))
-
     # Export a compilation database if supported.
     if _supports_compilation_databases(pkg):
         args.append(define("CMAKE_EXPORT_COMPILE_COMMANDS", True))
-
     # Enable MACOSX_RPATH by default when cmake_minimum_required < 3
     # https://cmake.org/cmake/help/latest/policy/CMP0042.html
     if pkg.spec.satisfies("platform=darwin") and cmake.satisfies("@3:"):
         args.append(define("CMAKE_POLICY_DEFAULT_CMP0042", "NEW"))
-
     # Disable find package's config mode for versions of Boost that
     # didn't provide it. See https://github.com/spack/spack/issues/20169
     # and https://cmake.org/cmake/help/latest/module/FindBoost.html
     if pkg.spec.satisfies("^boost@:1.69.0"):
         args.append(define("Boost_NO_BOOST_CMAKE", True))
-
-
 def generator(*names: str, default: Optional[str] = None) -> None:
     """The build system generator to use.
-
     See ``cmake --help`` for a list of valid generators.
     Currently, "Unix Makefiles" and "Ninja" are the only generators
     that Spack supports. Defaults to "Unix Makefiles".
-
     See https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html
     for more information.
-
     Args:
         names: allowed generators for this package
         default: default generator
@@ -105,15 +85,11 @@ def generator(*names: str, default: Optional[str] = None) -> None:
     if any(x not in allowed_values for x in names):
         msg = "only 'make' and 'ninja' are allowed for CMake's 'generator' directive"
         raise ValueError(msg)
-
     default = default or names[0]
     not_used = [x for x in allowed_values if x not in names]
-
     def _values(x):
         return x in allowed_values
-
     _values.__doc__ = f"{','.join(names)}"
-
     variant(
         "generator",
         default=default,
@@ -123,27 +99,19 @@ def generator(*names: str, default: Optional[str] = None) -> None:
     )
     for x in not_used:
         conflicts(f"generator={x}")
-
-
 class CMakePackage(PackageBase):
     """Specialized class for packages built using CMake
-
     For more information on the CMake build system, see:
     https://cmake.org/cmake/help/latest/
     """
-
     #: List of package names for which CMake argument injection should be disabled
     disable_cmake_hints_from: List[str] = []
-
     #: This attribute is used in UI queries that need to know the build
     #: system base class
     build_system_class = "CMakePackage"
-
     #: Legacy buildsystem attribute used to deserialize and install old specs
     default_buildsystem = "cmake"
-
     build_system("cmake")
-
     with when("build_system=cmake"):
         # https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
         # See https://github.com/spack/spack/pull/36679 and related issues for a
@@ -164,13 +132,10 @@ class CMakePackage(PackageBase):
             when="^cmake@3.9:",
             description="CMake interprocedural optimization",
         )
-
         if sys.platform == "win32":
             generator("ninja")
         else:
             generator("ninja", "make", default="make")
-
-
         # CMake earlier than 4.1 improperly handles arguments provided to
         # the linker when using msvc as a c/cxx compiler and oneapi as a
         # fortran compiler https://gitlab.kitware.com/cmake/cmake/-/issues/26005
@@ -184,7 +149,6 @@ class CMakePackage(PackageBase):
         # NOTE: commented out for now because cmake@3 is used in Spack CI
         # successfully with %fortran=msvc.
         # depends_on("cmake@4.1:", type="build", when="%cxx=msvc %fortran=msvc")
-
     def flags_to_build_system_args(self, flags):
         """Return a list of all command line arguments to pass the specified
         compiler flags to cmake. Note CMAKE does not have a cppflags option,
@@ -193,10 +157,8 @@ class CMakePackage(PackageBase):
         """
         # Has to be dynamic attribute due to caching
         setattr(self, "cmake_flag_args", [])
-
         flag_string = "-DCMAKE_{0}_FLAGS={1}"
         langs = {"C": "c", "CXX": "cxx", "Fortran": "f"}
-
         # Handle language compiler flags
         for lang, pre in langs.items():
             flag = pre + "flags"
@@ -204,7 +166,6 @@ class CMakePackage(PackageBase):
             lang_flags = " ".join(flags.get(flag, []) + flags.get("cppflags", []))
             if lang_flags:
                 self.cmake_flag_args.append(flag_string.format(lang, lang_flags))
-
         # Cmake has different linker arguments for different build types.
         # We specify for each of them.
         if flags["ldflags"]:
@@ -213,37 +174,28 @@ class CMakePackage(PackageBase):
             self.cmake_flag_args.append(f"-DCMAKE_EXE_LINKER_FLAGS={ldflags}")
             self.cmake_flag_args.append(f"-DCMAKE_MODULE_LINKER_FLAGS={ldflags}")
             self.cmake_flag_args.append(f"-DCMAKE_SHARED_LINKER_FLAGS={ldflags}")
-
         # CMake has libs options separated by language. Apply ours to each.
         if flags["ldlibs"]:
             libs_flags = " ".join(flags["ldlibs"])
             libs_string = "-DCMAKE_{0}_STANDARD_LIBRARIES={1}"
             for lang in langs:
                 self.cmake_flag_args.append(libs_string.format(lang, libs_flags))
-
     # Legacy methods (used by too many packages to change them,
     # need to forward to the builder)
     def define(self, cmake_var: str, value: Any) -> str:
         return define(cmake_var, value)
-
     def define_from_variant(self, cmake_var: str, variant: Optional[str] = None) -> str:
         return define_from_variant(self, cmake_var, variant)
-
-
 @register_builder("cmake")
 class CMakeBuilder(BuilderWithDefaults):
     """The cmake builder encodes the default way of building software with CMake. IT
     has three phases that can be overridden:
-
         1. :py:meth:`~.CMakeBuilder.cmake`
         2. :py:meth:`~.CMakeBuilder.build`
         3. :py:meth:`~.CMakeBuilder.install`
-
     They all have sensible defaults and for many packages the only thing
     necessary will be to override :py:meth:`~.CMakeBuilder.cmake_args`.
-
     For a finer tuning you may also override:
-
         +-----------------------------------------------+--------------------+
         | **Method**                                    | **Purpose**        |
         +===============================================+====================+
@@ -254,13 +206,10 @@ class CMakeBuilder(BuilderWithDefaults):
         |                                               | build the package  |
         +-----------------------------------------------+--------------------+
     """
-
     #: Phases of a CMake package
     phases: Tuple[str, ...] = ("cmake", "build", "install")
-
     #: Names associated with package methods in the old build-system format
     package_methods: Tuple[str, ...] = ("cmake_args", "check")
-
     #: Names associated with package attributes in the old build-system format
     package_attributes: Tuple[str, ...] = (
         "build_targets",
@@ -272,11 +221,9 @@ class CMakeBuilder(BuilderWithDefaults):
         "build_dirname",
         "build_directory",
     )
-
     #: Targets to be used during the build phase
     build_targets: List[str] = []
     #: Targets to be used during the install phase
     install_targets = ["install"]
     #: Callback names for build-time test
     build_time_test_callbacks = ["check"]
-

@@ -1,7 +1,6 @@
 # Copyright Spack Project Developers. See COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
-
 # Troubleshooting advice for +rocm builds:
 #
 # 1. When building with clang, go your compilers.yaml,
@@ -73,9 +72,7 @@
 #    /opt/rocm/hsa also has an hsa.h file, but it won't be found because spack
 #    does not like its directory structure.
 #
-
 import os
-
 from spack.package import (
     EnvironmentModifications,
     PackageBase,
@@ -84,15 +81,11 @@ from spack.package import (
     depends_on,
     variant,
 )
-
-
 class ROCmPackage(PackageBase):
     """Auxiliary class which contains ROCm variant, dependencies and conflicts
     and is meant to unify and facilitate its usage. Closely mimics CudaPackage.
-
     Maintainers: dtaller
     """
-
     # https://llvm.org/docs/AMDGPUUsage.html
     # Possible architectures
     amdgpu_targets = (
@@ -141,9 +134,7 @@ class ROCmPackage(PackageBase):
         "gfx1250",
         "gfx1251",
     )
-
     variant("rocm", default=False, description="Enable ROCm support")
-
     # possible amd gpu targets for rocm builds
     variant(
         "amdgpu_target",
@@ -152,25 +143,18 @@ class ROCmPackage(PackageBase):
         sticky=True,
         when="+rocm",
     )
-
-
     # need amd gpu type for rocm builds
-
     # https://github.com/ROCm-Developer-Tools/HIP/blob/master/bin/hipcc
     # It seems that hip-clang does not (yet?) accept this flag, in which case
     # we will still need to set the HCC_AMDGPU_TARGET environment flag in the
     # hip package file. But I will leave this here for future development.
     # HIP version vs Architecture
-
     # TODO: add a bunch of lines like:
     # depends_on('hip@:6.0', when='amdgpu_target=gfx701')
     # to indicate minimum version for each architecture.
-
     # Add compiler minimum versions based on the first release where the
     # processor is included in llvm/lib/Support/TargetParser.cpp
-
     # Compiler conflicts
-
     # TODO: add conflicts statements along the lines of
     # arch_platform = ' target=x86_64: platform=linux'
     # conflicts('%gcc@5:', when='+cuda ^cuda@:7.5' + arch_platform)

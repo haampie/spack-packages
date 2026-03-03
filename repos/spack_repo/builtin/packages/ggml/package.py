@@ -80,5 +80,3 @@ class Ggml(GGMLPackageBase):
     git = "https://github.com/ggml-org/ggml.git"
 
 
-    version("master", branch="master")
-    version("0.9.4", tag="v0.9.4", commit="72632094336524a9c809e129e8b1c52154543a5a")

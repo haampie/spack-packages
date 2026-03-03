@@ -35,8 +35,3 @@ class Gmic(MakefilePackage):
     depends_on("zstd")
     depends_on("libx11")
 
-    def build(self, spec, prefix):
-        make("cli")
-
-    def install(self, spec, prefix):
-        make("install PREFIX='' USR='' DESTDIR={0}".format(self.prefix))

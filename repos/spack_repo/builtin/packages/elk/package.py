@@ -14,13 +14,6 @@ class Elk(MakefilePackage):
     homepage = "https://elk.sourceforge.io/"
     url = "https://sourceforge.net/projects/elk/files/elk-3.3.17.tgz"
 
-    version("10.2.4", sha256="015e1d2a04a6c8335af2e5f5adaae143c6c0287f34772e069834a691bb15ac9d")
-    version("9.6.8", sha256="d5b60406744a13be42a258a6efd9545ce38a7006d8e76e40e3770368e05c1dae")
-    version("8.8.26", sha256="f0d397a0e2fd8b6f74bc9fccc03fae701bb348e3f08ca143d41757f5f6cf794a")
-    version("8.3.22", sha256="1c31f09b7c09d6b24e775d4f0d5e1e8871f95a7656ee4ca21ac17dbe7ea16277")
-    version("7.2.42", sha256="73f03776dbf9b2147bfcc5b7c062af5befa0944608f6fc4b6a1e590615400fc6")
-    version("7.1.14", sha256="7c2ff30f4b1d72d5dc116de9d70761f2c206700c69d85dd82a17a5a6374453d2")
-    version("7.0.12", sha256="9995387c681d0e5a9bd52cb274530b23c0370468b6be86f6c90a6ec445cb8a01")
 
     # what linear algebra packages to use? the choices are
     # internal - use internal libraries

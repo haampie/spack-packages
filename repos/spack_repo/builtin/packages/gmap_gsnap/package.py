@@ -79,27 +79,3 @@ class GmapGsnap(AutotoolsPackage):
         default="avx2",
     )
 
-    def configure(self, spec, prefix):
-        configure = Executable("../configure")
-
-        for simd in spec.variants["simd"].value:
-            with working_dir(simd, create=True):
-                configure("--with-simd-level={0}".format(simd), "--prefix={0}".format(prefix))
-
-    def build(self, spec, prefix):
-        for simd in spec.variants["simd"].value:
-            with working_dir(simd):
-                make()
-
-    def check(self):
-        for simd in self.spec.variants["simd"].value:
-            with working_dir(simd):
-                make("check")
-
-    def install(self, spec, prefix):
-        for simd in spec.variants["simd"].value:
-            with working_dir(simd):
-                make("install")
-
-    def setup_build_environment(self, env: EnvironmentModifications) -> None:
-        env.set("PERL", self.spec["perl"].prefix.bin.perl)

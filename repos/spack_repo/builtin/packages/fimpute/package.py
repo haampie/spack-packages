@@ -15,7 +15,6 @@ class Fimpute(Package):
     homepage = "http://www.aps.uoguelph.ca/~msargol/fimpute/"
     url = "http://www.aps.uoguelph.ca/~msargol/fimpute/FImpute_Linux.zip"
 
-    version("2014-01", sha256="aecda2dfdd4e3ef6f2331cc1d479e6f297f722fcdca455ca05bb047405534461")
 
     def install(self, spec, prefix):
         mkdirp(prefix.bin)

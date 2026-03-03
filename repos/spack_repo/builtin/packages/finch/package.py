@@ -19,8 +19,6 @@ class Finch(CMakePackage, CudaPackage, ROCmPackage):
     url = "https://github.com/ORNL-MDF/Finch/archive/0.2.0.tar.gz"
 
 
-    version("main", branch="main")
-    version("0.2.0", sha256="cd00fa87be734e800799f47aaa7259d0dbad7110f4c42f6bf59b56c658e2fe60")
     version("0.1.0", sha256="d74612916dcaa8121bac9f0f14b3da665841d82744176c780b3b824503b81430")
 
     _kokkos_backends = Kokkos.devices_variants

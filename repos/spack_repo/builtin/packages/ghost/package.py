@@ -22,7 +22,6 @@ class Ghost(CMakePackage, CudaPackage):
     git = "https://bitbucket.org/essex/ghost/ghost.git"
 
 
-    version("develop", branch="devel")
 
     variant("shared", default=True, description="Enables the build of shared libraries")
     variant("mpi", default=True, description="enable/disable MPI")

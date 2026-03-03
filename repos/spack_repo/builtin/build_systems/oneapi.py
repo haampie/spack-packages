@@ -1,15 +1,3 @@
-from os.path import basename, isdir
-from spack.package import (
-    EnvironmentModifications,
-    Executable,
-    HeaderList,
-    InstallError,
-    LibraryList,
-    LinkTree,
-    conflicts,
-    depends_on,
-    find_libraries,
-)
 from .generic import Package
 class IntelOneApiPackage(Package):
     """Base class for Intel oneAPI packages."""

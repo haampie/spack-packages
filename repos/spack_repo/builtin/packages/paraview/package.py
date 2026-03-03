@@ -178,13 +178,8 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     depends_on("py-pandas@0.21:", when="+python", type="run")
 
     # openPMD is implemented as a Python module and provides ADIOS2 and HDF5 backends
-    depends_on("openpmd-api@0.14.5: +python", when="+python +openpmd", type=("build", "run"))
-    depends_on("openpmd-api +adios2", when="+openpmd +adios2", type=("build", "run"))
-    depends_on("openpmd-api +hdf5", when="+openpmd +hdf5", type=("build", "run"))
 
-    depends_on("tbb", when="+tbb")
 
-    depends_on("mpi", when="+mpi")
     conflicts("mpi", when="~mpi")
 
     # Handle X11 dependencies
@@ -196,29 +191,18 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
             requires("+x", when="+qt", msg="Qt support requires GLX on Linux/FreeBSD")
 
     with when("+x"):
-        depends_on("libxt", when="@:5.12")
-        depends_on("libx11")
-        depends_on("libxcursor")
         # When Qt and X are enabled, GLX is required in the runtime
         requires("^[virtuals=gl] glx", when="@:5")
-        depends_on("glx", when="@6:", type=("run"))
 
     # ParaView@:5 support Qt5 and requires a GL provider to be known at
     # build/link time.
     with when("@:5"):
         with when("+qt"):
-            depends_on("qt@:4", when="@:5.2.0")
             # https://discourse.paraview.org/t/paraview-5-9-and-minimum-recommended-qt-version/5333
-            depends_on("qt@5.12:5", when="@5.9:5.13")
-            depends_on("qt+sql")
-            depends_on("qt+opengl", when="@5.3.0:5 +opengl2")
-            depends_on("qt~opengl", when="@5.3.0:5 ~opengl2")
             # Headless rendering not supported with Qt
             conflicts("osmesa")
             conflicts("egl")
 
-        depends_on("gl@3.2:", when="+opengl2")
-        depends_on("gl@1.2:", when="~opengl2")
         depends_on("glew")
 
         # CUDA ARCH

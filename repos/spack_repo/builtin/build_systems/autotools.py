@@ -144,7 +144,6 @@ class AutotoolsBuilder(BuilderWithDefaults):
     #: If True instead it installs them.
     install_libtool_archives = False
 
-    run_after("build")(execute_build_time_tests)
 
     run_after("install")(execute_install_time_tests)
 

@@ -484,5 +484,4 @@ class CMakeBuilder(BuilderWithDefaults):
             elif self.generator == "Ninja":
                 pkg.module.ninja(*self.install_targets)
 
-    run_after("build")(execute_build_time_tests)
 

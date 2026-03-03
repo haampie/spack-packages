@@ -24,21 +24,7 @@ class Mpibind(AutotoolsPackage):
     # Furthermore, the package can't be cached because
     # AC_INIT would be missing the version argument,
     # which is derived with git.
-    version("master", branch="master", get_full_repo=True)
-    version("0.23.0", commit="7d23407726004c7092a20ebdf6e9661f020b4ae7", no_cache=True)
-    version("0.22.0", commit="7181024843b110074ad87009a7a671bb666f90a4", no_cache=True)
-    version("0.21.0", commit="e8dca93adff52d464bffe7281f7ac0c3a63be4c0", no_cache=True)
-    version("0.20.0", commit="8cd20ed9353a69336415193da90d86de789b1e3c", no_cache=True)
 
-    version(
-        "0.8.0", commit="ff38b9dcd150ca1e8a8796835d8e1e1847b3ba68", no_cache=True, deprecated=True
-    )
-    version(
-        "0.7.0", commit="3c437a97cd841b9c13abfbe1062a0285e1a29d3e", no_cache=True, deprecated=True
-    )
-    version(
-        "0.5.0", commit="8698f07412232e4dd4de4802b508374dc0de48c9", no_cache=True, deprecated=True
-    )
 
     # mpibind does not depend on CUDA or ROCm, but uses
     # these variants to configure hwloc accordingly

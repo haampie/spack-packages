@@ -18,7 +18,6 @@ class Methyldackel(MakefilePackage):
     homepage = "https://github.com/dpryan79/MethylDackel"
     url = "https://github.com/dpryan79/MethylDackel/archive/refs/tags/0.6.1.tar.gz"
 
-    version("0.6.1", sha256="eeb1da4c830bcd9f3e6663a764947d957c41337643069524a4b545812fcf4819")
 
     depends_on("c", type="build")  # generated
 

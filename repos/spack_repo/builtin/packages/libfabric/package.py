@@ -23,22 +23,6 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
     executables = ["^fi_info$"]
 
 
-    version("main", branch="main")
-    version("2.4.0", sha256="13f508e1d770c44f872c4117d9bcbfc102dc9d7532d3292455e0e0e5ef7b3bba")
-    version("2.3.1", sha256="2e939f17ce4d30a999d0445f741d3055b19dfd894eff70450e23470fe774f35a")
-    version("2.3.0", sha256="1d18fce868f8fef68b42fccd1f5df2555369739e8cb7c148532a0529a308eb09")
-    version("2.2.0", sha256="ff6d05240b4a9753bb3d1eaf962f5a06205038df5142374a6ef40f931bb55ecc")
-    version("2.1.0", sha256="97df312779e2d937246d2f46385b700e0958ed796d6fed7aae77e2d18923e19f")
-    version("2.0.0", sha256="1a8e40f1f331d6ee2e9ace518c0088a78c8a838968f8601c2b77fd012a7bf0f5")
-    version("1.22.0", sha256="485e6cafa66c9e4f6aa688d2c9526e274c47fda3a783cf1dd8f7c69a07e2d5fe")
-    version("1.21.1", sha256="54befa6697352f3179c79c4a79225ae71694f29eefad5d0d5a14b5444ff986dd")
-    version("1.21.0", sha256="0c1b7b830d9147f661e5d7f359250b85b5a9885c330464cd3b5e5d35b86551c7")
-    version("1.20.2", sha256="75b89252a0b8b3eae8e60f7098af1598445a99a99e8fc1ff458e2fd5d4ef8cde")
-    version("1.20.1", sha256="fd88d65c3139865d42a6eded24e121aadabd6373239cef42b76f28630d6eed76")
-    version("1.20.0", sha256="7fbbaeb0e15c7c4553c0ac5f54e4ef7aecaff8a669d4ba96fa04b0fc780b9ddc")
-    version("1.19.1", sha256="b8839e56d80470a917453a7d8ad9cb717f6683fee28cf93de5f3a056ed4f04c8")
-    version("1.19.0", sha256="f14c764be9103e80c46223bde66e530e5954cb28b3835b57c8e728479603ef9e")
-    version("1.18.2", sha256="64d7837853ca84d2a413fdd96534b6a81e6e777cc13866e28cf86cd0ccf1b93e")
     version("1.18.1", sha256="4615ae1e22009e59c72ae03c20adbdbd4a3dce95aeefbc86cc2bf1acc81c9e38")
     version("1.18.0", sha256="912fb7c7b3cf2a91140520962b004a1c5d2f39184adbbd98ae5919b0178afd43")
     version("1.17.1", sha256="8b372ddb3f46784c53fdad50a701a6eb0e661239aee45a42169afbedf3644035")

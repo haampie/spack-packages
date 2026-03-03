@@ -22,13 +22,6 @@ class Mpibenchmark(AutotoolsPackage):
     list_url = "https://pm2.gitlabpages.inria.fr/releases/"
     git = "https://gitlab.inria.fr/pm2/pm2.git"
 
-    version("master", branch="master")
-    version("0.6", sha256="4e956394856476b5b31fb170b488fc3c2fbbcd98fe140d71d0bca9bc171617be")
-    version("0.5", sha256="bba9e5aa8b58c041f89e4518a0a7f80a63ebfaf0f90bb8bdd0976d1bf22bed83")
-    version("0.4", sha256="f3d562683bad29e00efae11a449596feacdef5f29cd4f1d60d01368adacece37")
-    version("0.3", sha256="af82d48a0a00971c9294725ea6944b8683c12ab3b8203357379fa0969e61325f")
-    version("0.2", sha256="b9b09f4cabd954e42adb3d7deb9af155eb8044f94206d59181e0173e3f3879d8")
-    version("0.1", sha256="c556d2339c00c4e4644de2dbf2e314ec117dbd3ea67c2ff7ebe5ddc0598a654e")
 
     variant("optimize", default=True, description="Build in optimized mode")
     variant("debug", default=False, description="Build in debug mode")

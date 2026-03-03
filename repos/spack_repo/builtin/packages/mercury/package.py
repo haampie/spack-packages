@@ -16,18 +16,6 @@ class Mercury(CMakePackage):
 
     tags = ["e4s"]
 
-    version("master", branch="master", submodules=True)
-    version("2.4.1", sha256="8a372416f3fca28d402ac7f7b73f0a7dd5d4b88785281ad9e6076e105e4840b9")
-    version("2.4.0", sha256="8926cd177f6e3c04e8ae1683d42f7c8b27163a93d4d99a305fe497fa8ca86e79")
-    version("2.3.1", sha256="36182d49f2db7e2b075240cab4aaa1d4ec87a7756450c87643ededd1e6f16104")
-    version("2.3.0", sha256="e9e62ce1bb2fd482f0e85ad75fa255d9750c6fed50ba441a03de93b3b8eae742")
-    version("2.2.0", sha256="e66490cf63907c3959bbb2932b5aaf51d96a481b17f0935f409f3a862eff97f6")
-    version("2.1.0", sha256="9a58437161e9273b1b1c484d2f1a477a89eea9afe84575415025d47656f3761b")
-    version("2.0.1", sha256="335946d9620ac669643ffd9861a5fb3ee486834bab674b7779eaac9d6662e3fa")
-    version("2.0.0", sha256="9e80923712e25df56014309df70660e828dbeabbe5fcc82ee024bcc86e7eb6b7")
-    version("1.0.1", sha256="02febd56c401ef7afa250caf28d012b37dee842bfde7ee16fcd2f741b9cf25b3")
-    version("1.0.0", sha256="fb0e44d13f4652f53e21040435f91d452bc2b629b6e98dcf5292cd0bece899d4")
-    version("0.9.0", sha256="40868e141cac035213fe79400f8926823fb1f5a0651fd7027cbe162b063843ef")
 
     variant("bmi", default=False, description="Use BMI plugin")
     variant("mpi", default=False, description="Use MPI plugin")

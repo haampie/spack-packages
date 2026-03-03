@@ -15,7 +15,6 @@ class Tnftp(AutotoolsPackage):
     url = "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20230507.tar.gz"
 
 
-    version("20230507", sha256="be0134394bd7d418a3b34892b0709eeb848557e86474e1786f0d1a887d3a6580")
 
     depends_on("c", type="build")  # generated
 

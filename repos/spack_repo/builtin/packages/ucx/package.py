@@ -18,48 +18,12 @@ class Ucx(AutotoolsPackage, CudaPackage):
     git = "https://github.com/openucx/ucx.git"
 
 
-    version("master", branch="master", submodules=True)
 
     # Current
-    version("1.20.0", sha256="7c8a6093cada179aa1d851b83625e3b25ed5658966e309de5118c27a038c7ef9")
 
     # Still supported
-    version("1.19.1", sha256="dea5d821fce05b6ffe175a74e6e148386dd85791409fc71242f3d1369100fd8a")
-    version("1.19.0", sha256="9af07d55281059542f20c5b411db668643543174e51ac71f53f7ac839164f285")
-    version("1.18.1", sha256="8018dd75f11b5e8d6e57dcdb5b798d2c1f000982c353efde1f3170025c6c3b4c")
-    version("1.18.0", sha256="fa75070f5fa7442731b4ef5fc9549391e147ed3d859afeb1dad2d4513b39dc33")
-    version("1.17.0", sha256="34658e282f99f89ce7a991c542e9727552734ac6ad408c52f22b4c2653b04276")
-    version("1.16.0", sha256="f73770d3b583c91aba5fb07557e655ead0786e057018bfe42f0ebe8716e9d28c")
-    version("1.15.0", sha256="4b202087076bc1c98f9249144f0c277a8ea88ad4ca6f404f94baa9cb3aebda6d")
-    version("1.14.1", sha256="baa0634cafb269a3112f626eb226bcd2ca8c9fcf0fec3b8e2a3553baad5f77aa")
-    version("1.14.0", sha256="9bd95e2059de5dece9dddd049aacfca3d21bfca025748a6a0b1be4486e28afdd")
-    version("1.13.1", sha256="efc37829b68e131d2acc82a3fd4334bfd611156a756837ffeb650ab9a9dd3828")
-    version("1.13.0", sha256="8a3881f21fe2788113789f5bae1c8174e931f7542de0a934322a96ef354e5e3d")
 
     # Retired
-    version("1.12.1", sha256="40b447c8e7da94a253f2828001b2d76021eb4ad39647107d433d62d61e18ae8e")
-    version("1.12.0", sha256="93e994de2d1a4df32381ea92ba4c98a249010d1720eb0f6110dc72c9a7d25db6")
-    version("1.11.2", sha256="deebf86a5344fc2bd9e55449f88c650c4514928592807c9bc6fe4190e516c6df")
-    version("1.11.1", sha256="29338cad18858517f96b46ff83bdd259a5899e274792cebd269717c660aa86fd")
-    version("1.11.0", sha256="b7189b69fe0e16e3c03784ef674e45687a9c520750bd74a45125c460ede37647")
-    version("1.10.1", sha256="ae9a108af6842ca135e7ec9b6131469adf9f1e50f899349fafcc69a215368bc9")
-    version("1.10.0", sha256="b885e24b1b94724c03cb213c355381e98df1e2d1fd7f633cf8055b6dd05db92d")
-    version("1.9-dev", branch="v1.9.x")
-    version("1.9.0", sha256="a7a2c8841dc0d5444088a4373dc9b9cc68dbffcd917c1eba92ca8ed8e5e635fb")
-    version("1.8.1", sha256="a48820cb8d0761b5ccf3e7ba03a7c8c1dde6276017657178829e07ffc35b556a")
-    version("1.8.0", sha256="e400f7aa5354971c8f5ac6b881dc2846143851df868088c37d432c076445628d")
-    version("1.7.0", sha256="6ab81ee187bfd554fe7e549da93a11bfac420df87d99ee61ffab7bb19bdd3371")
-    version("1.6.1", sha256="1425648aa03f5fa40e4bc5c4a5a83fe0292e2fe44f6054352fbebbf6d8f342a1")
-    version("1.6.0", sha256="360e885dd7f706a19b673035a3477397d100a02eb618371697c7f3ee4e143e2c")
-    version("1.5.2", sha256="1a333853069860e86ba69b8d071ccc9871209603790e2b673ec61f8086913fad")
-    version("1.5.1", sha256="567119cd80ad2ae6968ecaa4bd1d2a80afadd037ccc988740f668de10d2fdb7e")
-    version("1.5.0", sha256="84f6e4fa5740afebb9b1c8bb405c07206e58c56f83120dcfcd8dc89e4b7d7458")
-    version("1.4.0", sha256="99891a98476bcadc6ac4ef9c9f083bc6ffb188a96b3c3bc89c8bbca64de2c76e")
-    version("1.3.1", sha256="e058c8ec830d2f50d9db1e3aaaee105cd2ad6c1e6df20ae58b9b4179de7a8992")
-    version("1.3.0", sha256="71e69e6d78a4950cc5a1edcbe59bf7a8f8e38d59c9f823109853927c4d442952")
-    version("1.2.2", sha256="914d10fee8f970d4fb286079dd656cf8a260ec7d724d5f751b3109ed32a6da63")
-    version("1.2.1", sha256="fc63760601c03ff60a2531ec3c6637e98f5b743576eb410f245839c84a0ad617")
-    version("1.2.0", sha256="1e1a62d6d0f89ce59e384b0b5b30b416b8fd8d7cedec4182a5319d0dfddf649c")
 
     simd_values = ("avx", "sse41", "sse42")
 

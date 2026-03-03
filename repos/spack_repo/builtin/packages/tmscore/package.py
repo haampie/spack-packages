@@ -15,11 +15,6 @@ class Tmscore(Package):
     url = "https://zhanggroup.org/TM-score/TMscore.cpp"
 
 
-    version(
-        "20220227",
-        sha256="30274251f4123601af102cf6d4f1a9cc496878c1ae776702f554e2fc25658d7f",
-        expand=False,
-    )
 
     variant("fast-math", default=False, description="Enable fast math")
 

@@ -16,7 +16,6 @@ class Vite(CMakePackage):
     homepage = "https://solverstack.gitlabpages.inria.fr/vite/"
     git = "https://gitlab.inria.fr/solverstack/vite.git"
 
-    version("master", branch="master")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

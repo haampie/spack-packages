@@ -19,13 +19,6 @@ class Tomcat(Package):
         "https://archive.apache.org/dist/tomcat/tomcat-11/v11.0.0/bin/apache-tomcat-11.0.0.tar.gz"
     )
 
-    version("11.0.0", sha256="d0ca319af349838f59009a9c5ed3709f02344201059dbc26dce4313ee969cd20")
-    version("10.1.31", sha256="06f6e2e11ef5afb435a4b27e1e264ebcdbafd95389f5ee37e425dc135ed325d4")
-    version(
-        "9.0.96",
-        sha256="bf4ad04955457ad663157876461015437a7479546aec9a38840d736b3d70151f",
-        preferred=True,
-    )
 
     # https://tomcat.apache.org/whichversion.html
     depends_on("java@8:", type="run", when="@9:")

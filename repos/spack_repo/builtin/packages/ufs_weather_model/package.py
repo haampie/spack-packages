@@ -19,7 +19,6 @@ class UfsWeatherModel(CMakePackage):
     git = "https://github.com/ufs-community/ufs-weather-model.git"
 
 
-    version("develop", branch="develop", submodules=True)
 
     variant("mpi", default=True, description="Enable MPI")
     variant(

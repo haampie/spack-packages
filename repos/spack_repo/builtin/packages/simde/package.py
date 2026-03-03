@@ -19,10 +19,6 @@ class Simde(MesonPackage):
     url = "https://github.com/simd-everywhere/simde/archive/v0.6.0.tar.gz"
     git = "https://github.com/simd-everywhere/simde.git"
 
-    version("0.8.2", sha256="ed2a3268658f2f2a9b5367628a85ccd4cf9516460ed8604eed369653d49b25fb")
-    version("0.7.6", sha256="c63e6c61392e324728da1c7e5de308cb31410908993a769594f5e21ff8de962b")
-    version("0.7.2", sha256="366d5e9a342c30f1e40d1234656fb49af5ee35590aaf53b3c79b2afb906ed4c8")
-    version("0.6.0", sha256="25a8b8c69c17ddc2f6209e86caa6b12d4ed91c0f841617efc56e5675eea84915")
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")

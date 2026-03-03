@@ -15,16 +15,6 @@ class Simdjson(CMakePackage):
     url = "https://github.com/simdjson/simdjson/archive/v3.12.2.tar.gz"
 
 
-    version("3.12.2", sha256="8ac7c97073d5079f54ad66d04381ec75e1169c2e20bfe9b6500bc81304da3faf")
-    version("3.12.1", sha256="b73e21f78eabdaf89bf026d8ef0d65d2f1a9bfdc1cb26659c4ec88959989bf70")
-    version("3.12.0", sha256="1e5e82f0a34c331c1b0d0c21609791bfe6d6849edfc24983fc241626b433e1c3")
-    version("3.11.6", sha256="7176a2feb98e1b36b6b9fa56d64151068865f505a0ce24203f3ddbb3f985103b")
-    version("3.11.5", sha256="509bf4880978666f5a6db1eb3d747681e0cc6e0b5bddd94ab0f14a4199d93e18")
-    version("3.11.4", sha256="1029aff6bcca7811fb7b6d5421c5c9024b8e74e84cd268680265723f42e23cf2")
-    version("3.11.3", sha256="eeb10661047e476aa3b535d14a32af95690691778d7afe0630a344654ff9759a")
-    version("3.11.2", sha256="47a6d78a70c25764386a01b55819af386b98fc421da79ae8de3ae0242cf66d93")
-    version("3.11.1", sha256="18f7dfd267b90d177851623747598e45fbe4d91fc485f2b57ff0e3ae1b0fdde3")
-    version("3.11.0", sha256="f3469e776ca704cfda47f0a43331690c882f82c9c0c6f185452387c1e222a63e")
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")

@@ -17,7 +17,6 @@ class Udunits(AutotoolsPackage):
     # Unidata now only provides the latest version of each X.Y branch.
     # Older 2.2 versions have been deprecated accordingly but are still
     # available in the build cache.
-    version("2.2.28", sha256="590baec83161a3fd62c00efa66f6113cec8a7c461e3f61a5182167e0cc5d579e")
 
     variant("shared", default=True, description="Build shared library")
 

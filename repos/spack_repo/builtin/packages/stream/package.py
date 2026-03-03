@@ -15,7 +15,6 @@ class Stream(MakefilePackage):
     homepage = "https://www.cs.virginia.edu/stream/ref.html"
     git = "https://github.com/jeffhammond/STREAM.git"
 
-    version("5.10")
 
     variant("openmp", default=False, description="Build with OpenMP support")
 

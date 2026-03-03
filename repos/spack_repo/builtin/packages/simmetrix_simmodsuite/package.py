@@ -555,7 +555,6 @@ class SimmetrixSimmodsuite(Package):
         main_pkg_name = "mscore"
         url = simmetrix_makecomponenturl(main_pkg_name)
         sha256 = release["components"][main_pkg_name][0]
-        version(sim_version, sha256=sha256, url=url)
         # define resources for the other tarballs
         for _name, atts in release["components"].items():
             # skip the tarball used for the version(...) call

@@ -34,7 +34,6 @@ class MakefilePackage(PackageBase):
     build_system("makefile")
 
     with when("build_system=makefile"):
-        conflicts("platform=windows")
 
 
 @register_builder("makefile")

@@ -144,7 +144,6 @@ class Boost(Package):
     )
 
     # 1.84.0 dropped support for 98/03
-    conflicts("cxxstd=98", when="@1.84.0:")
 
     variant("debug", default=False, description="Switch to the debug version of Boost")
     variant("shared", default=True, description="Additionally build shared libraries")
@@ -188,8 +187,6 @@ class Boost(Package):
     depends_on("icu4c", when="+icu")
     depends_on("icu4c cxxstd=11", when="+icu cxxstd=11")
     depends_on("icu4c cxxstd=14", when="+icu cxxstd=14")
-    conflicts("cxxstd=98", when="+icu")  # Requires c++11 at least
-    conflicts("+locale ~icu")  # Boost.Locale "strongly recommends" icu, so enforce it
 
     # https://github.com/boostorg/python/commit/cbd2d9f033c61d29d0a1df14951f4ec91e7d05cd
 
@@ -198,7 +195,6 @@ class Boost(Package):
     depends_on("py-numpy@:1", when="@:1.86+numpy", type=("build", "run"))
 
     # Improve the error message when the context-impl variant is conflicting
-    conflicts("context-impl=fcontext", when="@:1.65.0")
     # boost-mpi depends on boost-python since 1.87.0
 
     # (https://github.com/spack/spack/pull/32879#issuecomment-1265933265)

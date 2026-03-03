@@ -25,8 +25,6 @@ class MSBuildPackage(PackageBase):
 
     build_system("msbuild")
     conflicts("platform=linux", when="build_system=msbuild")
-    conflicts("platform=darwin", when="build_system=msbuild")
-    conflicts("platform=freebsd", when="build_system=msbuild")
 
 @register_builder("msbuild")
 class MSBuildBuilder(BuilderWithDefaults):

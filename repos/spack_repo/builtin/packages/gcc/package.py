@@ -250,13 +250,11 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         conflicts("+bootstrap")
 
     # Binutils can't build ld on macOS
-    conflicts("+binutils", when="platform=darwin")
 
     # Bootstrap comparison failure:
     #   see https://github.com/spack/spack/issues/23296
     #   https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100340
     #   on XCode 12.5
-    conflicts("+bootstrap", when="@:11.1 %apple-clang@12.0.5")
 
     requires(
         "@11.3:",
@@ -265,10 +263,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     )
 
     # GCC 11 requires GCC 4.8 or later (https://gcc.gnu.org/gcc-11/changes.html)
-    conflicts("%gcc@:4.7", when="@11:")
 
     # https://github.com/iains/gcc-12-branch/issues/6
-    conflicts("@:12", when="%apple-clang@14:14.0")
 
     # Applies
     # https://github.com/gcc-mirror/gcc/commit/ea2798892de373b14f9fc7ae8a0d820eaddca98c,

@@ -33,8 +33,6 @@ class CompilerWrapper(Package):
     # this node from auto-generated rules
     tags = ["runtime"]
 
-    maintainers("haampie")
-
 
     if sys.platform != "win32":
         version(

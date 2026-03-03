@@ -12,8 +12,6 @@ class Libzip(CMakePackage):
     and modifying zip archives."""
 
     homepage = "https://libzip.org/"
-    maintainers("prudhomm")
-    license("BSD-3-Clause")
 
     # current versions are released on GitHub
     version("1.11.1", sha256="c0e6fa52a62ba11efd30262290dc6970947aef32e0cc294ee50e9005ceac092a")

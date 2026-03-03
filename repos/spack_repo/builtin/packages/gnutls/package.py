@@ -21,8 +21,6 @@ class Gnutls(AutotoolsPackage):
     git = "https://gitlab.com/gnutls/gnutls.git"
     list_depth = 2
 
-    maintainers("alecbcs")
-
 
     sanity_check_is_file = ["include/gnutls/gnutls.h"]
     sanity_check_is_dir = ["lib", "share"]

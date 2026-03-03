@@ -13,9 +13,7 @@ class Libexif(AutotoolsPackage, SourceforgePackage):
     homepage = "https://libexif.github.io/"
     url = "https://github.com/libexif/libexif/releases/download/v0.6.24/libexif-0.6.24.tar.bz2"
 
-    maintainers("TheQueasle")
 
-    license("LGPL-2.1-or-later", checked_by="wdconinc")
 
     version("0.6.24", sha256="d47564c433b733d83b6704c70477e0a4067811d184ec565258ac563d8223f6ae")
     version("0.6.21", sha256="16cdaeb62eb3e6dfab2435f7d7bccd2f37438d21c5218ec4e58efa9157d4d41a")

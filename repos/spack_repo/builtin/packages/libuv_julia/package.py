@@ -16,7 +16,6 @@ class LibuvJulia(AutotoolsPackage):
     url = "https://github.com/JuliaLang/libuv/archive/refs/heads/julia-uv2-1.44.2.tar.gz"
     git = "https://github.com/JuliaLang/libuv.git"
 
-    license("CC-BY-4.0")
 
     # julia's libuv fork doesn't tag (all?) releases, so we fix commits.
     version("1.48.1rc1", commit="af4172ec713ee986ba1a989b9e33993a07c60c9e")  # used by Julia 1.12

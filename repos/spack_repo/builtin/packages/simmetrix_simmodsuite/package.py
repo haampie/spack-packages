@@ -516,7 +516,6 @@ class SimmetrixSimmodsuite(Package):
     of sources
     """
 
-    maintainers("cwsmith")
     homepage = "http://www.simmetrix.com/products/SimulationModelingSuite/main.html"
     manual_download = True
 

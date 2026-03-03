@@ -23,10 +23,8 @@ class Xz(MSBuildPackage, AutotoolsPackage, SourceforgePackage):
     sourceforge_mirror_path = "lzmautils/files/xz-5.2.5.tar.bz2"
     list_url = "https://tukaani.org/xz/old.html"
 
-    maintainers("AlexanderRichert-NOAA")
 
     executables = [r"^xz$"]
-
 
     version("5.6.3", sha256="a95a49147b2dbb5487517acc0adcd77f9c2032cf00664eeae352405357d14a6c")
     version("5.6.2", sha256="e12aa03cbd200597bd4ce11d97be2d09a6e6d39a9311ce72c91ac7deacde3171")

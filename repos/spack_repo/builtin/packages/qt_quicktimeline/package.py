@@ -14,7 +14,6 @@ class QtQuicktimeline(QtPackage):
     url = QtPackage.get_url(__qualname__)
     list_url = QtPackage.get_list_url(__qualname__)
 
-
     version("6.10.1", sha256="cb0db62d8844886eca6387d62be9997c3d25d75503af619690a1cc906d7eb855")
     version("6.10.0", sha256="6af28c87896cf93f1033965323a80a9e5dd7ed004ecfa30826fe8056216f4102")
     version("6.9.3", sha256="0fb33914939e8e5ce065ab3505ced6cbe8a3e8bd3e831eb5710d308513c177e0")

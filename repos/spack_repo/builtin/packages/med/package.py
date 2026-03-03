@@ -13,9 +13,7 @@ class Med(CMakePackage):
     homepage = "https://docs.salome-platform.org/latest/dev/MEDCoupling/med-file.html"
     url = "https://files.salome-platform.org/Salome/medfile/med-4.1.1.tar.gz"
 
-    maintainers("likask")
 
-    license("LGPL-3.0-only")
 
     version("6.0.1", sha256="f8f1edc6874bc48d8f3e4e8be1cf7379ed318726d8abc6804e85e821555b1fa8")
     version(

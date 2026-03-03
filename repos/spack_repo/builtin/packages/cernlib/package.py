@@ -14,7 +14,6 @@ class Cernlib(CMakePackage):
     homepage = "https://cernlib.web.cern.ch"
     url = "https://cernlib.web.cern.ch/download/2023_source/tar/cernlib-2023.08.14.0-free.tar.gz"
 
-    maintainers("andriish")
     version(
         "2022.11.08.0-free",
         sha256="733d148415ef78012ff81f21922d3bf641be7514b0242348dd0200cf1b003e46",

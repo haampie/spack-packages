@@ -16,7 +16,6 @@ class Enchant(AutotoolsPackage):
     homepage = "https://rrthomas.github.io/enchant/"
     url = "https://github.com/rrthomas/enchant/releases/download/v2.8.2/enchant-2.8.2.tar.gz"
 
-
     version("2.8.2", sha256="8f19535adb5577b83b00e02f330fe9b9eb40dd21f19e2899636fc4d3a7696375")
     version("2.8.1", sha256="ff79de470b8eb16f53849dc49f2bce8ca4eb7decabfc1349716fe12616e52f4e")
     version("2.8.0", sha256="c57add422237b8a7eed116a9a88d8be4f7b9281778fa36f03e1f2c051ecb0372")

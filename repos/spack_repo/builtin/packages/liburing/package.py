@@ -21,9 +21,7 @@ class Liburing(AutotoolsPackage):
     url = "https://github.com/axboe/liburing/archive/refs/tags/liburing-2.3.tar.gz"
     git = "https://github.com/axboe/liburing.git"
 
-    maintainers("alecbcs")
 
-    license("LGPL-2.1-or-later OR MIT")
 
     sanity_check_is_file = ["include/liburing.h", "lib/liburing.so"]
     sanity_check_is_dir = ["include", "lib"]

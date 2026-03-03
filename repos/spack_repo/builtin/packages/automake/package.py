@@ -20,7 +20,6 @@ class Automake(AutotoolsPackage, GNUMirrorPackage):
 
     tags = ["build-tools"]
 
-
     version("1.18.1", sha256="63e585246d0fc8772dffdee0724f2f988146d1a3f1c756a3dc5cfbefa3c01915")
     version("1.16.5", sha256="07bd24ad08a64bc17250ce09ec56e921d6343903943e99ccf63bbf0705e34605")
     version("1.16.3", sha256="ce010788b51f64511a1e9bb2a1ec626037c6d0e7ede32c1c103611b9d3cba65f")

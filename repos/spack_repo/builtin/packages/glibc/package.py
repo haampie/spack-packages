@@ -18,11 +18,9 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     gnu_mirror_path = "libc/glibc-2.33.tar.gz"
     git = "https://sourceware.org/git/glibc.git"
 
-    maintainers("haampie")
 
     build_directory = "build"
     tags = ["runtime"]
-
 
     provides("libc")
     provides("iconv")

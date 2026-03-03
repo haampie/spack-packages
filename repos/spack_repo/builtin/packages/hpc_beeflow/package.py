@@ -22,11 +22,9 @@ class HpcBeeflow(PythonPackage):
     pypi = "hpc_beeflow/hpc_beeflow-0.1.10.tar.gz"
     git = "https://github.com/lanl/BEE.git"
 
-    maintainers("pagrubel")
 
     tags = ["e4s"]
 
-    license("MIT")
 
     version("spack-develop", branch="spack-develop")
     version("0.1.10", sha256="b7863798e15591a16f6cd265f9b5b7385779630f1c37d8a2a5178b8bf89fc664")

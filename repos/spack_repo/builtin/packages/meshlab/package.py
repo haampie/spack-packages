@@ -14,8 +14,6 @@ class Meshlab(CMakePackage):
     url = "https://github.com/cnr-isti-vclab/meshlab/archive/refs/tags/MeshLab-2023.12.tar.gz"
     git = "https://github.com/cnr-isti-vclab/meshlab.git"
 
-    maintainers("wdconinc")
-
 
     version("main", branch="main", submodules=True)
     version("2025.07", commit="dc48b91ae562756a6988048c5d5c7f1d2b687256", submodules=True)

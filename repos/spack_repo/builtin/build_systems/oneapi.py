@@ -36,7 +36,6 @@ class IntelOneApiPackage(Package):
     """Base class for Intel oneAPI packages."""
 
     homepage = "https://software.intel.com/oneapi"
-
     # oneAPI license does not allow mirroring outside of the
     # organization (e.g. University/Company).
     redistribute(source=False, binary=False)

@@ -13,8 +13,6 @@ class Gfal2Util(PythonPackage):
     homepage = "https://dmc-docs.web.cern.ch/dmc-docs/gfal2-util.html"
     url = "https://github.com/cern-fts/gfal2-util/archive/refs/tags/v1.9.0.tar.gz"
 
-    maintainers("wdconinc")
-
 
     version("1.9.0", sha256="9a5194b7ac80381c0787ec7c2405cc3e060fc03bb99e80bbeb388ec3675cb13d")
 

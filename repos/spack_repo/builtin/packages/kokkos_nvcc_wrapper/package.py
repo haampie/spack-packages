@@ -18,9 +18,7 @@ class KokkosNvccWrapper(Package):
     git = "https://github.com/kokkos/kokkos.git"
     url = "https://github.com/kokkos/kokkos/releases/download/4.4.01/kokkos-4.4.01.tar.gz"
 
-    maintainers("Rombur")
 
-    license("BSD-3-Clause")
 
     version("develop", branch="develop")
 

@@ -16,7 +16,6 @@ class Liburcu(AutotoolsPackage):
     url = "https://lttng.org/files/urcu/userspace-rcu-0.14.0.tar.bz2"
     git = "https://git.lttng.org/userspace-rcu.git"
 
-    license("LGPL-2.1", checked_by="wdconinc")
 
     version("0.14.0", sha256="ca43bf261d4d392cff20dfae440836603bf009fce24fdc9b2697d837a2239d4f")
 

@@ -17,7 +17,6 @@ class Glvis(MakefilePackage):
     git = "https://github.com/glvis/glvis.git"
     tags = ["radiuss", "e4s"]
 
-    maintainers("v-dobrev", "tzanio", "tomstitt", "goxberry")
 
     # glvis (like mfem) is downloaded from a URL shortener at request
     # of upstream author Tzanio Kolev <tzanio@llnl.gov>.  See here:
@@ -40,7 +39,6 @@ class Glvis(MakefilePackage):
     #
     # glvis does not need mfem+mpi but will build that by default, to just build
     # a serial mfem: `spack install glvis ^mfem~mpi~metis'
-
 
     version("develop", branch="master")
 

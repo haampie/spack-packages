@@ -21,7 +21,6 @@ class Qoz(CMakePackage):
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated
 
-    maintainers("disheng222")
 
     depends_on("zstd")
     depends_on("gsl")

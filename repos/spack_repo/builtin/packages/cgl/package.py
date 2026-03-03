@@ -18,7 +18,6 @@ class Cgl(AutotoolsPackage):
     homepage = "https://projects.coin-or.org/Cgl"
     url = "https://github.com/coin-or/Cgl/archive/releases/0.60.3.tar.gz"
 
-
     version("0.60.8", sha256="1482ba38afb783d124df8d5392337f79fdd507716e9f1fb6b98fc090acd1ad96")
     version("0.60.7", sha256="93b30a80b5d2880c2e72d5877c64bdeaf4d7c1928b3194ea2f88b1aa4517fb1b")
     version("0.60.6", sha256="9e2c51ffad816ab408763d6b931e2a3060482ee4bf1983148969de96d4b2c9ce")

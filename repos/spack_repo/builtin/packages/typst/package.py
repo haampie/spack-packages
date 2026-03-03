@@ -16,8 +16,6 @@ class Typst(CargoPackage):
     git = "https://github.com/typst/typst"
     executables = ["^typst$"]
 
-    maintainers("upsj")
-
 
     version("0.13.0", commit="8dce676dcd691f75696719e0480cd619829846a9", tag="v0.13.0")
     version("0.12.0", commit="737895d769188f6fc154523e67a9102bc24c872e", tag="v0.12.0")

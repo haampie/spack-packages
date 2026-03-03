@@ -15,7 +15,6 @@ class Cusparselt(Package):
 
     skip_version_audit = ["platform=darwin", "platform=windows"]
 
-    maintainers("thomas-bouvier")
 
     system = platform.system().lower()
     arch = platform.machine()

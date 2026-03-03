@@ -14,7 +14,6 @@ class Lame(AutotoolsPackage):
     homepage = "https://lame.sourceforge.net/"
     url = "https://download.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz"
 
-    license("LGPL-2.0-or-later")
 
     version("3.100", sha256="ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e")
 

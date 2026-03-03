@@ -16,9 +16,7 @@ class Kvtree(CMakePackage):
     git = "https://github.com/ecp-veloc/kvtree.git"
     tags = ["ecp"]
 
-    maintainers("CamStan", "gonsie")
 
-    license("MIT")
 
     version("main", branch="main")
     version("1.5.0", sha256="9617948bdb905615aeb0604d4998d92eb970ecd5c9c851116266972462f0b350")

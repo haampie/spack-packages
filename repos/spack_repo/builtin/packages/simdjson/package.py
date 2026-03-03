@@ -14,8 +14,6 @@ class Simdjson(CMakePackage):
     homepage = "https://simdjson.org"
     url = "https://github.com/simdjson/simdjson/archive/v3.12.2.tar.gz"
 
-    maintainers("ta7mid")
-
 
     version("3.12.2", sha256="8ac7c97073d5079f54ad66d04381ec75e1169c2e20bfe9b6500bc81304da3faf")
     version("3.12.1", sha256="b73e21f78eabdaf89bf026d8ef0d65d2f1a9bfdc1cb26659c4ec88959989bf70")

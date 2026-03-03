@@ -13,9 +13,7 @@ class Lwtnn(CMakePackage):
     homepage = "https://github.com/lwtnn/lwtnn"
     url = "https://github.com/lwtnn/lwtnn/archive/refs/tags/v2.12.1.tar.gz"
 
-    maintainers("haralmha")
 
-    license("MIT")
 
 
 

@@ -11,8 +11,6 @@ class Ziatest(MakefilePackage):
 
     homepage = "https://gitlab.com/NERSC/N10-benchmarks/ziatest"
     git = "https://gitlab.com/NERSC/N10-benchmarks/ziatest"
-    maintainers("giordano")
-
 
     executables = ["^ziatest$", "^ziaprobe$"]
 

@@ -22,8 +22,6 @@ class NetcdfC(CMakePackage, AutotoolsPackage):
     git = "https://github.com/Unidata/netcdf-c.git"
     url = "https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.8.1.tar.gz"
 
-    maintainers("skosukhin", "WardF")
-
 
     version("main", branch="main")
     version("4.9.3", sha256="990f46d49525d6ab5dc4249f8684c6deeaf54de6fec63a187e9fb382cc0ffdff")

@@ -19,10 +19,8 @@ class Recola(CMakePackage):
     homepage = "https://recola.gitlab.io/recola2/"
     url = "https://gitlab.com/recola/recola2/-/archive/2.2.4/recola2-2.2.4.tar.gz"
 
-    maintainers("vvolkl")
 
     variant("python", default=True, description="Build py-recola python bindings.")
-
 
     version("2.2.4", sha256="212ae6141bc5de38c50be3e0c6947a3b0752aeb463cf850c22cfed5e61b1a64b")
     version("2.2.3", sha256="8dc25798960c272434fcde93817ed92aad82b2a7cf07438bb4deb5688d301086")

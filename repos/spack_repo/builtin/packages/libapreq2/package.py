@@ -16,7 +16,6 @@ class Libapreq2(AutotoolsPackage):
     homepage = "https://github.com/gitpan/libapreq2"
     url = "https://github.com/gitpan/libapreq2/archive/gitpan_version/2.13.tar.gz"
 
-    license("Apache-2.0")
 
     version("2.13", sha256="477ce8207e89869e1e4520286697a56d4bd6af348899849ecef43c88bf0872d1")
     version("2.12", sha256="75cc1daa60e781270178c8f9fbe9c68231a7bc96bcc5c7a970cfce75d784b568")

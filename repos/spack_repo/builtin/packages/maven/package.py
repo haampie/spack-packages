@@ -17,7 +17,6 @@ class Maven(Package):
     list_url = "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/"
     list_depth = 1
 
-    license("Apache-2.0", checked_by="wdconinc")
 
     version("3.9.8", sha256="067672629075b740e3d0a928e21021dd615a53287af36d4ccca44e87e081d102")
     version("3.8.8", sha256="17811e108701af5985bf5167abbd47c06e92c6c6bd1c13a1a1c095c9b4ecc32a")

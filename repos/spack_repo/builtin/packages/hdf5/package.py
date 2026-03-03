@@ -22,7 +22,6 @@ class Hdf5(CMakePackage):
     url = "https://support.hdfgroup.org/releases/hdf5/v1_14/v1_14_5/downloads/hdf5-1.14.5.tar.gz"
 
     git = "https://github.com/HDFGroup/hdf5.git"
-    maintainers("lrknox", "brtnfld", "byrnHDF", "gheber", "hyoklee", "lkurz")
 
     tags = ["e4s", "windows"]
     executables = ["^h5cc$", "^h5pcc$"]
@@ -197,7 +196,6 @@ class Hdf5(CMakePackage):
     # FindZLIB.cmake. We don't build zlib with CMake by default, so have to
     # delete the first search, otherwise it may find a system zlib. See
     # https://github.com/HDFGroup/hdf5/issues/4904
-    patch("find_package_zlib.patch", when="@1.8.16:1.14.4")
 
     # There are several officially unsupported combinations of the features:
     # 1. Thread safety is not guaranteed via high-level C-API but in some cases
@@ -223,12 +221,10 @@ class Hdf5(CMakePackage):
     # that would otherwise be triggered by this code. Later HDF5 versions
     # will include the patch code changes.
     # See https://github.com/HDFGroup/hdf5/pull/3837
-    patch("hdf5_1_14_3_fpe.patch", when="@1.14.3")
 
     # There are known build failures with intel@18.0.1. This issue is
     # discussed and patch is provided at
     # https://software.intel.com/en-us/forums/intel-fortran-compiler-for-linux-and-mac-os-x/topic/747951.
-    patch("h5f90global-mult-obj-same-equivalence-same-common-block.patch", when="@1.10.1%intel@18")
 
     # Turn line comments into block comments to conform with pre-C99 language
     # standards. Versions of hdf5 after 1.8.10 don't require this patch,

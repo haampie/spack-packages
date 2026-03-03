@@ -14,7 +14,6 @@ class Tmscore(Package):
     homepage = "https://zhanggroup.org/TM-score/"
     url = "https://zhanggroup.org/TM-score/TMscore.cpp"
 
-    maintainers("snehring")
 
     version(
         "20220227",

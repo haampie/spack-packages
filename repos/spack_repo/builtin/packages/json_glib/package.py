@@ -16,7 +16,6 @@ class JsonGlib(MesonPackage):
     list_url = "https://ftp.gnome.org/pub/gnome/sources/json-glib/"
     list_depth = 1
 
-    license("LGPL-2.1-or-later")
 
     version("1.10.8", sha256="55c5c141a564245b8f8fbe7698663c87a45a7333c2a2c56f06f811ab73b212dd")
     version("1.9.2", sha256="8f9f04e0045bda82affd464ee575796600fe29014b817392a3b72ceb2d10c595")

@@ -13,7 +13,6 @@ class Libavif(CMakePackage):
     homepage = "https://github.com/AOMediaCodec/libavif"
     url = "https://github.com/AOMediaCodec/libavif/archive/refs/tags/v1.1.1.tar.gz"
 
-    license("bsd-2-clause")
 
     version("1.1.1", sha256="914662e16245e062ed73f90112fbb4548241300843a7772d8d441bb6859de45b")
 

@@ -13,7 +13,6 @@ class Hping(AutotoolsPackage):
     homepage = "http://www.hping.org"
     git = "https://github.com/antirez/hping.git"
 
-    license("GPL-2.0-only")
 
     version("master", commit="3547c7691742c6eaa31f8402e0ccbb81387c1b99")
 

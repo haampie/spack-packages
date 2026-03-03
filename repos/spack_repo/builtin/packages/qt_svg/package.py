@@ -16,7 +16,6 @@ class QtSvg(QtPackage):
     url = QtPackage.get_url(__qualname__)
     list_url = QtPackage.get_list_url(__qualname__)
 
-
     version("6.10.1", sha256="8c2c82230f6acfb272b48078bd0257628a417b5f6932e10242e14469628bf855")
     version("6.10.0", sha256="bda1574665edc73d08fc5ed0575a65f28e6fa5be2fcdeaae613bebd114a6a982")
     version("6.9.3", sha256="87ca8fb2baf66ad0046d96dc5e56d6757d43664fd2a75883dbe74df4fd2b1f0f")

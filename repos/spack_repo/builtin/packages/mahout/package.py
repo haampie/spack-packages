@@ -17,7 +17,6 @@ class Mahout(MavenPackage):
     list_url = "https://archive.apache.org/dist/mahout"
     list_depth = 1
 
-    license("Apache-2.0")
 
     version("0.13.0", sha256="bbe5a584fa83eb4ea3e0c146256e3e913c225426434759458d1423508da7c519")
     version("0.12.2", sha256="cac9a3fd4f11b2cb850b86d1bd23aec90e960cfae91850c49056c2eaae71afba")

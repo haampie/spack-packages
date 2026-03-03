@@ -24,9 +24,7 @@ class OpenradiossStarter(CMakePackage):
     homepage = "https://www.openradioss.org/"
     git = "https://github.com/OpenRadioss/OpenRadioss.git"
 
-
     maintainers("kjrstory")
-
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

@@ -15,8 +15,6 @@ class GmapGsnap(AutotoolsPackage):
     homepage = "http://research-pub.gene.com/gmap/"
     url = "http://research-pub.gene.com/gmap/src/gmap-gsnap-2017-06-16.tar.gz"
 
-    maintainers("snehring")
-
 
     version(
         "2023-07-20", sha256="19e70eebd9b282d8596721812d071efed188b6d5000627b9948f0486f87fe68f"

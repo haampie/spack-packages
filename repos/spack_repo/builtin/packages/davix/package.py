@@ -13,8 +13,6 @@ class Davix(CMakePackage):
     homepage = "https://davix.web.cern.ch/davix/docs/devel/index.html"
     url = "https://github.com/cern-fts/davix/releases/download/R_0_8_7/davix-0.8.7.tar.gz"
 
-    maintainers("gartung", "greenc-FNAL", "marcmengel", "vitodb")
-
 
     version("0.8.10", sha256="66aa9adadee6ff2bae14caba731597ba7a7cd158763d9d80a9cfe395afc17403")
     version("0.8.9", sha256="0dc7e3702500fc4a88e037ababf096e8c1cad2532c34e08add043d4dc84283f6")

@@ -16,7 +16,6 @@ class Libtool(AutotoolsPackage, GNUMirrorPackage):
     homepage = "https://www.gnu.org/software/libtool/"
     gnu_mirror_path = "libtool/libtool-2.4.6.tar.gz"
 
-    license("LGPL-2.0-or-later AND GPL-2.0-or-later")
 
     version(
         "develop",

@@ -14,9 +14,7 @@ class Vite(CMakePackage):
     """
 
     homepage = "https://solverstack.gitlabpages.inria.fr/vite/"
-    maintainers("trahay")
     git = "https://gitlab.inria.fr/solverstack/vite.git"
-
 
     version("master", branch="master")
 

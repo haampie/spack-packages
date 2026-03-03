@@ -14,7 +14,6 @@ class Launchmon(AutotoolsPackage):
     homepage = "https://github.com/LLNL/LaunchMON"
     url = "https://github.com/LLNL/LaunchMON/releases/download/v1.0.2/launchmon-v1.0.2.tar.gz"
     git = "https://github.com/llnl/launchmon.git"
-    maintainers("lee218llnl")
 
     version("master", branch="master")
     version(

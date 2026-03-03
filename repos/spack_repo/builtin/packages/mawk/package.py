@@ -13,7 +13,6 @@ class Mawk(AutotoolsPackage):
     homepage = "https://invisible-island.net/mawk/mawk.html"
     url = "https://invisible-mirror.net/archives/mawk/mawk-1.3.4.tgz"
 
-    license("GPL-2.0-only")
 
     version(
         "1.3.4-20240123", sha256="a8e319a83744b1f1fb6988dfa189d61887f866e9140cc9a49eb003b2b0655e88"

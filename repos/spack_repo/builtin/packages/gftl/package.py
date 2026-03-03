@@ -35,7 +35,6 @@ class Gftl(CMakePackage):
     list_url = "https://github.com/Goddard-Fortran-Ecosystem/gFTL/tags"
     git = "https://github.com/Goddard-Fortran-Ecosystem/gFTL.git"
 
-    maintainers("mathomp4", "tclune")
 
     version("develop", branch="develop")
     version("main", branch="main")

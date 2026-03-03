@@ -12,13 +12,11 @@ from spack.package import *
 class Kynema(CMakePackage, CudaPackage, ROCmPackage):
     """An open-source performance-oriented structural dynamics simulation code."""
 
-    license("MIT License", checked_by="ddement")
 
     homepage = "https://kynema.github.io/kynema/"
     url = "https://github.com/kynema/kynema.git"
     git = "https://github.com/kynema/kynema.git"
 
-    maintainers("faisal-bhuiyan", "ddement", "deslaughter")
 
     version("main", branch="main")
 

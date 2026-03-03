@@ -16,9 +16,7 @@ class Libmolgrid(CMakePackage):
     homepage = "https://gnina.github.io/libmolgrid/"
     url = "https://github.com/gnina/libmolgrid/archive/refs/tags/v0.5.2.tar.gz"
 
-    maintainers("RMeli")
 
-    license("Apache-2.0")
 
     version("0.5.5", sha256="fe038d4c5fe96d73eadbe433cfd13c109446e8fd0af8d8739394966ea57afecd")
     version("0.5.4", sha256="2eea846acd6c0d75cefaac3217fcafe56656fc38ba100f8b387e13078cea4ff2")

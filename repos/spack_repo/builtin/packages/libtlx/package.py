@@ -24,9 +24,7 @@ class Libtlx(CMakePackage):
     homepage = "https://tlx.github.io/"
     url = "https://github.com/tlx/tlx/archive/v0.5.20191212.tar.gz"
 
-    maintainers("fabratu")
 
-    license("BSL-1.0")
 
     version("0.6.1", sha256="24dd1acf36dd43b8e0414420e3f9adc2e6bb0e75047e872a06167961aedad769")
     version(

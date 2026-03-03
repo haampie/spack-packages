@@ -17,9 +17,7 @@ class LlamaCpp(GGMLPackageBase):
     homepage = "https://github.com/ggml-org/llama.cpp"
     git = "https://github.com/ggml-org/llama.cpp.git"
 
-    maintainers("rbberger")
 
-    license("MIT")
 
     version("master", branch="master")
     version("7158", tag="b7158", commit="b3b03a7baf387cfeaf56641bd14c06dbd3d2fcf0")

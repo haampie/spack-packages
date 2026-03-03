@@ -13,8 +13,6 @@ class Byfl(CMakePackage):
     homepage = "https://github.com/lanl/Byfl"
     url = "https://github.com/lanl/Byfl/archive/refs/tags/v1.8.0.tar.gz"
 
-    maintainers("spakin", "ltang85")
-
 
     version("1.8.0", sha256="45a9640ba2d77153a425c72349c18b124754123b30c411707b71abd217bbfce0")
 

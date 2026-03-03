@@ -58,8 +58,6 @@ class Dihydrogen(CachedCMakePackage, CudaPackage, ROCmPackage):
     git = "https://github.com/LLNL/DiHydrogen.git"
     tags = ["ecp", "radiuss"]
 
-    maintainers("benson31", "bvanessen")
-
 
     version("develop", branch="develop")
     version("master", branch="master")

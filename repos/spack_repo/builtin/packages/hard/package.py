@@ -12,7 +12,6 @@ class Hard(CMakePackage):
     for the study of astrophysical phenomena"""
 
     git = "https://github.com/lanl/hard"
-    maintainers("JulienLoiseau")
 
     version("main", branch="main")
 

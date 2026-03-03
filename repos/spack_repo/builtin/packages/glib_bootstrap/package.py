@@ -22,8 +22,6 @@ class GlibBootstrap(MesonPackage):
     list_url = "https://download.gnome.org/sources/glib"
     list_depth = 1
 
-    maintainers("michaelkuhn")
-
 
     # Even minor versions are stable, odd minor versions are development, only add even numbers
     version("2.86.3", sha256="b3211d8d34b9df5dca05787ef0ad5d7ca75dec998b970e1aab0001d229977c65")

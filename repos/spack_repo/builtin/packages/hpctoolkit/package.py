@@ -23,14 +23,11 @@ class Hpctoolkit(AutotoolsPackage, MesonPackage):
 
     homepage = "https://hpctoolkit.org"
     git = "https://gitlab.com/hpctoolkit/hpctoolkit.git"
-    maintainers("mwkrentel")
 
     tags = ["e4s"]
 
     test_requires_compiler = True
 
-    license("Apache-2.0", when="@2025:")
-    license("BSD-3-Clause", when="@:2024")
 
     version("develop", branch="develop")
     version("2025.1.stable", branch="release/2025.1")

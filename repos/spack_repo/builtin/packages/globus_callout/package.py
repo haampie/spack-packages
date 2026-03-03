@@ -21,8 +21,6 @@ class GlobusCallout(AutotoolsPackage):
     homepage = "https://github.com/gridcf/gct/tree/master/callout/source"
     url = "https://repo.gridcf.org/gct6/sources/globus_callout-4.3.tar.gz"
 
-    maintainers("wdconinc")
-
 
     version("4.3", sha256="367e3fda18c3c3eb2b12496abc504186d0bfa0dadc666f626f580a443bba3000")
 

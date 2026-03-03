@@ -20,9 +20,7 @@ class Realm(CMakePackage, CudaPackage, ROCmPackage):
     homepage = "https://legion.stanford.edu/realm/"
     git = "https://github.com/StanfordLegion/realm.git"
 
-
     maintainers("elliottslaughter", "rbberger")
-
     version("main", branch="main")
 
     depends_on("c", type="build")

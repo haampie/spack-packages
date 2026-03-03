@@ -32,9 +32,7 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
     url = "https://download.open-mpi.org/release/hwloc/v2.11/hwloc-2.11.1.tar.bz2"
     git = "https://github.com/open-mpi/hwloc.git"
 
-    maintainers("bgoglin")
 
-    license("BSD-3-Clause")
 
     executables = ["^hwloc-bind$"]
 

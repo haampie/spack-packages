@@ -13,7 +13,6 @@ class Zuo(AutotoolsPackage):
     homepage = "https://github.com/racket/zuo"
     url = "https://github.com/racket/zuo/archive/refs/tags/v1.11.tar.gz"
 
-
     version("1.12", sha256="0c8a3a86365fb10961d9a1f536b1cd0d7fcdc2779af03236a340539966b33f86")
     version("1.11", sha256="8404bea8ecae4576f44dece7efcab69d94c8a30ec10ea186f86823d37e74694b")
 

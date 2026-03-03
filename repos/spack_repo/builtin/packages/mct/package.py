@@ -15,7 +15,6 @@ class Mct(AutotoolsPackage):
     homepage = "https://github.com/MCSclimate/MCT"
     url = "https://github.com/MCSclimate/MCT/archive/refs/tags/MCT_2.11.0.tar.gz"
 
-    maintainers("climbfuji")
 
     # TODO: MCT uses a custom license not representable by an SPDX identifier.
     # Once there is a consensus and documentation on how to represent custom

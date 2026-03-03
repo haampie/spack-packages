@@ -14,11 +14,9 @@ class Mdsplus(AutotoolsPackage):
     homepage = "https://mdsplus.org"
     git = "https://github.com/MDSplus/mdsplus.git"
 
-    maintainers("wmvanvliet")
 
     parallel = False
 
-    license("BSD-2-Clause")
 
     version(
         "stable_release-7-96-17",

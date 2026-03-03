@@ -19,7 +19,6 @@ class Scotch(CMakePackage, MakefilePackage):
     url = "https://gitlab.inria.fr/scotch/scotch/-/archive/v7.0.1/scotch-v7.0.1.tar.gz"
     list_url = "https://gforge.inria.fr/frs/?group_id=248"
 
-    maintainers("AlexanderRichert-NOAA", "climbfuji")
 
     version("7.0.10", sha256="8327725a08cdd4fc7575e291251883b4f93f75b07a54bc58f89f50dcbba7b244")
     version("7.0.9", sha256="6d50c3f66e3e0e2058bce45ed9eee171fd8d6c01123c802a98544948a1c3d5d1")

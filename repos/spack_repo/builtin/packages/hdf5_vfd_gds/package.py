@@ -15,7 +15,6 @@ class Hdf5VfdGds(CMakePackage, CudaPackage):
     homepage = "https://github.com/hpc-io/vfd-gds"
     url = "https://github.com/hpc-io/vfd-gds/archive/refs/tags/1.0.1.tar.gz"
     git = "https://github.com/hpc-io/vfd-gds.git"
-    maintainers("hyoklee", "lrknox")
 
     license("BSD-3-Clause-LBNL")
 

@@ -15,7 +15,6 @@ class Libev(AutotoolsPackage):
     url = "http://dist.schmorp.de/libev/Attic/libev-4.24.tar.gz"
     git = "https://github.com/enki/libev.git"
 
-    license("BSD-2-Clause OR GPL-2.0-or-later")
 
     version("develop", branch="master")
     version("4.33", sha256="507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea")

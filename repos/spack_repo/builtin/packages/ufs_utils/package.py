@@ -17,7 +17,6 @@ class UfsUtils(CMakePackage):
     url = "https://github.com/NOAA-EMC/UFS_UTILS/archive/refs/tags/ufs_utils_1_7_0.tar.gz"
     git = "https://github.com/ufs-community/UFS_UTILS"
 
-    maintainers("t-brown", "edwardhartnett", "AlexanderRichert-NOAA", "Hang-Lei-NOAA")
 
     version(
         "1.11.0",

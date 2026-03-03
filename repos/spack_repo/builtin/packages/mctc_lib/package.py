@@ -16,9 +16,7 @@ class MctcLib(MesonPackage, CMakePackage):
     url = "https://github.com/grimme-lab/mctc-lib/releases/download/v0.0.0/mctc-lib-0.0.0.tar.xz"
     git = "https://github.com/grimme-lab/mctc-lib"
 
-    maintainers("awvwgk")
 
-    license("Apache-2.0")
 
     build_system("cmake", "meson", default="meson")
 

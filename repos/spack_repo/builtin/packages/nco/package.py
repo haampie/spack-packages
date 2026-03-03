@@ -14,10 +14,8 @@ class Nco(AutotoolsPackage):
     homepage = "https://nco.sourceforge.net/"
     url = "https://github.com/nco/nco/archive/5.0.1.tar.gz"
 
-    maintainers("altheaden", "andrewdnolan", "xylar")
 
     tags = ["e4s"]
-
 
     version("5.3.4", sha256="265059157ab4e64e73b6aad96da1e09427ba8a03ed3e2348d0a5deb57cf76006")
     version("5.3.3", sha256="f9185e115e246fe884dcae0804146b56df7257f53de7ba190fea66977ccd5a64")

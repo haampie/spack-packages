@@ -22,12 +22,10 @@ class Cmake(Package):
     git = "https://gitlab.kitware.com/cmake/cmake.git"
     github = "https://github.com/kitware/cmake"
 
-    maintainers("alalazo", "johnwparent")
 
     tags = ["build-tools", "windows"]
 
     executables = ["^cmake[0-9]*$"]
-
 
     version("master", branch="master")
     version("4.2.3", sha256="7efaccde8c5a6b2968bad6ce0fe60e19b6e10701a12fce948c2bf79bac8a11e9")

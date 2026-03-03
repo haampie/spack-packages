@@ -13,7 +13,6 @@ class Cunit(AutotoolsPackage):
     homepage = "https://sourceforge.net/projects/cunit/"
     url = "https://sourceforge.net/projects/cunit/files/CUnit/2.1-3/CUnit-2.1-3.tar.bz2"
 
-
     version("2.1-3", sha256="f5b29137f845bb08b77ec60584fdb728b4e58f1023e6f249a464efa49a40f214")
 
     depends_on("c", type="build")  # generated

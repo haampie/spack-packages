@@ -23,9 +23,7 @@ class OpenradiossEngine(CMakePackage):
     homepage = "https://www.openradioss.org/"
     git = "https://github.com/OpenRadioss/OpenRadioss.git"
 
-
     maintainers("kjrstory")
-    version("main", branch="main")
 
     variant("mpi", default=False, description="Enable MPI support")
     variant("sp", default=False, description="Using single precision option")

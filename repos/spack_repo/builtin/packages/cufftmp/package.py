@@ -31,10 +31,8 @@ class Cufftmp(Package, CudaPackage):
     homepage = "https://docs.nvidia.com/cuda/cufftmp/"
     url = "https://developer.download.nvidia.com/compute/cufftmp/redist/libcufftmp"
 
-    maintainers("albestro")
 
     # https://docs.nvidia.com/cuda/cufftmp/license.html
-
     for ver, packages in _versions.items():
         package = packages.get(f"{platform.system()}-{platform.machine()}")
         if package:

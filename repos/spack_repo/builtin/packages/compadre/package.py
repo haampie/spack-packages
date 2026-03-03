@@ -19,7 +19,6 @@ class Compadre(CMakePackage):
     homepage = "https://github.com/sandialabs/compadre"
     git = "https://github.com/sandialabs/compadre.git"
     url = "https://github.com/sandialabs/compadre/archive/v1.3.0.tar.gz"
-    maintainers("kuberry")
 
     version("master", branch="master")
     version("1.6.2", sha256="ad4122feed81e9f661ee86e73ad4bf53dbfb2470b389a4ea31e6c8d727c8bec8")

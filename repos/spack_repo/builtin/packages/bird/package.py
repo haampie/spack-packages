@@ -17,7 +17,6 @@ class Bird(AutotoolsPackage):
     homepage = "https://bird.network.cz/"
     url = "https://gitlab.nic.cz/labs/bird/-/archive/v2.0.2/bird-v2.0.2.tar.gz"
 
-
     version("2.15.1", sha256="5a4cf55c4767192aa57880ac5f6763e5b8c26f688ab5934df96e3615c4b0a1e1")
     version("2.15", sha256="485b731ed0668b0da4f5110ba8ea98d248e10b25421820feca5dcdd94ab98a29")
     version("2.14", sha256="22823b20d31096fcfded6773ecc7d9ee6da0339ede805422647c04127c67472f")

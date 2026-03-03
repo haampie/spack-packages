@@ -16,7 +16,6 @@ class Asagi(CMakePackage):
     homepage = "https://github.com/TUM-I5/ASAGI"
     git = "https://github.com/TUM-I5/ASAGI.git"
 
-
     # fetching the package via git with submodules
     # is preferred to satisfy internal-dependencies
     version("1.0.1", commit="f633f96931ae00805f599078d5a1a6a830881554", submodules=True)

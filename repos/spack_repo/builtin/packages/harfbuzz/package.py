@@ -32,7 +32,6 @@ class Harfbuzz(MesonPackage, AutotoolsPackage, CMakePackage):
     # Ref: https://github.com/harfbuzz/harfbuzz/blob/main/COPYING
     license("MIT-old", checked_by="wdconinc")
 
-    maintainers("AlexanderRichert-NOAA")
 
     version("11.5.1", sha256="972a60a8d274d49e70361da6920c3a73dfb0fb4387f6c6811906a47ba634d8a1")
     version("11.4.1", sha256="7aafab93115eb56cdc9a931ab7d19ff60d7f2937b599d140f17236f374e32698")

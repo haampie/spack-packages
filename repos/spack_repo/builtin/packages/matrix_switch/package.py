@@ -16,9 +16,7 @@ class MatrixSwitch(CMakePackage):
     url = "https://gitlab.com/ElectronicStructureLibrary/omm/matrixswitch/-/archive/1.2.1/matrixswitch-1.2.1.tar.gz"
     git = "https://gitlab.com/ElectronicStructureLibrary/omm/matrixswitch.git"
 
-    maintainers("RMeli")
 
-    license("BSD-2-Clause", checked_by="RMeli")
 
     version("1.2.1", sha256="a3c2bac20435a8217cd1a1abefa8b7f8c52b1c6f55a75b2861565ade5ecfe37f")
     version("master", branch="master")

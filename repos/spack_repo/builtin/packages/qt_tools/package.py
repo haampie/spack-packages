@@ -15,8 +15,6 @@ class QtTools(QtPackage):
     git = QtPackage.get_git(__qualname__)
     list_url = QtPackage.get_list_url(__qualname__)
 
-    maintainers("wdconinc")
-
 
     # src/assistant/qlitehtml is a submodule that is not in the git archive
     version("6.10.1", commit="9e0030f889168f7a0ec1bb47a7d7138a497b3c96", submodules=True)

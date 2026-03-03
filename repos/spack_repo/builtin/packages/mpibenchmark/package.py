@@ -22,8 +22,6 @@ class Mpibenchmark(AutotoolsPackage):
     list_url = "https://pm2.gitlabpages.inria.fr/releases/"
     git = "https://gitlab.inria.fr/pm2/pm2.git"
 
-    maintainers("a-denis")
-
     version("master", branch="master")
     version("0.6", sha256="4e956394856476b5b31fb170b488fc3c2fbbcd98fe140d71d0bca9bc171617be")
     version("0.5", sha256="bba9e5aa8b58c041f89e4518a0a7f80a63ebfaf0f90bb8bdd0976d1bf22bed83")

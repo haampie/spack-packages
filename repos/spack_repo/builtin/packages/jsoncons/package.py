@@ -17,7 +17,6 @@ class Jsoncons(CMakePackage):
     homepage = "https://danielaparker.github.io/jsoncons/"
     url = "https://github.com/danielaparker/jsoncons/archive/refs/tags/v1.2.0.tar.gz"
 
-    license("BSL-1.0", checked_by="pranav-sivaraman")
 
     version("1.2.0", sha256="3bdc0c8ceba1943b5deb889559911ebe97377971453a11227ed0a51a05e5d5d8")
 

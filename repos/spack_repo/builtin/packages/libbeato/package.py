@@ -15,7 +15,6 @@ class Libbeato(AutotoolsPackage):
     homepage = "https://github.com/CRG-Barcelona/libbeato"
     git = "https://github.com/CRG-Barcelona/libbeato.git"
 
-    license("GPL-3.0-or-later")
 
     version("master", branch="master")
 

@@ -16,8 +16,6 @@ class Autoconf(AutotoolsPackage, GNUMirrorPackage):
     homepage = "https://www.gnu.org/software/autoconf/"
     gnu_mirror_path = "autoconf/autoconf-2.69.tar.gz"
 
-
-    version("2.72", sha256="afb181a76e1ee72832f6581c0eddf8df032b83e2e0239ef79ebedc4467d92d6e")
     version("2.71", sha256="431075ad0bf529ef13cb41e9042c542381103e80015686222b8a9d4abef42a1c")
     version("2.70", sha256="f05f410fda74323ada4bdc4610db37f8dbd556602ba65bc843edb4d4d4a1b2b7")
     version("2.69", sha256="954bd69b391edc12d6a4a51a2dd1476543da5c6bbf05a95b59dc0dd6fd4c2969")

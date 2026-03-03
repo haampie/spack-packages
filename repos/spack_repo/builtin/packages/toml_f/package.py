@@ -16,8 +16,6 @@ class TomlF(MesonPackage, CMakePackage):
     url = "https://github.com/toml-f/toml-f/releases/download/v0.4.2/toml-f-0.4.2.tar.xz"
     git = "https://github.com/toml-f/toml-f/"
 
-    maintainers("awvwgk", "mtaillefumier")
-
 
     build_system("cmake", "meson", default="meson")
 

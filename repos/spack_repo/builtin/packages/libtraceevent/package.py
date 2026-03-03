@@ -14,9 +14,7 @@ class Libtraceevent(MakefilePackage):
     url = "https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git/snapshot/libtraceevent-1.8.2.tar.gz"
     git = "https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git"
 
-    maintainers("Jordan474")
 
-    license("LGPL-2.1-or-later AND GPL-2.0-or-later")
 
     version("1.8.2", sha256="919f0c024c7b5059eace52d854d4df00ae7e361a4033e1b4d6fe01d97064a1b9")
 

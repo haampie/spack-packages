@@ -13,8 +13,6 @@ class Byobu(AutotoolsPackage):
 
     homepage = "https://www.byobu.org/"
 
-    maintainers("ebagrenrut")
-
 
     version("6.13", sha256="9690c629588e8f95d16b2461950d39934faaf8005dd2a283886d4e3bd6c86df6")
     version("5.131", sha256="77ac751ae79d8e3f0377ac64b64bc9738fa68d68466b8d2ff652b63b1d985e52")

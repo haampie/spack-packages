@@ -15,7 +15,6 @@ class Dlpack(CMakePackage):
     git = "https://github.com/dmlc/dlpack.git"
     url = "https://github.com/dmlc/dlpack/archive/refs/tags/v0.5.tar.gz"
 
-
     version("master", branch="master")
     version("1.2", sha256="58284a3b004a48450c958a23b30274527ebaf35a061124bbd4193fffa45efbd6")
     version("1.1", sha256="2e3b94b55825c240cc58e6721e15b449978cbae21a2a4caa23058b0157ee2fb3")

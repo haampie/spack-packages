@@ -17,8 +17,6 @@ class Scorpio(CMakePackage):
     homepage = "https://gitlab.com/truchas/tpl-forks/scorpio"
     git = "https://gitlab.com/truchas/tpl-forks/scorpio.git"
 
-    maintainers("pbrady", "zjibben")
-
 
     version("develop", branch="truchas")
 

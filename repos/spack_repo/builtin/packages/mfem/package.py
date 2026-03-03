@@ -21,7 +21,6 @@ class Mfem(Package, CudaPackage, ROCmPackage):
     homepage = "http://www.mfem.org"
     git = "https://github.com/mfem/mfem.git"
 
-    maintainers("v-dobrev", "tzanio", "acfisher", "markcmiller86")
 
     test_requires_compiler = True
 
@@ -46,7 +45,6 @@ class Mfem(Package, CudaPackage, ROCmPackage):
     #
     # If this quick verification procedure fails, additional discussion
     # will be required to verify the new version.
-
 
     # 'develop' is a special version that is always larger (or newer) than any
     # other version.

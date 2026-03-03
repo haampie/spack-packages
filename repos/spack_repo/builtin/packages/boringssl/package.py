@@ -14,8 +14,6 @@ class Boringssl(CMakePackage):
     homepage = "https://boringssl.googlesource.com/boringssl"
     git = "https://boringssl.googlesource.com/boringssl.git"
 
-    maintainers("ta7mid")
-
 
     version("main", branch="main")
 

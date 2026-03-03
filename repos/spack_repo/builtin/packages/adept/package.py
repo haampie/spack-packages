@@ -13,8 +13,6 @@ class Adept(AutotoolsPackage):
     homepage = "https://www.met.reading.ac.uk/clouds/adept/"
     url = "https://www.met.reading.ac.uk/clouds/adept/adept-2.1.1.tar.gz"
 
-    maintainers("jehicken")
-
 
     version("2.1.1", sha256="0cef334e82df4526d3761bdd8319a63e7582c96b2f1cc88391729018b4825c47")
 

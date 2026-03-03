@@ -15,8 +15,6 @@ class Toml11(CMakePackage):
     homepage = "https://github.com/ToruNiina/toml11"
     url = "https://github.com/ToruNiina/toml11/archive/refs/tags/v3.7.1.tar.gz"
 
-    maintainers("ashermancinelli", "ToruNiina")
-
 
     version("4.3.0", sha256="af95dab1bbb9b05a597e73d529a7269e13f1869e9ca9bd4779906c5cd96e282b")
     version("4.2.0", sha256="9287971cd4a1a3992ef37e7b95a3972d1ae56410e7f8e3f300727ab1d6c79c2c")

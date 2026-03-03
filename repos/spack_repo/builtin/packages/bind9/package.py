@@ -17,7 +17,6 @@ class Bind9(AutotoolsPackage):
     list_url = "https://downloads.isc.org/isc/bind9/"
     git = "https://gitlab.isc.org/isc-projects/bind9"
 
-
     # Only even minor releases are stable
     version("9.20.0", sha256="cc580998017b51f273964058e8cb3aa5482bc785243dea71e5556ec565a13347")
     version("9.18.28", sha256="e7cce9a165f7b619eefc4832f0a8dc16b005d29e3890aed6008c506ea286a5e7")

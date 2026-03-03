@@ -16,7 +16,6 @@ class Compose(MakefilePackage):
 
     homepage = "https://compose.obspm.fr/home"
     url = "https://compose.obspm.fr/download/code/codehdf5.zip"
-    maintainers("eschnett")
 
     # Spack must not modify our url which doesn't contain a version number
     def url_for_version(self, version):

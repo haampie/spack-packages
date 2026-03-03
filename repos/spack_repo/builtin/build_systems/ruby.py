@@ -18,7 +18,6 @@ from spack.package import (
 class RubyPackage(PackageBase):
     """Specialized class for building Ruby gems."""
 
-    maintainers("Kerilk")
 
     #: This attribute is used in UI queries that need to know the build
     #: system base class

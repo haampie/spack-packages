@@ -19,9 +19,7 @@ class Hybpiper(PythonPackage, Package):
     homepage = "https://github.com/mossmatters/HybPiper"
     url = "https://github.com/mossmatters/HybPiper/archive/v1.2.0.tar.gz"
     git = "https://github.com/mossmatters/HybPiper/HybPiper.git"
-    maintainers("snehring")
 
-    license("GPL-3.0-or-later")
 
     version("2.1.8", sha256="ff358a560d6dbbec4fdac67457451cb4e6ca21b8661044c43902aa013d805e47")
     version("1.3.1", sha256="7ca07a9390d1ca52c72721774fa220546f18d3fa3b58500f68f3b2d89dbc0ecf")

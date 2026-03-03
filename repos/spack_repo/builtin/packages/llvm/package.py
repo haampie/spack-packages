@@ -43,13 +43,11 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     url = "https://github.com/llvm/llvm-project/archive/llvmorg-7.1.0.tar.gz"
     list_url = "https://releases.llvm.org/download.html"
     git = "https://github.com/llvm/llvm-project"
-    maintainers("trws", "haampie", "skosukhin")
 
     tags = ["e4s", "compiler"]
 
     generator("ninja")
 
-    license("Apache-2.0")
 
     version("main", branch="main")
 

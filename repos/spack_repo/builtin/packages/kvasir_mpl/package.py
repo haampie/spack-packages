@@ -14,7 +14,6 @@ class KvasirMpl(Package):
     homepage = "https://github.com/kvasir-io/mpl"
     git = "https://github.com/kvasir-io/mpl.git"
 
-    license("BSL-1.0")
 
     version("develop", branch="development")
 

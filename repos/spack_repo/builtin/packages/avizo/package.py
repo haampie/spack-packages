@@ -22,7 +22,6 @@ class Avizo(Package):
 
     manual_download = True
 
-
     version(
         "2020.1",
         sha256="9321aaa276567eebf116e268353c33a4c930d768d22793f921338e1d8cefe991",

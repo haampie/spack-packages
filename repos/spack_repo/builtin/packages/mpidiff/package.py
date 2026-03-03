@@ -14,8 +14,6 @@ class Mpidiff(CMakePackage):
     homepage = "https://github.com/LLNL/MPIDiff"
     url = "https://github.com/LLNL/MPIDiff/archive/refs/tags/v0.2.0.tar.gz"
 
-    maintainers("adayton1")
-
 
     version("0.2.0", sha256="726b59fe4af0bb0812fc34c456cb0d801e03313a8fdfb9dc63d23a9b316b6118")
 

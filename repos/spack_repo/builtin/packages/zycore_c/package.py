@@ -14,8 +14,6 @@ class ZycoreC(CMakePackage):
     homepage = "https://github.com/zyantific/zycore-c"
     url = "https://github.com/zyantific/zycore-c/archive/refs/tags/v0.0.0.tar.gz"
 
-    maintainers("RMeli")
-
 
     version("1.5.1", sha256="292ec0b30a68a6be416119756238efb5ab34122de80cca884e269e28f6fc126b")
 

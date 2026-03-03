@@ -15,9 +15,7 @@ class Libxv(AutotoolsPackage, XorgPackage):
     homepage = "https://gitlab.freedesktop.org/xorg/lib/libXv"
     xorg_mirror_path = "lib/libXv-1.0.10.tar.gz"
 
-    license("MIT")
 
-    maintainers("wdconinc")
 
     version("1.0.13", sha256="9a0c31392b8968a4f29a0ad9c51e7ce225bcec3c4cbab9f2a241f921776b2991")
     version("1.0.12", sha256="ce706619a970a580a0e35e9b5c98bdd2af243ac6494c65f44608a89a86100126")

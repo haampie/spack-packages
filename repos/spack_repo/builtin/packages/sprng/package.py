@@ -13,11 +13,9 @@ class Sprng(AutotoolsPackage):
     avoids correlations in random number sequences across processes.
     """
 
-    maintainers("kayarre")
 
     homepage = "http://www.sprng.org"
     url = "http://www.sprng.org/Version5.0/sprng5.tar.bz2"
-
 
     version("5.0", sha256="9172a495472cc24893e7489ce9b5654300dc60cba4430e436ce50d28eb749a66")
 

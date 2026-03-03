@@ -16,7 +16,6 @@ class IntelOneapiDpct(IntelOneApiPackage):
 
     """
 
-    maintainers("rscohn2")
 
     homepage = "https://www.intel.com/content/www/us/en/developer/tools/oneapi/dpc-compatibility-tool.html#gs.2p8km6"
 

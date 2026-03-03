@@ -19,7 +19,6 @@ class Libtheora(AutotoolsPackage, MSBuildPackage):
     url = "https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz"
     git = "https://gitlab.xiph.org/xiph/theora.git"
 
-    license("BSD-3-Clause")
 
     version("master", branch="master")
     version("stable", branch="theora-1.1")

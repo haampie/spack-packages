@@ -19,7 +19,6 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
     homepage = "http://site.icu-project.org/"
     url = "https://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz"
 
-    license("Unicode-TOU")
 
     version("76.1", sha256="dfacb46bfe4747410472ce3e1144bf28a102feeaa4e3875bac9b4c6cf30f4f3e")
     version("75.1", sha256="cb968df3e4d2e87e8b11c49a5d01c787bd13b9545280fc6642f826527618caef")

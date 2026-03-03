@@ -14,7 +14,6 @@ class FastGlobalFileStatus(AutotoolsPackage):
     homepage = "https://github.com/LLNL/FastGlobalFileStatus"
     url = "https://github.com/LLNL/FastGlobalFileStatus/files/2271592/fastglobalfilestatus-1.1.tar.gz"
     git = "https://github.com/LLNL/FastGlobalFileStatus.git"
-    maintainers("lee218llnl")
 
     version("master", branch="master")
     version(

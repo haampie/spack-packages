@@ -16,8 +16,6 @@ class Pareval(Package, CudaPackage, ROCmPackage):
     url = "https://github.com/parallelcodefoundry/pareval/archive/refs/tags/v1.2.tar.gz"
     git = "https://github.com/parallelcodefoundry/pareval.git"
 
-    maintainers("Dando18")
-
 
     version("develop", branch="develop")
     version("1.2", sha256="8b374afc07bc177a3ba335ff1fe782b3a1943bbcd2dd7ac0a62dedfa4f44f651")

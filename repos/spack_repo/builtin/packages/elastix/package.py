@@ -22,8 +22,6 @@ class Elastix(CMakePackage):
     homepage = "https://www.elastix.dev"
     url = "https://github.com/SuperElastix/elastix/archive/refs/tags/5.2.0.tar.gz"
 
-    maintainers("Markus92")
-
 
     version("5.2.0", sha256="7267d7f2efccc3ddd9529aa83e4d10eeea3707a972de06b2e020fc95d4bec6c1")
     version("5.1.0", sha256="f2e3e33359d1e35cb986bc1eb7a1b0179cdb20a67e410ac8423102a160bfc29e")

@@ -16,8 +16,6 @@ class Zerosum(CMakePackage):
     url = "https://github.com/UO-OACISS/zerosum.git"
     git = "https://github.com/UO-OACISS/zerosum"
 
-    maintainers("khuck", "wspear", "sameershende")
-
 
     version("main", branch="main")
 

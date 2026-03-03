@@ -48,7 +48,6 @@ class Cudss(Package):
 
     homepage = "https://developer.nvidia.com/cudss"
 
-    maintainers("ddement")
 
     skip_version_audit = ["platform=darwin", "platform=windows"]
 

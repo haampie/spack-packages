@@ -23,12 +23,10 @@ class Hypre(CMakePackage, AutotoolsPackage, CudaPackage, ROCmPackage):
     git = "https://github.com/hypre-space/hypre.git"
     tags = ["e4s", "radiuss"]
 
-    maintainers("victorapm", "rfalgout", "oseikuffuor1", "liruipeng", "waynemitchell", "balay")
 
     test_requires_compiler = True
 
     # License
-    license("Apache-2.0 OR MIT")
 
     # Support both CMake and Autotools. CMake is available and default only for v3+.
     build_system(conditional("cmake", when="@3:"), "autotools", default="cmake")

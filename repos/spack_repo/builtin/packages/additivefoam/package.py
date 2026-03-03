@@ -19,10 +19,8 @@ class Additivefoam(Package):
     git = "https://github.com/ORNL/AdditiveFOAM.git"
     url = "https://github.com/ORNL/AdditiveFOAM/archive/1.1.0.tar.gz"
 
-    maintainers("streeve", "colemanjs", "gknapp1")
 
     tags = ["ecp"]
-
 
     version("main", branch="main")
     version("1.1.0", sha256="a13770bd66fe10224705fb3a2bfb557e63e0aea98c917b0084cf8b91eaa53ee2")

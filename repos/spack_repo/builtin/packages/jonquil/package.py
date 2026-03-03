@@ -16,9 +16,7 @@ class Jonquil(MesonPackage, CMakePackage):
     url = "https://github.com/toml-f/jonquil/releases/download/v0.3.0/jonquil-0.3.0.tar.xz"
     git = "https://github.com/toml-f/jonquil/"
 
-    maintainers("mtaillefumier")
 
-    license("Apache-2.0")
 
     build_system("cmake", "meson", default="meson")
 

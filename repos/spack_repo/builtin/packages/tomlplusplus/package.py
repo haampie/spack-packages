@@ -13,7 +13,6 @@ class Tomlplusplus(CMakePackage):
     homepage = "https://marzer.github.io/tomlplusplus/"
     url = "https://github.com/marzer/tomlplusplus/archive/refs/tags/v3.4.0.tar.gz"
 
-
     version("3.4.0", sha256="8517f65938a4faae9ccf8ebb36631a38c1cadfb5efa85d9a72e15b9e97d25155")
 
     depends_on("cxx", type="build")

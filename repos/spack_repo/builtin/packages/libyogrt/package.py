@@ -15,7 +15,6 @@ class Libyogrt(AutotoolsPackage):
     homepage = "https://github.com/LLNL/libyogrt"
     url = "https://github.com/LLNL/libyogrt/releases/download/1.21/libyogrt-1.21.tar.gz"
 
-    license("LGPL-2.1-or-later")
 
     version("1.35", sha256="a03b3d24da49af626351aaca9ab3eaff102ed41d5171f1bcb2ff26a561bd0cd6")
     version("1.33", sha256="797d20c49cdc4f6beae8660b4f41ba7ac13f7e93a0344b47f0bdc64f780d1398")

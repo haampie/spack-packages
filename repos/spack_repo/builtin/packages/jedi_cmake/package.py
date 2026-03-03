@@ -13,9 +13,7 @@ class JediCmake(CMakePackage):
     homepage = "https://github.com/JCSDA/jedi-cmake"
     git = "https://github.com/JCSDA/jedi-cmake.git"
 
-    maintainers("climbfuji")
 
-    license("Apache-2.0")
 
     version("master", branch="master", no_cache=True)
     version("develop", branch="develop", no_cache=True)

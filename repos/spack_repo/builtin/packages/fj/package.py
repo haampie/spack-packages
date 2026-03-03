@@ -17,7 +17,6 @@ class Fj(Package, CompilerPackage):
 
     homepage = "https://www.fujitsu.com/us/"
 
-    maintainers("t-karatsu")
 
     provides("c", "cxx")
     provides("fortran")

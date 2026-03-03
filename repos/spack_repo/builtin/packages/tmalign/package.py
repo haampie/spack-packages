@@ -14,7 +14,6 @@ class Tmalign(Package):
     homepage = "https://zhanggroup.org/TM-align/"
     url = "https://zhanggroup.org/TM-align/TMalign.cpp"
 
-    maintainers("snehring")
 
     version(
         "20220412",

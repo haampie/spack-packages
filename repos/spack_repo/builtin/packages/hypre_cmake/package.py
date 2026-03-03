@@ -19,11 +19,9 @@ class HypreCmake(CMakePackage, CudaPackage):
     url = "https://github.com/hypre-space/hypre/archive/v2.14.0.tar.gz"
     git = "https://github.com/hypre-space/hypre.git"
 
-    maintainers("ulrikeyang", "osborn9", "balay")
 
     test_requires_compiler = True
 
-    license("Apache-2.0")
 
     version("develop", branch="master")
     version("2.22.0", sha256="2c786eb5d3e722d8d7b40254f138bef4565b2d4724041e56a8fa073bda5cfbb5")

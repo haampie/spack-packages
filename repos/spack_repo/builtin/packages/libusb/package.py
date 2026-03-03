@@ -15,7 +15,6 @@ class Libusb(AutotoolsPackage):
     url = "https://github.com/libusb/libusb/releases/download/v1.0.27/libusb-1.0.27.tar.bz2"
     git = "https://github.com/libusb/libusb"
 
-    license("LGPL-2.1-or-later")
 
     version("master", branch="master")
     version("1.0.27", sha256="ffaa41d741a8a3bee244ac8e54a72ea05bf2879663c098c82fc5757853441575")

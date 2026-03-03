@@ -15,7 +15,6 @@ class ZookeeperBenchmark(MavenPackage):
     homepage = "https://zookeeper.apache.org"
     git = "https://github.com/brownsys/zookeeper-benchmark.git"
 
-
     version("master", branch="master")
 
     depends_on("zookeeper", type=("build", "run"))

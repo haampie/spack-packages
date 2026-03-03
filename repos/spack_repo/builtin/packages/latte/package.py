@@ -14,11 +14,9 @@ class Latte(CMakePackage):
     url = "https://github.com/lanl/latte/tarball/v1.2.1"
     git = "https://github.com/lanl/latte.git"
 
-    maintainers("jeanlucf22", "finkeljos")
 
     tags = ["ecp", "ecp-apps"]
 
-    license("LGPL-2.0-or-later")
 
     version("master", branch="master")
     version("lattepy", branch="lattepy")

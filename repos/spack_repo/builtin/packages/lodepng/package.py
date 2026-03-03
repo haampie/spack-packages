@@ -13,7 +13,6 @@ class Lodepng(MakefilePackage):
     homepage = "https://lodev.org/lodepng/"
     git = "https://github.com/lvandeve/lodepng.git"
 
-    license("Zlib")
 
     version("master", branch="master")
 

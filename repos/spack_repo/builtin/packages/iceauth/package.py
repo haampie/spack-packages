@@ -16,7 +16,6 @@ class Iceauth(AutotoolsPackage, XorgPackage):
     homepage = "https://gitlab.freedesktop.org/xorg/app/iceauth"
     xorg_mirror_path = "app/iceauth-1.0.7.tar.gz"
 
-    license("MIT")
 
     version("1.0.10", sha256="f17f373c6e7bfef9cfa4c688f165dfebec7642ad7c6304c5bb3c9bc2bfcde747")
     version("1.0.9", sha256="5ca274cf210453e7d7cf5c827a2fbc92149df83824f99a27cde17e1f20324dc6")

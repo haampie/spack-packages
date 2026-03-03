@@ -17,7 +17,6 @@ class Jdk(Package):
 
     homepage = "https://www.oracle.com/technetwork/java/javase/downloads/index.html"
 
-    maintainers("justintoo")
 
     version(
         "21.0.2",

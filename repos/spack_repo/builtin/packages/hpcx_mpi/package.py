@@ -14,7 +14,6 @@ class HpcxMpi(Package):
     This package is for external specs only."""
 
     homepage = "https://developer.nvidia.com/networking/hpc-x"
-    maintainers("mwkrentel")
 
     has_code = False
 

@@ -18,7 +18,6 @@ class Libuv(CMakePackage, AutotoolsPackage):
     list_url = "https://dist.libuv.org/dist"
     list_depth = 1
 
-    license("MIT")
 
     if sys.platform == "win32":
         version(

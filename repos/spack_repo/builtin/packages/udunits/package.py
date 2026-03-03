@@ -13,8 +13,6 @@ class Udunits(AutotoolsPackage):
     homepage = "https://www.unidata.ucar.edu/software/udunits"
     url = "https://downloads.unidata.ucar.edu/udunits/2.2.28/udunits-2.2.28.tar.gz"
 
-    maintainers("AlexanderRichert-NOAA")
-
 
     # Unidata now only provides the latest version of each X.Y branch.
     # Older 2.2 versions have been deprecated accordingly but are still

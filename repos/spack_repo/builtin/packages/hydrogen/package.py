@@ -34,9 +34,7 @@ class Hydrogen(CachedCMakePackage, CudaPackage, ROCmPackage):
     git = "https://github.com/LLNL/Elemental.git"
     tags = ["ecp", "radiuss"]
 
-    maintainers("bvanessen")
 
-    license("GPL-2.0-or-later")
 
     version("develop", branch="hydrogen")
     version("1.5.3", sha256="faefbe738bd364d0e26ce9ad079a11c93a18c6f075719a365fd4fa5f1f7a989a")

@@ -21,8 +21,6 @@ class Gmsh(CMakePackage):
     url = "https://gmsh.info/src/gmsh-4.4.1-source.tgz"
     git = "https://gitlab.onelab.info/gmsh/gmsh.git"
 
-    maintainers("fspiga")
-
 
     version("master", branch="master")
     version("4.13.1", sha256="77972145f431726026d50596a6a44fb3c1c95c21255218d66955806b86edbe8d")

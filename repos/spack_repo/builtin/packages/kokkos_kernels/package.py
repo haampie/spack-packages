@@ -19,9 +19,7 @@ class KokkosKernels(CMakePackage, CudaPackage):
 
     test_requires_compiler = True
 
-    maintainers("lucbv", "srajama1", "brian-kelley")
 
-    license("Apache-2.0 WITH LLVM-exception")
 
     version("develop", branch="develop")
 

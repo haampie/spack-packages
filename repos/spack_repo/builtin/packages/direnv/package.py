@@ -16,8 +16,6 @@ class Direnv(GoPackage):
     url = "https://github.com/direnv/direnv/archive/v2.11.3.tar.gz"
     git = "https://github.com/direnv/direnv.git"
 
-    maintainers("acastanedam", "alecbcs")
-
 
     # Versions (newest to oldest)
     version("master", branch="master")

@@ -19,7 +19,6 @@ class Fio(AutotoolsPackage):
     homepage = "https://github.com/axboe/fio"
     url = "https://github.com/axboe/fio/archive/fio-3.26.tar.gz"
 
-
     version("3.37", sha256="b59099d42d5c62a8171974e54466a688c8da6720bf74a7f16bf24fb0e51ff92d")
     version("3.36", sha256="b34b8f3c5cd074c09ea487ffe3f444e95565c214b34a73042f35b00cbaab0e17")
     version("3.34", sha256="42ea28c78d269c4cc111b7516213f4d4b32986797a710b0ff364232cc7a3a0b7")

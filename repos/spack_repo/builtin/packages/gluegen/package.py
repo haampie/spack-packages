@@ -16,7 +16,6 @@ class Gluegen(Package):
     homepage = "https://jogamp.org/gluegen/www/"
     git = "https://github.com/WadeWalker/gluegen.git"
 
-
     version("java-11-fixes", branch="java-11-fixes", submodules=True)
 
     depends_on("c", type="build")  # generated

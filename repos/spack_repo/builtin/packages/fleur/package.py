@@ -15,7 +15,6 @@ class Fleur(Package):
     homepage = "https://www.flapw.de/MaX-5.1"
     git = "https://iffgit.fz-juelich.de/fleur/fleur.git"
 
-
     version("develop", branch="develop")
     version("7.2", tag="MaX-R7.2", commit="447eed3b7ec3de5fcdfbd232cd1eda4caefb51d3")
     version("5.1", tag="MaX-R5.1", commit="a482abd9511b16412c2222e2ac1b1a303acd454b")

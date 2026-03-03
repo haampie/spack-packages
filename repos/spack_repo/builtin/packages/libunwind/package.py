@@ -15,11 +15,9 @@ class Libunwind(AutotoolsPackage):
     url = "https://github.com/libunwind/libunwind/releases/download/v1.8.2/libunwind-1.8.2.tar.gz"
     git = "https://github.com/libunwind/libunwind"
 
-    maintainers("mwkrentel")
 
     tags = ["e4s"]
 
-    license("MIT")
 
     version("master", branch="master")
     version("1.8-stable", branch="v1.8-stable")

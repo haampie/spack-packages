@@ -30,7 +30,6 @@ class Cutensor(Package):
 
     homepage = "https://developer.nvidia.com/cutensor"
 
-    maintainers("bvanessen")
     url = "cutensor"
 
     skip_version_audit = ["platform=darwin", "platform=windows"]

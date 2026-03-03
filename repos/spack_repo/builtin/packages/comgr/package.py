@@ -17,9 +17,7 @@ class Comgr(CMakePackage):
     git = "https://github.com/ROCm/llvm-project.git"
 
     tags = ["rocm"]
-    maintainers("srekolam", "renjithravindrankannath", "haampie", "afzpatel")
     libraries = ["libamd_comgr"]
-
     def url_for_version(self, version):
         if version <= Version("6.0.2"):
             url = "https://github.com/ROCm/ROCm-CompilerSupport/archive/rocm-{0}.tar.gz"

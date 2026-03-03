@@ -13,9 +13,7 @@ class KokkosFft(CMakePackage):
     homepage = "https://github.com/kokkos/kokkos-fft"
     url = "https://github.com/kokkos/kokkos-fft/archive/refs/tags/v0.3.0.tar.gz"
 
-    maintainers("cedricchevalier19", "tpadioleau", "yasahi-hpc")
 
-    license("Apache-2.0 WITH LLVM-exception OR MIT", checked_by="cedricchevalier19")
 
     version("1.0.0", sha256="626c8eec4bd0675a13ccbbffccde0984d8b9ded18809ca8223370b51a0bbfc82")
     version("0.4.0", sha256="c51d37b8c06d74bdb2af0fa4e1eae40104c23ae0dae17c795bce55dbda6ab0d6")

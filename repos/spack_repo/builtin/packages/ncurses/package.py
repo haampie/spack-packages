@@ -24,7 +24,6 @@ class Ncurses(AutotoolsPackage, GNUMirrorPackage):
 
     executables = [r"^ncursesw?(?:\d+(?:\.\d+)*)?-config$"]
 
-
     version(
         "6.5-20250705",
         sha256="73f6c22db6c3fcac562e7b35aebf7d4cbb253ea30ba2ee465ab84d7d1b5cefc1",

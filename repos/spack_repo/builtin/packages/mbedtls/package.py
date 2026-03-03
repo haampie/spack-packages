@@ -19,9 +19,7 @@ class Mbedtls(CMakePackage, MakefilePackage):
     homepage = "https://tls.mbed.org"
     url = "https://github.com/Mbed-TLS/mbedtls/releases/download/v3.6.0/mbedtls-3.6.0.tar.bz2"
 
-    maintainers("haampie")
 
-    license("Apache-2.0 OR GPL-2.0-or-later", checked_by="wdconinc")
 
     version("4.0.0", sha256="2f3a47f7b3a541ddef450e4867eeecb7ce2ef7776093f3a11d6d43ead6bf2827")
     version("3.6.2", sha256="8b54fb9bcf4d5a7078028e0520acddefb7900b3e66fec7f7175bb5b7d85ccdca")

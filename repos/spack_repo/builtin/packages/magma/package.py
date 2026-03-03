@@ -17,7 +17,6 @@ class Magma(CMakePackage, CudaPackage, ROCmPackage):
     homepage = "https://icl.utk.edu/magma/"
     git = "https://github.com/icl-utk-edu/magma"
     url = "https://icl.utk.edu/projectsfiles/magma/downloads/magma-2.2.0.tar.gz"
-    maintainers("luszczek", "G-Ragghianti")
 
     tags = ["e4s"]
 

@@ -13,9 +13,7 @@ class IntelPin(Package):
     dynamic program analysis tools."""
 
     homepage = "http://www.pintool.org"
-    maintainers("matthiasdiener")
 
-    license("MIT")
 
     version(
         "3.31",

@@ -18,7 +18,6 @@ class Hydra(AutotoolsPackage):
     list_url = "https://www.mpich.org/static/downloads/"
     list_depth = 1
 
-    license("AGPL-3.0-or-later")
 
     version("4.2.1", sha256="eb0f33f702aaf1ba54a4892a67b344cd815e0c51d1767327a675824490ab4b51")
     version("4.2.0", sha256="d7159353d9d0576effba632668a3e6defde2067530ac5db4bae0a85a23dfda5a")

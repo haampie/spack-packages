@@ -15,8 +15,6 @@ class Gnupg(AutotoolsPackage):
     homepage = "https://gnupg.org/index.html"
     url = "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.4.tar.bz2"
 
-    maintainers("alalazo")
-
 
     version("2.5.17", sha256="2c1fbe20e2958fd8fb53cf37d7c38e84a900edc0d561a1c4af4bc3a10888685d")
     version("2.4.9", sha256="dd17ab2e9a04fd79d39d853f599cbc852062ddb9ab52a4ddeb4176fd8b302964")

@@ -15,9 +15,7 @@ class Libunistring(AutotoolsPackage, GNUMirrorPackage):
     homepage = "https://www.gnu.org/software/libunistring/"
     gnu_mirror_path = "libunistring/libunistring-0.9.10.tar.xz"
     git = "https://git.savannah.gnu.org/git/libunistring.git"
-    maintainers("bernhardkaindl")
 
-    license("GPL-2.0-or-later OR LGPL-3.0-or-later")
 
     version("master", branch="master")
     version("1.4.1", sha256="67d88430892527861903788868c77802a217b0959990f7449f2976126a307763")

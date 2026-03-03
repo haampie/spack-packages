@@ -19,8 +19,6 @@ class Fish(CMakePackage):
     git = "https://github.com/fish-shell/fish-shell.git"
     list_url = homepage
 
-    maintainers("funnell", "adamjstewart")
-
 
     version("master", branch="master")
     version("4.2.0", sha256="6c43be5a9274963c06ba4cd55a109dfcc4d5d3a8054ed0e0a3666388581ec252")

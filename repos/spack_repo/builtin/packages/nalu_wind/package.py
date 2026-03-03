@@ -23,7 +23,6 @@ class NaluWind(CMakePackage, CudaPackage, ROCmPackage):
     git = "https://github.com/exawind/nalu-wind.git"
     url = "https://github.com/Exawind/nalu-wind/archive/refs/tags/v2.0.0.tar.gz"
 
-    maintainers("jrood-nrel")
 
     tags = ["ecp", "ecp-apps"]
     submodules = True

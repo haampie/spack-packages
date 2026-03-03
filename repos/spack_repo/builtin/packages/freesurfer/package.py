@@ -20,7 +20,6 @@ class Freesurfer(Package):
     license_required = True
     license_files = [".license"]
 
-    maintainers("robgics")
 
     version("7.4.1", sha256="313a96caeb246c5985f483633b5cf43f86ed8f7ccc6d6acfac8eedb638443010")
     version("7.4.0", sha256="6b65c2edf3b88973ced0324269a88966c541f221b799337c6570c38c2f884431")

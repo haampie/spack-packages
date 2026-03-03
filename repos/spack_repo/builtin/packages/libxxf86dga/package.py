@@ -14,9 +14,7 @@ class Libxxf86dga(AutotoolsPackage, XorgPackage):
     homepage = "https://gitlab.freedesktop.org/xorg/lib/libXxf86dga"
     xorg_mirror_path = "lib/libXxf86dga-1.1.4.tar.gz"
 
-    license("MIT")
 
-    maintainers("wdconinc")
 
     version("1.1.6", sha256="87c7482b1e29b4eeb415815641c4f69c00545a8138e1b73ff1f361f7d9c22ac4")
     version("1.1.5", sha256="715e2bf5caf6276f0858eb4b11a1aef1a26beeb40dce2942387339da395bef69")

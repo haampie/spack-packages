@@ -18,7 +18,6 @@ class UfsWeatherModel(CMakePackage):
     url = "https://github.com/ufs-community/ufs-weather-model/archive/refs/tags/ufs-v1.1.0.tar.gz"
     git = "https://github.com/ufs-community/ufs-weather-model.git"
 
-    maintainers("AlexanderRichert-NOAA")
 
     version("develop", branch="develop", submodules=True)
 

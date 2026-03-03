@@ -16,7 +16,6 @@ class Clara(CMakePackage, Package):
     homepage = "https://github.com/catchorg/Clara"
     url = "https://github.com/catchorg/Clara/archive/v1.1.5.tar.gz"
 
-    maintainers("bvanessen")
 
     build_system(
         conditional("generic", when="+single_header"),
@@ -25,7 +24,6 @@ class Clara(CMakePackage, Package):
     )
 
     variant("single_header", default=True, description="Install a single header only.")
-
 
     version("1.1.5", sha256="767dc1718e53678cbea00977adcd0a8a195802a505aec3c537664cf25a173142")
     version("1.1.4", sha256="ed3f9cc32e4ea6075c26caff63ee14a87e43dee1f3010c02bd041b9a0c86f72d")

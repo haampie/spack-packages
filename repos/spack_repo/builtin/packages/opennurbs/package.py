@@ -18,8 +18,6 @@ class Opennurbs(CMakePackage, MakefilePackage):
     homepage = "https://github.com/OpenNURBS/OpenNURBS"
     git = "https://github.com/OpenNURBS/OpenNURBS.git"
 
-    maintainers("jrood-nrel")
-
 
     version("develop", branch="develop")
     version(

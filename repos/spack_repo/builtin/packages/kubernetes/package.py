@@ -15,9 +15,7 @@ class Kubernetes(Package):
     homepage = "https://kubernetes.io"
     url = "https://github.com/kubernetes/kubernetes/archive/refs/tags/v1.32.2.tar.gz"
 
-    maintainers("alecbcs")
 
-    license("Apache-2.0")
 
     version("1.33.2", sha256="5588bb13437c0e6881f58ede88d200301c3d28b8ce124d58d3e7ed781d1d8d40")
     version("1.33.1", sha256="f89203e326de4c827a23ef9aa430d8a3133f62cfa1f5a894e8c85784f01bf055")

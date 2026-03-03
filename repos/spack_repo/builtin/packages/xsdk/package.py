@@ -85,7 +85,6 @@ class Xsdk(BundlePackage, CudaPackage, ROCmPackage):
     """
 
     homepage = "https://xsdk.info"
-    maintainers("balay", "luszczek", "balos1", "shuds13", "v-dobrev")
 
     version("1.1.0")
     version("1.0.0")

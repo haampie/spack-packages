@@ -17,9 +17,7 @@ class Libxau(AutotoolsPackage, MesonPackage, XorgPackage):
     homepage = "https://gitlab.freedesktop.org/xorg/lib/libXau/"
     xorg_mirror_path = "lib/libXau-1.0.8.tar.gz"
 
-    license("MIT")
 
-    maintainers("wdconinc")
 
     build_system("autotools", conditional("meson", when="@1.0.12:"), default="autotools")
 

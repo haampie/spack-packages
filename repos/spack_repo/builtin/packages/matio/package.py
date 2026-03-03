@@ -14,7 +14,6 @@ class Matio(AutotoolsPackage):
     git = "https://github.com/tbeu/matio"
     url = "https://github.com/tbeu/matio/releases/download/v1.5.9/matio-1.5.9.tar.gz"
 
-    license("BSD-2-Clause")
 
     version("1.5.26", sha256="8b47c29f58e468dba7a5555371c6a72ad4c6aa8b15f459b2b0b65a303c063933")
     version("1.5.17", sha256="5e455527d370ab297c4abe5a2ab4d599c93ac7c1a0c85d841cc5c22f8221c400")

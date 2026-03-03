@@ -37,7 +37,6 @@ class Conduit(CMakePackage):
     git = "https://github.com/LLNL/conduit.git"
     tags = ["radiuss", "e4s"]
 
-
     version("develop", branch="develop", submodules=True)
     # note: the main branch in conduit was renamed to develop, this next entry
     # is to bridge any spack dependencies that are still using the name master
@@ -72,7 +71,6 @@ class Conduit(CMakePackage):
     version("0.2.0", sha256="31eff8dbc654a4b235cfcbc326a319e1752728684296721535c7ca1c9b463061")
 
     maintainers("cyrush")
-
     root_cmakelists_dir = "src"
 
     ###########################################################################

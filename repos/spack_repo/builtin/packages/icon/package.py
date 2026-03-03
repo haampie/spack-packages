@@ -20,9 +20,7 @@ class Icon(AutotoolsPackage):
     git = "https://gitlab.dkrz.de/icon/icon-model.git"
     submodules = True
 
-    maintainers("skosukhin", "Try2Code")
 
-    license("BSD-3-Clause", checked_by="skosukhin")
 
     version(
         "2025.04", tag="icon-2025.04-public", commit="1be2ca66ea0de149971d2e77e88a9f11c764bd22"

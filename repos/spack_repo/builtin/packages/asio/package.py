@@ -15,8 +15,6 @@ class Asio(AutotoolsPackage):
     homepage = "https://think-async.com/Asio/"
     url = "https://github.com/chriskohlhoff/asio/archive/asio-1-18-2.tar.gz"
     git = "https://github.com/chriskohlhoff/asio.git"
-    maintainers("msimberg", "pauleonix")
-
 
     # As uneven minor versions of asio are not considered stable, they wont be added anymore
     version("1.36.0", sha256="0310a76b27e1854f09f696b30de57dc490b5e1b17faed1eb8c9a2891f956e52b")

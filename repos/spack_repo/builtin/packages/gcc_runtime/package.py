@@ -22,8 +22,6 @@ class GccRuntime(Package):
     # gcc-runtime versions are declared dynamically
     skip_version_audit = ["platform=linux", "platform=darwin", "platform=windows"]
 
-    maintainers("haampie")
-
 
     LIBRARIES = [
         "asan",

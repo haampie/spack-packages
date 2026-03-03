@@ -14,9 +14,7 @@ class Mdb(PythonPackage):
     homepage = "https://mdb.readthedocs.io/en/latest"
     pypi = "mdb_debugger/mdb_debugger-1.0.3.tar.gz"
 
-    maintainers("tommelt")
 
-    license("MIT", checked_by="tommelt")
 
     version("1.0.3", sha256="c45cffb320a51274519753b950b7b72cd91a8a5804941556120ed41bb8b491d8")
 

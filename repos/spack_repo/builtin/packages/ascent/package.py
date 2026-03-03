@@ -57,8 +57,6 @@ class Ascent(CMakePackage, CudaPackage, ROCmPackage):
     url = "https://github.com/Alpine-DAV/ascent/releases/download/v0.5.1/ascent-v0.5.1-src-with-blt.tar.gz"
     tags = ["radiuss", "e4s"]
 
-    maintainers("cyrush")
-
 
     version("develop", branch="develop", submodules=True)
 

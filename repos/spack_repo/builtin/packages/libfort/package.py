@@ -13,7 +13,6 @@ class Libfort(CMakePackage):
     homepage = "https://github.com/seleznevae/libfort"
     url = "https://github.com/seleznevae/libfort/archive/refs/tags/v0.4.2.tar.gz"
 
-    license("MIT")
 
     version("0.4.2", sha256="8f7b03f1aa526e50c9828f09490f3c844b73d5f9ca72493fe81931746f75e489")
 

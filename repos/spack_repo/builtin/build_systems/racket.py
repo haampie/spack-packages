@@ -35,7 +35,6 @@ class RacketPackage(PackageBase):
     """
 
     #: Package name, version, and extension on PyPI
-    maintainers("elfprince13")
     # To be used in UI queries that require to know which
     # build-system class we are using
     build_system_class = "RacketPackage"

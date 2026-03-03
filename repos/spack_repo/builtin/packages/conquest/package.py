@@ -16,8 +16,6 @@ class Conquest(MakefilePackage):
     git = "https://github.com/OrderN/CONQUEST-release/"
 
     # notify when the package is updated.
-    maintainers("davidbowler", "tkoskela", "ilectra")
-
 
     version("1.2", sha256="74d974f20ec15ff31d97cd42aae6dbe95288eedfa785896d5872b9ff44ee7ae2")
     version("1.1", sha256="772e058f073cccfee45521aa62bb13192ab07cb2979b6076ddbf21ba22f9ba5d")

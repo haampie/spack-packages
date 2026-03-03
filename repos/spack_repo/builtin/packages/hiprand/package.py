@@ -19,9 +19,7 @@ class Hiprand(CMakePackage, CudaPackage, ROCmPackage):
     git = "https://github.com/ROCm/rocm-libraries.git"
 
     tags = ["rocm"]
-    maintainers("cgmb", "srekolam", "renjithravindrankannath", "afzpatel")
     libraries = ["libhiprand"]
-    license("MIT")
 
     def url_for_version(self, version):
         if version <= Version("7.1.1"):

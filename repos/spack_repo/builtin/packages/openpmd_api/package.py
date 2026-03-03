@@ -14,10 +14,8 @@ class OpenpmdApi(CMakePackage):
     url = "https://github.com/openPMD/openPMD-api/archive/0.17.0.tar.gz"
     git = "https://github.com/openPMD/openPMD-api.git"
 
-    maintainers("ax3l", "franzpoeschel")
 
     tags = ["e4s"]
-
 
     # C++17 up until here
     version("develop", branch="dev")

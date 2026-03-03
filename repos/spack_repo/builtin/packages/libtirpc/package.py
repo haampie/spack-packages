@@ -13,7 +13,6 @@ class Libtirpc(AutotoolsPackage):
     homepage = "https://sourceforge.net/projects/libtirpc/"
     url = "https://sourceforge.net/projects/libtirpc/files/libtirpc/1.1.4/libtirpc-1.1.4.tar.bz2/download"
 
-    license("BSD-3-Clause")
 
     version("1.3.7", sha256="b47d3ac19d3549e54a05d0019a6c400674da716123858cfdb6d3bdd70a66c702")
     version("1.3.3", sha256="6474e98851d9f6f33871957ddee9714fdcd9d8a5ee9abb5a98d63ea2e60e12f3")

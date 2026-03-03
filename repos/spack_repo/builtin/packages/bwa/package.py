@@ -15,7 +15,6 @@ class Bwa(Package):
     homepage = "https://github.com/lh3/bwa"
     url = "https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2"
 
-
     version(
         "0.7.19",
         sha256="cdff5db67652c5b805a3df08c4e813a822c65791913eccfb3cf7d528588f37bc",

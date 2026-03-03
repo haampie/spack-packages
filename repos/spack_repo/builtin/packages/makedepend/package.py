@@ -14,7 +14,6 @@ class Makedepend(AutotoolsPackage, XorgPackage):
     homepage = "https://gitlab.freedesktop.org/xorg/util/makedepend"
     xorg_mirror_path = "util/makedepend-1.0.5.tar.gz"
 
-    license("MIT-open-group")
 
     version("1.0.9", sha256="bc94ffda6cd4671603a69c39dbe8f96b317707b9185b2aaa3b54b5d134b41884")
     version("1.0.8", sha256="275f0d2b196bfdc740aab9f02bb48cb7a97e4dfea011a7b468ed5648d0019e54")

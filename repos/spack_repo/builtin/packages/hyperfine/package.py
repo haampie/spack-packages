@@ -13,9 +13,7 @@ class Hyperfine(CargoPackage):
     homepage = "https://github.com/sharkdp/hyperfine"
     url = "https://github.com/sharkdp/hyperfine/archive/refs/tags/v1.12.0.tar.gz"
 
-    maintainers("michaelkuhn")
 
-    license("Apache-2.0 AND MIT")
 
     version("1.18.0", sha256="fea7b92922117ed04b9c84bb9998026264346768804f66baa40743c5528bed6b")
     version("1.17.0", sha256="3dcd86c12e96ab5808d5c9f3cec0fcc04192a87833ff009063c4a491d5487b58")

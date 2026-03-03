@@ -13,9 +13,7 @@ class Kyotocabinet(AutotoolsPackage):
     homepage = "https://dbmx.net/kyotocabinet/"
     url = "https://dbmx.net/kyotocabinet/pkg/kyotocabinet-1.2.80.tar.gz"
 
-    maintainers("EbiArnie")
 
-    license("GPL-3.0-or-later")
 
     version("1.2.80", sha256="4c85d736668d82920bfdbdb92ac3d66b7db1108f09581a769dd9160a02def349")
 

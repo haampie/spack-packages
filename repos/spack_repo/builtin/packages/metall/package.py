@@ -15,10 +15,8 @@ class Metall(CMakePackage):
     git = "https://github.com/LLNL/metall.git"
     url = "https://github.com/LLNL/metall/archive/refs/tags/v0.20.tar.gz"
 
-    maintainers("KIwabuchi", "rogerpearce", "mayagokhale")
 
     tags = ["e4s"]
-
 
     version("master", branch="master")
     version("develop", branch="develop")

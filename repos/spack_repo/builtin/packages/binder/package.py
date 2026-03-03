@@ -20,8 +20,6 @@ class Binder(CMakePackage):
     homepage = "https://github.com/RosettaCommons/binder"
     git = "https://github.com/RosettaCommons/binder.git"
 
-    maintainers("lyskov", "kliegeois")
-
 
     version("master", branch="master")
     version("1.4.2", tag="v1.4.2", commit="b9f309e0513e745a7465571321e87595fa33d195")

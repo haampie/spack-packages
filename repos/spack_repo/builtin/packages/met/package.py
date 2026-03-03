@@ -18,7 +18,6 @@ class Met(AutotoolsPackage):
     url = "https://github.com/dtcenter/MET/archive/refs/tags/v11.0.1.tar.gz"
     git = "https://github.com/dtcenter/MET"
 
-    maintainers("AlexanderRichert-NOAA", "climbfuji")
 
     version("develop", branch="develop")
     version("12.1.1", sha256="da242378932f3057a06cf96e53dcdf74612197f70753e4be32c6390c63056031")

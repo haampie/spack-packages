@@ -71,7 +71,6 @@ class DavSdk(BundlePackage, CudaPackage, ROCmPackage):
     homepage = "https://dav-sdk.github.io/"
 
     tags = ["peso", "oasis", "sdk"]
-    maintainers("kwryankrattiger", "vicentebolea")
 
     version("1.0")
 

@@ -17,9 +17,7 @@ class Latex2html(AutotoolsPackage):
     url = "https://github.com/latex2html/latex2html/archive/refs/tags/v2024.tar.gz"
     git = "https://github.com/latex2html/latex2html.git"
 
-    maintainers("cessenat")
 
-    license("GPL-2.0-only")
 
     version("master", branch="master")
     version("2024.2", sha256="d99c5963d802edf1516a6301a5275edd54014bea2ca924f8752aacab0cdd23fd")

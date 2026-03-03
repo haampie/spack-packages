@@ -14,8 +14,6 @@ class Conmon(MakefilePackage):
     url = "https://github.com/containers/conmon/archive/v2.0.30.tar.gz"
     git = "https://github.com/containers/conmon.git"
 
-    maintainers("bernhardkaindl")
-
 
     sanity_check_is_file = ["bin/conmon"]
 

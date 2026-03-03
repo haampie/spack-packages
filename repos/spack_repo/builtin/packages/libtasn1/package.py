@@ -14,7 +14,6 @@ class Libtasn1(Package, GNUMirrorPackage):
     homepage = "https://www.gnu.org/software/libtasn1/"
     gnu_mirror_path = "libtasn1/libtasn1-4.13.tar.gz"
 
-    license("LGPL-2.1-or-later")
 
     version("4.21.0", sha256="1d8a444a223cc5464240777346e125de51d8e6abf0b8bac742ac84609167dc87")
     version("4.19.0", sha256="1613f0ac1cf484d6ec0ce3b8c06d56263cc7242f1c23b30d82d23de345a63f7a")

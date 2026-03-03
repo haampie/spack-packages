@@ -12,9 +12,7 @@ class Libassuan(AutotoolsPackage):
     homepage = "https://gnupg.org/software/libassuan/index.html"
     url = "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.4.5.tar.bz2"
 
-    maintainers("alalazo")
 
-    license("LGPL-2.1-or-later")
 
     version("3.0.2", sha256="d2931cdad266e633510f9970e1a2f346055e351bb19f9b78912475b8074c36f6")
     version("3.0.1", sha256="c8f0f42e6103dea4b1a6a483cb556654e97302c7465308f58363778f95f194b1")

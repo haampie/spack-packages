@@ -14,7 +14,6 @@ class Cvector(MakefilePackage):
 
     homepage = "https://cvector.sourceforge.net/"
 
-
     version("1.0.3.1", sha256="6492b2beb26c3179cdd19abc90dc47a685be471c594d5ab664283e1d3586acdc")
 
     depends_on("c", type="build")  # generated

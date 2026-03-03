@@ -19,11 +19,9 @@ class Libfabric(AutotoolsPackage, CudaPackage, ROCmPackage):
     homepage = "https://libfabric.org/"
     url = "https://github.com/ofiwg/libfabric/releases/download/v1.8.0/libfabric-1.8.0.tar.bz2"
     git = "https://github.com/ofiwg/libfabric.git"
-    maintainers("rajachan", "msimberg", "darrylabbate")
 
     executables = ["^fi_info$"]
 
-    license("BSD-2-Clause OR GPL-2.0-only")
 
     version("main", branch="main")
     version("2.4.0", sha256="13f508e1d770c44f872c4117d9bcbfc102dc9d7532d3292455e0e0e5ef7b3bba")

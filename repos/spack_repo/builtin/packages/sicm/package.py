@@ -15,7 +15,6 @@ class Sicm(CMakePackage):
 
     tags = ["e4s"]
 
-
     version("master")
 
     depends_on("c", type="build")  # generated

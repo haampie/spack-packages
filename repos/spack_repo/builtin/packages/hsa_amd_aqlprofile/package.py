@@ -16,7 +16,6 @@ class HsaAmdAqlprofile(CMakePackage):
     homepage = "https://github.com/ROCm/aqlprofile"
     git = "https://github.com/ROCm/rocm-systems"
     tags = ["rocm"]
-    maintainers("srekolam", "renjithravindrankannath", "afzpatel")
 
     def url_for_version(self, version):
         if version <= Version("7.1.1"):

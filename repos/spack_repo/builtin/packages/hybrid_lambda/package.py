@@ -23,7 +23,6 @@ class HybridLambda(AutotoolsPackage):
     homepage = "https://github.com/hybridLambda/hybrid-Lambda"
     git = "https://github.com/hybridLambda/hybrid-Lambda.git"
 
-    license("GPL-3.0-only")
 
     version("develop", submodules=True)
 

@@ -16,7 +16,6 @@ class Butter(Package):
     homepage = "https://github.com/MikeAxtell/butter"
     url = "https://github.com/MikeAxtell/butter/archive/v0.3.3.tar.gz"
 
-
     version("0.3.3", sha256="862cbe06d51fdefca18e5fe4cfa8e4df6ce92686ccbc389affe05b199ea9243b")
 
     depends_on("perl", type=("build", "run"))

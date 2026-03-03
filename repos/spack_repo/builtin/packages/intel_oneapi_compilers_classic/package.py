@@ -18,7 +18,6 @@ class IntelOneapiCompilersClassic(Package, CompilerPackage):
 
     """
 
-    maintainers("rscohn2")
 
     homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html"
 

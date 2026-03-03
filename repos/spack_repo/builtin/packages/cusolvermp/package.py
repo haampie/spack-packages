@@ -42,10 +42,8 @@ class Cusolvermp(Package, CudaPackage):
     homepage = "https://docs.nvidia.com/cuda/cusolvermp/"
     url = "https://developer.download.nvidia.com/compute/cusolvermp/redist/libcusolvermp"
 
-    maintainers("albestro")
 
     # https://docs.nvidia.com/cuda/cusolvermp/license.html
-
     for ver, packages in _versions.items():
         package = packages.get(f"{platform.system()}-{platform.machine()}")
         if package:

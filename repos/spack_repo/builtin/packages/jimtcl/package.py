@@ -13,7 +13,6 @@ class Jimtcl(AutotoolsPackage):
     homepage = "http://jim.tcl.tk/"
     url = "https://github.com/msteveb/jimtcl/archive/0.79.tar.gz"
 
-    license("BSD-2-Clause")
 
     version("0.83", sha256="6f2df00009f5ac4ad654c1ae1d2f8ed18191de38d1f5a88a54ea99cc16936686")
     version("0.82", sha256="e8af929b815e4d30e54ff116b2b933e56c00a02b9110529d1a58660b2469aea7")

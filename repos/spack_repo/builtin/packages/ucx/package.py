@@ -17,8 +17,6 @@ class Ucx(AutotoolsPackage, CudaPackage):
     url = "https://github.com/openucx/ucx/releases/download/v1.3.1/ucx-1.3.1.tar.gz"
     git = "https://github.com/openucx/ucx.git"
 
-    maintainers("hppritcha")
-
 
     version("master", branch="master", submodules=True)
 

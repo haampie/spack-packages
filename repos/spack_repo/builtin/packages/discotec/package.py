@@ -15,8 +15,6 @@ class Discotec(CMakePackage):
     url = "https://github.com/SGpp/DisCoTec"
     git = "https://github.com/SGpp/DisCoTec"
 
-    maintainers("freifrauvonbleifrei", "pfluegdk")
-
 
     version("main", branch="main")
 

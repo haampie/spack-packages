@@ -13,8 +13,6 @@ class Typos(CargoPackage):
     homepage = "https://github.com/crate-ci/typos"
     url = "https://github.com/crate-ci/typos/archive/refs/tags/v1.28.4.tar.gz"
 
-    maintainers("alecbcs")
-
 
     version("1.40.0", sha256="f8317b77e124f0201a47289a1d3e7a196e93cdbec3df9a0fc82d10c934c0ca85")
     version("1.38.1", sha256="f7e83dfecba57d778c916bd3d554129fd6d79e0fa781f605e83c7dd89e30711d")

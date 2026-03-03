@@ -16,9 +16,7 @@ class Zpp(PythonPackage):
     homepage = "https://github.com/jbigot/zpp"
     pypi = "zpp/zpp-1.0.16.tar.gz"
 
-
     maintainers("jbigot")
-
     version("1.1.0", sha256="4cd07ef18df5d44798e213aaaf17af78449739b01c0bf41e046c95b8a1aad6bd")
     version("1.0.16", sha256="3238d27b4158edabb09ee6d82ba6331540950cb4dcdcf4978f19370b4e384241")
     version("1.0.15", sha256="33d49280ca0d8e5221faa4c694949647146d15f16dacc09c36f20e7c34831135")

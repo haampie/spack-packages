@@ -32,8 +32,6 @@ class Cublasmp(Package, CudaPackage):
     homepage = "https://docs.nvidia.com/cuda/cublasmp/"
     url = "https://developer.download.nvidia.com/compute/cublasmp/redist/libcublasmp/"
 
-    maintainers("albestro")
-
 
     for ver, packages in _versions.items():
         package = packages.get(f"{platform.system()}-{platform.machine()}")

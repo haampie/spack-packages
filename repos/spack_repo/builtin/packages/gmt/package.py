@@ -20,8 +20,6 @@ class Gmt(CMakePackage, AutotoolsPackage):
     url = "https://github.com/GenericMappingTools/gmt/archive/6.1.0.tar.gz"
     git = "https://github.com/GenericMappingTools/gmt.git"
 
-    maintainers("adamjstewart")
-
 
     version("master", branch="master")
     version("6.4.0", sha256="c39d23dbc8a85416457946f6b93c2b9a5f039f092453e7f4b1aaf88d4a288300")

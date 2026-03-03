@@ -15,9 +15,7 @@ class Libbeef(AutotoolsPackage):
     homepage = "https://github.com/vossjo/libbeef"
     git = "https://github.com/vossjo/libbeef.git"
 
-    maintainers("nolta")
 
-    license("LGPL-3.0-or-later", checked_by="nolta")
 
     version("0.1.3", commit="535ea67327baa8368ec5c502392a212375b16187")
 

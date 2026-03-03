@@ -14,9 +14,7 @@ class Hpddm(Package):
     url = "https://github.com/hpddm/hpddm"
     git = "https://github.com/hpddm/hpddm.git"
 
-    maintainers("corentin-dev")
 
-    license("LGPL-3.0-or-later")
 
     version("main", branch="main")
 

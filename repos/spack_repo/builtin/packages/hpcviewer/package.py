@@ -22,7 +22,6 @@ class Hpcviewer(Package):
     """
 
     homepage = "https://hpctoolkit.org"
-    maintainers("mwkrentel")
 
     skip_version_audit = ["platform=windows"]
 

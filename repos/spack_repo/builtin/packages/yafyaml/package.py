@@ -25,8 +25,6 @@ class Yafyaml(CMakePackage):
     list_url = "https://github.com/Goddard-Fortran-Ecosystem/yaFyaml/tags"
     git = "https://github.com/Goddard-Fortran-Ecosystem/yaFyaml.git"
 
-    maintainers("mathomp4", "tclune")
-
 
     version("main", branch="main")
 

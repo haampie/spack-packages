@@ -24,8 +24,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     list_depth = 1
     keep_werror = "all"
 
-    maintainers("michaelkuhn", "alalazo")
-
 
     provides("c", "cxx", when="languages=c,c++")
     provides("c", when="languages=c")

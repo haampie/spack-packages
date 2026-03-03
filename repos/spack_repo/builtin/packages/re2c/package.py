@@ -15,7 +15,6 @@ class Re2c(AutotoolsPackage, CMakePackage):
     url = "https://github.com/skvadrik/re2c/releases/download/1.2.1/re2c-1.2.1.tar.xz"
     tags = ["windows"]
 
-
     version("4.4", sha256="6b6b865924447ef992d5db4e52fb9307e5f65f26edd43efa91395da810f4280a")
     version("3.1", sha256="0ac299ad359e3f512b06a99397d025cfff81d3be34464ded0656f8a96676c029")
     version("3.0", sha256="b3babbbb1461e13fe22c630a40c43885efcfbbbb585830c6f4c0d791cf82ba0b")

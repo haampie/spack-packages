@@ -18,9 +18,7 @@ class Jsonnet(MakefilePackage, CMakePackage):
     git = "https://github.com/google/jsonnet.git"
     url = "https://github.com/google/jsonnet/archive/refs/tags/v0.18.0.tar.gz"
 
-    maintainers("greenc-FNAL", "gartung", "jcpunk", "marcmengel", "marcpaterno")
 
-    license("Apache-2.0")
 
     version("master", branch="master")
     version("0.21.0", sha256="a12ebca72e43e7061ffe4ef910e572b95edd7778a543d6bf85f6355bd290300e")

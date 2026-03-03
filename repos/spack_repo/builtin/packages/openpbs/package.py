@@ -17,7 +17,6 @@ class Openpbs(AutotoolsPackage):
     homepage = "https://www.openpbs.org"
     url = "https://github.com/openpbs/openpbs/archive/v19.1.3.tar.gz"
 
-
     version("20.0.1", sha256="685a4abcea92bf518df02b544d25e237ae8cef76f86525f7bf3554812e9f50fa")
 
     depends_on("c", type="build")  # generated

@@ -14,7 +14,6 @@ class JsonFortran(CMakePackage):
     url = "https://github.com/jacobwilliams/json-fortran/archive/8.3.0.tar.gz"
     git = "https://github.com/jacobwilliams"
 
-    license("BSD-3-Clause")
 
     version("master", branch="master")
     version("8.3.0", sha256="5fe9ad709a726416cec986886503e0526419742e288c4e43f63c1c22026d1e8a")

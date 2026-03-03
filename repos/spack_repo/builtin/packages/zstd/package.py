@@ -19,8 +19,6 @@ class Zstd(CMakePackage, MakefilePackage):
     url = "https://github.com/facebook/zstd/archive/v1.4.3.tar.gz"
     git = "https://github.com/facebook/zstd.git"
 
-    maintainers("haampie")
-
 
     version("develop", branch="dev")
     version("1.5.7", sha256="37d7284556b20954e56e1ca85b80226768902e2edabd3b649e9e72c0c9012ee3")

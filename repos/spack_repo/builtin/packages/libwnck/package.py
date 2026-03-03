@@ -21,7 +21,6 @@ class Libwnck(MesonPackage, AutotoolsPackage):
         filename = f"libwnck-{version.up_to(3)}.tar.xz"
         return f"{base}/{dirname}/{filename}"
 
-    license("GPLv2", checked_by="teaguesterling")
 
     version("43.2", sha256="55a7444ec1fbb95c086d40967388f231b5c0bbc8cffaa086bf9290ae449e51d5")
     version("43.0", sha256="905bcdb85847d6b8f8861e56b30cd6dc61eae67ecef4cd994a9f925a26a2c1fe")

@@ -16,7 +16,6 @@ class Libepoxy(AutotoolsPackage, MesonPackage):
     homepage = "https://github.com/anholt/libepoxy"
     url = "https://github.com/anholt/libepoxy/archive/refs/tags/1.5.9.tar.gz"
 
-    license("MIT")
 
     build_system(
         conditional("autotools", when="@:1.5.4"),

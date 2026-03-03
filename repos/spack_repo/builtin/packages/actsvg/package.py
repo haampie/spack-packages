@@ -17,8 +17,6 @@ class Actsvg(CMakePackage):
     list_url = "https://github.com/acts-project/actsvg/tags"
     git = "https://github.com/acts-project/actsvg.git"
 
-    maintainers("wdconinc", "stephenswat")
-
 
     version("0.4.57", sha256="9bdfd8cc5169a6ba76bcb94cf2c551ed6b085100f141538f300aa205de953625")
     version("0.4.56", sha256="a850007036e992a2573e01bc32ee203bb3c146d124ec1135922272ba6a62008e")

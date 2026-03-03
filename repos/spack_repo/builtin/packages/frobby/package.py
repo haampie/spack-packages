@@ -20,8 +20,6 @@ class Frobby(MakefilePackage):
     url = "https://github.com/Macaulay2/frobby/releases/download/v0.9.7/frobby_v0.9.7.tar.gz"
     git = "https://github.com/Macaulay2/frobby"
 
-    maintainers("d-torrance")
-
 
     version("0.9.7", sha256="efd0a825b67731aa5fb4ea8d2e1004830cc11685be3e09f5401612c411214a96")
     version("0.9.5", tag="v0.9.5", commit="cbda56e8bb0d706f8cd7e6594a8a034797f53eb5")

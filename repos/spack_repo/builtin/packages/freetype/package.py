@@ -18,8 +18,6 @@ class Freetype(AutotoolsPackage, CMakePackage):
     url = "https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz"
     list_url = "https://download.savannah.gnu.org/releases/freetype/freetype-old/"
 
-    maintainers("michaelkuhn")
-
 
     version("2.14.1", sha256="174d9e53402e1bf9ec7277e22ec199ba3e55a6be2c0740cb18c0ee9850fc8c34")
     version("2.14.0", sha256="73819bbf34c84f18b89ebbd35107d3ae92c604ff7336cd09ff1452930c2dcb9c")

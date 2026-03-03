@@ -14,7 +14,6 @@ class Cmark(CMakePackage):
     homepage = "https://commonmark.org/"
     url = "https://github.com/commonmark/cmark/archive/0.29.0.tar.gz"
 
-
     version("0.31.1", sha256="3da93db5469c30588cfeb283d9d62edfc6ded9eb0edc10a4f5bbfb7d722ea802")
     version("0.31.0", sha256="bbcb8f8c03b5af33fcfcf11a74e9499f20a9043200b8552f78a6e8ba76e04d11")
     version("0.29.0", sha256="2558ace3cbeff85610de3bda32858f722b359acdadf0c4691851865bb84924a6")

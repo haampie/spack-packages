@@ -13,8 +13,6 @@ class Gfal2(CMakePackage):
     homepage = "https://dmc-docs.web.cern.ch/dmc-docs/"
     url = "https://github.com/cern-fts/gfal2/archive/refs/tags/v2.23.0.tar.gz"
 
-    maintainers("wdconinc")
-
 
     version("2.23.0", sha256="e3fc9c2ccb2f54b1d0d460545e1b6c581470d2a2968928a8973045089892e509")
 

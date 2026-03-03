@@ -13,7 +13,6 @@ class Log4c(AutotoolsPackage):
     homepage = "https://log4c.sourceforge.net/"
     url = "https://downloads.sourceforge.net/project/log4c/log4c/1.2.4/log4c-1.2.4.tar.gz"
 
-    license("LGPL-2.1-or-later")
 
     version("1.2.4", sha256="5991020192f52cc40fa852fbf6bbf5bd5db5d5d00aa9905c67f6f0eadeed48ea")
 

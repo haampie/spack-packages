@@ -40,17 +40,7 @@ class ScitokensCpp(CMakePackage):
         description="Use the specified C++ standard when building",
     )
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@2.6:", type="build")
-    depends_on("cmake@3.10:", type="build", when="@0.7.1:")
-    depends_on("openssl")
-    depends_on("sqlite")
-    depends_on("curl")
-    depends_on("jwt-cpp", type="build")
-    depends_on("jwt-cpp@0.7:", type="build", when="@master")
-    depends_on("pkgconfig", type="build")
-    depends_on("uuid", type="build")
 
     # Some jwt-cpp releases introduce breaking API changes
     conflicts("^jwt-cpp@0.5:", when="@:0.7")

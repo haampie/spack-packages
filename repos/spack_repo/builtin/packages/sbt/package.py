@@ -22,7 +22,6 @@ class Sbt(Package):
     version("1.1.4", sha256="2fbd592b1cfd7bc3612154a32925d5843b602490e8c8977a53fa86b35e308341")
     version("0.13.17", sha256="25f782ccb2ad6d54e13ce6cec0afa3d2328874c508d68ee34e2f742e99f2c847")
 
-    depends_on("java")
 
     def install(self, spec, prefix):
         install_tree("bin", prefix.bin)

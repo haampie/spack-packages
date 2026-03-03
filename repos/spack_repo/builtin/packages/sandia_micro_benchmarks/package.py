@@ -22,8 +22,6 @@ class SandiaMicroBenchmarks(MakefilePackage):
 
     variant(name="shmem", default=False, description="Build the SHMEM benchmark.")
 
-    depends_on("mpi")
-    depends_on("sos", when="+shmem")
 
     @property
     def build_targets(self):

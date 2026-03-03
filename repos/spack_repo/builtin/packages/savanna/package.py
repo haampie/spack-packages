@@ -20,11 +20,6 @@ class Savanna(MakefilePackage):
 
     variant("tau", default=False, description="Enable TAU profiling support")
 
-    depends_on("mpi")
-    depends_on("stc")
-    depends_on("adios +fortran +zlib +sz +zfp staging=dataspaces")  # flexpath
-    depends_on("mpix-launch-swift")
-    depends_on("tau", when="+tau")
 
     def install(self, spec, prefix):
         install_tree(".", prefix)

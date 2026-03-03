@@ -40,22 +40,11 @@ class Sarus(CMakePackage):
         "(including libcrypt) to be available on the system",
     )
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("expat", type="build")
-    depends_on("squashfs", type=("build", "run"))
-    depends_on("boost@1.65.0: cxxstd=11 +program_options")
-    depends_on("cpprestsdk@2.10.0:")
-    depends_on("libarchive@3.4.1:")
-    depends_on("rapidjson@1.2.0-2021-08-13", type="build")
-    depends_on("runc")
-    depends_on("tini")
 
     # autoconf is required to build Dropbear for the SSH hook
-    depends_on("autoconf", type="build")
 
     # Python 3 is used to run integration tests
-    depends_on("python@3:", type="test", when="@develop")
 
     def cmake_args(self):
         spec = self.spec

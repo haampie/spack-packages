@@ -31,19 +31,7 @@ class ScineUtilities(CMakePackage):
 
     variant("python", default=False, description="Build Python extension module")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("boost+system+filesystem+program_options cxxstd=17 @1.65.0:")
-    depends_on("eigen@3:")
-    depends_on("googletest", type="build")
-    depends_on("lbfgspp", type="build")
-    depends_on("python@3.6:", when="+python", type=("build", "run"))
-    depends_on("py-numpy", when="+python", type=("build", "run"))
-    depends_on("py-pip", when="+python", type="build")
-    depends_on("py-pybind11@2.6.2:", when="+python", type="build")
-    depends_on("py-scipy", when="+python", type=("build", "run"))
-    depends_on("scine-core")
-    depends_on("yaml-cpp")
 
     extends("python", when="+python")
 

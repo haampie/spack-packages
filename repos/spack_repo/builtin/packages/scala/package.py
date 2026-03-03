@@ -33,7 +33,6 @@ class Scala(Package):
     version("2.11.11", sha256="12037ca64c68468e717e950f47fc77d5ceae5e74e3bdca56f6d02fd5bfd6900b")
     version("2.10.6", sha256="54adf583dae6734d66328cafa26d9fa03b8c4cf607e27b9f3915f96e9bcd2d67")
 
-    depends_on("java")
 
     def install(self, spec, prefix):
         def install_dir(dirname):

@@ -63,8 +63,6 @@ class Scorep(AutotoolsPackage):
     # two components of cube -- cubew and cubelib.
 
     # Language dependencies
-    depends_on("c", type=("build", "run"))
-    depends_on("cxx", type=("build", "run"))
     depends_on("fortran", type=("build", "run"), when="+fortran")
 
     # SCOREP 9

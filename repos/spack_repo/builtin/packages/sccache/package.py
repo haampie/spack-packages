@@ -36,11 +36,7 @@ class Sccache(CargoPackage):
         when="platform=linux",
     )
 
-    depends_on("c", type="build")
-    depends_on("rust@1.75:", type="build", when="@0.8.2:")
-    depends_on("pkgconfig", type="build", when="platform=linux")
 
-    depends_on("openssl", when="platform=linux")
 
     @classmethod
     def determine_version(cls, exe):

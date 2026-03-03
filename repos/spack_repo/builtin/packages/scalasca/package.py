@@ -26,22 +26,13 @@ class Scalasca(AutotoolsPackage):
     version("2.5", sha256="7dfa01e383bfb8a4fd3771c9ea98ff43772e415009d9f3c5f63b9e05f2dde0f6")
     version("2.4", sha256="4a895868258030f700a635eac93d36764f60c8c63673c7db419ea4bcc6b0b760")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("mpi")
 
     # version 2.6.1+
-    depends_on("scorep@8:", when="@2.6.1:", type=("run"))
-    depends_on("otf2@3:", when="@2.6.1:")
-    depends_on("cubew@4.8:", when="@2.6.1:")
 
     # version 2.4 - 2.6.0
-    depends_on("cubew@4.4:4.7", when="@2.4:2.6.0")
-    depends_on("scorep@6.0:7", when="@2.4:2.6.0", type=("run"))
 
     # version 2.3 - 2.6.0
-    depends_on("otf2@2:2.99", when="@2.3:2.6.0")
 
     def url_for_version(self, version):
         return "http://apps.fz-juelich.de/scalasca/releases/scalasca/{0}/dist/scalasca-{1}.tar.gz".format(

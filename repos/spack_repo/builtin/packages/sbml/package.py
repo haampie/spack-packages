@@ -33,39 +33,24 @@ class Sbml(CMakePackage):
         return url
 
     variant("python", default=False, description="Build with python support")
-    depends_on("python", when="+python")
 
     variant("perl", default=False, description="Build with perl support")
-    depends_on("perl", when="+perl")
 
     variant("ruby", default=False, description="Build with ruby support")
-    depends_on("ruby", when="+ruby")
 
     variant("r", default=False, description="Build with R support")
-    depends_on("r", when="+r")
 
     variant("octave", default=False, description="Build with octave support")
-    depends_on("octave", when="+octave")
 
     variant("matlab", default=False, description="Build with matlab support")
-    depends_on("matlab", when="+matlab")
 
     variant("java", default=False, description="Build with java support")
-    depends_on("java", when="+java")
 
     variant("mono", default=False, description="Build with mono support")
-    depends_on("mono", when="+mono")
 
     variant("cpp", default=False, description="All c++ includes should be under a namespace")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("swig@2:", type="build")
-    depends_on("cmake", type="build")
-    depends_on("zlib-api")
-    depends_on("bzip2")
-    depends_on("libxml2")
 
     def cmake_args(self):
         spec = self.spec

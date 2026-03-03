@@ -35,16 +35,9 @@ class Scnlib(CMakePackage):
         when="regex-backend=Boost",
     )
 
-    depends_on("cxx", type="build")
-    depends_on("cmake@3.16:", type="build")
 
-    depends_on("fast-float@5:6")
 
-    depends_on("boost +regex cxxstd=17", when="regex-backend=Boost")
-    depends_on("boost +icu", when="+icu")
 
-    depends_on("googletest cxxstd=17", type="test")
-    depends_on("python@3:", type="test")
 
     def cmake_args(self):
         args = [

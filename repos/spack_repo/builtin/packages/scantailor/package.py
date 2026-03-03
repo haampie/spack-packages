@@ -21,17 +21,8 @@ class Scantailor(CMakePackage):
 
     version("0.2.7", sha256="3e27647621d43638888a268902f8fa098b06a70a5da5d0623b1c11220a367910")
 
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("qt@5:")
-    depends_on("libjpeg")
-    depends_on("zlib-api")
-    depends_on("libpng")
-    depends_on("libtiff")
-    depends_on("boost@1.35:")
 
     # TODO: replace this with an explicit list of components of Boost,
     # for instance depends_on('boost +filesystem')
     # See https://github.com/spack/spack/pull/22303 for reference
-    depends_on(Boost.with_default_variants)
-    depends_on("libxrender")

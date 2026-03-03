@@ -41,18 +41,7 @@ class Samurai(CMakePackage):
     variant("check_nan", default=False, description="Check for Nan in computations")
 
     # optional dependency for a future release
-    depends_on("xtensor@0.26:", when="@0.27.1:")
-    depends_on("xtensor@0.25", when="@0.23:0.27.0")
-    depends_on("highfive@3", when="@0.27.1:")
-    depends_on("highfive@2", when="@0.21:0.27.0")
-    depends_on("pugixml")
-    depends_on("fmt")
-    depends_on("cli11")
-    depends_on("petsc")
 
-    depends_on("petsc +mpi", when="+mpi")
-    depends_on("highfive +mpi", when="+mpi")
-    depends_on("boost +serialization +mpi", when="+mpi")
 
     def setup_dependent_build_environment(
         self, env: EnvironmentModifications, dependent_spec: Spec

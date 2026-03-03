@@ -37,23 +37,13 @@ class ScineQcmaquis(CMakePackage):
 
     root_cmakelists_dir = "dmrg"
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
-    depends_on("hdf5~mpi")
-    depends_on("lapack")
-    depends_on("blas")
 
     requires("^openblas +ilp64 threads=openmp", when="^[virtuals=blas,lapack] openblas")
     requires(
         "^intel-oneapi-mkl +ilp64 threads=openmp", when="^[virtuals=blas,lapack] intel-oneapi-mkl"
     )
 
-    depends_on("gsl")
-    depends_on("boost+program_options+filesystem+system+thread+serialization+chrono @1.56:")
-    depends_on("googletest+gmock", when="+build_tests")
 
-    depends_on("globalarrays", when="+openmolcas")
 
     patch("cmake_molcas_interface.patch")
 

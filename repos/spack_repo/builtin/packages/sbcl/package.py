@@ -35,9 +35,6 @@ class Sbcl(MakefilePackage):
     version("master", branch="master")
     version("2.4.8", sha256="fc6ecdcc538e80a14a998d530ccc384a41790f4f4fc6cd7ffe8cb126a677694c")
 
-    depends_on("c", type="build")
-    depends_on("sbcl-bootstrap", type="build")
-    depends_on("zstd", when="platform=darwin")
 
     variant(
         "fancy", default=True, description="Enable extra features like compression and threading."

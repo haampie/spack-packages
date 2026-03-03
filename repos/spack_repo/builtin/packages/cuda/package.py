@@ -26,34 +26,6 @@ _versions = {
         "Linux-x86_64": (
             "24ff323723722781436804b392a48f691cb40de9808095d3e2192d0db6dfb8e4",
             "https://developer.download.nvidia.com/compute/cuda/13.1.1/local_installers/cuda_13.1.1_590.48.01_linux.run",
-        ),
-    },
-    "13.1.0": {
-        "Linux-aarch64": (
-            "06cda49a7031b1c99f784237be5c852619379cbba9555036045044b9ddc99240",
-            "https://developer.download.nvidia.com/compute/cuda/13.1.0/local_installers/cuda_13.1.0_590.44.01_linux_sbsa.run",
-        ),
-        "Linux-x86_64": (
-            "6b4fdf2694b3d7afbc526f26412b4cf4f050b202324455053307310f53b323a7",
-            "https://developer.download.nvidia.com/compute/cuda/13.1.0/local_installers/cuda_13.1.0_590.44.01_linux.run",
-        ),
-    },
-    "13.0.2": {
-        "Linux-aarch64": (
-            "93ab4c77ae2bc0f1f600ef48ccd3ff25a3203a6a6161a84511a33cbf5b5621fc",
-            "https://developer.download.nvidia.com/compute/cuda/13.0.2/local_installers/cuda_13.0.2_580.95.05_linux_sbsa.run",
-        ),
-        "Linux-x86_64": (
-            "81a5d0d0870ba2022efb0a531dcc60adbdc2bbff7b3ef19d6fd6d8105406c775",
-            "https://developer.download.nvidia.com/compute/cuda/13.0.2/local_installers/cuda_13.0.2_580.95.05_linux.run",
-        ),
-    },
-    "13.0.1": {
-        "Linux-aarch64": (
-            "927e2c2a6a3e0d12e7e93df10dad6d8f3c688b9e27e9d2034f82d437ec2d2666",
-            "https://developer.download.nvidia.com/compute/cuda/13.0.1/local_installers/cuda_13.0.1_580.82.07_linux_sbsa.run",
-        ),
-        "Linux-x86_64": (
             "4c7ac59d1f41d67be27d140a4622801738ad71088570a0facfd6ec878a4c4100",
             "https://developer.download.nvidia.com/compute/cuda/13.0.1/local_installers/cuda_13.0.1_580.82.07_linux.run",
         ),

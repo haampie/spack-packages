@@ -22,14 +22,6 @@ class Automake(AutotoolsPackage, GNUMirrorPackage):
 
     version("1.18.1", sha256="63e585246d0fc8772dffdee0724f2f988146d1a3f1c756a3dc5cfbefa3c01915")
     version("1.16.5", sha256="07bd24ad08a64bc17250ce09ec56e921d6343903943e99ccf63bbf0705e34605")
-    version("1.16.3", sha256="ce010788b51f64511a1e9bb2a1ec626037c6d0e7ede32c1c103611b9d3cba65f")
-    version("1.16.2", sha256="b2f361094b410b4acbf4efba7337bdb786335ca09eb2518635a09fb7319ca5c1")
-    version("1.16.1", sha256="608a97523f97db32f1f5d5615c98ca69326ced2054c9f82e65bade7fc4c9dea8")
-    version("1.15.1", sha256="988e32527abe052307d21c8ca000aa238b914df363a617e38f4fb89f5abf6260")
-    version("1.15", sha256="7946e945a96e28152ba5a6beb0625ca715c6e32ac55f2e353ef54def0c8ed924")
-    version("1.14.1", sha256="814c2333f350ce00034a1fe718e0e4239998ceea7b0aff67e9fd273ed6dfc23b")
-    version("1.13.4", sha256="4c93abc0bff54b296f41f92dd3aa1e73e554265a6f719df465574983ef6f878c")
-    version("1.11.6", sha256="53dbf1945401c43f4ce19c1971baecdbf8bc32e0f37fa3f49fe7b6992d0d2030")
 
 
     build_directory = "spack-build"

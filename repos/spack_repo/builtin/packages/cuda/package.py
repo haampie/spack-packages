@@ -73,25 +73,3 @@ class Cuda(Package):
         pkg = packages.get(f"{platform.system()}-{platform.machine()}")
         if pkg:
             version(ver, sha256=pkg[0], url=pkg[1], expand=False)
-    # macOS Mojave drops NVIDIA graphics card support -- official NVIDIA
-    # drivers do not exist for Mojave. See
-    # https://devtalk.nvidia.com/default/topic/1043070/announcements/faq-about-macos-10-14-mojave-nvidia-drivers/
-    # Note that a CUDA Toolkit installer does exist for macOS Mojave at
-    # https://developer.nvidia.com/compute/cuda/10.1/Prod1/local_installers/cuda_10.1.168_mac.dmg,
-    # but support for Mojave is dropped in later versions, and none of the
-    # macOS NVIDIA drivers at
-    # https://www.nvidia.com/en-us/drivers/cuda/mac-driver-archive/ mention
-    # Mojave support -- only macOS High Sierra 10.13 is supported.
-    # cuda-12.8 libcusolver.so requires log2f@GLIBC_2.27
-    variant(
-        "dev", default=False, description="Enable development dependencies, i.e to use cuda-gdb"
-    )
-    variant(
-        "allow-unsupported-compilers",
-        default=False,
-        sticky=True,
-        description="Allow unsupported host compiler and CUDA version combinations",
-    )
-    # cuda-gdb needed libncurses.so.5 before 11.4.0
-    # see https://docs.nvidia.com/cuda/archive/11.3.1/cuda-gdb/index.html#common-issues-oss
-    # see https://docs.nvidia.com/cuda/archive/11.4.0/cuda-gdb/index.html#release-notes

@@ -59,6 +59,5 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
 
 
     with when("@master"):
-        depends_on("automake", type="build")
         depends_on("libtool", type="build")
 

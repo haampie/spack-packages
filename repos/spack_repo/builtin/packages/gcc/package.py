@@ -119,10 +119,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     #   GCC 9+  https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
     with when("+graphite"):
         depends_on("isl@0.14", when="@5.0:5.2")
-        depends_on("isl@0.15", when="@5.3:5.9")
 
-    depends_on("zstd", when="@10:")
-    depends_on("diffutils", type="build")
 
     # The server is sometimes a bit slow to respond
     timeout = {"timeout": 60}

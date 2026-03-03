@@ -246,18 +246,11 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     depends_on("cdi", when="+cdi")
 
-    depends_on("bzip2")
-    depends_on("double-conversion")
-    depends_on("expat")
-    depends_on("eigen@3")
-    depends_on("freetype")
     # depends_on('hdf5~mpi', when='~mpi')
     # Paraview 5.10 can't build with protobuf > 3.18
-    depends_on("nlohmann-json", when="@5.11:")
 
 
     # Patches to vendored VTK-m are needed for forward compat with CUDA 12 (mr 2972 and 3259)
-    depends_on("cuda@:11", when="@5.3:5.12 +cuda")
 
     # Broken downstream FindMPI
 

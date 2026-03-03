@@ -27,7 +27,6 @@ class Ospray(CMakePackage):
 
 
     with when("+volumes"):
-        depends_on("openvkl@2:", when="@3:")
         depends_on("openvkl@2.0.1:", when="@3.2:")
     with when("+denoiser"):
         depends_on("openimagedenoise@1.2.3:")
@@ -37,16 +36,8 @@ class Ospray(CMakePackage):
         depends_on("openimagedenoise@2.1:", when="@3:")
         depends_on("openimagedenoise@2.3:", when="@3.2:")
     depends_on("ispc@1.14.1:", type=("build"))
-    depends_on("ispc@1.16.0:", when="@2.7.0:", type=("build"))
-    depends_on("ispc@1.18.0:", when="@2.10.0:", type=("build"))
-    depends_on("ispc@1.19.0:", when="@2.11.0:", type=("build"))
-    depends_on("ispc@1.20.0:", when="@2.12.0:", type=("build"))
-    depends_on("ispc@1.21.1:", when="@3:", type=("build"))
-    depends_on("ispc@1.23.0:", when="@3.2:", type=("build"))
-    depends_on("tbb")
 
     with when("+mpi"):
-        depends_on("mpi")
         depends_on("snappy@1.1.8:")
         depends_on("snappy@1.2.1:", when="@3.2:")
 

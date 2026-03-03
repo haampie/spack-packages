@@ -62,29 +62,7 @@ class Xrootd(CMakePackage):
     # Related: C++>14 causes compilation errors with ~client_only.
     # See https://github.com/xrootd/xrootd/pull/1933.
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("bzip2")
-    depends_on("cmake@2.6:", type="build", when="@3.1.0:")
-    depends_on("cmake@3.16:", type="build", when="@5.6:")
-    depends_on("davix", when="+davix")
-    depends_on("isa-l", when="+ec")
-    depends_on("pkgconfig", type="build", when="+davix")
-    depends_on("libxml2", when="+http")
-    depends_on("uuid", when="@4.11.0:")
-    depends_on("openssl")
-    depends_on("python", when="+python")
-    depends_on("py-setuptools", type="build", when="@:5.5 +python")
-    depends_on("py-pip", type="build", when="@5.6: +python")
-    depends_on("readline", when="+readline")
-    depends_on("xz")
-    depends_on("zlib-api")
-    depends_on("curl")
-    depends_on("krb5", when="+krb5")
-    depends_on("json-c")
-    depends_on("scitokens-cpp", when="+scitokens-cpp")
-    depends_on("libxcrypt", type="link")
 
     extends("python", when="+python")
 

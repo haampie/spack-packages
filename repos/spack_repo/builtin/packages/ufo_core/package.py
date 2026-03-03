@@ -17,7 +17,4 @@ class UfoCore(CMakePackage):
     url = "https://github.com/ufo-kit/ufo-core/archive/v0.14.0.tar.gz"
 
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("glib")
-    depends_on("json-glib")

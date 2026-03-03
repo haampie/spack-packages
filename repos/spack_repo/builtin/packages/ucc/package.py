@@ -29,11 +29,7 @@ class Ucc(AutotoolsPackage, CudaPackage, ROCmPackage):
         when="@1.2.0 +cuda",
     )
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("autoconf", type="build")
-    depends_on("automake", type="build")
     depends_on("libtool", type="build")
 
     depends_on("ucx")

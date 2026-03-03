@@ -95,24 +95,7 @@ class Ucx(AutotoolsPackage, CudaPackage):
     variant("xpmem", default=False, description="Enable XPMEM support")
     variant("gtest", default=False, description="Build and install Googletest")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("binutils+ld", when="%aocc", type="build")
-    depends_on("binutils", when="+backtrace_detail")
-    depends_on("gdrcopy", when="@1.7:+gdrcopy")
-    depends_on("gdrcopy@1.3", when="@:1.6+gdrcopy")
-    depends_on("java@8", when="+java")
-    depends_on("knem", when="+knem")
-    depends_on("libfuse@3:", when="+vfs")
-    depends_on("maven", when="+java")
-    depends_on("numactl", when="+numa")
-    depends_on("pkgconfig", type="build")
-    depends_on("rdma-core", when="+rdmacm")
-    depends_on("rdma-core", when="+verbs")
-    depends_on("xpmem", when="+xpmem")
-    depends_on("hip", when="+rocm")
-    depends_on("hsa-rocr-dev", when="+rocm")
 
 
     # https://github.com/openucx/ucx/issues/10589

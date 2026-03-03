@@ -20,16 +20,5 @@ class Xrx(AutotoolsPackage, XorgPackage):
     xorg_mirror_path = "app/xrx-1.0.4.tar.gz"
 
 
-    depends_on("c", type="build")
 
-    depends_on("libx11")
-    depends_on("libxt")
-    depends_on("libxext")
-    depends_on("libxau")
-    depends_on("libice")
-    depends_on("libxaw")
 
-    depends_on("xtrans")
-    depends_on("xproxymanagementprotocol", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("util-macros", type="build")

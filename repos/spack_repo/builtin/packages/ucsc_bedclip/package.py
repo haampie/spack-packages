@@ -14,15 +14,7 @@ class UcscBedclip(Package):
     url = "http://hgdownload.cse.ucsc.edu/admin/exe/userApps.archive/userApps.v449.src.tgz"
 
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("libpng")
-    depends_on("uuid")
-    depends_on("gmake")
-    depends_on("mysql-connector-c")
-    depends_on("openssl")
-    depends_on("zlib-api")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         env.set("MYSQLLIBS", "-lmysqlclient")

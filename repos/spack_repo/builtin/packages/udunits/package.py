@@ -20,9 +20,7 @@ class Udunits(AutotoolsPackage):
 
     variant("shared", default=True, description="Build shared library")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("expat")
 
     @property
     def libs(self):

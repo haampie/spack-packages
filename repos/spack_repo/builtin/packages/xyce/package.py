@@ -116,14 +116,6 @@ class Xyce(CMakePackage):
     with when("+pymi_static_tpls"):
         # BLAS
         depends_on("blas")
-        depends_on("openblas~shared", when="^[virtuals=blas] openblas")
-        depends_on("netlib-lapack~shared", when="^[virtuals=blas] netlib-lapack~external-blas")
-        depends_on("armpl-gcc~shared", when="^[virtuals=blas] armpl-gcc")
-        depends_on("blis libs=static", when="^[virtuals=blas] blis+cblas")
-        depends_on("blis libs=static", when="^[virtuals=blas] blis+blas")
-        depends_on("clblast~shared", when="^[virtuals=blas] clblast+netlib")
-        depends_on("intel-oneapi-mkl~shared", when="^[virtuals=blas] intel-oneapi-mkl")
-        depends_on("veclibfort~shared", when="^[virtuals=blas] veclibfort")
         # netlib-xblas+plain_blas is always static
 
     # fix missing type

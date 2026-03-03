@@ -18,8 +18,6 @@ class Uchardet(CMakePackage):
     git = "https://gitlab.freedesktop.org/uchardet/uchardet.git"
 
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     def url_for_version(self, version):
         if version >= Version("0.0.6"):

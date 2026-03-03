@@ -213,11 +213,6 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     conflicts("^python@3.12:", when="@:14")
 
 
-    provides("libllvm@20", when="@20.0.0:20")
-    provides("libllvm@19", when="@19.0.0:19")
-    provides("libllvm@18", when="@18.0.0:18")
-    provides("libllvm@17", when="@17.0.0:17")
-    provides("fortran", when="+flang")
 
     with when("@:10"):
         # Versions 10 and older cannot build runtimes with cmake@3.17:

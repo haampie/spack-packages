@@ -170,7 +170,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         # See https://gcc.gnu.org/install/prerequisites.html#GDC-prerequisite
         with when("@12:"):
             # All versions starting 12 have to be built GCC:
-            requires("%gcc")
 
             # And it has to be GCC older than the version we build:
             vv = ["11", "12.1.0", "12.2.0"]
@@ -226,11 +225,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     #   https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100340
     #   on XCode 12.5
 
-    requires(
-        "@11.3:",
-        when="target=aarch64: platform=darwin",
-        msg="Only GCC 11.3+ support aarch64-darwin",
-    )
 
     # GCC 11 requires GCC 4.8 or later (https://gcc.gnu.org/gcc-11/changes.html)
 

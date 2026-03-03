@@ -53,24 +53,12 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
         version(
             "19.1.2", sha256="622cb6c5e95a3bb7e9876c4696a65671f235bd836cfd0c096b272f6c2ada41e7"
         )
-        version(
-            "19.1.1", sha256="115dfd98a353d05bffdab3f80db22f159da48aca0124e8c416f437adcd54b77f"
-        )
-        version(
-            "19.1.0", sha256="0a08341036ca99a106786f50f9c5cb3fbe458b3b74cab6089fd368d0edb2edfe"
-        )
 
     # Final releases of previous versions
-    version("19.1.7", sha256="59abea1c22e64933fad4de1671a61cdb934098793c7a31b333ff58dc41bff36c")
-    version("18.1.8", sha256="09c08693a9afd6236f27a2ebae62cda656eba19021ef3f94d59e931d662d4856")
 
     variant(
         "clang", default=True, description="Build the LLVM C/C++/Objective-C compiler frontend"
     )
-
-    variant("flang", default=False, description="Build the LLVM Fortran compiler frontend ")
-
-
     variant("lldb", default=True, description="Build the LLVM debugger")
 
     variant("lld", default=True, description="Build the LLVM linker")

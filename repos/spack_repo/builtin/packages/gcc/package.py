@@ -1,10 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-import glob
-import os
-import sys
-from spack_repo.builtin.build_systems import compiler
 from spack_repo.builtin.build_systems.autotools import AutotoolsPackage
 from spack_repo.builtin.build_systems.compiler import CompilerPackage
 from spack_repo.builtin.build_systems.gnu import GNUMirrorPackage

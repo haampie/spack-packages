@@ -1,10 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-import collections.abc
-import os
-import pathlib
-import platform
 import re
 import sys
 from typing import Any, List, Optional, Tuple
@@ -12,13 +5,6 @@ from spack.package import (
     BuilderWithDefaults,
     InstallError,
     PackageBase,
-    Prefix,
-    Spec,
-    build_system,
-    conflicts,
-    depends_on,
-    get_cmake_prefix_path,
-    register_builder,
     run_after,
     tty,
     variant,

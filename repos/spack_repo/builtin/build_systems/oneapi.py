@@ -1,10 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-"""Common utilities for managing intel oneapi packages."""
-import os
-import platform
-import shutil
 from os.path import basename, isdir
 from spack.package import (
     EnvironmentModifications,

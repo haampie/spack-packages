@@ -1,10 +1,3 @@
-# Copyright Spack Project Developers. See COPYRIGHT file for details.
-#
-# SPDX-License-Identifier: (Apache-2.0 OR MIT)
-import os
-import stat
-import subprocess
-from typing import Callable, List, Optional, Set, Tuple, Union
 from spack.package import (
     BuilderWithDefaults,
     EnvironmentModifications,
@@ -26,13 +19,6 @@ from spack.package import (
     execute_install_time_tests,
     find,
     force_remove,
-    is_exe,
-    keep_modification_time,
-    macos_version,
-    mkdirp,
-    register_builder,
-    run_after,
-    run_before,
     safe_remove,
     tty,
     when,

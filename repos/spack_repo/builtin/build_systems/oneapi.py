@@ -16,15 +16,6 @@ from spack.package import (
     conflicts,
     depends_on,
     find_libraries,
-    get_user,
-    join_path,
-    license,
-    mkdirp,
-    redistribute,
-    shared_library_suffix,
-    symlink,
-    tty,
-    variant,
 )
 from .generic import Package
 class IntelOneApiPackage(Package):
@@ -34,15 +25,6 @@ class IntelOneApiPackage(Package):
     # organization (e.g. University/Company).
     # contains precompiled binaries without rpaths
     unresolved_libraries = ["*"]
-    for c in [
-        "target=ppc64:",
-        "target=ppc64le:",
-        "target=aarch64:",
-        "platform=darwin",
-        "platform=windows",
-    ]:
-        conflicts(c, msg="This package in only available for x86_64 and Linux")
-    # Add variant to toggle environment modifications from vars.sh
     def update_description(cls):
         """Updates oneapi package descriptions with common text."""
         text = """ LICENSE INFORMATION: By downloading and using this software, you agree to the terms

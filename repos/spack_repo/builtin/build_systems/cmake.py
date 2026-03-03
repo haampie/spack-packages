@@ -34,15 +34,6 @@ def _conditional_cmake_defaults(pkg: PackageBase, args: List[str]) -> None:
     cmakes = pkg.spec.dependencies("cmake", deptype="build")
     if len(cmakes) != 1:
         return
-        # see https://cmake.org/cmake/help/latest/policy/CMP0090.html
-        args.append(define("CMAKE_POLICY_DEFAULT_CMP0090", "NEW"))
-    elif cmake.satisfies("@3.1:"):
-        # see https://cmake.org/cmake/help/latest/variable/CMAKE_EXPORT_NO_PACKAGE_REGISTRY.html
-        args.append(define("CMAKE_EXPORT_NO_PACKAGE_REGISTRY", True))
-    # Do not use CMake User/System Package Registry
-    # https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html#disabling-the-package-registry
-    if cmake.satisfies("@3.16:"):
-        args.append(define("Boost_NO_BOOST_CMAKE", True))
 def generator(*names: str, default: Optional[str] = None) -> None:
     """The build system generator to use.
     See ``cmake --help`` for a list of valid generators.

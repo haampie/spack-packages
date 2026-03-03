@@ -52,9 +52,3 @@ class AutotoolsPackage(PackageBase):
         depends_on("gmake", type="build")
     # Legacy methods (used by too many packages to change them,
     # need to forward to the builder)
-@register_builder("autotools")
-class AutotoolsBuilder(BuilderWithDefaults):
-    install_time_test_callbacks = ["installcheck"]
-    #: Set to true to force the autoreconf step even if configure is present
-    force_autoreconf = False
-    #: Options to be passed to autoreconf when using the default implementation

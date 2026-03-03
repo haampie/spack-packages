@@ -25,15 +25,6 @@ supported_cuda_archs = {
 # This is a list of paraview variants that require the viskores library.
 viskores_dependency_variants = ["+cuda", "+fides", "+rocm"]
 class Paraview(CMakePackage, CudaPackage, ROCmPackage):
-    """ParaView is an open-source, multi-platform data analysis and
-    visualization application. This package includes the Catalyst
-    in-situ library for versions 5.7 and greater, otherwise use the
-    catalyst package.
-    """
-    homepage = "https://www.paraview.org"
-    url = "https://www.paraview.org/files/v5.7/ParaView-v5.7.0.tar.xz"
-    list_url = "https://www.paraview.org/files"
-    list_depth = 1
     git = "https://gitlab.kitware.com/paraview/paraview.git"
     tags = ["e4s"]
     with default_args(deprecated=True):

@@ -22,15 +22,7 @@ class Systemd(MesonPackage):
     version("256.7", sha256="896d76ff65c88f5fd9e42f90d152b0579049158a163431dd77cdc57748b1d7b0")
     version("255", sha256="28854ffb2cb5f9e07fcbdbaf1e03a80b3462a12edeef84893ca2f37b22e4491e")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("meson@0.60.0:", type="build")
-    depends_on("ninja", type="build")
-    depends_on("py-jinja2", type="build")
-    depends_on("util-linux@2.30:")  # libmount
-    depends_on("gperf")
-    depends_on("libcap")
-    depends_on("pkgconfig")
 
     conflicts("%gcc@:8.4")
     conflicts("%clang@:7")

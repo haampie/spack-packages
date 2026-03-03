@@ -27,8 +27,6 @@ class Systemc(CMakePackage):
         description="C++ standard used during compilation",
     )
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
     def cmake_args(self):
         cxxstd = self.spec.variants["cxxstd"].value

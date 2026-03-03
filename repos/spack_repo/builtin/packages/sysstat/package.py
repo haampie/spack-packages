@@ -20,11 +20,7 @@ class Sysstat(AutotoolsPackage):
 
     version("12.7.6", sha256="dc77a08871f8e8813448ea31048833d4acbab7276dd9a456cd2526c008bd5301")
 
-    depends_on("c", type="build")  # generated
 
-    depends_on("pkgconfig", type="build")
-    depends_on("gettext")
-    depends_on("lm-sensors")
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         env.append_flags("rcdir", self.spec.prefix.etc)

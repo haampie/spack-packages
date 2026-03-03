@@ -34,10 +34,8 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
     version("15.2.0", sha256="438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e")
 
     # Previous stable series releases
-
     # Final releases of previous versions
 
-    # Used in the tutorial
 
     # Deprecated older non-final releases
     with default_args(deprecated=True):
@@ -53,8 +51,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
 
         version("4.8.4", sha256="4a80aa23798b8e9b5793494b8c976b39b8d9aa2e53cd5ed5534aff662a7f8695")
 
-    # We specifically do not add 'all' variant here because:
-    # (i) Ada, D, Go, Jit, and Objective-C++ are not default languages.
     # In that respect, the name 'all' is rather misleading.
     # (ii) Languages other than c,c++,fortran are prone to configure bug in GCC
     # For example, 'java' appears to ignore custom location of zlib

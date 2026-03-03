@@ -40,26 +40,6 @@ class QtPackage(CMakePackage):
     # List of unnecessary directories in src/3rdparty
     vendor_deps_to_remove = []
 
-    @run_after("patch")
-    def remove_vendor_deps(self, vendor_dir, vendor_deps_to_remove):
-        """Remove src/3rdparty libraries that are provided by spack"""
-        vendor_dir = join_path(self.stage.source_path, "src", "3rdparty")
-        with working_dir(vendor_dir):
-            for dep in os.listdir():
-                if os.path.isdir(dep):
-                    if dep in vendor_deps_to_remove:
-                        shutil.rmtree(dep)
-
-    @staticmethod
-    def _qt_feature_flag(feature):
-        return f"FEATURE_{feature}"
-
-    def define_qt_feature_from_variant(self, feature, variant=None):
-        return self.define_from_variant(QtPackage._qt_feature_flag(feature), variant or feature)
-
-    def define_qt_feature(self, feature, value=None):
-        return self.define(QtPackage._qt_feature_flag(feature), value)
-
 class QtBase(QtPackage):
     """Qt Base (Core, Gui, Widgets, Network, ...)"""
 

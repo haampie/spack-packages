@@ -146,14 +146,6 @@ class Boost(Package):
     # 1.84.0 dropped support for 98/03
     variant("debug", default=False, description="Switch to the debug version of Boost")
     variant(
-        "pic",
-        default=False,
-        description="Generate position-independent code (PIC), useful "
-        "for building static libraries",
-    )
-
-    # https://boostorg.github.io/build/manual/develop/index.html#bbv2.builtin.features.visibility
-    variant(
         "visibility",
         values=("global", "protected", "hidden"),
         default="hidden",

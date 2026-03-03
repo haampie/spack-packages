@@ -17,17 +17,6 @@ class Ospray(CMakePackage):
 
     # maintainers("aumuell")
 
-    version("3.2.0", sha256="2c8108df2950bc5d1bc2a62f74629233dbe4f36e3f6a8ea032907d4a3fdc6750")
-    version("3.1.0", sha256="0b9d7df900fe0474b12e5a2641bb9c3f5a1561217b2789834ebf994a15288a82")
-    version("3.0.0", sha256="d8d8e632d77171c810c0f38f8d5c8387470ca19b75f5b80ad4d3d12007280288")
-    version("2.12.0", sha256="268b16952b2dd44da2a1e40d2065c960bc2442dd09b63ace8b65d3408f596301")
-    version("2.11.0", sha256="55974e650d9b78989ee55adb81cffd8c6e39ce5d3cf0a3b3198c522bf36f6e81")
-    version("2.10.0", sha256="bd478284f48d2cb775fc41a2855a9d9f5ea16c861abda0f8dc94e02ea7189cb8")
-    version("2.9.0", sha256="0145e09c3618fb8152a32d5f5cff819eb065d90975ee4e35400d2db9eb9f6398")
-    version("2.8.0", sha256="2dabc75446a0e2e970952d325f930853a51a9b4d1868c8135f05552a4ae04d39")
-    version("2.7.1", sha256="4e7bd8145e19541c04f5d949305f19a894d85a827f567d66ae2eb11a760a5ace")
-    version("2.7.0", sha256="bcaeb221b5dd383d27587ffaca7f75d7e0064f64017a0d73df90862b14b5704b")
-    version("2.6.0", sha256="5efccd7eff5774b77f8894e68a6b803b535a0d12f32ab49edf13b954e2848f2e")
 
     variant("apps", default=False, description="Enable building OSPRay Apps")
     variant("denoiser", default=True, description="Enable denoiser image operation")

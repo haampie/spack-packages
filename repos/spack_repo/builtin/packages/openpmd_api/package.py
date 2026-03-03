@@ -18,28 +18,8 @@ class OpenpmdApi(CMakePackage):
     tags = ["e4s"]
 
     # C++17 up until here
-    version("develop", branch="dev")
-    version("0.17.0", sha256="97ff76111f77b06177caa48fa1b5e757967a60a66665f0c13384828d3ae1aa92")
-    version("0.16.1", sha256="a029a1779351949f41c1f36d0e75c698e59c5d284f080d5e4c2b8650779d2d58")
-    version("0.16.0", sha256="b52222a4ab2511f9e3f6e21af222f57ab4fb6228623024fc5d982066333e104f")
-    version("0.15.2", sha256="fbe3b356fe6f4589c659027c8056844692c62382e3ec53b953bed1c87e58ba13")
-    version("0.15.1", sha256="0e81652152391ba4d2b62cfac95238b11233a4f89ff45e1fcffcc7bcd79dabe1")
-    version("0.15.0", sha256="290e3a3c5814204ea6527d53423bfacf7a8dc490713227c9e0eaa3abf4756177")
     # C++14 up until here
-    version("0.14.5", sha256="e3f509098e75014394877e0dc91f833e57ced5552b110c7339a69e9dbe49bf62")
-    version("0.14.4", sha256="42b7bcd043e772d63f0fe0e5e70da411f001db10096d5b8be797ffc88e786379")
-    version("0.14.3", sha256="57282455e0fb1873b4def1894fadadd6425dfc8349eac7fcc68daf677c48b7ce")
-    version("0.14.2", sha256="25c6b4bcd0ae1ba668b633b8514e66c402da54901c26861fc754fca55717c836")
-    version("0.14.1", sha256="172fd1d785627d01c77f1170adc5a18bd8a6302e804d0f271dc0d616a5156791")
-    version("0.14.0", sha256="7bb561c1a6f54e9a6a1b56aaf1d4d098bbe290d204f84ebe5a6f11b3cab2be6e")
-    version("0.13.4", sha256="46c013be5cda670f21969675ce839315d4f5ada0406a6546a91ec3441402cf5e")
-    version("0.13.3", sha256="4b8f84bd89cd540c73ffe8c21085970453cb7f0e4f125f11a4e288433f64b58c")
-    version("0.13.2", sha256="2e5170d41bb7b2c0608ec833eee7f9adf8175b46734743f6e46dcce6f6685fb0")
-    version("0.13.1", sha256="81ff79419982eb1b0865d1736f73f950f5d4c356d3c78200ceeab7f54dc07fd7")
-    version("0.13.0", sha256="97c2e43d80ee5c5288f278bd54f0dcb40e7f48a575b278fcef9660214b779bb0")
     # C++11 up until here
-    version("0.12.0", tag="0.12.0-alpha", commit="23be484dd2570b5277779eafcc5f1eb70c6d98f2")
-    version("0.11.1", tag="0.11.1-alpha", commit="c40292aafbf564807710424d106304f9670a8304")
 
     variant("shared", default=True, description="Build a shared version of the library")
     variant("mpi", default=True, description="Enable parallel I/O")

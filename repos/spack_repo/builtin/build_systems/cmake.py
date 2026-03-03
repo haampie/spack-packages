@@ -9,7 +9,6 @@ from ._checks import execute_build_time_tests
 # Regex to extract the primary generator from the CMake generator
 def _conditional_cmake_defaults(pkg: PackageBase, args: List[str]) -> None:
     """Set a few default defines for CMake, depending on its version."""
-    cmakes = pkg.spec.dependencies("cmake", deptype="build")
     if len(cmakes) != 1:
         return
 def generator(*names: str, default: Optional[str] = None) -> None:

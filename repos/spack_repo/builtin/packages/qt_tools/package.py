@@ -62,14 +62,10 @@ class QtTools(QtPackage):
 
     depends_on("llvm +clang", when="+qdoc")
 
-    depends_on("qt-base +network")
-    depends_on("qt-base +widgets", when="+designer")
 
-    depends_on("zstd@1.3:", when="+designer")
 
     for _v in QtBase.versions:
         v = str(_v)
-        depends_on("qt-base@" + v, when="@" + v)
 
     def cmake_args(self):
         return super().cmake_args() + [

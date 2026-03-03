@@ -67,7 +67,6 @@ class QtBase(QtPackage):
     url = QtPackage.get_url(__qualname__)
     list_url = QtPackage.get_list_url(__qualname__)
 
-    provides("qmake")
 
 
     variant("dbus", default=False, description="Build with D-Bus support.")

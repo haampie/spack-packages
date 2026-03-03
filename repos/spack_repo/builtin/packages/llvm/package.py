@@ -557,10 +557,8 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     # see https://reviews.llvm.org/D133513
     # TODO: the patch is not applicable after https://reviews.llvm.org/D141042 but it is not clear
     #  yet whether we need a version of it for when="@16:"
-
     # Fix hwloc@:2.3 (Conditionally disable hwloc@2.0 and hwloc@2.4 code)
 
-    # Fix false positive detection of a target when building compiler-rt as a runtime
     # https://reviews.llvm.org/D127975
 
 

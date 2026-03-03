@@ -116,7 +116,6 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
     def libs(self):
         libs = find_libraries("libhwloc", root=self.prefix, shared=True, recursive=True)
         return LibraryList(libs)
-
     def configure_args(self):
         args = [
             *self.enable_or_disable("netloc"),

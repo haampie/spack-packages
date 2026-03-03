@@ -51,13 +51,10 @@ class MesonPackage(PackageBase):
             description="Build shared libs, static libs or both",
         )
         variant("strip", default=False, description="Strip targets on install")
-        depends_on("meson", type="build")
-        depends_on("ninja", type="build")
         # Meson uses pkg-config for dependency detection, and this dependency is
         # often overlooked by packages that use meson as a build system.
         for plat in ["linux", "freebsd", "darwin"]:
             with when(f"platform={plat}"):
-                depends_on("pkgconfig", type="build")
         # Python detection in meson requires distutils to be importable, but distutils no longer
         # exists in Python 3.12. In Spack, we can't use setuptools as distutils replacement,
         # because the distutils-precedence.pth startup file that setuptools ships with is not run

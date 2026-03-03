@@ -42,14 +42,8 @@ class Zstd(CMakePackage, MakefilePackage):
         description="Enable support for additional compression methods in programs",
     )
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
 
-    depends_on("cmake@3.5:", type="build", when="build_system=cmake @1.5.6:")
 
-    depends_on("zlib-api", when="compression=zlib")
-    depends_on("lz4", when="compression=lz4")
-    depends_on("xz", when="compression=lzma")
 
     # +programs builds vendored xxhash, which uses unsupported builtins
     # (last tested: nvhpc@22.3)

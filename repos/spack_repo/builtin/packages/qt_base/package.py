@@ -96,17 +96,9 @@ class QtBase(QtPackage):
     with when("platform=linux"):
         depends_on("libdrm")
         depends_on("at-spi2-core", when="+accessibility")
-    depends_on("dbus", when="+dbus")
-    depends_on("gl", when="+opengl", type=("build", "link"))
-    depends_on("glu", when="+opengl", type=("build", "link"))
-    depends_on("sqlite", when="+sql")
 
     with when("+gui"):
-        depends_on("fontconfig")
         with when("platform=linux"):
-            depends_on("xcb-util")
-            depends_on("xcb-util-cursor")
-            depends_on("xcb-util-image")
             depends_on("xcb-util-keysyms")
             depends_on("xcb-util-renderutil")
             depends_on("xcb-util-wm")

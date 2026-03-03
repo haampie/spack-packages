@@ -35,7 +35,6 @@ class MakefilePackage(PackageBase):
 
     with when("build_system=makefile"):
         conflicts("platform=windows")
-        depends_on("gmake", type="build")
 
 
 @register_builder("makefile")

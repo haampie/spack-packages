@@ -150,25 +150,15 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
         msg="Use paraview@5.9.0 with %xl_r. Earlier versions are not able to build with xl.",
     )
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("cmake@3.3:", type="build")
-    depends_on("cmake@3.21:", type="build", when="+rocm")
 
     extends("python", when="+python")
 
     # VTK < 8.2.1 can't handle Python 3.8
     # This affects Paraview <= 5.7 (VTK 8.2.0)
     # https://gitlab.kitware.com/vtk/vtk/-/issues/17670
-    depends_on("python@3:", when="@5.8:+python", type=("build", "run"))
 
-    depends_on("py-numpy", when="+python", type=("build", "run"))
-    depends_on("py-mpi4py", when="+python+mpi", type=("build", "run"))
 
-    depends_on("py-matplotlib", when="+python", type="run")
-    depends_on("py-pandas@0.21:", when="+python", type="run")
 
     # openPMD is implemented as a Python module and provides ADIOS2 and HDF5 backends
 

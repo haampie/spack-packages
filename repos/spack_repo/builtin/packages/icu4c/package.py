@@ -46,12 +46,6 @@ class Icu4c(AutotoolsPackage, MSBuildPackage):
         patch("ICU4C_NMAKE_NO_DOUBLE_QUOTE_VARS.patch", when="@64.1:")
         patch("Quote_datagen.patch", when="@64.1:")
 
-    conflicts(
-        "%intel@:16",
-        when="@60.1:",
-        msg="Intel compilers have immature C++11 and multibyte support",
-    )
-    conflicts("%gcc@:4", when="@67.1:", msg="Older GCC compilers have immature C++11 support")
 
     patch(
         "https://github.com/unicode-org/icu/commit/ddfc30860354cbcb78c2c0bcf800be5ab44a9e4f.patch?full_index=1",

@@ -1,8 +1,6 @@
 from spack.package import *
 # Not the nice way of doing things, but is a start for refactoring
 __all__ = [
-    "add_extra_files",
-    "write_environ",
 ]
 # -----------------------------------------------------------------------------
 class Openfoam(Package):

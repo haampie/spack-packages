@@ -240,10 +240,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
     )
 
     # spack compiler wrappers
-    filter_compiler_wrappers("kokkos_launch_compiler", relative_root="bin")
-    filter_compiler_wrappers(
-        "KokkosConfigCommon.cmake", relative_root=os.path.join("lib64", "cmake", "Kokkos")
-    )
 
     # sanity check
     sanity_check_is_dir = ["bin", "include"]

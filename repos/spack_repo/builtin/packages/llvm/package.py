@@ -323,34 +323,14 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     #
     # see https://reviews.llvm.org/D64937
     # see https://github.com/spack/spack/issues/24270
-    patch(
-        "https://github.com/llvm/llvm-project/commit/b288d90b39f4b905c02092a9bfcfd6d78f99b191.patch?full_index=1",
-        sha256="2028d52e1a39326bb48fb7463132bbfe7fb4fa18f1adfeea9c3ed0320ed49564",
-        when="@8:9.0.0",
-    )
     #
     # committed upstream without a review
     # see https://github.com/llvm/llvm-project/commit/b498303066a63a203d24f739b2d2e0e56dca70d1
     # see https://github.com/spack/spack/pull/28547
-    patch(
-        "https://github.com/llvm/llvm-project/commit/b498303066a63a203d24f739b2d2e0e56dca70d1.patch?full_index=1",
-        sha256="514926d661635de47972c7d403c9c4669235aa51e22e56d44676d2a2709179b6",
-        when="@8:11",
-    )
     #
     # fix compilation against libstdc++13
-    patch(
-        "https://github.com/llvm/llvm-project/commit/1b4fdf18bc2aaa2d46bf072475dd9cbcd44a9fee.patch?full_index=1",
-        sha256="82481418766b4b949ea808d956ff3800b9a241a576370114862428bb0e25ee1f",
-        when="@14:15",
-    )
 
     # missing <cstdint> include
-    patch(
-        "https://github.com/llvm/llvm-project/commit/ff1681ddb303223973653f7f5f3f3435b48a1983.patch?full_index=1",
-        sha256="c6ca6b925f150e8644ce756023797b7f94c9619c62507231f979edab1c09af78",
-        when="@6:13",
-    )
     # fix building of older versions of llvm with newer versions of glibc
     for compiler_rt_as in ["project", "runtime"]:
         with when("compiler-rt={0}".format(compiler_rt_as)):
@@ -389,35 +369,15 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
     # Backport from llvm to fix issues related to Python 3.7
     # see https://bugs.llvm.org/show_bug.cgi?id=38233
-    patch(
-        "https://github.com/llvm/llvm-project/commit/5457b426f5e15a29c0acc8af1a476132f8be2a36.patch?full_index=1",
-        sha256="7a1e4aa80760167807255c3e3121b1281bfcf532396b2d8fb3dce021f3f18758",
-        when="@4:6+python+lldb ^python@3.7:",
-    )
 
     # fix building on SUSE (with panel.h being in /usr/include/ncurses/)
     # see https://reviews.llvm.org/D85219
     # see https://github.com/spack/spack/issues/19625
-    patch(
-        "https://github.com/llvm/llvm-project/commit/c952ec15d38843b69e22dfd7b0665304a0459f9f.patch?full_index=1",
-        sha256="66932ba31b5bf8808ea112e42cfd79b2480a4936e711771c06ce851eac429b2c",
-        when="@10:11+lldb",
-    )
 
     # honor Python2_EXECUTABLE and Python3_EXECUTABLE when they are passed to cmake
     # see https://reviews.llvm.org/D91536
-    patch(
-        "https://github.com/llvm/llvm-project/commit/16de50895e96adbe261a5ce2498366bda7b3fccd.patch?full_index=1",
-        sha256="0e121ed460aa6e117f9f5f339d597a96c0fe4f97dc2209aba47b43ffc831ea24",
-        # The patch is applicable only starting version 7.0.0 (the older version might require a
-        # different patch addressing https://github.com/spack/spack/issues/19908). It looks like
-        # the patched function is used only if both compiler-rt and libcxx are enabled but we keep
-        # it simple:
-        when="@7:11",
-    )
 
     # Workaround for issue https://github.com/spack/spack/issues/18197
-    patch("llvm7_intel.patch", when="@7 %intel@18.0.2,19.0.0:19.1.99")
 
     # Remove cyclades support to build against newer kernel headers
     # https://reviews.llvm.org/D102059

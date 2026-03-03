@@ -235,7 +235,6 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
 
     # https://gitlab.kitware.com/paraview/paraview/-/merge_requests/7593
 
-    generator("ninja", "make", default="ninja")
     # https://gitlab.kitware.com/paraview/paraview/-/issues/21223
     conflicts("generator=ninja", when="%xl")
     conflicts("generator=ninja", when="%xl_r")

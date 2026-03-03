@@ -56,8 +56,6 @@ class AutotoolsPackage(PackageBase):
     build_system("autotools")
 
     with when("build_system=autotools"):
-        depends_on("gnuconfig", type="build", when="target=ppc64le:")
-        depends_on("gnuconfig", type="build", when="target=aarch64:")
         depends_on("gnuconfig", type="build", when="target=riscv64:")
         depends_on("gmake", type="build")
 

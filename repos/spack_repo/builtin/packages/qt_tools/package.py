@@ -45,7 +45,6 @@ class QtTools(QtPackage):
     depends_on("c")
     depends_on("cxx")
 
-    depends_on("llvm +clang", when="+qdoc")
 
 
 

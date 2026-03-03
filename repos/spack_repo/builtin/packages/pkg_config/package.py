@@ -26,7 +26,6 @@ class PkgConfig(AutotoolsPackage):
     variant("internal_glib", default=True, description="Builds with internal glib")
 
     # The following patch is needed for gcc-6.1
-    patch("g_date_strftime.patch", when="@:0.29.1")
 
     parallel = False
 

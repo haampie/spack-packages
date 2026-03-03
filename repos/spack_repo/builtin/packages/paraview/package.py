@@ -413,68 +413,47 @@ class Paraview(CMakePackage, CudaPackage, ROCmPackage):
     # Patches to vendored VTK-m are needed for forward compat with CUDA 12 (mr 2972 and 3259)
     depends_on("cuda@:11", when="@5.3:5.12 +cuda")
 
-    patch("stl-reader-pv440.patch", when="@4.4.0")
 
     # Broken gcc-detection - improved in 5.1.0, redundant later
-    patch("gcc-compiler-pv501.patch", when="@:5.0.1")
 
     # Broken installation (ui_pqExportStateWizard.h) - fixed in 5.2.0
-    patch("ui_pqExportStateWizard.patch", when="@:5.1.2")
 
     # Broken vtk-m config. Upstream catalyst changes
-    patch("vtkm-catalyst-pv551.patch", when="@5.5.0:5.5.2")
 
     # Broken H5Part with external parallel HDF5
-    patch("h5part-parallel.patch", when="@5.7.0:5.7")
 
     # Broken downstream FindMPI
-    patch("vtkm-findmpi-downstream.patch", when="@5.9.0")
 
     # Include limits header wherever needed to fix compilation with GCC 11
-    patch("paraview-gcc11-limits.patch", when="@5.8:5.9 %gcc@11.1.0:")
 
     # Fix IOADIOS2 module to work with kits
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/8653
-    patch("vtk-adios2-module-no-kit.patch", when="@5.8:5.11")
 
     # Patch for paraview 5.9.0%xl_r
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/7591
-    patch("xlc-compilation-pv590.patch", when="@5.9.0%xl_r")
 
     # intel oneapi doesn't compile some code in catalyst
-    patch("catalyst-etc_oneapi_fix.patch", when="@5.10.0:5.10.1%oneapi")
 
     # Patch for paraview 5.8: ^hdf5@1.13.2:
     # Even with ~hdf5, hdf5 is part of the dependency tree due to netcdf-c
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/9690
-    patch("vtk-xdmf2-hdf51.13.1.patch", when="@5.8:5.10")
-    patch("vtk-xdmf2-hdf51.13.2.patch", when="@5.8:5.11.0")
     # a patch with the same name is also applied to vtk
     # the two patches are the same but for the path to the files they patch
-    patch("vtk_alias_hdf5.patch", when="@5.9.0:")
 
     # Fix VTK to work with external freetype using CONFIG mode for find_package
-    patch("FindFreetype.cmake.patch", when="@5.10.1:")
 
     # Fix VTK to remove deprecated ADIOS2 functions
     # https://gitlab.kitware.com/vtk/vtk/-/merge_requests/10113
-    patch("adios2-remove-deprecated-functions.patch", when="@5.10:5.11 ^adios2@2.9:")
 
-    patch("exodusII-netcdf4.9.0.patch", when="@5.10.0:5.10.2")
 
-    patch("kits_with_catalyst_5_12.patch", when="@5.12.0")
 
     # https://github.com/Kitware/VTK-m/commit/c805a6039ea500cb96158cfc11271987c9f67aa4
-    patch("vtkm-remove-unused-method-from-mir-tables.patch", when="@5.13.2 %oneapi@2025:")
 
     # https://github.com/Kitware/VTK-m/commit/48e385af319543800398656645327243a29babfb
-    patch("vtkm-fix-problems-in-class-member-names.patch", when="@5.13.2 %oneapi@2025:")
 
     # Vtk's findpegtl's include search is wrong: https://gitlab.kitware.com/vtk/vtk/-/issues/17876
-    patch("pegtl_tao_find.patch", when="platform=windows")
 
     # https://gitlab.kitware.com/paraview/paraview/-/merge_requests/7593
-    patch("paraview-cdireader-lazy.patch", when="@:6.0 +cdi")
 
     generator("ninja", "make", default="ninja")
     # https://gitlab.kitware.com/paraview/paraview/-/issues/21223

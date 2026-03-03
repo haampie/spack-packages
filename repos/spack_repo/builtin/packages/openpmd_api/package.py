@@ -71,35 +71,14 @@ class OpenpmdApi(CMakePackage):
 
     # Fix breaking HDF5 1.12.0 API when build with legacy api options
     # https://github.com/openPMD/openPMD-api/pull/1012
-    patch("hdf5-1.12.0.patch", when="@:0.13 +hdf5")
 
     # CMake: Fix Python Install Directory
-    patch(
-        "https://github.com/openPMD/openPMD-api/commit/31e3c42eb6687269adfb0e63c35269db328ea6ec.patch?full_index=1",
-        sha256="e8b57bcdc965643f46280408244f4d574bff09d0c19c863f42395a7203a89385",
-        when="@0.15.0",
-    )
 
     # macOS AppleClang12 Fixes
-    patch(
-        "https://github.com/openPMD/openPMD-api/commit/c9b0f70294ef8d9ac89018c9b439815be9e77b96.patch?full_index=1",
-        sha256="83714efc90fe6d4f909bdde1b0578a43e6a013a5db6b10e87466665122fd6b21",
-        when="@0.15.0",
-    )
 
     # forgot to bump version.hpp in 0.15.1
-    patch(
-        "https://github.com/openPMD/openPMD-api/commit/b3d3057e141af3a40dde5f00262a5671979a95c7.patch?full_index=1",
-        sha256="f31d0adcd407d20d559aa67e5f6ec2d81c6579b8b0166918c5178c02af180fba",
-        when="@0.15.1",
-    )
 
     # fix superbuild control in 0.16.0
-    patch(
-        "https://github.com/openPMD/openPMD-api/commit/3dc3a463d18dd5f87c38ee64d93bc7814b1cbb5d.patch?full_index=1",
-        sha256="474a7ccf11f0892717271fe3974a6ee046c15187a6ba12c75085a0d092071c9c",
-        when="@0.16.0",
-    )
 
     extends("python", when="+python")
 

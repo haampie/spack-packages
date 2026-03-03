@@ -54,21 +54,6 @@ def _conditional_cmake_defaults(pkg: PackageBase, args: List[str]) -> None:
     # Do not use CMake User/System Package Registry
     # https://cmake.org/cmake/help/latest/manual/cmake-packages.7.html#disabling-the-package-registry
     if cmake.satisfies("@3.16:"):
-        args.append(define("CMAKE_FIND_USE_PACKAGE_REGISTRY", False))
-    elif cmake.satisfies("@3.1:3.15"):
-        args.append(define("CMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY", False))
-        args.append(define("CMAKE_FIND_PACKAGE_NO_SYSTEM_PACKAGE_REGISTRY", False))
-    # Export a compilation database if supported.
-    if _supports_compilation_databases(pkg):
-        args.append(define("CMAKE_EXPORT_COMPILE_COMMANDS", True))
-    # Enable MACOSX_RPATH by default when cmake_minimum_required < 3
-    # https://cmake.org/cmake/help/latest/policy/CMP0042.html
-    if pkg.spec.satisfies("platform=darwin") and cmake.satisfies("@3:"):
-        args.append(define("CMAKE_POLICY_DEFAULT_CMP0042", "NEW"))
-    # Disable find package's config mode for versions of Boost that
-    # didn't provide it. See https://github.com/spack/spack/issues/20169
-    # and https://cmake.org/cmake/help/latest/module/FindBoost.html
-    if pkg.spec.satisfies("^boost@:1.69.0"):
         args.append(define("Boost_NO_BOOST_CMAKE", True))
 def generator(*names: str, default: Optional[str] = None) -> None:
     """The build system generator to use.

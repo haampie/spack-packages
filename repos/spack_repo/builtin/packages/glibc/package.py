@@ -26,11 +26,3 @@ class Glibc(AutotoolsPackage, GNUMirrorPackage):
     # linker flag output regex
     # Use AT_RANDOM provided by the kernel instead of /dev/urandom;
     # recent gcc + binutils have issues with the inline assembly in
-    # the fallback code, so better to use the kernel-provided value.
-    # include_next <limits.h> not working
-    # See 2d7ed98add14f75041499ac189696c9bd3d757fe
-    # Since f2873d2da0ac9802e0b570e8e0b9e7e04a82bf55
-    # From 2.29: generates locale/C-translit.h
-    # before that it's a test dependency.
-    with when("@master"):
-        depends_on("libtool", type="build")

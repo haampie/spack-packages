@@ -1,16 +1,3 @@
-#       packages:
-#           paraview:
-#               variants: +plugins +qt
-#   in ~/.spack/packages.yaml
-#
-# Known issues
-# - Combining +zoltan with +int64 has not been tested, but probably won't work.
-# - Combining +mgridgen with +int64 or +float32 probably won't work.
-#
-# The spack 'develop' version of openfoam retains the upstream
-# WM_PROJECT_VERSION=com naming internally.
-#
-##############################################################################
 import glob
 import os
 import re

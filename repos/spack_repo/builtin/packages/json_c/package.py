@@ -14,7 +14,6 @@ class JsonC(CMakePackage):
     url = "https://s3.amazonaws.com/json-c_releases/releases/json-c-0.15.tar.gz"
 
 
-    version("0.15", sha256="b8d80a1ddb718b3ba7492916237bbf86609e9709fb007e7f7d4322f02341a4c6")
     version("0.14", sha256="b377de08c9b23ca3b37d9a9828107dff1de5ce208ff4ebb35005a794f30c6870")
 
     depends_on("c", type="build")

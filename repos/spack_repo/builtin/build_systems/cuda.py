@@ -78,37 +78,6 @@ class CudaPackage(PackageBase):
 
     # https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#nvcc-examples
     # https://llvm.org/docs/CompileCudaWithLLVM.html#compiling-cuda-code
-    @staticmethod
-    def cuda_flags(arch_list):
-        return [
-            (
-                "--generate-code arch=compute_{0},code=sm_{0} "
-                "--generate-code arch=compute_{0},code=compute_{0}"
-            ).format(s)
-            for s in arch_list
-        ]
-
-    @staticmethod
-    def compute_capabilities(arch_list: Iterable[str]) -> List[str]:
-        """Adds a decimal place to each CUDA arch.
-
-        >>> compute_capabilities(['90', '90a', '100f'])
-        ['9.0', '9.0a', '10.0f']
-
-        Args:
-            arch_list: A list of integer strings, optionally followed by a suffix.
-
-        Returns:
-            A list of float strings, optionally followed by a suffix
-        """
-        pattern = re.compile(r"(\d+)")
-        capabilities = []
-        for arch in arch_list:
-            _, number, letter = re.split(pattern, arch)
-            number = "{0:.1f}".format(float(number) / 10.0)
-            capabilities.append(number + letter)
-        return capabilities
-
     depends_on("cuda", when="+cuda")
 
     # CUDA version vs Architecture

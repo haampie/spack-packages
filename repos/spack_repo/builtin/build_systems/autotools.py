@@ -28,13 +28,7 @@ from ._checks import ensure_build_dependencies_or_raise, execute_build_time_test
 class AutotoolsPackage(PackageBase):
     """Specialized class for packages built using GNU Autotools."""
     #: This attribute is used in UI queries that need to know the build
-    #: system base class
-    build_system_class = "AutotoolsPackage"
-    #: Legacy buildsystem attribute used to deserialize and install old specs
-    default_buildsystem = "autotools"
     build_system("autotools")
     with when("build_system=autotools"):
         depends_on("gnuconfig", type="build", when="target=riscv64:")
         depends_on("gmake", type="build")
-    # Legacy methods (used by too many packages to change them,
-    # need to forward to the builder)

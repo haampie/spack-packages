@@ -2,19 +2,11 @@ import re
 import sys
 from typing import Any, List, Optional, Tuple
 from spack.package import (
-    BuilderWithDefaults,
-    InstallError,
     PackageBase,
-    run_after,
-    tty,
-    variant,
-    when,
     working_dir,
 )
 from ._checks import execute_build_time_tests
 # Regex to extract the primary generator from the CMake generator
-# string.
-_primary_generator_extractor = re.compile(r"(?:.* - )?(.*)")
 def _conditional_cmake_defaults(pkg: PackageBase, args: List[str]) -> None:
     """Set a few default defines for CMake, depending on its version."""
     cmakes = pkg.spec.dependencies("cmake", deptype="build")

@@ -77,19 +77,6 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
     depends_on("c", type="build")
     depends_on("cxx", type="build")
 
-    # Before 2.2 hwloc does not consider linking to libtinfo
-    # to detect ncurses, which is considered a bug.
-    # For older versions this can be fixed by depending on
-    # ncurses~termlib, but this could lead to insatisfiable
-    # constraints (e.g. llvm explicitly depends on ncurses+termlib)
-    # Therefore we patch the latest 1.x configure script to make
-    # it consider libtinfo too.
-    # see https://github.com/open-mpi/hwloc/pull/417
-    patch("0001-Try-linking-to-libtinfo.patch", when="@1.11.13")
-
-    # When mpi=openmpi, this introduces an unresolvable dependency.
-    # See https://github.com/spack/spack/issues/15836 for details
-
     with when("+rocm"):
         depends_on("rocm-smi-lib")
         depends_on("rocm-opencl", when="+opencl")
@@ -99,22 +86,15 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
 
     with when("+level_zero"):
         depends_on("oneapi-level-zero")
-        # LevelZero support isn't available until hwloc version 2.5.0
-        conflicts("@:2.4", msg="hwloc supports Intel OneAPI Level Zero only since 2.5.0")
 
     @classmethod
     def determine_version(cls, exe):
-        output = Executable(exe)("--version", output=str, error=str)
         match = re.search(r"hwloc-bind (\S+)", output)
         return match.group(1) if match else None
-
-    def url_for_version(self, version):
         url = "https://download.open-mpi.org/release/hwloc/v{0}/hwloc-{1}.tar.gz"
         return url.format(version.up_to(2), version)
-
     @property
     def libs(self):
-        libs = find_libraries("libhwloc", root=self.prefix, shared=True, recursive=True)
         return LibraryList(libs)
     def configure_args(self):
         args = [

@@ -48,7 +48,6 @@ class Mbedtls(CMakePackage, MakefilePackage):
         description="What libraries to build",
     )
 
-    depends_on("c", type="build")
 
     # See https://github.com/Mbed-TLS/mbedtls/issues/4917
     # Only 2.16.12, 2.28.0 and 3.1.0 support clang 12.

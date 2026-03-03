@@ -461,7 +461,6 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
         return flags[language][standard]
 
     # See https://github.com/spack/spack/issues/39252
-    depends_on("patchelf@:0.17", type="build", when="@:2024.1")
     # Add the nvidia variant
     variant("nvidia", default=False, description="Install NVIDIA plugin for OneAPI")
     conflicts("@:2022.2.1", when="+nvidia", msg="Codeplay NVIDIA plugin requires newer release")
@@ -469,7 +468,6 @@ class IntelOneapiCompilers(IntelOneApiPackage, CompilerPackage):
     variant("amd", default=False, description="Install AMD plugin for OneAPI")
     conflicts("@:2022.2.1", when="+amd", msg="Codeplay AMD plugin requires newer release")
 
-    depends_on("gcc languages=c,c++", type="run")
 
     for v in versions:
         version(v["version"], expand=False, **v["cpp"])

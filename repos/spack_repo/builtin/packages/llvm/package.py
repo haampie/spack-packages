@@ -290,11 +290,8 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
 
     extends("python", when="+python")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     # Build dependency
-    depends_on("cmake@3.4.3:", type="build")
     depends_on("cmake@3.13.4:", type="build", when="@12:")
     depends_on("cmake@3.20:", type="build", when="@16:")
     with when("@:10"):
@@ -327,17 +324,9 @@ class Llvm(CMakePackage, CudaPackage, LlvmDetection, CompilerPackage):
     depends_on("zlib-api")
 
     # needs zstd cmake config file, which is not added when built with makefile.
-    depends_on("zstd build_system=cmake", when="+zstd")
 
     # lldb dependencies
     with when("+lldb"):
-        depends_on("libedit")
-        depends_on("libxml2")
-        depends_on("lua@5.3", when="+lua")  # purposefully not a range
-        depends_on("ncurses")
-        depends_on("py-six", when="+python")
-        depends_on("swig", when="+lua")
-        depends_on("swig", when="+python")
         depends_on("xz")
 
     for _when_spec in ("+lldb+python", "+lldb+lua"):

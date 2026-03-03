@@ -34,5 +34,4 @@ class Diffutils(AutotoolsPackage, GNUMirrorPackage):
 
 
 
-    depends_on("iconv")
 

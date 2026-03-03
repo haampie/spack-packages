@@ -27,15 +27,11 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
 
 
 
-
     with when("@5:"):
         conflicts("%msvc@:19.2")
-        conflicts("%arm@:20")
-
     depends_on("cmake@3.22:", type="build", when="@5:")
     depends_on("cmake@3.25.2:", type="build", when="@5: +cuda +cmake_lang")
     conflicts("^cmake@3.28", when="@:4.2.01 +cuda")
-    conflicts("^cuda@13:", when="@:4.7.0")
 
     devices_variants = {
         "cuda": [False, "Whether to build CUDA backend"],
@@ -255,7 +251,6 @@ class Kokkos(CMakePackage, CudaPackage, ROCmPackage):
 
     # Patches
     patch("sycl_bhalft_test.patch", when="@4.2.00 +sycl")
-    # adds amd_gfx940 support to Kokkos 4.2.00 (upstreamed in https://github.com/kokkos/kokkos/pull/6671)
     patch(
         "https://github.com/rbberger/kokkos/commit/293319c5844f4d8eea51eb9cd1457115a5016d3f.patch?full_index=1",
         sha256="145619e87dbf26b66ea23e76906576e2a854a3b09f2a2dd70363e61419fa6a6e",

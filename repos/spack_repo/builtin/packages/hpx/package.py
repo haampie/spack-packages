@@ -71,10 +71,6 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
         " context switch implementation.",
     )
 
-
-    # Build dependencies
-    depends_on("cmake", type="build")
-
     # Other dependecies
     depends_on("hwloc")
     depends_on(Boost.with_default_variants)

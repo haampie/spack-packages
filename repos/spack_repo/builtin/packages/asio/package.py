@@ -29,18 +29,8 @@ class Asio(AutotoolsPackage):
     )
 
     stds = ("11", "14", "17", "20", "23")
-    variant(
-        "cxxstd",
-        default="11",
-        values=stds,
-        multi=False,
-        description="Use the specified C++ standard when building.",
-    )
 
-    variant("separate_compilation", default=False, description="Compile Asio sources separately")
 
-    variant("boost_coroutine", default=False, description="Enable support for Boost.Coroutine.")
-    variant("boost_regex", default=False, description="Enable support for Boost.Regex.")
 
     for std in stds:
         depends_on(f"boost +regex cxxstd={std}", when=f"cxxstd={std} +boost_regex")

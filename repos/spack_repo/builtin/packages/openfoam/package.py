@@ -1,6 +1,4 @@
 from spack.package import *
-__all__ = [
-]
 class Openfoam(Package):
     git = "https://gitlab.com/openfoam/core/openfoam.git"
     version("develop", branch="develop", submodules=True)

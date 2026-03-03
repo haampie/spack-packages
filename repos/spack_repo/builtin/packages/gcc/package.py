@@ -244,15 +244,11 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
         sha256="0999dbf856725566373f25a6f192a3520ea036db8e1f31928aae9750e6e38be7",
         when="@15:15.2",
     )
-    patch("fixincludes-gcc-13-14.patch", when="@13:14")
-    patch("fixincludes-gcc-12.4.patch", when="@12.4:12")
-    patch("fixincludes-gcc-12.1.patch", when="@12:12.3")
 
     if sys.platform == "darwin":
         # Fix parallel build on APFS filesystem
         # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81797
         if macos_version() >= Version("10.13"):
-            patch("darwin/apfs.patch", when="@5.5.0,6.1:6.4,7.1:7.3")
             # from homebrew via macports
             # https://trac.macports.org/ticket/56502#no1
             # see also: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=83531
@@ -279,11 +275,6 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage, CompilerPackage):
             when="@14.1.0 target=aarch64:",
         )
 
-        patch(
-            "https://github.com/iains/gcc-13-branch/compare/c891d8dc23e1a46ad9f3e757d09e57b500d40044..gcc-13.2-darwin-r0.patch?full_index=1",
-            sha256="36d2c04d487edb6792b48dedae6936f8b864b6f969bd3fd03763e072d471c022",
-            when="@13.1.0 target=aarch64:",
-        )
         # 14.2.0 cannot bootstrap on x86_64
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81712
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81066

@@ -286,17 +286,6 @@ class Boost(Package):
     # https://github.com/boostorg/phoenix/issues/111
 
     # https://github.com/boostorg/filesystem/issues/284
-    patch(
-        "https://www.boost.org/patches/1_82_0/0002-filesystem-fix-win-smbv1-dir-iterator.patch",
-        sha256="738ba8e0d7b5cdcf5fae4998f9450b51577bbde1bb0d220a0721551609714ca4",
-        when="@1.82.0 platform=windows",
-    )
 
     # https://github.com/boostorg/context/pull/280
-    patch(
-        "https://github.com/boostorg/context/commit/d11cbccc87da5d6d41c04f3949e18d49c43e62fc.patch?full_index=1",
-        sha256="e2d37f9e35e8e238977de9af32604a8e1c2648d153df1d568935a20216b5c67f",
-        when="@1.87.0",
-        working_dir="libs/context",
-    )
 

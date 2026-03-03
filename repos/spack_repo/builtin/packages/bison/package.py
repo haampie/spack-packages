@@ -28,7 +28,6 @@ class Bison(AutotoolsPackage, GNUMirrorPackage):
     variant("color", default=False, description="Enable experimental colored output", when="@3.4:")
 
     # https://lists.gnu.org/archive/html/bug-bison/2019-08/msg00008.html
-    patch("parallel.patch", when="@3.4.2")
 
     depends_on("c", type="build")  # generated
     depends_on("cxx", type="build")  # generated

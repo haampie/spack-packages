@@ -54,13 +54,8 @@ class Findutils(AutotoolsPackage, GNUMirrorPackage):
     version("4.1.20", sha256="8c5dd50a5ca54367fa186f6294b81ec7a365e36d670d9feac62227cb513e63ab")
     version("4.1", sha256="487ecc0a6c8c90634a11158f360977e5ce0a9a6701502da6cb96a5a7ec143fac")
 
-    depends_on("c", type="build")
 
-    depends_on("gettext", type="build")
-    depends_on("gettext@0.19.8:", type="build")
 
-    depends_on("faketime", when="@4.5.13:", type="test")
-    depends_on("python", when="@4.5.13:", type="test")
 
     # The NVIDIA compilers do not currently support some GNU builtins.
     # Detect this case and use the fallback path.

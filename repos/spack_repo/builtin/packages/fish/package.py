@@ -49,22 +49,8 @@ class Fish(CMakePackage):
     variant("docs", default=False, description="Build documentation")
 
     # https://github.com/fish-shell/fish-shell#dependencies-1
-    depends_on("rust@1.85:", when="@4.2:")
-    depends_on("rust@1.70:", when="@4:")
-    depends_on("cmake@3.15:", when="@4:", type="build")
-    depends_on("cmake@3.5:", when="@3.4:", type="build")
-    depends_on("cmake@3.2:", type="build")
-    depends_on("c", when="@4:", type="build")
-    depends_on("pcre2@10.21:")
-    depends_on("gettext")
-    depends_on("py-sphinx", when="+docs", type="build")
-    depends_on("python", type="test")
-    depends_on("tmux", when="@4:", type="test")
-    depends_on("py-pexpect", type="test")
 
     # Historical dependencies
-    depends_on("cxx", when="@:3", type="build")
-    depends_on("ncurses", when="@:3")
 
     # https://github.com/fish-shell/fish-shell/issues/7310
     patch("codesign.patch", when="@3.1.2 platform=darwin")

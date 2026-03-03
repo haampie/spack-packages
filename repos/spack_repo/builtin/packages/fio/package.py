@@ -31,13 +31,6 @@ class Fio(AutotoolsPackage):
     variant("doc", default=False, description="Generate documentation")
     variant("libaio", default=False, description="Enable libaio engine")
 
-    depends_on("c", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("zlib-api")
-    depends_on("gtkplus@2.18:", when="+gui")
-    depends_on("cairo", when="+gui")
-    depends_on("libaio", when="+libaio")
-    depends_on("py-sphinx", type="build", when="+doc")
 
     conflicts("+libaio", when="platform=darwin", msg="libaio does not support Darwin")
     conflicts("+libaio", when="platform=windows", msg="libaio does not support Windows")

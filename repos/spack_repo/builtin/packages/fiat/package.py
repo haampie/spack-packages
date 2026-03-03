@@ -40,14 +40,7 @@ class Fiat(CMakePackage):
     variant("openmp", default=True, description="Use OpenMP")
     variant("fckit", default=True, description="Use fckit")
 
-    depends_on("c", type="build")  # generated
-    depends_on("cxx", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("ecbuild", type=("build"))
-    depends_on("mpi", when="+mpi")
-    depends_on("eckit", when="+fckit")
-    depends_on("fckit", when="+fckit")
 
     patch("intel_warnings_v110.patch", when="@:1.1.0")
     patch("intel_warnings_v120.patch", when="@1.2.0:1.5.0")

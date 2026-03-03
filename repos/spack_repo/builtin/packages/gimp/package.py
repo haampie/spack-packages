@@ -68,23 +68,7 @@ class Gimp(AutotoolsPackage):
     depends_on("libexif")
     # depends_on("libheif+libde265", when="+libheif")
     depends_on("libjxl", when="+jpegxl")
-    depends_on("libmng", when="+libmng")
-    depends_on("libmypaint@1.4")
-    depends_on("libpng")
-    depends_on("librsvg")
-    depends_on("libtiff")
-    depends_on("libwmf", when="+libwmf")
-    depends_on("libwebp+libwebpmux+libwebpdemux+libwebpdecoder+gif+jpeg+png+tiff", when="+webp")
-    depends_on("libxcursor")
-    depends_on("libxpm", when="+libxpm")
-    depends_on("mypaint-brushes@1.3")
-    depends_on("openexr")
-    depends_on("openjpeg")
     # depends_on("python@3.6:", when="+python") # coming in 2.99
-    depends_on("pango@1.29.4:")
-    depends_on("poppler+glib")
-    depends_on("poppler-data@0.4.7:")
-    depends_on("zlib-api")
 
     def url_for_version(self, version):
         # ref: https://download.gimp.org/gimp/v2.10/gimp-2.10.32.tar.bz2"

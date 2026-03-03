@@ -31,10 +31,7 @@ class Ffte(Package):
     variant("cuda", default=False, description="Use CUDA Fortran")
     variant("vector", default=False, description="Use vectorized FFT")
 
-    depends_on("fortran", type="build")  # generated
 
-    depends_on("mpi", when="+mpi")
-    depends_on("gmake", type="build")
 
     requires("%nvhpc", when="+cuda", msg="ffte+cuda must use NVHPC compiler")
 

@@ -25,10 +25,4 @@ class Ginac(CMakePackage):
 
     variant("ginsh", default=True, description="Build ginsh, the GiNaC interactive shell")
 
-    depends_on("cmake@2.8:", type="build")
 
-    depends_on("cln")
-    depends_on("python@3:", type=("build", "run"))
-    depends_on("bison@2.3:", type=("build"), when="+ginsh")
-    depends_on("flex@2.5.33:", type=("build"), when="+ginsh")
-    depends_on("readline@4.3:", type=("link"), when="+ginsh")

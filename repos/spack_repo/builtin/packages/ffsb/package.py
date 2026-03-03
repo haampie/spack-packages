@@ -20,4 +20,3 @@ class Ffsb(AutotoolsPackage):
     version("5.1.1", sha256="e25aef255d8bfe54f29ac88c7af8237fa5a8c2e1716fdef1946cf0ecd9166d1f")
     version("5.1", sha256="4d7da7eba46c824ebdc23b3d32532b006aeb5b6697a3ada314c75785ab25cb97")
 
-    depends_on("c", type="build")  # generated

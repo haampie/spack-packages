@@ -22,7 +22,6 @@ class Figtree(Package):
     version("1.4.4", sha256="529b867657b29e369cf81cd361e6a76bd713d488a63b91932df2385800423aa8")
     version("1.4.3", sha256="f497d4dd3a6d220f6b62495b6f47a12ade50d87dbd8d6089f168e94d202f937b")
 
-    depends_on("java", type="run")
 
     def patch(self):
         # we have to change up the executable to point to the right program

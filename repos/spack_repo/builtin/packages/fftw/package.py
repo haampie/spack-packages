@@ -25,8 +25,6 @@ class FftwBase(AutotoolsPackage):
     variant("mpi", default=True, description="Activate MPI support")
     variant("shared", default=True, description="Build shared libraries")
 
-    depends_on("mpi", when="+mpi")
-    depends_on("llvm-openmp", when="+openmp %apple-clang")
 
     # https://github.com/FFTW/fftw3/commit/902d0982522cdf6f0acd60f01f59203824e8e6f3
     conflicts("%gcc@8.0:8", when="@3.3.7")
@@ -249,8 +247,6 @@ class Fftw(FftwBase):
     version("3.3.4", sha256="8f0cde90929bc05587c3368d2f15cd0530a60b8a9912a8e2979a72dbe5af0982")
     version("2.1.5", sha256="f8057fae1c7df8b99116783ef3e94a6a44518d49c72e2e630c24b689c6022630")
 
-    depends_on("c", type="build")  # generated
-    depends_on("fortran", type="build")  # generated
 
     variant(
         "pfft_patches",
@@ -258,9 +254,6 @@ class Fftw(FftwBase):
         description="Add extra transpose functions for PFFT compatibility",
     )
 
-    depends_on("automake", type="build", when="+pfft_patches")
-    depends_on("autoconf", type="build", when="+pfft_patches")
-    depends_on("libtool", type="build", when="+pfft_patches")
 
 
     patch("pfft-3.3.5.patch", when="@3.3.5:3.3.8+pfft_patches", level=0)

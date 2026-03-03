@@ -23,22 +23,12 @@ class Fides(CMakePackage):
 
     variant("mpi", default=True, description="build mpi support")
 
-    depends_on("c", type="build")
-    depends_on("cxx", type="build")
 
     # Certain CMake versions have been found to break for our use cases
-    depends_on("cmake@3.14.1:3.14,3.18.2:", type="build")
-    depends_on("mpi", when="+mpi")
-    depends_on("adios2")
     # adios2::Mode::ReadRandomAccess requires adios2 2.8.0.
     # older adios2 supported in https://gitlab.kitware.com/vtk/fides/-/merge_requests/146
-    depends_on("adios2@2.8:", when="@1.2")
-    depends_on("adios2@2.7:2.8", when="@1.1")
 
-    depends_on("viskores@1:", when="@1.3:")
-    depends_on("vtk-m@1.9:", when="@:1.2")
     # vtk-m 2.0 has a breaking change in cmake target name
-    depends_on("vtk-m@:1.9", when="@:1.1")
 
     # Fix missing implicit includes
     @when("%gcc@7:")

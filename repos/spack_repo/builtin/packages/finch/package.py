@@ -33,26 +33,16 @@ class Finch(CMakePackage, CudaPackage, ROCmPackage):
 
     variant("shared", default=True, description="Build shared libraries")
 
-    depends_on("cxx", type="build")
-    depends_on("c", type="build")
-    depends_on("cmake@3.12:", type="build")
-    depends_on("mpi")
-    depends_on("kokkos@3.7:")
-    depends_on("cabana+grid+mpi@0.6.1:")
-    depends_on("nlohmann-json")
 
     for _backend in _kokkos_backends:
         # Handled separately below
         if _backend != "cuda" and _backend != "rocm":
             _backend_dep = "+{0}".format(_backend)
-            depends_on("kokkos {0}".format(_backend_dep), when=_backend_dep)
 
     for arch in CudaPackage.cuda_arch_values:
         cuda_dep = "+cuda cuda_arch={0}".format(arch)
-        depends_on("kokkos {0}".format(cuda_dep), when=cuda_dep)
     for arch in ROCmPackage.amdgpu_targets:
         rocm_dep = "+rocm amdgpu_target={0}".format(arch)
-        depends_on("kokkos {0}".format(rocm_dep), when=rocm_dep)
 
     def cmake_args(self):
         return [self.define_from_variant("BUILD_SHARED_LIBS", "shared")]

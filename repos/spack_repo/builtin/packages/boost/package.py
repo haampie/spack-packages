@@ -214,36 +214,20 @@ class Boost(Package):
 
     # Improve the error message when the context-impl variant is conflicting
     conflicts("context-impl=fcontext", when="@:1.65.0")
-    conflicts("context-impl=ucontext", when="@:1.65.0")
-    conflicts("context-impl=winfib", when="@:1.65.0")
 
     # Coroutine, Context, Fiber, etc., are not straightforward.
-    conflicts("+context", when="@:1.50")  # Context since 1.51.0.
-    conflicts("cxxstd=98", when="+context")  # Context requires >=C++11.
-    conflicts("+coroutine", when="@:1.52")  # Context since 1.53.0.
-    conflicts("~context", when="+coroutine")  # Coroutine requires Context.
-    conflicts("+fiber", when="@:1.61")  # Fiber since 1.62.0.
-    conflicts("cxxstd=98", when="+fiber")  # Fiber requires >=C++11.
-    conflicts("~context", when="+fiber")  # Fiber requires Context.
 
     # NOTE: 1.64.0 seems fine for *most* applications, but if you need
     #       +python and +mpi, there seem to be errors with out-of-date
     #       API calls from mpi/python.
     #       See: https://github.com/spack/spack/issues/3963
-    conflicts("@1.64.0", when="+python", msg="Errors with out-of-date API calls from Python")
-    conflicts("@1.64.0", when="+mpi", msg="Errors with out-of-date API calls from MPI")
 
-    conflicts("+taggedlayout", when="+versionedlayout")
-    conflicts("+numpy", when="~python")
 
     # boost-python in 1.72.0 broken with cxxstd=98
-    conflicts("cxxstd=98", when="+mpi+python @1.72.0")
 
     # boost-mpi depends on boost-python since 1.87.0
-    conflicts("~python", when="+mpi @1.87.0:")
 
     # Container's Extended Allocators were not added until 1.56.0
-    conflicts("+container", when="@:1.55")
 
     # Boost.System till 1.76 (included) was relying on mutex, which was not
     # detected correctly on Darwin platform when using GCC

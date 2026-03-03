@@ -56,21 +56,9 @@ class Libarchive(AutotoolsPackage):
     depends_on("cxx", type="build")  # generated
     depends_on("pkgconfig", type="build")
 
-    depends_on("bzip2", when="compression=bz2lib")
-    depends_on("lz4", when="compression=lz4")
-    depends_on("lzo", when="compression=lzo2")
-    depends_on("xz", when="compression=lzma")
-    depends_on("zlib-api", when="compression=zlib")
-    depends_on("zstd", when="compression=zstd")
 
-    depends_on("nettle", when="crypto=nettle")
-    depends_on("openssl", when="crypto=openssl")
-    depends_on("mbedtls@2.0:2 +pic", when="crypto=mbedtls")
 
-    depends_on("libxml2", when="xar=libxml2")
-    depends_on("expat", when="xar=expat")
 
-    depends_on("iconv", when="+iconv")
 
     # NOTE: `make check` is known to fail with the Intel compilers
     # The build test suite cannot be built with Intel

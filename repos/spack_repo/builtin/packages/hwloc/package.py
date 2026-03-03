@@ -76,19 +76,6 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
 
     depends_on("c", type="build")
     depends_on("cxx", type="build")
-    depends_on("pkgconfig", type="build")
-    depends_on("m4", type="build", when="@master")
-    depends_on("autoconf", type="build", when="@master")
-    depends_on("automake", type="build", when="@master")
-    depends_on("libtool", type="build", when="@master")
-    depends_on("cuda", when="+nvml")
-    depends_on("cuda", when="+cuda")
-    depends_on("gl", when="+gl")
-    depends_on("libpciaccess", when="+pci")
-    depends_on("libxml2", when="+libxml2")
-    depends_on("cairo", when="+cairo")
-    depends_on("numactl", when="@:1.11.11 platform=linux")
-    depends_on("ncurses")
 
     # Before 2.2 hwloc does not consider linking to libtinfo
     # to detect ncurses, which is considered a bug.
@@ -99,12 +86,9 @@ class Hwloc(AutotoolsPackage, CudaPackage, ROCmPackage):
     # it consider libtinfo too.
     # see https://github.com/open-mpi/hwloc/pull/417
     patch("0001-Try-linking-to-libtinfo.patch", when="@1.11.13")
-    depends_on("ncurses ~termlib", when="@2.0:2.2")
-    depends_on("ncurses ~termlib", when="@1.0:1.11.12")
 
     # When mpi=openmpi, this introduces an unresolvable dependency.
     # See https://github.com/spack/spack/issues/15836 for details
-    depends_on("mpi", when="+netloc")
 
     with when("+rocm"):
         depends_on("rocm-smi-lib")

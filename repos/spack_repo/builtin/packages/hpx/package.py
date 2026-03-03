@@ -94,18 +94,9 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
 
     depends_on("gperftools", when="malloc=tcmalloc")
     depends_on("jemalloc", when="malloc=jemalloc")
-    depends_on("mimalloc", when="malloc=mimalloc")
-    depends_on("tbb", when="malloc=tbbmalloc")
 
-    depends_on("mpi", when="networking=mpi")
-    depends_on("mpi", when="+async_mpi")
-    depends_on("lci", when="networking=lci")
 
-    depends_on("cuda", when="+async_cuda")
 
-    depends_on("gperftools", when="instrumentation=google_perftools")
-    depends_on("papi", when="instrumentation=papi")
-    depends_on("valgrind", when="instrumentation=valgrind")
 
     # Only ROCm or CUDA maybe be enabled at once
     conflicts("+rocm", when="+cuda")
@@ -120,25 +111,18 @@ class Hpx(CMakePackage, CudaPackage, ROCmPackage):
         conflicts("cxxstd=14")
         conflicts("%gcc@:7")
         conflicts("%clang@:8")
-        depends_on("cuda@11:", when="+cuda")
 
     # Restrictions for 1.7.X
     with when("@1.7:"):
-        depends_on("cmake@3.18.0:", type="build")
-        depends_on("boost@1.71.0:")
-        depends_on("asio@1.12.0:")
         conflicts("%gcc@:6")
         conflicts("%clang@:6")
 
     # Restrictions for 1.6.X
 
     # Restrictions for 1.5.x
-    depends_on("apex@2.3:", when="@1.5")
 
     # Restrictions for 1.2.X
     with when("@:1.2.1"):
-        depends_on("cmake@3.9.0:", type="build")
-        depends_on("boost@1.62.0:")
         depends_on("hwloc@1.11:")
 
     # Restrictions before 1.2

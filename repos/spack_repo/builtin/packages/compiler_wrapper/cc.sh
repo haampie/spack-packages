@@ -365,20 +365,19 @@ if [ -z "$mode" ] || [ "$mode" = ld ]; then
     done
 fi
 
-# Finish setting up the mode.
+# Finish setting up the mode, and find the source file for -frandom-seed.
+_rseed=""
 if [ -z "$mode" ]; then
     mode=ccld
     for arg in "$@"; do
-        if [ "$arg" = "-E" ]; then
-            mode=cpp
-            break
-        elif [ "$arg" = "-S" ]; then
-            mode=as
-            break
-        elif [ "$arg" = "-c" ]; then
-            mode=cc
-            break
-        fi
+        case $arg in
+            -E) mode=cpp ;;
+            -S) mode=as ;;
+            -c) mode=cc ;;
+            -frandom-seed=*) _rseed=_set ;;
+            -*|*.h*) ;;
+            *) if [ -z "$_rseed" ]; then _rseed=$arg; fi ;;
+        esac
     done
 fi
 
@@ -950,6 +949,14 @@ extend args_list libs_list "-l"
 
 full_command_list="$command"
 extend full_command_list args_list
+
+if [ "$mode" = cc ]; then
+    case "$_rseed" in
+        _set|'') ;;
+        *) append full_command_list "-frandom-seed=$_rseed" ;;
+    esac
+fi
+unset _rseed
 
 # prepend the ccache binary if we're using ccache
 if [ -n "$SPACK_CCACHE_BINARY" ]; then

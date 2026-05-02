@@ -86,8 +86,10 @@ class ClingoBootstrap(Clingo):
 
     cmake_py_shared = False
 
-    @run_before("cmake", when="+optimized")
-    def pgo_train(self):
+    def cmake(self, spec, prefix):
+        if not self.spec.satisfies("+optimized"):
+            return super().cmake(spec, prefix)
+
         if self.spec.satisfies("%clang"):
             llvm_profdata = which("llvm-profdata", required=True)
         elif self.spec.satisfies("%apple-clang"):
@@ -105,12 +107,16 @@ class ClingoBootstrap(Clingo):
 
         # Set PGO flags.
         generate_mods = EnvironmentModifications()
-        generate_mods.append_flags("CFLAGS", f"-fprofile-generate={reports}")
-        generate_mods.append_flags("CXXFLAGS", f"-fprofile-generate={reports}")
-        generate_mods.append_flags("LDFLAGS", f"-fprofile-generate={reports}")
+        cmake_opt = [
+            f"-DCMAKE_C_FLAGS_RELEASE=-O3 -DNDEBUG -fprofile-generate={reports} "
+            "-fno-devirtualize-speculatively",
+            f"-DCMAKE_CXX_FLAGS_RELEASE=-O3 -DNDEBUG -fprofile-generate={reports} "
+            "-fno-devirtualize-speculatively",
+            f"-DCMAKE_EXE_LINKER_FLAGS_RELEASE=-fprofile-generate={reports}",
+        ]
 
         with working_dir(self.build_directory, create=True):
-            cmake(*cmake_options, sources, extra_env=generate_mods)
+            cmake(*cmake_options, *cmake_opt, sources, extra_env=generate_mods)
             make()
             make("install")
 
@@ -119,6 +125,7 @@ class ClingoBootstrap(Clingo):
 
         # Generate profile data.
         env = environment_modifications_for_specs(self.spec, set_package_py_globals=False)
+        env.set("PYTHONHASHSEED", "0")  # for reproducibility
         python(script, extra_env=env)
 
         # Clean the build dir.
@@ -133,12 +140,14 @@ class ClingoBootstrap(Clingo):
         else:
             use_flag = f"-fprofile-use={reports}"
 
-        # Set PGO use flags for next cmake phase.
-        use_mods = EnvironmentModifications()
-        use_mods.append_flags("CFLAGS", use_flag)
-        use_mods.append_flags("CXXFLAGS", use_flag)
-        use_mods.append_flags("LDFLAGS", use_flag)
-        cmake.add_default_envmod(use_mods)
+        cmake_opt = [
+            f"-DCMAKE_C_FLAGS_RELEASE=-O3 -DNDEBUG {use_flag} -fno-devirtualize-speculatively",
+            f"-DCMAKE_CXX_FLAGS_RELEASE=-O3 -DNDEBUG {use_flag} -fno-devirtualize-speculatively",
+            f"-DCMAKE_EXE_LINKER_FLAGS_RELEASE={use_flag}",
+        ]
+
+        with working_dir(self.build_directory, create=True):
+            cmake(*cmake_options, *cmake_opt, sources)
 
     def setup_build_environment(self, env: EnvironmentModifications) -> None:
         if (

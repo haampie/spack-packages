@@ -45,6 +45,10 @@ class ClingoBootstrap(Clingo):
         patch("version-script.patch", when="@spack,5.5:5.6")
         patch("version-script-5.4.patch", when="@5.2:5.4")
 
+    # don't hash interned strings by pointer value to ensure reproducibility
+    # with aslr enabled
+    patch("reproducible-aslr.patch", when="@spack")
+
     # flat multimap for performance: https://github.com/potassco/clasp/pull/118
     patch(
         "https://github.com/haampie/clasp/commit/0f43ac61e8576404c6a33f25954883d3e51ef0df.patch?full_index=1",

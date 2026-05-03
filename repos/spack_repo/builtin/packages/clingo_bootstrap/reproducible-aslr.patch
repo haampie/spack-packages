@@ -1,0 +1,13 @@
+diff --git a/libgringo/src/symbol.cc b/libgringo/src/symbol.cc
+index d53afdcd..ff8216a3 100644
+--- a/libgringo/src/symbol.cc
++++ b/libgringo/src/symbol.cc
+@@ -241,7 +241,7 @@ String::String(uintptr_t r)
+ 
+ bool String::empty() const { return str_[0] == '\0'; }
+ 
+-size_t String::hash() const { return reinterpret_cast<uintptr_t>(str_); }
++size_t String::hash() const { return strhash(str_); }
+ uintptr_t String::toRep(String s) { return reinterpret_cast<uintptr_t>(s.str_); }
+ String String::fromRep(uintptr_t t) { return String(t); }
+ 

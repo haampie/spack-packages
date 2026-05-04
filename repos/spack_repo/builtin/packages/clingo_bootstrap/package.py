@@ -95,7 +95,9 @@ class ClingoBootstrap(Clingo):
             return super().cmake(spec, prefix)
 
         if self.spec.satisfies("%clang"):
-            llvm_profdata = which("llvm-profdata", required=True)
+            llvm_profdata = Executable(
+                Executable(spack_cxx)("--print-prog-name", "llvm-profdata", output=str).strip()
+            )
         elif self.spec.satisfies("%apple-clang"):
             llvm_profdata = Executable(
                 Executable("xcrun")("-find", "llvm-profdata", output=str).strip()
